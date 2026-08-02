@@ -1,5 +1,6 @@
 "source","statistic","central","secondary_central","lower","upper","interval","units"
 "Ducharme-Barth et al. (2026) tag analysis","estimate",0.0624,,0.05,0.0749,"90% delta-method CI","quarter^-1"
 "2023 WCPO BET diagnostic","point value",0.078,,,,,"quarter^-1"
-"Hamel and Cope (2022), Amax = 15 years","median",0.09,0.094430080365185,0.0490196302446562,0.165239924486844,"95% prior interval","quarter^-1"
-"Selected ensemble distribution","median / mode",0.0781360768197088,0.0702,0.05,0.165,"finite-ensemble limits","quarter^-1"
+"Hamel and Cope (2022), Amax = 15 years, adult M","median",0.09,0.094430080365185,0.0490196302446562,0.165239924486844,"95% prior interval","quarter^-1"
+"Hamel and Cope (2022), Amax = 15 years, model-aligned M0","median",0.0808171082973473,0.0847951781266707,0.0440180529575367,0.148380143025542,"95% model-aligned interval","quarter^-1"
+"Selected ensemble distribution","median / mode",0.0781360768197088,0.0702,0.0572276723066398,0.120155781738336,"95% distribution interval","quarter^-1"

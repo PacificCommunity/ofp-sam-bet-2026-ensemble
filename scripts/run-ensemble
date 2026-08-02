@@ -1,0 +1,23 @@
+#!/bin/sh
+set -eu
+
+if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
+  echo "Usage: ./scripts/run-ensemble MODEL_ID [RUN_DIR]" >&2
+  exit 2
+fi
+
+model_id=$1
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+run_dir=${2:-$repo_dir/runs/$model_id}
+if [ -e "$run_dir" ]; then
+  echo "Run directory already exists: $run_dir" >&2
+  exit 2
+fi
+
+Rscript "$repo_dir/scripts/prepare-ensemble.R" "$model_id" "$run_dir"
+Rscript "$repo_dir/scripts/verify-ensemble-inputs.R" "$model_id" "$run_dir"
+cd "$run_dir"
+PROGRAM_PATH=${PROGRAM_PATH:-./mfclo64} ./doitall.sh
+cp 11.par final.par
+Rscript "$repo_dir/scripts/verify-ensemble-inputs.R" "$model_id" "$run_dir"
+echo "Completed $model_id: $run_dir/final.par"

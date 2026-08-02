@@ -9,8 +9,11 @@ draws <- read.csv(file.path(design_dir, "model-draws.csv"), check.names = FALSE)
 continuous <- read.csv(file.path(design_dir, "continuous-summary.csv"), check.names = FALSE)
 discrete <- read.csv(file.path(design_dir, "discrete-summary.csv"), check.names = FALSE)
 effort <- read.csv(file.path(design_dir, "effort-creep-sources.csv"), check.names = FALSE)
+mixing_sources <- read.csv(file.path(design_dir, "mixing-sources.csv"), check.names = FALSE)
 parameters <- read.csv(file.path(design_dir, "distribution-parameters.csv"), check.names = FALSE)
 m_evidence <- read.csv(file.path(design_dir, "m-evidence.csv"), check.names = FALSE)
+hc_amax <- read.csv(file.path(design_dir, "hamel-cope-amax-sensitivity.csv"),
+                    check.names = FALSE)
 script_text <- readLines(file.path(repo, "scripts", "create-ensemble-design.R"), warn = FALSE)
 
 stopifnot(
@@ -28,9 +31,14 @@ stopifnot(
   nrow(continuous) == 2L,
   nrow(discrete) == 14L,
   nrow(effort) == 5L,
-  nrow(parameters) == 30L,
-  nrow(m_evidence) == 4L,
+  nrow(mixing_sources) == 7L,
+  nrow(parameters) == 37L,
+  nrow(m_evidence) == 5L,
+  identical(hc_amax$amax_years, c(13L, 15L, 16L)),
   all(nchar(effort$source_sha256) == 64L),
+  all(nchar(mixing_sources$source_sha256) == 64L),
+  all(draws$tag_mixing_source_file %in% mixing_sources$tag_mixing_source_file),
+  length(unique(draws$model_label)) == 100L,
   all(draws$initialization == "Diagnostic seed-23 path"),
   all(draws$pairing_version == "mod101-v1"),
   !"design_seed" %in% names(draws),
@@ -42,6 +50,13 @@ stopifnot(
   abs(m_evidence$secondary_central[3] - 0.094430080) < 1e-8,
   abs(m_evidence$lower[3] - 0.049019630) < 1e-8,
   abs(m_evidence$upper[3] - 0.165239924) < 1e-8,
+  abs(m_evidence$central[4] - 0.080817108) < 1e-8,
+  abs(m_evidence$lower[4] - 0.044018053) < 1e-8,
+  abs(m_evidence$upper[4] - 0.148380143) < 1e-8,
+  abs(m_evidence$central[5] - exp(-2.54930339768360)) < 1e-12,
+  abs(m_evidence$secondary_central[5] - 0.0702) < 1e-12,
+  abs(m_evidence$lower[5] - 0.0572276723066398) < 1e-12,
+  abs(m_evidence$upper[5] - 0.120155781738336) < 1e-12,
   file.info(file.path(design_dir, "distributions.png"))$size > 10000,
   file.info(file.path(design_dir, "distributions.pdf"))$size > 10000
 )

@@ -22,14 +22,16 @@ h_beta <- (1 - y_mean) * beta_total
 h_probability <- (seq_len(n_models) - 0.5) / n_models
 h_draw <- h_lower + (h_upper - h_lower) * qbeta(h_probability, h_alpha, h_beta)
 
-# Evidence-synthesised quarterly M at the reference length L(40.5 quarters).
-# Ducharme-Barth et al. (2026) estimate M0 = 0.0624 (SE 0.0076; approximate
-# 90% CI 0.0500-0.0749). Hamel and Cope (2022), applied with Amax = 15 years,
-# define an annual lognormal prior with median 5.40/15 = 0.36 and log-SD 0.31.
-# Dividing this instantaneous rate by four gives a quarterly median of 0.09,
-# unchanged log-SD, and a 95% interval of approximately 0.0490-0.1652.
-# Those percentiles inform rounded finite-ensemble limits; they are not hard
-# bounds of the original Hamel-Cope prior.
+# Evidence-synthesised quarterly M0 at the MFCL Lorenzen reference length
+# L(40.5 quarters). Ducharme-Barth et al. (2026) estimate M0 = 0.0624
+# (SE 0.0076; approximate 90% CI 0.0500-0.0749). The Diagnostic model has
+# M0 = exp(-2.54930339768360) and a fixed length exponent of -1.
+#
+# The selected distribution is a bounded logit-normal. Its mode is the
+# requested midpoint of the tag estimate and previous-assessment value, its
+# median is the Diagnostic M0, and its elicited design range is 0.050-0.165.
+# Unlike a truncated lognormal, its density approaches zero smoothly at both
+# range limits.
 m_min <- 0.050
 m_mode <- 0.0702
 m_median <- exp(-2.54930339768360)
@@ -47,35 +49,79 @@ m_hc_quarterly_mean <- m_hc_quarterly_median * exp(m_log_sd_hamel_cope^2 / 2)
 m_hc_lower95 <- qlnorm(0.025, log(m_hc_quarterly_median), m_log_sd_hamel_cope)
 m_hc_upper95 <- qlnorm(0.975, log(m_hc_quarterly_median), m_log_sd_hamel_cope)
 
-truncated_lognormal_median <- function(log_sd) {
-  meanlog <- log(m_mode) + log_sd^2
-  lower_cdf <- plnorm(m_min, meanlog, log_sd)
-  upper_cdf <- plnorm(m_max, meanlog, log_sd)
-  qlnorm(lower_cdf + 0.5 * (upper_cdf - lower_cdf), meanlog, log_sd)
+m_mode_scaled <- (m_mode - m_min) / (m_max - m_min)
+m_median_scaled <- (m_median - m_min) / (m_max - m_min)
+m_logit_mean <- qlogis(m_median_scaled)
+m_logit_sd <- sqrt(
+  (m_logit_mean - qlogis(m_mode_scaled)) / (1 - 2 * m_mode_scaled)
+)
+qbounded_logit_normal <- function(p) {
+  m_min + (m_max - m_min) * plogis(qnorm(p, m_logit_mean, m_logit_sd))
 }
-m_log_sd <- uniroot(
-  function(log_sd) truncated_lognormal_median(log_sd) - m_median,
-  interval = c(0.05, 0.80), tol = 1e-13
-)$root
-m_meanlog <- log(m_mode) + m_log_sd^2
-m_lower_cdf <- plnorm(m_min, m_meanlog, m_log_sd)
-m_upper_cdf <- plnorm(m_max, m_meanlog, m_log_sd)
-
-qtruncated_lnorm <- function(p) {
-  qlnorm(m_lower_cdf + p * (m_upper_cdf - m_lower_cdf), m_meanlog, m_log_sd)
+dbounded_logit_normal <- function(x) {
+  ans <- numeric(length(x))
+  inside <- x > m_min & x < m_max
+  z <- (x[inside] - m_min) / (m_max - m_min)
+  ans[inside] <- dnorm(qlogis(z), m_logit_mean, m_logit_sd) /
+    (z * (1 - z) * (m_max - m_min))
+  ans
 }
-
-# Retain both truncation limits and duplicate the central quantile so the
-# finite 100-model representation contains the requested median exactly.
+m_lower95 <- qbounded_logit_normal(0.025)
+m_upper95 <- qbounded_logit_normal(0.975)
 m_probability <- seq(0, 1, length.out = n_models)
-m_probability[c(n_models / 2L, n_models / 2L + 1L)] <- 0.5
-m_draw <- qtruncated_lnorm(m_probability)
+m_draw <- qbounded_logit_normal(m_probability)
+
+# Hamel-Cope estimates an age-invariant adult M from longevity, whereas MFCL
+# estimates M0 at L(40.5). Under the fixed -1 Lorenzen slope, the Diagnostic
+# growth curve and its maturity-at-age ogive imply that the maturity-weighted
+# mean adult M is 1.113625591117 * M0. Therefore the model-aligned equivalent
+# of an adult-M draw is M0 = adult M / 1.113625591117. This is an external
+# calibration for comparison; it does not determine the selected distribution.
+m_hc_adult_to_m0_ratio <- 1.113625591117
+m_hc_m0_scale <- 1 / m_hc_adult_to_m0_ratio
+m_hc_m0_median <- m_hc_quarterly_median * m_hc_m0_scale
+m_hc_m0_mean <- m_hc_quarterly_mean * m_hc_m0_scale
+m_hc_m0_lower95 <- m_hc_lower95 * m_hc_m0_scale
+m_hc_m0_upper95 <- m_hc_upper95 * m_hc_m0_scale
+
+hc_amax_years <- c(13, 15, 16)
+hc_amax_sensitivity <- data.frame(
+  amax_years = hc_amax_years,
+  adult_m_annual_median = 5.40 / hc_amax_years,
+  adult_m_quarterly_median = (5.40 / hc_amax_years) / 4,
+  m0_quarterly_median = ((5.40 / hc_amax_years) / 4) * m_hc_m0_scale,
+  m0_quarterly_lower95 = qlnorm(0.025, log((5.40 / hc_amax_years) / 4),
+                                  m_log_sd_hamel_cope) * m_hc_m0_scale,
+  m0_quarterly_upper95 = qlnorm(0.975, log((5.40 / hc_amax_years) / 4),
+                                  m_log_sd_hamel_cope) * m_hc_m0_scale,
+  adult_mean_to_m0_divisor = m_hc_adult_to_m0_ratio,
+  stringsAsFactors = FALSE
+)
 
 # Exact finite-sample counts. The mixing weights approximate the transparent
 # symmetric 1:2:3:4:3:2:1 distribution while making 0.20 clearly modal.
 mixing_levels <- c(0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35)
 mixing_counts <- c(6L, 12L, 19L, 26L, 19L, 12L, 6L)
 mixing_draw <- rep(mixing_levels, mixing_counts)
+mixing_source_file <- setNames(
+  paste0("bet.2026.mix-", sub("0$", "", sprintf("%.2f", mixing_levels)), ".ini"),
+  sprintf("%.2f", mixing_levels)
+)
+mixing_source_sha256 <- c(
+  "512e33f82d14577c626da75445759543820075922e26ab194043dc5a5abae618",
+  "af56377544e4fce3dae47c13b30e8c5712cfe92b76cc65301fd1f04b07818921",
+  "cc59fc45e7d562004639e48932802c70119f01b554f95d7c1f667078efee6b64",
+  "bc97a32e15659cb07e65e8a2818a35fabc806f7446abc228eeaf6fa9c0a1bc82",
+  "a63a39af298d806ef8d3b7ae0377a283c2f9b0679f71fe6092195144433060b3",
+  "8bff7660ad5180dd96f8c8aff484a2f298852a8338361913686250d45e94ef02",
+  "cc59fc45e7d562004639e48932802c70119f01b554f95d7c1f667078efee6b64"
+)
+mixing_sources <- data.frame(
+  tag_mixing_period = mixing_levels,
+  tag_mixing_source_file = unname(mixing_source_file),
+  source_sha256 = mixing_source_sha256,
+  stringsAsFactors = FALSE
+)
 
 # MFCL tag flag column 2: 0 includes pre-mixing reporting, 1 excludes it.
 rr_draw <- rep(c(0L, 1L), each = n_models / 2L)
@@ -131,6 +177,9 @@ design <- data.frame(
   steepness = h_draw[pairing$h],
   steepness_prior_quantile = h_probability[pairing$h],
   tag_mixing_period = mixing_draw[pairing$mixing],
+  tag_mixing_source_file = unname(mixing_source_file[
+    sprintf("%.2f", mixing_draw[pairing$mixing])
+  ]),
   tag_reporting_flag2 = rr_draw[pairing$rr],
   tag_reporting = ifelse(rr_draw[pairing$rr] == 0L, "inclusion", "exclusion"),
   m_age40_quarterly = m_draw[pairing$m],
@@ -143,6 +192,14 @@ design <- data.frame(
   pairing_version = "mod101-v1",
   stringsAsFactors = FALSE
 )
+design$model_label <- sprintf(
+  "E%03d | h%.3f | mix%.2f | RR-%s | M0=%.4f | creep%.1f/%.2f",
+  seq_len(n_models), design$steepness, design$tag_mixing_period,
+  ifelse(design$tag_reporting_flag2 == 0L, "inc", "exc"),
+  design$m_age40_quarterly,
+  100 * design$effort_creep_primary,
+  100 * design$effort_creep_secondary
+)
 
 stopifnot(
   nrow(design) == 100L,
@@ -153,37 +210,46 @@ stopifnot(
   abs(sd(design$steepness) - h_sd) < 0.002,
   abs(min(design$m_age40_quarterly) - m_min) < 1e-12,
   abs(max(design$m_age40_quarterly) - m_max) < 1e-12,
-  sum(abs(design$m_age40_quarterly - m_median) < 1e-12) == 2L,
-  abs(exp(m_meanlog - m_log_sd^2) - m_mode) < 1e-12,
-  abs(m_log_sd - m_log_sd_hamel_cope) < 0.03
+  abs(m_min + (m_max - m_min) * plogis(
+    m_logit_mean - m_logit_sd^2 * (1 - 2 * m_mode_scaled)
+  ) - m_mode) < 1e-12,
+  abs(m_hc_m0_median - 0.080817108297) < 1e-10
 )
 
 options(digits = 15)
 write.csv(design, file.path(output_dir, "model-draws.csv"), row.names = FALSE, quote = TRUE)
 write.csv(effort, file.path(output_dir, "effort-creep-sources.csv"), row.names = FALSE, quote = TRUE)
+write.csv(mixing_sources, file.path(output_dir, "mixing-sources.csv"), row.names = FALSE, quote = TRUE)
+write.csv(hc_amax_sensitivity,
+          file.path(output_dir, "hamel-cope-amax-sensitivity.csv"),
+          row.names = FALSE, quote = TRUE)
 
 distribution_parameters <- data.frame(
   axis = c(
     rep("Steepness", 6L),
-    rep("Ensemble quarterly M at reference length", 6L),
+    rep("Ensemble quarterly M at reference length", 8L),
     rep("Tag-analysis M0", 4L),
     rep("Hamel-Cope Amax prior", 7L),
+    rep("Hamel-Cope model-aligned M0", 5L),
     rep("Design", 7L)
   ),
   parameter = c(
     "lower", "upper", "mean", "sd", "beta_alpha", "beta_beta",
-    "lower", "upper", "mode", "conditional_median", "meanlog", "log_sd",
+    "lower", "upper", "mode", "median", "logit_mean", "logit_sd", "lower_95", "upper_95",
     "estimate", "se", "lower_90", "upper_90",
     "amax_years", "annual_median", "quarterly_median", "quarterly_mean", "log_sd", "lower_95", "upper_95",
+    "adult_mean_to_m0_divisor", "quarterly_median", "quarterly_mean", "lower_95", "upper_95",
     "models", "pairing_modulus", "steepness_multiplier", "tag_mixing_multiplier",
     "tag_reporting_multiplier", "natural_mortality_multiplier", "effort_creep_multiplier"
   ),
   value = c(
     h_lower, h_upper, h_mean, h_sd, h_alpha, h_beta,
-    m_min, m_max, m_mode, m_median, m_meanlog, m_log_sd,
+    m_min, m_max, m_mode, m_median, m_logit_mean, m_logit_sd, m_lower95, m_upper95,
     m_tag_estimate, m_tag_se, m_tag_lower90, m_tag_upper90,
     m_hc_amax_years, m_hc_annual_median, m_hc_quarterly_median, m_hc_quarterly_mean,
     m_log_sd_hamel_cope, m_hc_lower95, m_hc_upper95,
+    m_hc_adult_to_m0_ratio, m_hc_m0_median, m_hc_m0_mean,
+    m_hc_m0_lower95, m_hc_m0_upper95,
     n_models, 101L, unname(pairing_multipliers)
   ),
   stringsAsFactors = FALSE
@@ -195,15 +261,19 @@ m_evidence <- data.frame(
   source = c(
     "Ducharme-Barth et al. (2026) tag analysis",
     "2023 WCPO BET diagnostic",
-    "Hamel and Cope (2022), Amax = 15 years",
+    "Hamel and Cope (2022), Amax = 15 years, adult M",
+    "Hamel and Cope (2022), Amax = 15 years, model-aligned M0",
     "Selected ensemble distribution"
   ),
-  statistic = c("estimate", "point value", "median", "median / mode"),
-  central = c(m_tag_estimate, m_previous, m_hc_quarterly_median, m_median),
-  secondary_central = c(NA_real_, NA_real_, m_hc_quarterly_mean, m_mode),
-  lower = c(m_tag_lower90, NA_real_, m_hc_lower95, m_min),
-  upper = c(m_tag_upper90, NA_real_, m_hc_upper95, m_max),
-  interval = c("90% delta-method CI", NA, "95% prior interval", "finite-ensemble limits"),
+  statistic = c("estimate", "point value", "median", "median", "median / mode"),
+  central = c(m_tag_estimate, m_previous, m_hc_quarterly_median,
+              m_hc_m0_median, m_median),
+  secondary_central = c(NA_real_, NA_real_, m_hc_quarterly_mean,
+                        m_hc_m0_mean, m_mode),
+  lower = c(m_tag_lower90, NA_real_, m_hc_lower95, m_hc_m0_lower95, m_lower95),
+  upper = c(m_tag_upper90, NA_real_, m_hc_upper95, m_hc_m0_upper95, m_upper95),
+  interval = c("90% delta-method CI", NA, "95% prior interval",
+               "95% model-aligned interval", "95% distribution interval"),
   units = "quarter^-1",
   stringsAsFactors = FALSE
 )
@@ -220,7 +290,10 @@ continuous_summary <- rbind(
   ),
   data.frame(
     axis = "Quarterly M at age 40",
-    distribution = sprintf("Truncated lognormal(0.050, 0.165; mode 0.0702; log-SD %.6f)", m_log_sd),
+    distribution = sprintf(
+      "Bounded logit-normal(%.3f, %.3f; median %.6f; mode %.4f; logit-SD %.6f)",
+      m_min, m_max, m_median, m_mode, m_logit_sd
+    ),
     minimum = min(design$m_age40_quarterly), q25 = unname(quantile(design$m_age40_quarterly, 0.25)),
     median = median(design$m_age40_quarterly), mean = mean(design$m_age40_quarterly),
     q75 = unname(quantile(design$m_age40_quarterly, 0.75)), maximum = max(design$m_age40_quarterly),
@@ -318,12 +391,8 @@ draw_publication_figure <- function() {
                    cex_names = 0.72)
 
   m_x <- seq(0.035, 0.180, length.out = 800L)
-  selected_density <- ifelse(
-    m_x >= m_min & m_x <= m_max,
-    dlnorm(m_x, m_meanlog, m_log_sd) / (m_upper_cdf - m_lower_cdf),
-    0
-  )
-  hc_density <- dlnorm(m_x, log(m_hc_quarterly_median), m_log_sd_hamel_cope)
+  selected_density <- dbounded_logit_normal(m_x)
+  hc_density <- dlnorm(m_x, log(m_hc_m0_median), m_log_sd_hamel_cope)
   m_ymax <- max(c(selected_density, hc_density)) * 1.17
   plot(m_x, selected_density, type = "n", xlim = range(m_x), ylim = c(0, m_ymax),
        xlab = expression(M[0]~"at"~L[ref] == L(40.5)~(quarter^{-1})),
@@ -340,7 +409,7 @@ draw_publication_figure <- function() {
   points(m_tag_estimate, tag_y, pch = 19, col = green, cex = 0.9)
   abline(v = m_previous, col = blue, lwd = 1.4, lty = 3)
   legend("topright",
-         legend = c("Selected ensemble", "Hamel-Cope prior", "Tag estimate (90% CI)",
+         legend = c("Selected ensemble", "Hamel-Cope, scaled to M0", "Tag estimate (90% CI)",
                     "2023 assessment"),
          col = c(orange, grey, green, blue), lty = c(1, 2, 1, 3),
          lwd = c(2.0, 1.6, 2.2, 1.4), pch = c(NA, NA, 19, NA),
@@ -370,8 +439,7 @@ cat("Created ", n_models, " ensemble draws in ", output_dir, "\n", sep = "")
 cat(sprintf("Steepness: mean %.4f, SD %.4f, range %.4f-%.4f\n",
             mean(design$steepness), sd(design$steepness),
             min(design$steepness), max(design$steepness)))
-cat(sprintf("Quarterly M at age 40: mean %.4f, median %.5f, mode %.4f, range %.3f-%.3f\n",
+cat(sprintf("Quarterly M at age 40: mean %.4f, median %.5f, mode %.4f, finite range %.3f-%.3f\n",
             mean(design$m_age40_quarterly), median(design$m_age40_quarterly), m_mode,
             min(design$m_age40_quarterly), max(design$m_age40_quarterly)))
-cat(sprintf("M log-SD: %.6f (Hamel-Cope reference: %.2f)\n",
-            m_log_sd, m_log_sd_hamel_cope))
+cat(sprintf("M logit-SD: %.6f (bounded logit-normal)\n", m_logit_sd))

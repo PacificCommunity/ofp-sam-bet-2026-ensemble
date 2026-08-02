@@ -47,8 +47,11 @@ The seven allowed values are 0.05, 0.10, 0.15, 0.20, 0.25, 0.30 and 0.35.
 The exact counts are 6, 12, 19, 26, 19, 12 and 6. This symmetric discrete
 distribution makes 0.20 the mode while retaining both requested tails.
 
-The draw is written directly to the first MFCL tag-flag column used for the
-mixing-period setting.
+Each draw selects the corresponding authoritative `bet.2026.mix-*.ini`
+scenario. The complete release-group-specific first column of the MFCL tag-flag
+block is transferred from that source to the Diagnostic INI and every seed-23
+checkpoint. The numbers 0.05–0.35 identify the cut-off scenario; they are not
+written as a single constant into every release-group row.
 
 ## Tag reporting
 
@@ -82,7 +85,7 @@ tag loss or reporting heterogeneity can act like mortality. The paper therefore
 interprets the result as supporting somewhat lower M while broadly
 corroborating the previous order of magnitude.
 
-### Hamel–Cope longevity prior
+### Hamel–Cope longevity prior and the MFCL reference age
 
 Hamel and Cope (2022) define a lognormal prior with
 
@@ -105,20 +108,70 @@ that half the prior probability lies on each side of the point estimate.
 Hamel and Cope also caution that Amax should be supported by adequate,
 representative and validated age sampling.
 
+`Amax = 15 years` and the MFCL reference `L(40.5 quarters)` have different
+roles and are not contradictory. `Amax` is a stock-level longevity proxy. In
+the 40-age-class quarterly MFCL model, age class 40 is an aggregate plus group;
+`L(40.5)` is the length used to anchor the declining Lorenzen curve, not a claim
+that fish cannot live beyond 10.125 years. The source implements
+
+\[
+\log M_a = \log M_0 - \log\{L_a/L(40.5)\},
+\]
+
+because the fixed exponent is -1 and scaled length is exactly one in the last
+age class. Thus the first coefficient in row 5 of `age_pars` is `log(M0)` and
+the second is the length exponent. The Diagnostic values `-2.54930339768360`
+and `-1` produce `M0 = 0.078136` per quarter at age class 40.
+
+Hamel–Cope, however, derives an approximately age-invariant adult mortality
+from longevity. It is therefore useful as external adult-M information but is
+not mathematically identical to MFCL `M0`. Following the published practice of
+scaling a Lorenzen curve so that its maturity-weighted adult mean equals the
+longevity estimate, the Diagnostic growth curve, maturity ogive and exponent
+-1 give
+
+\[
+\overline{M}_{adult}=1.113626\,M_0.
+\]
+
+The `Amax = 15` prior consequently has a model-aligned `M0` median of 0.08082
+per quarter and a 95% interval of 0.04402–0.14838. This is close to the
+Diagnostic `M0 = 0.07814`. Ducharme-Barth et al. (2026) displayed the original
+Hamel–Cope curve directly against `M0`; the present figure instead applies the
+above scale conversion so both curves use the same parameter definition.
+
+The WCPO evidence supports 15 years as a plausible working longevity, but the
+strength of that evidence should be stated precisely. Bomb-radiocarbon work
+validated the annual-zone ageing method for BET samples through age 13, while
+the same validated annual-zone method has produced WCPO BET estimates up to
+15 years. The 2023 assessment also notes tagging evidence consistent with still
+older attained ages. Therefore 15 years is defensible as a working value, not
+as an exactly observed upper biological limit. The implications of `Amax` 13,
+15 and 16 years are reported in
+`design/hamel-cope-amax-sensitivity.csv`.
+
 ### Selected ensemble distribution
 
-The evidence is synthesised as an explicitly elicited truncated lognormal
-distribution on rounded limits 0.050–0.165. Its mode is 0.0702, the midpoint of
-the tag estimate 0.0624 and the previous-assessment value 0.078. Its conditional
-median is 0.078136, matching `exp(-2.54930339768360)` in the Diagnostic
-Lorenzen intercept. The fitted log-SD is 0.287645, close to but not identical
-to the Hamel–Cope value 0.31.
+The evidence is synthesised as a bounded logit-normal distribution on the
+elicited design range 0.050–0.165. Its mode is 0.0702, the midpoint of the tag
+estimate 0.0624 and the previous-assessment value 0.078. Its median is
+0.078136, matching `exp(-2.54930339768360)` in the Diagnostic Lorenzen
+intercept. These two constraints imply a logit-scale mean of -1.127290 and SD
+of 0.803491. The resulting 95% distribution interval is 0.05723–0.12016. The
+density approaches zero smoothly at both limits, avoiding the vertical edge
+created by truncating a distribution with positive boundary density.
 
 This selected distribution is therefore **not** described as the Hamel–Cope
-prior itself. It combines the tag result, the previous assessment and the
-longevity prior while retaining the requested mode and finite ensemble range.
-The original untruncated Hamel–Cope curve is displayed separately in the
-distribution figure.
+prior itself. It combines the tag result and the previous assessment, while the
+model-aligned longevity prior is used as an external plausibility check. The
+mode and median are elicited synthesis choices rather than statistics reported
+by a single paper: 0.0702 is the requested midpoint of two assessment-relevant
+estimates, and 0.078136 retains the Diagnostic centre. The range endpoints were
+requested from the approximate Hamel–Cope adult-M 95% limits, but they are used
+here only as finite ensemble controls; they are not asserted to be biological
+confidence bounds for MFCL `M0`. The 100 retained values are deterministic,
+endpoint-anchored quantiles from this selected distribution, so the exact
+design range is represented.
 
 MFCL uses quarterly time periods in this model. Each draw is entered as
 `log(M0_quarterly)` in the Lorenzen intercept; no additional factor of four is
@@ -128,6 +181,10 @@ Sources:
 
 - [Ducharme-Barth et al. (2026), WCPFC-SC22-2026-SA-IP14](https://meetings.wcpfc.int/node/32286)
 - [Hamel and Cope (2022), longevity-based prior for natural mortality](https://doi.org/10.1016/j.fishres.2022.106477)
+- [Hoyle (2021), scaling longevity-based adult M to a Lorenzen schedule](https://iotc.org/sites/default/files/documents/2021/10/IOTC-2021-WPTT23-08_Rev1_0.pdf)
+- [Andrews et al. (2024), WCPO tuna age validation](https://doi.org/10.1093/icesjms/fsae074)
+- [2023 WCPO bigeye stock assessment](https://meetings.wcpfc.int/node/19353)
+- [MFCL Lorenzen implementation](https://github.com/PacificCommunity/ofp-sam-mfcl/blob/de4abeca920063bf234ce66ec3a0f043c56e885f/src/natural_mortality_spline.cpp)
 
 ## Effort creep
 

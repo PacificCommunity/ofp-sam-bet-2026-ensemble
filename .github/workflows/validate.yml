@@ -20,5 +20,7 @@ jobs:
         run: Rscript scripts/create-ensemble-design.R
       - name: Validate design
         run: Rscript scripts/validate-ensemble-design.R
+      - name: Validate all frozen model inputs
+        run: Rscript scripts/validate-all-model-inputs.R
       - name: Confirm generated tables are current
         run: git diff --exit-code -- 'design/*.csv'
