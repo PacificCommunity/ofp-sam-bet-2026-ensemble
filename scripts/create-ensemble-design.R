@@ -98,14 +98,17 @@ hc_amax_sensitivity <- data.frame(
   stringsAsFactors = FALSE
 )
 
-# Exact finite-sample counts. The mixing weights approximate the transparent
-# symmetric 1:2:3:4:3:2:1 distribution while making 0.20 clearly modal.
-mixing_levels <- c(0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35)
-mixing_counts <- c(6L, 12L, 19L, 26L, 19L, 12L, 6L)
-mixing_draw <- rep(mixing_levels, mixing_counts)
+# Exact finite-sample counts for the SC22-IP10 Kolmogorov dissimilarity (K)
+# cutoff. These are not mixing periods. Each cutoff selects an upstream INI
+# containing the release-group-specific mixing periods derived at that cutoff.
+# The weights approximate a symmetric 1:2:3:4:3:2:1 distribution while making
+# K = 0.20 clearly modal.
+k_cutoff_levels <- c(0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35)
+k_cutoff_counts <- c(6L, 12L, 19L, 26L, 19L, 12L, 6L)
+k_cutoff_draw <- rep(k_cutoff_levels, k_cutoff_counts)
 mixing_source_file <- setNames(
-  paste0("bet.2026.mix-", sub("0$", "", sprintf("%.2f", mixing_levels)), ".ini"),
-  sprintf("%.2f", mixing_levels)
+  paste0("bet.2026.mix-", sub("0$", "", sprintf("%.2f", k_cutoff_levels)), ".ini"),
+  sprintf("%.2f", k_cutoff_levels)
 )
 mixing_source_sha256 <- c(
   "ff2ed1786eeebb61f366a85289aa52ab67293e8c9a449c2e636093dfa62ba25a",
@@ -117,7 +120,7 @@ mixing_source_sha256 <- c(
   "1ee630abfb044702581ca2b7956a5262ba2a29547eb47a1ae6f5c65005aaa661"
 )
 mixing_sources <- data.frame(
-  tag_mixing_period = mixing_levels,
+  tag_mixing_k_cutoff = k_cutoff_levels,
   tag_mixing_source_file = unname(mixing_source_file),
   source_sha256 = mixing_source_sha256,
   source_branch = "SC22-IP10-regionMean",
@@ -178,9 +181,9 @@ design <- data.frame(
   ensemble_id = sprintf("ensemble-%03d", seq_len(n_models)),
   steepness = h_draw[pairing$h],
   steepness_prior_quantile = h_probability[pairing$h],
-  tag_mixing_period = mixing_draw[pairing$mixing],
+  tag_mixing_k_cutoff = k_cutoff_draw[pairing$mixing],
   tag_mixing_source_file = unname(mixing_source_file[
-    sprintf("%.2f", mixing_draw[pairing$mixing])
+    sprintf("%.2f", k_cutoff_draw[pairing$mixing])
   ]),
   tag_reporting_flag2 = rr_draw[pairing$rr],
   tag_reporting = ifelse(rr_draw[pairing$rr] == 0L, "inclusion", "exclusion"),
@@ -195,8 +198,8 @@ design <- data.frame(
   stringsAsFactors = FALSE
 )
 design$model_label <- sprintf(
-  "E%03d | h=%.3f | mix=%.2f | RR=%s | M0=%.4f/qtr | creep=%.1f/%.2f%%",
-  seq_len(n_models), design$steepness, design$tag_mixing_period,
+  "E%03d | h=%.3f | K=%.2f | RR=%s | M0=%.4f/qtr | creep=%.1f/%.2f%%",
+  seq_len(n_models), design$steepness, design$tag_mixing_k_cutoff,
   ifelse(design$tag_reporting_flag2 == 0L, "include", "exclude"),
   design$m_age40_quarterly,
   100 * design$effort_creep_primary,
@@ -205,7 +208,7 @@ design$model_label <- sprintf(
 
 stopifnot(
   nrow(design) == 100L,
-  identical(as.integer(table(design$tag_mixing_period)), mixing_counts),
+  identical(as.integer(table(design$tag_mixing_k_cutoff)), k_cutoff_counts),
   identical(as.integer(table(design$tag_reporting_flag2)), c(50L, 50L)),
   identical(as.integer(table(design$effort_creep_primary)), rep(20L, 5L)),
   abs(mean(design$steepness) - h_mean) < 0.001,
@@ -305,8 +308,8 @@ continuous_summary <- rbind(
 write.csv(continuous_summary, file.path(output_dir, "continuous-summary.csv"), row.names = FALSE, quote = TRUE)
 
 discrete_summary <- rbind(
-  data.frame(axis = "Tag mixing period", level = names(table(design$tag_mixing_period)),
-             count = as.integer(table(design$tag_mixing_period))),
+  data.frame(axis = "Tag mixing periods (K cutoff)", level = names(table(design$tag_mixing_k_cutoff)),
+             count = as.integer(table(design$tag_mixing_k_cutoff))),
   data.frame(axis = "Tag reporting", level = names(table(design$tag_reporting)),
              count = as.integer(table(design$tag_reporting))),
   data.frame(axis = "Effort creep", level = sprintf("%.1f%% / %.2f%%",
@@ -319,7 +322,7 @@ write.csv(discrete_summary, file.path(output_dir, "discrete-summary.csv"), row.n
 
 numeric_design <- data.frame(
   steepness = design$steepness,
-  mixing = design$tag_mixing_period,
+  tag_mixing_k_cutoff = design$tag_mixing_k_cutoff,
   reporting_flag2 = design$tag_reporting_flag2,
   m_age40_quarterly = design$m_age40_quarterly,
   effort_primary = design$effort_creep_primary
@@ -380,9 +383,12 @@ draw_publication_figure <- function() {
          lty = 2, lwd = 1.6, bty = "n", cex = 0.76, inset = c(0.02, 0.02))
   panel_title("a", "Steepness")
 
-  mixing_values <- as.integer(table(factor(design$tag_mixing_period, levels = mixing_levels)))
-  labelled_barplot(mixing_values, format(mixing_levels, nsmall = 2), green,
-                   c(0, 30), "Models", "Mixing period", "b", "Tag mixing period")
+  mixing_values <- as.integer(table(factor(
+    design$tag_mixing_k_cutoff, levels = k_cutoff_levels
+  )))
+  labelled_barplot(mixing_values, format(k_cutoff_levels, nsmall = 2), green,
+                   c(0, 30), "Models", "Kolmogorov dissimilarity cutoff, K",
+                   "b", "Tag mixing periods: K cutoff")
 
   reporting_values <- as.integer(table(factor(
     design$tag_reporting, levels = c("inclusion", "exclusion")

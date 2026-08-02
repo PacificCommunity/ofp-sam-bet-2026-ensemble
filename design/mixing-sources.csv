@@ -1,4 +1,4 @@
-"tag_mixing_period","tag_mixing_source_file","source_sha256","source_branch","source_commit"
+"tag_mixing_k_cutoff","tag_mixing_source_file","source_sha256","source_branch","source_commit"
 0.05,"bet.2026.mix-0.05.ini","ff2ed1786eeebb61f366a85289aa52ab67293e8c9a449c2e636093dfa62ba25a","SC22-IP10-regionMean","efe3107c72774ee73b5e6dc45e44cf51f0fc20e8"
 0.1,"bet.2026.mix-0.1.ini","e0b6313a8bd0239dd0ba0305ecad0b58f286ef4a2c6e75a7da5fd5dae957ca03","SC22-IP10-regionMean","efe3107c72774ee73b5e6dc45e44cf51f0fc20e8"
 0.15,"bet.2026.mix-0.15.ini","d39f4cf4243d7cf1d8ce626d048bfba6493c234d65743c24fb6e70098714b54f","SC22-IP10-regionMean","efe3107c72774ee73b5e6dc45e44cf51f0fc20e8"

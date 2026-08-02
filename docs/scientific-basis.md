@@ -41,17 +41,24 @@ Sources:
 - [2023 WCPO bigeye stock assessment](https://meetings.wcpfc.int/system/files/2023-09/SC19-SA-WP-05_BET_2023_Rev2%20%28Posted%20on%2015Sep2023%29.pdf)
 - [Review of recruitment assumptions in tuna RFMO assessments](https://doi.org/10.1016/j.fishres.2018.11.031)
 
-## Tag mixing period
+## Tag mixing periods and K cutoff
 
-The seven allowed values are 0.05, 0.10, 0.15, 0.20, 0.25, 0.30 and 0.35.
+The seven ensemble values 0.05, 0.10, 0.15, 0.20, 0.25, 0.30 and 0.35 are
+Kolmogorov dissimilarity (`K`) cutoffs used to determine tag-mixing periods;
+they are not mixing periods themselves. For each cutoff, SC22-IP10 selected
+the shortest simulated period at which `K` fell below the cutoff, assigning
+four quarters when the cutoff was not reached within the three simulated
+quarters. The resulting release-group-specific periods are integers from zero
+to four and are already stored in the corresponding upstream INI.
+
 The exact counts are 6, 12, 19, 26, 19, 12 and 6. This symmetric discrete
 distribution makes 0.20 the mode while retaining both requested tails.
 
 Each draw selects the corresponding authoritative `bet.2026.mix-*.ini`
 scenario. The complete release-group-specific first column of the MFCL tag-flag
 block is transferred from that source to the Diagnostic INI and every seed-23
-checkpoint. The numbers 0.05–0.35 identify the cut-off scenario; they are not
-written as a single constant into every release-group row.
+checkpoint. Thus `K = 0.15`, for example, selects
+`bet.2026.mix-0.15.ini`; it does not write `0.15` into the MFCL tag flags.
 
 All seven files are frozen from the upstream `SC22-IP10-regionMean` branch at
 commit `efe3107c72774ee73b5e6dc45e44cf51f0fc20e8`. Preflight validation checks

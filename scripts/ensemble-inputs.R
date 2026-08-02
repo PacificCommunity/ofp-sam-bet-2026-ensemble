@@ -275,7 +275,7 @@ ensemble_verify_inputs <- function(repo, model_id, run_dir) {
     ensemble_id = model_id,
     model_label = row$model_label,
     steepness = row$steepness,
-    tag_mixing_period = row$tag_mixing_period,
+    tag_mixing_k_cutoff = row$tag_mixing_k_cutoff,
     tag_reporting_flag2 = row$tag_reporting_flag2,
     m0_quarterly = row$m_age40_quarterly,
     effort_creep_primary = row$effort_creep_primary,

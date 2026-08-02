@@ -22,7 +22,7 @@ stopifnot(
   nrow(draws) == 100L,
   length(unique(draws$ensemble_id)) == 100L,
   identical(draws$ensemble_id, sprintf("ensemble-%03d", seq_len(100L))),
-  identical(as.integer(table(draws$tag_mixing_period)), c(6L, 12L, 19L, 26L, 19L, 12L, 6L)),
+  identical(as.integer(table(draws$tag_mixing_k_cutoff)), c(6L, 12L, 19L, 26L, 19L, 12L, 6L)),
   identical(as.integer(table(draws$tag_reporting_flag2)), c(50L, 50L)),
   identical(as.integer(table(draws$effort_creep_primary)), rep(20L, 5L)),
   abs(mean(draws$steepness) - 0.87) < 0.001,

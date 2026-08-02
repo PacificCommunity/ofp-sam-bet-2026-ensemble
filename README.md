@@ -9,7 +9,7 @@ inputs and the Diagnostic seed-23 fitting path remain unchanged.
 | Axis | 100-model representation |
 |---|---|
 | Steepness | 100 stratified quantiles from the 2024 South Pacific albacore censored beta prior: mean 0.87, SD 0.063, bounded by 0.2 and 1.0 |
-| Tag mixing period | 0.05–0.35, with 0.20 most frequent: 6, 12, 19, 26, 19, 12 and 6 models |
+| Tag mixing periods (`K` cutoff) | Release-group mixing periods derived at Kolmogorov dissimilarity cutoffs 0.05–0.35, with 0.20 most frequent: 6, 12, 19, 26, 19, 12 and 6 models |
 | Tag reporting | MFCL tag flag column 2: 50 inclusion (`0`) and 50 exclusion (`1`) models |
 | Natural mortality | Quarterly Lorenzen `M0` at `L(40.5)`: bounded logit-normal on 0.050–0.165, with elicited mode 0.0702 and median 0.078136 |
 | Effort creep | Five official BET/YFT scenarios with 20 models each |
@@ -52,7 +52,7 @@ against both the design row and authoritative source files before MFCL starts.
 The output folder contains `ensemble-metadata.csv` and
 `input-change-audit.csv` with full-precision values. Display labels are concise
 but self-describing; for example:
-`E001 | h=0.669 | mix=0.20 | RR=include | M0=0.0663/qtr | creep=1.0/0.50%`.
+`E001 | h=0.669 | K=0.20 | RR=include | M0=0.0663/qtr | creep=1.0/0.50%`.
 The exact values remain in the metadata rather than the rounded label. Kflow
 uses the same command with one independent Suva job per design row and a phase
 10/11 convergence criterion of `1e-4`.
