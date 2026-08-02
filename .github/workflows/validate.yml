@@ -1,0 +1,24 @@
+name: Validate ensemble design
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+      - name: Recreate design
+        run: Rscript scripts/create-ensemble-design.R
+      - name: Validate design
+        run: Rscript scripts/validate-ensemble-design.R
+      - name: Confirm generated tables are current
+        run: git diff --exit-code -- 'design/*.csv'
