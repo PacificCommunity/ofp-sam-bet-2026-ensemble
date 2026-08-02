@@ -7,7 +7,6 @@ output_dir <- file.path(repo, "design")
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
 n_models <- 100L
-design_seed <- 20260802L
 
 # 2024 South Pacific albacore assessment: h = 0.2 + 0.8Y,
 # Y ~ Beta(alpha, beta), with E[h] = 0.87 and SD[h] = 0.063.
@@ -23,16 +22,30 @@ h_beta <- (1 - y_mean) * beta_total
 h_probability <- (seq_len(n_models) - 0.5) / n_models
 h_draw <- h_lower + (h_upper - h_lower) * qbeta(h_probability, h_alpha, h_beta)
 
-# Evidence-synthesised quarterly M at age 40. The selected tag-analysis midpoint
-# and previous-assessment value define the mode, the current Diagnostic
-# Lorenzen intercept is the median, and the Hamel-Cope 95% limits define the
-# truncation bounds. Calibrating a truncated lognormal to the requested mode and
-# median gives a log SD close to the Hamel-Cope value of 0.31.
+# Evidence-synthesised quarterly M at the reference length L(40.5 quarters).
+# Ducharme-Barth et al. (2026) estimate M0 = 0.0624 (SE 0.0076; approximate
+# 90% CI 0.0500-0.0749). Hamel and Cope (2022), applied with Amax = 15 years,
+# define an annual lognormal prior with median 5.40/15 = 0.36 and log-SD 0.31.
+# Dividing this instantaneous rate by four gives a quarterly median of 0.09,
+# unchanged log-SD, and a 95% interval of approximately 0.0490-0.1652.
+# Those percentiles inform rounded finite-ensemble limits; they are not hard
+# bounds of the original Hamel-Cope prior.
 m_min <- 0.050
 m_mode <- 0.0702
 m_median <- exp(-2.54930339768360)
 m_max <- 0.165
+m_tag_estimate <- 0.0624
+m_tag_se <- 0.0076
+m_tag_lower90 <- 0.0500
+m_tag_upper90 <- 0.0749
+m_previous <- 0.0780
+m_hc_amax_years <- 15
+m_hc_annual_median <- 5.40 / m_hc_amax_years
+m_hc_quarterly_median <- m_hc_annual_median / 4
 m_log_sd_hamel_cope <- 0.31
+m_hc_quarterly_mean <- m_hc_quarterly_median * exp(m_log_sd_hamel_cope^2 / 2)
+m_hc_lower95 <- qlnorm(0.025, log(m_hc_quarterly_median), m_log_sd_hamel_cope)
+m_hc_upper95 <- qlnorm(0.975, log(m_hc_quarterly_median), m_log_sd_hamel_cope)
 
 truncated_lognormal_median <- function(log_sd) {
   meanlog <- log(m_mode) + log_sd^2
@@ -89,68 +102,45 @@ effort <- data.frame(
 )
 effort_draw <- rep(effort$effort_level, each = n_models / nrow(effort))
 
-cramers_v <- function(x, y) {
-  tab <- table(x, y)
-  chi <- suppressWarnings(chisq.test(tab, correct = FALSE)$statistic)
-  as.numeric(sqrt(chi / (sum(tab) * min(nrow(tab) - 1L, ncol(tab) - 1L))))
+# Couple the five fixed margins without any pseudo-random-number generator.
+# For prime modulus 101, multiplication by any nonzero integer below 101 is a
+# permutation of 1:100. The fixed multipliers below therefore give a fully
+# specified, language- and R-version-independent pairing of the margins.
+modular_permutation <- function(multiplier) {
+  as.integer((multiplier * seq_len(n_models)) %% 101L)
 }
+pairing_multipliers <- c(
+  steepness = 1L,
+  tag_mixing = 44L,
+  tag_reporting = 35L,
+  natural_mortality = 21L,
+  effort_creep = 24L
+)
+pairing <- list(
+  h = modular_permutation(pairing_multipliers[["steepness"]]),
+  mixing = modular_permutation(pairing_multipliers[["tag_mixing"]]),
+  rr = modular_permutation(pairing_multipliers[["tag_reporting"]]),
+  m = modular_permutation(pairing_multipliers[["natural_mortality"]]),
+  effort = modular_permutation(pairing_multipliers[["effort_creep"]])
+)
+stopifnot(all(vapply(pairing, function(x) identical(sort(x), seq_len(n_models)), logical(1))))
 
-balance_score <- function(x) {
-  numeric_values <- data.frame(
-    steepness = h_draw[x$h],
-    mixing = mixing_draw[x$mixing],
-    rr = rr_draw[x$rr],
-    m = m_draw[x$m],
-    effort = effort_draw[x$effort]
-  )
-  correlations <- abs(cor(numeric_values, method = "spearman"))
-  diag(correlations) <- 0
-  associations <- c(
-    max(correlations),
-    cramers_v(numeric_values$mixing, numeric_values$rr),
-    cramers_v(numeric_values$mixing, numeric_values$effort),
-    cramers_v(numeric_values$rr, numeric_values$effort)
-  )
-  max(associations)
-}
-
-# Independently permute each marginal distribution and retain the most balanced
-# of 20,000 candidates. This does not alter any marginal draw or exact count.
-RNGkind("Mersenne-Twister", "Inversion", "Rejection")
-set.seed(design_seed)
-best <- NULL
-best_score <- Inf
-for (iteration in seq_len(20000L)) {
-  candidate <- list(
-    h = sample.int(n_models),
-    mixing = sample.int(n_models),
-    rr = sample.int(n_models),
-    m = sample.int(n_models),
-    effort = sample.int(n_models)
-  )
-  score <- balance_score(candidate)
-  if (score < best_score) {
-    best <- candidate
-    best_score <- score
-  }
-}
-
-effort_index <- effort_draw[best$effort]
+effort_index <- effort_draw[pairing$effort]
 design <- data.frame(
   ensemble_id = sprintf("ensemble-%03d", seq_len(n_models)),
-  steepness = h_draw[best$h],
-  steepness_prior_quantile = h_probability[best$h],
-  tag_mixing_period = mixing_draw[best$mixing],
-  tag_reporting_flag2 = rr_draw[best$rr],
-  tag_reporting = ifelse(rr_draw[best$rr] == 0L, "inclusion", "exclusion"),
-  m_age40_quarterly = m_draw[best$m],
-  lorenzen_log_intercept = log(m_draw[best$m]),
-  m_prior_quantile = m_probability[best$m],
+  steepness = h_draw[pairing$h],
+  steepness_prior_quantile = h_probability[pairing$h],
+  tag_mixing_period = mixing_draw[pairing$mixing],
+  tag_reporting_flag2 = rr_draw[pairing$rr],
+  tag_reporting = ifelse(rr_draw[pairing$rr] == 0L, "inclusion", "exclusion"),
+  m_age40_quarterly = m_draw[pairing$m],
+  lorenzen_log_intercept = log(m_draw[pairing$m]),
+  m_prior_quantile = m_probability[pairing$m],
   effort_creep_primary = effort$effort_creep_primary[effort_index],
   effort_creep_secondary = effort$effort_creep_secondary[effort_index],
   effort_source_file = effort$effort_source_file[effort_index],
   initialization = "Diagnostic seed-23 path",
-  design_seed = design_seed,
+  pairing_version = "mod101-v1",
   stringsAsFactors = FALSE
 )
 
@@ -175,23 +165,50 @@ write.csv(effort, file.path(output_dir, "effort-creep-sources.csv"), row.names =
 distribution_parameters <- data.frame(
   axis = c(
     rep("Steepness", 6L),
-    rep("Quarterly M at age 40", 7L),
-    rep("Design", 3L)
+    rep("Ensemble quarterly M at reference length", 6L),
+    rep("Tag-analysis M0", 4L),
+    rep("Hamel-Cope Amax prior", 7L),
+    rep("Design", 7L)
   ),
   parameter = c(
     "lower", "upper", "mean", "sd", "beta_alpha", "beta_beta",
-    "lower", "upper", "mode", "conditional_median", "meanlog", "log_sd", "hamel_cope_log_sd",
-    "models", "seed", "candidate_permutations"
+    "lower", "upper", "mode", "conditional_median", "meanlog", "log_sd",
+    "estimate", "se", "lower_90", "upper_90",
+    "amax_years", "annual_median", "quarterly_median", "quarterly_mean", "log_sd", "lower_95", "upper_95",
+    "models", "pairing_modulus", "steepness_multiplier", "tag_mixing_multiplier",
+    "tag_reporting_multiplier", "natural_mortality_multiplier", "effort_creep_multiplier"
   ),
   value = c(
     h_lower, h_upper, h_mean, h_sd, h_alpha, h_beta,
-    m_min, m_max, m_mode, m_median, m_meanlog, m_log_sd, m_log_sd_hamel_cope,
-    n_models, design_seed, 20000L
+    m_min, m_max, m_mode, m_median, m_meanlog, m_log_sd,
+    m_tag_estimate, m_tag_se, m_tag_lower90, m_tag_upper90,
+    m_hc_amax_years, m_hc_annual_median, m_hc_quarterly_median, m_hc_quarterly_mean,
+    m_log_sd_hamel_cope, m_hc_lower95, m_hc_upper95,
+    n_models, 101L, unname(pairing_multipliers)
   ),
   stringsAsFactors = FALSE
 )
 write.csv(distribution_parameters, file.path(output_dir, "distribution-parameters.csv"),
           row.names = FALSE, quote = TRUE)
+
+m_evidence <- data.frame(
+  source = c(
+    "Ducharme-Barth et al. (2026) tag analysis",
+    "2023 WCPO BET diagnostic",
+    "Hamel and Cope (2022), Amax = 15 years",
+    "Selected ensemble distribution"
+  ),
+  statistic = c("estimate", "point value", "median", "median / mode"),
+  central = c(m_tag_estimate, m_previous, m_hc_quarterly_median, m_median),
+  secondary_central = c(NA_real_, NA_real_, m_hc_quarterly_mean, m_mode),
+  lower = c(m_tag_lower90, NA_real_, m_hc_lower95, m_min),
+  upper = c(m_tag_upper90, NA_real_, m_hc_upper95, m_max),
+  interval = c("90% delta-method CI", NA, "95% prior interval", "finite-ensemble limits"),
+  units = "quarter^-1",
+  stringsAsFactors = FALSE
+)
+write.csv(m_evidence, file.path(output_dir, "m-evidence.csv"), row.names = FALSE, quote = TRUE,
+          na = "")
 
 continuous_summary <- rbind(
   data.frame(
@@ -235,36 +252,118 @@ numeric_design <- data.frame(
 rank_correlation <- cor(numeric_design, method = "spearman")
 write.csv(rank_correlation, file.path(output_dir, "rank-correlation.csv"), quote = TRUE)
 
-png(file.path(output_dir, "distributions.png"), width = 2200, height = 1250, res = 180)
-old_par <- par(no.readonly = TRUE)
-par(mfrow = c(2, 3), mar = c(4.5, 4.6, 3.0, 1.0), las = 1,
-    cex.axis = 0.85, cex.lab = 0.95, cex.main = 1.0)
-hist(design$steepness, breaks = seq(0.65, 1.00, by = 0.025), col = "#2C7FB8",
-     border = "white", main = "Steepness", xlab = "h")
-abline(v = h_mean, col = "#D7301F", lwd = 2)
-barplot(table(factor(design$tag_mixing_period, levels = mixing_levels)),
-        names.arg = format(mixing_levels, trim = TRUE), col = "#41AB5D", border = NA,
-        main = "Tag mixing period", xlab = "Mixing period", ylab = "Models")
-barplot(table(factor(design$tag_reporting, levels = c("inclusion", "exclusion"))),
-        col = c("#756BB1", "#9E9AC8"), border = NA,
-        main = "Tag reporting", ylab = "Models")
-hist(design$m_age40_quarterly, breaks = seq(m_min, m_max, length.out = 13L),
-     col = "#F28E2B", border = "white", main = "Natural mortality", xlab = expression(M[age~40]~(quarter^{-1})))
-abline(v = m_mode, col = "#D7301F", lwd = 2)
-abline(v = m_median, col = "#222222", lwd = 2, lty = 2)
-effort_names <- sprintf("%.1f/%.2f", 100 * effort$effort_creep_primary,
-                        100 * effort$effort_creep_secondary)
-barplot(table(factor(design$effort_creep_primary, levels = effort$effort_creep_primary)),
-        names.arg = effort_names, col = "#4E79A7", border = NA,
-        main = "Effort creep", xlab = "Primary / secondary (%)", ylab = "Models")
-plot.new()
-text(0, 0.90, "BET 2026 joint ensemble", adj = c(0, 0), font = 2, cex = 1.25)
-text(0, 0.72, "100 deterministic balanced draws", adj = c(0, 0), cex = 1.0)
-text(0, 0.56, paste0("Design seed: ", design_seed), adj = c(0, 0), cex = 0.95)
-text(0, 0.40, sprintf("Maximum balance score: %.3f", best_score), adj = c(0, 0), cex = 0.95)
-text(0, 0.24, "Discrete margins are exact; continuous margins use quantiles.",
-     adj = c(0, 0), cex = 0.85)
-par(old_par)
+draw_publication_figure <- function() {
+  blue <- "#0072B2"
+  blue_fill <- grDevices::adjustcolor("#56B4E9", alpha.f = 0.58)
+  green <- "#009E73"
+  purple <- "#7B6DB1"
+  orange <- "#D55E00"
+  orange_fill <- grDevices::adjustcolor("#E69F00", alpha.f = 0.55)
+  grey <- "#555555"
+  light_grey <- "#E6E6E6"
+
+  old_par <- par(no.readonly = TRUE)
+  on.exit(par(old_par), add = TRUE)
+  layout(matrix(c(1, 1, 2, 2, 3, 3,
+                  0, 4, 4, 5, 5, 0), nrow = 2, byrow = TRUE))
+  par(mar = c(4.2, 4.4, 2.4, 0.8), oma = c(0.2, 0.2, 0.2, 0.2),
+      mgp = c(2.45, 0.72, 0), tcl = -0.25, las = 1, bty = "l",
+      cex.axis = 0.83, cex.lab = 0.91, cex.main = 0.98,
+      col.axis = "#333333", col.lab = "#222222")
+
+  panel_title <- function(label, title) {
+    title(main = paste0("(", label, ")  ", title), adj = 0, font.main = 2)
+  }
+  labelled_barplot <- function(values, names, colour, ylim, ylab, xlab, label, title,
+                               cex_names = 0.78) {
+    positions <- barplot(values, names.arg = names, col = colour, border = NA,
+                         ylim = ylim, ylab = ylab, xlab = xlab, cex.names = cex_names,
+                         axes = FALSE, axisnames = FALSE)
+    abline(h = axTicks(2), col = light_grey, lwd = 0.8)
+    axis(2)
+    axis(1, at = positions, labels = names, tick = FALSE, line = 0.15,
+         cex.axis = cex_names)
+    box(bty = "l")
+    text(positions, values, labels = values, pos = 3, cex = 0.76, xpd = NA)
+    panel_title(label, title)
+  }
+
+  h_x <- seq(0.60, 1.00, length.out = 600L)
+  h_density <- dbeta((h_x - h_lower) / (h_upper - h_lower), h_alpha, h_beta) /
+    (h_upper - h_lower)
+  plot(h_x, h_density, type = "n", xlim = c(0.60, 1.00),
+       ylim = c(0, max(h_density) * 1.12), xlab = expression("Steepness, " * h),
+       ylab = "Prior density", yaxs = "i")
+  abline(h = axTicks(2), col = light_grey, lwd = 0.8)
+  polygon(c(h_x, rev(h_x)), c(h_density, rep(0, length(h_density))),
+          col = blue_fill, border = NA)
+  lines(h_x, h_density, col = blue, lwd = 2.0)
+  rug(design$steepness, col = grDevices::adjustcolor(blue, alpha.f = 0.42),
+      ticksize = 0.025, lwd = 0.7)
+  abline(v = h_mean, col = orange, lwd = 1.6, lty = 2)
+  legend("topleft", legend = sprintf("Mean = %.2f", h_mean), col = orange,
+         lty = 2, lwd = 1.6, bty = "n", cex = 0.76, inset = c(0.02, 0.02))
+  panel_title("a", "Steepness")
+
+  mixing_values <- as.integer(table(factor(design$tag_mixing_period, levels = mixing_levels)))
+  labelled_barplot(mixing_values, format(mixing_levels, nsmall = 2), green,
+                   c(0, 30), "Models", "Mixing period", "b", "Tag mixing period")
+
+  reporting_values <- as.integer(table(factor(
+    design$tag_reporting, levels = c("inclusion", "exclusion")
+  )))
+  labelled_barplot(reporting_values, c("Include\n(flag 2 = 0)", "Exclude\n(flag 2 = 1)"),
+                   c(purple, grDevices::adjustcolor(purple, alpha.f = 0.68)),
+                   c(0, 57), "Models", "Pre-mixing reporting", "c", "Tag reporting",
+                   cex_names = 0.72)
+
+  m_x <- seq(0.035, 0.180, length.out = 800L)
+  selected_density <- ifelse(
+    m_x >= m_min & m_x <= m_max,
+    dlnorm(m_x, m_meanlog, m_log_sd) / (m_upper_cdf - m_lower_cdf),
+    0
+  )
+  hc_density <- dlnorm(m_x, log(m_hc_quarterly_median), m_log_sd_hamel_cope)
+  m_ymax <- max(c(selected_density, hc_density)) * 1.17
+  plot(m_x, selected_density, type = "n", xlim = range(m_x), ylim = c(0, m_ymax),
+       xlab = expression(M[0]~"at"~L[ref] == L(40.5)~(quarter^{-1})),
+       ylab = "Density", yaxs = "i")
+  abline(h = axTicks(2), col = light_grey, lwd = 0.8)
+  polygon(c(m_x, rev(m_x)), c(selected_density, rep(0, length(selected_density))),
+          col = orange_fill, border = NA)
+  lines(m_x, selected_density, col = orange, lwd = 2.0)
+  lines(m_x, hc_density, col = grey, lwd = 1.6, lty = 2)
+  rug(design$m_age40_quarterly, col = grDevices::adjustcolor(orange, alpha.f = 0.42),
+      ticksize = 0.025, lwd = 0.7)
+  tag_y <- m_ymax * 0.075
+  segments(m_tag_lower90, tag_y, m_tag_upper90, tag_y, col = green, lwd = 2.2)
+  points(m_tag_estimate, tag_y, pch = 19, col = green, cex = 0.9)
+  abline(v = m_previous, col = blue, lwd = 1.4, lty = 3)
+  legend("topright",
+         legend = c("Selected ensemble", "Hamel-Cope prior", "Tag estimate (90% CI)",
+                    "2023 assessment"),
+         col = c(orange, grey, green, blue), lty = c(1, 2, 1, 3),
+         lwd = c(2.0, 1.6, 2.2, 1.4), pch = c(NA, NA, 19, NA),
+         bty = "n", cex = 0.69, inset = c(0.01, 0.01))
+  panel_title("d", "Natural mortality")
+
+  effort_values <- as.integer(table(factor(
+    design$effort_creep_primary, levels = effort$effort_creep_primary
+  )))
+  effort_names <- sprintf("%.1f / %.2f", 100 * effort$effort_creep_primary,
+                          100 * effort$effort_creep_secondary)
+  labelled_barplot(effort_values, effort_names, blue, c(0, 24), "Models",
+                   "Primary / secondary effort creep (%)", "e", "Effort creep",
+                   cex_names = 0.68)
+}
+
+png(file.path(output_dir, "distributions.png"), width = 3200, height = 1900, res = 300)
+draw_publication_figure()
+dev.off()
+
+pdf(file.path(output_dir, "distributions.pdf"), width = 10.67, height = 6.33,
+    useDingbats = FALSE, title = "BET 2026 structural ensemble marginal distributions")
+draw_publication_figure()
 dev.off()
 
 cat("Created ", n_models, " ensemble draws in ", output_dir, "\n", sep = "")
@@ -276,4 +375,3 @@ cat(sprintf("Quarterly M at age 40: mean %.4f, median %.5f, mode %.4f, range %.3
             min(design$m_age40_quarterly), max(design$m_age40_quarterly)))
 cat(sprintf("M log-SD: %.6f (Hamel-Cope reference: %.2f)\n",
             m_log_sd, m_log_sd_hamel_cope))
-cat(sprintf("Maximum balance score: %.4f\n", best_score))

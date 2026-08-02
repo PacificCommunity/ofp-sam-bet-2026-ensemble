@@ -9,6 +9,9 @@ draws <- read.csv(file.path(design_dir, "model-draws.csv"), check.names = FALSE)
 continuous <- read.csv(file.path(design_dir, "continuous-summary.csv"), check.names = FALSE)
 discrete <- read.csv(file.path(design_dir, "discrete-summary.csv"), check.names = FALSE)
 effort <- read.csv(file.path(design_dir, "effort-creep-sources.csv"), check.names = FALSE)
+parameters <- read.csv(file.path(design_dir, "distribution-parameters.csv"), check.names = FALSE)
+m_evidence <- read.csv(file.path(design_dir, "m-evidence.csv"), check.names = FALSE)
+script_text <- readLines(file.path(repo, "scripts", "create-ensemble-design.R"), warn = FALSE)
 
 stopifnot(
   nrow(draws) == 100L,
@@ -25,9 +28,22 @@ stopifnot(
   nrow(continuous) == 2L,
   nrow(discrete) == 14L,
   nrow(effort) == 5L,
+  nrow(parameters) == 30L,
+  nrow(m_evidence) == 4L,
   all(nchar(effort$source_sha256) == 64L),
   all(draws$initialization == "Diagnostic seed-23 path"),
-  all(draws$design_seed == 20260802L)
+  all(draws$pairing_version == "mod101-v1"),
+  !"design_seed" %in% names(draws),
+  !any(grepl("set[.]seed|RNGkind|sample[.(]", script_text)),
+  abs(m_evidence$central[1] - 0.0624) < 1e-12,
+  abs(m_evidence$lower[1] - 0.0500) < 1e-12,
+  abs(m_evidence$upper[1] - 0.0749) < 1e-12,
+  abs(m_evidence$central[3] - 0.0900) < 1e-12,
+  abs(m_evidence$secondary_central[3] - 0.094430080) < 1e-8,
+  abs(m_evidence$lower[3] - 0.049019630) < 1e-8,
+  abs(m_evidence$upper[3] - 0.165239924) < 1e-8,
+  file.info(file.path(design_dir, "distributions.png"))$size > 10000,
+  file.info(file.path(design_dir, "distributions.pdf"))$size > 10000
 )
 
 cat("Validated 100 deterministic BET 2026 ensemble configurations.\n")

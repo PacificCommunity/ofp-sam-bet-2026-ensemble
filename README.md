@@ -29,18 +29,35 @@ Rscript scripts/create-ensemble-design.R
 Rscript scripts/validate-ensemble-design.R
 ```
 
-The design is deterministic (`design_seed = 20260802`). Continuous axes use
-fixed quantiles and discrete margins use exact counts. The script searches
-20,000 independent permutations and retains the design with the lowest maximum
-association among axes.
+The design uses no random-number generator or seed. Continuous axes use fixed
+quantiles, discrete margins use exact counts, and fixed modular permutations
+pair the five margins. The assignments therefore do not depend on R's
+random-number implementation; only negligible numerical-library rounding in
+distribution quantiles can vary across platforms. `design/model-draws.csv` is
+the committed source of truth. `design/rank-correlation.csv` reports the actual
+pairwise rank correlations; no composite balance score is used.
+
+## Distribution figure
+
+![BET 2026 ensemble marginal distributions](design/distributions.png)
+
+**Figure.** Marginal distributions of the 100-model BET 2026 structural
+ensemble. Continuous curves show the distributions represented by deterministic
+quantiles; rugs show the retained values. Natural mortality is defined at the
+reference length `L(40.5 quarters)`. The selected ensemble distribution is
+shown against the untruncated Hamel–Cope longevity prior, the tag-based estimate
+and its 90% confidence interval, and the 2023 assessment value. Bar labels give
+the exact number of models at each discrete level. A vector version is available
+as [`design/distributions.pdf`](design/distributions.pdf).
 
 ## Outputs
 
 - `design/model-draws.csv` — machine-readable source of truth
 - `design/distribution-parameters.csv` — exact distribution parameters
 - `design/continuous-summary.csv` and `design/discrete-summary.csv` — marginal summaries
+- `design/m-evidence.csv` — natural-mortality evidence and interval definitions
 - `design/effort-creep-sources.csv` — official source files and SHA-256 hashes
-- `design/rank-correlation.csv` — cross-axis balance audit
-- `design/distributions.png` — visual summary
+- `design/rank-correlation.csv` — pairwise cross-axis association audit
+- `design/distributions.png` and `design/distributions.pdf` — publication-ready figure
 
 These are structural ensemble draws, not optimizer jitters.

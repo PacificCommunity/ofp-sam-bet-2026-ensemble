@@ -5,13 +5,27 @@
 "Steepness","sd",0.063
 "Steepness","beta_alpha",17.5414997480474
 "Steepness","beta_beta",3.40357457797934
-"Quarterly M at age 40","lower",0.05
-"Quarterly M at age 40","upper",0.165
-"Quarterly M at age 40","mode",0.0702
-"Quarterly M at age 40","conditional_median",0.0781360768197088
-"Quarterly M at age 40","meanlog",-2.57366737146437
-"Quarterly M at age 40","log_sd",0.28764491388863
-"Quarterly M at age 40","hamel_cope_log_sd",0.31
+"Ensemble quarterly M at reference length","lower",0.05
+"Ensemble quarterly M at reference length","upper",0.165
+"Ensemble quarterly M at reference length","mode",0.0702
+"Ensemble quarterly M at reference length","conditional_median",0.0781360768197088
+"Ensemble quarterly M at reference length","meanlog",-2.57366737146437
+"Ensemble quarterly M at reference length","log_sd",0.28764491388863
+"Tag-analysis M0","estimate",0.0624
+"Tag-analysis M0","se",0.0076
+"Tag-analysis M0","lower_90",0.05
+"Tag-analysis M0","upper_90",0.0749
+"Hamel-Cope Amax prior","amax_years",15
+"Hamel-Cope Amax prior","annual_median",0.36
+"Hamel-Cope Amax prior","quarterly_median",0.09
+"Hamel-Cope Amax prior","quarterly_mean",0.094430080365185
+"Hamel-Cope Amax prior","log_sd",0.31
+"Hamel-Cope Amax prior","lower_95",0.0490196302446562
+"Hamel-Cope Amax prior","upper_95",0.165239924486844
 "Design","models",100
-"Design","seed",20260802
-"Design","candidate_permutations",20000
+"Design","pairing_modulus",101
+"Design","steepness_multiplier",1
+"Design","tag_mixing_multiplier",44
+"Design","tag_reporting_multiplier",35
+"Design","natural_mortality_multiplier",21
+"Design","effort_creep_multiplier",24
