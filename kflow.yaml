@@ -31,3 +31,5 @@ metadata:
   execution: independent-concurrent
   convergence: 1e-4
   inputs: frozen-and-preflight-verified
+  tag_mixing_source_branch: SC22-IP10-regionMean
+  tag_mixing_source_commit: efe3107c72774ee73b5e6dc45e44cf51f0fc20e8

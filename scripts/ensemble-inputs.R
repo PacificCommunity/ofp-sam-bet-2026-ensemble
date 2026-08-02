@@ -43,6 +43,19 @@ ensemble_tag_matrix <- function(path) {
   do.call(rbind, lapply(rows, function(i) ensemble_fields(lines[[i]])))
 }
 
+ensemble_validate_mixing_source <- function(path) {
+  values <- ensemble_tag_matrix(path)[, 1L]
+  numeric_values <- suppressWarnings(as.numeric(values))
+  if (length(values) != 98L || anyNA(numeric_values) || any(!is.finite(numeric_values)) ||
+      any(numeric_values != as.integer(numeric_values)) || any(!numeric_values %in% 0:4)) {
+    stop(
+      "Invalid tag-mixing source first column (expected 98 finite integers in 0:4): ",
+      path, call. = FALSE
+    )
+  }
+  invisible(as.integer(numeric_values))
+}
+
 ensemble_replace_tag_column <- function(path, column, source_path = NULL, constant = NULL) {
   lines <- readLines(path, warn = FALSE)
   rows <- ensemble_rows_after(lines, "^# tag flags[[:space:]]*$", 98L)
@@ -133,6 +146,10 @@ ensemble_source_hashes <- function(repo) {
   if (any(observed != unname(expected))) {
     stop("Authoritative source hash mismatch: ", paste(names(expected)[observed != unname(expected)], collapse = ", "), call. = FALSE)
   }
+  invisible(lapply(
+    file.path(repo, "sources", "mixing", mixing$tag_mixing_source_file),
+    ensemble_validate_mixing_source
+  ))
   invisible(expected)
 }
 

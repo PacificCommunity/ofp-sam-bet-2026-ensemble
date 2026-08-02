@@ -15,6 +15,8 @@ m_evidence <- read.csv(file.path(design_dir, "m-evidence.csv"), check.names = FA
 hc_amax <- read.csv(file.path(design_dir, "hamel-cope-amax-sensitivity.csv"),
                     check.names = FALSE)
 script_text <- readLines(file.path(repo, "scripts", "create-ensemble-design.R"), warn = FALSE)
+source(file.path(repo, "scripts", "ensemble-inputs.R"))
+mixing_paths <- file.path(repo, "sources", "mixing", mixing_sources$tag_mixing_source_file)
 
 stopifnot(
   nrow(draws) == 100L,
@@ -32,6 +34,8 @@ stopifnot(
   nrow(discrete) == 14L,
   nrow(effort) == 5L,
   nrow(mixing_sources) == 7L,
+  all(mixing_sources$source_branch == "SC22-IP10-regionMean"),
+  all(mixing_sources$source_commit == "efe3107c72774ee73b5e6dc45e44cf51f0fc20e8"),
   nrow(parameters) == 37L,
   nrow(m_evidence) == 5L,
   identical(hc_amax$amax_years, c(13L, 15L, 16L)),
@@ -60,5 +64,8 @@ stopifnot(
   file.info(file.path(design_dir, "distributions.png"))$size > 10000,
   file.info(file.path(design_dir, "distributions.pdf"))$size > 10000
 )
+
+ensemble_source_hashes(repo)
+invisible(lapply(mixing_paths, ensemble_validate_mixing_source))
 
 cat("Validated 100 deterministic BET 2026 ensemble configurations.\n")

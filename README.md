@@ -50,8 +50,9 @@ against both the design row and authoritative source files before MFCL starts.
 ```
 
 The output folder contains `ensemble-metadata.csv` and
-`input-change-audit.csv` with full-precision values. Display labels are concise;
-for example: `E001 | h0.669 | mix0.20 | RR-inc | M0=0.0663 | creep1.0/0.50`.
+`input-change-audit.csv` with full-precision values. Display labels are concise
+but self-describing; for example:
+`E001 | h=0.669 | mix=0.20 | RR=include | M0=0.0663/qtr | creep=1.0/0.50%`.
 The exact values remain in the metadata rather than the rounded label. Kflow
 uses the same command with one independent Suva job per design row and a phase
 10/11 convergence criterion of `1e-4`.
@@ -82,7 +83,7 @@ vector version is available as
 - `design/m-evidence.csv` — natural-mortality evidence and interval definitions
 - `design/hamel-cope-amax-sensitivity.csv` — `Amax` 13, 15 and 16-year implications on the adult-`M` and MFCL-`M0` scales
 - `design/effort-creep-sources.csv` — official source files and SHA-256 hashes
-- `design/mixing-sources.csv` — official mixing-scenario files and SHA-256 hashes
+- `design/mixing-sources.csv` — official `SC22-IP10-regionMean` mixing-scenario files, source commit and SHA-256 hashes
 - `design/input-validation-summary.csv` — exact preflight result for all 100 frozen inputs
 - `design/rank-correlation.csv` — pairwise cross-axis association audit
 - `design/distributions.png` and `design/distributions.pdf` — publication-ready figure

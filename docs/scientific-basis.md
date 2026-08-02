@@ -53,6 +53,12 @@ block is transferred from that source to the Diagnostic INI and every seed-23
 checkpoint. The numbers 0.05–0.35 identify the cut-off scenario; they are not
 written as a single constant into every release-group row.
 
+All seven files are frozen from the upstream `SC22-IP10-regionMean` branch at
+commit `efe3107c72774ee73b5e6dc45e44cf51f0fc20e8`. Preflight validation checks
+the complete-file SHA-256 and also requires all 98 transferred first-column
+values to be finite integers in the MFCL-supported range 0–4. This prevents an
+invalid generated source (for example, a literal `NA`) from reaching MFCL.
+
 ## Tag reporting
 
 Tag reporting is a two-level uncertainty axis with equal probability:

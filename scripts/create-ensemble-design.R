@@ -108,18 +108,20 @@ mixing_source_file <- setNames(
   sprintf("%.2f", mixing_levels)
 )
 mixing_source_sha256 <- c(
-  "512e33f82d14577c626da75445759543820075922e26ab194043dc5a5abae618",
-  "af56377544e4fce3dae47c13b30e8c5712cfe92b76cc65301fd1f04b07818921",
-  "cc59fc45e7d562004639e48932802c70119f01b554f95d7c1f667078efee6b64",
-  "bc97a32e15659cb07e65e8a2818a35fabc806f7446abc228eeaf6fa9c0a1bc82",
-  "a63a39af298d806ef8d3b7ae0377a283c2f9b0679f71fe6092195144433060b3",
-  "8bff7660ad5180dd96f8c8aff484a2f298852a8338361913686250d45e94ef02",
-  "cc59fc45e7d562004639e48932802c70119f01b554f95d7c1f667078efee6b64"
+  "ff2ed1786eeebb61f366a85289aa52ab67293e8c9a449c2e636093dfa62ba25a",
+  "e0b6313a8bd0239dd0ba0305ecad0b58f286ef4a2c6e75a7da5fd5dae957ca03",
+  "d39f4cf4243d7cf1d8ce626d048bfba6493c234d65743c24fb6e70098714b54f",
+  "1e8c589854274248efcb8b08cc85b476e718d2f5d985e03873e973181ae11e94",
+  "d1925f39ba2a75b2dd56c38bbb56ad36dfaea54de36e85d6d0f1a62da674051e",
+  "0d0b797d8439de174585de479e2f0211031f1a31af88d315cc3ce2821e4ab0fc",
+  "1ee630abfb044702581ca2b7956a5262ba2a29547eb47a1ae6f5c65005aaa661"
 )
 mixing_sources <- data.frame(
   tag_mixing_period = mixing_levels,
   tag_mixing_source_file = unname(mixing_source_file),
   source_sha256 = mixing_source_sha256,
+  source_branch = "SC22-IP10-regionMean",
+  source_commit = "efe3107c72774ee73b5e6dc45e44cf51f0fc20e8",
   stringsAsFactors = FALSE
 )
 
@@ -193,9 +195,9 @@ design <- data.frame(
   stringsAsFactors = FALSE
 )
 design$model_label <- sprintf(
-  "E%03d | h%.3f | mix%.2f | RR-%s | M0=%.4f | creep%.1f/%.2f",
+  "E%03d | h=%.3f | mix=%.2f | RR=%s | M0=%.4f/qtr | creep=%.1f/%.2f%%",
   seq_len(n_models), design$steepness, design$tag_mixing_period,
-  ifelse(design$tag_reporting_flag2 == 0L, "inc", "exc"),
+  ifelse(design$tag_reporting_flag2 == 0L, "include", "exclude"),
   design$m_age40_quarterly,
   100 * design$effort_creep_primary,
   100 * design$effort_creep_secondary

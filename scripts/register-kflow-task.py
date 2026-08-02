@@ -157,6 +157,8 @@ def job_payload(config: dict[str, Any], row: dict[str, str], index: int) -> dict
             "steepness": row["steepness"],
             "tag_mixing_period": row["tag_mixing_period"],
             "tag_mixing_source_file": row["tag_mixing_source_file"],
+            "tag_mixing_source_branch": "SC22-IP10-regionMean",
+            "tag_mixing_source_commit": "efe3107c72774ee73b5e6dc45e44cf51f0fc20e8",
             "tag_reporting_flag2": row["tag_reporting_flag2"],
             "tag_reporting": row["tag_reporting"],
             "m0_quarterly": row["m_age40_quarterly"],
