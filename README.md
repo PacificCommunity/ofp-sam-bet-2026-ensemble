@@ -1,10 +1,10 @@
-# BET 2026 ensemble
+# BET 2026 Diagnostic ensemble
 
 This repository defines a reproducible 100-model structural ensemble based on
-BET 2026 Diagnostic Job 21641 (`S0.90-F2`). Each row of
+BET 2026 Diagnostic Job 21641. Each row of
 [`design/model-draws.csv`](design/model-draws.csv) is one model configuration.
 The ensemble changes only the five uncertainty axes listed below; all other
-inputs, F2 selectivity, fixed `tau=2` treatment and the ordinary `-makepar`
+inputs, Diagnostic selectivity, fixed `tau=2` treatment and the ordinary `-makepar`
 fitting path remain unchanged.
 
 | Axis | 100-model representation |
@@ -39,12 +39,15 @@ distribution quantiles can vary across platforms. `design/model-draws.csv` is
 the committed source of truth. `design/rank-correlation.csv` reports the actual
 pairwise rank correlations; no composite balance score is used.
 
+The archived Job 19835 versus Job 21641 file- and control-level comparison is
+recorded in [`docs/job-21641-lineage-audit.md`](docs/job-21641-lineage-audit.md).
+
 ## Run a model
 
 Every run starts from the frozen Job 21641 inputs with ordinary
 `bet.ini -makepar`; no seed, jitter or fitted checkpoint is applied. The
 preparation step changes only the selected five axes, then compares the
-resulting INI, F2 model configuration, FRQ and `doitall.sh` against both the
+resulting INI, Diagnostic model configuration, FRQ and `doitall.sh` against both the
 design row and authoritative source files before MFCL starts.
 
 ```sh

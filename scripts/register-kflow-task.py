@@ -113,11 +113,12 @@ def task_payload(config: dict[str, Any], rows: list[dict[str, str]]) -> dict[str
 
 def job_payload(config: dict[str, Any], row: dict[str, str], index: int) -> dict[str, Any]:
     resources = config["resources"]
-    title = f"BET ensemble | {row['model_label']}"
+    title = f"BET Diagnostic | tau=2 fixed | {row['model_label']}"
     description = (
-        f"Independent BET 2026 ensemble fit {index:03d}/100. "
-        f"Job 21641 tau=2/F2 base; exact frozen inputs are preflight-verified "
-        f"for {row['model_label']}."
+        f"Independent BET 2026 Diagnostic ensemble fit {index:03d}/100. "
+        f"Changed basis: Job 21641 Diagnostic, tau=2 fixed, ordinary makepar/no fitted seed, "
+        f"Diagnostic selectivity (F10 and F33 weak non-decreasing). "
+        f"Preflight-verified draw: {row['model_label']}."
     )
     env = {
         **config["env"],
@@ -138,7 +139,7 @@ def job_payload(config: dict[str, Any], row: dict[str, str], index: int) -> dict
         "cpus": resources["cpus"],
         "memory": resources["memory"],
         "disk": resources["disk"],
-        "batch_name": "BET 2026 Job 21641 tau=2/F2 ensemble (100 independent fits)",
+        "batch_name": "bet-2026-ensemble-tau2 | Job 21641 Diagnostic | 100 independent Suva fits",
         "output_patterns": config["output_patterns"],
         "input_jobs": [],
         "env": env,
@@ -172,9 +173,9 @@ def job_payload(config: dict[str, Any], row: dict[str, str], index: int) -> dict
             "initialization": row["initialization"],
             "diagnostic_source_job": 21641,
             "diagnostic_source_commit": "3abf0c64fb9b0c2d70b9c672dc7d9a655d3060d6",
-            "diagnostic_model": "S0.90-F2",
+            "diagnostic_model": "Diagnostic",
             "fixed_tau": 2,
-            "selectivity_model": "F2",
+            "selectivity_model": "Diagnostic",
             "inputs_frozen": True,
             "input_preflight": "strict-before-MFCL",
         },

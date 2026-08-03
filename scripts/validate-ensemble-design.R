@@ -15,6 +15,11 @@ m_evidence <- read.csv(file.path(design_dir, "m-evidence.csv"), check.names = FA
 hc_amax <- read.csv(file.path(design_dir, "hamel-cope-amax-sensitivity.csv"),
                     check.names = FALSE)
 script_text <- readLines(file.path(repo, "scripts", "create-ensemble-design.R"), warn = FALSE)
+doitall_text <- readLines(file.path(repo, "model", "doitall.sh"), warn = FALSE)
+runner_text <- readLines(file.path(repo, "scripts", "run-ensemble"), warn = FALSE)
+registrar_text <- readLines(file.path(repo, "scripts", "register-kflow-task.py"), warn = FALSE)
+kflow_text <- readLines(file.path(repo, "kflow.yaml"), warn = FALSE)
+model_paths <- list.files(file.path(repo, "model"), recursive = TRUE, all.files = TRUE)
 source(file.path(repo, "scripts", "ensemble-inputs.R"))
 mixing_paths <- file.path(repo, "sources", "mixing", mixing_sources$tag_mixing_source_file)
 
@@ -55,6 +60,24 @@ stopifnot(
   all(draws$pairing_version == "mod101-v1"),
   !"design_seed" %in% names(draws),
   !any(grepl("set[.]seed|RNGkind|sample[.(]", script_text)),
+  !dir.exists(file.path(repo, "model", "checkpoints")),
+  !any(grepl("seed[-_]?23|checkpoints/", c(doitall_text, runner_text), ignore.case = TRUE)),
+  !any(grepl("seed|checkpoint", model_paths, ignore.case = TRUE)),
+  sum(grepl("^[[:space:]]*1[[:space:]]+111[[:space:]]+4([[:space:]]|$)", doitall_text)) == 1L,
+  sum(grepl("^[[:space:]]*1[[:space:]]+305[[:space:]]+1([[:space:]]|$)", doitall_text)) == 1L,
+  sum(grepl("^[[:space:]]*1[[:space:]]+306[[:space:]]+0([[:space:]]|$)", doitall_text)) == 1L,
+  sum(grepl("^[[:space:]]*-999[[:space:]]+43[[:space:]]+0([[:space:]]|$)", doitall_text)) == 1L,
+  sum(grepl("^[[:space:]]*-999[[:space:]]+44[[:space:]]+0([[:space:]]|$)", doitall_text)) == 1L,
+  sum(grepl("^audit_tau2_value_fixed 00[.]fixed[.]par ", doitall_text)) == 1L,
+  sum(grepl("^audit_tau2_fixed (0[1-9]|1[01])[.]par ", doitall_text)) == 11L,
+  sum(grepl("^audit_steepness_fixed (00[.]fixed|0[1-9]|1[01])[.]par ", doitall_text)) == 12L,
+  sum(grepl("^audit_natural_mortality_fixed (00[.]fixed|0[1-9]|1[01])[.]par ", doitall_text)) == 12L,
+  sum(grepl("^audit_dm_concentration_fixed (00[.]fixed|0[1-9]|1[01])[.]par ", doitall_text)) == 12L,
+  sum(grepl("^audit_selectivity_model (0[1-9]|1[01])[.]par ", doitall_text)) == 11L,
+  sum(grepl("^MODEL_ID=S0[.]90-F2 PROGRAM_PATH=", runner_text)) == 1L,
+  sum(kflow_text == "name: bet-2026-ensemble-tau2") == 1L,
+  sum(grepl("BET Diagnostic | tau=2 fixed |", registrar_text, fixed = TRUE)) == 1L,
+  !any(grepl("tau=2/F2|tau2/F2|Job-21641-S0[.]90-F2", c(kflow_text, registrar_text))),
   abs(m_evidence$central[1] - 0.0624) < 1e-12,
   abs(m_evidence$lower[1] - 0.0500) < 1e-12,
   abs(m_evidence$upper[1] - 0.0749) < 1e-12,

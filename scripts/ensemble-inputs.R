@@ -381,7 +381,7 @@ ensemble_prepare_inputs <- function(repo, model_id, output) {
   metadata <- row
   metadata$diagnostic_source_job <- 21641L
   metadata$diagnostic_source_commit <- "3abf0c64fb9b0c2d70b9c672dc7d9a655d3060d6"
-  metadata$diagnostic_model <- "S0.90-F2"
+  metadata$diagnostic_model <- "Diagnostic"
   metadata$tag_tau <- 2
   metadata$input_status <- "prepared-and-verified"
   write.csv(metadata, file.path(output, "ensemble-metadata.csv"), row.names = FALSE, quote = TRUE)
