@@ -78,6 +78,7 @@ def task_payload(config: dict[str, Any], rows: list[dict[str, str]]) -> dict[str
                 "steepness": row["steepness"],
                 "tag_mixing_k_cutoff": row["tag_mixing_k_cutoff"],
                 "tag_reporting": row["tag_reporting"],
+                "tag_reporting_zero_mixing_exclusions": row["tag_reporting_zero_mixing_exclusions"],
                 "m0_quarterly": row["m_age40_quarterly"],
                 "effort_creep_primary": row["effort_creep_primary"],
                 "effort_creep_secondary": row["effort_creep_secondary"],
@@ -115,7 +116,8 @@ def job_payload(config: dict[str, Any], row: dict[str, str], index: int) -> dict
     title = f"BET ensemble | {row['model_label']}"
     description = (
         f"Independent BET 2026 ensemble fit {index:03d}/100. "
-        f"Exact frozen inputs are preflight-verified for {row['model_label']}."
+        f"Job 21641 tau=2/F2 base; exact frozen inputs are preflight-verified "
+        f"for {row['model_label']}."
     )
     env = {
         **config["env"],
@@ -136,7 +138,7 @@ def job_payload(config: dict[str, Any], row: dict[str, str], index: int) -> dict
         "cpus": resources["cpus"],
         "memory": resources["memory"],
         "disk": resources["disk"],
-        "batch_name": "BET 2026 structural ensemble (100 independent fits)",
+        "batch_name": "BET 2026 Job 21641 tau=2/F2 ensemble (100 independent fits)",
         "output_patterns": config["output_patterns"],
         "input_jobs": [],
         "env": env,
@@ -161,12 +163,18 @@ def job_payload(config: dict[str, Any], row: dict[str, str], index: int) -> dict
             "tag_mixing_source_commit": "efe3107c72774ee73b5e6dc45e44cf51f0fc20e8",
             "tag_reporting_flag2": row["tag_reporting_flag2"],
             "tag_reporting": row["tag_reporting"],
+            "tag_reporting_zero_mixing_exclusions": row["tag_reporting_zero_mixing_exclusions"],
             "m0_quarterly": row["m_age40_quarterly"],
             "lorenzen_log_intercept": row["lorenzen_log_intercept"],
             "effort_creep_primary": row["effort_creep_primary"],
             "effort_creep_secondary": row["effort_creep_secondary"],
             "effort_source_file": row["effort_source_file"],
             "initialization": row["initialization"],
+            "diagnostic_source_job": 21641,
+            "diagnostic_source_commit": "3abf0c64fb9b0c2d70b9c672dc7d9a655d3060d6",
+            "diagnostic_model": "S0.90-F2",
+            "fixed_tau": 2,
+            "selectivity_model": "F2",
             "inputs_frozen": True,
             "input_preflight": "strict-before-MFCL",
         },

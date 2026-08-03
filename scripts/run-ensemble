@@ -17,7 +17,7 @@ fi
 Rscript "$repo_dir/scripts/prepare-ensemble.R" "$model_id" "$run_dir"
 Rscript "$repo_dir/scripts/verify-ensemble-inputs.R" "$model_id" "$run_dir"
 cd "$run_dir"
-PROGRAM_PATH=${PROGRAM_PATH:-./mfclo64} ./doitall.sh
+MODEL_ID=S0.90-F2 PROGRAM_PATH=${PROGRAM_PATH:-./mfclo64} ./doitall.sh
 cp 11.par final.par
 Rscript "$repo_dir/scripts/verify-ensemble-inputs.R" "$model_id" "$run_dir"
 echo "Completed $model_id: $run_dir/final.par"

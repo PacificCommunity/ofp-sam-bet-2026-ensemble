@@ -1,5 +1,5 @@
 name: bet-2026-ensemble
-description: BET 2026 Diagnostic structural ensemble; 100 independently fitted, frozen-input models.
+description: BET 2026 Job 21641 tau=2/F2 structural ensemble; 100 independently fitted, frozen-input models.
 command: bash run.sh
 docker_image: ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360
 remote_host: suva
@@ -21,12 +21,15 @@ tags:
   stage: ensemble
   species: BET
   assessment_year: "2026"
-  reference_model: Diagnostic-model
+  reference_model: Job-21641-S0.90-F2
 output_patterns:
   - outputs/**
 metadata:
-  reference_model: Diagnostic model
-  initialization: Diagnostic seed-23 fitting path
+  reference_model: Diagnostic Job 21641 (S0.90-F2)
+  source_job: 21641
+  fixed_tau: 2
+  selectivity_model: F2
+  initialization: ordinary-makepar-no-seed
   model_count: 100
   execution: independent-concurrent
   convergence: 1e-4

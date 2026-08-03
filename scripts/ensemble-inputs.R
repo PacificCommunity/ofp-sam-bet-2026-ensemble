@@ -37,6 +37,21 @@ ensemble_replace_field <- function(path, marker, row, column, value) {
   writeLines(lines, path, useBytes = TRUE)
 }
 
+ensemble_assignment_value <- function(path, name) {
+  lines <- readLines(path, warn = FALSE)
+  hit <- grep(paste0("^", name, "="), lines)
+  if (length(hit) != 1L) stop("Expected one ", name, " assignment in ", path, call. = FALSE)
+  sub("^[^=]+=[[:space:]]*", "", lines[[hit]])
+}
+
+ensemble_replace_assignment <- function(path, name, value) {
+  lines <- readLines(path, warn = FALSE)
+  hit <- grep(paste0("^", name, "="), lines)
+  if (length(hit) != 1L) stop("Expected one ", name, " assignment in ", path, call. = FALSE)
+  lines[[hit]] <- paste0(name, "=", value)
+  writeLines(lines, path, useBytes = TRUE)
+}
+
 ensemble_tag_matrix <- function(path) {
   lines <- readLines(path, warn = FALSE)
   rows <- ensemble_rows_after(lines, "^# tag flags[[:space:]]*$", 98L)
@@ -65,6 +80,29 @@ ensemble_replace_tag_column <- function(path, column, source_path = NULL, consta
     values <- ensemble_fields(lines[[rows[[j]]]])
     if (length(values) != 10L) stop("Tag flag row does not have 10 fields.", call. = FALSE)
     values[[column]] <- if (is.null(source_values)) as.character(constant) else source_values[[j]]
+    lines[[rows[[j]]]] <- paste(values, collapse = " ")
+  }
+  writeLines(lines, path, useBytes = TRUE)
+}
+
+ensemble_expected_tag_reporting <- function(mixing_period, requested_flag2) {
+  if (length(requested_flag2) != 1L || !requested_flag2 %in% 0:1) {
+    stop("Tag reporting flag 2 must be 0 or 1.", call. = FALSE)
+  }
+  mixing_period <- as.integer(mixing_period)
+  if (anyNA(mixing_period)) stop("Tag mixing periods must be integers.", call. = FALSE)
+  ifelse(requested_flag2 == 0L & mixing_period > 0L, 0L, 1L)
+}
+
+ensemble_replace_tag_reporting <- function(path, requested_flag2) {
+  lines <- readLines(path, warn = FALSE)
+  rows <- ensemble_rows_after(lines, "^# tag flags[[:space:]]*$", 98L)
+  mixing_period <- vapply(rows, function(i) as.integer(ensemble_fields(lines[[i]])[[1L]]), integer(1))
+  effective_flag2 <- ensemble_expected_tag_reporting(mixing_period, requested_flag2)
+  for (j in seq_along(rows)) {
+    values <- ensemble_fields(lines[[rows[[j]]]])
+    if (length(values) != 10L) stop("Tag flag row does not have 10 fields.", call. = FALSE)
+    values[[2L]] <- as.character(effective_flag2[[j]])
     lines[[rows[[j]]]] <- paste(values, collapse = " ")
   }
   writeLines(lines, path, useBytes = TRUE)
@@ -127,14 +165,6 @@ ensemble_refresh_manifest <- function(run_dir) {
   write.table(manifest, path, row.names = FALSE, col.names = FALSE, quote = FALSE)
 }
 
-ensemble_refresh_checkpoint_md5 <- function(doitall, checkpoints) {
-  lines <- readLines(doitall, warn = FALSE)
-  hits <- grep("^[[:space:]]*expected_output=[0-9a-f]{32}[[:space:]]*$", lines)
-  if (length(hits) != 3L) stop("Expected three checkpoint output hashes.", call. = FALSE)
-  lines[hits] <- paste0("      expected_output=", unname(tools::md5sum(checkpoints)))
-  writeLines(lines, doitall, useBytes = TRUE)
-}
-
 ensemble_source_hashes <- function(repo) {
   mixing <- read.csv(file.path(repo, "design", "mixing-sources.csv"), stringsAsFactors = FALSE)
   effort <- read.csv(file.path(repo, "design", "effort-creep-sources.csv"), stringsAsFactors = FALSE)
@@ -186,11 +216,10 @@ ensemble_verify_inputs <- function(repo, model_id, run_dir) {
   ensemble_verify_manifest(run_dir, file.path(run_dir, "INPUTS.sha256"))
 
   base <- file.path(repo, "model")
-  checkpoints <- file.path("checkpoints", paste0(c("phase01", "phase02", "phase05"), "-seed23.par"))
-  target_paths <- c("bet.ini", checkpoints)
-  markers_h <- c("^# sv[(]29[)][[:space:]]*$", rep("^# Seasonal growth parameters[[:space:]]*$", 3L))
-  fields_h <- c(1L, rep(29L, 3L))
-  markers_m <- c("^# age_pars[[:space:]]*$", rep("^# age-class related parameters [(]age_pars[)][[:space:]]*$", 3L))
+  target_paths <- "bet.ini"
+  markers_h <- "^# sv[(]29[)][[:space:]]*$"
+  fields_h <- 1L
+  markers_m <- "^# age_pars[[:space:]]*$"
   source_tags <- ensemble_tag_matrix(file.path(repo, "sources", "mixing", row$tag_mixing_source_file))
 
   for (i in seq_along(target_paths)) {
@@ -205,8 +234,12 @@ ensemble_verify_inputs <- function(repo, model_id, run_dir) {
     }
     actual_tags <- ensemble_tag_matrix(path)
     base_tags <- ensemble_tag_matrix(base_path)
+    expected_flag2 <- ensemble_expected_tag_reporting(
+      as.integer(source_tags[, 1L]),
+      row$tag_reporting_flag2
+    )
     if (!identical(actual_tags[, 1L], source_tags[, 1L]) ||
-        any(as.integer(actual_tags[, 2L]) != row$tag_reporting_flag2) ||
+        any(as.integer(actual_tags[, 2L]) != expected_flag2) ||
         !identical(actual_tags[, -(1:2), drop = FALSE], base_tags[, -(1:2), drop = FALSE])) {
       stop("Tag flags do not match the selected mixing/reporting inputs in ", target_paths[[i]], call. = FALSE)
     }
@@ -221,6 +254,23 @@ ensemble_verify_inputs <- function(repo, model_id, run_dir) {
     allowed[[as.character(m_row)]] <- 1L
     ensemble_assert_lines(base_path, path, allowed)
   }
+
+  model_input_rel <- file.path("model-inputs", "S0.90-F2.conf")
+  model_input <- file.path(run_dir, model_input_rel)
+  base_model_input <- file.path(base, model_input_rel)
+  observed_model_h <- as.numeric(ensemble_assignment_value(model_input, "STEEPNESS"))
+  if (abs(observed_model_h - row$steepness) > 1e-12 ||
+      ensemble_assignment_value(model_input, "MODEL_ID") != "S0.90-F2" ||
+      ensemble_assignment_value(model_input, "SELECTIVITY_MODEL") != "F2" ||
+      ensemble_assignment_value(model_input, "SELECTIVITY_INPUT") != "selectivity-models/F2.csv") {
+    stop("Job 21641 model-input identity or ensemble steepness mismatch.", call. = FALSE)
+  }
+  model_h_row <- grep("^STEEPNESS=", readLines(base_model_input, warn = FALSE))
+  ensemble_assert_lines(
+    base_model_input,
+    model_input,
+    setNames(list(1L), as.character(model_h_row))
+  )
 
   base_frq <- readLines(file.path(base, "bet.frq"), warn = FALSE)
   actual_frq <- readLines(file.path(run_dir, "bet.frq"), warn = FALSE)
@@ -244,9 +294,9 @@ ensemble_verify_inputs <- function(repo, model_id, run_dir) {
 
   base_doitall <- readLines(file.path(base, "doitall.sh"), warn = FALSE)
   actual_doitall <- readLines(file.path(run_dir, "doitall.sh"), warn = FALSE)
-  allowed_doitall_rows <- c(
-    grep("^[[:space:]]*expected_output=[0-9a-f]{32}[[:space:]]*$", base_doitall),
-    grep("^[[:space:]]*expected = -2[.]54930339768360[[:space:]]*$", base_doitall)
+  allowed_doitall_rows <- grep(
+    "^[[:space:]]*expected = -2[.]54930339768360[[:space:]]*$",
+    base_doitall
   )
   allowed_doitall <- setNames(lapply(allowed_doitall_rows, function(x) seq_along(ensemble_fields(base_doitall[[x]]))),
                                 as.character(allowed_doitall_rows))
@@ -258,7 +308,7 @@ ensemble_verify_inputs <- function(repo, model_id, run_dir) {
   base_manifest <- read.table(file.path(base, "MANIFEST.sha256"), col.names = c("sha256", "file"), stringsAsFactors = FALSE)
   actual_manifest <- read.table(file.path(run_dir, "MANIFEST.sha256"), col.names = c("sha256", "file"), stringsAsFactors = FALSE)
   if (!identical(base_manifest$file, actual_manifest$file)) stop("Model manifest file list changed.", call. = FALSE)
-  permitted <- c("bet.ini", "bet.frq", "doitall.sh", checkpoints)
+  permitted <- c("bet.ini", "bet.frq", "doitall.sh", model_input_rel)
   changed_manifest <- base_manifest$file[base_manifest$sha256 != actual_manifest$sha256]
   if (length(setdiff(changed_manifest, permitted))) stop("Unexpected model file changed: ", paste(setdiff(changed_manifest, permitted), collapse = ", "), call. = FALSE)
   for (relative in setdiff(base_manifest$file, permitted)) {
@@ -277,6 +327,7 @@ ensemble_verify_inputs <- function(repo, model_id, run_dir) {
     steepness = row$steepness,
     tag_mixing_k_cutoff = row$tag_mixing_k_cutoff,
     tag_reporting_flag2 = row$tag_reporting_flag2,
+    tag_reporting_zero_mixing_exclusions = row$tag_reporting_zero_mixing_exclusions,
     m0_quarterly = row$m_age40_quarterly,
     effort_creep_primary = row$effort_creep_primary,
     effort_creep_secondary = row$effort_creep_secondary,
@@ -302,22 +353,19 @@ ensemble_prepare_inputs <- function(repo, model_id, output) {
 
   ini <- file.path(output, "bet.ini")
   doitall <- file.path(output, "doitall.sh")
-  checkpoint_rel <- file.path("checkpoints", paste0(c("phase01", "phase02", "phase05"), "-seed23.par"))
-  checkpoints <- file.path(output, checkpoint_rel)
-  target_paths <- c(ini, checkpoints)
-  h_markers <- c("^# sv[(]29[)][[:space:]]*$", rep("^# Seasonal growth parameters[[:space:]]*$", 3L))
-  h_fields <- c(1L, rep(29L, 3L))
-  m_markers <- c("^# age_pars[[:space:]]*$", rep("^# age-class related parameters [(]age_pars[)][[:space:]]*$", 3L))
   h_value <- format(row$steepness, digits = 17, scientific = TRUE)
   m_value <- format(row$lorenzen_log_intercept, digits = 17, scientific = TRUE)
   mixing_source <- file.path(repo, "sources", "mixing", row$tag_mixing_source_file)
 
-  for (i in seq_along(target_paths)) {
-    ensemble_replace_field(target_paths[[i]], h_markers[[i]], 1L, h_fields[[i]], h_value)
-    ensemble_replace_field(target_paths[[i]], m_markers[[i]], 5L, 1L, m_value)
-    ensemble_replace_tag_column(target_paths[[i]], 1L, source_path = mixing_source)
-    ensemble_replace_tag_column(target_paths[[i]], 2L, constant = row$tag_reporting_flag2)
-  }
+  ensemble_replace_field(ini, "^# sv[(]29[)][[:space:]]*$", 1L, 1L, h_value)
+  ensemble_replace_field(ini, "^# age_pars[[:space:]]*$", 5L, 1L, m_value)
+  ensemble_replace_tag_column(ini, 1L, source_path = mixing_source)
+  ensemble_replace_tag_reporting(ini, row$tag_reporting_flag2)
+  ensemble_replace_assignment(
+    file.path(output, "model-inputs", "S0.90-F2.conf"),
+    "STEEPNESS",
+    h_value
+  )
   ensemble_replace_effort(
     file.path(output, "bet.frq"),
     file.path(repo, "sources", "effort-creep", row$effort_source_file)
@@ -328,11 +376,13 @@ ensemble_prepare_inputs <- function(repo, model_id, output) {
   if (length(hit) != 1L) stop("Could not locate the final M audit in doitall.sh.", call. = FALSE)
   lines[[hit]] <- paste0("  expected = ", m_value)
   writeLines(lines, doitall, useBytes = TRUE)
-  ensemble_refresh_checkpoint_md5(doitall, checkpoints)
   ensemble_refresh_manifest(output)
 
   metadata <- row
-  metadata$diagnostic_source_commit <- "be953e4271e7f8119f982d5efebb21a5e8e364b3"
+  metadata$diagnostic_source_job <- 21641L
+  metadata$diagnostic_source_commit <- "3abf0c64fb9b0c2d70b9c672dc7d9a655d3060d6"
+  metadata$diagnostic_model <- "S0.90-F2"
+  metadata$tag_tau <- 2
   metadata$input_status <- "prepared-and-verified"
   write.csv(metadata, file.path(output, "ensemble-metadata.csv"), row.names = FALSE, quote = TRUE)
 

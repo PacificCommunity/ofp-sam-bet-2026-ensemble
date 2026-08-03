@@ -1,16 +1,17 @@
 # BET 2026 ensemble
 
-This repository defines a reproducible 100-model structural ensemble for the
-BET 2026 Diagnostic model. Each row of
+This repository defines a reproducible 100-model structural ensemble based on
+BET 2026 Diagnostic Job 21641 (`S0.90-F2`). Each row of
 [`design/model-draws.csv`](design/model-draws.csv) is one model configuration.
 The ensemble changes only the five uncertainty axes listed below; all other
-inputs and the Diagnostic seed-23 fitting path remain unchanged.
+inputs, F2 selectivity, fixed `tau=2` treatment and the ordinary `-makepar`
+fitting path remain unchanged.
 
 | Axis | 100-model representation |
 |---|---|
 | Steepness | 100 stratified quantiles from the 2024 South Pacific albacore censored beta prior: mean 0.87, SD 0.063, bounded by 0.2 and 1.0 |
 | Tag mixing periods (`K` cutoff) | Release-group mixing periods derived at Kolmogorov dissimilarity cutoffs 0.05–0.35, with 0.20 most frequent: 6, 12, 19, 26, 19, 12 and 6 models |
-| Tag reporting | MFCL tag flag column 2: 50 inclusion (`0`) and 50 exclusion (`1`) models |
+| Tag reporting | MFCL tag flag column 2: 50 inclusion (`0`) and 50 exclusion (`1`) models; zero-mixing events remain excluded for current-MFCL compatibility |
 | Natural mortality | Quarterly Lorenzen `M0` at `L(40.5)`: bounded logit-normal on 0.050–0.165, with elicited mode 0.0702 and median 0.078136 |
 | Effort creep | Five official BET/YFT scenarios with 20 models each |
 
@@ -40,10 +41,11 @@ pairwise rank correlations; no composite balance score is used.
 
 ## Run a model
 
-Every run starts from the frozen Diagnostic inputs and the documented seed-23
-phase checkpoints. The preparation step changes only the selected five axes,
-then compares the resulting INI, three checkpoint PARs, FRQ and `doitall.sh`
-against both the design row and authoritative source files before MFCL starts.
+Every run starts from the frozen Job 21641 inputs with ordinary
+`bet.ini -makepar`; no seed, jitter or fitted checkpoint is applied. The
+preparation step changes only the selected five axes, then compares the
+resulting INI, F2 model configuration, FRQ and `doitall.sh` against both the
+design row and authoritative source files before MFCL starts.
 
 ```sh
 ./run.sh ensemble-001

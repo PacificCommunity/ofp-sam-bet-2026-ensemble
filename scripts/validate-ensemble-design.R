@@ -42,8 +42,16 @@ stopifnot(
   all(nchar(effort$source_sha256) == 64L),
   all(nchar(mixing_sources$source_sha256) == 64L),
   all(draws$tag_mixing_source_file %in% mixing_sources$tag_mixing_source_file),
+  all(draws$zero_mixing_events == mixing_sources$zero_mixing_events[
+    match(draws$tag_mixing_source_file, mixing_sources$tag_mixing_source_file)
+  ]),
+  all(draws$tag_reporting_zero_mixing_exclusions == ifelse(
+    draws$tag_reporting_flag2 == 0L,
+    draws$zero_mixing_events,
+    0L
+  )),
   length(unique(draws$model_label)) == 100L,
-  all(draws$initialization == "Diagnostic seed-23 path"),
+  all(draws$initialization == "Job 21641 ordinary makepar (no seed)"),
   all(draws$pairing_version == "mod101-v1"),
   !"design_seed" %in% names(draws),
   !any(grepl("set[.]seed|RNGkind|sample[.(]", script_text)),
@@ -67,5 +75,10 @@ stopifnot(
 
 ensemble_source_hashes(repo)
 invisible(lapply(mixing_paths, ensemble_validate_mixing_source))
+stopifnot(all(vapply(
+  mixing_paths,
+  function(path) sum(ensemble_tag_matrix(path)[, 1L] == "0"),
+  integer(1)
+) == mixing_sources$zero_mixing_events))
 
 cat("Validated 100 deterministic BET 2026 ensemble configurations.\n")

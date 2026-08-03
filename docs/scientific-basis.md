@@ -56,8 +56,8 @@ distribution makes 0.20 the mode while retaining both requested tails.
 
 Each draw selects the corresponding authoritative `bet.2026.mix-*.ini`
 scenario. The complete release-group-specific first column of the MFCL tag-flag
-block is transferred from that source to the Diagnostic INI and every seed-23
-checkpoint. Thus `K = 0.15`, for example, selects
+block is transferred from that source to the frozen Job 21641 Diagnostic INI.
+Thus `K = 0.15`, for example, selects
 `bet.2026.mix-0.15.ini`; it does not write `0.15` into the MFCL tag flags.
 
 All seven files are frozen from the upstream `SC22-IP10-regionMean` branch at
@@ -74,7 +74,12 @@ Tag reporting is a two-level uncertainty axis with equal probability:
 - `1`: exclude it, matching the current Diagnostic configuration.
 
 The value is written to column 2 of the relevant MFCL tag flag. The design
-contains exactly 50 models of each type.
+contains exactly 50 models of each type. For an inclusion model, release events
+whose selected mixing period is zero retain flag 2 = 1 because current MFCL
+does not permit reporting-rate application with a zero mixing period. All
+positive-mixing events receive flag 2 = 0. The source mixing periods themselves
+are not altered, and the number of compatibility exclusions is recorded for
+every design row.
 
 ## Natural mortality
 

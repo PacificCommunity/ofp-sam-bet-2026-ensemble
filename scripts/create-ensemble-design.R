@@ -119,10 +119,12 @@ mixing_source_sha256 <- c(
   "0d0b797d8439de174585de479e2f0211031f1a31af88d315cc3ce2821e4ab0fc",
   "1ee630abfb044702581ca2b7956a5262ba2a29547eb47a1ae6f5c65005aaa661"
 )
+mixing_zero_events <- c(0L, 0L, 1L, 2L, 6L, 14L, 18L)
 mixing_sources <- data.frame(
   tag_mixing_k_cutoff = k_cutoff_levels,
   tag_mixing_source_file = unname(mixing_source_file),
   source_sha256 = mixing_source_sha256,
+  zero_mixing_events = mixing_zero_events,
   source_branch = "SC22-IP10-regionMean",
   source_commit = "efe3107c72774ee73b5e6dc45e44cf51f0fc20e8",
   stringsAsFactors = FALSE
@@ -193,9 +195,18 @@ design <- data.frame(
   effort_creep_primary = effort$effort_creep_primary[effort_index],
   effort_creep_secondary = effort$effort_creep_secondary[effort_index],
   effort_source_file = effort$effort_source_file[effort_index],
-  initialization = "Diagnostic seed-23 path",
+  initialization = "Job 21641 ordinary makepar (no seed)",
   pairing_version = "mod101-v1",
   stringsAsFactors = FALSE
+)
+design$zero_mixing_events <- unname(setNames(
+  mixing_zero_events,
+  sprintf("%.2f", k_cutoff_levels)
+)[sprintf("%.2f", design$tag_mixing_k_cutoff)])
+design$tag_reporting_zero_mixing_exclusions <- ifelse(
+  design$tag_reporting_flag2 == 0L,
+  design$zero_mixing_events,
+  0L
 )
 design$model_label <- sprintf(
   "E%03d | h=%.3f | K=%.2f | RR=%s | M0=%.4f/qtr | creep=%.1f/%.2f%%",
