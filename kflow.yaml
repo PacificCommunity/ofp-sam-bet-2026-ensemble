@@ -1,5 +1,5 @@
-name: bet-2026-ensemble-tau2
-description: BET 2026 Diagnostic ensemble from Job 21641; tau=2 fixed; ordinary makepar with no fitted seed; 100 independent Suva fits varying h, tag mixing, tag reporting, M and effort creep.
+name: bet-2026-ensemble-tau-axis
+description: BET 2026 Diagnostic ensemble from Job 21641; ordinary makepar with no fitted seed; 100 independent Suva fits varying h, fixed tag tau, tag mixing, tag reporting, M and effort creep.
 command: bash run.sh
 docker_image: ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360
 remote_host: suva
@@ -27,13 +27,14 @@ output_patterns:
 metadata:
   reference_model: Diagnostic Job 21641
   source_job: 21641
-  fixed_tau: 2
+  tau_levels: [1.2, 1.3, 1.4]
+  tau_counts: [33, 34, 33]
   selectivity_model: Diagnostic
   initialization: ordinary-makepar-no-seed
   model_count: 100
   execution: independent-concurrent
   convergence: 1e-4
   inputs: frozen-and-preflight-verified
-  changes_from_previous: Job 21641 Diagnostic; tau=2 fixed; ordinary makepar/no fitted seed; Diagnostic selectivity
+  changes_from_previous: Fixed-tau=2 ensemble plus one structural axis; tau fixed at 1.2, 1.3 or 1.4 in 33, 34 and 33 fits; all other axes and Diagnostic controls retained
   tag_mixing_source_branch: SC22-IP10-regionMean
   tag_mixing_source_commit: efe3107c72774ee73b5e6dc45e44cf51f0fc20e8

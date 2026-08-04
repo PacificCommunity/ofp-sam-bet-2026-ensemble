@@ -10,9 +10,25 @@ requires no random-number generator or seed and gives identical pairings
 across R versions, apart from possible negligible numerical-library rounding
 when evaluating distribution quantiles. The committed `model-draws.csv` is the
 source of truth. The 100 configurations preserve the requested marginal
-distributions without asserting biological correlations among the five axes.
+distributions without asserting biological correlations among the six axes.
 Pairwise rank correlations are reported directly; no composite balance score
 is defined.
+
+## Tag overdispersion
+
+The direct negative-binomial tag parameter is included as a three-level
+structural axis. Tau is fixed, not estimated, at `1.2`, `1.3` or `1.4` in
+33, 34 and 33 models, respectively. MFCL uses
+
+\[
+\tau = 1 + \exp\{\mathrm{fish\_pars}(4)\},
+\]
+
+so the corresponding fixed direct parameters are `log(0.2)`, `log(0.3)` and
+`log(0.4)`. The tag likelihood remains negative binomial (`parest 111=4`),
+the direct parameterization remains active (`parest 305=1`), and fish flags
+43/44 remain zero in every fit. Runtime audits verify the selected value after
+makepar and after every estimation phase.
 
 ## Steepness
 

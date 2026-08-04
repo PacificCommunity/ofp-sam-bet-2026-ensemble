@@ -76,6 +76,8 @@ def task_payload(config: dict[str, Any], rows: list[dict[str, str]]) -> dict[str
                 "ensemble_id": row["ensemble_id"],
                 "model_label": row["model_label"],
                 "steepness": row["steepness"],
+                "tag_tau": row["tag_tau"],
+                "tau_fish_pars4": row["tau_fish_pars4"],
                 "tag_mixing_k_cutoff": row["tag_mixing_k_cutoff"],
                 "tag_reporting": row["tag_reporting"],
                 "tag_reporting_zero_mixing_exclusions": row["tag_reporting_zero_mixing_exclusions"],
@@ -113,11 +115,12 @@ def task_payload(config: dict[str, Any], rows: list[dict[str, str]]) -> dict[str
 
 def job_payload(config: dict[str, Any], row: dict[str, str], index: int) -> dict[str, Any]:
     resources = config["resources"]
-    title = f"BET Diagnostic | tau=2 fixed | {row['model_label']}"
+    title = f"BET Diagnostic | {row['model_label']}"
     description = (
         f"Independent BET 2026 Diagnostic ensemble fit {index:03d}/100. "
-        f"Changed basis: Job 21641 Diagnostic, tau=2 fixed, ordinary makepar/no fitted seed, "
-        f"Diagnostic selectivity (F10 and F33 weak non-decreasing). "
+        f"Changed basis: Job 21641 Diagnostic with tau fixed at {row['tag_tau']}, "
+        f"ordinary makepar/no fitted seed, Diagnostic selectivity "
+        f"(F10 and F33 weak non-decreasing). "
         f"Preflight-verified draw: {row['model_label']}."
     )
     env = {
@@ -139,7 +142,7 @@ def job_payload(config: dict[str, Any], row: dict[str, str], index: int) -> dict
         "cpus": resources["cpus"],
         "memory": resources["memory"],
         "disk": resources["disk"],
-        "batch_name": "bet-2026-ensemble-tau2 | Job 21641 Diagnostic | 100 independent Suva fits",
+        "batch_name": "bet-2026-ensemble-tau-axis | Job 21641 Diagnostic | 100 independent Suva fits",
         "output_patterns": config["output_patterns"],
         "input_jobs": [],
         "env": env,
@@ -147,6 +150,7 @@ def job_payload(config: dict[str, Any], row: dict[str, str], index: int) -> dict
             **config["tags"],
             "ensemble_id": row["ensemble_id"],
             "model_label": row["model_label"],
+            "tag_tau": row["tag_tau"],
             "independent_fit": "true",
             "inputs_frozen": "true",
         },
@@ -158,6 +162,8 @@ def job_payload(config: dict[str, Any], row: dict[str, str], index: int) -> dict
             "ensemble_id": row["ensemble_id"],
             "model_label": row["model_label"],
             "steepness": row["steepness"],
+            "tag_tau": row["tag_tau"],
+            "tau_fish_pars4": row["tau_fish_pars4"],
             "tag_mixing_k_cutoff": row["tag_mixing_k_cutoff"],
             "tag_mixing_source_file": row["tag_mixing_source_file"],
             "tag_mixing_source_branch": "SC22-IP10-regionMean",
@@ -174,7 +180,7 @@ def job_payload(config: dict[str, Any], row: dict[str, str], index: int) -> dict
             "diagnostic_source_job": 21641,
             "diagnostic_source_commit": "3abf0c64fb9b0c2d70b9c672dc7d9a655d3060d6",
             "diagnostic_model": "Diagnostic",
-            "fixed_tau": 2,
+            "fixed_tau": row["tag_tau"],
             "selectivity_model": "Diagnostic",
             "inputs_frozen": True,
             "input_preflight": "strict-before-MFCL",

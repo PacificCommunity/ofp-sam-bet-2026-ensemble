@@ -1,0 +1,28 @@
+#!/bin/sh
+set -eu
+
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+test_root=$(mktemp -d)
+trap 'rm -rf "$test_root"' EXIT HUP INT TERM
+
+for tau in 1.2 1.3 1.4; do
+  model_id=$(Rscript -e '
+    args <- commandArgs(TRUE)
+    design <- read.csv(file.path(args[[1]], "design", "model-draws.csv"))
+    hit <- which(abs(design$tag_tau - as.numeric(args[[2]])) < 1e-12)
+    if (!length(hit)) quit(status = 2L)
+    cat(design$ensemble_id[[hit[[1L]]]])
+  ' "$repo_dir" "$tau")
+  run_dir="$test_root/$model_id"
+  Rscript "$repo_dir/scripts/prepare-ensemble.R" "$model_id" "$run_dir" >/dev/null
+  if ! (
+    cd "$run_dir"
+    MODEL_ID=S0.90-F2 PROGRAM_PATH=./mfclo64 MODEL_STOP_AFTER_PHASE0=1 \
+      ./doitall.sh >phase0.log 2>&1
+  ); then
+    cat "$run_dir/phase0.log" >&2
+    exit 1
+  fi
+  grep -q 'Phase 0 tau=.* value audit: passed' "$run_dir/phase0.log"
+  printf 'makepar and fixed-tau audit passed: tau=%s (%s)\n' "$tau" "$model_id"
+done

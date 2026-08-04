@@ -31,5 +31,7 @@ movement, growth or likelihood control difference was found.
 For every ensemble run, the preparation layer may change only the declared
 axes: steepness, Lorenzen M intercept, tag-mixing source, tag-reporting option
 and the F29-F33 effort-creep series. The complete Diagnostic selectivity structure and
-fixed tau=2 treatment remain common to all 100 fits. Runtime audits check tau,
-steepness, M, DM and Diagnostic selectivity after every fitted phase.
+direct negative-binomial parameterization remain common to all 100 fits. Tau
+is now the declared three-level fixed axis (`1.2`, `1.3`, `1.4`); runtime audits
+check its selected value, steepness, M, DM and Diagnostic selectivity after
+every fitted phase.

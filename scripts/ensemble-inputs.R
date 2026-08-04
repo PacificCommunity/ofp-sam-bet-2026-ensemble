@@ -259,17 +259,27 @@ ensemble_verify_inputs <- function(repo, model_id, run_dir) {
   model_input <- file.path(run_dir, model_input_rel)
   base_model_input <- file.path(base, model_input_rel)
   observed_model_h <- as.numeric(ensemble_assignment_value(model_input, "STEEPNESS"))
+  observed_tau <- as.numeric(ensemble_assignment_value(model_input, "TAU"))
+  observed_tau_par <- as.numeric(ensemble_assignment_value(model_input, "TAU_FISH_PARS4"))
   if (abs(observed_model_h - row$steepness) > 1e-12 ||
+      abs(observed_tau - row$tag_tau) > 1e-12 ||
+      abs(observed_tau_par - row$tau_fish_pars4) > 1e-12 ||
+      abs(observed_tau - (1 + exp(observed_tau_par))) > 1e-12 ||
       ensemble_assignment_value(model_input, "MODEL_ID") != "S0.90-F2" ||
       ensemble_assignment_value(model_input, "SELECTIVITY_MODEL") != "F2" ||
       ensemble_assignment_value(model_input, "SELECTIVITY_INPUT") != "selectivity-models/F2.csv") {
     stop("Job 21641 model-input identity or ensemble steepness mismatch.", call. = FALSE)
   }
-  model_h_row <- grep("^STEEPNESS=", readLines(base_model_input, warn = FALSE))
+  model_input_lines <- readLines(base_model_input, warn = FALSE)
+  model_change_rows <- c(
+    grep("^STEEPNESS=", model_input_lines),
+    grep("^TAU=", model_input_lines),
+    grep("^TAU_FISH_PARS4=", model_input_lines)
+  )
   ensemble_assert_lines(
     base_model_input,
     model_input,
-    setNames(list(1L), as.character(model_h_row))
+    setNames(rep(list(1L), length(model_change_rows)), as.character(model_change_rows))
   )
 
   base_frq <- readLines(file.path(base, "bet.frq"), warn = FALSE)
@@ -328,6 +338,8 @@ ensemble_verify_inputs <- function(repo, model_id, run_dir) {
     tag_mixing_k_cutoff = row$tag_mixing_k_cutoff,
     tag_reporting_flag2 = row$tag_reporting_flag2,
     tag_reporting_zero_mixing_exclusions = row$tag_reporting_zero_mixing_exclusions,
+    tag_tau = row$tag_tau,
+    tau_fish_pars4 = row$tau_fish_pars4,
     m0_quarterly = row$m_age40_quarterly,
     effort_creep_primary = row$effort_creep_primary,
     effort_creep_secondary = row$effort_creep_secondary,
@@ -354,6 +366,8 @@ ensemble_prepare_inputs <- function(repo, model_id, output) {
   ini <- file.path(output, "bet.ini")
   doitall <- file.path(output, "doitall.sh")
   h_value <- format(row$steepness, digits = 17, scientific = TRUE)
+  tau_value <- format(row$tag_tau, digits = 17, scientific = TRUE)
+  tau_par_value <- format(row$tau_fish_pars4, digits = 17, scientific = TRUE)
   m_value <- format(row$lorenzen_log_intercept, digits = 17, scientific = TRUE)
   mixing_source <- file.path(repo, "sources", "mixing", row$tag_mixing_source_file)
 
@@ -365,6 +379,16 @@ ensemble_prepare_inputs <- function(repo, model_id, output) {
     file.path(output, "model-inputs", "S0.90-F2.conf"),
     "STEEPNESS",
     h_value
+  )
+  ensemble_replace_assignment(
+    file.path(output, "model-inputs", "S0.90-F2.conf"),
+    "TAU",
+    tau_value
+  )
+  ensemble_replace_assignment(
+    file.path(output, "model-inputs", "S0.90-F2.conf"),
+    "TAU_FISH_PARS4",
+    tau_par_value
   )
   ensemble_replace_effort(
     file.path(output, "bet.frq"),
@@ -382,7 +406,7 @@ ensemble_prepare_inputs <- function(repo, model_id, output) {
   metadata$diagnostic_source_job <- 21641L
   metadata$diagnostic_source_commit <- "3abf0c64fb9b0c2d70b9c672dc7d9a655d3060d6"
   metadata$diagnostic_model <- "Diagnostic"
-  metadata$tag_tau <- 2
+  metadata$tag_tau <- row$tag_tau
   metadata$input_status <- "prepared-and-verified"
   write.csv(metadata, file.path(output, "ensemble-metadata.csv"), row.names = FALSE, quote = TRUE)
 

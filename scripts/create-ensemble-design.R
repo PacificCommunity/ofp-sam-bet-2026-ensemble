@@ -133,6 +133,13 @@ mixing_sources <- data.frame(
 # MFCL tag flag column 2: 0 includes pre-mixing reporting, 1 excludes it.
 rr_draw <- rep(c(0L, 1L), each = n_models / 2L)
 
+# Direct negative-binomial tag overdispersion. The Diagnostic reference fixes
+# tau=2; the new structural axis fixes tau at the three requested lower values.
+# Counts are exact and symmetric apart from the unavoidable centre allocation.
+tau_levels <- c(1.2, 1.3, 1.4)
+tau_counts <- c(33L, 34L, 33L)
+tau_draw <- rep(tau_levels, tau_counts)
+
 effort <- data.frame(
   effort_level = seq_len(5L),
   effort_creep_primary = c(0.005, 0.010, 0.015, 0.020, 0.025),
@@ -155,7 +162,7 @@ effort <- data.frame(
 )
 effort_draw <- rep(effort$effort_level, each = n_models / nrow(effort))
 
-# Couple the five fixed margins without any pseudo-random-number generator.
+# Couple the six fixed margins without any pseudo-random-number generator.
 # For prime modulus 101, multiplication by any nonzero integer below 101 is a
 # permutation of 1:100. The fixed multipliers below therefore give a fully
 # specified, language- and R-version-independent pairing of the margins.
@@ -167,14 +174,16 @@ pairing_multipliers <- c(
   tag_mixing = 44L,
   tag_reporting = 35L,
   natural_mortality = 21L,
-  effort_creep = 24L
+  effort_creep = 24L,
+  tag_overdispersion = 14L
 )
 pairing <- list(
   h = modular_permutation(pairing_multipliers[["steepness"]]),
   mixing = modular_permutation(pairing_multipliers[["tag_mixing"]]),
   rr = modular_permutation(pairing_multipliers[["tag_reporting"]]),
   m = modular_permutation(pairing_multipliers[["natural_mortality"]]),
-  effort = modular_permutation(pairing_multipliers[["effort_creep"]])
+  effort = modular_permutation(pairing_multipliers[["effort_creep"]]),
+  tau = modular_permutation(pairing_multipliers[["tag_overdispersion"]])
 )
 stopifnot(all(vapply(pairing, function(x) identical(sort(x), seq_len(n_models)), logical(1))))
 
@@ -189,6 +198,8 @@ design <- data.frame(
   ]),
   tag_reporting_flag2 = rr_draw[pairing$rr],
   tag_reporting = ifelse(rr_draw[pairing$rr] == 0L, "inclusion", "exclusion"),
+  tag_tau = tau_draw[pairing$tau],
+  tau_fish_pars4 = log(tau_draw[pairing$tau] - 1),
   m_age40_quarterly = m_draw[pairing$m],
   lorenzen_log_intercept = log(m_draw[pairing$m]),
   m_prior_quantile = m_probability[pairing$m],
@@ -196,7 +207,7 @@ design <- data.frame(
   effort_creep_secondary = effort$effort_creep_secondary[effort_index],
   effort_source_file = effort$effort_source_file[effort_index],
   initialization = "Job 21641 ordinary makepar (no seed)",
-  pairing_version = "mod101-v1",
+  pairing_version = "mod101-v2",
   stringsAsFactors = FALSE
 )
 design$zero_mixing_events <- unname(setNames(
@@ -209,8 +220,8 @@ design$tag_reporting_zero_mixing_exclusions <- ifelse(
   0L
 )
 design$model_label <- sprintf(
-  "E%03d | h=%.3f | K=%.2f | RR=%s | M0=%.4f/qtr | creep=%.1f/%.2f%%",
-  seq_len(n_models), design$steepness, design$tag_mixing_k_cutoff,
+  "E%03d | h=%.3f | tau=%.1f | K=%.2f | RR=%s | M0=%.4f/qtr | creep=%.1f/%.2f%%",
+  seq_len(n_models), design$steepness, design$tag_tau, design$tag_mixing_k_cutoff,
   ifelse(design$tag_reporting_flag2 == 0L, "include", "exclude"),
   design$m_age40_quarterly,
   100 * design$effort_creep_primary,
@@ -219,6 +230,8 @@ design$model_label <- sprintf(
 
 stopifnot(
   nrow(design) == 100L,
+  identical(as.integer(table(design$tag_tau)), tau_counts),
+  all(abs(design$tag_tau - (1 + exp(design$tau_fish_pars4))) < 1e-12),
   identical(as.integer(table(design$tag_mixing_k_cutoff)), k_cutoff_counts),
   identical(as.integer(table(design$tag_reporting_flag2)), c(50L, 50L)),
   identical(as.integer(table(design$effort_creep_primary)), rep(20L, 5L)),
@@ -247,7 +260,7 @@ distribution_parameters <- data.frame(
     rep("Tag-analysis M0", 4L),
     rep("Hamel-Cope Amax prior", 7L),
     rep("Hamel-Cope model-aligned M0", 5L),
-    rep("Design", 7L)
+    rep("Design", 8L)
   ),
   parameter = c(
     "lower", "upper", "mean", "sd", "beta_alpha", "beta_beta",
@@ -256,7 +269,8 @@ distribution_parameters <- data.frame(
     "amax_years", "annual_median", "quarterly_median", "quarterly_mean", "log_sd", "lower_95", "upper_95",
     "adult_mean_to_m0_divisor", "quarterly_median", "quarterly_mean", "lower_95", "upper_95",
     "models", "pairing_modulus", "steepness_multiplier", "tag_mixing_multiplier",
-    "tag_reporting_multiplier", "natural_mortality_multiplier", "effort_creep_multiplier"
+    "tag_reporting_multiplier", "natural_mortality_multiplier", "effort_creep_multiplier",
+    "tag_overdispersion_multiplier"
   ),
   value = c(
     h_lower, h_upper, h_mean, h_sd, h_alpha, h_beta,
@@ -319,6 +333,8 @@ continuous_summary <- rbind(
 write.csv(continuous_summary, file.path(output_dir, "continuous-summary.csv"), row.names = FALSE, quote = TRUE)
 
 discrete_summary <- rbind(
+  data.frame(axis = "Tag overdispersion tau", level = format(tau_levels, nsmall = 1),
+             count = as.integer(table(factor(design$tag_tau, levels = tau_levels)))),
   data.frame(axis = "Tag mixing periods (K cutoff)", level = names(table(design$tag_mixing_k_cutoff)),
              count = as.integer(table(design$tag_mixing_k_cutoff))),
   data.frame(axis = "Tag reporting", level = names(table(design$tag_reporting)),
@@ -333,6 +349,7 @@ write.csv(discrete_summary, file.path(output_dir, "discrete-summary.csv"), row.n
 
 numeric_design <- data.frame(
   steepness = design$steepness,
+  tag_tau = design$tag_tau,
   tag_mixing_k_cutoff = design$tag_mixing_k_cutoff,
   reporting_flag2 = design$tag_reporting_flag2,
   m_age40_quarterly = design$m_age40_quarterly,
@@ -353,8 +370,7 @@ draw_publication_figure <- function() {
 
   old_par <- par(no.readonly = TRUE)
   on.exit(par(old_par), add = TRUE)
-  layout(matrix(c(1, 1, 2, 2, 3, 3,
-                  0, 4, 4, 5, 5, 0), nrow = 2, byrow = TRUE))
+  layout(matrix(seq_len(6L), nrow = 2L, byrow = TRUE))
   par(mar = c(4.2, 4.4, 2.4, 0.8), oma = c(0.2, 0.2, 0.2, 0.2),
       mgp = c(2.45, 0.72, 0), tcl = -0.25, las = 1, bty = "l",
       cex.axis = 0.83, cex.lab = 0.91, cex.main = 0.98,
@@ -443,6 +459,11 @@ draw_publication_figure <- function() {
   labelled_barplot(effort_values, effort_names, blue, c(0, 24), "Models",
                    "Primary / secondary effort creep (%)", "e", "Effort creep",
                    cex_names = 0.68)
+
+  tau_values <- as.integer(table(factor(design$tag_tau, levels = tau_levels)))
+  labelled_barplot(tau_values, format(tau_levels, nsmall = 1), orange,
+                   c(0, 39), "Models", expression("Fixed tag overdispersion, " * tau),
+                   "f", "Tag overdispersion")
 }
 
 png(file.path(output_dir, "distributions.png"), width = 3200, height = 1900, res = 300)
@@ -462,3 +483,5 @@ cat(sprintf("Quarterly M at age 40: mean %.4f, median %.5f, mode %.4f, finite ra
             mean(design$m_age40_quarterly), median(design$m_age40_quarterly), m_mode,
             min(design$m_age40_quarterly), max(design$m_age40_quarterly)))
 cat(sprintf("M logit-SD: %.6f (bounded logit-normal)\n", m_logit_sd))
+cat(sprintf("Tag tau: %s models at %s\n",
+            paste(tau_counts, collapse = "/"), paste(tau_levels, collapse = "/")))

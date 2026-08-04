@@ -3,13 +3,17 @@
 This repository defines a reproducible 100-model structural ensemble based on
 BET 2026 Diagnostic Job 21641. Each row of
 [`design/model-draws.csv`](design/model-draws.csv) is one model configuration.
-The ensemble changes only the five uncertainty axes listed below; all other
-inputs, Diagnostic selectivity, fixed `tau=2` treatment and the ordinary `-makepar`
-fitting path remain unchanged.
+The ensemble changes only the six uncertainty axes listed below; all other
+inputs, Diagnostic selectivity and the ordinary `-makepar` fitting path remain
+unchanged. The preceding fixed-`tau=2` ensemble is preserved on the
+[`tau=2`](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/tree/tau%3D2)
+branch; the earlier ensemble is preserved on
+[`tau=1`](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/tree/tau%3D1).
 
 | Axis | 100-model representation |
 |---|---|
 | Steepness | 100 stratified quantiles from the 2024 South Pacific albacore censored beta prior: mean 0.87, SD 0.063, bounded by 0.2 and 1.0 |
+| Tag overdispersion, tau | Fixed independently in each fit at `1.2`, `1.3` or `1.4`, represented by 33, 34 and 33 models |
 | Tag mixing periods (`K` cutoff) | Release-group mixing periods derived at Kolmogorov dissimilarity cutoffs 0.05–0.35, with 0.20 most frequent: 6, 12, 19, 26, 19, 12 and 6 models |
 | Tag reporting | MFCL tag flag column 2: 50 inclusion (`0`) and 50 exclusion (`1`) models; zero-mixing events remain excluded for current-MFCL compatibility |
 | Natural mortality | Quarterly Lorenzen `M0` at `L(40.5)`: bounded logit-normal on 0.050–0.165, with elicited mode 0.0702 and median 0.078136 |
@@ -29,11 +33,12 @@ Only base R is required.
 Rscript scripts/create-ensemble-design.R
 Rscript scripts/validate-ensemble-design.R
 Rscript scripts/validate-all-model-inputs.R
+./scripts/smoke-test-tau-axis
 ```
 
 The design uses no random-number generator or seed. Continuous axes use fixed
 quantiles, discrete margins use exact counts, and fixed modular permutations
-pair the five margins. The assignments therefore do not depend on R's
+pair the six margins. The assignments therefore do not depend on R's
 random-number implementation; only negligible numerical-library rounding in
 distribution quantiles can vary across platforms. `design/model-draws.csv` is
 the committed source of truth. `design/rank-correlation.csv` reports the actual
@@ -46,7 +51,7 @@ recorded in [`docs/job-21641-lineage-audit.md`](docs/job-21641-lineage-audit.md)
 
 Every run starts from the frozen Job 21641 inputs with ordinary
 `bet.ini -makepar`; no seed, jitter or fitted checkpoint is applied. The
-preparation step changes only the selected five axes, then compares the
+preparation step changes only the selected six axes, then compares the
 resulting INI, Diagnostic model configuration, FRQ and `doitall.sh` against both the
 design row and authoritative source files before MFCL starts.
 
@@ -57,7 +62,7 @@ design row and authoritative source files before MFCL starts.
 The output folder contains `ensemble-metadata.csv` and
 `input-change-audit.csv` with full-precision values. Display labels are concise
 but self-describing; for example:
-`E001 | h=0.669 | K=0.20 | RR=include | M0=0.0663/qtr | creep=1.0/0.50%`.
+`E001 | h=0.669 | tau=1.2 | K=0.20 | RR=include | M0=0.0663/qtr | creep=1.0/0.50%`.
 The exact values remain in the metadata rather than the rounded label. Kflow
 uses the same command with one independent Suva job per design row and a phase
 10/11 convergence criterion of `1e-4`.

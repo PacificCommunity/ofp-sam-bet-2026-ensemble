@@ -36,3 +36,4 @@
 "Design","tag_reporting_multiplier",35
 "Design","natural_mortality_multiplier",21
 "Design","effort_creep_multiplier",24
+"Design","tag_overdispersion_multiplier",14
