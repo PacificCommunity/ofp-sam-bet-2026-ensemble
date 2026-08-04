@@ -9,6 +9,10 @@ unchanged. The preceding fixed-`tau=2` ensemble is preserved on the
 [`tau=2`](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/tree/tau%3D2)
 branch; the earlier ensemble is preserved on
 [`tau=1`](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/tree/tau%3D1).
+Relative to the `tau=2` branch, current `main` adds the three-level tau axis and
+uses midpoint-stratified rather than boundary-inclusive quantiles for the same
+natural-mortality distribution. The other four axes and all non-ensemble model
+settings are unchanged.
 
 | Axis | 100-model representation |
 |---|---|
