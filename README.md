@@ -107,16 +107,6 @@ bounds. Bar labels give the exact number of models at each discrete level. A
 vector version is available as
 [`design/distributions.pdf`](design/distributions.pdf).
 
-## Pairing diagnostic
-
-![BET 2026 ensemble randomized pairing diagnostic](design/pairing-diagnostics.png)
-
-**Figure.** Actual values assigned to the 100 ensemble models. Diagonal panels
-show each sampled marginal (with exact counts for discrete levels), lower panels
-show every paired model, and upper panels give Spearman rank correlations. The
-frozen random pairing has maximum absolute pairwise correlation 0.0764; no
-modular sequence is used.
-
 ## Outputs
 
 - `design/model-draws.csv` — machine-readable source of truth
@@ -130,6 +120,5 @@ modular sequence is used.
 - `design/input-validation-summary.csv` — exact preflight result for all 100 frozen inputs
 - `design/rank-correlation.csv` — pairwise cross-axis association audit
 - `design/distributions.png` and `design/distributions.pdf` — publication-ready figure
-- `design/pairing-diagnostics.png` and `design/pairing-diagnostics.pdf` — sampled pairings and correlations
 
 These are structural ensemble draws, not optimizer jitters.

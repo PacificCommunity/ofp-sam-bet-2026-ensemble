@@ -130,9 +130,7 @@ stopifnot(
   abs(m_evidence$lower[5] - 0.0572276723066398) < 1e-12,
   abs(m_evidence$upper[5] - 0.120155781738336) < 1e-12,
   file.info(file.path(design_dir, "distributions.png"))$size > 10000,
-  file.info(file.path(design_dir, "distributions.pdf"))$size > 10000,
-  file.info(file.path(design_dir, "pairing-diagnostics.png"))$size > 10000,
-  file.info(file.path(design_dir, "pairing-diagnostics.pdf"))$size > 10000
+  file.info(file.path(design_dir, "distributions.pdf"))$size > 10000
 )
 
 ensemble_source_hashes(repo)
