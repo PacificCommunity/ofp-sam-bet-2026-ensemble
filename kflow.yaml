@@ -1,4 +1,4 @@
-name: bet-2026-ensemble-tau-axis
+name: bet-2026-ensemble-tau
 description: BET 2026 Diagnostic ensemble from Job 21641; ordinary makepar with no fitted seed; 100 independent Suva fits varying h, fixed tag tau, tag mixing, tag reporting, M and effort creep.
 command: bash run.sh
 docker_image: ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360
@@ -33,6 +33,8 @@ metadata:
   initialization: ordinary-makepar-no-seed
   model_count: 100
   execution: independent-concurrent
+  pairing: random-frozen-v1
+  maximum_absolute_spearman: 0.076428
   convergence: 1e-4
   inputs: frozen-and-preflight-verified
   changes_from_previous: Fixed-tau=2 ensemble plus one structural axis; tau fixed at 1.2, 1.3 or 1.4 in 33, 34 and 33 fits; all other axes and Diagnostic controls retained

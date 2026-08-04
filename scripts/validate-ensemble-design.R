@@ -112,7 +112,7 @@ stopifnot(
   sum(grepl("^audit_dm_concentration_fixed (00[.]fixed|0[1-9]|1[01])[.]par ", doitall_text)) == 12L,
   sum(grepl("^audit_selectivity_model (0[1-9]|1[01])[.]par ", doitall_text)) == 11L,
   sum(grepl("^MODEL_ID=S0[.]90-F2 PROGRAM_PATH=", runner_text)) == 1L,
-  sum(kflow_text == "name: bet-2026-ensemble-tau-axis") == 1L,
+  sum(kflow_text == "name: bet-2026-ensemble-tau") == 1L,
   sum(grepl("title = f\"BET Diagnostic | {row['model_label']}\"", registrar_text, fixed = TRUE)) == 1L,
   !any(grepl("tau=2/F2|tau2/F2|Job-21641-S0[.]90-F2", c(kflow_text, registrar_text))),
   abs(m_evidence$central[1] - 0.0624) < 1e-12,

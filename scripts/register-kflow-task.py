@@ -120,7 +120,7 @@ def job_payload(config: dict[str, Any], row: dict[str, str], index: int) -> dict
         f"Independent BET 2026 Diagnostic ensemble fit {index:03d}/100. "
         f"Changed basis: Job 21641 Diagnostic with tau fixed at {row['tag_tau']}, "
         f"ordinary makepar/no fitted seed, Diagnostic selectivity "
-        f"(F10 and F33 weak non-decreasing). "
+        f"(F10 and F33 weak non-decreasing), frozen randomized all-axis pairing. "
         f"Preflight-verified draw: {row['model_label']}."
     )
     env = {
@@ -142,7 +142,7 @@ def job_payload(config: dict[str, Any], row: dict[str, str], index: int) -> dict
         "cpus": resources["cpus"],
         "memory": resources["memory"],
         "disk": resources["disk"],
-        "batch_name": "bet-2026-ensemble-tau-axis | Job 21641 Diagnostic | 100 independent Suva fits",
+        "batch_name": "bet-2026-ensemble-tau | Job 21641 Diagnostic | 100 independent Suva fits",
         "output_patterns": config["output_patterns"],
         "input_jobs": [],
         "env": env,

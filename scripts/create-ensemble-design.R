@@ -506,14 +506,33 @@ draw_publication_figure()
 dev.off()
 
 draw_pairing_diagnostic <- function() {
+  diagonal_labels <- c("Steepness", "Tau", "K cutoff", "RR flag", "M0 / qtr", "Effort creep")
+  diagonal_index <- 0L
   panel_histogram <- function(x, ...) {
+    diagonal_index <<- diagonal_index + 1L
     usr <- par("usr")
     on.exit(par(usr = usr), add = TRUE)
-    par(usr = c(usr[1:2], 0, 1.08))
-    bins <- hist(x, plot = FALSE, breaks = "FD")
-    height <- bins$counts / max(bins$counts)
-    rect(bins$breaks[-length(bins$breaks)], 0, bins$breaks[-1L], height,
-         col = grDevices::adjustcolor("#0072B2", alpha.f = 0.55), border = "white")
+    values <- sort(unique(x))
+    par(usr = c(usr[1:2], 0, 1.18))
+    if (length(values) <= 10L) {
+      counts <- as.integer(table(factor(x, levels = values)))
+      spacing <- if (length(values) > 1L) min(diff(values)) else diff(usr[1:2]) / 2
+      half_width <- 0.36 * spacing
+      height <- counts / max(counts)
+      rect(values - half_width, 0, values + half_width, height,
+           col = grDevices::adjustcolor("#0072B2", alpha.f = 0.62),
+           border = "white", lwd = 0.9)
+      text(values, pmin(height + 0.055, 1.10), labels = counts,
+           cex = 0.56, col = "#17324D")
+    } else {
+      bins <- hist(x, plot = FALSE, breaks = "FD")
+      height <- bins$counts / max(bins$counts)
+      rect(bins$breaks[-length(bins$breaks)], 0, bins$breaks[-1L], height,
+           col = grDevices::adjustcolor("#0072B2", alpha.f = 0.55),
+           border = "white", lwd = 0.7)
+    }
+    text(mean(usr[1:2]), 0.82, diagonal_labels[[diagonal_index]],
+         font = 2, cex = 0.78, col = "#102A43")
   }
   panel_points <- function(x, y, ...) {
     points(x, y, pch = 16, cex = 0.42,
@@ -533,11 +552,11 @@ draw_pairing_diagnostic <- function() {
       mgp = c(1.2, 0.35, 0), tcl = -0.18, cex.axis = 0.55)
   pairs(
     numeric_design,
-    labels = c("Steepness", "Tau", "K cutoff", "RR flag", "M0 / qtr", "Effort creep"),
+    labels = rep("", ncol(numeric_design)),
     lower.panel = panel_points,
     upper.panel = panel_correlation,
     diag.panel = panel_histogram,
-    gap = 0.35,
+    gap = 0.42,
     cex.labels = 0.82,
     font.labels = 2
   )

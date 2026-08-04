@@ -112,9 +112,10 @@ vector version is available as
 ![BET 2026 ensemble randomized pairing diagnostic](design/pairing-diagnostics.png)
 
 **Figure.** Actual values assigned to the 100 ensemble models. Diagonal panels
-show each sampled marginal, lower panels show every paired model, and upper
-panels give Spearman rank correlations. The frozen random pairing has maximum
-absolute pairwise correlation 0.0764; no modular sequence is used.
+show each sampled marginal (with exact counts for discrete levels), lower panels
+show every paired model, and upper panels give Spearman rank correlations. The
+frozen random pairing has maximum absolute pairwise correlation 0.0764; no
+modular sequence is used.
 
 ## Outputs
 
