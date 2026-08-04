@@ -16,7 +16,7 @@ branch; the earlier ensemble is preserved on
 | Tag overdispersion, tau | Fixed independently in each fit at `1.2`, `1.3` or `1.4`, represented by 33, 34 and 33 models |
 | Tag mixing periods (`K` cutoff) | Release-group mixing periods derived at Kolmogorov dissimilarity cutoffs 0.05–0.35, with 0.20 most frequent: 6, 12, 19, 26, 19, 12 and 6 models |
 | Tag reporting | MFCL tag flag column 2: 50 inclusion (`0`) and 50 exclusion (`1`) models; zero-mixing events remain excluded for current-MFCL compatibility |
-| Natural mortality | Quarterly Lorenzen `M0` at `L(40.5)`: bounded logit-normal on 0.050–0.165, with elicited mode 0.0702 and median 0.078136 |
+| Natural mortality | 100 midpoint quantiles from a quarterly Lorenzen `M0` bounded logit-normal at `L(40.5)`: elicited controls 0.050–0.165, mode 0.0702 and median 0.078136; realised draws 0.0545–0.1328 |
 | Effort creep | Five official BET/YFT scenarios with 20 models each |
 
 The albacore steepness distribution is used as a transparent working prior

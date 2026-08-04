@@ -68,7 +68,9 @@ dbounded_logit_normal <- function(x) {
 }
 m_lower95 <- qbounded_logit_normal(0.025)
 m_upper95 <- qbounded_logit_normal(0.975)
-m_probability <- seq(0, 1, length.out = n_models)
+# As for steepness, represent 100 equal-probability strata by their midpoints.
+# Do not assign the elicited finite controls themselves as ensemble draws.
+m_probability <- (seq_len(n_models) - 0.5) / n_models
 m_draw <- qbounded_logit_normal(m_probability)
 
 # Hamel-Cope estimates an age-invariant adult M from longevity, whereas MFCL
@@ -237,8 +239,8 @@ stopifnot(
   identical(as.integer(table(design$effort_creep_primary)), rep(20L, 5L)),
   abs(mean(design$steepness) - h_mean) < 0.001,
   abs(sd(design$steepness) - h_sd) < 0.002,
-  abs(min(design$m_age40_quarterly) - m_min) < 1e-12,
-  abs(max(design$m_age40_quarterly) - m_max) < 1e-12,
+  abs(min(design$m_age40_quarterly) - qbounded_logit_normal(0.005)) < 1e-12,
+  abs(max(design$m_age40_quarterly) - qbounded_logit_normal(0.995)) < 1e-12,
   abs(m_min + (m_max - m_min) * plogis(
     m_logit_mean - m_logit_sd^2 * (1 - 2 * m_mode_scaled)
   ) - m_mode) < 1e-12,
@@ -319,7 +321,7 @@ continuous_summary <- rbind(
     sd = sd(design$steepness)
   ),
   data.frame(
-    axis = "Quarterly M at age 40",
+    axis = "Quarterly M0 at reference length",
     distribution = sprintf(
       "Bounded logit-normal(%.3f, %.3f; median %.6f; mode %.4f; logit-SD %.6f)",
       m_min, m_max, m_median, m_mode, m_logit_sd
@@ -430,7 +432,7 @@ draw_publication_figure <- function() {
   hc_density <- dlnorm(m_x, log(m_hc_m0_median), m_log_sd_hamel_cope)
   m_ymax <- max(c(selected_density, hc_density)) * 1.17
   plot(m_x, selected_density, type = "n", xlim = range(m_x), ylim = c(0, m_ymax),
-       xlab = expression(M[0]~"at"~L[ref] == L(40.5)~(quarter^{-1})),
+       xlab = expression("Quarterly natural mortality at reference length,"~M[0]~(quarter^{-1})),
        ylab = "Density", yaxs = "i")
   abline(h = axTicks(2), col = light_grey, lwd = 0.8)
   polygon(c(m_x, rev(m_x)), c(selected_density, rep(0, length(selected_density))),
@@ -479,7 +481,7 @@ cat("Created ", n_models, " ensemble draws in ", output_dir, "\n", sep = "")
 cat(sprintf("Steepness: mean %.4f, SD %.4f, range %.4f-%.4f\n",
             mean(design$steepness), sd(design$steepness),
             min(design$steepness), max(design$steepness)))
-cat(sprintf("Quarterly M at age 40: mean %.4f, median %.5f, mode %.4f, finite range %.3f-%.3f\n",
+cat(sprintf("Quarterly M0 at reference length: mean %.4f, median %.5f, mode %.4f, finite range %.3f-%.3f\n",
             mean(design$m_age40_quarterly), median(design$m_age40_quarterly), m_mode,
             min(design$m_age40_quarterly), max(design$m_age40_quarterly)))
 cat(sprintf("M logit-SD: %.6f (bounded logit-normal)\n", m_logit_sd))

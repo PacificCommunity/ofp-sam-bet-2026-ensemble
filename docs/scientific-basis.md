@@ -203,9 +203,11 @@ by a single paper: 0.0702 is the requested midpoint of two assessment-relevant
 estimates, and 0.078136 retains the Diagnostic centre. The range endpoints were
 requested from the approximate Hamel–Cope adult-M 95% limits, but they are used
 here only as finite ensemble controls; they are not asserted to be biological
-confidence bounds for MFCL `M0`. The 100 retained values are deterministic,
-endpoint-anchored quantiles from this selected distribution, so the exact
-design range is represented.
+confidence bounds for MFCL `M0`. The 100 retained values are deterministic
+midpoints of equal-probability intervals (`p = 0.005, 0.015, ..., 0.995`). The
+finite ensemble therefore represents both tails without assigning the elicited
+controls themselves as model values; its realised range is 0.05452–0.13275 per
+quarter.
 
 MFCL uses quarterly time periods in this model. Each draw is entered as
 `log(M0_quarterly)` in the Lorenzen intercept; no additional factor of four is
