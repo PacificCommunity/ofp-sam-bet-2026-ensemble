@@ -11,8 +11,9 @@ branch; the earlier ensemble is preserved on
 [`tau=1`](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/tree/tau%3D1).
 Relative to the `tau=2` branch, current `main` adds the three-level tau axis and
 uses midpoint-stratified rather than boundary-inclusive quantiles for the same
-natural-mortality distribution. The other four axes and all non-ensemble model
-settings are unchanged.
+natural-mortality distribution and replaces modular coupling with a frozen,
+separately randomized pairing of all six axes. The other four axes and all
+non-ensemble model settings are unchanged.
 
 | Axis | 100-model representation |
 |---|---|
@@ -37,16 +38,32 @@ Only base R is required.
 Rscript scripts/create-ensemble-design.R
 Rscript scripts/validate-ensemble-design.R
 Rscript scripts/validate-all-model-inputs.R
-./scripts/smoke-test-tau-axis
+./scripts/smoke-test-ensemble-axes
 ```
 
-The design uses no random-number generator or seed. Continuous axes use fixed
-quantiles, discrete margins use exact counts, and fixed modular permutations
-pair the six margins. The assignments therefore do not depend on R's
-random-number implementation; only negligible numerical-library rounding in
-distribution quantiles can vary across platforms. `design/model-draws.csv` is
-the committed source of truth. `design/rank-correlation.csv` reports the actual
-pairwise rank correlations; no composite balance score is used.
+Continuous axes use fixed
+midpoint quantiles: the distribution is divided into 100 equal 1% probability
+strata and evaluated at their centres (`p = 0.005, 0.015, ..., 0.995`), not at
+the finite parameter-range boundaries. These are inverse-CDF probability
+midpoints, not arithmetic midpoints of the parameter range. Discrete margins
+use exact counts. The six margins are paired by separate random permutations
+generated once without a fixed RNG seed, then frozen in
+`design/pairing-map.csv`; routine recreation and model runs never redraw them.
+This avoids the lattice pattern of the preceding modular pairing while keeping
+the committed 100 models exactly reproducible. The realised steepness range is
+0.668843–0.980467 and the realised quarterly `M0` range is 0.054517–0.132751.
+`design/model-draws.csv` is the generated source of truth for model settings.
+`design/rank-correlation.csv` reports the actual pairwise rank correlations;
+no composite balance score is used.
+
+GitHub Actions recreates the deterministic design, verifies the exact prepared
+inputs for all 100 models, and confirms that only the six intended axes change.
+It then runs MFCL through Phase 0 for representatives spanning the minimum,
+centre and maximum of steepness and natural mortality, every tau, tag-mixing,
+tag-reporting and effort-creep level. The runtime audit checks the realised
+steepness, natural mortality, fixed tau and unchanged DM concentration; the
+static audit checks the selected effort records, tag settings and Diagnostic
+F10/F33 weak non-decreasing selectivity exactly.
 
 The archived Job 19835 versus Job 21641 file- and control-level comparison is
 recorded in [`docs/job-21641-lineage-audit.md`](docs/job-21641-lineage-audit.md).
@@ -76,8 +93,9 @@ uses the same command with one independent Suva job per design row and a phase
 ![BET 2026 ensemble marginal distributions](design/distributions.png)
 
 **Figure.** Marginal distributions of the 100-model BET 2026 structural
-ensemble. Continuous curves show the distributions represented by deterministic
-quantiles; rugs show the retained values. Natural mortality is defined at the
+ensemble. Histograms and rugs show the 100 retained values; continuous curves
+show the probability distributions represented by those midpoint quantiles.
+Natural mortality is defined at the
 reference length `L(40.5 quarters)`. The selected ensemble distribution is
 shown against the Hamel–Cope adult-mortality prior after model-specific scaling
 to `M0`, the tag-based estimate and its 90% confidence interval, and the 2023
@@ -89,9 +107,19 @@ bounds. Bar labels give the exact number of models at each discrete level. A
 vector version is available as
 [`design/distributions.pdf`](design/distributions.pdf).
 
+## Pairing diagnostic
+
+![BET 2026 ensemble randomized pairing diagnostic](design/pairing-diagnostics.png)
+
+**Figure.** Actual values assigned to the 100 ensemble models. Diagonal panels
+show each sampled marginal, lower panels show every paired model, and upper
+panels give Spearman rank correlations. The frozen random pairing has maximum
+absolute pairwise correlation 0.0764; no modular sequence is used.
+
 ## Outputs
 
 - `design/model-draws.csv` — machine-readable source of truth
+- `design/pairing-map.csv` — one-time unseeded random permutations coupling the six margins
 - `design/distribution-parameters.csv` — exact distribution parameters
 - `design/continuous-summary.csv` and `design/discrete-summary.csv` — marginal summaries
 - `design/m-evidence.csv` — natural-mortality evidence and interval definitions
@@ -101,5 +129,6 @@ vector version is available as
 - `design/input-validation-summary.csv` — exact preflight result for all 100 frozen inputs
 - `design/rank-correlation.csv` — pairwise cross-axis association audit
 - `design/distributions.png` and `design/distributions.pdf` — publication-ready figure
+- `design/pairing-diagnostics.png` and `design/pairing-diagnostics.pdf` — sampled pairings and correlations
 
 These are structural ensemble draws, not optimizer jitters.

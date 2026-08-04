@@ -30,10 +30,10 @@
 "Hamel-Cope model-aligned M0","lower_95",0.0440180529575367
 "Hamel-Cope model-aligned M0","upper_95",0.148380143025542
 "Design","models",100
-"Design","pairing_modulus",101
-"Design","steepness_multiplier",1
-"Design","tag_mixing_multiplier",44
-"Design","tag_reporting_multiplier",35
-"Design","natural_mortality_multiplier",21
-"Design","effort_creep_multiplier",24
-"Design","tag_overdispersion_multiplier",14
+"Design","randomized_pairing_axes",6
+"Design","pairing_map_rows",100
+"Design","pairing_rank_min",1
+"Design","pairing_rank_max",100
+"Design","max_abs_spearman_limit",0.1
+"Design","max_abs_spearman_observed",0.0764279014654481
+"Design","pairing_version",1

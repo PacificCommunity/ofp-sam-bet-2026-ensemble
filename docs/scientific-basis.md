@@ -4,15 +4,15 @@
 
 The ensemble represents uncertainty that is not captured by estimation
 uncertainty within one fitted model. Marginal distributions are specified
-first, then coupled by fixed modular permutations modulo the prime number 101.
-The multipliers are recorded in `design/distribution-parameters.csv`. This
-requires no random-number generator or seed and gives identical pairings
-across R versions, apart from possible negligible numerical-library rounding
-when evaluating distribution quantiles. The committed `model-draws.csv` is the
-source of truth. The 100 configurations preserve the requested marginal
-distributions without asserting biological correlations among the six axes.
-Pairwise rank correlations are reported directly; no composite balance score
-is defined.
+first, then coupled by six separately generated random permutations. This randomization
+is performed once without a fixed RNG seed and accepted only when every
+pairwise absolute Spearman correlation is at most 0.10. The resulting rank
+assignments are frozen in `design/pairing-map.csv`; normal recreation and model
+runs read that file and never redraw it. This removes a deterministic modular
+lattice while retaining exact reproducibility of the committed ensemble. The
+100 configurations preserve the requested marginal distributions without
+asserting biological correlations among the six axes. Pairwise rank
+correlations are reported directly; no composite balance score is defined.
 
 ## Tag overdispersion
 

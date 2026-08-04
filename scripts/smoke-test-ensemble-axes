@@ -1,0 +1,80 @@
+#!/bin/sh
+set -eu
+
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+test_root=$(mktemp -d)
+trap 'rm -rf "$test_root"' EXIT HUP INT TERM
+representatives="$test_root/representatives.tsv"
+
+Rscript - "$repo_dir" "$representatives" <<'RS'
+args <- commandArgs(trailingOnly = TRUE)
+repo <- args[[1L]]
+output <- args[[2L]]
+design <- read.csv(file.path(repo, "design", "model-draws.csv"),
+                   stringsAsFactors = FALSE, check.names = FALSE)
+
+selected <- data.frame(index = integer(), criterion = character())
+add <- function(index, criterion) {
+  selected <<- rbind(selected, data.frame(index = index[[1L]], criterion = criterion))
+}
+
+add(which.min(design$steepness), "h:min")
+add(which.min(abs(design$steepness_prior_quantile - 0.5)), "h:centre")
+add(which.max(design$steepness), "h:max")
+add(which.min(design$m_age40_quarterly), "M:min")
+add(which.min(abs(design$m_prior_quantile - 0.5)), "M:centre")
+add(which.max(design$m_age40_quarterly), "M:max")
+
+for (value in sort(unique(design$tag_tau))) {
+  add(which(abs(design$tag_tau - value) < 1e-12)[[1L]], paste0("tau:", value))
+}
+for (value in sort(unique(design$tag_mixing_k_cutoff))) {
+  add(which(abs(design$tag_mixing_k_cutoff - value) < 1e-12)[[1L]],
+      sprintf("K:%.2f", value))
+}
+for (value in sort(unique(design$tag_reporting_flag2))) {
+  add(which(design$tag_reporting_flag2 == value)[[1L]], paste0("RR:", value))
+}
+for (value in sort(unique(design$effort_creep_primary))) {
+  add(which(abs(design$effort_creep_primary - value) < 1e-12)[[1L]],
+      sprintf("creep:%.3f", value))
+}
+
+required <- c(
+  "h:min", "h:centre", "h:max", "M:min", "M:centre", "M:max",
+  paste0("tau:", sort(unique(design$tag_tau))),
+  sprintf("K:%.2f", sort(unique(design$tag_mixing_k_cutoff))),
+  paste0("RR:", sort(unique(design$tag_reporting_flag2))),
+  sprintf("creep:%.3f", sort(unique(design$effort_creep_primary)))
+)
+stopifnot(setequal(selected$criterion, required))
+
+split_criteria <- split(selected$criterion, selected$index)
+rows <- data.frame(
+  ensemble_id = design$ensemble_id[as.integer(names(split_criteria))],
+  coverage = vapply(split_criteria, function(x) paste(x, collapse = ","), character(1)),
+  stringsAsFactors = FALSE
+)
+write.table(rows, output, sep = "\t", row.names = FALSE, col.names = FALSE, quote = FALSE)
+RS
+
+tab=$(printf '\t')
+while IFS="$tab" read -r model_id coverage; do
+  run_dir="$test_root/$model_id"
+  Rscript "$repo_dir/scripts/prepare-ensemble.R" "$model_id" "$run_dir" >/dev/null
+  if ! (
+    cd "$run_dir"
+    MODEL_ID=S0.90-F2 PROGRAM_PATH=./mfclo64 MODEL_STOP_AFTER_PHASE0=1 \
+      ./doitall.sh >phase0.log 2>&1
+  ); then
+    cat "$run_dir/phase0.log" >&2
+    exit 1
+  fi
+  grep -q 'Phase 0 tau=.* value audit: passed' "$run_dir/phase0.log"
+  grep -q 'Phase 0 fixed-steepness audit: .* passed' "$run_dir/phase0.log"
+  grep -q 'Phase 0 fixed-M audit: .* passed' "$run_dir/phase0.log"
+  grep -q 'Phase 0 fixed-DM concentration audit: 33 fish_pars(22)=7 passed' "$run_dir/phase0.log"
+  printf 'MFCL Phase 0 all-axis audit passed: %s [%s]\n' "$model_id" "$coverage"
+done < "$representatives"
+
+printf 'Representative MFCL runs cover every ensemble axis and all discrete levels.\n'

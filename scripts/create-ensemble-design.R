@@ -164,28 +164,31 @@ effort <- data.frame(
 )
 effort_draw <- rep(effort$effort_level, each = n_models / nrow(effort))
 
-# Couple the six fixed margins without any pseudo-random-number generator.
-# For prime modulus 101, multiplication by any nonzero integer below 101 is a
-# permutation of 1:100. The fixed multipliers below therefore give a fully
-# specified, language- and R-version-independent pairing of the margins.
-modular_permutation <- function(multiplier) {
-  as.integer((multiplier * seq_len(n_models)) %% 101L)
+# Couple the six fixed margins using the independently randomized permutations
+# frozen in design/pairing-map.csv. The map is generated once, without a fixed
+# RNG seed, by scripts/randomize-pairing.R; normal design recreation never
+# resamples it. This removes modular/lattice structure while keeping every
+# committed model exactly reproducible.
+pairing_map_path <- file.path(output_dir, "pairing-map.csv")
+if (!file.exists(pairing_map_path)) {
+  stop("Missing frozen randomized pairing map: design/pairing-map.csv", call. = FALSE)
 }
-pairing_multipliers <- c(
-  steepness = 1L,
-  tag_mixing = 44L,
-  tag_reporting = 35L,
-  natural_mortality = 21L,
-  effort_creep = 24L,
-  tag_overdispersion = 14L
+pairing_map <- read.csv(pairing_map_path, stringsAsFactors = FALSE, check.names = FALSE)
+expected_pairing_columns <- c(
+  "ensemble_id", "steepness_rank", "tag_mixing_rank", "tag_reporting_rank",
+  "natural_mortality_rank", "effort_creep_rank", "tag_overdispersion_rank"
 )
+if (!identical(names(pairing_map), expected_pairing_columns) ||
+    !identical(pairing_map$ensemble_id, sprintf("ensemble-%03d", seq_len(n_models)))) {
+  stop("Frozen randomized pairing map has an invalid schema or model order.", call. = FALSE)
+}
 pairing <- list(
-  h = modular_permutation(pairing_multipliers[["steepness"]]),
-  mixing = modular_permutation(pairing_multipliers[["tag_mixing"]]),
-  rr = modular_permutation(pairing_multipliers[["tag_reporting"]]),
-  m = modular_permutation(pairing_multipliers[["natural_mortality"]]),
-  effort = modular_permutation(pairing_multipliers[["effort_creep"]]),
-  tau = modular_permutation(pairing_multipliers[["tag_overdispersion"]])
+  h = pairing_map$steepness_rank,
+  mixing = pairing_map$tag_mixing_rank,
+  rr = pairing_map$tag_reporting_rank,
+  m = pairing_map$natural_mortality_rank,
+  effort = pairing_map$effort_creep_rank,
+  tau = pairing_map$tag_overdispersion_rank
 )
 stopifnot(all(vapply(pairing, function(x) identical(sort(x), seq_len(n_models)), logical(1))))
 
@@ -209,7 +212,7 @@ design <- data.frame(
   effort_creep_secondary = effort$effort_creep_secondary[effort_index],
   effort_source_file = effort$effort_source_file[effort_index],
   initialization = "Job 21641 ordinary makepar (no seed)",
-  pairing_version = "mod101-v2",
+  pairing_version = "random-frozen-v1",
   stringsAsFactors = FALSE
 )
 design$zero_mixing_events <- unname(setNames(
@@ -230,6 +233,17 @@ design$model_label <- sprintf(
   100 * design$effort_creep_secondary
 )
 
+numeric_design <- data.frame(
+  steepness = design$steepness,
+  tag_tau = design$tag_tau,
+  tag_mixing_k_cutoff = design$tag_mixing_k_cutoff,
+  reporting_flag2 = design$tag_reporting_flag2,
+  m_age40_quarterly = design$m_age40_quarterly,
+  effort_primary = design$effort_creep_primary
+)
+rank_correlation <- cor(numeric_design, method = "spearman")
+pairing_max_abs_spearman <- max(abs(rank_correlation[upper.tri(rank_correlation)]))
+
 stopifnot(
   nrow(design) == 100L,
   identical(as.integer(table(design$tag_tau)), tau_counts),
@@ -237,8 +251,15 @@ stopifnot(
   identical(as.integer(table(design$tag_mixing_k_cutoff)), k_cutoff_counts),
   identical(as.integer(table(design$tag_reporting_flag2)), c(50L, 50L)),
   identical(as.integer(table(design$effort_creep_primary)), rep(20L, 5L)),
+  identical(sort(design$steepness_prior_quantile), (seq_len(n_models) - 0.5) / n_models),
+  length(unique(design$steepness)) == n_models,
   abs(mean(design$steepness) - h_mean) < 0.001,
   abs(sd(design$steepness) - h_sd) < 0.002,
+  abs(min(design$steepness) - 0.668842859607944) < 1e-12,
+  abs(max(design$steepness) - 0.980467458423588) < 1e-12,
+  identical(sort(design$m_prior_quantile), (seq_len(n_models) - 0.5) / n_models),
+  length(unique(design$m_age40_quarterly)) == n_models,
+  pairing_max_abs_spearman <= 0.10,
   abs(min(design$m_age40_quarterly) - qbounded_logit_normal(0.005)) < 1e-12,
   abs(max(design$m_age40_quarterly) - qbounded_logit_normal(0.995)) < 1e-12,
   abs(m_min + (m_max - m_min) * plogis(
@@ -270,9 +291,9 @@ distribution_parameters <- data.frame(
     "estimate", "se", "lower_90", "upper_90",
     "amax_years", "annual_median", "quarterly_median", "quarterly_mean", "log_sd", "lower_95", "upper_95",
     "adult_mean_to_m0_divisor", "quarterly_median", "quarterly_mean", "lower_95", "upper_95",
-    "models", "pairing_modulus", "steepness_multiplier", "tag_mixing_multiplier",
-    "tag_reporting_multiplier", "natural_mortality_multiplier", "effort_creep_multiplier",
-    "tag_overdispersion_multiplier"
+    "models", "randomized_pairing_axes", "pairing_map_rows", "pairing_rank_min",
+    "pairing_rank_max", "max_abs_spearman_limit", "max_abs_spearman_observed",
+    "pairing_version"
   ),
   value = c(
     h_lower, h_upper, h_mean, h_sd, h_alpha, h_beta,
@@ -282,7 +303,9 @@ distribution_parameters <- data.frame(
     m_log_sd_hamel_cope, m_hc_lower95, m_hc_upper95,
     m_hc_adult_to_m0_ratio, m_hc_m0_median, m_hc_m0_mean,
     m_hc_m0_lower95, m_hc_m0_upper95,
-    n_models, 101L, unname(pairing_multipliers)
+    n_models, length(pairing), nrow(pairing_map),
+    min(unlist(pairing, use.names = FALSE)), max(unlist(pairing, use.names = FALSE)),
+    0.10, pairing_max_abs_spearman, 1L
   ),
   stringsAsFactors = FALSE
 )
@@ -349,15 +372,6 @@ discrete_summary <- rbind(
 discrete_summary$proportion <- discrete_summary$count / n_models
 write.csv(discrete_summary, file.path(output_dir, "discrete-summary.csv"), row.names = FALSE, quote = TRUE)
 
-numeric_design <- data.frame(
-  steepness = design$steepness,
-  tag_tau = design$tag_tau,
-  tag_mixing_k_cutoff = design$tag_mixing_k_cutoff,
-  reporting_flag2 = design$tag_reporting_flag2,
-  m_age40_quarterly = design$m_age40_quarterly,
-  effort_primary = design$effort_creep_primary
-)
-rank_correlation <- cor(numeric_design, method = "spearman")
 write.csv(rank_correlation, file.path(output_dir, "rank-correlation.csv"), quote = TRUE)
 
 draw_publication_figure <- function() {
@@ -398,18 +412,26 @@ draw_publication_figure <- function() {
   h_x <- seq(0.60, 1.00, length.out = 600L)
   h_density <- dbeta((h_x - h_lower) / (h_upper - h_lower), h_alpha, h_beta) /
     (h_upper - h_lower)
+  h_hist <- hist(design$steepness, breaks = seq(0.60, 1.00, by = 0.025),
+                 plot = FALSE, right = FALSE)
   plot(h_x, h_density, type = "n", xlim = c(0.60, 1.00),
-       ylim = c(0, max(h_density) * 1.12), xlab = expression("Steepness, " * h),
-       ylab = "Prior density", yaxs = "i")
+       ylim = c(0, max(c(h_density, h_hist$density)) * 1.12),
+       xlab = expression("Steepness, " * h), ylab = "Density", yaxs = "i")
   abline(h = axTicks(2), col = light_grey, lwd = 0.8)
   polygon(c(h_x, rev(h_x)), c(h_density, rep(0, length(h_density))),
-          col = blue_fill, border = NA)
+          col = grDevices::adjustcolor(blue_fill, alpha.f = 0.42), border = NA)
+  rect(h_hist$breaks[-length(h_hist$breaks)], 0,
+       h_hist$breaks[-1L], h_hist$density,
+       col = grDevices::adjustcolor(blue, alpha.f = 0.32), border = "white", lwd = 0.6)
   lines(h_x, h_density, col = blue, lwd = 2.0)
   rug(design$steepness, col = grDevices::adjustcolor(blue, alpha.f = 0.42),
       ticksize = 0.025, lwd = 0.7)
   abline(v = h_mean, col = orange, lwd = 1.6, lty = 2)
-  legend("topleft", legend = sprintf("Mean = %.2f", h_mean), col = orange,
-         lty = 2, lwd = 1.6, bty = "n", cex = 0.76, inset = c(0.02, 0.02))
+  legend("topleft",
+         legend = c("Actual 100 values", "Prior density", sprintf("Mean = %.2f", h_mean)),
+         col = c(blue, blue, orange), lty = c(NA, 1, 2), lwd = c(NA, 2.0, 1.6),
+         pch = c(15, NA, NA), pt.cex = 1.2, bty = "n", cex = 0.72,
+         inset = c(0.02, 0.02))
   panel_title("a", "Steepness")
 
   mixing_values <- as.integer(table(factor(
@@ -430,13 +452,18 @@ draw_publication_figure <- function() {
   m_x <- seq(0.035, 0.180, length.out = 800L)
   selected_density <- dbounded_logit_normal(m_x)
   hc_density <- dlnorm(m_x, log(m_hc_m0_median), m_log_sd_hamel_cope)
-  m_ymax <- max(c(selected_density, hc_density)) * 1.17
+  m_hist <- hist(design$m_age40_quarterly, breaks = seq(0.05, 0.135, by = 0.005),
+                 plot = FALSE, right = FALSE)
+  m_ymax <- max(c(selected_density, hc_density, m_hist$density)) * 1.17
   plot(m_x, selected_density, type = "n", xlim = range(m_x), ylim = c(0, m_ymax),
        xlab = expression("Quarterly natural mortality at reference length,"~M[0]~(quarter^{-1})),
        ylab = "Density", yaxs = "i")
   abline(h = axTicks(2), col = light_grey, lwd = 0.8)
   polygon(c(m_x, rev(m_x)), c(selected_density, rep(0, length(selected_density))),
-          col = orange_fill, border = NA)
+          col = grDevices::adjustcolor(orange_fill, alpha.f = 0.42), border = NA)
+  rect(m_hist$breaks[-length(m_hist$breaks)], 0,
+       m_hist$breaks[-1L], m_hist$density,
+       col = grDevices::adjustcolor(orange, alpha.f = 0.32), border = "white", lwd = 0.6)
   lines(m_x, selected_density, col = orange, lwd = 2.0)
   lines(m_x, hc_density, col = grey, lwd = 1.6, lty = 2)
   rug(design$m_age40_quarterly, col = grDevices::adjustcolor(orange, alpha.f = 0.42),
@@ -446,11 +473,12 @@ draw_publication_figure <- function() {
   points(m_tag_estimate, tag_y, pch = 19, col = green, cex = 0.9)
   abline(v = m_previous, col = blue, lwd = 1.4, lty = 3)
   legend("topright",
-         legend = c("Selected ensemble", "Hamel-Cope, scaled to M0", "Tag estimate (90% CI)",
+         legend = c("Actual 100 values", "Selected distribution",
+                    "Hamel-Cope, scaled to M0", "Tag estimate (90% CI)",
                     "2023 assessment"),
-         col = c(orange, grey, green, blue), lty = c(1, 2, 1, 3),
-         lwd = c(2.0, 1.6, 2.2, 1.4), pch = c(NA, NA, 19, NA),
-         bty = "n", cex = 0.69, inset = c(0.01, 0.01))
+         col = c(orange, orange, grey, green, blue), lty = c(NA, 1, 2, 1, 3),
+         lwd = c(NA, 2.0, 1.6, 2.2, 1.4), pch = c(15, NA, NA, 19, NA),
+         pt.cex = 1.1, bty = "n", cex = 0.63, inset = c(0.01, 0.01))
   panel_title("d", "Natural mortality")
 
   effort_values <- as.integer(table(factor(
@@ -477,6 +505,54 @@ pdf(file.path(output_dir, "distributions.pdf"), width = 10.67, height = 6.33,
 draw_publication_figure()
 dev.off()
 
+draw_pairing_diagnostic <- function() {
+  panel_histogram <- function(x, ...) {
+    usr <- par("usr")
+    on.exit(par(usr = usr), add = TRUE)
+    par(usr = c(usr[1:2], 0, 1.08))
+    bins <- hist(x, plot = FALSE, breaks = "FD")
+    height <- bins$counts / max(bins$counts)
+    rect(bins$breaks[-length(bins$breaks)], 0, bins$breaks[-1L], height,
+         col = grDevices::adjustcolor("#0072B2", alpha.f = 0.55), border = "white")
+  }
+  panel_points <- function(x, y, ...) {
+    points(x, y, pch = 16, cex = 0.42,
+           col = grDevices::adjustcolor("#1B4965", alpha.f = 0.34))
+  }
+  panel_correlation <- function(x, y, ...) {
+    usr <- par("usr")
+    on.exit(par(usr = usr), add = TRUE)
+    par(usr = c(0, 1, 0, 1))
+    rho <- suppressWarnings(cor(x, y, method = "spearman"))
+    text(0.5, 0.5, sprintf("rho = %.3f", rho),
+         cex = 0.82 + 0.9 * abs(rho), col = "#17324D")
+  }
+  old_par <- par(no.readonly = TRUE)
+  on.exit(par(old_par), add = TRUE)
+  par(mar = c(1.4, 1.4, 1.4, 1.4), oma = c(0.4, 0.4, 0.4, 0.4),
+      mgp = c(1.2, 0.35, 0), tcl = -0.18, cex.axis = 0.55)
+  pairs(
+    numeric_design,
+    labels = c("Steepness", "Tau", "K cutoff", "RR flag", "M0 / qtr", "Effort creep"),
+    lower.panel = panel_points,
+    upper.panel = panel_correlation,
+    diag.panel = panel_histogram,
+    gap = 0.35,
+    cex.labels = 0.82,
+    font.labels = 2
+  )
+}
+
+png(file.path(output_dir, "pairing-diagnostics.png"), width = 2400, height = 2400,
+    res = 300)
+draw_pairing_diagnostic()
+dev.off()
+
+pdf(file.path(output_dir, "pairing-diagnostics.pdf"), width = 8, height = 8,
+    useDingbats = FALSE, title = "BET 2026 randomized ensemble pairing diagnostic")
+draw_pairing_diagnostic()
+dev.off()
+
 cat("Created ", n_models, " ensemble draws in ", output_dir, "\n", sep = "")
 cat(sprintf("Steepness: mean %.4f, SD %.4f, range %.4f-%.4f\n",
             mean(design$steepness), sd(design$steepness),
@@ -487,3 +563,5 @@ cat(sprintf("Quarterly M0 at reference length: mean %.4f, median %.5f, mode %.4f
 cat(sprintf("M logit-SD: %.6f (bounded logit-normal)\n", m_logit_sd))
 cat(sprintf("Tag tau: %s models at %s\n",
             paste(tau_counts, collapse = "/"), paste(tau_levels, collapse = "/")))
+cat(sprintf("Frozen random pairing: maximum absolute pairwise Spearman correlation %.4f\n",
+            pairing_max_abs_spearman))

@@ -22,7 +22,7 @@ jobs:
         run: Rscript scripts/validate-ensemble-design.R
       - name: Validate all frozen model inputs
         run: Rscript scripts/validate-all-model-inputs.R
-      - name: Smoke-test fixed tau axis
-        run: ./scripts/smoke-test-tau-axis
+      - name: Smoke-test representative models across every axis
+        run: ./scripts/smoke-test-ensemble-axes
       - name: Confirm generated tables are current
         run: git diff --exit-code -- 'design/*.csv'
