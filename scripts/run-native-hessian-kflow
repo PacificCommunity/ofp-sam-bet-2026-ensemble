@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ensemble_id="${ENSEMBLE_ID:-}"
+input_root="${KFLOW_INPUT_DIR:-${INPUT_DIR:-/inputs}}"
+output_root="${KFLOW_OUTPUT_DIR:-${OUTPUT_DIR:-/output}}"
+
+if [[ ! "$ensemble_id" =~ ^ensemble-[0-9]{3}$ ]]; then
+  printf 'ENSEMBLE_ID must have the form ensemble-NNN.\n' >&2
+  exit 64
+fi
+
+source_dir="$(find "$input_root" -type d -path "*/outputs/models/${ensemble_id}" -print -quit)"
+if [[ -z "$source_dir" ]]; then
+  printf 'Could not find %s in the attached Hessian archive.\n' "$ensemble_id" >&2
+  exit 66
+fi
+
+required=(
+  final.par bet.frq bet.ini bet.tag bet.age_length bet.reg_scaling mfcl.cfg
+  hessian/part_1/bet.hes
+)
+for path in "${required[@]}"; do
+  if [[ ! -s "$source_dir/$path" ]]; then
+    printf 'Attached Hessian archive is missing %s.\n' "$path" >&2
+    exit 67
+  fi
+done
+
+work_dir="$(mktemp -d)"
+cleanup() { rm -rf -- "$work_dir"; }
+trap cleanup EXIT
+
+for path in final.par bet.frq bet.ini bet.tag bet.age_length bet.reg_scaling mfcl.cfg; do
+  cp "$source_dir/$path" "$work_dir/${path##*/}"
+done
+cp "$source_dir/hessian/part_1/bet.hes" "$work_dir/bet.hes"
+cp "$repo_dir/mfclo64" "$work_dir/mfclo64"
+chmod +x "$work_dir/mfclo64"
+
+model_output="$output_root/native-hessian/$ensemble_id"
+mkdir -p "$model_output"
+
+set +e
+(
+  cd "$work_dir"
+  ./mfclo64 bet.frq final.par hessian \
+    -switch 4 1 145 2 1 37 2 1 229 0 1 230 0 \
+    > native-gradient.stdout 2> native-gradient.stderr
+)
+mfcl_status=$?
+set -e
+if [[ "$mfcl_status" -ne 0 && "$mfcl_status" -ne 1 ]]; then
+  printf 'Native MFCL dependent-variable run failed with status %s.\n' "$mfcl_status" >&2
+  exit "$mfcl_status"
+fi
+
+for path in bet.dep bet.dp2 deplabel.tmp deplabel_noeff.tmp; do
+  if [[ ! -s "$work_dir/$path" ]]; then
+    printf 'Native MFCL output is missing %s.\n' "$path" >&2
+    exit 68
+  fi
+done
+
+HESSIAN_DRAWS_PER_MODEL="${HESSIAN_DRAWS_PER_MODEL:-100}" \
+  Rscript "$repo_dir/scripts/process-native-hessian-uncertainty.R" \
+    "$work_dir" "$ensemble_id" \
+    "$repo_dir/data/ensemble/ensemble-timeseries.csv" \
+    "$model_output/${ensemble_id}.rds" \
+    > "$model_output/processor.log" 2>&1
+
+gzip -c "$work_dir/native-gradient.stdout" > "$model_output/native-gradient.stdout.gz"
+gzip -c "$work_dir/native-gradient.stderr" > "$model_output/native-gradient.stderr.gz"
+sha256sum "$model_output/${ensemble_id}.rds" > "$model_output/SHA256SUMS"
+printf '%s\n' success > "$model_output/status.txt"
+
+printf 'Stored reusable native-Hessian payload for %s (%s draws).\n' \
+  "$ensemble_id" "${HESSIAN_DRAWS_PER_MODEL:-100}"

@@ -1,0 +1,114 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ $# -lt 5 || $# -gt 6 ]]; then
+  printf '%s\n' \
+    'Usage: run-native-hessian-uncertainty HESSIAN_TASK_DIR FIT_CSV TIMESERIES_CSV OUTPUT_DIR MFCL_EXECUTABLE [PARALLEL]' >&2
+  exit 64
+fi
+
+hessian_task_dir="$(cd "$1" && pwd)"
+fit_csv="$(realpath "$2")"
+timeseries_csv="$(realpath "$3")"
+output_dir="$4"
+mfcl_executable="$(realpath "$5")"
+parallel="${6:-12}"
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+processor="$(realpath "$script_dir/process-native-hessian-uncertainty.R")"
+
+mkdir -p "$output_dir"
+output_dir="$(cd "$output_dir" && pwd)"
+manifest="$output_dir/archive-manifest.tsv"
+work_list="$output_dir/work-list.tsv"
+
+: > "$manifest"
+for archive in "$hessian_task_dir"/job-*/output_archive.tar.gz; do
+  [[ -s "$archive" ]] || continue
+  ensemble_id="$({ tar -tzf "$archive" 2>/dev/null || true; } | sed -n 's#^\./outputs/models/\(ensemble-[0-9][0-9][0-9]\)/.*#\1#p' | head -n 1)"
+  if [[ "$ensemble_id" =~ ^ensemble-[0-9]{3}$ ]]; then
+    printf '%s\t%s\n' "$ensemble_id" "$archive" >> "$manifest"
+  fi
+done
+sort -u -o "$manifest" "$manifest"
+
+Rscript - "$fit_csv" "$manifest" "$work_list" <<'RSCRIPT'
+args <- commandArgs(trailingOnly = TRUE)
+fit <- read.csv(args[[1]], check.names = FALSE)
+manifest <- read.delim(args[[2]], header = FALSE, col.names = c("ensemble_id", "archive"))
+wanted <- fit$ensemble_id[as.logical(fit$positive_definite_hessian)]
+work <- merge(data.frame(ensemble_id = wanted), manifest, by = "ensemble_id", all.x = TRUE)
+if (anyNA(work$archive)) stop("Missing Hessian archive: ", work$ensemble_id[is.na(work$archive)][[1]])
+write.table(work, args[[3]], sep = "\t", row.names = FALSE, col.names = FALSE, quote = FALSE)
+RSCRIPT
+
+process_one() {
+  local ensemble_id="$1"
+  local archive="$2"
+  local result="$output_dir/${ensemble_id}.rds"
+  local status_file="$output_dir/${ensemble_id}.status"
+  if [[ -s "$result" && -s "$status_file" ]] && grep -qx 'success' "$status_file"; then
+    return 0
+  fi
+
+  local work_dir
+  work_dir="$(mktemp -d "$output_dir/.${ensemble_id}.XXXXXX")"
+  trap 'rm -rf -- "$work_dir"' RETURN
+  tar -xzf "$archive" -C "$work_dir" \
+    "./outputs/models/${ensemble_id}/final.par" \
+    "./outputs/models/${ensemble_id}/bet.frq" \
+    "./outputs/models/${ensemble_id}/bet.ini" \
+    "./outputs/models/${ensemble_id}/bet.tag" \
+    "./outputs/models/${ensemble_id}/bet.age_length" \
+    "./outputs/models/${ensemble_id}/bet.reg_scaling" \
+    "./outputs/models/${ensemble_id}/mfcl.cfg" \
+    "./outputs/models/${ensemble_id}/hessian/part_1/bet.hes"
+  local model_dir="$work_dir/outputs/models/${ensemble_id}"
+  cp "$mfcl_executable" "$model_dir/mfclo64"
+  cp "$model_dir/hessian/part_1/bet.hes" "$model_dir/bet.hes"
+  chmod +x "$model_dir/mfclo64"
+
+  set +e
+  (
+    cd "$model_dir"
+    ./mfclo64 bet.frq final.par hessian \
+      -switch 4 1 145 2 1 37 2 1 229 0 1 230 0 \
+      > native-gradient.stdout 2> native-gradient.stderr
+  )
+  local mfcl_status=$?
+  set -e
+  if [[ "$mfcl_status" -ne 0 && "$mfcl_status" -ne 1 ]]; then
+    printf 'MFCL status %s\n' "$mfcl_status" > "$status_file"
+    return "$mfcl_status"
+  fi
+  for required in bet.dep bet.dp2 deplabel.tmp deplabel_noeff.tmp; do
+    if [[ ! -s "$model_dir/$required" ]]; then
+      printf 'missing %s\n' "$required" > "$status_file"
+      return 90
+    fi
+  done
+
+  HESSIAN_DRAWS_PER_MODEL="${HESSIAN_DRAWS_PER_MODEL:-100}" \
+    Rscript "$processor" "$model_dir" "$ensemble_id" "$timeseries_csv" "$result" \
+    > "$output_dir/${ensemble_id}.processor.log" 2>&1
+  printf 'success\n' > "$status_file"
+}
+
+export -f process_one
+export output_dir mfcl_executable processor timeseries_csv
+export HESSIAN_DRAWS_PER_MODEL="${HESSIAN_DRAWS_PER_MODEL:-100}"
+
+xargs -P "$parallel" -n 2 bash -c 'process_one "$1" "$2"' _ < "$work_list"
+
+Rscript - "$work_list" "$output_dir" <<'RSCRIPT'
+args <- commandArgs(trailingOnly = TRUE)
+work <- read.delim(args[[1]], header = FALSE, col.names = c("ensemble_id", "archive"))
+status <- vapply(work$ensemble_id, function(id) {
+  path <- file.path(args[[2]], paste0(id, ".status"))
+  if (!file.exists(path)) return("missing")
+  paste(readLines(path, warn = FALSE), collapse = " ")
+}, character(1))
+summary <- data.frame(ensemble_id = work$ensemble_id, status = status)
+write.csv(summary, file.path(args[[2]], "processing-summary.csv"), row.names = FALSE)
+if (any(status != "success")) stop("At least one native Hessian payload failed.")
+message("Completed ", nrow(summary), " positive-definite native Hessian payloads.")
+RSCRIPT

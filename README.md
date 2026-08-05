@@ -1,7 +1,7 @@
 # BET 2026 Diagnostic ensemble
 
 This repository defines a reproducible 100-model structural ensemble based on
-BET 2026 Diagnostic Job 21641. Each row of
+the BET 2026 Diagnostic model. Each row of
 [`design/model-draws.csv`](design/model-draws.csv) is one model configuration.
 The ensemble changes only the six uncertainty axes listed below; all other
 inputs, Diagnostic selectivity and the ordinary `-makepar` fitting path remain
@@ -65,12 +65,9 @@ steepness, natural mortality, fixed tau and unchanged DM concentration; the
 static audit checks the selected effort records, tag settings and Diagnostic
 F10/F33 weak non-decreasing selectivity exactly.
 
-The archived Job 19835 versus Job 21641 file- and control-level comparison is
-recorded in [`docs/job-21641-lineage-audit.md`](docs/job-21641-lineage-audit.md).
-
 ## Run a model
 
-Every run starts from the frozen Job 21641 inputs with ordinary
+Every run starts from the frozen Diagnostic-model inputs with ordinary
 `bet.ini -makepar`; no seed, jitter or fitted checkpoint is applied. The
 preparation step changes only the selected six axes, then compares the
 resulting INI, Diagnostic model configuration, FRQ and `doitall.sh` against both the
