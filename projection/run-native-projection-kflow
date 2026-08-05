@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ensemble_id="${ENSEMBLE_ID:-}"
+input_root="${KFLOW_INPUT_DIR:-${INPUT_DIR:-/inputs}}"
+output_root="${KFLOW_OUTPUT_DIR:-${OUTPUT_DIR:-/output}}"
+
+if [[ ! "$ensemble_id" =~ ^ensemble-[0-9]{3}$ ]]; then
+  printf 'ENSEMBLE_ID must have the form ensemble-NNN.\n' >&2
+  exit 64
+fi
+
+source_dir="$(find "$input_root" -type d -path "*/outputs/models/${ensemble_id}" -print -quit)"
+if [[ -z "$source_dir" ]]; then
+  printf 'Could not find %s in the attached completed-model archive.\n' \
+    "$ensemble_id" >&2
+  exit 66
+fi
+test -s "$source_dir/final.par"
+
+model_output="$output_root/native-projection/$ensemble_id"
+mkdir -p "$model_output"
+"$repo_dir/projection/cache-native-projection" \
+  "$source_dir" "$ensemble_id" "$model_output/${ensemble_id}.rds"
+
+test -s "$model_output/${ensemble_id}.rds"
+test -s "$model_output/${ensemble_id}.rds.sha256"
+printf '%s\n' success > "$model_output/status.txt"
+printf 'Stored reusable native-projection payload for %s.\n' "$ensemble_id"

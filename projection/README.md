@@ -23,3 +23,8 @@ files are removed only after the RDS and its SHA-256 sidecar are complete.
 `aggregate-native-projections.R` requires all 88 completed model caches and
 creates the checksum-auditable ensemble payload used by the report. It never
 silently substitutes a missing model.
+
+`run-native-projection-kflow` is the thin Kflow adapter. It reads `final.par`
+from an attached completed-model archive and writes only the compact cache,
+its SHA-256 sidecar and a success marker. The scientific workflow remains in
+the same standalone cache entry point used locally.
