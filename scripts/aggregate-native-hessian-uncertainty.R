@@ -31,12 +31,20 @@ if (any(!file.exists(paths))) {
 }
 
 per_model <- lapply(paths, readRDS)
-metadata <- do.call(rbind, lapply(per_model, `[[`, "metadata"))
+metadata_rows <- lapply(per_model, `[[`, "metadata")
+metadata_names <- unique(unlist(lapply(metadata_rows, names)))
+metadata_rows <- lapply(metadata_rows, function(value) {
+  missing_names <- setdiff(metadata_names, names(value))
+  for (name in missing_names) value[[name]] <- NA
+  value[metadata_names]
+})
+metadata <- do.call(rbind, metadata_rows)
 annual_draws <- do.call(rbind, lapply(per_model, `[[`, "annual_draws"))
 management_draws <- do.call(rbind, lapply(per_model, `[[`, "management_draws"))
 
 validation_tolerance <- if ("point_validation_tolerance" %in% names(metadata)) {
-  metadata$point_validation_tolerance
+  ifelse(is.na(metadata$point_validation_tolerance), 1e-3,
+         metadata$point_validation_tolerance)
 } else {
   rep(1e-3, nrow(metadata))
 }

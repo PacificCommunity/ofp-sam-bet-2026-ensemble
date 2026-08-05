@@ -6,7 +6,9 @@ workflow. The locked scenario is:
 - fitted data through 2024;
 - projection years 2025–2054;
 - 10 stochastic recruitment simulations per ensemble model;
-- every fishery fixed at its exact 2022–2024 mean catch;
+- every fishery fixed at its exact 2022–2024 mean annual catch, with the
+  observed quarterly pattern retained and an absent fishery-quarter treated as
+  zero catch;
 - future recruitment sampled natively from the fitted 1972–2023 deviates;
 - no future catch or effort randomisation; and
 - each model's fixed tag-overdispersion value (`tau = 1.2`, `1.3` or `1.4`)
@@ -20,9 +22,11 @@ an isolated temporary directory; `parse-native-projection.R` then retains only
 the compact report quantities, provenance and checksums. The temporary raw
 files are removed only after the RDS and its SHA-256 sidecar are complete.
 
-`aggregate-native-projections.R` requires all 88 completed model caches and
-creates the checksum-auditable ensemble payload used by the report. It never
-silently substitutes a missing model.
+`aggregate-native-projections.R` creates the checksum-auditable ensemble
+payload used by the report from complete ten-simulation caches. It records the
+full 88-model assessment set and every model without a complete native
+projection; it never fills, regularises or silently substitutes an incomplete
+projection.
 
 `run-native-projection-kflow` is the thin Kflow adapter. It reads `final.par`
 from an attached completed-model archive and writes only the compact cache,

@@ -125,7 +125,8 @@ These are structural ensemble draws, not optimizer jitters.
 The projection workflow uses the repository's native `mfclo64`; it does not
 use MFCL-RTMB or modify MFCL source code. Each completed ensemble model is
 projected for 30 years (2025–2054) with 10 stochastic recruitment sequences.
-Every fishery is catch-conditioned at its exact 2022–2024 mean catch, and
+Every fishery is catch-conditioned at its exact 2022–2024 mean annual catch;
+absent fishery-quarter incidents contribute zero to that average, and
 future recruitment is sampled by MFCL from the fitted 1972–2023 recruitment
 deviates.
 

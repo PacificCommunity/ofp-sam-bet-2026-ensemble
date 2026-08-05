@@ -76,6 +76,61 @@ proj_control <- MFCLprojControl(
 )
 proj_frq <- generate(frq, proj_control)
 
+# FLR4MFCL::generate() averages only the catch rows that are present for a
+# fishery-quarter.  That is not an annual 2022--2024 mean when a fishery is
+# absent in one or more quarters: an isolated observed catch can otherwise be
+# repeated into every future quarter.  It can also misalign a fishery with no
+# recent rows.  Retain the native future incident calendar, but replace its
+# catch values with an explicit fishery-by-quarter mean over all three calendar
+# years, treating an absent catch incident as zero.  Consequently, the four
+# quarterly projection catches sum exactly to each fishery's three-year mean
+# annual catch.
+historical_catch <- freq(frq)[
+  freq(frq)$year %in% average_years &
+    is.na(freq(frq)$length) & is.na(freq(frq)$weight) &
+    is.finite(freq(frq)$catch) & freq(frq)$catch >= 0,
+  c("year", "month", "fishery", "catch"), drop = FALSE
+]
+historical_catch <- aggregate(
+  catch ~ year + month + fishery, historical_catch, sum
+)
+catch_grid <- expand.grid(
+  year = average_years,
+  month = sort(unique(freq(frq)$month)),
+  fishery = seq_len(n_fisheries(frq)),
+  KEEP.OUT.ATTRS = FALSE,
+  stringsAsFactors = FALSE
+)
+catch_grid <- merge(
+  catch_grid, historical_catch,
+  by = c("year", "month", "fishery"), all.x = TRUE, sort = FALSE
+)
+catch_grid$catch[is.na(catch_grid$catch)] <- 0
+quarterly_mean_catch <- aggregate(
+  catch ~ month + fishery, catch_grid, mean
+)
+
+proj_data <- freq(proj_frq)
+future_rows <- which(
+  proj_data$year %in% projection_years &
+    is.na(proj_data$length) & is.na(proj_data$weight)
+)
+future_key <- paste(proj_data$month[future_rows], proj_data$fishery[future_rows])
+catch_key <- paste(quarterly_mean_catch$month, quarterly_mean_catch$fishery)
+catch_match <- match(future_key, catch_key)
+if (anyNA(catch_match)) {
+  stop("The native future incident calendar contains an unmatched fishery-quarter.")
+}
+proj_data$catch[future_rows] <- quarterly_mean_catch$catch[catch_match]
+proj_data$effort[future_rows] <- -1
+# MFCL option 7 requires every retained future incident to have a positive
+# catch.  Use a 1e-6 numerical placeholder (less than 5 g per fishery-year)
+# only where the exact three-year mean is zero; the audit below verifies that
+# this does not change the annual total at reporting precision.
+zero_future_rows <- future_rows[proj_data$catch[future_rows] == 0]
+if (length(zero_future_rows)) proj_data$catch[zero_future_rows] <- 1e-6
+freq(proj_frq) <- proj_data
+
 # Preserve the projection calendar and conditioning produced by FLR4MFCL.
 # Rebuilding these rows by hand changes MFCL's regional incident counters and
 # can make native option 7 fail even when annual catches appear correct.
@@ -94,12 +149,19 @@ conditioning <- data.frame(
   conditioning = ifelse(template_caeff == 1L, "catch", "effort"),
   stringsAsFactors = FALSE
 )
+annual_mean_by_fishery <- aggregate(catch ~ fishery, catch_grid, sum)
+annual_mean_by_fishery$catch <- annual_mean_by_fishery$catch / length(average_years)
+conditioning$mean_annual_catch <- annual_mean_by_fishery$catch[
+  match(conditioning$fishery, annual_mean_by_fishery$fishery)
+]
 catch_rows <- projection_grid[
   is.finite(projection_grid$catch) & projection_grid$catch >= 0,
   , drop = FALSE
 ]
 if (!nrow(catch_rows)) stop("The native projection contains no future catch rows.")
-if (!setequal(unique(catch_rows$fishery), conditioning$fishery[conditioning$caeff == 1L])) {
+if (!setequal(
+  unique(catch_rows$fishery), conditioning$fishery[conditioning$caeff == 1L]
+)) {
   stop("Future catch-conditioned fisheries do not match MFCLprojControl.")
 }
 if (any(is.finite(projection_grid$catch) & projection_grid$catch < 0)) {
@@ -173,7 +235,15 @@ annual_projection_catch <- aggregate(
   catch_rows,
   sum
 )
-if (length(unique(round(annual_projection_catch$catch, 8))) != 1L) {
+observed_annual_catch <- aggregate(catch ~ year, catch_grid, sum)
+expected_annual_catch <- mean(observed_annual_catch$catch)
+if (
+  length(unique(round(annual_projection_catch$catch, 8))) != 1L ||
+    !isTRUE(all.equal(
+      annual_projection_catch$catch[[1L]], expected_annual_catch,
+      tolerance = 1e-10
+    ))
+) {
   stop("The total projected extraction catch is not constant among years.")
 }
 write.csv(

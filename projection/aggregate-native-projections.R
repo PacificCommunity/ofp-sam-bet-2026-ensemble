@@ -18,16 +18,22 @@ fit_file <- normalizePath(args[[2L]], mustWork = TRUE)
 output_file <- args[[3L]]
 metadata_file <- args[[4L]]
 fit <- read.csv(fit_file, check.names = FALSE)
-ids <- sort(unique(fit$ensemble_id))
-if (length(ids) != 88L) stop("Expected the 88 completed ensemble models.")
+assessment_ids <- sort(unique(fit$ensemble_id))
+if (length(assessment_ids) != 88L) stop("Expected the 88 completed ensemble models.")
 
-paths <- file.path(input_dir, paste0(ids, ".rds"))
-if (any(!file.exists(paths))) {
-  stop(
-    "Missing per-model projection cache: ",
-    paste(basename(paths[!file.exists(paths)]), collapse = ", ")
-  )
+# A constant-catch projection can terminate natively when the requested catch
+# cannot be taken from one or more regions, or when the terminal equilibrium
+# calculation fails.  Such models remain part of the fitted assessment
+# ensemble, but incomplete stochastic projections must not be silently filled,
+# regularised or treated as successful simulations.  Aggregate only complete,
+# checksum-validated per-model caches and record the omitted model IDs.
+available <- list.files(input_dir, pattern = "^ensemble-[0-9]{3}\\.rds$", full.names = TRUE)
+ids <- sort(sub("\\.rds$", "", basename(available)))
+if (!length(ids) || any(!ids %in% assessment_ids) || anyDuplicated(ids)) {
+  stop("The available per-model projection cache set is invalid.")
 }
+failed_projection_ids <- setdiff(assessment_ids, ids)
+paths <- file.path(input_dir, paste0(ids, ".rds"))
 per_model <- lapply(paths, readRDS)
 metadata <- do.call(rbind, lapply(per_model, `[[`, "metadata"))
 annual_stock <- do.call(rbind, lapply(seq_along(per_model), function(i) {
@@ -43,11 +49,12 @@ annual_catch <- do.call(rbind, lapply(seq_along(per_model), function(i) {
   transform(per_model[[i]]$annual_catch, ensemble_id = ids[[i]])
 }))
 
+model_count <- length(ids)
 if (
   !identical(metadata$ensemble_id, ids) || anyDuplicated(metadata$cache_key) ||
-    nrow(annual_stock) != 88L * 10L * 30L ||
-    nrow(annual_region) != 88L * 10L * 30L * 5L ||
-    nrow(terminal_msy) != 88L * 10L ||
+    nrow(annual_stock) != model_count * 10L * 30L ||
+    nrow(annual_region) != model_count * 10L * 30L * 5L ||
+    nrow(terminal_msy) != model_count * 10L ||
     any(!is.finite(unlist(annual_stock[c(
       "spawning_biomass_mt", "spawning_biomass_noeff_mt", "depletion"
     )]))) ||
@@ -60,7 +67,11 @@ payload <- list(
   schema_version = "1.0.0",
   created_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
   method = per_model[[1L]]$method,
+  assessment_ensemble_ids = assessment_ids,
   ensemble_ids = ids,
+  failed_projection_ids = failed_projection_ids,
+  projection_complete_models = model_count,
+  projection_incomplete_models = length(failed_projection_ids),
   simulations_per_model = 10L,
   projection_years = 2025:2054,
   metadata = metadata,
@@ -73,4 +84,10 @@ dir.create(dirname(output_file), recursive = TRUE, showWarnings = FALSE)
 dir.create(dirname(metadata_file), recursive = TRUE, showWarnings = FALSE)
 saveRDS(payload, output_file, version = 3L, compress = "xz")
 write.csv(metadata, metadata_file, row.names = FALSE)
-cat("Stored 88 models x 10 native stochastic projections for 2025-2054.\n")
+cat(sprintf(
+  paste0(
+    "Stored %d complete models x 10 native stochastic projections for ",
+    "2025-2054; %d fitted ensemble models had incomplete native projections.\n"
+  ),
+  model_count, length(failed_projection_ids)
+))
