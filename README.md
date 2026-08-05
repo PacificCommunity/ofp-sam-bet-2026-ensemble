@@ -119,3 +119,33 @@ vector version is available as
 - `design/distributions.png` and `design/distributions.pdf` — publication-ready figure
 
 These are structural ensemble draws, not optimizer jitters.
+
+## Native stochastic projections and reusable caches
+
+The projection workflow uses the repository's native `mfclo64`; it does not
+use MFCL-RTMB or modify MFCL source code. Each completed ensemble model is
+projected for 30 years (2025–2054) with 10 stochastic recruitment sequences.
+Every fishery is catch-conditioned at its exact 2022–2024 mean catch, and
+future recruitment is sampled by MFCL from the fitted 1972–2023 recruitment
+deviates.
+
+```sh
+projection/cache-native-projection MODEL_DIR ensemble-001 \
+  data/projection/per-model/ensemble-001.rds
+```
+
+The command stores a compact per-model RDS containing annual stock-wide and
+regional spawning biomass, no-fishing spawning biomass, depletion, terminal
+MSY quantities and complete audits. Its cache key covers `final.par`, all model
+inputs, `mfclo64`, the projection scripts and the locked scenario. An exact
+match is reused immediately; only missing or changed models are recalculated.
+Large temporary MFCL projection files are discarded after the compressed
+payload and SHA-256 sidecar have passed validation. The per-model caches are
+combined without rerunning MFCL using:
+
+```sh
+Rscript projection/aggregate-native-projections.R \
+  data/projection/per-model data/ensemble/fit-diagnostics.csv \
+  data/projection/native-projections.rds \
+  data/projection/native-projection-metadata.csv
+```

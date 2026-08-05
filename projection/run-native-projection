@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+work_dir="${1:-${repo_dir}/projection/work}"
+input_dir="${MODEL_INPUT_DIR:-${repo_dir}/model}"
+default_final_par="${input_dir}/final.par"
+if [[ ! -s "$default_final_par" ]]; then
+  default_final_par="${repo_dir}/../ofp-sam-bet-2026-diagnostic/results/reference/final.par"
+fi
+final_par="${2:-${default_final_par}}"
+nsims="${NSIMS:-10}"
+nyears="${NYEARS:-30}"
+seed="${RECRUITMENT_SEED:-20260806}"
+
+mkdir -p "$work_dir"
+
+Rscript "$repo_dir/projection/prepare-native-projection.R" \
+  "--input-dir=${input_dir}" \
+  "--final-par=${final_par}" \
+  "--output-dir=${work_dir}" \
+  "--nyears=${nyears}" \
+  "--nsims=${nsims}" \
+  "--seed=${seed}" \
+  "--average-years=2022,2023,2024"
+
+cd "$work_dir"
+chmod +x ./mfclo64
+
+./mfclo64 proj.frq proj.ini 00.par -makepar > makepar.stdout 2> makepar.stderr
+test -s 00.par
+
+Rscript "$repo_dir/projection/configure-native-par.R" \
+  "$final_par" 00.par proj.frq "$work_dir" "$nsims" "$seed"
+
+run_stage() {
+  local label="$1"
+  shift
+  set +e
+  ./mfclo64 "$@" > "${label}.stdout" 2> "${label}.stderr"
+  local status=$?
+  set -e
+  if [[ "$status" -ne 0 && "$status" -ne 1 ]]; then
+    printf '%s failed with status %s\n' "$label" "$status" >&2
+    return "$status"
+  fi
+}
+
+# Native stochastic setup writes the fished and no-fishing projection
+# parameter files in one option-7 pass.  Keeping the switches on the command
+# line matches the verified mfclkit native self-test pathway exactly.
+run_stage option7 proj.frq proj.par option7.par \
+  -switch 2 1 145 7 2 20 "$nsims"
+test -s proj.dep
+test -s proparams.val
+test -s proparams_noeff.val
+grep -q 'Finished dep_gradients_calc2' option7.stdout
+
+run_stage option8 proj.frq proj.par option8.par \
+  -switch 5 1 145 8 1 234 1 1 235 20 1 237 0 2 20 "$nsims"
+test -s simyears
+test -s simulated_numbers_at_age
+test -s simulated_numbers_at_age_noeff
+
+# Native stochastic projection.  Only recruitment is stochastic here:
+# catch is held at the 2022--2024 mean, and effort/catch randomisation flags
+# 234 and 237 remain off.  The switches follow the MFCL projection workflow.
+run_stage projection proj.frq proj.par projection.par \
+  -switch 7 \
+    1 1 1 \
+    -999 55 1 \
+    2 20 "$nsims" \
+    1 145 0 \
+    1 234 0 \
+    1 235 20 \
+    1 237 0
+
+for output in \
+  projected_numbers_at_age projected_numbers_at_age_noeff \
+  projected_spawning_biomass projected_spawning_biomass_noeff \
+  projected_fmort_at_age_year Fmults.txt; do
+  test -s "$output"
+done
+
+sha256sum \
+  proj.frq proj.par proj7-fished.par proj7-noeff.par proj8.par simyears \
+  simulated_numbers_at_age simulated_numbers_at_age_noeff \
+  projected_spawning_biomass projected_spawning_biomass_noeff Fmults.txt \
+  > native-projection-SHA256SUMS
+
+printf 'Native MFCL projection completed: %s simulations, %s years.\n' \
+  "$nsims" "$nyears"

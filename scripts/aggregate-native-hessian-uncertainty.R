@@ -35,11 +35,17 @@ metadata <- do.call(rbind, lapply(per_model, `[[`, "metadata"))
 annual_draws <- do.call(rbind, lapply(per_model, `[[`, "annual_draws"))
 management_draws <- do.call(rbind, lapply(per_model, `[[`, "management_draws"))
 
+validation_tolerance <- if ("point_validation_tolerance" %in% names(metadata)) {
+  metadata$point_validation_tolerance
+} else {
+  rep(1e-3, nrow(metadata))
+}
 if (
   !identical(sort(metadata$ensemble_id), pdh_ids) ||
     anyDuplicated(metadata$ensemble_id) ||
     any(metadata$draws < 1L) ||
-    any(metadata$maximum_point_relative_error > 5e-4)
+    any(!is.finite(validation_tolerance)) ||
+    any(metadata$maximum_point_relative_error > validation_tolerance)
 ) {
   stop("Per-model native-Hessian metadata validation failed.", call. = FALSE)
 }

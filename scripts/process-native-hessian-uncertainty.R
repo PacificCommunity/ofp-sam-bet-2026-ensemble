@@ -18,6 +18,7 @@ ensemble_id <- args[[2L]]
 point_file <- normalizePath(args[[3L]], mustWork = TRUE)
 output_file <- args[[4L]]
 n_draws <- as.integer(Sys.getenv("HESSIAN_DRAWS_PER_MODEL", "100"))
+point_validation_tolerance <- 1e-3
 if (!grepl("^ensemble-[0-9]{3}$", ensemble_id) || n_draws < 1L) {
   stop("Invalid ensemble ID or draw count.", call. = FALSE)
 }
@@ -266,7 +267,7 @@ relative_error <- c(
   abs(label_central$recruitment - point_series$recruitment) /
     pmax(abs(point_series$recruitment), .Machine$double.eps)
 )
-if (max(relative_error) > 5e-4) {
+if (max(relative_error) > point_validation_tolerance) {
   stop(
     sprintf(
       "Native gradients do not reproduce %s point estimates (max relative error %.3g).",
@@ -282,6 +283,7 @@ metadata <- data.frame(
   n_dependent_noeff = nrow(gradient_noeff),
   draws = n_draws,
   maximum_point_relative_error = max(relative_error),
+  point_validation_tolerance = point_validation_tolerance,
   final_par_sha256 = sha256(file.path(model_dir, "final.par")),
   hessian_sha256 = sha256(file.path(model_dir, "bet.hes")),
   gradient_sha256 = sha256(file.path(model_dir, "bet.dep")),

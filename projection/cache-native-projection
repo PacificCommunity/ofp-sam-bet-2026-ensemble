@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+if [[ "$#" -ne 3 ]]; then
+  printf '%s\n' \
+    "Usage: projection/cache-native-projection MODEL_DIR ENSEMBLE_ID OUTPUT_RDS" >&2
+  exit 2
+fi
+
+model_dir="$(cd "$1" && pwd)"
+ensemble_id="$2"
+output_rds="$3"
+final_par="$model_dir/final.par"
+[[ "$ensemble_id" =~ ^ensemble-[0-9]{3}$ ]] || {
+  printf 'Invalid ensemble ID: %s\n' "$ensemble_id" >&2
+  exit 2
+}
+test -s "$final_par"
+
+hash_files=(
+  "$final_par"
+  "$repo_dir/model/bet.frq"
+  "$repo_dir/model/bet.ini"
+  "$repo_dir/model/bet.tag"
+  "$repo_dir/model/bet.age_length"
+  "$repo_dir/model/bet.reg_scaling"
+  "$repo_dir/model/fishery_map.R"
+  "$repo_dir/model/mfcl.cfg"
+  "$repo_dir/mfclo64"
+  "$repo_dir/projection/run-native-projection"
+  "$repo_dir/projection/prepare-native-projection.R"
+  "$repo_dir/projection/configure-native-par.R"
+  "$repo_dir/projection/native-projection-par.R"
+  "$repo_dir/projection/parse-native-projection.R"
+)
+for path in "${hash_files[@]}"; do
+  test -s "$path" || {
+    printf 'Missing cache input: %s\n' "$path" >&2
+    exit 3
+  }
+done
+
+scenario=$'native-mfcl\nterminal-data=2024\nprojection=2025-2054\ncatch-average=2022-2024\nall-fisheries=catch\nrecruitment-only-stochastic\nnsims=10\nnyears=30'
+hash_manifest="$({
+  for path in "${hash_files[@]}"; do
+    printf '%s  %s\n' "$(sha256sum "$path" | awk '{print $1}')" "$(basename "$path")"
+  done
+})"
+cache_key="$({ printf '%s\n' "$hash_manifest"; printf '%s\n' "$scenario"; } | sha256sum | awk '{print $1}')"
+
+if [[ -s "$output_rds" ]]; then
+  cached_key="$(Rscript -e 'x <- readRDS(commandArgs(TRUE)[1]); cat(x$metadata$cache_key[[1]])' "$output_rds" 2>/dev/null || true)"
+  if [[ "$cached_key" == "$cache_key" ]]; then
+    printf 'Reusing checksum-locked native projection cache for %s.\n' "$ensemble_id"
+    exit 0
+  fi
+fi
+
+work_dir="$(mktemp -d "${TMPDIR:-/tmp}/bet-native-projection-${ensemble_id}.XXXXXX")"
+cleanup() {
+  if [[ -n "${work_dir:-}" && -d "$work_dir" && "$work_dir" == *"bet-native-projection-${ensemble_id}."* ]]; then
+    rm -rf -- "$work_dir"
+  fi
+}
+trap cleanup EXIT
+
+model_number="${ensemble_id#ensemble-}"
+model_number="$((10#$model_number))"
+export MODEL_INPUT_DIR="$repo_dir/model"
+export NSIMS=10
+export NYEARS=30
+export RECRUITMENT_SEED="$((20260806 + model_number))"
+
+"$repo_dir/projection/run-native-projection" "$work_dir" "$final_par"
+printf '%s\n' "$hash_manifest" > "$work_dir/projection-input-SHA256SUMS"
+printf '%s\n' "$scenario" > "$work_dir/projection-scenario.txt"
+Rscript "$repo_dir/projection/parse-native-projection.R" \
+  "$work_dir" "$ensemble_id" "$cache_key" "$output_rds"
+
+test -s "$output_rds"
+printf '%s  %s\n' "$(sha256sum "$output_rds" | awk '{print $1}')" \
+  "$(basename "$output_rds")" > "${output_rds}.sha256"
