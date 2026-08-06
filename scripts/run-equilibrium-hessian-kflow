@@ -40,6 +40,11 @@ preserve_diagnostics() {
       gzip -c "$raw" > "$raw.gz"
     fi
   done
+  for diagnostic in bet.dep deplabel.tmp; do
+    if [[ -s "$work_dir/$diagnostic" ]]; then
+      gzip -c "$work_dir/$diagnostic" > "$model_output/$diagnostic.gz"
+    fi
+  done
   {
     for path in bet.dep deplabel.tmp bet.hes; do
       if [[ -e "$work_dir/$path" ]]; then
