@@ -5,6 +5,7 @@ options(stringsAsFactors = FALSE)
 if (!requireNamespace("jsonlite", quietly = TRUE)) {
   stop("Install jsonlite to build the interactive viewer.", call. = FALSE)
 }
+source("report/model-labels.R")
 
 series <- readRDS("data/ensemble/ensemble-timeseries.rds")
 fit <- read.csv("data/ensemble/fit-diagnostics.csv", check.names = FALSE)
@@ -25,6 +26,8 @@ ids <- sort(fit$ensemble_id[fit$maximum_gradient <= 1e-4])
 if (length(ids) != 80L) {
   stop("The viewer requires exactly 80 models passing MGC <= 1e-4.", call. = FALSE)
 }
+model_map <- sequential_model_map(ids)
+display_ids <- model_map$ensemble_id
 
 design <- design[match(ids, design$ensemble_id), ]
 fit <- fit[match(ids, fit$ensemble_id), ]
@@ -44,10 +47,11 @@ model_colours <- grDevices::hcl(
 
 short_reporting <- ifelse(design$tag_reporting == "inclusion", "include", "exclude")
 model_meta <- data.frame(
-  id = ids,
+  id = display_ids,
+  source_id = ids,
   label = sprintf(
     "%s | h=%.3f | tau=%.1f | K=%.2f | RR=%s | M0=%.4f",
-    ids, design$steepness, design$tag_tau, design$tag_mixing_k_cutoff,
+    display_ids, design$steepness, design$tag_tau, design$tag_mixing_k_cutoff,
     short_reporting, design$m_age40_quarterly
   ),
   color = model_colours,
@@ -66,10 +70,11 @@ model_meta <- data.frame(
   f_fmsy_recent = round(management$f_recent_fmsy, 6)
 )
 
-series_payload <- lapply(ids, function(id) {
-  value <- series[series$ensemble_id == id, ]
+series_payload <- lapply(seq_along(ids), function(index) {
+  source_id <- ids[[index]]
+  value <- series[series$ensemble_id == source_id, ]
   list(
-    id = id,
+    id = display_ids[[index]],
     year = as.integer(value$year),
     depletion = round(value$depletion, 7),
     recruitment = round(value$recruitment, 5),

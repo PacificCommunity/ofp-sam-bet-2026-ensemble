@@ -8,6 +8,7 @@ missing_packages <- required_packages[
 if (length(missing_packages)) {
   stop("Install report dependencies: ", paste(missing_packages, collapse = ", "), call. = FALSE)
 }
+source("report/model-labels.R")
 
 series_all <- readRDS("data/ensemble/ensemble-timeseries.rds")
 fit_all <- read.csv("data/ensemble/fit-diagnostics.csv", check.names = FALSE)
@@ -46,6 +47,7 @@ excluded_ids <- sort(fit_all$ensemble_id[!fit_all$mgc_pass])
 if (length(included_ids) != 80L || length(excluded_ids) != 8L) {
   stop("The locked MGC <= 1e-4 rule must retain 80 of 88 completed models.")
 }
+model_id_map <- sequential_model_map(included_ids)
 if (nrow(planned_design) != 100L || anyDuplicated(planned_design$ensemble_id) ||
     !setequal(planned_design$ensemble_id, sprintf("ensemble-%03d", seq_len(100L)))) {
   stop("The planned ensemble design must contain exactly 100 unique configurations.")
@@ -403,12 +405,12 @@ m_tag_lower <- parameter_value("Tag-analysis M0", "lower_90")
 m_tag_upper <- parameter_value("Tag-analysis M0", "upper_90")
 
 design_fill_colours <- c("Planned 100" = "#D2A447", "Included 80" = "#16899A")
-paired_histogram_density <- function(planned, included, breaks) {
+paired_histogram_counts <- function(planned, included, breaks) {
   one_set <- function(values, label) {
     estimate <- graphics::hist(values, breaks = breaks, plot = FALSE)
     data.frame(
       midpoint = estimate$mids,
-      density = estimate$density,
+      count = estimate$counts,
       bin_width = diff(estimate$breaks),
       set = label
     )
@@ -421,28 +423,36 @@ paired_histogram_density <- function(planned, included, breaks) {
   result
 }
 
-h_histogram <- paired_histogram_density(
+h_histogram <- paired_histogram_counts(
   planned_design$steepness, design$steepness,
   seq(h_lower, h_upper, length.out = 11L)
 )
-m_histogram <- paired_histogram_density(
+m_histogram <- paired_histogram_counts(
   planned_design$m_age40_quarterly, design$m_age40_quarterly,
   seq(m_lower, m_upper, length.out = 11L)
 )
 h_bin_width <- stats::median(h_histogram$bin_width)
 m_bin_width <- stats::median(m_histogram$bin_width)
+h_grid$count <- h_grid$density * nrow(planned_design) * h_bin_width
+m_grid$selected_count <- m_grid$selected * nrow(planned_design) * m_bin_width
+m_grid$hamel_cope_count <- m_grid$hamel_cope * nrow(planned_design) * m_bin_width
 
 h_panel <- ggplot2::ggplot(
   h_histogram,
-  ggplot2::aes(x = .data$midpoint, y = .data$density, fill = .data$set)
+  ggplot2::aes(x = .data$midpoint, y = .data$count, fill = .data$set)
 ) +
   ggplot2::geom_col(
-    position = ggplot2::position_dodge(width = h_bin_width * 0.88),
-    width = h_bin_width * 0.42,
-    colour = "white", linewidth = 0.18, alpha = 0.92
+    data = h_histogram[h_histogram$set == "Planned 100", ],
+    width = h_bin_width * 0.90, colour = "white", linewidth = 0.18,
+    alpha = 0.88
+  ) +
+  ggplot2::geom_col(
+    data = h_histogram[h_histogram$set == "Included 80", ],
+    width = h_bin_width * 0.58, colour = "white", linewidth = 0.18,
+    alpha = 0.96
   ) +
   ggplot2::geom_line(
-    data = h_grid, ggplot2::aes(x = .data$x, y = .data$density),
+    data = h_grid, ggplot2::aes(x = .data$x, y = .data$count),
     inherit.aes = FALSE, colour = "#0072B2", linewidth = 0.95
   ) +
   ggplot2::geom_rug(
@@ -453,24 +463,29 @@ h_panel <- ggplot2::ggplot(
     values = design_fill_colours,
     name = NULL
   ) +
-  ggplot2::labs(x = "Steepness, h", y = "Density") + theme_report(10.4)
+  ggplot2::labs(x = "Steepness, h", y = "Models per bin") + theme_report(10.4)
 
-m_y <- max(c(m_grid$selected, m_grid$hamel_cope), na.rm = TRUE)
+m_y <- max(c(m_grid$selected_count, m_grid$hamel_cope_count), na.rm = TRUE)
 m_panel <- ggplot2::ggplot(
   m_histogram,
-  ggplot2::aes(x = .data$midpoint, y = .data$density, fill = .data$set)
+  ggplot2::aes(x = .data$midpoint, y = .data$count, fill = .data$set)
 ) +
   ggplot2::geom_col(
-    position = ggplot2::position_dodge(width = m_bin_width * 0.88),
-    width = m_bin_width * 0.42,
-    colour = "white", linewidth = 0.18, alpha = 0.92
+    data = m_histogram[m_histogram$set == "Planned 100", ],
+    width = m_bin_width * 0.90, colour = "white", linewidth = 0.18,
+    alpha = 0.88
+  ) +
+  ggplot2::geom_col(
+    data = m_histogram[m_histogram$set == "Included 80", ],
+    width = m_bin_width * 0.58, colour = "white", linewidth = 0.18,
+    alpha = 0.96
   ) +
   ggplot2::geom_line(
-    data = m_grid, ggplot2::aes(x = .data$x, y = .data$selected, colour = "Selected distribution"),
+    data = m_grid, ggplot2::aes(x = .data$x, y = .data$selected_count, colour = "Selected distribution"),
     inherit.aes = FALSE, linewidth = 0.95
   ) +
   ggplot2::geom_line(
-    data = m_grid, ggplot2::aes(x = .data$x, y = .data$hamel_cope, colour = "Hamel–Cope, scaled to M₀"),
+    data = m_grid, ggplot2::aes(x = .data$x, y = .data$hamel_cope_count, colour = "Hamel–Cope, scaled to M₀"),
     inherit.aes = FALSE, linewidth = 0.72, linetype = "22"
   ) +
   ggplot2::annotate(
@@ -495,7 +510,8 @@ m_panel <- ggplot2::ggplot(
     name = NULL, guide = "none"
   ) +
   ggplot2::labs(
-    x = expression(italic(M)[0]~at~italic(L)(40.5)~(quarter^{-1})), y = "Density"
+    x = expression(italic(M)[0]~at~italic(L)(40.5)~(quarter^{-1})),
+    y = "Models per bin"
   ) + theme_report(10.4)
 
 count_panel <- function(planned, retained, column, x_label, fill, levels = NULL) {
@@ -570,26 +586,6 @@ design_plot <- design_plot & ggplot2::theme(
   axis.text.x = ggplot2::element_text(size = 8.2)
 )
 
-fit$ordered_model <- reorder(fit$ensemble_id, fit$maximum_gradient)
-qc_plot <- ggplot2::ggplot(
-  fit,
-  ggplot2::aes(x = .data$ordered_model, y = .data$maximum_gradient,
-               colour = .data$hessian_qc)
-) +
-  ggplot2::geom_hline(yintercept = 1e-4, colour = "#B83232", linewidth = 0.55, linetype = "33") +
-  ggplot2::geom_point(size = 2.05, alpha = 0.82) +
-  ggplot2::scale_y_log10(labels = scales::label_scientific()) +
-  ggplot2::scale_colour_manual(values = status_colours, name = "Hessian") +
-  ggplot2::labs(
-    x = "Completed ensemble models, ordered by MGC",
-    y = "Maximum gradient component (log scale)"
-  ) + theme_report(11.3) +
-  ggplot2::theme(
-    axis.text.x = ggplot2::element_blank(),
-    axis.ticks.x = ggplot2::element_blank(),
-    panel.grid.major.x = ggplot2::element_blank()
-  )
-
 save_plot <- function(plot, stem, width = 7.1, height = 8.8) {
   png <- file.path(figure_dir, paste0(stem, ".png"))
   pdf <- file.path(figure_dir, paste0(stem, ".pdf"))
@@ -607,9 +603,9 @@ save_plot <- function(plot, stem, width = 7.1, height = 8.8) {
 figures <- list(
   design = save_plot(
     design_plot, "ensemble-design-retention", height = 7.5
-  ),
-  qc = save_plot(qc_plot, "convergence-hessian-qc", height = 5.2)
+  )
 )
+unlink(file.path(figure_dir, paste0("convergence-hessian-qc", c(".png", ".pdf"))))
 
 quantity_values <- list(
   management$sb_recent_sb0,
@@ -653,7 +649,15 @@ risk_rows$Percent <- 100 * risk_rows$Models / n_models
 
 write.csv(summary_rows, file.path(table_dir, "management-summary.csv"), row.names = FALSE)
 write.csv(risk_rows, file.path(table_dir, "management-risk.csv"), row.names = FALSE)
-write.csv(fit, file.path(table_dir, "ensemble-fit-diagnostics.csv"), row.names = FALSE)
+fit_public <- fit[match(model_id_map$source_ensemble_id, fit$ensemble_id), , drop = FALSE]
+fit_public$source_ensemble_id <- fit_public$ensemble_id
+fit_public$ensemble_id <- model_id_map$ensemble_id
+fit_public <- fit_public[c(
+  "ensemble_id", "source_ensemble_id",
+  setdiff(names(fit_public), c("ensemble_id", "source_ensemble_id"))
+)]
+write.csv(fit_public, file.path(table_dir, "ensemble-fit-diagnostics.csv"), row.names = FALSE)
+write.csv(model_id_map, file.path(table_dir, "model-id-map.csv"), row.names = FALSE)
 
 html_escape <- function(value) {
   value <- gsub("&", "&amp;", as.character(value), fixed = TRUE)
@@ -780,7 +784,7 @@ figure_card <- function(id, title, caption, latex_caption, files) {
 
 captions <- list(
   trajectories = paste0(
-    "Annual estimates across the 80 models retained after applying MGC ≤ 1 × 10<sup>−4</sup>. Grey lines are individual models; nested blue bands are pointwise 50%, 80% and 95% structural intervals, with the WCPFC 10th–90th percentile interval shown as the middle band. The dark-blue line is the equal-weight median. The depletion line marks the limit reference point (LRP = 0.2)."
+    "Annual estimates across the 80 models retained after applying MGC ≤ 1 × 10<sup>−4</sup>. Grey lines are individual models; nested blue bands are pointwise central 50%, 80% and 95% structural intervals. The dark-blue line is the equal-weight median. The depletion line marks the limit reference point (LRP = 0.2)."
   ),
   management = paste0(
     "Equal-weight structural distributions of recent depletion, spawning biomass relative to <i>SB</i><sub>MSY</sub>, fishing mortality relative to <i>F</i><sub>MSY</sub>, and recent depletion relative to each model’s mean depletion during 2012–2015. Recent periods are 2021–2024 for spawning biomass, 2014–2023 for unfished spawning biomass and 2020–2023 for fishing mortality."
@@ -790,15 +794,12 @@ captions <- list(
   ),
   design = paste0(
     "Realized inputs for the 80 retained models. Histograms and bars show included fits only. Continuous curves show the specified steepness and natural-mortality distributions; the dashed natural-mortality curve is the Hamel–Cope adult-mortality prior transformed to the assessment-model <i>M</i><sub>0</sub> scale, and the green point and interval show the tag-based estimate and 90% confidence interval."
-  ),
-  qc = paste0(
-    "Maximum gradient component (MGC) for the 80 retained models, ordered from smallest to largest. Colour identifies Hessian status and the red dashed line marks the inclusion threshold MGC = 1 × 10<sup>−4</sup>. Ten other configurations did not meet this criterion after extended optimization runs and were excluded before the ensemble was summarized."
   )
 )
 
 latex_captions <- list(
   trajectories = paste0(
-    "Annual estimates across the 80 models retained after applying $\\mathrm{MGC}\\leq1\\times10^{-4}$. Grey lines are individual models; nested blue bands are pointwise 50\\%, 80\\% and 95\\% structural intervals, with the WCPFC 10th--90th percentile interval shown as the middle band. The dark-blue line is the equal-weight median. The depletion line marks the limit reference point (LRP $=0.2$)."
+    "Annual estimates across the 80 models retained after applying $\\mathrm{MGC}\\leq1\\times10^{-4}$. Grey lines are individual models; nested blue bands are pointwise central 50\\%, 80\\% and 95\\% structural intervals. The dark-blue line is the equal-weight median. The depletion line marks the limit reference point (LRP $=0.2$)."
   ),
   management = paste0(
     "Equal-weight structural distributions of $SB_{recent}/SB_{F=0}$, $SB_{recent}/SB_{MSY}$, $F_{recent}/F_{MSY}$, and $D_{recent}/\\overline{D}_{2012--2015}$. Recent periods are 2021--2024 for spawning biomass, 2014--2023 for unfished spawning biomass and 2020--2023 for fishing mortality."
@@ -808,15 +809,12 @@ latex_captions <- list(
   ),
   design = paste0(
     "Realized inputs for the 80 retained models. Histograms and bars show included fits only. Continuous curves show the specified steepness and natural-mortality distributions; the dashed natural-mortality curve is the Hamel--Cope adult-mortality prior transformed to the assessment-model $M_0$ scale, and the green point and interval show the tag-based estimate and 90\\% confidence interval."
-  ),
-  qc = paste0(
-    "Maximum gradient component (MGC) for the 80 retained models, ordered from smallest to largest. Colour identifies Hessian status and the red dashed line marks the inclusion threshold $\\mathrm{MGC}=1\\times10^{-4}$. Ten other configurations did not meet this criterion after extended optimization runs and were excluded before the ensemble was summarized."
   )
 )
 
 captions$trajectories_stock <- paste0(
   "Annual depletion (a) and spawning potential (b) across the 80 retained assessment models. ",
-  "Grey lines are individual models; nested blue bands are pointwise 50%, 80% and 95% structural intervals, with the WCPFC 10th–90th percentile interval shown as the middle band. ",
+  "Grey lines are individual models; nested blue bands are pointwise central 50%, 80% and 95% structural intervals. ",
   "The dark-blue line is the equal-weight median. The depletion reference line is the limit reference point (LRP = 0.20)."
 )
 captions$trajectories_process <- paste0(
@@ -836,7 +834,7 @@ captions$design <- paste0(
   "Muted gold shows the 100 planned configurations and teal shows the 80 retained models. Curves in panels a–b show the specified continuous input distributions."
 )
 latex_captions$trajectories_stock <- paste0(
-  "Annual depletion (a) and spawning potential (b) across the 80 retained assessment models. Grey lines are individual models; nested blue bands are pointwise 50\\%, 80\\% and 95\\% structural intervals, with the WCPFC 10th--90th percentile interval shown as the middle band. ",
+  "Annual depletion (a) and spawning potential (b) across the 80 retained assessment models. Grey lines are individual models; nested blue bands are pointwise central 50\\%, 80\\% and 95\\% structural intervals. ",
   "The dark-blue line is the equal-weight median. The depletion reference line is the limit reference point (LRP $=0.20$)."
 )
 latex_captions$trajectories_process <- paste0(
@@ -861,28 +859,27 @@ html <- paste0(
   ".summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}.stat{background:#edf7f8;border:1px solid #bddce1;border-radius:8px;padding:13px}.stat b{display:block;font-size:1.55rem;color:#07566b}",
   ".method-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:16px 0 24px}.method{border:1px solid #c8dce2;border-top:4px solid #11899a;border-radius:7px;padding:13px 15px;background:#f8fbfc}.method h3{margin:0 0 6px;color:#0a5266;font:700 1rem Arial,sans-serif}.method p{margin:0;font-size:.94rem}",
   ".note{background:#fff8e7;border-left:5px solid #d28a24;padding:13px 16px;margin:18px 0}.definition{background:#edf7f8;border-left:5px solid #11899a;padding:13px 16px;margin:18px 0}",
+  ".report-tabs{position:sticky;top:0;z-index:20;display:flex;gap:7px;margin:20px -4px 26px;padding:8px 4px;background:rgba(255,255,255,.96);border-bottom:1px solid #c8dce2;backdrop-filter:blur(8px)}.report-tab{border:1px solid #a9cbd3;border-radius:5px;background:#f4fafb;color:#0a5266;padding:9px 18px;font:700 .92rem Arial,sans-serif;cursor:pointer}.report-tab:hover{background:#e7f4f6}.report-tab.active{border-color:#087f8f;background:#087f8f;color:#fff;box-shadow:0 5px 14px rgba(8,127,143,.18)}.report-panel{display:none}.report-panel.active{display:block}.panel-intro{max-width:900px;color:#4d6877;font-size:.97rem;margin:-4px 0 22px}.output-list>.figure-card:first-child,.output-list>.table-card:first-child{margin-top:8px}.table-card{margin:28px 0 46px;scroll-margin-top:76px}",
   ".figure-card{page-break-after:always;margin:34px 0 48px}.figure-card img{display:block;width:88%;height:auto;margin:12px auto 8px}.caption{font-size:.98rem}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.actions button,.actions a{background:#087f8f;color:white;border:0;border-radius:4px;padding:8px 12px;text-decoration:none;font:600 .9rem sans-serif;cursor:pointer}.copy-source{position:absolute;left:-10000px}",
   "table{border-collapse:collapse;width:100%;font-family:Arial,sans-serif;font-size:.86rem;margin:12px 0 20px}th{background:#0b586d;color:white}th,td{padding:7px 8px;border-bottom:1px solid #cbd8de;text-align:right}th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left}",
-  ".refs{font-size:.94rem}.refs li{margin:.55rem 0}@media(max-width:760px){main{padding:20px}.summary,.method-grid{grid-template-columns:1fr}}",
-  "@media print{@page{size:A4 portrait;margin:13mm}body{background:white}main{max-width:none;padding:0}.actions{display:none}.figure-card{break-after:page;break-inside:avoid;margin:0}.figure-card h2{margin-top:0}.figure-card img{width:86%;max-height:176mm;object-fit:contain}h1{font-size:18pt}h2{font-size:14pt}table{font-size:8.5pt}}",
+  ".refs{font-size:.94rem}.refs li{margin:.55rem 0}@media(max-width:760px){main{padding:20px}.summary,.method-grid{grid-template-columns:1fr}.report-tabs{margin-left:0;margin-right:0}.report-tab{flex:1;padding:9px 6px}}",
+  "@media print{@page{size:A4 portrait;margin:13mm}body{background:white}main{max-width:none;padding:0}.actions,.report-tabs{display:none}.report-panel{display:block!important}.figure-card{break-after:page;break-inside:avoid;margin:0}.figure-card h2{margin-top:0}.figure-card img{width:86%;max-height:176mm;object-fit:contain}.table-card{break-inside:avoid}h1{font-size:18pt}h2{font-size:14pt}table{font-size:8.5pt}}",
   "</style></head><body><main><h1>BET 2026 ensemble analysis</h1>",
   "<p class='lede'>Equal-weight results from 80 bigeye tuna assessment models retained after applying MGC ≤ 1 × 10<sup>−4</sup>, with structural uncertainty, available Hessian-based estimation uncertainty and stochastic projections kept explicit.</p>",
   "<div class='actions'><a href='bet-2026-ensemble-interactive-viewer.html'>Open 80-model interactive viewer</a></div>",
   "<div class='summary'><div class='stat'><b>100 &rarr; ", n_models, "</b>planned &rarr; included</div><div class='stat'><b>", n_pdh, "</b>PDH</div><div class='stat'><b>", n_near, "</b>Near-PDH</div><div class='stat'><b>20</b>not retained</div></div>",
+  "<nav class='report-tabs' aria-label='Report sections'><button class='report-tab active' type='button' data-report-tab='overview'>Overview</button><button class='report-tab' type='button' data-report-tab='figures'>Figures</button><button class='report-tab' type='button' data-report-tab='tables'>Tables</button></nav>",
+  "<section class='report-panel active' id='overview-panel' data-report-panel='overview'>",
   "<h2>Overview</h2><div class='method-grid'>",
-  "<article class='method'><h3>Ensemble</h3><p>One hundred configurations were planned. Ten did not meet the MGC ≤ 1 × 10<sup>−4</sup> criterion even after extended optimization runs and were excluded; ten had no completed result. The remaining 80 models enter with equal structural weight.</p></article>",
-  "<article class='method'><h3>Estimation uncertainty</h3><p>For each of 62 retained PDH fits, 100 joint normal parameter perturbations were generated from the inverse Hessian and propagated with a first-order multivariate delta method. Log-scale derived-quantity gradients and implicit derivatives of the model-specific equilibrium curves are evaluated with the same perturbation, preserving covariance. The 18 retained Near-PDH fits contribute central estimates only.</p></article>",
-  "<article class='method'><h3>Stochastic projections</h3><p>Each of the 80 retained fits contributes ten recruitment sequences for 2025–2054, sampled from fitted 1972–2023 deviations. Catch is conditioned separately for all 33 fisheries and quarters at the 2022–2024 calendar mean; absent observations are zero in the mean, and the 16 number-based and 17 weight-based fishery units are retained.</p></article>",
-  "<article class='method'><h3>Management quantities</h3><p>Recent biomass uses 2021–2024, unfished biomass 2014–2023 and recent fishing mortality the 2020–2023 pattern. The equilibrium calculation scales the intensity of that fishing pattern: its maximum long-run yield defines F<sub>MSY</sub>, and the corresponding spawning biomass defines SB<sub>MSY</sub>. Projected depletion uses a rolling four-year biomass mean divided by the preceding ten-year unfished mean.</p></article></div>",
-  "<div class='note'><strong>Interval convention.</strong> One-dimensional summaries use the median and central 80% equal-tailed interval (10th–90th percentiles) as the primary reporting interval; nested 50% and 95% bands are supplementary. Kobe and Majuro panels instead show nested two-dimensional 50%, 80% and 95% kernel highest-density regions.</div>",
-  "<h2>Assessment quantities</h2><div class='definition'><i>SB</i><sub>recent</sub> is the 2021–2024 mean; <i>SB</i><sub><i>F</i>=0</sub> is the 2014–2023 mean; and <i>F</i><sub>recent</sub> uses the 2020–2023 fishing-mortality pattern. The biomass LRP is 0.2<i>SB</i><sub><i>F</i>=0</sub>. The historical management objective is calculated independently for every 2026 model as its mean annual <i>SB</i>/<i>SB</i><sub><i>F</i>=0</sub> over 2012–2015; fixed values calibrated to the 2023 assessment are not applied.</div>",
-  "<h2>Uncertainty and diagnostics</h2><p>The MGC criterion is applied before any ensemble summary. Only the 80 fits with MGC ≤ 1 × 10<sup>−4</sup> contribute to figures, tables, probabilities and the interactive viewer.</p>",
-  "<div class='note'><strong>Uncertainty treatment.</strong> All 80 retained central fits define structural uncertainty. For the 62 positive-definite Hessians, 100 correlated parameter draws per model are propagated jointly through matching derived-quantity gradients. This preserves cross-quantity correlations. The 18 Near-PDH fits remain as point estimates, but their indefinite Hessians are not regularized or used for parameter draws. The mixture therefore does not represent complete estimation uncertainty for those 18 fits.</div>",
-  "<div class='note'><strong>Scope and limitations.</strong> Hessian intervals are first-order normal approximations. Projection intervals combine model structure and stochastic recruitment, not Hessian parameter draws. Regional spawning potential and depletion join 1952–2024 estimates to 2025–2054 projections for Regions 1–5; the stock-wide LRP is shown only as a reference in regional depletion panels. Axis-grouped summaries are descriptive: no causal one-factor attribution, formal variance decomposition or posterior correlation analysis among jointly varying axes is attempted.</div>",
+  "<article class='method'><h3>Ensemble</h3><p>Of 100 planned configurations, 80 met MGC ≤ 1 × 10<sup>−4</sup> and were retained with equal model weight; ten failed the criterion and ten were incomplete.</p></article>",
+  "<article class='method'><h3>Uncertainty</h3><p>All 80 central fits represent structural uncertainty. For 62 PDH fits, 100 correlated inverse-Hessian draws were propagated jointly by the multivariate delta method; 18 Near-PDH fits contribute central estimates only. Estimation uncertainty is therefore available, but not complete for all models.</p></article>",
+  "<article class='method'><h3>Projections</h3><p>Each model contributes ten recruitment paths for 2025–2054, sampled from its estimated 1972–2023 recruitment deviations; the first 20 assessment years and terminal 2024 are excluded. All 33 fisheries are catch-conditioned by fishery and quarter at the 2022–2024 mean, with missing observations set to zero and the 16 number and 17 weight units retained. Projection bands exclude Hessian draws.</p></article>",
+  "<article class='method'><h3>Management quantities</h3><p><i>SB</i><sub>recent</sub> uses 2021–2024, <i>SB</i><sub><i>F</i>=0</sub> 2014–2023 and <i>F</i><sub>recent</sub> the 2020–2023 pattern. The LRP is 0.2<i>SB</i><sub><i>F</i>=0</sub>; MSY reference points are model-specific equilibrium quantities. Projected depletion is the rolling four-year biomass mean divided by the preceding ten-year unfished mean.</p></article>",
+  "<article class='method'><h3>Intervals</h3><p>One-dimensional results report the median and central 80% equal-tailed interval; 50% and 95% bands are supplementary. Kobe and Majuro plots use two-dimensional 50%, 80% and 95% kernel highest-density regions.</p></article>",
+  "<article class='method'><h3>Scope</h3><p>Hessian intervals are first-order normal approximations. Regional results cover Regions 1–5, with the stock-wide LRP shown only as a reference. Axis summaries are descriptive; no causal attribution, variance decomposition or posterior correlation analysis is made.</p></article></div>",
   "<div id='analysis-results'></div>",
-  "<h2 id='supplementary-material'>Supplementary material</h2><p>Supporting ensemble-design, convergence, uncertainty-axis, regional and projection-audit results are retained here for reproducibility without interrupting the main results.</p>",
+  "<h2 id='supplementary-material'>Supporting outputs</h2><p>Ensemble-design, uncertainty-axis, regional and projection outputs are organized in the Figures and Tables tabs.</p>",
   figure_card("ensemble-design", "Planned and retained ensemble inputs", captions$design, latex_captions$design, figures$design),
-  figure_card("qc", "Convergence and Hessian diagnostics", captions$qc, latex_captions$qc, figures$qc),
   "<section class='refs'><h2>References</h2><ol>",
   "<li><a href='https://meetings.wcpfc.int/system/files/2023-09/SC19-SA-WP-05_BET_2023_Rev2%20%28Posted%20on%2015Sep2023%29.pdf'>2023 WCPO bigeye tuna stock assessment</a>.</li>",
   "<li><a href='https://meetings.wcpfc.int/system/files/2023-12/WCPFC20-2023-15_Rev01_CMM_2021-01_eval_SPC-OFP%20-%20rev1%20%287%20Dec%202023%29.pdf'>2023 bigeye assessment projections and tropical-tuna measure evaluation</a>.</li>",
@@ -891,8 +888,10 @@ html <- paste0(
   "<li><a href='https://meetings.wcpfc.int/taxonomy/term/2786'>WCPFC First Bigeye Management Workshop: 2012–2015 depletion objective and candidate TRP process</a>.</li>",
   "<li><a href='https://doi.org/10.1016/j.fishres.2022.106477'>Hamel and Cope (2022): longevity-based natural-mortality prior</a>.</li>",
   "<li><a href='https://meetings.wcpfc.int/file/4756/download'>Pilling et al. (2016). Approaches for balancing biological model uncertainty in stock-assessment projections for tropical tunas</a>.</li>",
-  "</ol></section>",
-  "<script>function copyText(id,button){const x=document.getElementById(id);navigator.clipboard.writeText(x.value).then(()=>{const old=button.textContent;button.textContent='Copied';button.classList.add('copied');setTimeout(()=>{button.textContent=old;button.classList.remove('copied')},1400);});}</script>",
+  "</ol></section></section>",
+  "<section class='report-panel' id='figures-panel' data-report-panel='figures'><h2>Figures</h2><p class='panel-intro'>Publication figures are grouped here once, with report-ready captions and PNG and vector-PDF downloads.</p><div class='output-list' id='figures-list'></div></section>",
+  "<section class='report-panel' id='tables-panel' data-report-panel='tables'><h2>Tables</h2><p class='panel-intro'>Report tables are grouped here once, with Word, LaTeX and CSV outputs.</p><div class='output-list' id='tables-list'></div></section>",
+  "<script>function copyText(id,button){const x=document.getElementById(id);navigator.clipboard.writeText(x.value).then(()=>{const old=button.textContent;button.textContent='Copied';button.classList.add('copied');setTimeout(()=>{button.textContent=old;button.classList.remove('copied')},1400);});}function setReportTab(name,scroll=true){document.querySelectorAll('[data-report-tab]').forEach(button=>button.classList.toggle('active',button.dataset.reportTab===name));document.querySelectorAll('[data-report-panel]').forEach(panel=>panel.classList.toggle('active',panel.dataset.reportPanel===name));history.replaceState(null,'','#'+name);if(scroll)window.scrollTo({top:0,behavior:'smooth'});}function organizeReportOutputs(){const figures=document.getElementById('figures-list'),tables=document.getElementById('tables-list');document.querySelectorAll('.figure-card').forEach(card=>figures.appendChild(card));document.querySelectorAll('.table-card').forEach(card=>tables.appendChild(card));document.querySelectorAll('[data-report-tab]').forEach(button=>button.addEventListener('click',()=>setReportTab(button.dataset.reportTab)));const requested=location.hash.slice(1);setReportTab(['overview','figures','tables'].includes(requested)?requested:'overview',false);}document.addEventListener('DOMContentLoaded',organizeReportOutputs);</script>",
   "</main></body></html>"
 )
 
@@ -903,7 +902,8 @@ manifest_files <- c(
   unlist(lapply(figures, function(x) file.path("figures", basename(x)))),
   "tables/management-summary.csv",
   "tables/management-risk.csv",
-  "tables/ensemble-fit-diagnostics.csv"
+  "tables/ensemble-fit-diagnostics.csv",
+  "tables/model-id-map.csv"
 )
 manifest <- data.frame(file = manifest_files, stringsAsFactors = FALSE)
 manifest$sha256 <- vapply(file.path(output_dir, manifest$file), function(path) {

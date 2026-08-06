@@ -11,8 +11,9 @@ workflow. The locked scenario is:
   zero catch;
 - each fishery retains the number or weight unit defined by the model input
   data flag; unlike units are never summed for scientific reporting;
-- future recruitment sampled by the assessment model from the fitted
-  1972–2023 deviates;
+- future recruitment sampled from each model's estimated 1972–2023
+  recruitment deviations (the first 20 assessment years and terminal 2024
+  are excluded);
 - no future catch or effort randomisation; and
 - each model's fixed tag-overdispersion value (`tau = 1.2`, `1.3` or `1.4`)
   preserved in the projection parameter file.

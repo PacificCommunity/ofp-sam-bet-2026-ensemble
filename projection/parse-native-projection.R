@@ -321,8 +321,11 @@ payload <- list(
   created_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
   method = paste(
     "MFCL stochastic projection; all fisheries held at their exact",
-    "2022-2024 mean catch; recruitment sampled from fitted 1972-2023",
-    "deviates; 10 simulations over 2025-2054. Annual biomass is the mean",
+    paste(
+      "2022-2024 mean catch; recruitment sampled from estimated",
+      "1972-2023 deviations (first 20 assessment years and terminal 2024 excluded)"
+    ),
+    "with 10 simulations over 2025-2054. Annual biomass is the mean",
     "of four quarterly stock-wide or regional values; annual depletion is",
     "the ratio of annual mean fished to annual mean no-fishing spawning biomass.",
     "Terminal biomass status is mean SB for 2051-2054 divided by the",

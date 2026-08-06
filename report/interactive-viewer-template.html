@@ -23,7 +23,7 @@ main{max-width:1780px;margin:0 auto;padding:28px 22px 24px}.hero{align-items:cen
   <aside class="panel side">
     <div class="tabs"><button class="tab active" data-view="quantities" type="button">Key quantities</button><button class="tab" data-view="fit" type="button">Fit summary</button></div>
     <div id="modelControls">
-      <span class="section-label">Models &middot; 80 included</span>
+      <span class="section-label">Models &middot; ensemble-001&ndash;ensemble-080</span>
       <div class="actions"><button id="selectAll" type="button">Select all</button><button id="selectNone" type="button">Clear</button></div>
       <div class="models" id="modelList"></div>
     </div>
@@ -31,7 +31,7 @@ main{max-width:1780px;margin:0 auto;padding:28px 22px 24px}.hero{align-items:cen
   <section class="panel content">
     <div class="topline"><strong id="viewTitle">Key quantities</strong><code id="rowCount"></code></div>
     <div id="quantityView">
-      <div class="line-note"><b>Line colours identify individual retained models</b> and match the swatches in the model list. Select any combination of models for direct comparison.</div>
+      <div class="line-note"><b>Line colours identify individual retained models</b> and match the swatches in the model list. Labels run sequentially from ensemble-001 to ensemble-080 within the retained set. Select any combination of models for direct comparison.</div>
       <div class="plots">
         <div class="plot"><div class="plot-label">(a) Dynamic spawning depletion</div><canvas id="depletion"></canvas></div>
         <div class="plot"><div class="plot-label">(b) Recruitment</div><canvas id="recruitment"></canvas></div>
@@ -40,7 +40,7 @@ main{max-width:1780px;margin:0 auto;padding:28px 22px 24px}.hero{align-items:cen
       </div>
       <div class="selection-table" id="selectedSummary"></div>
     </div>
-    <div id="fitView" class="hidden"><div class="table-wrap" id="fitTable"></div><p class="table-note">All values are from the 80 retained assessment configurations. Clicking a row switches to the trajectory view and selects that model.</p></div>
+    <div id="fitView" class="hidden"><div class="table-wrap" id="fitTable"></div><p class="table-note">All values are from the 80 retained assessment configurations, numbered sequentially after filtering. Clicking a row switches to the trajectory view and selects that model.</p></div>
   </section>
 </section>
 </main>

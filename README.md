@@ -146,8 +146,9 @@ Each of the 80 models retained after applying the MGC criterion is
 projected for 30 years (2025–2054) with 10 stochastic recruitment sequences.
 Every fishery is catch-conditioned at its exact 2022–2024 mean annual catch;
 absent fishery-quarter incidents contribute zero to that average, and future
-recruitment is sampled by the model from the fitted 1972–2023 recruitment
-deviates. The input flags retain each fishery's original catch unit: fisheries 1–11
+recruitment is sampled from each model's estimated 1972–2023 recruitment
+deviations; the first 20 assessment years and terminal 2024 are excluded. The
+input flags retain each fishery's original catch unit: fisheries 1–11
 and 29–33 are in numbers and fisheries 12–28 are in weight. Consequently the
 fishery-specific conditioning values are audited individually and are never
 summed as if they were a single stock-wide catch quantity.
@@ -201,12 +202,14 @@ models for every design axis, without publishing excluded model identifiers.
 Time-dynamic Kobe and Majuro trajectories use the checksum-locked diagnostic
 series under `data/diagnostic/` and the coordinate-wise annual median of the
 80 retained central model series. Regional spawning potential and depletion
-are reported for Regions 1–5; the duplicate stock-wide series is retained only
-in the main stock-wide uncertainty and projection summaries.
+are reported for Regions 1–5 followed by the stock-wide `All regions` panel.
 The self-contained viewer follows the sensitivity-analysis viewer layout: its
 checkbox list supports simultaneous selection of any retained models, assigns
 each model a fixed colour, and identifies the full configuration using
 steepness, tag overdispersion, tag-mixing cutoff, pre-mixing reporting,
 quarterly natural mortality and effort creep. A separate fit-summary view
 lists MGC, objective function, Hessian status and the recent management
-quantities for all 80 retained models.
+quantities for all 80 retained models. Public display labels are reassigned
+sequentially as `ensemble-001` through `ensemble-080` after filtering; the
+checksum-listed model map preserves the source identifiers used by the
+calculation payloads.
