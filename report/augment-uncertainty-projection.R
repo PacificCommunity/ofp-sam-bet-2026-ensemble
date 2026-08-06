@@ -612,24 +612,19 @@ uncertainty_panels <- lapply(uncertainty_specs, function(spec) {
       alpha = 0.10
     ) +
     ggplot2::geom_line(
-      ggplot2::aes(y = .data$median, colour = "All-model median"), linewidth = 0.88
+      ggplot2::aes(y = .data$median, colour = "Median"), linewidth = 0.88
     ) +
     ggplot2::scale_fill_manual(values = c(
       "95% interval" = "#D5E9ED",
       "80% interval" = "#9CCFD8",
       "50% interval" = "#53AAB9"
     ), name = NULL) +
-    ggplot2::scale_colour_manual(values = c(
-      "All-model median" = "#07566B", "Structural median" = "#D27A1D"
-    ), breaks = c("All-model median", "Structural median"), name = NULL) +
+    ggplot2::scale_colour_manual(
+      values = c("Median" = "#07566B"), breaks = "Median", name = NULL
+    ) +
     ggplot2::scale_x_continuous(breaks = seq(1960, 2020, 20)) +
     ggplot2::coord_cartesian(ylim = c(0, NA)) +
     ggplot2::labs(x = "Year", y = spec$label) + theme_report(10.6)
-  p <- p + ggplot2::geom_line(
-    data = structural,
-    ggplot2::aes(y = .data$median, colour = "Structural median"),
-    linewidth = 0.60, linetype = "22"
-  )
   if (!spec$estimation) {
     p <- p + ggplot2::guides(fill = "none", colour = "none")
   }
@@ -2452,14 +2447,12 @@ fit_latex <- paste0(
 
 uncertainty_caption <- paste0(
   "Annual depletion (a), spawning potential (b), recruitment (c) and fishing mortality (d) across the 80 retained models. ",
-  "For panels a–c, blue bands and the solid median combine structural uncertainty with 100 joint Hessian draws for each of 62 PDH models; the 18 Near-PDH models contribute central estimates only. Panel d shows structural uncertainty because annual fishing-mortality Hessian derivatives were not calculated. ",
-  "Bands are pointwise central 50%, 80% and 95% intervals. Grey lines show central model trajectories and the orange dashed line is their structural median; in panel d it coincides with the solid median. ",
+  "The median and pointwise central 50%, 80% and 95% intervals use the uncertainty samples available for each quantity. Grey lines show central model trajectories. ",
   "Individual trajectories can be examined in the <a href='https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/latest/download/bet-2026-ensemble-interactive-viewer.html'>interactive viewer</a>."
 )
 uncertainty_latex_caption <- paste0(
   "Annual depletion (a), spawning potential (b), recruitment (c) and fishing mortality (d) across the 80 retained models. ",
-  "For panels a--c, blue bands and the solid median combine structural uncertainty with 100 joint Hessian draws for each of 62 PDH models; the 18 Near-PDH models contribute central estimates only. Panel d shows structural uncertainty because annual fishing-mortality Hessian derivatives were not calculated. ",
-  "Bands are pointwise central 50\\%, 80\\% and 95\\% intervals. Grey lines show central model trajectories and the orange dashed line is their structural median; in panel d it coincides with the solid median. Individual trajectories can be examined in the interactive viewer accompanying this report."
+  "The median and pointwise central 50\\%, 80\\% and 95\\% intervals use the uncertainty samples available for each quantity. Grey lines show central model trajectories. Individual trajectories can be examined in the interactive viewer accompanying this report."
 )
 plain_latex_caption <- function(value) {
   value <- gsub("<[^>]+>", "", value)
@@ -2530,7 +2523,7 @@ projection_key_caption <- paste0(
   "Projected probabilities and the mean 2050–2053 F/FMSY combine model structure and stochastic recruitment without Hessian draws; current Frecent/FMSY includes available Hessian uncertainty."
 )
 projection_catch_caption <- paste0(
-  "Projected annual biomass catch relative to equilibrium MSY, 2025–2054. The median and central 50%, 80% and 95% intervals use all 800 model–recruitment realizations; ten thin lines show a reproducible random sample. ",
+  "Projected annual biomass catch relative to equilibrium MSY, 2025–2054. The median and central 50%, 80% and 95% intervals use all 800 model–recruitment realizations; ten thin lines show individual projection realizations. ",
   "Number-conditioned fisheries are converted using model-predicted mean weight; number and weight inputs are not summed."
 )
 terminal_status_caption <- paste0(
@@ -2538,10 +2531,10 @@ terminal_status_caption <- paste0(
   "Points are individual combinations, nested shading gives the 50%, 80% and 95% bivariate kernel HDRs, and labels give the percentage in each background category. Projection uncertainty includes model structure and stochastic recruitment, not Hessian parameter draws."
 )
 regional_spawning_caption <- paste0(
-  "Spawning potential for Regions 1–5 and all regions, joining estimates through 2024 to projections for 2025–2054. Medians and central 50%, 80% and 95% intervals use all 800 model–recruitment realizations; ten thin projection lines show a reproducible random sample. Historical intervals show structural uncertainty; projections add recruitment variability without Hessian parameter draws. Units are thousands of metric tonnes."
+  "Spawning potential for Regions 1–5 and all regions, joining estimates through 2024 to projections for 2025–2054. Medians and central 50%, 80% and 95% intervals use all 800 model–recruitment realizations; ten thin lines show individual projection realizations. Historical intervals show structural uncertainty; projections add recruitment variability without Hessian parameter draws. Units are thousands of metric tonnes."
 )
 regional_depletion_caption <- paste0(
-  "Depletion for Regions 1–5 and all regions, joining estimates through 2024 to projections for 2025–2054. Depletion is the four-year mean spawning biomass divided by the preceding ten-year mean no-fishing biomass. Medians and central 50%, 80% and 95% intervals use all 800 model–recruitment realizations; ten thin projection lines show a reproducible random sample. The 0.20 line is the stock-wide LRP shown for reference, not a region-specific threshold."
+  "Depletion for Regions 1–5 and all regions, joining estimates through 2024 to projections for 2025–2054. Depletion is the four-year mean spawning biomass divided by the preceding ten-year mean no-fishing biomass. Medians and central 50%, 80% and 95% intervals use all 800 model–recruitment realizations; ten thin lines show individual projection realizations. The 0.20 line is the stock-wide LRP shown for reference, not a region-specific threshold."
 )
 
 catch_below_years <- sum(catch_msy_summary$median < 1)
