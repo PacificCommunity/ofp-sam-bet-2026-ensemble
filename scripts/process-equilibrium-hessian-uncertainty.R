@@ -95,13 +95,19 @@ labels <- labels[seq_len(nrow(gradient)), , drop = FALSE]
 
 yield_rows <- grep("^pred_yield_for_F_mult", labels$label)
 sb_rows <- grep("^pred_equilib_SB_for_F_mult", labels$label)
-f_multiplier <- seq(0, 3.62, by = 0.01)
-if (length(yield_rows) != length(f_multiplier) ||
-    length(sb_rows) != length(f_multiplier) ||
+if (length(yield_rows) < 3L ||
+    length(sb_rows) != length(yield_rows) ||
     !identical(yield_rows, seq.int(min(yield_rows), max(yield_rows))) ||
-    !identical(sb_rows, seq.int(min(sb_rows), max(sb_rows)))) {
+    !identical(sb_rows, seq.int(min(sb_rows), max(sb_rows))) ||
+    min(sb_rows) != max(yield_rows) + 1L) {
   stop("The full equilibrium-yield or spawning-biomass curve is missing.")
 }
+# The program evaluates each model's equilibrium curve on a 0.01 fishing-
+# multiplier grid, but extends the curve far enough for that model's yield to
+# decline.  The number of points therefore differs among models.  Recover the
+# exact grid from the complete paired curve lengths rather than fixing the
+# length observed for any one model.
+f_multiplier <- (seq_along(yield_rows) - 1L) * 0.01
 
 central_yield <- labels$value[yield_rows]
 central_sb <- labels$value[sb_rows]
@@ -231,6 +237,8 @@ metadata <- data.frame(
   draws = n_draws,
   n_parameter = nrow(hessian),
   equilibrium_dependent_variables = nrow(gradient),
+  equilibrium_curve_points = length(f_multiplier),
+  maximum_equilibrium_f_multiplier = max(f_multiplier),
   central_f_multiplier_at_msy = central_fmult,
   central_sbmsy_mt = central_sbmsy,
   central_f_recent_fmsy_relative_error = central_error[["f_recent_fmsy"]],

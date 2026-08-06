@@ -56,8 +56,13 @@ preserve_diagnostics() {
   } > "$model_output/run-file-audit.txt"
 }
 cleanup() {
-  preserve_diagnostics
+  cleanup_status=$?
+  set +e
+  if [[ "$cleanup_status" -ne 0 ]]; then
+    preserve_diagnostics
+  fi
   rm -rf -- "$work_dir"
+  return "$cleanup_status"
 }
 trap cleanup EXIT
 
@@ -72,7 +77,7 @@ set +e
 (
   cd "$work_dir"
   ./mfclo64 bet.frq final.par hessian \
-    -switch 4 1 145 2 1 37 2 1 229 1245 1 230 1980 \
+    -switch 4 1 145 2 1 37 2 1 229 1245 1 230 4000 \
     > "$model_output/equilibrium-gradient.stdout" \
     2> "$model_output/equilibrium-gradient.stderr"
 )
@@ -96,7 +101,6 @@ Rscript "$repo_dir/scripts/process-equilibrium-hessian-uncertainty.R" \
   "$base_payload" "$model_output/${ensemble_id}.rds" 100 \
   > "$model_output/processor.log" 2>&1
 
-preserve_diagnostics
 sha256sum "$model_output/${ensemble_id}.rds" > "$model_output/SHA256SUMS"
 printf '%s\n' success > "$model_output/status.txt"
 printf 'Stored equilibrium-reference-point uncertainty for %s.\n' "$ensemble_id"
