@@ -120,15 +120,31 @@ vector version is available as
 
 These are structural ensemble draws, not optimizer jitters.
 
-## Native stochastic projections and reusable caches
+## Reusable Hessian uncertainty
 
-The projection workflow uses the repository's native `mfclo64`; it does not
-use MFCL-RTMB or modify MFCL source code. Each completed ensemble model is
+The repository stores compact, checksum-locked MFCL uncertainty
+payloads under `data/estimation/`. For each of the 68 models with a
+positive-definite Hessian, 100 correlated parameter-space draws are propagated
+jointly through MFCL dependent-variable gradients. The 20 Near-PDH central
+fits remain part of structural summaries, but their indefinite Hessians are
+not regularized, eigenvalue-clipped or used for parameter draws.
+
+Both the per-model RDS files and the aggregate payload are retained with
+SHA-256 manifests. Re-rendering the report therefore reuses the verified draws
+and does not repeat the Hessian calculations.
+
+## Stochastic projections and reusable caches
+
+The projection workflow uses the fitted assessment models through `mfclo64`.
+Each completed ensemble model is
 projected for 30 years (2025–2054) with 10 stochastic recruitment sequences.
 Every fishery is catch-conditioned at its exact 2022–2024 mean annual catch;
-absent fishery-quarter incidents contribute zero to that average, and
-future recruitment is sampled by MFCL from the fitted 1972–2023 recruitment
-deviates.
+absent fishery-quarter incidents contribute zero to that average, and future
+recruitment is sampled by MFCL from the fitted 1972–2023 recruitment deviates.
+MFCL's input flags retain each fishery's original catch unit: fisheries 1–11
+and 29–33 are in numbers and fisheries 12–28 are in weight. Consequently the
+fishery-specific conditioning values are audited individually and are never
+summed as if they were a single stock-wide catch quantity.
 
 ```sh
 projection/cache-native-projection MODEL_DIR ensemble-001 \
@@ -150,3 +166,17 @@ Rscript projection/aggregate-native-projections.R \
   data/projection/native-projections.rds \
   data/projection/native-projection-metadata.csv
 ```
+
+The checked per-model RDS files, aggregate RDS, fishery-level conditioning
+table, metadata and SHA-256 manifests are committed under `data/projection/`.
+A report rebuild reads those files directly; MFCL projections are
+repeated only when a fitted model, executable, input, projection script or
+locked scenario changes.
+
+## Reproducible report
+
+`./run-report` verifies all structural, Hessian and projection manifests before
+creating the self-contained report and interactive 88-model viewer. The report
+combines equal-weight structural uncertainty with Hessian-based parameter uncertainty,
+and summarizes the 2025–2054 stochastic projections without requiring
+access to Kflow or the original compute nodes.

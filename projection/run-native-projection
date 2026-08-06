@@ -62,6 +62,67 @@ test -s simyears
 test -s simulated_numbers_at_age
 test -s simulated_numbers_at_age_noeff
 
+# The assessment program rewrites catch.rep and its plot report for every
+# stochastic replicate.  Preserve those already-computed values so annual
+# catch biomass can be divided by the matching model-computed MSY.  This is
+# necessary because the projection fisheries retain a mixture of number and
+# weight input units and those raw inputs cannot be summed scientifically.
+diagnostic_dir="$work_dir/projection-diagnostics"
+mkdir -p "$diagnostic_dir"
+initial_catch_hash=""
+diagnostic_watcher_pid=""
+stop_diagnostic_watcher() {
+  if [[ -n "$diagnostic_watcher_pid" ]] && kill -0 "$diagnostic_watcher_pid" 2>/dev/null; then
+    kill "$diagnostic_watcher_pid"
+    wait "$diagnostic_watcher_pid" 2>/dev/null || true
+  fi
+}
+trap stop_diagnostic_watcher EXIT
+if [[ -s catch.rep ]]; then
+  initial_catch_hash="$(sha256sum catch.rep | awk '{print $1}')"
+fi
+(
+  set -euo pipefail
+  captured=0
+  previous_catch_hash="$initial_catch_hash"
+  while [[ "$captured" -lt "$nsims" ]]; do
+    available=0
+    if [[ -s Fmults.txt ]]; then
+      available="$(grep -c '^#simulation [0-9]' Fmults.txt || true)"
+    fi
+    if [[ "$available" -gt "$captured" ]]; then
+      simulation="$((captured + 1))"
+      suffix="$(printf '%02d' "$simulation")"
+      report_file="plot-projection.par.rep"
+      for attempt in $(seq 1 6000); do
+        if [[ -s "$report_file" ]] && grep -q '^# MSY$' "$report_file"; then
+          cp "$report_file" "$diagnostic_dir/plot-simulation-${suffix}.rep"
+          break
+        fi
+        sleep 0.1
+      done
+      test -s "$diagnostic_dir/plot-simulation-${suffix}.rep"
+
+      for attempt in $(seq 1 6000); do
+        if [[ -s catch.rep ]]; then
+          catch_hash="$(sha256sum catch.rep | awk '{print $1}')"
+          if [[ "$catch_hash" != "$previous_catch_hash" ]]; then
+            cp catch.rep "$diagnostic_dir/catch-simulation-${suffix}.rep"
+            previous_catch_hash="$catch_hash"
+            break
+          fi
+        fi
+        sleep 0.1
+      done
+      test -s "$diagnostic_dir/catch-simulation-${suffix}.rep"
+      captured="$simulation"
+    else
+      sleep 0.1
+    fi
+  done
+) &
+diagnostic_watcher_pid=$!
+
 # Native stochastic projection.  Only recruitment is stochastic here:
 # catch is held at the 2022--2024 mean, and effort/catch randomisation flags
 # 234 and 237 remain off.  The switches follow the MFCL projection workflow.
@@ -75,10 +136,16 @@ run_stage projection proj.frq proj.par projection.par \
     1 235 20 \
     1 237 0
 
+wait "$diagnostic_watcher_pid"
+diagnostic_watcher_pid=""
+Rscript "$repo_dir/projection/parse-catch-msy.R" \
+  "$work_dir" "$nsims" "$work_dir/projection-catch-msy.csv"
+
 for output in \
   projected_numbers_at_age projected_numbers_at_age_noeff \
   projected_spawning_biomass projected_spawning_biomass_noeff \
-  projected_fmort_at_age_year Fmults.txt; do
+  projected_fmort_at_age_year Fmults.txt projection-catch-msy.csv \
+  historical-regional-spawning-biomass.csv; do
   test -s "$output"
 done
 
@@ -86,7 +153,8 @@ sha256sum \
   proj.frq proj.par proj7-fished.par proj7-noeff.par proj8.par simyears \
   simulated_numbers_at_age simulated_numbers_at_age_noeff \
   projected_spawning_biomass projected_spawning_biomass_noeff Fmults.txt \
+  projection-catch-msy.csv historical-regional-spawning-biomass.csv \
   > native-projection-SHA256SUMS
 
-printf 'Native MFCL projection completed: %s simulations, %s years.\n' \
+printf 'Assessment-model projection completed: %s simulations, %s years.\n' \
   "$nsims" "$nyears"

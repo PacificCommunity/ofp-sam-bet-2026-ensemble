@@ -254,7 +254,7 @@ write.csv(
 
 cat(sprintf(
   paste0(
-    "Prepared native MFCL projection inputs: %d--%d, %d simulations, ",
+    "Prepared MFCL projection inputs: %d--%d, %d simulations, ",
     "%d catch-conditioned fisheries, recent years %s.\n"
   ),
   first_projection_year, max(projection_years), nsims,

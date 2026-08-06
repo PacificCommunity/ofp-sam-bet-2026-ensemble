@@ -1,4 +1,4 @@
-# Native MFCL projection cache
+# MFCL projection cache
 
 This folder contains the standalone, resumable BET 2026 ensemble projection
 workflow. The locked scenario is:
@@ -9,6 +9,8 @@ workflow. The locked scenario is:
 - every fishery fixed at its exact 2022–2024 mean annual catch, with the
   observed quarterly pattern retained and an absent fishery-quarter treated as
   zero catch;
+- each fishery retains the number or weight unit defined by the MFCL input
+  data flag; unlike units are never summed for scientific reporting;
 - future recruitment sampled natively from the fitted 1972–2023 deviates;
 - no future catch or effort randomisation; and
 - each model's fixed tag-overdispersion value (`tau = 1.2`, `1.3` or `1.4`)
@@ -17,7 +19,7 @@ workflow. The locked scenario is:
 `cache-native-projection` is the public entry point. It validates and hashes
 the fitted model, common inputs, executable, scripts and scenario before doing
 any work. A matching compressed cache is returned without an MFCL run. On a
-cache miss, native option 7, option 8 and the stochastic projection are run in
+cache miss, MFCL options 7 and 8 and the stochastic projection are run in
 an isolated temporary directory; `parse-native-projection.R` then retains only
 the compact report quantities, provenance and checksums. The temporary raw
 files are removed only after the RDS and its SHA-256 sidecar are complete.
@@ -26,7 +28,9 @@ files are removed only after the RDS and its SHA-256 sidecar are complete.
 payload used by the report from complete ten-simulation caches. It records the
 full 88-model assessment set and every model without a complete native
 projection; it never fills, regularises or silently substitutes an incomplete
-projection.
+projection. The aggregate also writes `catch-conditioning.csv`, which records
+the unit and exact conditioning value for every fishery. The legacy numeric
+sum retained in the compact caches is labelled as a mixed-unit audit only.
 
 `run-native-projection-kflow` is the thin Kflow adapter. It reads `final.par`
 from an attached completed-model archive and writes only the compact cache,

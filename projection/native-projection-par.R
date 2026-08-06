@@ -1,4 +1,4 @@
-# Standalone native-MFCL projection PAR extension helpers.
+# Standalone MFCL projection PAR extension helpers.
 #
 # These functions preserve the fitted operating-model state while extending
 # only time-dependent storage to the projection horizon supplied by -makepar.

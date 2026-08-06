@@ -28,6 +28,8 @@ required <- c(
   "projected_spawning_biomass",
   "projected_spawning_biomass_noeff",
   "Fmults.txt",
+  "projection-catch-msy.csv",
+  "historical-regional-spawning-biomass.csv",
   "projection-audit.csv",
   "projection-conditioning.csv",
   "native-flag-audit.csv",
@@ -208,6 +210,38 @@ if (any(!is.finite(unlist(terminal_msy))) ||
   stop("Invalid native terminal MSY output.", call. = FALSE)
 }
 
+catch_msy <- read.csv(
+  file.path(work_dir, "projection-catch-msy.csv"), check.names = FALSE
+)
+if (
+  !identical(names(catch_msy), c(
+    "simulation", "year", "catch_biomass_mt", "annual_msy_mt", "catch_msy"
+  )) ||
+    nrow(catch_msy) != nsims * length(projection_years) ||
+    !identical(sort(unique(catch_msy$simulation)), seq_len(nsims)) ||
+    !identical(sort(unique(catch_msy$year)), projection_years) ||
+    any(!is.finite(unlist(catch_msy))) || any(catch_msy$annual_msy_mt <= 0) ||
+    any(catch_msy$catch_biomass_mt < 0) || any(catch_msy$catch_msy < 0)
+) {
+  stop("Invalid model-derived annual Catch/MSY output.", call. = FALSE)
+}
+
+historical_region <- read.csv(
+  file.path(work_dir, "historical-regional-spawning-biomass.csv"),
+  check.names = FALSE
+)
+if (
+  !identical(names(historical_region), c(
+    "year", "region", "spawning_biomass_mt"
+  )) || nrow(historical_region) != (terminal_year - 1952L + 1L) * 5L ||
+    !identical(sort(unique(historical_region$year)), 1952:terminal_year) ||
+    !identical(sort(unique(historical_region$region)), 1:5) ||
+    any(!is.finite(unlist(historical_region))) ||
+    any(historical_region$spawning_biomass_mt <= 0)
+) {
+  stop("Invalid historical regional spawning-biomass output.", call. = FALSE)
+}
+
 conditioning <- read.csv(
   file.path(work_dir, "projection-conditioning.csv"), check.names = FALSE
 )
@@ -264,7 +298,7 @@ payload <- list(
   schema_version = "1.0.0",
   created_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
   method = paste(
-    "Native MFCL stochastic projection; all fisheries held at their exact",
+    "MFCL stochastic projection; all fisheries held at their exact",
     "2022-2024 mean catch; recruitment sampled from fitted 1972-2023",
     "deviates; 10 simulations over 2025-2054. Annual biomass is the mean",
     "of four quarterly stock-wide or regional values; annual depletion is",
@@ -275,6 +309,8 @@ payload <- list(
   annual_region = annual_region,
   quarterly_region = quarterly_region,
   terminal_msy = terminal_msy,
+  catch_msy = catch_msy,
+  historical_region = historical_region,
   conditioning = conditioning,
   annual_catch = catch_audit,
   flag_audit = flag_audit,

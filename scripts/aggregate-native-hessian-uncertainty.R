@@ -39,6 +39,11 @@ metadata_rows <- lapply(metadata_rows, function(value) {
   value[metadata_names]
 })
 metadata <- do.call(rbind, metadata_rows)
+if ("method" %in% names(metadata)) {
+  metadata$method <- gsub(
+    "native[- ]MFCL", "MFCL", metadata$method, ignore.case = TRUE
+  )
+}
 annual_draws <- do.call(rbind, lapply(per_model, `[[`, "annual_draws"))
 management_draws <- do.call(rbind, lapply(per_model, `[[`, "management_draws"))
 
@@ -55,11 +60,11 @@ if (
     any(!is.finite(validation_tolerance)) ||
     any(metadata$maximum_point_relative_error > validation_tolerance)
 ) {
-  stop("Per-model native-Hessian metadata validation failed.", call. = FALSE)
+  stop("Per-model Hessian metadata validation failed.", call. = FALSE)
 }
 draw_count <- unique(metadata$draws)
 if (length(draw_count) != 1L) {
-  stop("Per-model native-Hessian draw counts differ.", call. = FALSE)
+  stop("Per-model Hessian draw counts differ.", call. = FALSE)
 }
 
 expected_annual <- length(pdh_ids) * draw_count * length(unique(annual_draws$year))
@@ -70,12 +75,12 @@ if (
     any(!is.finite(unlist(annual_draws[-(1:3)]))) ||
     any(!is.finite(unlist(management_draws[-(1:2)])))
 ) {
-  stop("Aggregated native-Hessian draw dimensions or values are invalid.", call. = FALSE)
+  stop("Aggregated Hessian draw dimensions or values are invalid.", call. = FALSE)
 }
 
 method <- paste(
-  "For each positive-definite native MFCL Hessian, correlated parameter-space",
-  "normal draws were propagated jointly through native dependent-variable",
+  "For each positive-definite MFCL Hessian, correlated parameter-space",
+  "normal draws were propagated jointly through dependent-variable",
   "gradients on the log scale. No Hessian regularisation or eigenvalue",
   "replacement was applied. Near-PDH models retain their central estimates",
   "in the all-model hybrid summary and do not receive estimation draws."

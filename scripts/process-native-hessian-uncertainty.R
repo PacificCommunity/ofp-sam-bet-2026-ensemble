@@ -29,7 +29,7 @@ required_files <- c(
 )
 missing_files <- required_files[!file.exists(file.path(model_dir, required_files))]
 if (length(missing_files)) {
-  stop("Missing native MFCL file: ", missing_files[[1L]], call. = FALSE)
+  stop("Missing MFCL file: ", missing_files[[1L]], call. = FALSE)
 }
 
 sha256 <- function(path) {
@@ -48,7 +48,7 @@ read_native_matrix <- function(path) {
     size = 8L, endian = "little"
   )
   if (length(values) != n_parameter * n_derived) {
-    stop("Incomplete native MFCL gradient matrix: ", path, call. = FALSE)
+    stop("Incomplete MFCL gradient matrix: ", path, call. = FALSE)
   }
   matrix(values, nrow = n_derived, ncol = n_parameter, byrow = TRUE)
 }
@@ -63,14 +63,14 @@ read_native_hessian <- function(path) {
   # entries and must be consumed explicitly outside ADMB.
   bounds <- readBin(connection, integer(), n = 2L, size = 4L, endian = "little")
   if (!identical(bounds, c(1L, n_parameter))) {
-    stop("Unexpected native MFCL Hessian matrix bounds in ", path, call. = FALSE)
+    stop("Unexpected MFCL Hessian matrix bounds in ", path, call. = FALSE)
   }
   values <- readBin(
     connection, numeric(), n = n_parameter * n_parameter,
     size = 8L, endian = "little"
   )
   if (length(values) != n_parameter * n_parameter) {
-    stop("Incomplete native MFCL Hessian: ", path, call. = FALSE)
+    stop("Incomplete MFCL Hessian: ", path, call. = FALSE)
   }
   value <- matrix(values, nrow = n_parameter, ncol = n_parameter, byrow = TRUE)
   (value + t(value)) / 2
@@ -79,7 +79,7 @@ read_native_hessian <- function(path) {
 read_labels <- function(path) {
   lines <- readLines(path, warn = FALSE)
   if (length(lines) %% 2L != 0L) {
-    stop("Incomplete native MFCL label file: ", path, call. = FALSE)
+    stop("Incomplete MFCL label file: ", path, call. = FALSE)
   }
   data.frame(
     value = as.numeric(lines[seq.int(1L, length(lines), by = 2L)]),
@@ -92,7 +92,7 @@ indexed_rows <- function(labels, prefix, count) {
   wanted <- paste0(prefix, "(", seq_len(count), ")")
   rows <- match(wanted, labels$label)
   if (anyNA(rows)) {
-    stop("Missing native MFCL dependent variable: ", wanted[is.na(rows)][[1L]])
+    stop("Missing MFCL dependent variable: ", wanted[is.na(rows)][[1L]])
   }
   rows
 }
@@ -125,7 +125,7 @@ if (
   ncol(gradient) != n_parameter || ncol(gradient_noeff) != n_parameter ||
   nrow(labels) != nrow(gradient) || nrow(labels_noeff) != nrow(gradient_noeff)
 ) {
-  stop("Native Hessian, gradient and label dimensions do not agree.", call. = FALSE)
+  stop("Hessian, gradient and label dimensions do not agree.", call. = FALSE)
 }
 
 point_series <- read.csv(point_file, check.names = FALSE)
@@ -161,7 +161,7 @@ depletion <- annual_log_gradient(
 
 direct_log_row <- function(label) {
   row <- match(label, labels$label)
-  if (is.na(row)) stop("Missing native MFCL dependent variable: ", label)
+  if (is.na(row)) stop("Missing MFCL dependent variable: ", label)
   value <- labels$value[[row]]
   if (!is.finite(value) || value <= 0) stop("Invalid positive native value: ", label)
   list(value = log(value), gradient = gradient[row, , drop = FALSE] / value)
@@ -197,7 +197,7 @@ derived_year <- c(rep(years, 4L), NA_integer_, NA_integer_)
 
 chol_hessian <- tryCatch(chol(hessian), error = function(error) NULL)
 if (is.null(chol_hessian)) {
-  stop("The native Hessian is not positive definite for ", ensemble_id)
+  stop("The Hessian is not positive definite for ", ensemble_id)
 }
 
 set.seed(20260806L + as.integer(sub("ensemble-", "", ensemble_id)))
@@ -289,7 +289,7 @@ metadata <- data.frame(
   gradient_sha256 = sha256(file.path(model_dir, "bet.dep")),
   noeff_gradient_sha256 = sha256(file.path(model_dir, "bet.dp2")),
   method = paste(
-    "joint native-MFCL Hessian draws propagated through dependent-variable",
+    "joint MFCL Hessian draws propagated through dependent-variable",
     "gradients; no covariance regularisation"
   ),
   stringsAsFactors = FALSE

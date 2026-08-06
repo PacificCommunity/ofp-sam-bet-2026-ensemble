@@ -33,6 +33,7 @@ hash_files=(
   "$repo_dir/projection/configure-native-par.R"
   "$repo_dir/projection/native-projection-par.R"
   "$repo_dir/projection/parse-native-projection.R"
+  "$repo_dir/projection/parse-catch-msy.R"
 )
 for path in "${hash_files[@]}"; do
   test -s "$path" || {
@@ -41,7 +42,7 @@ for path in "${hash_files[@]}"; do
   }
 done
 
-scenario=$'native-mfcl\nterminal-data=2024\nprojection=2025-2054\ncatch-average=2022-2024\nall-fisheries=catch\nrecruitment-only-stochastic\nnsims=10\nnyears=30'
+scenario=$'assessment-model\nterminal-data=2024\nprojection=2025-2054\ncatch-average=2022-2024\nall-fisheries=catch\nrecruitment-only-stochastic\nnsims=10\nnyears=30\nmodel-derived-catch-msy'
 hash_manifest="$({
   for path in "${hash_files[@]}"; do
     printf '%s  %s\n' "$(sha256sum "$path" | awk '{print $1}')" "$(basename "$path")"

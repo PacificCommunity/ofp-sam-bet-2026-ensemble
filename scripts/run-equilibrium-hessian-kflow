@@ -28,6 +28,8 @@ for path in "${required[@]}"; do
   fi
 done
 
+base_payload="$repo_dir/data/estimation/per-model/${ensemble_id}.rds"
+test -s "$base_payload"
 work_dir="$(mktemp -d)"
 cleanup() { rm -rf -- "$work_dir"; }
 trap cleanup EXIT
@@ -39,41 +41,36 @@ cp "$source_dir/hessian/part_1/bet.hes" "$work_dir/bet.hes"
 cp "$repo_dir/mfclo64" "$work_dir/mfclo64"
 chmod +x "$work_dir/mfclo64"
 
-model_output="$output_root/native-hessian/$ensemble_id"
+model_output="$output_root/equilibrium-hessian/$ensemble_id"
 mkdir -p "$model_output"
-
 set +e
 (
   cd "$work_dir"
   ./mfclo64 bet.frq final.par hessian \
-    -switch 4 1 145 2 1 37 2 1 229 0 1 230 0 \
-    > native-gradient.stdout 2> native-gradient.stderr
+    -switch 4 1 145 2 1 37 2 1 229 1245 1 230 1980 \
+    > equilibrium-gradient.stdout 2> equilibrium-gradient.stderr
 )
-mfcl_status=$?
+model_status=$?
 set -e
-if [[ "$mfcl_status" -ne 0 && "$mfcl_status" -ne 1 ]]; then
-  printf 'Assessment-model dependent-variable run failed with status %s.\n' "$mfcl_status" >&2
-  exit "$mfcl_status"
+if [[ "$model_status" -ne 0 && "$model_status" -ne 1 ]]; then
+  printf 'Equilibrium dependent-variable run failed with status %s.\n' \
+    "$model_status" >&2
+  exit "$model_status"
 fi
-
-for path in bet.dep bet.dp2 deplabel.tmp deplabel_noeff.tmp; do
-  if [[ ! -s "$work_dir/$path" ]]; then
-    printf 'Assessment-model output is missing %s.\n' "$path" >&2
-    exit 68
-  fi
+for path in bet.dep deplabel.tmp bet.hes; do
+  test -s "$work_dir/$path"
 done
 
-HESSIAN_DRAWS_PER_MODEL="${HESSIAN_DRAWS_PER_MODEL:-100}" \
-  Rscript "$repo_dir/scripts/process-native-hessian-uncertainty.R" \
-    "$work_dir" "$ensemble_id" \
-    "$repo_dir/data/ensemble/ensemble-timeseries.csv" \
-    "$model_output/${ensemble_id}.rds" \
-    > "$model_output/processor.log" 2>&1
+Rscript "$repo_dir/scripts/process-equilibrium-hessian-uncertainty.R" \
+  "$work_dir" "$ensemble_id" \
+  "$repo_dir/data/ensemble/management-quantities.csv" \
+  "$base_payload" "$model_output/${ensemble_id}.rds" 100 \
+  > "$model_output/processor.log" 2>&1
 
-gzip -c "$work_dir/native-gradient.stdout" > "$model_output/native-gradient.stdout.gz"
-gzip -c "$work_dir/native-gradient.stderr" > "$model_output/native-gradient.stderr.gz"
+gzip -c "$work_dir/equilibrium-gradient.stdout" \
+  > "$model_output/equilibrium-gradient.stdout.gz"
+gzip -c "$work_dir/equilibrium-gradient.stderr" \
+  > "$model_output/equilibrium-gradient.stderr.gz"
 sha256sum "$model_output/${ensemble_id}.rds" > "$model_output/SHA256SUMS"
 printf '%s\n' success > "$model_output/status.txt"
-
-printf 'Stored reusable assessment-model Hessian payload for %s (%s draws).\n' \
-  "$ensemble_id" "${HESSIAN_DRAWS_PER_MODEL:-100}"
+printf 'Stored equilibrium-reference-point uncertainty for %s.\n' "$ensemble_id"

@@ -38,7 +38,7 @@ recruitment_period <- recPeriod(
   af200 = flagval(final_par, 2, 200)$value
 )
 if (any(!is.finite(recruitment_period[c("pf232", "pf233")]))) {
-  stop("Could not map the fitted SRR period to native stochastic indices.")
+  stop("Could not map the fitted SRR period to MFCL stochastic indices.")
 }
 periods_per_year <- as.integer(flagval(final_par, 2, 57)$value)
 annualised_srr <- as.integer(flagval(final_par, 2, 182)$value)
@@ -197,7 +197,7 @@ write.csv(
 
 cat(sprintf(
   paste0(
-    "Configured native MFCL option 7/8 and final pars; recruitment indices ",
+    "Configured MFCL options 7/8 and final pars; recruitment indices ",
     "%d--%d (%d--%d); seed %d; tau=%.1f fixed.\n"
   ),
   recruitment_period[["pf232"]], recruitment_period[["pf233"]],
