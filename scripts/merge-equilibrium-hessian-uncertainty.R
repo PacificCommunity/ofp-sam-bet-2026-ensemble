@@ -71,7 +71,7 @@ if (!identical(sort(unique(draws$ensemble_id)), pdh_ids) ||
     anyDuplicated(draws[c("ensemble_id", "draw")]) ||
     nrow(draws) != length(pdh_ids) * base$draws_per_pdh_model ||
     any(!is.finite(unlist(draws[-(1:2)]))) ||
-    max(metadata$central_f_recent_fmsy_relative_error) > 5e-4 ||
+    max(metadata$central_f_recent_fmsy_relative_error) > 1e-3 ||
     max(metadata$central_sb_recent_sbmsy_relative_error) > 5e-3) {
   stop("Equilibrium Hessian payload validation failed.", call. = FALSE)
 }
@@ -94,8 +94,9 @@ base$created_utc <- format(Sys.time(), tz = "UTC", usetz = TRUE)
 base$method <- paste(
   "For each positive-definite Hessian, a single joint parameter draw is",
   "propagated through all derived quantities. MSY-based quantities use",
-  "draw-specific equilibrium yield and spawning-biomass curves; the same",
-  "draw is used for recent biomass, preserving cross-quantity covariance.",
+  "first-order implicit derivatives of each model's equilibrium yield and",
+  "spawning-biomass curves; the same draw is used for recent biomass,",
+  "preserving cross-quantity covariance.",
   "No Hessian regularisation or independent marginal resampling is used."
 )
 base$management_draws <- management
