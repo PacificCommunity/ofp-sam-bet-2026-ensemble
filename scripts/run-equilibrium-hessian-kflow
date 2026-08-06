@@ -11,6 +11,32 @@ if [[ ! "$ensemble_id" =~ ^ensemble-[0-9]{3}$ ]]; then
   exit 64
 fi
 
+model_output="$output_root/equilibrium-hessian/$ensemble_id"
+cached_payload="$repo_dir/data/estimation/equilibrium-per-model/${ensemble_id}.rds"
+if [[ -s "$cached_payload" ]]; then
+  mkdir -p "$model_output"
+  Rscript - "$cached_payload" "$ensemble_id" <<'RS'
+args <- commandArgs(trailingOnly = TRUE)
+payload <- readRDS(args[[1L]])
+ensemble_id <- args[[2L]]
+valid <- is.list(payload) &&
+  identical(payload$metadata$ensemble_id[[1L]], ensemble_id) &&
+  identical(payload$central$ensemble_id[[1L]], ensemble_id) &&
+  payload$metadata$draws[[1L]] == 100L &&
+  nrow(payload$draws) == 100L &&
+  identical(payload$draws$draw, 1:100) &&
+  all(payload$draws$ensemble_id == ensemble_id) &&
+  all(is.finite(unlist(payload$draws[-(1:2)]))) &&
+  all(unlist(payload$draws[-(1:2)]) > 0)
+if (!isTRUE(valid)) stop("The committed equilibrium payload is invalid.")
+RS
+  cp "$cached_payload" "$model_output/${ensemble_id}.rds"
+  (cd "$model_output" && sha256sum "${ensemble_id}.rds" > SHA256SUMS)
+  printf '%s\n' success > "$model_output/status.txt"
+  printf 'Reused checksum-locked equilibrium uncertainty for %s.\n' "$ensemble_id"
+  exit 0
+fi
+
 source_dir="$(find "$input_root" -type d -path "*/outputs/models/${ensemble_id}" -print -quit)"
 if [[ -z "$source_dir" ]]; then
   printf 'Could not find %s in the attached Hessian archive.\n' "$ensemble_id" >&2
@@ -31,7 +57,6 @@ done
 base_payload="$repo_dir/data/estimation/per-model/${ensemble_id}.rds"
 test -s "$base_payload"
 work_dir="$(mktemp -d)"
-model_output="$output_root/equilibrium-hessian/$ensemble_id"
 mkdir -p "$model_output"
 preserve_diagnostics() {
   for stream in stdout stderr; do
@@ -101,6 +126,6 @@ Rscript "$repo_dir/scripts/process-equilibrium-hessian-uncertainty.R" \
   "$base_payload" "$model_output/${ensemble_id}.rds" 100 \
   > "$model_output/processor.log" 2>&1
 
-sha256sum "$model_output/${ensemble_id}.rds" > "$model_output/SHA256SUMS"
+(cd "$model_output" && sha256sum "${ensemble_id}.rds" > SHA256SUMS)
 printf '%s\n' success > "$model_output/status.txt"
 printf 'Stored equilibrium-reference-point uncertainty for %s.\n' "$ensemble_id"
