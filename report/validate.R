@@ -117,6 +117,13 @@ if (sum(fit$positive_definite_hessian) != 68L) {
 if (sum(fit$maximum_gradient > 1e-4) != 8L) {
   stop("Expected eight models above the reporting MGC threshold.", call. = FALSE)
 }
+included_ids <- sort(fit$ensemble_id[fit$maximum_gradient <= 1e-4])
+included_fit <- fit[fit$ensemble_id %in% included_ids, , drop = FALSE]
+if (length(included_ids) != 80L ||
+    sum(included_fit$positive_definite_hessian) != 62L ||
+    sum(!included_fit$positive_definite_hessian) != 18L) {
+  stop("The MGC-filtered reporting ensemble must contain 80 models: 62 PDH and 18 Near-PDH.", call. = FALSE)
+}
 
 hessian <- readRDS("data/estimation/native-hessian-uncertainty.rds")
 if (length(hessian$pdh_model_ids) != 68L ||
@@ -284,6 +291,35 @@ if (nrow(projection_management$projected) != 88L * 10L * 30L ||
   stop("The projected WCPFC management quantities are invalid.", call. = FALSE)
 }
 
+reporting_projection <- projection
+for (component in names(reporting_projection)) {
+  value <- reporting_projection[[component]]
+  if (is.data.frame(value) && "ensemble_id" %in% names(value)) {
+    reporting_projection[[component]] <- value[
+      value$ensemble_id %in% included_ids, , drop = FALSE
+    ]
+  }
+}
+reporting_projection$ensemble_ids <- included_ids
+reporting_projection$projection_complete_models <- length(included_ids)
+if (nrow(reporting_projection$annual_stock) != 80L * 10L * 30L ||
+    nrow(reporting_projection$terminal_msy) != 80L * 10L ||
+    nrow(reporting_projection$catch_msy) != 80L * 10L * 30L ||
+    nrow(reporting_projection$historical_region) != 80L * 73L * 5L ||
+    !setequal(reporting_projection$annual_stock$ensemble_id, included_ids)) {
+  stop("The MGC-filtered reporting projection has unexpected dimensions.", call. = FALSE)
+}
+included_hessian_ids <- intersect(hessian$pdh_model_ids, included_ids)
+if (length(included_hessian_ids) != 62L ||
+    nrow(hessian$annual_draws[
+      hessian$annual_draws$ensemble_id %in% included_hessian_ids, , drop = FALSE
+    ]) != 62L * 100L * 73L ||
+    nrow(hessian$management_draws[
+      hessian$management_draws$ensemble_id %in% included_hessian_ids, , drop = FALSE
+    ]) != 62L * 100L) {
+  stop("The MGC-filtered Hessian uncertainty subset has unexpected dimensions.", call. = FALSE)
+}
+
 regional_sum <- stats::aggregate(
   spawning_biomass_mt ~ ensemble_id + year,
   projection$historical_region, sum
@@ -305,9 +341,11 @@ if (max(regional_error) > 1e-3) {
 
 cat(sprintf(
   paste0(
-    "Validated %d completed ensemble models (%d PDH; %d Near-PDH; ",
-    "%d with MGC > 1e-4), 1952--2024; 68 x 100 Hessian draws and 88 x 10 stochastic projections.\n"
+    "Validated the source caches and the %d-model reporting ensemble ",
+    "(%d PDH; %d Near-PDH), 1952--2024; %d x 100 Hessian draws ",
+    "and %d x 10 stochastic projections used in the report.\n"
   ),
-  length(ids), sum(fit$positive_definite_hessian),
-  sum(!fit$positive_definite_hessian), sum(fit$maximum_gradient > 1e-4)
+  length(included_ids), sum(included_fit$positive_definite_hessian),
+  sum(!included_fit$positive_definite_hessian), length(included_hessian_ids),
+  length(included_ids)
 ))

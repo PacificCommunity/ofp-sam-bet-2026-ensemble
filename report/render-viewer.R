@@ -11,19 +11,24 @@ fit <- read.csv("data/ensemble/fit-diagnostics.csv", check.names = FALSE)
 design <- read.csv("data/ensemble/successful-model-design.csv", check.names = FALSE)
 management <- read.csv("data/ensemble/management-quantities.csv", check.names = FALSE)
 
-ids <- sort(unique(series$ensemble_id))
+completed_ids <- sort(unique(series$ensemble_id))
 if (
-  length(ids) != 88L ||
-  !identical(ids, sort(fit$ensemble_id)) ||
-  !identical(ids, sort(design$ensemble_id)) ||
-  !identical(ids, sort(management$ensemble_id))
+  length(completed_ids) != 88L ||
+  !identical(completed_ids, sort(fit$ensemble_id)) ||
+  !identical(completed_ids, sort(design$ensemble_id)) ||
+  !identical(completed_ids, sort(management$ensemble_id))
 ) {
   stop("The viewer requires the validated 88-model public payload.", call. = FALSE)
+}
+ids <- sort(fit$ensemble_id[fit$maximum_gradient <= 1e-4])
+if (length(ids) != 80L) {
+  stop("The viewer requires exactly 80 models passing MGC <= 1e-4.", call. = FALSE)
 }
 
 design <- design[match(ids, design$ensemble_id), ]
 fit <- fit[match(ids, fit$ensemble_id), ]
 management <- management[match(ids, management$ensemble_id), ]
+series <- series[series$ensemble_id %in% ids, ]
 series <- series[order(series$ensemble_id, series$year), ]
 
 short_reporting <- ifelse(design$tag_reporting == "inclusion", "include", "exclude")
@@ -79,7 +84,7 @@ html <- paste0(
 ".legend{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;padding:12px;font-size:.86rem}.key{display:inline-flex;align-items:center;gap:7px}.line{width:30px;height:0;border-top:3px solid}.faint{border-color:#98aab2;border-top-width:1px}.selected{border-color:#d33a2c}.median{border-color:#075b73}",
 ".table-card{margin-top:14px;padding:15px}.table-wrap{max-height:360px;overflow:auto;border:1px solid #d7e2e7}table{width:100%;border-collapse:collapse;font-size:.82rem}th{position:sticky;top:0;background:#0b586d;color:white}th,td{padding:7px 8px;border-bottom:1px solid #e1eaee;text-align:right;white-space:nowrap}th:first-child,td:first-child{text-align:left}tbody tr{cursor:pointer}tbody tr:hover,tbody tr.active{background:#e7f5f7}",
 "@media(max-width:1100px){.details{grid-template-columns:repeat(6,1fr)}}@media(max-width:900px){.toolbar{grid-template-columns:1fr}.plots{grid-template-columns:1fr}.details{grid-template-columns:repeat(3,1fr)}}",
-"</style></head><body><header><h1>BET 2026 ensemble model results</h1><p>88 completed assessment configurations; select a row to inspect its settings, diagnostics, status quantities and annual trajectories.</p></header><main>",
+"</style></head><body><header><h1>BET 2026 ensemble model results</h1><p>80 assessment configurations passing MGC ≤ 1 × 10⁻⁴; select a row to inspect its settings, diagnostics, status quantities and annual trajectories.</p></header><main>",
 "<section class='toolbar'><div><label for='model'>Model</label><select id='model'></select></div><div><label for='search'>Filter table</label><input id='search' placeholder='e.g. tau 1.3, Near-PDH, K 0.20'></div><button id='reset'>Show first model</button></section>",
 "<section class='details' id='details'></section><section class='plots'>",
 "<div class='card'><div class='panel-label'>a</div><canvas id='depletion'></canvas></div>",

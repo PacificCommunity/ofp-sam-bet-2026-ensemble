@@ -123,16 +123,16 @@ These are structural ensemble draws, not optimizer jitters.
 ## Reusable Hessian uncertainty
 
 The repository stores compact, checksum-locked assessment-model uncertainty
-payloads under `data/estimation/`. For each of the 68 models with a
+payloads under `data/estimation/`. For each of the 62 retained models with a
 positive-definite Hessian, 100 correlated parameter-space draws are propagated
 jointly through model dependent-variable gradients using a first-order
 multivariate delta method. Recent and unfished spawning biomass retain their
 joint covariance, and implicit derivatives of each model's equilibrium curves
-propagate the MSY-based quantities. The 20 Near-PDH central fits remain part of
+propagate the MSY-based quantities. The 18 Near-PDH central fits remain part of
 the equal-model-weight mixture, but their indefinite Hessians are not
 regularized, eigenvalue-clipped or used for parameter draws. The all-model
 mixture is therefore structural uncertainty augmented by available estimation
-uncertainty, not complete estimation-uncertainty propagation for all 88 fits.
+uncertainty, not complete estimation-uncertainty propagation for all 80 fits.
 
 Both the per-model RDS files and the aggregate payload are retained with
 SHA-256 manifests. Re-rendering the report therefore reuses the verified draws
@@ -142,7 +142,7 @@ and does not repeat the Hessian calculations.
 
 The projection workflow uses the fitted assessment models through the checked
 model executable.
-Each completed ensemble model is
+Each of the 80 models retained after applying the MGC criterion is
 projected for 30 years (2025–2054) with 10 stochastic recruitment sequences.
 Every fishery is catch-conditioned at its exact 2022–2024 mean annual catch;
 absent fishery-quarter incidents contribute zero to that average, and future
@@ -185,7 +185,11 @@ locked scenario changes.
 ## Reproducible report
 
 `./run-report` verifies all structural, Hessian and projection manifests before
-creating the self-contained report and interactive 88-model viewer. Historical
+applying the maximum-gradient-component criterion (MGC ≤ `1e-4`). Ten planned
+configurations did not meet this criterion even after extended optimization
+runs and ten had no completed result. The 80 retained models (62 PDH and 18
+Near-PDH) are used for every report summary, management quantity, projection
+summary and interactive-viewer entry. Historical
 and current-status summaries augment equal-weight structural uncertainty with
 available Hessian-based parameter uncertainty; the 2025–2054 projection
 summaries combine model structure and stochastic recruitment without Hessian

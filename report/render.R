@@ -8,10 +8,10 @@ if (length(missing_packages)) {
   stop("Install report dependencies: ", paste(missing_packages, collapse = ", "), call. = FALSE)
 }
 
-series <- readRDS("data/ensemble/ensemble-timeseries.rds")
-fit <- read.csv("data/ensemble/fit-diagnostics.csv", check.names = FALSE)
-management <- read.csv("data/ensemble/management-quantities.csv", check.names = FALSE)
-design <- read.csv("data/ensemble/successful-model-design.csv", check.names = FALSE)
+series_all <- readRDS("data/ensemble/ensemble-timeseries.rds")
+fit_all <- read.csv("data/ensemble/fit-diagnostics.csv", check.names = FALSE)
+management_all <- read.csv("data/ensemble/management-quantities.csv", check.names = FALSE)
+design_all <- read.csv("data/ensemble/successful-model-design.csv", check.names = FALSE)
 parameters <- read.csv("design/distribution-parameters.csv", check.names = FALSE)
 
 output_dir <- Sys.getenv("REPORT_OUTPUT_DIR", "results")
@@ -20,8 +20,25 @@ table_dir <- file.path(output_dir, "tables")
 dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(table_dir, recursive = TRUE, showWarnings = FALSE)
 
-fit$mgc_pass <- fit$maximum_gradient <= 1e-4
-fit$hessian_qc <- ifelse(fit$positive_definite_hessian, "PDH", "Near-PDH")
+fit_all$mgc_pass <- fit_all$maximum_gradient <= 1e-4
+fit_all$hessian_qc <- ifelse(
+  fit_all$positive_definite_hessian, "PDH", "Near-PDH"
+)
+fit_all$ensemble_inclusion <- ifelse(
+  fit_all$mgc_pass, "Included", "Excluded: MGC > 1e-4"
+)
+included_ids <- sort(fit_all$ensemble_id[fit_all$mgc_pass])
+excluded_ids <- sort(fit_all$ensemble_id[!fit_all$mgc_pass])
+if (length(included_ids) != 80L || length(excluded_ids) != 8L) {
+  stop("The locked MGC <= 1e-4 rule must retain 80 of 88 completed models.")
+}
+
+fit <- fit_all[fit_all$ensemble_id %in% included_ids, , drop = FALSE]
+series <- series_all[series_all$ensemble_id %in% included_ids, , drop = FALSE]
+management <- management_all[
+  management_all$ensemble_id %in% included_ids, , drop = FALSE
+]
+design <- design_all[design_all$ensemble_id %in% included_ids, , drop = FALSE]
 series <- merge(series, fit[c("ensemble_id", "mgc_pass", "hessian_qc")], by = "ensemble_id")
 management <- merge(management, fit, by = "ensemble_id")
 design <- merge(design, fit[c("ensemble_id", "mgc_pass", "hessian_qc")], by = "ensemble_id")
@@ -29,7 +46,10 @@ design <- merge(design, fit[c("ensemble_id", "mgc_pass", "hessian_qc")], by = "e
 n_models <- nrow(fit)
 n_pdh <- sum(fit$positive_definite_hessian)
 n_near <- n_models - n_pdh
-n_high <- sum(!fit$mgc_pass)
+n_completed <- nrow(fit_all)
+n_excluded <- length(excluded_ids)
+n_additional_mgc_excluded <- 2L
+n_total_mgc_excluded <- n_excluded + n_additional_mgc_excluded
 
 theme_report <- function(base_size = 10.8) {
   ggplot2::theme_bw(base_size = base_size, base_family = "serif") +
@@ -70,7 +90,6 @@ metric_specs <- list(
 
 trajectory_panels <- lapply(metric_specs, function(spec) {
   summary_all <- quantile_series(series, spec$column)
-  summary_pass <- quantile_series(series[series$mgc_pass, ], spec$column)
   p <- ggplot2::ggplot(
     series,
     ggplot2::aes(x = .data$year, y = .data[[spec$column]], group = .data$ensemble_id)
@@ -95,11 +114,6 @@ trajectory_panels <- lapply(metric_specs, function(spec) {
       data = summary_all,
       ggplot2::aes(x = .data$year, y = .data$median),
       inherit.aes = FALSE, colour = "#07566B", linewidth = 0.92
-    ) +
-    ggplot2::geom_line(
-      data = summary_pass,
-      ggplot2::aes(x = .data$year, y = .data$median),
-      inherit.aes = FALSE, colour = "#D07A1F", linewidth = 0.62, linetype = "22"
     ) +
     ggplot2::scale_x_continuous(
       breaks = seq(1960, 2020, 20),
@@ -448,7 +462,8 @@ design_discrete_plot <- patchwork::wrap_plots(list(
 fit$ordered_model <- reorder(fit$ensemble_id, fit$maximum_gradient)
 qc_plot <- ggplot2::ggplot(
   fit,
-  ggplot2::aes(x = .data$ordered_model, y = .data$maximum_gradient, colour = .data$hessian_qc)
+  ggplot2::aes(x = .data$ordered_model, y = .data$maximum_gradient,
+               colour = .data$hessian_qc)
 ) +
   ggplot2::geom_hline(yintercept = 1e-4, colour = "#B83232", linewidth = 0.55, linetype = "33") +
   ggplot2::geom_point(size = 2.05, alpha = 0.82) +
@@ -583,7 +598,7 @@ word_table <- function(caption, data) {
 }
 
 summary_caption <- paste0(
-  "Distribution of stock-status quantities across the 88 completed BET 2026 ensemble models. ",
+  "Distribution of stock-status quantities across the 80 BET 2026 ensemble models retained after applying MGC ≤ 1e-4. ",
   "Recent spawning biomass is averaged over 2021–2024, unfished spawning biomass over 2014–2023, ",
   "and recent fishing mortality over 2020–2023."
 )
@@ -641,69 +656,69 @@ figure_card <- function(id, title, caption, latex_caption, files) {
 
 captions <- list(
   trajectories = paste0(
-    "Annual estimates across all 88 completed ensemble models. Grey lines are individual models; nested blue bands are pointwise 50%, 80% and 95% structural intervals, with the WCPFC 10th–90th percentile interval shown as the middle band. The dark-blue line is the equal-weight median. The orange dashed line is the median after excluding the eight fits with MGC &gt; 1 × 10<sup>−4</sup>. The depletion line marks the limit reference point (LRP = 0.2)."
+    "Annual estimates across the 80 models retained after applying MGC ≤ 1 × 10<sup>−4</sup>. Grey lines are individual models; nested blue bands are pointwise 50%, 80% and 95% structural intervals, with the WCPFC 10th–90th percentile interval shown as the middle band. The dark-blue line is the equal-weight median. The depletion line marks the limit reference point (LRP = 0.2)."
   ),
   management = paste0(
     "Equal-weight structural distributions of recent depletion, spawning biomass relative to <i>SB</i><sub>MSY</sub>, fishing mortality relative to <i>F</i><sub>MSY</sub>, and recent depletion relative to each model’s mean depletion during 2012–2015. Recent periods are 2021–2024 for spawning biomass, 2014–2023 for unfished spawning biomass and 2020–2023 for fishing mortality."
   ),
   status = paste0(
-    "Kobe (a), WCPFC-style Majuro (b) and a supplementary model-specific historical-objective diagnostic (c) for all 88 completed models. <i>D</i><sub>recent</sub> is mean spawning biomass for 2021–2024 divided by mean unfished spawning biomass for 2014–2023. In panel a the biomass boundary is <i>SB</i><sub>MSY</sub>; in panel b it is the depletion LRP of 0.20. Backgrounds denote green (biomass criterion met and <i>F</i>/<i>F</i><sub>MSY</sub> ≤ 1), yellow (biomass criterion not met and <i>F</i>/<i>F</i><sub>MSY</sub> ≤ 1), orange (biomass criterion met and <i>F</i>/<i>F</i><sub>MSY</sub> &gt; 1), and red (neither criterion met). Shaded contours are 50%, 80% and 95% bivariate highest-density regions (HDRs), calculated from an equal-weight Gaussian kernel-density estimate of the central model points using normal-reference bandwidths. These structural two-dimensional HDRs are distinct from the one-dimensional WCPFC equal-tailed reporting interval. Point colours identify fixed tag overdispersion τ; filled and open symbols distinguish PDH and Near-PDH fits. Reduced opacity identifies the eight fits with MGC &gt; 1 × 10<sup>−4</sup>. Panel c is not a standard WCPFC panel: it avoids imposing the 2023 assessment's fixed objective on the 2026 models by plotting each model's <i>D</i><sub>recent</sub> against its own mean annual depletion during 2012–2015; the diagonal denotes equality."
+    "Kobe (a), WCPFC-style Majuro (b) and a supplementary model-specific historical-objective diagnostic (c) for the 80 retained models. <i>D</i><sub>recent</sub> is mean spawning biomass for 2021–2024 divided by mean unfished spawning biomass for 2014–2023. In panel a the biomass boundary is <i>SB</i><sub>MSY</sub>; in panel b it is the depletion LRP of 0.20. Backgrounds denote green (biomass criterion met and <i>F</i>/<i>F</i><sub>MSY</sub> ≤ 1), yellow (biomass criterion not met and <i>F</i>/<i>F</i><sub>MSY</sub> ≤ 1), orange (biomass criterion met and <i>F</i>/<i>F</i><sub>MSY</sub> &gt; 1), and red (neither criterion met). Shaded contours are 50%, 80% and 95% bivariate highest-density regions (HDRs), calculated from an equal-weight Gaussian kernel-density estimate of the central model points using normal-reference bandwidths. These structural two-dimensional HDRs are distinct from the one-dimensional WCPFC equal-tailed reporting interval. Point colours identify fixed tag overdispersion τ; filled and open symbols distinguish PDH and Near-PDH fits. Panel c is not a standard WCPFC panel: it plots each model's <i>D</i><sub>recent</sub> against its own mean annual depletion during 2012–2015; the diagonal denotes equality."
   ),
   design = paste0(
-    "Realized inputs for the 88 completed models. Histograms and bars show completed fits only. Continuous curves show the specified steepness and natural-mortality distributions; the dashed natural-mortality curve is the Hamel–Cope adult-mortality prior transformed to the assessment-model <i>M</i><sub>0</sub> scale, and the green point and interval show the tag-based estimate and 90% confidence interval."
+    "Realized inputs for the 80 retained models. Histograms and bars show included fits only. Continuous curves show the specified steepness and natural-mortality distributions; the dashed natural-mortality curve is the Hamel–Cope adult-mortality prior transformed to the assessment-model <i>M</i><sub>0</sub> scale, and the green point and interval show the tag-based estimate and 90% confidence interval."
   ),
   qc = paste0(
-    "Maximum gradient component (MGC) for all completed models, ordered from smallest to largest. Colour identifies Hessian status and the dashed line marks MGC = 1 × 10<sup>−4</sup>. MGC is reported as a diagnostic and is not used to remove models from the main structural ensemble."
+    "Maximum gradient component (MGC) for the 80 retained models, ordered from smallest to largest. Colour identifies Hessian status and the red dashed line marks the inclusion threshold MGC = 1 × 10<sup>−4</sup>. Ten other configurations did not meet this criterion after extended optimization runs and were excluded before the ensemble was summarized."
   )
 )
 
 latex_captions <- list(
   trajectories = paste0(
-    "Annual estimates across all 88 completed ensemble models. Grey lines are individual models; nested blue bands are pointwise 50\\%, 80\\% and 95\\% structural intervals, with the WCPFC 10th--90th percentile interval shown as the middle band. The dark-blue line is the equal-weight median. The orange dashed line is the median after excluding the eight fits with $\\mathrm{MGC}>1\\times10^{-4}$. The depletion line marks the limit reference point (LRP $=0.2$)."
+    "Annual estimates across the 80 models retained after applying $\\mathrm{MGC}\\leq1\\times10^{-4}$. Grey lines are individual models; nested blue bands are pointwise 50\\%, 80\\% and 95\\% structural intervals, with the WCPFC 10th--90th percentile interval shown as the middle band. The dark-blue line is the equal-weight median. The depletion line marks the limit reference point (LRP $=0.2$)."
   ),
   management = paste0(
     "Equal-weight structural distributions of $SB_{recent}/SB_{F=0}$, $SB_{recent}/SB_{MSY}$, $F_{recent}/F_{MSY}$, and $D_{recent}/\\overline{D}_{2012--2015}$. Recent periods are 2021--2024 for spawning biomass, 2014--2023 for unfished spawning biomass and 2020--2023 for fishing mortality."
   ),
   status = paste0(
-    "Kobe (a), WCPFC-style Majuro (b) and a supplementary model-specific historical-objective diagnostic (c) for all 88 completed models. $D_{recent}$ is mean spawning biomass for 2021--2024 divided by mean unfished spawning biomass for 2014--2023. In panel a the biomass boundary is $SB_{MSY}$; in panel b it is the depletion LRP of 0.20. Backgrounds denote green (biomass criterion met and $F/F_{MSY}\\leq1$), yellow (biomass criterion not met and $F/F_{MSY}\\leq1$), orange (biomass criterion met and $F/F_{MSY}>1$), and red (neither criterion met). Shaded contours are 50\\%, 80\\% and 95\\% bivariate highest-density regions (HDRs), calculated from an equal-weight Gaussian kernel-density estimate of the central model points using normal-reference bandwidths. These structural two-dimensional HDRs are distinct from the one-dimensional WCPFC equal-tailed reporting interval. Point colours identify fixed tag overdispersion $\\tau$; filled and open symbols distinguish PDH and Near-PDH fits. Reduced opacity identifies the eight fits with $\\mathrm{MGC}>1\\times10^{-4}$. Panel c is not a standard WCPFC panel: it avoids imposing the 2023 assessment's fixed objective on the 2026 models by plotting each model's $D_{recent}$ against its own mean annual depletion during 2012--2015; the diagonal denotes equality."
+    "Kobe (a), WCPFC-style Majuro (b) and a supplementary model-specific historical-objective diagnostic (c) for the 80 retained models. $D_{recent}$ is mean spawning biomass for 2021--2024 divided by mean unfished spawning biomass for 2014--2023. In panel a the biomass boundary is $SB_{MSY}$; in panel b it is the depletion LRP of 0.20. Backgrounds denote green (biomass criterion met and $F/F_{MSY}\\leq1$), yellow (biomass criterion not met and $F/F_{MSY}\\leq1$), orange (biomass criterion met and $F/F_{MSY}>1$), and red (neither criterion met). Shaded contours are 50\\%, 80\\% and 95\\% bivariate highest-density regions (HDRs), calculated from an equal-weight Gaussian kernel-density estimate of the central model points using normal-reference bandwidths. These structural two-dimensional HDRs are distinct from the one-dimensional WCPFC equal-tailed reporting interval. Point colours identify fixed tag overdispersion $\\tau$; filled and open symbols distinguish PDH and Near-PDH fits. Panel c is not a standard WCPFC panel: it plots each model's $D_{recent}$ against its own mean annual depletion during 2012--2015; the diagonal denotes equality."
   ),
   design = paste0(
-    "Realized inputs for the 88 completed models. Histograms and bars show completed fits only. Continuous curves show the specified steepness and natural-mortality distributions; the dashed natural-mortality curve is the Hamel--Cope adult-mortality prior transformed to the assessment-model $M_0$ scale, and the green point and interval show the tag-based estimate and 90\\% confidence interval."
+    "Realized inputs for the 80 retained models. Histograms and bars show included fits only. Continuous curves show the specified steepness and natural-mortality distributions; the dashed natural-mortality curve is the Hamel--Cope adult-mortality prior transformed to the assessment-model $M_0$ scale, and the green point and interval show the tag-based estimate and 90\\% confidence interval."
   ),
   qc = paste0(
-    "Maximum gradient component (MGC) for all completed models, ordered from smallest to largest. Colour identifies Hessian status and the dashed line marks $\\mathrm{MGC}=1\\times10^{-4}$. MGC is reported as a diagnostic and is not used to remove models from the main structural ensemble."
+    "Maximum gradient component (MGC) for the 80 retained models, ordered from smallest to largest. Colour identifies Hessian status and the red dashed line marks the inclusion threshold $\\mathrm{MGC}=1\\times10^{-4}$. Ten other configurations did not meet this criterion after extended optimization runs and were excluded before the ensemble was summarized."
   )
 )
 
 captions$trajectories_stock <- paste0(
-  "Annual depletion (a) and spawning potential (b) across the 88 completed assessment models. ",
+  "Annual depletion (a) and spawning potential (b) across the 80 retained assessment models. ",
   "Grey lines are individual models; nested blue bands are pointwise 50%, 80% and 95% structural intervals, with the WCPFC 10th–90th percentile interval shown as the middle band. ",
-  "The dark-blue line is the equal-weight median and the orange dashed line is the median after excluding the eight fits with MGC &gt; 1 × 10<sup>−4</sup>. The depletion reference line is the limit reference point (LRP = 0.20)."
+  "The dark-blue line is the equal-weight median. The depletion reference line is the limit reference point (LRP = 0.20)."
 )
 captions$trajectories_process <- paste0(
-  "Annual recruitment (a) and fishing mortality (b) across the 88 completed assessment models. ",
-  "Grey lines are individual models; nested blue bands are pointwise 50%, 80% and 95% structural intervals. The dark-blue line is the equal-weight median and the orange dashed line is the median after excluding the eight fits with MGC &gt; 1 × 10<sup>−4</sup>. ",
+  "Annual recruitment (a) and fishing mortality (b) across the 80 retained assessment models. ",
+  "Grey lines are individual models; nested blue bands are pointwise 50%, 80% and 95% structural intervals. The dark-blue line is the equal-weight median. ",
   "Recruitment is in millions of fish and fishing mortality is annual."
 )
 captions$design_continuous <- paste0(
-  "Realized steepness (a) and natural mortality at the reference length (b) for the 88 completed models. Histograms show completed fits and curves show the specified input distributions. ",
+  "Realized steepness (a) and natural mortality at the reference length (b) for the 80 retained models. Histograms show included fits and curves show the specified input distributions. ",
   "In panel b the dashed curve is the Hamel–Cope adult-mortality prior transformed to the assessment-model <i>M</i><sub>0</sub> scale; the green point and line show the tag-based estimate and 90% confidence interval."
 )
 captions$design_discrete <- paste0(
-  "Realized counts for the discrete ensemble axes among the 88 completed models: tag overdispersion (a), tag-mixing cutoff (b), pre-mixing tag-reporting treatment (c), and paired effort-creep rates (d). Counts describe the completed subset rather than the planned 100-model design."
+  "Realized counts for the discrete ensemble axes among the 80 retained models: tag overdispersion (a), tag-mixing cutoff (b), pre-mixing tag-reporting treatment (c), and paired effort-creep rates (d). Counts describe the MGC-filtered subset rather than the planned 100-model design."
 )
 latex_captions$trajectories_stock <- paste0(
-  "Annual depletion (a) and spawning potential (b) across the 88 completed assessment models. Grey lines are individual models; nested blue bands are pointwise 50\\%, 80\\% and 95\\% structural intervals, with the WCPFC 10th--90th percentile interval shown as the middle band. ",
-  "The dark-blue line is the equal-weight median and the orange dashed line is the median after excluding the eight fits with $\\mathrm{MGC}>1\\times10^{-4}$. The depletion reference line is the limit reference point (LRP $=0.20$)."
+  "Annual depletion (a) and spawning potential (b) across the 80 retained assessment models. Grey lines are individual models; nested blue bands are pointwise 50\\%, 80\\% and 95\\% structural intervals, with the WCPFC 10th--90th percentile interval shown as the middle band. ",
+  "The dark-blue line is the equal-weight median. The depletion reference line is the limit reference point (LRP $=0.20$)."
 )
 latex_captions$trajectories_process <- paste0(
-  "Annual recruitment (a) and fishing mortality (b) across the 88 completed assessment models. Grey lines are individual models; nested blue bands are pointwise 50\\%, 80\\% and 95\\% structural intervals. The dark-blue line is the equal-weight median and the orange dashed line is the median after excluding the eight fits with $\\mathrm{MGC}>1\\times10^{-4}$. Recruitment is in millions of fish and fishing mortality is annual."
+  "Annual recruitment (a) and fishing mortality (b) across the 80 retained assessment models. Grey lines are individual models; nested blue bands are pointwise 50\\%, 80\\% and 95\\% structural intervals. The dark-blue line is the equal-weight median. Recruitment is in millions of fish and fishing mortality is annual."
 )
 latex_captions$design_continuous <- paste0(
-  "Realized steepness (a) and natural mortality at the reference length (b) for the 88 completed models. Histograms show completed fits and curves show the specified input distributions. In panel b the dashed curve is the Hamel--Cope adult-mortality prior transformed to the assessment-model $M_0$ scale; the green point and line show the tag-based estimate and 90\\% confidence interval."
+  "Realized steepness (a) and natural mortality at the reference length (b) for the 80 retained models. Histograms show included fits and curves show the specified input distributions. In panel b the dashed curve is the Hamel--Cope adult-mortality prior transformed to the assessment-model $M_0$ scale; the green point and line show the tag-based estimate and 90\\% confidence interval."
 )
 latex_captions$design_discrete <- paste0(
-  "Realized counts for the discrete ensemble axes among the 88 completed models: tag overdispersion (a), tag-mixing cutoff (b), pre-mixing tag-reporting treatment (c), and paired effort-creep rates (d). Counts describe the completed subset rather than the planned 100-model design."
+  "Realized counts for the discrete ensemble axes among the 80 retained models: tag overdispersion (a), tag-mixing cutoff (b), pre-mixing tag-reporting treatment (c), and paired effort-creep rates (d). Counts describe the MGC-filtered subset rather than the planned 100-model design."
 )
 
 html <- paste0(
@@ -719,19 +734,19 @@ html <- paste0(
   ".refs{font-size:.94rem}.refs li{margin:.55rem 0}@media(max-width:760px){main{padding:20px}.summary,.method-grid{grid-template-columns:1fr}}",
   "@media print{@page{size:A4 portrait;margin:13mm}body{background:white}main{max-width:none;padding:0}.actions{display:none}.figure-card{break-after:page;break-inside:avoid;margin:0}.figure-card h2{margin-top:0}.figure-card img{max-height:210mm;object-fit:contain}h1{font-size:18pt}h2{font-size:14pt}table{font-size:8.5pt}}",
   "</style></head><body><main><h1>BET 2026 ensemble analysis</h1>",
-  "<p class='lede'>Equal-weight results from 88 completed bigeye tuna assessment models, with structural uncertainty, available Hessian-based estimation uncertainty, stochastic projections and diagnostics kept explicit.</p>",
-  "<div class='actions'><a href='bet-2026-ensemble-interactive-viewer.html'>Open 88-model interactive viewer</a></div>",
-  "<div class='summary'><div class='stat'><b>", n_models, "</b>completed models</div><div class='stat'><b>", n_pdh, "</b>PDH</div><div class='stat'><b>", n_near, "</b>Near-PDH</div><div class='stat'><b>", n_high, "</b>MGC above 1 × 10<sup>−4</sup></div></div>",
+  "<p class='lede'>Equal-weight results from 80 bigeye tuna assessment models retained after applying MGC ≤ 1 × 10<sup>−4</sup>, with structural uncertainty, available Hessian-based estimation uncertainty and stochastic projections kept explicit.</p>",
+  "<div class='actions'><a href='bet-2026-ensemble-interactive-viewer.html'>Open 80-model interactive viewer</a></div>",
+  "<div class='summary'><div class='stat'><b>", n_models, "</b>included models</div><div class='stat'><b>", n_pdh, "</b>PDH</div><div class='stat'><b>", n_near, "</b>Near-PDH</div><div class='stat'><b>", n_total_mgc_excluded, "</b>excluded by MGC</div></div>",
   "<h2>Overview</h2><div class='method-grid'>",
-  "<article class='method'><h3>Ensemble</h3><p>One hundred models were planned. This report uses the 88 completed at the reporting cutoff, each with equal structural weight. Two additional fits were still running and ten had no completed result; neither group is included here.</p></article>",
-  "<article class='method'><h3>Estimation uncertainty</h3><p>For each of 68 PDH fits, 100 joint normal parameter perturbations were generated from the inverse Hessian and propagated with a first-order multivariate delta method. Log-scale derived-quantity gradients and implicit derivatives of the model-specific equilibrium curves are evaluated with the same perturbation, preserving covariance. The 20 Near-PDH fits contribute central estimates only.</p></article>",
-  "<article class='method'><h3>Stochastic projections</h3><p>Each completed fit contributes ten recruitment sequences for 2025–2054, sampled from fitted 1972–2023 deviations. Catch is conditioned separately for all 33 fisheries and quarters at the 2022–2024 calendar mean; absent observations are zero in the mean, and the 16 number-based and 17 weight-based fishery units are retained.</p></article>",
+  "<article class='method'><h3>Ensemble</h3><p>One hundred configurations were planned. Ten did not meet the MGC ≤ 1 × 10<sup>−4</sup> criterion even after extended optimization runs and were excluded; ten had no completed result. The remaining 80 models enter with equal structural weight.</p></article>",
+  "<article class='method'><h3>Estimation uncertainty</h3><p>For each of 62 retained PDH fits, 100 joint normal parameter perturbations were generated from the inverse Hessian and propagated with a first-order multivariate delta method. Log-scale derived-quantity gradients and implicit derivatives of the model-specific equilibrium curves are evaluated with the same perturbation, preserving covariance. The 18 retained Near-PDH fits contribute central estimates only.</p></article>",
+  "<article class='method'><h3>Stochastic projections</h3><p>Each of the 80 retained fits contributes ten recruitment sequences for 2025–2054, sampled from fitted 1972–2023 deviations. Catch is conditioned separately for all 33 fisheries and quarters at the 2022–2024 calendar mean; absent observations are zero in the mean, and the 16 number-based and 17 weight-based fishery units are retained.</p></article>",
   "<article class='method'><h3>Management quantities</h3><p>Recent biomass uses 2021–2024, unfished biomass 2014–2023 and recent fishing mortality the 2020–2023 pattern. The equilibrium calculation scales the intensity of that fishing pattern: its maximum long-run yield defines F<sub>MSY</sub>, and the corresponding spawning biomass defines SB<sub>MSY</sub>. Projected depletion uses a rolling four-year biomass mean divided by the preceding ten-year unfished mean.</p></article></div>",
   "<div class='note'><strong>Interval convention.</strong> One-dimensional summaries use the median and central 80% equal-tailed interval (10th–90th percentiles) required for WCPFC reporting; nested 50% and 95% bands are supplementary. Kobe and Majuro panels instead use two-dimensional 50%, 80% and 95% kernel highest-density regions, with 95% as the principal region.</div>",
   "<h2>Assessment quantities</h2><div class='definition'><i>SB</i><sub>recent</sub> is the 2021–2024 mean; <i>SB</i><sub><i>F</i>=0</sub> is the 2014–2023 mean; and <i>F</i><sub>recent</sub> uses the 2020–2023 fishing-mortality pattern. The biomass LRP is 0.2<i>SB</i><sub><i>F</i>=0</sub>. The historical management objective is calculated independently for every 2026 model as its mean annual <i>SB</i>/<i>SB</i><sub><i>F</i>=0</sub> over 2012–2015; fixed values calibrated to the 2023 assessment are not applied.</div>",
-  "<h2>Uncertainty and diagnostics</h2><p>All completed models contribute to the principal structural summaries. The MGC sensitivity median is shown separately, because MGC and Hessian status diagnose different properties: proximity to a stationary point and local curvature, respectively.</p>",
-  "<div class='note'><strong>Uncertainty treatment.</strong> All 88 central fits define structural uncertainty. For the 68 positive-definite Hessians, 100 correlated parameter draws per model are propagated jointly through matching derived-quantity gradients. This preserves cross-quantity correlations; independent marginal sampling used in earlier supporting code is not carried forward. The 20 Near-PDH fits remain in all-model summaries as point estimates, but their indefinite Hessians are not regularized or used for parameter draws. The all-model mixture therefore does not represent complete estimation uncertainty for those 20 fits.</div>",
-  "<div class='note'><strong>Scope and limitations.</strong> Hessian intervals are first-order normal approximations. Projection intervals combine model structure and stochastic recruitment, not Hessian parameter draws. Exact historical and projected regional spawning biomass is reported, but regional depletion is not constructed from the model's differently normalized regional output. Axis-grouped summaries are descriptive: no causal one-factor attribution, formal variance decomposition or posterior correlation analysis among jointly varying axes is attempted. Two additional fits were still running at the cutoff; when completed, they can be added with the same cached workflow.</div>",
+  "<h2>Uncertainty and diagnostics</h2><p>The MGC criterion is applied before any ensemble summary. Only the 80 fits with MGC ≤ 1 × 10<sup>−4</sup> contribute to figures, tables, probabilities and the interactive viewer.</p>",
+  "<div class='note'><strong>Uncertainty treatment.</strong> All 80 retained central fits define structural uncertainty. For the 62 positive-definite Hessians, 100 correlated parameter draws per model are propagated jointly through matching derived-quantity gradients. This preserves cross-quantity correlations. The 18 Near-PDH fits remain as point estimates, but their indefinite Hessians are not regularized or used for parameter draws. The mixture therefore does not represent complete estimation uncertainty for those 18 fits.</div>",
+  "<div class='note'><strong>Scope and limitations.</strong> Hessian intervals are first-order normal approximations. Projection intervals combine model structure and stochastic recruitment, not Hessian parameter draws. Exact historical and projected regional spawning biomass is reported, but regional depletion is not constructed from the model's differently normalized regional output. Axis-grouped summaries are descriptive: no causal one-factor attribution, formal variance decomposition or posterior correlation analysis among jointly varying axes is attempted.</div>",
   figure_card("design-continuous", "Continuous ensemble inputs", captions$design_continuous, latex_captions$design_continuous, figures$design_continuous),
   figure_card("design-discrete", "Discrete ensemble inputs", captions$design_discrete, latex_captions$design_discrete, figures$design_discrete),
   figure_card("qc", "Convergence and Hessian diagnostics", captions$qc, latex_captions$qc, figures$qc),
@@ -765,6 +780,6 @@ manifest$sha256 <- vapply(file.path(output_dir, manifest$file), function(path) {
 write.csv(manifest, file.path(output_dir, "report-manifest.csv"), row.names = FALSE)
 
 cat(sprintf(
-  "Rendered self-contained BET 2026 ensemble report for %d completed models.\n",
+  "Rendered self-contained BET 2026 ensemble report for %d MGC-filtered models.\n",
   n_models
 ))

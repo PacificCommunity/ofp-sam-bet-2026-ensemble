@@ -14,16 +14,44 @@ table_dir <- file.path(output_dir, "tables")
 dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(table_dir, recursive = TRUE, showWarnings = FALSE)
 
-series <- readRDS("data/ensemble/ensemble-timeseries.rds")
-fit <- read.csv("data/ensemble/fit-diagnostics.csv", check.names = FALSE)
-management <- read.csv("data/ensemble/management-quantities.csv", check.names = FALSE)
-design <- read.csv("data/ensemble/successful-model-design.csv", check.names = FALSE)
+series_all <- readRDS("data/ensemble/ensemble-timeseries.rds")
+fit_all <- read.csv("data/ensemble/fit-diagnostics.csv", check.names = FALSE)
+management_all <- read.csv("data/ensemble/management-quantities.csv", check.names = FALSE)
+design_all <- read.csv("data/ensemble/successful-model-design.csv", check.names = FALSE)
 hessian <- readRDS("data/estimation/native-hessian-uncertainty.rds")
-projection <- readRDS("data/projection/native-projections.rds")
+projection_all <- readRDS("data/projection/native-projections.rds")
 quarterly_conditioning <- read.csv(
   "data/projection/fishery-quarter-conditioning.csv", check.names = FALSE
 )
 source("report/management-quantities.R")
+
+included_ids <- sort(fit_all$ensemble_id[fit_all$maximum_gradient <= 1e-4])
+excluded_ids <- sort(fit_all$ensemble_id[fit_all$maximum_gradient > 1e-4])
+if (length(included_ids) != 80L || length(excluded_ids) != 8L) {
+  stop("The locked MGC <= 1e-4 rule must retain 80 of 88 completed models.")
+}
+fit <- fit_all[fit_all$ensemble_id %in% included_ids, , drop = FALSE]
+series <- series_all[series_all$ensemble_id %in% included_ids, , drop = FALSE]
+management <- management_all[
+  management_all$ensemble_id %in% included_ids, , drop = FALSE
+]
+design <- design_all[design_all$ensemble_id %in% included_ids, , drop = FALSE]
+
+included_pdh_ids <- intersect(hessian$pdh_model_ids, included_ids)
+included_near_pdh_ids <- intersect(hessian$near_pdh_model_ids, included_ids)
+if (length(included_pdh_ids) != 62L || length(included_near_pdh_ids) != 18L) {
+  stop("Expected 62 PDH and 18 Near-PDH fits after MGC filtering.")
+}
+
+projection <- projection_all
+for (name in names(projection)) {
+  value <- projection[[name]]
+  if (is.data.frame(value) && "ensemble_id" %in% names(value)) {
+    projection[[name]] <- value[value$ensemble_id %in% included_ids, , drop = FALSE]
+  }
+}
+projection$ensemble_ids <- included_ids
+projection$projection_complete_models <- length(included_ids)
 
 theme_report <- function(base_size = 10.8) {
   ggplot2::theme_bw(base_size = base_size, base_family = "serif") +
@@ -155,8 +183,11 @@ figure_block <- function(id, title, caption, latex_caption, files) {
 pdh_annual <- hessian$annual_draws[, c(
   "ensemble_id", "draw", "year", "depletion", "spawning_potential", "recruitment"
 )]
+pdh_annual <- pdh_annual[
+  pdh_annual$ensemble_id %in% included_pdh_ids, , drop = FALSE
+]
 near_annual <- merge(
-  series[series$ensemble_id %in% hessian$near_pdh_model_ids,
+  series[series$ensemble_id %in% included_near_pdh_ids,
          c("ensemble_id", "year", "depletion", "spawning_potential", "recruitment")],
   data.frame(draw = seq_len(hessian$draws_per_pdh_model)), by = NULL
 )
@@ -172,8 +203,11 @@ if (!all(management_columns %in% names(hessian$management_draws))) {
 pdh_management <- hessian$management_draws[, c(
   "ensemble_id", "draw", management_columns
 )]
+pdh_management <- pdh_management[
+  pdh_management$ensemble_id %in% included_pdh_ids, , drop = FALSE
+]
 near_management <- merge(
-  management[management$ensemble_id %in% hessian$near_pdh_model_ids,
+  management[management$ensemble_id %in% included_near_pdh_ids,
              c("ensemble_id", management_columns)],
   data.frame(draw = seq_len(hessian$draws_per_pdh_model)), by = NULL
 )
@@ -228,7 +262,7 @@ write.csv(
 )
 management_uncertainty_caption <- paste0(
   "Management quantities from the equal-model-weight structural mixture augmented by available Hessian estimation uncertainty. ",
-  "Each of the 68 PDH models contributes 100 joint Hessian draws; each of the 20 Near-PDH models contributes its central estimate with the same total model weight. The result is not complete estimation-uncertainty propagation for the Near-PDH fits. ",
+  "Each of the 62 retained PDH models contributes 100 joint Hessian draws; each of the 18 retained Near-PDH models contributes its central estimate with the same total model weight. The result is not complete estimation-uncertainty propagation for the Near-PDH fits. ",
   "The table gives the median and nested central 50%, 80% and 95% equal-tailed intervals; the 80% interval is the primary WCPFC reporting interval."
 )
 management_latex_quantity <- c(
@@ -274,7 +308,7 @@ management_risk_display$Probability <- scales::percent(
 )
 management_risk_caption <- paste0(
   "Probabilities for the reported WCPFC status thresholds and the model-specific 2012–2015 depletion objective. ",
-  "They use the same equal-model-weight mixture as the management summary: Hessian estimation uncertainty is included for the 68 PDH models, while the 20 Near-PDH models are represented by point estimates."
+  "They use the same equal-model-weight mixture as the management summary: Hessian estimation uncertainty is included for the 62 retained PDH models, while the 18 retained Near-PDH models are represented by point estimates."
 )
 management_risk_rows <- vapply(seq_len(nrow(management_risk_display)), function(i) {
   paste0(
@@ -373,7 +407,7 @@ for (column in colnames(reference_statistics)) {
   )
 }
 structural_reference_caption <- paste0(
-  "Supporting reference-point quantities across the 88 central model estimates, with equal structural weight. ",
+  "Supporting reference-point quantities across the 80 retained central model estimates, with equal structural weight. ",
   "The F multiplier is calculated within each model as 1/(Frecent/FMSY) before summarizing. SBF=0 is the 2014–2023 dynamic unfished spawning-biomass mean; SBlatest is annual spawning biomass in 2024; and SBMSY is derived within each model from SBrecent/(SBrecent/SBMSY). ",
   "These intervals describe structural uncertainty only; absolute MSY, FMSY, SB0, YFrecent and latest catch are omitted because their estimation uncertainty was not propagated in the public payload."
 )
@@ -399,7 +433,7 @@ structural_reference_latex <- paste0(
 )
 
 # Audit the 100-draw choice against the first 50 deterministic draws, and show
-# the impact of excluding the 20 Near-PDH point masses. This is a Monte Carlo
+# the impact of excluding the 18 Near-PDH point masses. This is a Monte Carlo
 # stability diagnostic rather than a proof of convergence.
 core_management_columns <- management_columns[1:3]
 near_management_50 <- near_management[near_management$draw <= 50L, ]
@@ -450,7 +484,7 @@ uncertainty_audit_display <- data.frame(
 )
 uncertainty_audit_caption <- paste0(
   "Estimation-uncertainty sensitivity and Monte Carlo audit for the three core status quantities. ",
-  "The all-model column gives 68 PDH models with 100 joint draws plus 20 Near-PDH point masses at equal model weight; the PDH-only column excludes the point masses. ",
+  "The all-model column gives 62 retained PDH models with 100 joint draws plus 18 retained Near-PDH point masses at equal model weight; the PDH-only column excludes the point masses. ",
   "The final column is the largest absolute change in q10, median or q90 when the first 50 rather than all 100 draws per model are used, with matching Near-PDH point-mass replication."
 )
 uncertainty_audit_rows <- vapply(
@@ -1748,7 +1782,7 @@ write.csv(
   row.names = FALSE
 )
 terminal_caption <- paste0(
-  "WCPFC-style terminal status for a projection ending in 2054 across 880 equally weighted model–recruitment combinations. Spawning biomass is averaged over 2051–2054, and the recent fishing-mortality pattern is averaged over 2050–2053. ",
+  "WCPFC-style terminal status for a projection ending in 2054 across 800 equally weighted model–recruitment combinations. Spawning biomass is averaged over 2051–2054, and the recent fishing-mortality pattern is averaged over 2050–2053. ",
   "These MSY-based quantities are calculated by the assessment model's equilibrium-yield procedure; uncertainty includes model structure and stochastic recruitment, but not Hessian parameter draws."
 )
 terminal_rows <- vapply(seq_len(nrow(terminal_display)), function(i) {
@@ -1833,7 +1867,7 @@ status_category_display$Probability <- scales::percent(
 )
 status_category_caption <- paste0(
   "Joint status-category probabilities corresponding to the Kobe and Majuro backgrounds. ",
-  "Current probabilities use the equal-model-weight mixture with joint Hessian draws for 68 PDH models and point estimates for 20 Near-PDH models. Terminal projection probabilities use 880 equal-weight model–recruitment combinations and exclude Hessian parameter uncertainty. ",
+  "Current probabilities use the equal-model-weight mixture with joint Hessian draws for 62 retained PDH models and point estimates for 18 retained Near-PDH models. Terminal projection probabilities use 800 equal-weight model–recruitment combinations and exclude Hessian parameter uncertainty. ",
   "Majuro assigns every outcome below the depletion LRP of 0.20 to red; it therefore has no yellow category."
 )
 status_category_rows <- vapply(
@@ -1866,8 +1900,8 @@ fit_display <- data.frame(
 fit_display <- fit_display[order(fit_display$Model), ]
 write.csv(fit_display, file.path(table_dir, "fit-hessian-summary.csv"), row.names = FALSE)
 fit_caption <- paste0(
-  "Fit and Hessian diagnostics for the 88 completed assessment models. All central estimates are retained in the structural ensemble. ",
-  "Correlated estimation-uncertainty draws are included only for the 68 models with a positive-definite Hessian; the remaining Hessians are not regularized."
+  "Fit and Hessian diagnostics for the 80 assessment models retained after applying MGC ≤ 1e-4. ",
+  "Correlated estimation-uncertainty draws are included only for the 62 retained models with a positive-definite Hessian; the remaining 18 Hessians are not regularized."
 )
 fit_rows <- vapply(seq_len(nrow(fit_display)), function(i) {
   paste0(paste(vapply(fit_display[i, ], latex_escape, character(1)), collapse = " & "), " \\\\")
@@ -1883,12 +1917,12 @@ fit_latex <- paste0(
 uncertainty_caption <- paste0(
   "Structural uncertainty augmented by available Hessian parameter-estimation uncertainty for annual depletion, recruitment and spawning potential. ",
   "The blue intervals and median give every assessment model equal weight: each positive-definite-Hessian model contributes 100 correlated parameter draws from its Hessian covariance, while each Near-PDH model contributes its central estimate without covariance alteration. ",
-  "The mixture therefore does not propagate estimation uncertainty for the Near-PDH fits. Faint grey lines are the 88 central model trajectories and the orange dashed line is their equal-weight structural median. Bands are pointwise 50%, 80% and 95% central equal-tailed intervals; the 80% band is the WCPFC reporting interval."
+  "The mixture therefore does not propagate estimation uncertainty for the Near-PDH fits. Faint grey lines are the 80 retained central model trajectories and the orange dashed line is their equal-weight structural median. Bands are pointwise 50%, 80% and 95% central equal-tailed intervals; the 80% band is the WCPFC reporting interval."
 )
 uncertainty_latex_caption <- paste0(
   "Structural uncertainty augmented by available Hessian parameter-estimation uncertainty for annual depletion, recruitment and spawning potential. ",
   "The blue intervals and median give every assessment model equal weight: each positive-definite-Hessian model contributes 100 correlated parameter draws from its Hessian covariance, while each Near-PDH model contributes its central estimate without covariance alteration. ",
-  "The mixture therefore does not propagate estimation uncertainty for the Near-PDH fits. Faint grey lines are the 88 central model trajectories and the orange dashed line is their equal-weight structural median. Bands are pointwise 50\\%, 80\\% and 95\\% central equal-tailed intervals; the 80\\% band is the WCPFC reporting interval."
+  "The mixture therefore does not propagate estimation uncertainty for the Near-PDH fits. Faint grey lines are the 80 retained central model trajectories and the orange dashed line is their equal-weight structural median. Bands are pointwise 50\\%, 80\\% and 95\\% central equal-tailed intervals; the 80\\% band is the WCPFC reporting interval."
 )
 plain_latex_caption <- function(value) {
   latex_escape(gsub("<[^>]+>", "", value))
@@ -1896,7 +1930,7 @@ plain_latex_caption <- function(value) {
 
 current_status_caption <- paste0(
   "Current stock status using the 2021–2024 recent spawning biomass and 2020–2023 recent fishing-mortality pattern. Panel (a) is the Kobe diagram relative to SBMSY and FMSY; panel (b) is the WCPFC-style Majuro diagram with the depletion LRP of 0.20 as the biomass boundary. ",
-  "Points are the 88 central model estimates; filled and open symbols distinguish PDH and Near-PDH fits and colours denote fixed tag overdispersion. Nested shading gives 50%, 80% and 95% bivariate kernel highest-density regions from the equal-model-weight mixture, preserving covariance within each joint Hessian draw for the 68 PDH models and using point estimates for the 20 Near-PDH models; the 95% HDR is primary. ",
+  "Points are the 80 retained central model estimates; filled and open symbols distinguish PDH and Near-PDH fits and colours denote fixed tag overdispersion. Nested shading gives 50%, 80% and 95% bivariate kernel highest-density regions from the equal-model-weight mixture, preserving covariance within each joint Hessian draw for the 62 PDH models and using point estimates for the 18 Near-PDH models; the 95% HDR is primary. ",
   "In the Kobe panel, green, yellow, orange and red denote the four combinations of biomass and fishing-mortality status. In the Majuro panel, all depletion below the LRP is red regardless of fishing mortality; above the LRP, green denotes F/FMSY ≤ 1 and orange denotes F/FMSY > 1."
 )
 continuous_axis_caption <- paste0(
@@ -1917,7 +1951,7 @@ projection_depletion_catch_caption <- paste0(
   "Historical assessment estimates through 2024 joined to stochastic projections for 2025–2054. ",
   "Panel (a) shows WCPFC-style rolling depletion: the four-year mean spawning biomass ending in year t divided by the preceding ten-year mean unfished spawning biomass; the red line is the LRP of 0.20. ",
   "Panel (b) shows realized annual biomass catch divided by annual MSY, with the red line at 1. Annual catch is read from model output, which converts number-based fisheries using predicted mean weight; annual MSY is four times the simulation-specific quarterly equilibrium MSY and is fixed within each path. Thus realized biomass catch can vary for number-conditioned fisheries although their input catch is fixed. Raw number and weight inputs are never summed. ",
-  "Bands are pointwise central 50%, 80% and 95% equal-tailed intervals, with 80% primary. Ten reproducibly selected trajectories show individual model–recruitment paths. The historical portion summarizes central estimates across the 88 models and therefore shows structural uncertainty only; projection bands combine model structure and stochastic recruitment but not Hessian estimation uncertainty."
+  "Bands are pointwise central 50%, 80% and 95% equal-tailed intervals, with 80% primary. Ten reproducibly selected trajectories show individual model–recruitment paths. The historical portion summarizes central estimates across the 80 retained models and therefore shows structural uncertainty only; projection bands combine model structure and stochastic recruitment but not Hessian estimation uncertainty."
 )
 projection_spawning_risk_caption <- paste0(
   "Historical spawning potential through 2024 joined to stochastic projections for 2025–2054 (a), and projected probabilities below the LRP and each model's own 2012–2015 mean depletion (b). ",
@@ -1925,7 +1959,7 @@ projection_spawning_risk_caption <- paste0(
   "The historical portion shows structural uncertainty among central model estimates. Projection uncertainty includes equal-weight model structure and ten stochastic recruitment sequences per model, but not Hessian parameter draws."
 )
 terminal_status_caption <- paste0(
-  "WCPFC-style terminal Kobe status for a projection ending in 2054 across 880 equally weighted model–recruitment combinations. Biomass is mean SB over 2051–2054 relative to SBMSY, and fishing mortality is the mean 2050–2053 recent pattern relative to FMSY. ",
+  "WCPFC-style terminal Kobe status for a projection ending in 2054 across 800 equally weighted model–recruitment combinations. Biomass is mean SB over 2051–2054 relative to SBMSY, and fishing mortality is the mean 2050–2053 recent pattern relative to FMSY. ",
   "Points are individual combinations and colours denote fixed tag overdispersion. Nested shading gives the 50%, 80% and 95% bivariate kernel HDRs; the 95% HDR is primary. ",
   "Green, yellow, orange and red show the four combinations of biomass and fishing-mortality status relative to 1. These projection HDRs include model structure and stochastic recruitment, not Hessian parameter uncertainty."
 )
@@ -1939,17 +1973,17 @@ regional_4_all_caption <- paste0(
 )
 
 fishing_caption <- paste0(
-  "Fishing-mortality diagnostics. Panel (a) shows annual fishing mortality through 2024 across the 88 assessment models, with pointwise 50%, 80% and 95% structural intervals. ",
+  "Fishing-mortality diagnostics. Panel (a) shows annual fishing mortality through 2024 across the 80 retained assessment models, with pointwise 50%, 80% and 95% structural intervals. ",
   "Faint grey lines are the individual central-model trajectories. ",
-  "Panel (b) compares current Frecent/FMSY including structural and Hessian estimation uncertainty with the projected 2050–2053 recent-F pattern relative to FMSY across 880 equally weighted model–recruitment combinations. The red line marks F/FMSY = 1. ",
-  "For the current distribution, Hessian estimation uncertainty is available for 68 PDH models and the 20 Near-PDH fits enter as point estimates. ",
+  "Panel (b) compares current Frecent/FMSY including structural and Hessian estimation uncertainty with the projected 2050–2053 recent-F pattern relative to FMSY across 800 equally weighted model–recruitment combinations. The red line marks F/FMSY = 1. ",
+  "For the current distribution, Hessian estimation uncertainty is available for 62 PDH models and the 18 Near-PDH fits enter as point estimates. ",
   "The projection output supplies the model-calculated terminal MSY-based quantity; no annual projected fishing-mortality series or Hessian parameter draws are implied."
 )
 fishing_latex_caption <- paste0(
-  "Fishing-mortality diagnostics. Panel (a) shows annual fishing mortality through 2024 across the 88 assessment models, with pointwise 50\\%, 80\\% and 95\\% structural intervals. ",
+  "Fishing-mortality diagnostics. Panel (a) shows annual fishing mortality through 2024 across the 80 retained assessment models, with pointwise 50\\%, 80\\% and 95\\% structural intervals. ",
   "Faint grey lines are the individual central-model trajectories. ",
-  "Panel (b) compares current $F_{recent}/F_{MSY}$ including structural and Hessian estimation uncertainty with the projected 2050--2053 recent-$F$ pattern relative to $F_{MSY}$ across 880 equally weighted model--recruitment combinations. The red line marks $F/F_{MSY}=1$. ",
-  "For the current distribution, Hessian estimation uncertainty is available for 68 PDH models and the 20 Near-PDH fits enter as point estimates. ",
+  "Panel (b) compares current $F_{recent}/F_{MSY}$ including structural and Hessian estimation uncertainty with the projected 2050--2053 recent-$F$ pattern relative to $F_{MSY}$ across 800 equally weighted model--recruitment combinations. The red line marks $F/F_{MSY}=1$. ",
+  "For the current distribution, Hessian estimation uncertainty is available for 62 PDH models and the 18 Near-PDH fits enter as point estimates. ",
   "The projection output supplies the model-calculated terminal MSY-based quantity; no annual projected fishing-mortality series or Hessian parameter draws are implied."
 )
 
@@ -1971,7 +2005,7 @@ recovery_note <- sprintf(
 
 insert <- paste0(
   "<h2>Structural and available estimation uncertainty</h2>",
-  "<div class='definition'>The uncertainty envelope gives each of the 88 model configurations equal total weight. For the 68 positive-definite-Hessian fits, 100 correlated parameter draws are generated from the inverse-Hessian covariance and propagated jointly with a first-order multivariate delta method. Recent biomass and dynamic unfished biomass retain their covariance; MSY-based quantities use implicit derivatives of the model-specific equilibrium curves. The 20 Near-PDH fits enter as central point estimates because their indefinite Hessians are not replaced, clipped or regularized. Consequently, this is structural uncertainty augmented by available estimation uncertainty, not complete estimation uncertainty for all 88 fits. Independent marginal resampling is not used.</div>",
+  "<div class='definition'>The uncertainty envelope gives each of the 80 MGC-filtered model configurations equal total weight. For the 62 positive-definite-Hessian fits, 100 correlated parameter draws are generated from the inverse-Hessian covariance and propagated jointly with a first-order multivariate delta method. Recent biomass and dynamic unfished biomass retain their covariance; MSY-based quantities use implicit derivatives of the model-specific equilibrium curves. The 18 Near-PDH fits enter as central point estimates because their indefinite Hessians are not replaced, clipped or regularized. Consequently, this is structural uncertainty augmented by available estimation uncertainty, not complete estimation uncertainty for all 80 fits. Independent marginal resampling is not used.</div>",
   figure_block("combined-uncertainty", "Structural and available estimation uncertainty", uncertainty_caption, uncertainty_latex_caption, uncertainty_files),
   copy_table_block("estimation-management-summary", "Management quantities with available estimation uncertainty", management_uncertainty_caption, management_uncertainty_display, management_uncertainty_latex),
   copy_table_block("estimation-management-risk", "Status probabilities with available estimation uncertainty", management_risk_caption, management_risk_display, management_risk_latex),

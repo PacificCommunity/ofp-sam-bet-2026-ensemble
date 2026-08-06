@@ -35,7 +35,7 @@ viewer <- paste(readLines(viewer_file, warn = FALSE), collapse = "\n")
 report_required <- c(
   "BET 2026 ensemble analysis",
   "Overview", "Interval convention", "50%", "80%", "95%",
-  "Open 88-model interactive viewer", "Fishing mortality",
+  "Open 80-model interactive viewer", "Fishing mortality",
   "Projected depletion and Catch/MSY", "highest-density regions",
   "Management quantities with available estimation uncertainty", "Terminal management quantities",
   "Supporting structural reference points", "Monte Carlo audit",
@@ -43,20 +43,41 @@ report_required <- c(
   "Zero-quarter conditioning audit",
   "Regional spawning potential", "Scope and limitations",
   "Copy table for Word", "Copy LaTeX", "Open vector PDF",
-  "Two additional fits were still running"
+  "Ten did not meet the MGC", "extended optimization runs"
 )
 for (value in report_required) {
   if (!grepl(value, report, fixed = TRUE)) stop("Missing public-report element: ", value)
 }
 
 viewer_required <- c(
-  "BET 2026 ensemble model results", "88 completed assessment configurations",
+  "BET 2026 ensemble model results", "80 assessment configurations passing MGC",
   "depletion", "recruitment", "spawning", "fishing",
   "Filter table", "Near-PDH", "F (year⁻¹)",
   "SBrecent/SBF=0", "SBrecent/SBMSY", "Frecent/FMSY"
 )
 for (value in viewer_required) {
   if (!grepl(value, viewer, fixed = TRUE)) stop("Missing interactive-viewer element: ", value)
+}
+
+fit_output <- read.csv(
+  file.path(output_dir, "tables", "ensemble-fit-diagnostics.csv"),
+  check.names = FALSE
+)
+fit_summary <- read.csv(
+  file.path(output_dir, "tables", "fit-hessian-summary.csv"),
+  check.names = FALSE
+)
+source_fit <- read.csv("data/ensemble/fit-diagnostics.csv", check.names = FALSE)
+included_ids <- source_fit$ensemble_id[source_fit$maximum_gradient <= 1e-4]
+excluded_ids <- source_fit$ensemble_id[source_fit$maximum_gradient > 1e-4]
+if (nrow(fit_output) != 80L || nrow(fit_summary) != 80L ||
+    !setequal(fit_output$ensemble_id, included_ids)) {
+  stop("The rendered fit tables are not restricted to the 80 MGC-filtered models.")
+}
+for (id in excluded_ids) {
+  if (grepl(id, report, fixed = TRUE) || grepl(id, viewer, fixed = TRUE)) {
+    stop("An excluded model identifier appears in a public output.")
+  }
 }
 
 forbidden <- c(
@@ -88,4 +109,4 @@ if (!identical(manifest$sha256, unname(actual))) {
   stop("A final report manifest checksum does not match.")
 }
 
-cat("Validated the self-contained 88-model report, viewer, 14 figure sets and copy-ready tables.\n")
+cat("Validated the self-contained 80-model report, viewer, 14 figure sets and copy-ready tables.\n")

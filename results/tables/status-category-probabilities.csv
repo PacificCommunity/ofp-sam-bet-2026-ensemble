@@ -1,12 +1,12 @@
 "Diagram","Category","Probability"
-"Current Kobe","Green",0.651931818181818
-"Current Kobe","Yellow",0.0497727272727273
-"Current Kobe","Orange",0.137613636363636
-"Current Kobe","Red",0.160681818181818
-"Current Majuro","Green",0.700681818181818
-"Current Majuro","Orange",0.0617045454545455
-"Current Majuro","Red",0.237613636363636
-"Terminal projection Kobe","Green",0.947727272727273
+"Current Kobe","Green",0.704625
+"Current Kobe","Yellow",0.05475
+"Current Kobe","Orange",0.122375
+"Current Kobe","Red",0.11825
+"Current Majuro","Green",0.75825
+"Current Majuro","Orange",0.055375
+"Current Majuro","Red",0.186375
+"Terminal projection Kobe","Green",0.955
 "Terminal projection Kobe","Yellow",0
-"Terminal projection Kobe","Orange",0.0522727272727273
+"Terminal projection Kobe","Orange",0.045
 "Terminal projection Kobe","Red",0
