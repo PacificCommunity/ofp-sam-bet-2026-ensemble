@@ -466,6 +466,11 @@ h_panel <- ggplot2::ggplot(
   ggplot2::labs(x = "Steepness, h", y = "Models per bin") + theme_report(10.4)
 
 m_y <- max(c(m_grid$selected_count, m_grid$hamel_cope_count), na.rm = TRUE)
+m_tag_interval <- data.frame(
+  x = m_tag_lower, xend = m_tag_upper,
+  y = 0.06 * m_y, yend = 0.06 * m_y
+)
+m_tag_point <- data.frame(x = m_tag, y = 0.06 * m_y)
 m_panel <- ggplot2::ggplot(
   m_histogram,
   ggplot2::aes(x = .data$midpoint, y = .data$count, fill = .data$set)
@@ -488,21 +493,28 @@ m_panel <- ggplot2::ggplot(
     data = m_grid, ggplot2::aes(x = .data$x, y = .data$hamel_cope_count, colour = "Hamel–Cope, scaled to M₀"),
     inherit.aes = FALSE, linewidth = 0.72, linetype = "22"
   ) +
-  ggplot2::annotate(
-    "segment", x = m_tag_lower, xend = m_tag_upper,
-    y = 0.06 * m_y, yend = 0.06 * m_y,
-    colour = "#168C67", linewidth = 1.0
+  ggplot2::geom_segment(
+    data = m_tag_interval,
+    ggplot2::aes(
+      x = .data$x, xend = .data$xend, y = .data$y, yend = .data$yend,
+      colour = "Tag analysis (90% CI)"
+    ), inherit.aes = FALSE, linewidth = 1.0
   ) +
-  ggplot2::annotate(
-    "point", x = m_tag, y = 0.06 * m_y,
-    colour = "#168C67", size = 2.2
+  ggplot2::geom_point(
+    data = m_tag_point,
+    ggplot2::aes(x = .data$x, y = .data$y, colour = "Tag analysis (90% CI)"),
+    inherit.aes = FALSE, size = 2.2
   ) +
   ggplot2::geom_rug(
     data = design, ggplot2::aes(x = .data$m_age40_quarterly),
     inherit.aes = FALSE, colour = "#D66B00", alpha = 0.34, sides = "b"
   ) +
   ggplot2::scale_colour_manual(
-    values = c("Selected distribution" = "#D66B00", "Hamel–Cope, scaled to M₀" = "#5E6366"),
+    values = c(
+      "Selected distribution" = "#D66B00",
+      "Hamel–Cope, scaled to M₀" = "#5E6366",
+      "Tag analysis (90% CI)" = "#168C67"
+    ),
     name = NULL
   ) +
   ggplot2::scale_fill_manual(
@@ -831,7 +843,7 @@ captions$design_discrete <- paste0(
 )
 captions$design <- paste0(
   "Planned and retained ensemble inputs: steepness (a), natural mortality at the reference length (b), tag overdispersion (c), tag-mixing cutoff (d), pre-mixing reporting treatment (e), and effort creep (f). ",
-  "Muted gold shows the 100 planned configurations and teal shows the 80 retained models. Curves in panels a–b show the specified continuous input distributions."
+  "Muted gold shows the 100 planned configurations and teal shows the 80 retained models. Curves in panels a–b show the specified continuous input distributions; the green point and line in panel b are the tag-based estimate and 90% confidence interval from Ducharme-Barth et al. (2026; WCPFC-SC22-2026-SA-IP14)."
 )
 latex_captions$trajectories_stock <- paste0(
   "Annual depletion (a) and spawning potential (b) across the 80 retained assessment models. Grey lines are individual models; nested blue bands are pointwise central 50\\%, 80\\% and 95\\% structural intervals. ",
@@ -848,7 +860,7 @@ latex_captions$design_discrete <- paste0(
 )
 latex_captions$design <- paste0(
   "Planned and retained ensemble inputs: steepness (a), natural mortality at the reference length (b), tag overdispersion (c), tag-mixing cutoff (d), pre-mixing reporting treatment (e), and effort creep (f). ",
-  "Muted gold shows the 100 planned configurations and teal shows the 80 retained models. Curves in panels a--b show the specified continuous input distributions."
+  "Muted gold shows the 100 planned configurations and teal shows the 80 retained models. Curves in panels a--b show the specified continuous input distributions; the green point and line in panel b are the tag-based estimate and 90\\% confidence interval from Ducharme-Barth et al. (2026; WCPFC-SC22-2026-SA-IP14)."
 )
 
 html <- paste0(
@@ -866,15 +878,15 @@ html <- paste0(
   "@media print{@page{size:A4 portrait;margin:13mm}body{background:white}main{max-width:none;padding:0}.actions,.report-tabs{display:none}.report-panel{display:block!important}.figure-card{break-after:page;break-inside:avoid;margin:0}.figure-card h2{margin-top:0}.figure-card img{width:86%;max-height:176mm;object-fit:contain}.table-card{break-inside:avoid}h1{font-size:18pt}h2{font-size:14pt}table{font-size:8.5pt}}",
   "</style></head><body><main><h1>BET 2026 ensemble analysis</h1>",
   "<p class='lede'>Equal-weight results from 80 bigeye tuna assessment models retained after applying MGC ≤ 1 × 10<sup>−4</sup>, with structural uncertainty, available Hessian-based estimation uncertainty and stochastic projections kept explicit.</p>",
-  "<div class='actions'><a href='bet-2026-ensemble-interactive-viewer.html'>Open 80-model interactive viewer</a></div>",
+  "<div class='actions'><a href='https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/latest/download/bet-2026-ensemble-interactive-viewer.html' target='_blank' rel='noopener'>Open 80-model interactive viewer</a></div>",
   "<div class='summary'><div class='stat'><b>100 &rarr; ", n_models, "</b>planned &rarr; included</div><div class='stat'><b>", n_pdh, "</b>PDH</div><div class='stat'><b>", n_near, "</b>Near-PDH</div><div class='stat'><b>20</b>not retained</div></div>",
   "<nav class='report-tabs' aria-label='Report sections'><button class='report-tab active' type='button' data-report-tab='overview'>Overview</button><button class='report-tab' type='button' data-report-tab='figures'>Figures</button><button class='report-tab' type='button' data-report-tab='tables'>Tables</button></nav>",
   "<section class='report-panel active' id='overview-panel' data-report-panel='overview'>",
   "<h2>Overview</h2><div class='method-grid'>",
   "<article class='method'><h3>Ensemble</h3><p>Of 100 planned configurations, 80 met MGC ≤ 1 × 10<sup>−4</sup> and were retained with equal model weight; ten failed the criterion and ten were incomplete.</p></article>",
   "<article class='method'><h3>Uncertainty</h3><p>All 80 central fits represent structural uncertainty. For 62 PDH fits, 100 correlated inverse-Hessian draws were propagated jointly by the multivariate delta method; 18 Near-PDH fits contribute central estimates only. Estimation uncertainty is therefore available, but not complete for all models.</p></article>",
-  "<article class='method'><h3>Projections</h3><p>Each model contributes ten recruitment paths for 2025–2054, sampled from its estimated 1972–2023 recruitment deviations; the first 20 assessment years and terminal 2024 are excluded. All 33 fisheries are catch-conditioned by fishery and quarter at the 2022–2024 mean, with missing observations set to zero and the 16 number and 17 weight units retained. Projection bands exclude Hessian draws.</p></article>",
-  "<article class='method'><h3>Management quantities</h3><p><i>SB</i><sub>recent</sub> uses 2021–2024, <i>SB</i><sub><i>F</i>=0</sub> 2014–2023 and <i>F</i><sub>recent</sub> the 2020–2023 pattern. The LRP is 0.2<i>SB</i><sub><i>F</i>=0</sub>; MSY reference points are model-specific equilibrium quantities. Projected depletion is the rolling four-year biomass mean divided by the preceding ten-year unfished mean.</p></article>",
+  "<article class='method'><h3>Projections</h3><p>Each model contributes ten recruitment paths for 2025–2054, sampled from its estimated 1972–2023 recruitment deviations; the first 20 assessment years and terminal 2024 are excluded. All 33 fisheries are catch-conditioned separately by fishery and quarter at the 2022–2024 mean, with missing observations set to zero. Projection bands exclude Hessian draws.</p></article>",
+  "<article class='method'><h3>Management quantities</h3><p><i>SB</i><sub>recent</sub> uses 2021–2024, <i>SB</i><sub><i>F</i>=0</sub> 2014–2023 and <i>F</i><sub>recent</sub> 2020–2023. The LRP is 0.2<i>SB</i><sub><i>F</i>=0</sub>; MSY reference points are model-specific equilibrium quantities. Projected depletion is the rolling four-year biomass mean divided by the preceding ten-year unfished mean.</p></article>",
   "<article class='method'><h3>Intervals</h3><p>One-dimensional results report the median and central 80% equal-tailed interval; 50% and 95% bands are supplementary. Kobe and Majuro plots use two-dimensional 50%, 80% and 95% kernel highest-density regions.</p></article>",
   "<article class='method'><h3>Scope</h3><p>Hessian intervals are first-order normal approximations. Regional results cover Regions 1–5, with the stock-wide LRP shown only as a reference. Axis summaries are descriptive; no causal attribution, variance decomposition or posterior correlation analysis is made.</p></article></div>",
   "<div id='analysis-results'></div>",
@@ -887,6 +899,7 @@ html <- paste0(
   "<li><a href='https://meetings.wcpfc.int/file/19559/download'>WCPFC stock-status and management-advice definitions for tropical tunas</a>.</li>",
   "<li><a href='https://meetings.wcpfc.int/taxonomy/term/2786'>WCPFC First Bigeye Management Workshop: 2012–2015 depletion objective and candidate TRP process</a>.</li>",
   "<li><a href='https://doi.org/10.1016/j.fishres.2022.106477'>Hamel and Cope (2022): longevity-based natural-mortality prior</a>.</li>",
+  "<li><a href='https://meetings.wcpfc.int/node/32286'>Ducharme-Barth, N., Peatman, T., Scutt Phillips, J., and Minte-Vera, C. (2026). Natural mortality estimation for WCPO bigeye tuna: a joint cohort analysis of Coral Sea and Region 4 tagging data (WCPFC-SC22-2026-SA-IP14)</a>.</li>",
   "<li><a href='https://meetings.wcpfc.int/file/4756/download'>Pilling et al. (2016). Approaches for balancing biological model uncertainty in stock-assessment projections for tropical tunas</a>.</li>",
   "</ol></section></section>",
   "<section class='report-panel' id='figures-panel' data-report-panel='figures'><h2>Figures</h2><p class='panel-intro'>Publication figures are grouped here once, with report-ready captions and PNG and vector-PDF downloads.</p><div class='output-list' id='figures-list'></div></section>",

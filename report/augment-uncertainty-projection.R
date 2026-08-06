@@ -20,6 +20,8 @@ obsolete_projection_figures <- file.path(
   c(
     "projection-depletion-catch-msy.png",
     "projection-depletion-catch-msy.pdf",
+    "projection-catch-msy.png",
+    "projection-catch-msy.pdf",
     "projection-spawning-risk.png",
     "projection-spawning-risk.pdf",
     "projected-regional-depletion.png",
@@ -143,7 +145,7 @@ html_escape <- function(value) {
 
 replace_math_tokens <- function(value) {
   replacements <- c(
-    "Frecent(2050–2053)" = "<i>F</i><sub>recent(2050–2053)</sub>",
+    "F2050–2053" = "<i>F</i><sub>2050–2053</sub>",
     "SB2051–2054" = "<i>SB</i><sub>2051–2054</sub>",
     "SBt/SBF=0,t" = "<i>SB</i><sub><i>t</i></sub>/<i>SB</i><sub><i>F</i>=0,<i>t</i></sub>",
     "SBt/SBMSY,t" = "<i>SB</i><sub><i>t</i></sub>/<i>SB</i><sub>MSY,<i>t</i></sub>",
@@ -153,6 +155,7 @@ replace_math_tokens <- function(value) {
     "SBF=0" = "<i>SB</i><sub><i>F</i>=0</sub>",
     "SBMSY" = "<i>SB</i><sub>MSY</sub>",
     "Frecent" = "<i>F</i><sub>recent</sub>",
+    "F/FMSY" = "<i>F</i>/<i>F</i><sub>MSY</sub>",
     "FMSY" = "<i>F</i><sub>MSY</sub>",
     "Drecent" = "<i>D</i><sub>recent</sub>"
   )
@@ -273,7 +276,7 @@ management_uncertainty_numeric <- data.frame(
   ),
   Period = c(
     "2021–2024 / 2014–2023", "2021–2024 / equilibrium SBMSY",
-    "2020–2023 pattern / equilibrium FMSY", "2012–2015",
+    "2020–2023 / equilibrium FMSY", "2012–2015",
     "Recent / 2012–2015"
   ),
   `2.5%` = vapply(management_uncertainty_values, stats::quantile, numeric(1), probs = 0.025, names = FALSE),
@@ -415,7 +418,7 @@ reference_specs <- data.frame(
     "SBrecent / SBMSY", "SBMSY", "SBMSY / SBF=0"
   ),
   Period = c(
-    "2020–2023 F pattern", "2020–2023 F pattern", "2014–2023 mean",
+    "2020–2023", "2020–2023", "2014–2023 mean",
     "2024 / 2014–2023", "2024 / equilibrium SBMSY",
     "2021–2024 / 2014–2023", "2021–2024 / equilibrium SBMSY",
     "Equilibrium", "Equilibrium / 2014–2023"
@@ -622,13 +625,11 @@ uncertainty_panels <- lapply(uncertainty_specs, function(spec) {
     ggplot2::scale_x_continuous(breaks = seq(1960, 2020, 20)) +
     ggplot2::coord_cartesian(ylim = c(0, NA)) +
     ggplot2::labs(x = "Year", y = spec$label) + theme_report(10.6)
-  if (spec$estimation) {
-    p <- p + ggplot2::geom_line(
-      data = structural,
-      ggplot2::aes(y = .data$median, colour = "Structural median"),
-      linewidth = 0.60, linetype = "22"
-    )
-  }
+  p <- p + ggplot2::geom_line(
+    data = structural,
+    ggplot2::aes(y = .data$median, colour = "Structural median"),
+    linewidth = 0.60, linetype = "22"
+  )
   if (!spec$estimation) {
     p <- p + ggplot2::guides(fill = "none", colour = "none")
   }
@@ -650,6 +651,7 @@ uncertainty_plot <- (
     legend.position = "bottom", legend.box = "vertical",
     legend.text = ggplot2::element_text(size = 8.4),
     legend.key.width = grid::unit(0.72, "cm"),
+    axis.title.y = ggplot2::element_text(face = "plain"),
     plot.tag.position = c(0.075, 0.955),
     plot.tag = ggplot2::element_text(
       face = "bold", colour = "#183246", size = 11,
@@ -1390,58 +1392,10 @@ p_proj_risk <- ggplot2::ggplot(proj_risk, ggplot2::aes(x = .data$year)) +
 
 catch_msy <- projection$catch_msy
 catch_msy_summary <- summarise_by(catch_msy, "catch_msy")
-representative_catch_msy <- merge(
-  representative_keys,
-  catch_msy[c("ensemble_id", "simulation", "year", "catch_msy")],
-  by = c("ensemble_id", "simulation"), sort = FALSE
-)
-p_catch_msy <- ggplot2::ggplot(
-  catch_msy_summary, ggplot2::aes(x = .data$year)
-) +
-  ggplot2::geom_ribbon(
-    ggplot2::aes(ymin = .data$q025, ymax = .data$q975, fill = "95% interval"),
-    alpha = 0.30
-  ) +
-  ggplot2::geom_ribbon(
-    ggplot2::aes(ymin = .data$q10, ymax = .data$q90, fill = "80% interval"),
-    alpha = 0.50
-  ) +
-  ggplot2::geom_ribbon(
-    ggplot2::aes(ymin = .data$q25, ymax = .data$q75, fill = "50% interval"),
-    alpha = 0.70
-  ) +
-  ggplot2::geom_line(
-    data = representative_catch_msy,
-    ggplot2::aes(
-      x = .data$year, y = .data$catch_msy, group = .data$trajectory_id
-    ), inherit.aes = FALSE, colour = "#2B8C9B", linewidth = 0.34, alpha = 0.45
-  ) +
-  ggplot2::geom_line(
-    ggplot2::aes(y = .data$median, colour = "Median"), linewidth = 0.92
-  ) +
-  ggplot2::geom_hline(
-    yintercept = 1, colour = "#A52D2D", linewidth = 0.58, linetype = "33"
-  ) +
-  ggplot2::scale_fill_manual(
-    values = c(
-      "95% interval" = "#D5E9ED", "80% interval" = "#9CCFD8",
-      "50% interval" = "#53AAB9"
-    ), name = NULL
-  ) +
-  ggplot2::scale_colour_manual(values = c("Median" = "#07566B"), name = NULL) +
-  ggplot2::scale_x_continuous(breaks = c(2025, 2030, 2040, 2050, 2054)) +
-  ggplot2::coord_cartesian(ylim = c(0, NA)) +
-  ggplot2::labs(
-    x = "Year", y = expression(Annual~biomass~catch / MSY)
-  ) + theme_report(11.1)
-
-projection_catch_msy_files <- save_plot(
-  p_catch_msy, "projection-catch-msy", height = 5.3
-)
 
 terminal <- projection$terminal_msy
 # Fmults reports equilibrium quantities for the configured recent fishing
-# pattern, but its biomass field ends one year too early for the WCPFC
+# fishing-mortality configuration, but its biomass field ends one year too early for the
 # terminal-biomass convention. Recalculate the numerator from the cached
 # annual paths as mean SB over 2051--2054 and retain the matching equilibrium
 # SBMSY denominator and recent-F ratio for each simulation.
@@ -1594,17 +1548,17 @@ unlink(file.path(
 
 fishing_status <- rbind(
   data.frame(
-    period = "Current\nFrecent / FMSY", value = hybrid_management$f_recent_fmsy,
+    period = "Current", value = hybrid_management$f_recent_fmsy,
     source = "Current structure + available estimation"
   ),
   data.frame(
-    period = "2050–2053\nFrecent / FMSY", value = terminal$terminal_f_fmsy,
+    period = "2050–2053", value = terminal$terminal_f_fmsy,
     source = "Projected structure + recruitment"
   )
 )
 fishing_status$period <- factor(
   fishing_status$period,
-  levels = c("Current\nFrecent / FMSY", "2050–2053\nFrecent / FMSY")
+  levels = c("Current", "2050–2053")
 )
 fishing_status_interval <- summarise_by(
   fishing_status, "value", "period"
@@ -1630,13 +1584,9 @@ p_fishing_key <- ggplot2::ggplot(
     yintercept = 1, colour = "#B83232", linewidth = 0.52,
     linetype = "33"
   ) +
-  ggplot2::scale_x_discrete(labels = c(
-    "Current\nFrecent / FMSY" = "Current",
-    "2050–2053\nFrecent / FMSY" = "2050–2053"
-  )) +
   ggplot2::coord_cartesian(ylim = c(0, NA)) +
   ggplot2::labs(
-    x = NULL, y = expression(italic(F)[recent] / italic(F)[MSY])
+    x = NULL, y = expression(italic(F) / italic(F)[MSY])
   ) + theme_report(10.8)
 
 projection_key_plot <- (p_proj_risk | p_fishing_key) +
@@ -2387,7 +2337,7 @@ terminal_values <- list(
   terminal$terminal_f_fmsy
 )
 terminal_display <- data.frame(
-  Quantity = c("Mean SB2051–2054 / SBMSY", "Frecent(2050–2053) / FMSY"),
+  Quantity = c("SB2051–2054 / SBMSY", "F2050–2053 / FMSY"),
   q10 = sprintf("%.3f", vapply(
     terminal_values, stats::quantile, numeric(1), probs = 0.10, names = FALSE
   )),
@@ -2395,7 +2345,7 @@ terminal_display <- data.frame(
   q90 = sprintf("%.3f", vapply(
     terminal_values, stats::quantile, numeric(1), probs = 0.90, names = FALSE
   )),
-  Criterion = c("Mean SB2051–2054/SBMSY < 1", "Frecent(2050–2053)/FMSY > 1"),
+  Criterion = c("SB2051–2054/SBMSY < 1", "F2050–2053/FMSY > 1"),
   beyond = scales::percent(c(
     mean(terminal$terminal_sb_sbmsy < 1),
     mean(terminal$terminal_f_fmsy > 1)
@@ -2410,13 +2360,18 @@ write.csv(
   row.names = FALSE
 )
 terminal_caption <- paste0(
-  "Terminal stock status for a projection ending in 2054 across 800 equally weighted model–recruitment combinations. Spawning biomass is averaged over 2051–2054, and the recent fishing-mortality pattern is averaged over 2050–2053. ",
+  "Terminal stock status for a projection ending in 2054 across 800 equally weighted model–recruitment combinations. Spawning biomass is averaged over 2051–2054, and fishing mortality is averaged over 2050–2053. ",
   "These MSY-based quantities are calculated by the assessment model's equilibrium-yield procedure; uncertainty includes model structure and stochastic recruitment, but not Hessian parameter draws."
 )
 terminal_rows <- vapply(seq_len(nrow(terminal_display)), function(i) {
-  quantity <- c("$\\overline{SB}_{2051--2054}/SB_{MSY}$", "$F_{recent(2050--2053)}/F_{MSY}$")[[i]]
-  remainder <- vapply(terminal_display[i, -1L], latex_escape, character(1))
-  paste0(paste(c(quantity, remainder), collapse = " & "), " \\\\")
+  quantity <- c("$\\overline{SB}_{2051--2054}/SB_{MSY}$", "$\\overline{F}_{2050--2053}/F_{MSY}$")[[i]]
+  values <- vapply(terminal_display[i, 2:4], latex_escape, character(1))
+  criterion <- c(
+    "$\\overline{SB}_{2051--2054}/SB_{MSY}<1$",
+    "$\\overline{F}_{2050--2053}/F_{MSY}>1$"
+  )[[i]]
+  beyond <- latex_escape(terminal_display[i, 6L])
+  paste0(paste(c(quantity, values, criterion, beyond), collapse = " & "), " \\\\")
 }, character(1))
 terminal_latex <- paste0(
   "% Requires \\usepackage{booktabs,tabularx}\n",
@@ -2459,52 +2414,7 @@ if (any(abs(c(
 ) - 1) > 1e-12)) {
   stop("Status-category probabilities do not sum to one.")
 }
-status_category_numeric <- data.frame(
-  Diagram = c(
-    rep("Current Kobe", length(kobe_levels)),
-    rep("Current Majuro", length(majuro_levels)),
-    rep("Terminal projection Kobe", length(kobe_levels)),
-    rep("Terminal projection Majuro", length(majuro_levels))
-  ),
-  Category = c(kobe_levels, majuro_levels, kobe_levels, majuro_levels),
-  Probability = c(
-    current_kobe_probability, current_majuro_probability,
-    terminal_kobe_probability, terminal_majuro_probability
-  ),
-  stringsAsFactors = FALSE
-)
-write.csv(
-  status_category_numeric,
-  file.path(table_dir, "status-category-probabilities.csv"), row.names = FALSE
-)
-status_category_display <- status_category_numeric
-status_category_display$Probability <- scales::percent(
-  status_category_display$Probability, accuracy = 0.1
-)
-status_category_caption <- paste0(
-  "Joint status-category probabilities corresponding to the Kobe and Majuro backgrounds. ",
-  "Current probabilities use the equal-model-weight mixture with joint Hessian draws for 62 retained PDH models and point estimates for 18 retained Near-PDH models. Terminal projection probabilities use 800 equal-weight model–recruitment combinations and exclude Hessian parameter uncertainty. ",
-  "Majuro assigns every outcome below the depletion LRP of 0.20 to red; it therefore has no yellow category."
-)
-status_category_rows <- vapply(
-  seq_len(nrow(status_category_display)), function(index) {
-    paste0(
-      paste(vapply(
-        status_category_display[index, ], latex_escape, character(1)
-      ), collapse = " & "),
-      " \\\\"
-    )
-  }, character(1L)
-)
-status_category_latex <- paste0(
-  "% Requires \\usepackage{booktabs,tabularx}\n",
-  "\\begin{table}[htbp]\n\\centering\n\\caption{",
-  latex_escape(status_category_caption), "}\n",
-  "\\small\n\\begin{tabularx}{\\textwidth}{@{}XXr@{}}\n",
-  "\\toprule\nDiagram & Category & Probability \\\\\n\\midrule\n",
-  paste(status_category_rows, collapse = "\n"),
-  "\n\\bottomrule\n\\end{tabularx}\n\\end{table}"
-)
+unlink(file.path(table_dir, "status-category-probabilities.csv"))
 
 fit_display <- data.frame(
   Model = model_id_map$ensemble_id,
@@ -2543,18 +2453,18 @@ fit_latex <- paste0(
 uncertainty_caption <- paste0(
   "Annual depletion (a), spawning potential (b), recruitment (c) and fishing mortality (d) across the 80 retained models. ",
   "For panels a–c, blue bands and the solid median combine structural uncertainty with 100 joint Hessian draws for each of 62 PDH models; the 18 Near-PDH models contribute central estimates only. Panel d shows structural uncertainty because annual fishing-mortality Hessian derivatives were not calculated. ",
-  "Bands are pointwise central 50%, 80% and 95% intervals. Grey lines show central model trajectories and the orange dashed line is their structural median. ",
+  "Bands are pointwise central 50%, 80% and 95% intervals. Grey lines show central model trajectories and the orange dashed line is their structural median; in panel d it coincides with the solid median. ",
   "Individual trajectories can be examined in the <a href='https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/latest/download/bet-2026-ensemble-interactive-viewer.html'>interactive viewer</a>."
 )
 uncertainty_latex_caption <- paste0(
   "Annual depletion (a), spawning potential (b), recruitment (c) and fishing mortality (d) across the 80 retained models. ",
   "For panels a--c, blue bands and the solid median combine structural uncertainty with 100 joint Hessian draws for each of 62 PDH models; the 18 Near-PDH models contribute central estimates only. Panel d shows structural uncertainty because annual fishing-mortality Hessian derivatives were not calculated. ",
-  "Bands are pointwise central 50\\%, 80\\% and 95\\% intervals. Grey lines show central model trajectories and the orange dashed line is their structural median. Individual trajectories can be examined in the interactive viewer accompanying this report."
+  "Bands are pointwise central 50\\%, 80\\% and 95\\% intervals. Grey lines show central model trajectories and the orange dashed line is their structural median; in panel d it coincides with the solid median. Individual trajectories can be examined in the interactive viewer accompanying this report."
 )
 plain_latex_caption <- function(value) {
   value <- gsub("<[^>]+>", "", value)
   replacements <- c(
-    "Frecent(2050–2053)/FMSY" = "@@FRECENTTERMINAL@@",
+    "F2050–2053/FMSY" = "@@FTERMINAL@@",
     "SB2051–2054/SBMSY" = "@@SBTERMINALMSY@@",
     "SBt/SBF=0,t" = "@@SBTDEP@@",
     "SBt/SBMSY,t" = "@@SBTMSY@@",
@@ -2562,6 +2472,7 @@ plain_latex_caption <- function(value) {
     "SBrecent/SBF=0" = "@@SBRECENTDEP@@",
     "SBrecent/SBMSY" = "@@SBRECENTMSY@@",
     "Frecent/FMSY" = "@@FRECENTMSY@@",
+    "F/FMSY" = "@@RATIOF@@",
     "Drecent" = "@@DRECENT@@",
     "SBMSY" = "@@SBMSY@@",
     "FMSY" = "@@FMSY@@"
@@ -2571,7 +2482,7 @@ plain_latex_caption <- function(value) {
   }
   value <- latex_escape(value)
   replacements <- c(
-    "@@FRECENTTERMINAL@@" = "$F_{recent(2050--2053)}/F_{MSY}$",
+    "@@FTERMINAL@@" = "$\\overline{F}_{2050--2053}/F_{MSY}$",
     "@@SBTERMINALMSY@@" = "$\\overline{SB}_{2051--2054}/SB_{MSY}$",
     "@@SBTDEP@@" = "$SB_t/SB_{F=0,t}$",
     "@@SBTMSY@@" = "$SB_t/SB_{MSY,t}$",
@@ -2579,6 +2490,7 @@ plain_latex_caption <- function(value) {
     "@@SBRECENTDEP@@" = "$SB_{recent}/SB_{F=0}$",
     "@@SBRECENTMSY@@" = "$SB_{recent}/SB_{MSY}$",
     "@@FRECENTMSY@@" = "$F_{recent}/F_{MSY}$",
+    "@@RATIOF@@" = "$F/F_{MSY}$",
     "@@DRECENT@@" = "$D_{recent}$",
     "@@SBMSY@@" = "$SB_{MSY}$",
     "@@FMSY@@" = "$F_{MSY}$"
@@ -2590,7 +2502,7 @@ plain_latex_caption <- function(value) {
 }
 
 current_status_caption <- paste0(
-  "Current status based on mean spawning biomass for 2021–2024 and the mean fishing-mortality pattern for 2020–2023. Panel (a) is relative to SBMSY and FMSY; panel (b) uses depletion with an LRP of 0.20. ",
+  "Current status based on mean spawning biomass for 2021–2024 and mean fishing mortality for 2020–2023. Panel (a) is relative to SBMSY and FMSY; panel (b) uses depletion with an LRP of 0.20. ",
   "Points are the 80 central model estimates; filled and open symbols distinguish PDH and Near-PDH fits. Nested 50%, 80% and 95% HDRs combine structural uncertainty with available joint Hessian uncertainty. ",
   "Background colours follow the Kobe four-category and Majuro three-category definitions. Labels give the probability in each category from the same equal-model-weight distribution used for the combined HDRs."
 )
@@ -2613,15 +2525,16 @@ discrete_axis_b_caption <- paste0(
 )
 
 projection_key_caption <- paste0(
-  "Projection risk relative to the LRP and model-specific 2012–2015 objective (a), and current versus terminal Frecent/FMSY (b). ",
-  "Projected probabilities and the 2050–2053 fishing-mortality ratio combine model structure and stochastic recruitment without Hessian draws; current Frecent/FMSY includes available Hessian uncertainty."
+  "Projection risk relative to the LRP and model-specific 2012–2015 objective (a), and current versus terminal F/FMSY (b). ",
+  "Points in panel b are medians; dark, medium and light ranges are the central 50%, 80% and 95% intervals. ",
+  "Projected probabilities and the mean 2050–2053 F/FMSY combine model structure and stochastic recruitment without Hessian draws; current Frecent/FMSY includes available Hessian uncertainty."
 )
 projection_catch_caption <- paste0(
   "Projected annual biomass catch relative to equilibrium MSY, 2025–2054. The median and central 50%, 80% and 95% intervals use all 800 model–recruitment realizations; ten thin lines show a reproducible random sample. ",
   "Number-conditioned fisheries are converted using model-predicted mean weight; number and weight inputs are not summed."
 )
 terminal_status_caption <- paste0(
-  "Terminal Kobe (a) and Majuro (b) status for a projection ending in 2054 across 800 equally weighted model–recruitment combinations. Biomass is mean SB over 2051–2054; fishing mortality is the mean 2050–2053 recent pattern relative to FMSY. Kobe biomass is relative to SBMSY, whereas Majuro depletion is relative to SBF=0 with an LRP of 0.20. ",
+  "Terminal Kobe (a) and Majuro (b) status for a projection ending in 2054 across 800 equally weighted model–recruitment combinations. Biomass is mean SB over 2051–2054; fishing mortality is averaged over 2050–2053 and divided by FMSY. Kobe biomass is relative to SBMSY, whereas Majuro depletion is relative to SBF=0 with an LRP of 0.20. ",
   "Points are individual combinations, nested shading gives the 50%, 80% and 95% bivariate kernel HDRs, and labels give the percentage in each background category. Projection uncertainty includes model structure and stochastic recruitment, not Hessian parameter draws."
 )
 regional_spawning_caption <- paste0(
@@ -2636,7 +2549,7 @@ recovery_note <- sprintf(
   paste0(
     "<div class='note'><strong>Recovery audit.</strong> Mean projected depletion in 2040 ranges from %.3f to %.3f across steepness quartiles. ",
     "The annual median Catch/MSY ranges from %.3f to %.3f and is below 1 in %d of 30 projection years. ",
-    "The terminal 2050–2053 F<sub>recent</sub>/F<sub>MSY</sub> median is %.3f, with %s of model–recruitment combinations above 1. ",
+    "The terminal <i>F</i><sub>2050–2053</sub>/<i>F</i><sub>MSY</sub> median is %.3f, with %s of model–recruitment combinations above 1. ",
     "These diagnostics show that the recovery trajectory is a result of the specified catch-conditioned scenario and stochastic recruitment; steepness modifies its magnitude but is not its sole cause. This is a scenario evaluation, not a management recommendation.</div>"
   ),
   min(projection_driver_summary$depletion_2040),
@@ -2662,11 +2575,9 @@ main_insert <- paste0(
 supplementary_insert <- paste0(
   copy_table_block("structural-reference-points", "Supporting structural reference points", structural_reference_caption, structural_reference_display, structural_reference_latex),
   copy_table_block("estimation-uncertainty-audit", "Estimation-uncertainty and Monte Carlo audit", uncertainty_audit_caption, uncertainty_audit_display, uncertainty_audit_latex),
-  copy_table_block("status-category-probabilities", "Kobe and Majuro category probabilities", status_category_caption, status_category_display, status_category_latex),
   figure_block("continuous-axis-status", "Management quantities by continuous uncertainty axes", continuous_axis_caption, plain_latex_caption(continuous_axis_caption), continuous_axis_files),
   figure_block("discrete-axis-status-a", "Management quantities by tag uncertainty axes", discrete_axis_a_caption, plain_latex_caption(discrete_axis_a_caption), discrete_axis_a_files),
   figure_block("discrete-axis-status-b", "Management quantities by reporting and effort axes", discrete_axis_b_caption, plain_latex_caption(discrete_axis_b_caption), discrete_axis_b_files),
-  figure_block("projection-catch-msy", "Projected Catch/MSY", projection_catch_caption, plain_latex_caption(projection_catch_caption), projection_catch_msy_files),
   figure_block("terminal-status", "Terminal projection status", terminal_status_caption, plain_latex_caption(terminal_status_caption), terminal_status_files),
   figure_block("regional-spawning", "Regional spawning potential", regional_spawning_caption, plain_latex_caption(regional_spawning_caption), regional_spawning_files),
   copy_table_block("fit-hessian-summary", "Fit and Hessian diagnostics", fit_caption, fit_display, fit_latex)
@@ -2692,7 +2603,7 @@ manifest_files <- c(
   file.path("figures", basename(c(
     uncertainty_files, current_status_files,
     continuous_axis_files, discrete_axis_a_files, discrete_axis_b_files,
-    projection_key_files, projection_catch_msy_files,
+    projection_key_files,
     terminal_status_files, regional_spawning_files,
     dynamic_status_files, regional_depletion_files
   ))),
@@ -2703,7 +2614,6 @@ manifest_files <- c(
   "tables/estimation-management-risk.csv",
   "tables/structural-reference-points.csv",
   "tables/estimation-uncertainty-audit.csv",
-  "tables/status-category-probabilities.csv",
   "tables/management-summary.csv", "tables/management-risk.csv",
   "tables/ensemble-fit-diagnostics.csv", "tables/model-id-map.csv"
 )

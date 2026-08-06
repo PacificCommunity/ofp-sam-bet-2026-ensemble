@@ -13,15 +13,15 @@ required <- c(
     "estimation-management-risk.csv", "projection-summary.csv",
     "projection-terminal-management.csv", "fit-hessian-summary.csv",
     "structural-reference-points.csv", "estimation-uncertainty-audit.csv",
-    "status-category-probabilities.csv", "model-id-map.csv"
+    "model-id-map.csv"
   ))
 )
 if (any(!file.exists(required))) stop("The rendered public report is incomplete.")
 
 pngs <- list.files(file.path(output_dir, "figures"), pattern = "[.]png$", full.names = TRUE)
 pdfs <- list.files(file.path(output_dir, "figures"), pattern = "[.]pdf$", full.names = TRUE)
-if (length(pngs) != 12L || length(pdfs) != 12L) {
-  stop("Expected 12 publication figure sets in both PNG and vector PDF formats.")
+if (length(pngs) != 11L || length(pdfs) != 11L) {
+  stop("Expected 11 publication figure sets in both PNG and vector PDF formats.")
 }
 if (any(file.info(c(pngs, pdfs))$size < 10000L)) {
   stop("A rendered report figure is unexpectedly small.")
@@ -33,10 +33,9 @@ report_required <- c(
   "BET 2026 ensemble analysis",
   "Overview", "Intervals", "50%", "80%", "95%",
   "Open 80-model interactive viewer", "fishing mortality",
-  "Projection summary", "Projected Catch/MSY", "highest-density regions",
+  "Projection summary", "highest-density regions",
   "Management quantities with available estimation uncertainty", "Terminal management quantities",
   "Supporting structural reference points", "Monte Carlo audit",
-  "Kobe and Majuro category probabilities",
   "Time-dynamic Kobe and Majuro status",
   "Regional depletion", "Regional spawning potential", "all regions",
   "Scope",
@@ -48,9 +47,9 @@ report_required <- c(
 for (value in report_required) {
   if (!grepl(value, report, fixed = TRUE)) stop("Missing public-report element: ", value)
 }
-if (length(gregexpr("class='figure-card'", report, fixed = TRUE)[[1L]]) != 12L ||
-    length(gregexpr("class='table-card'", report, fixed = TRUE)[[1L]]) != 8L) {
-  stop("The report tabs do not contain exactly 12 unique figures and 8 unique tables.")
+if (length(gregexpr("class='figure-card'", report, fixed = TRUE)[[1L]]) != 11L ||
+    length(gregexpr("class='table-card'", report, fixed = TRUE)[[1L]]) != 7L) {
+  stop("The report tabs do not contain exactly 11 unique figures and 7 unique tables.")
 }
 
 viewer_required <- c(
@@ -125,4 +124,4 @@ if (!identical(manifest$sha256, unname(actual))) {
   stop("A final report manifest checksum does not match.")
 }
 
-cat("Validated the self-contained 80-model report, viewer, 12 figure sets and 8 copy-ready tables.\n")
+cat("Validated the self-contained 80-model report, viewer, 11 figure sets and 7 copy-ready tables.\n")
