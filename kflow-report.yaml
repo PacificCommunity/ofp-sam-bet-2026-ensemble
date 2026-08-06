@@ -1,9 +1,49 @@
 name: BET 2026 ensemble | Report and model-results viewer
 description: Self-contained report for 80 MGC-filtered BET 2026 ensemble models, with structural uncertainty, available Hessian parameter uncertainty, stochastic projections, Hessian QC, and Kobe and Majuro summaries from checksum-locked public payloads.
 command: ./run-report
-cpus: 2
-memory: 8G
-disk: 10G
-output_dir: results
-environment:
+docker_image: ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360
+
+# The report is rendered on Kflow Local from committed public payloads. It does
+# not refit assessment models or rerun Hessian and projection calculations.
+resources:
+  cpus: 2
+  memory: 8GB
+  disk: 10GB
+
+env:
+  JOB_TITLE: BET 2026 ensemble | Report and model-results viewer
+  JOB_DESCRIPTION: Public report and interactive viewer for 80 MGC-filtered assessment models, rendered from checksum-locked structural, Hessian and stochastic-projection payloads without rerunning fitted models.
+  JOB_KEY: bet-2026-ensemble-report-80-models
+  FLOW_GROUP: BET-2026-ensemble-report
+  FLOW_SPECIES: BET
+  FLOW_SPECIES_LABEL: bigeye tuna
+  FLOW_ASSESSMENT_YEAR: "2026"
+  REPORT_OUTPUT_DIR: results
+  KFLOW_RUNTIME_UPDATE: never
+  TUNA_FLOW_RUNTIME_UPDATE: never
+  KFLOW_RUNTIME_PACKAGES: none
   TUNAFLOW_VERSION: "2.5"
+
+tags:
+  stage: ensemble-report
+  species: BET
+  assessment_year: "2026"
+  execution: local
+  model_count: "80"
+  pdh_count: "62"
+  near_pdh_count: "18"
+  projection_sequences: "10"
+  model_refit: "false"
+
+metadata:
+  included_models: 80
+  pdh_models: 62
+  near_pdh_models: 18
+  projection_models: 80
+  projection_sequences_per_model: 10
+  mgc_threshold: 0.0001
+  interactive_viewer: true
+  checksum_locked_payloads: true
+
+output_patterns:
+  - results/**
