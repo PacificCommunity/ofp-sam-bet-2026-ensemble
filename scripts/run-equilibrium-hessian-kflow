@@ -31,7 +31,29 @@ done
 base_payload="$repo_dir/data/estimation/per-model/${ensemble_id}.rds"
 test -s "$base_payload"
 work_dir="$(mktemp -d)"
-cleanup() { rm -rf -- "$work_dir"; }
+model_output="$output_root/equilibrium-hessian/$ensemble_id"
+mkdir -p "$model_output"
+preserve_diagnostics() {
+  for stream in stdout stderr; do
+    raw="$model_output/equilibrium-gradient.$stream"
+    if [[ -s "$raw" ]]; then
+      gzip -c "$raw" > "$raw.gz"
+    fi
+  done
+  {
+    for path in bet.dep deplabel.tmp bet.hes; do
+      if [[ -e "$work_dir/$path" ]]; then
+        stat -c '%n %s bytes' "$work_dir/$path"
+      else
+        printf '%s missing\n' "$work_dir/$path"
+      fi
+    done
+  } > "$model_output/run-file-audit.txt"
+}
+cleanup() {
+  preserve_diagnostics
+  rm -rf -- "$work_dir"
+}
 trap cleanup EXIT
 
 for path in final.par bet.frq bet.ini bet.tag bet.age_length bet.reg_scaling mfcl.cfg; do
@@ -41,14 +63,13 @@ cp "$source_dir/hessian/part_1/bet.hes" "$work_dir/bet.hes"
 cp "$repo_dir/mfclo64" "$work_dir/mfclo64"
 chmod +x "$work_dir/mfclo64"
 
-model_output="$output_root/equilibrium-hessian/$ensemble_id"
-mkdir -p "$model_output"
 set +e
 (
   cd "$work_dir"
   ./mfclo64 bet.frq final.par hessian \
     -switch 4 1 145 2 1 37 2 1 229 1245 1 230 1980 \
-    > equilibrium-gradient.stdout 2> equilibrium-gradient.stderr
+    > "$model_output/equilibrium-gradient.stdout" \
+    2> "$model_output/equilibrium-gradient.stderr"
 )
 model_status=$?
 set -e
@@ -58,7 +79,10 @@ if [[ "$model_status" -ne 0 && "$model_status" -ne 1 ]]; then
   exit "$model_status"
 fi
 for path in bet.dep deplabel.tmp bet.hes; do
-  test -s "$work_dir/$path"
+  if [[ ! -s "$work_dir/$path" ]]; then
+    printf 'Equilibrium calculation did not produce %s.\n' "$path" >&2
+    exit 68
+  fi
 done
 
 Rscript "$repo_dir/scripts/process-equilibrium-hessian-uncertainty.R" \
@@ -67,10 +91,7 @@ Rscript "$repo_dir/scripts/process-equilibrium-hessian-uncertainty.R" \
   "$base_payload" "$model_output/${ensemble_id}.rds" 100 \
   > "$model_output/processor.log" 2>&1
 
-gzip -c "$work_dir/equilibrium-gradient.stdout" \
-  > "$model_output/equilibrium-gradient.stdout.gz"
-gzip -c "$work_dir/equilibrium-gradient.stderr" \
-  > "$model_output/equilibrium-gradient.stderr.gz"
+preserve_diagnostics
 sha256sum "$model_output/${ensemble_id}.rds" > "$model_output/SHA256SUMS"
 printf '%s\n' success > "$model_output/status.txt"
 printf 'Stored equilibrium-reference-point uncertainty for %s.\n' "$ensemble_id"
