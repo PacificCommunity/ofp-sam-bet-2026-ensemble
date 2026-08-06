@@ -8,6 +8,7 @@ cd "$repo_dir"
 (cd data/estimation && sha256sum -c SHA256SUMS)
 (cd data/estimation && sha256sum -c PER_MODEL_SHA256SUMS >/dev/null)
 (cd data/estimation && sha256sum -c EQUILIBRIUM_PER_MODEL_SHA256SUMS >/dev/null)
+(cd data/diagnostic && sha256sum -c SHA256SUMS)
 (cd data/projection && sha256sum -c SHA256SUMS)
 (cd data/projection && sha256sum -c PER_MODEL_SHA256SUMS >/dev/null)
 Rscript report/validate.R

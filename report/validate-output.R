@@ -36,12 +36,15 @@ report_required <- c(
   "BET 2026 ensemble analysis",
   "Overview", "Interval convention", "50%", "80%", "95%",
   "Open 80-model interactive viewer", "Fishing mortality",
-  "Projected depletion and Catch/MSY", "highest-density regions",
+  "Projection summary", "Projected Catch/MSY", "highest-density regions",
   "Management quantities with available estimation uncertainty", "Terminal management quantities",
   "Supporting structural reference points", "Monte Carlo audit",
   "Kobe and Majuro category probabilities",
   "Zero-quarter conditioning audit",
-  "Regional spawning potential", "Scope and limitations",
+  "Time-dynamic Kobe and Majuro status",
+  "Regional depletion: regions 1–5",
+  "Regional spawning potential: regions 1–5",
+  "Scope and limitations",
   "Copy table for Word", "Copy LaTeX", "Open vector PDF",
   "Ten did not meet the MGC", "extended optimization runs"
 )

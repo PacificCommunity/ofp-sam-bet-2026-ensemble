@@ -198,6 +198,11 @@ nodes.
 
 The report contrasts the 100 planned configurations with the 80 retained
 models for every design axis, without publishing excluded model identifiers.
+Time-dynamic Kobe and Majuro trajectories use the checksum-locked diagnostic
+series under `data/diagnostic/` and the coordinate-wise annual median of the
+80 retained central model series. Regional spawning potential and depletion
+are reported for Regions 1–5; the duplicate stock-wide series is retained only
+in the main stock-wide uncertainty and projection summaries.
 The self-contained viewer follows the sensitivity-analysis viewer layout: its
 checkbox list supports simultaneous selection of any retained models, assigns
 each model a fixed colour, and identifies the full configuration using

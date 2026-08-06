@@ -6,9 +6,11 @@ on:
     paths:
       - "data/ensemble/**"
       - "data/estimation/**"
+      - "data/diagnostic/**"
       - "data/projection/**"
       - "design/**"
       - "report/**"
+      - "scripts/**"
       - "run-report"
       - ".github/workflows/render-report.yml"
   workflow_dispatch:

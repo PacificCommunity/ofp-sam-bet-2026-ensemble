@@ -84,14 +84,12 @@ if (nrow(result) != expected_rows || any(!is.finite(result$catch_msy))) {
 }
 write.csv(result, output_file, row.names = FALSE)
 
-read_regional_adult_biomass <- function(path) {
+read_regional_adult_biomass <- function(path, section_label, value_name) {
   lines <- readLines(path, warn = FALSE)
-  main_header <- match(
-    "# Absolute biomass by region (across) and year (down)", trimws(lines)
-  )
-  if (is.na(main_header)) stop("Missing regional biomass report section.")
-  adult_candidates <- which(trimws(lines) == "# Adult biomass")
-  adult_header <- adult_candidates[adult_candidates > main_header][[1L]]
+  adult_header <- match(section_label, trimws(lines))
+  if (is.na(adult_header)) {
+    stop("Missing regional report section: ", section_label, ".")
+  }
   following_headers <- which(
     seq_along(lines) > adult_header & grepl("^#", trimws(lines))
   )
@@ -113,15 +111,31 @@ read_regional_adult_biomass <- function(path) {
   )
   annual <- apply(array_value, c(2L, 3L), mean)
   long <- as.data.frame(as.table(annual), stringsAsFactors = FALSE)
-  names(long) <- c("year", "region", "spawning_biomass_mt")
+  names(long) <- c("year", "region", value_name)
   long$year <- as.integer(long$year)
   long$region <- as.integer(long$region)
   long[long$year <= terminal_year, , drop = FALSE]
 }
 
-historical_region <- read_regional_adult_biomass(
-  file.path(capture_dir, "plot-simulation-01.rep")
+historical_region_fished <- read_regional_adult_biomass(
+  file.path(work_dir, "plot-projection.par.rep"),
+  "# Adult biomass", "spawning_biomass_mt"
 )
+historical_region_nofish <- read_regional_adult_biomass(
+  file.path(work_dir, "plot-projection.par.rep"),
+  "# Adult biomass in absence of fishing", "spawning_biomass_noeff_mt"
+)
+historical_region <- merge(
+  historical_region_fished, historical_region_nofish,
+  by = c("year", "region"), sort = TRUE
+)
+historical_region$depletion <- with(
+  historical_region, spawning_biomass_mt / spawning_biomass_noeff_mt
+)
+if (any(!is.finite(historical_region$depletion)) ||
+    any(historical_region$depletion <= 0)) {
+  stop("Invalid historical regional depletion.")
+}
 write.csv(
   historical_region,
   file.path(work_dir, "historical-regional-spawning-biomass.csv"),

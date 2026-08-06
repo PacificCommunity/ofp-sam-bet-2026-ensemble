@@ -247,12 +247,19 @@ historical_region <- read.csv(
 )
 if (
   !identical(names(historical_region), c(
-    "year", "region", "spawning_biomass_mt"
+    "year", "region", "spawning_biomass_mt",
+    "spawning_biomass_noeff_mt", "depletion"
   )) || nrow(historical_region) != (terminal_year - 1952L + 1L) * 5L ||
     !identical(sort(unique(historical_region$year)), 1952:terminal_year) ||
     !identical(sort(unique(historical_region$region)), 1:5) ||
     any(!is.finite(unlist(historical_region))) ||
-    any(historical_region$spawning_biomass_mt <= 0)
+    any(historical_region$spawning_biomass_mt <= 0) ||
+    any(historical_region$spawning_biomass_noeff_mt <= 0) ||
+    max(abs(
+      historical_region$depletion -
+        historical_region$spawning_biomass_mt /
+          historical_region$spawning_biomass_noeff_mt
+    )) > 1e-10
 ) {
   stop("Invalid historical regional spawning-biomass output.", call. = FALSE)
 }
@@ -310,7 +317,7 @@ metadata <- data.frame(
 )
 
 payload <- list(
-  schema_version = "1.1.0",
+  schema_version = "1.2.0",
   created_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
   method = paste(
     "MFCL stochastic projection; all fisheries held at their exact",

@@ -35,6 +35,14 @@ if (!length(ids) || any(!ids %in% assessment_ids) || anyDuplicated(ids)) {
 failed_projection_ids <- setdiff(assessment_ids, ids)
 paths <- file.path(input_dir, paste0(ids, ".rds"))
 per_model <- lapply(paths, readRDS)
+has_historical_region_depletion <- vapply(per_model, function(value) {
+  all(c("spawning_biomass_noeff_mt", "depletion") %in%
+        names(value$historical_region))
+}, logical(1L))
+if (any(has_historical_region_depletion) &&
+    !all(has_historical_region_depletion)) {
+  stop("Historical regional-depletion caches cannot mix old and new schemas.")
+}
 metadata <- do.call(rbind, lapply(per_model, `[[`, "metadata"))
 conditioning <- per_model[[1L]]$conditioning
 conditioning_matches <- vapply(per_model, function(value) {
@@ -114,9 +122,20 @@ if (
 ) {
   stop("Aggregated native-projection validation failed.", call. = FALSE)
 }
+if (all(has_historical_region_depletion) &&
+    (any(!is.finite(historical_region$spawning_biomass_noeff_mt)) ||
+     any(historical_region$spawning_biomass_noeff_mt <= 0) ||
+     any(!is.finite(historical_region$depletion)) ||
+     max(abs(
+       historical_region$depletion -
+         historical_region$spawning_biomass_mt /
+           historical_region$spawning_biomass_noeff_mt
+     )) > 1e-10)) {
+  stop("Aggregated historical regional depletion is invalid.", call. = FALSE)
+}
 
 payload <- list(
-  schema_version = "1.1.0",
+  schema_version = if (all(has_historical_region_depletion)) "1.2.0" else "1.1.0",
   created_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
   method = gsub(
     "native[- ]MFCL", "MFCL", per_model[[1L]]$method, ignore.case = TRUE

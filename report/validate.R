@@ -10,8 +10,11 @@ required <- c(
   "data/estimation/native-hessian-uncertainty.rds",
   "data/estimation/native-hessian-metadata.csv",
   "data/estimation/EQUILIBRIUM_PER_MODEL_SHA256SUMS",
+  "data/diagnostic/dynamic-status.csv",
+  "data/diagnostic/dynamic-status-metadata.csv",
   "data/projection/native-projections.rds",
   "data/projection/native-projection-metadata.csv",
+  "data/projection/historical-regional-depletion-metadata.csv",
   "data/projection/fishery-quarter-conditioning.csv"
 )
 missing <- required[!file.exists(required)]
@@ -156,10 +159,20 @@ if (any(!is.finite(hessian$annual_draws$depletion)) ||
 }
 
 projection <- readRDS("data/projection/native-projections.rds")
+diagnostic_status <- read.csv(
+  "data/diagnostic/dynamic-status.csv", check.names = FALSE
+)
+diagnostic_metadata <- read.csv(
+  "data/diagnostic/dynamic-status-metadata.csv", check.names = FALSE
+)
+regional_metadata <- read.csv(
+  "data/projection/historical-regional-depletion-metadata.csv",
+  check.names = FALSE
+)
 quarterly_conditioning <- read.csv(
   "data/projection/fishery-quarter-conditioning.csv", check.names = FALSE
 )
-if (projection$schema_version != "1.1.0" ||
+if (!identical(projection$schema_version, "1.2.0") ||
     projection$projection_complete_models != 88L ||
     projection$projection_incomplete_models != 0L ||
     length(projection$failed_projection_ids) != 0L ||
@@ -167,6 +180,27 @@ if (projection$schema_version != "1.1.0" ||
     !setequal(projection$ensemble_ids, fit$ensemble_id) ||
     !setequal(projection$projection_years, 2025:2054)) {
   stop("The native projection cache is not the complete 88-model, 10-sequence ensemble.", call. = FALSE)
+}
+expected_diagnostic_columns <- c("year", "depletion", "sb_sbmsy", "f_fmsy")
+expected_diagnostic_metadata <- c(
+  "source_repository", "source_artifact", "source_payload_sha256",
+  "first_year", "terminal_year", "objective_function", "maximum_gradient"
+)
+if (!identical(names(diagnostic_status), expected_diagnostic_columns) ||
+    nrow(diagnostic_status) != 73L ||
+    !identical(diagnostic_status$year, 1952:2024) ||
+    any(!is.finite(unlist(diagnostic_status[-1L]))) ||
+    any(unlist(diagnostic_status[-1L]) <= 0) ||
+    !identical(names(diagnostic_metadata), expected_diagnostic_metadata) ||
+    nrow(diagnostic_metadata) != 1L ||
+    diagnostic_metadata$source_repository !=
+      "PacificCommunity/ofp-sam-bet-2026-diagnostic" ||
+    diagnostic_metadata$first_year != 1952L ||
+    diagnostic_metadata$terminal_year != 2024L ||
+    !grepl("^[0-9a-f]{64}$", diagnostic_metadata$source_payload_sha256) ||
+    !is.finite(diagnostic_metadata$objective_function) ||
+    !is.finite(diagnostic_metadata$maximum_gradient)) {
+  stop("The reproducible diagnostic-model dynamic-status data are invalid.")
 }
 if (nrow(projection$annual_stock) != 88L * 10L * 30L ||
     nrow(projection$terminal_msy) != 88L * 10L ||
@@ -181,6 +215,32 @@ if (any(!is.finite(unlist(projection$catch_msy[c(
     any(!is.finite(projection$historical_region$spawning_biomass_mt)) ||
     any(projection$historical_region$spawning_biomass_mt <= 0)) {
   stop("Catch/MSY or historical regional projection diagnostics are invalid.")
+}
+required_historical_region <- c("spawning_biomass_noeff_mt", "depletion")
+if (!all(required_historical_region %in% names(projection$historical_region)) ||
+    any(!is.finite(projection$historical_region$spawning_biomass_noeff_mt)) ||
+    any(projection$historical_region$spawning_biomass_noeff_mt <= 0) ||
+    max(abs(
+      projection$historical_region$depletion -
+        projection$historical_region$spawning_biomass_mt /
+          projection$historical_region$spawning_biomass_noeff_mt
+    )) > 1e-10) {
+  stop("Historical regional depletion diagnostics are invalid.")
+}
+expected_regional_metadata <- c(
+  "ensemble_id", "source_archive_sha256",
+  "maximum_fished_biomass_difference_mt",
+  "maximum_fished_biomass_relative_difference"
+)
+if (!identical(names(regional_metadata), expected_regional_metadata) ||
+    nrow(regional_metadata) != 88L ||
+    !setequal(regional_metadata$ensemble_id, fit$ensemble_id) ||
+    any(!grepl("^[0-9a-f]{64}$", regional_metadata$source_archive_sha256)) ||
+    any(!is.finite(regional_metadata$maximum_fished_biomass_difference_mt)) ||
+    any(!is.finite(regional_metadata$maximum_fished_biomass_relative_difference)) ||
+    any(regional_metadata$maximum_fished_biomass_difference_mt < 0) ||
+    max(regional_metadata$maximum_fished_biomass_relative_difference) > 0.005) {
+  stop("The historical regional-depletion provenance audit is invalid.")
 }
 catch_msy_balance_error <- max(abs(
   projection$catch_msy$catch_msy -
