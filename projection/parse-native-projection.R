@@ -203,6 +203,21 @@ names(fmult_matrix) <- c(
   "terminal_spawning_biomass_mt", "sbmsy_mt"
 )
 terminal_msy <- data.frame(simulation = simulation, fmult_matrix)
+# Fmults reports a terminal biomass convention that does not span the full
+# WCPFC four-year terminal period for a projection ending in 2054. Retain that
+# native ratio for audit, then calculate the reportable quantity as mean
+# spawning biomass in 2051--2054 divided by the matching simulation-specific
+# equilibrium SBMSY.
+terminal_msy$terminal_sb_sbmsy_native <- terminal_msy$terminal_sb_sbmsy
+terminal_recent_sb <- aggregate(
+  spawning_biomass_mt ~ simulation,
+  annual_stock[annual_stock$year %in% (last_projection_year - 3L):last_projection_year, ],
+  mean
+)
+terminal_recent_sb <- terminal_recent_sb$spawning_biomass_mt[
+  match(terminal_msy$simulation, terminal_recent_sb$simulation)
+]
+terminal_msy$terminal_sb_sbmsy <- terminal_recent_sb / terminal_msy$sbmsy_mt
 terminal_msy$terminal_f_fmsy <- 1 / terminal_msy$f_multiplier_at_msy
 if (any(!is.finite(unlist(terminal_msy))) ||
     any(terminal_msy$f_multiplier_at_msy <= 0) ||
@@ -295,14 +310,17 @@ metadata <- data.frame(
 )
 
 payload <- list(
-  schema_version = "1.0.0",
+  schema_version = "1.1.0",
   created_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
   method = paste(
     "MFCL stochastic projection; all fisheries held at their exact",
     "2022-2024 mean catch; recruitment sampled from fitted 1972-2023",
     "deviates; 10 simulations over 2025-2054. Annual biomass is the mean",
     "of four quarterly stock-wide or regional values; annual depletion is",
-    "the ratio of annual mean fished to annual mean no-fishing spawning biomass."
+    "the ratio of annual mean fished to annual mean no-fishing spawning biomass.",
+    "Terminal biomass status is mean SB for 2051-2054 divided by the",
+    "simulation-specific equilibrium SBMSY; terminal fishing status is the",
+    "2050-2053 recent-F pattern divided by FMSY."
   ),
   metadata = metadata,
   annual_stock = annual_stock,

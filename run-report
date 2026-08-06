@@ -1,0 +1,18 @@
+#!/bin/sh
+set -eu
+
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+cd "$repo_dir"
+
+(cd data/ensemble && sha256sum -c SHA256SUMS)
+(cd data/estimation && sha256sum -c SHA256SUMS)
+(cd data/estimation && sha256sum -c PER_MODEL_SHA256SUMS >/dev/null)
+(cd data/estimation && sha256sum -c EQUILIBRIUM_PER_MODEL_SHA256SUMS >/dev/null)
+(cd data/projection && sha256sum -c SHA256SUMS)
+(cd data/projection && sha256sum -c PER_MODEL_SHA256SUMS >/dev/null)
+Rscript report/validate.R
+Rscript report/render.R
+Rscript report/augment-uncertainty-projection.R
+Rscript report/render-viewer.R
+Rscript report/finalize-manifest.R
+Rscript report/validate-output.R

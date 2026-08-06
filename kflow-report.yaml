@@ -1,0 +1,9 @@
+name: BET 2026 ensemble | Report and model-results viewer
+description: Self-contained report for 88 completed BET 2026 ensemble models, with structural uncertainty, available Hessian parameter uncertainty, stochastic projections, Hessian QC, and Kobe and Majuro summaries from checksum-locked public payloads.
+command: ./run-report
+cpus: 2
+memory: 8G
+disk: 10G
+output_dir: results
+environment:
+  TUNAFLOW_VERSION: "2.5"

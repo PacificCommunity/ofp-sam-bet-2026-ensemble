@@ -59,6 +59,26 @@ annual_region <- do.call(rbind, lapply(seq_along(per_model), function(i) {
 terminal_msy <- do.call(rbind, lapply(seq_along(per_model), function(i) {
   transform(per_model[[i]]$terminal_msy, ensemble_id = ids[[i]])
 }))
+# Normalize both legacy and schema-1.1 per-model caches to the reportable WCPFC
+# terminal biomass convention. The source Fmults ratio is retained explicitly
+# for audit, while the numerator below is always recomputed from annual paths.
+if (!"terminal_sb_sbmsy_native" %in% names(terminal_msy)) {
+  terminal_msy$terminal_sb_sbmsy_native <- terminal_msy$terminal_sb_sbmsy
+}
+terminal_recent_sb <- aggregate(
+  spawning_biomass_mt ~ ensemble_id + simulation,
+  annual_stock[annual_stock$year %in% 2051:2054, ],
+  mean
+)
+names(terminal_recent_sb)[names(terminal_recent_sb) == "spawning_biomass_mt"] <-
+  "sb_recent_2051_2054_mt"
+terminal_msy <- merge(
+  terminal_msy, terminal_recent_sb,
+  by = c("ensemble_id", "simulation"), sort = FALSE
+)
+terminal_msy$terminal_sb_sbmsy <- with(
+  terminal_msy, sb_recent_2051_2054_mt / sbmsy_mt
+)
 catch_msy <- do.call(rbind, lapply(seq_along(per_model), function(i) {
   transform(per_model[[i]]$catch_msy, ensemble_id = ids[[i]])
 }))
@@ -96,7 +116,7 @@ if (
 }
 
 payload <- list(
-  schema_version = "1.0.0",
+  schema_version = "1.1.0",
   created_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
   method = gsub(
     "native[- ]MFCL", "MFCL", per_model[[1L]]$method, ignore.case = TRUE

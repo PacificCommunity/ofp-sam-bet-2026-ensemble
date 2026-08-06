@@ -1,4 +1,4 @@
-# MFCL projection cache
+# Assessment-model projection cache
 
 This folder contains the standalone, resumable BET 2026 ensemble projection
 workflow. The locked scenario is:
@@ -9,20 +9,26 @@ workflow. The locked scenario is:
 - every fishery fixed at its exact 2022–2024 mean annual catch, with the
   observed quarterly pattern retained and an absent fishery-quarter treated as
   zero catch;
-- each fishery retains the number or weight unit defined by the MFCL input
+- each fishery retains the number or weight unit defined by the model input
   data flag; unlike units are never summed for scientific reporting;
-- future recruitment sampled natively from the fitted 1972–2023 deviates;
+- future recruitment sampled by the assessment model from the fitted
+  1972–2023 deviates;
 - no future catch or effort randomisation; and
 - each model's fixed tag-overdispersion value (`tau = 1.2`, `1.3` or `1.4`)
   preserved in the projection parameter file.
 
 `cache-native-projection` is the public entry point. It validates and hashes
 the fitted model, common inputs, executable, scripts and scenario before doing
-any work. A matching compressed cache is returned without an MFCL run. On a
-cache miss, MFCL options 7 and 8 and the stochastic projection are run in
+any work. A matching compressed cache is returned without a model run. On a
+cache miss, model options 7 and 8 and the stochastic projection are run in
 an isolated temporary directory; `parse-native-projection.R` then retains only
 the compact report quantities, provenance and checksums. The temporary raw
 files are removed only after the RDS and its SHA-256 sidecar are complete.
+
+`build-fishery-conditioning-audit.R` independently reconstructs the 132
+fishery-quarter means from the public assessment input. Its checksum-locked
+CSV verifies the 16 number-based and 17 weight-based fisheries, the treatment
+of absent observations as zero and the 25 exact-zero fishery-quarter means.
 
 `aggregate-native-projections.R` creates the checksum-auditable ensemble
 payload used by the report from complete ten-simulation caches. It records the

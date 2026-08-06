@@ -1,0 +1,61 @@
+name: BET 2026 ensemble | Report artifacts
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/ensemble/**"
+      - "data/estimation/**"
+      - "data/projection/**"
+      - "design/**"
+      - "report/**"
+      - "run-report"
+      - ".github/workflows/render-report.yml"
+  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: |
+            any::ggplot2
+            any::patchwork
+            any::ragg
+            any::scales
+            any::jsonlite
+            any::MASS
+      - name: Validate and render from the frozen public payload
+        run: ./run-report
+      - name: Package the report, figures, tables and viewer
+        run: (cd results && zip -q -r ../bet-2026-ensemble-report-bundle.zip .)
+      - name: Upload reproducible report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bet-2026-ensemble-report
+          path: |
+            results/
+            bet-2026-ensemble-report-bundle.zip
+          if-no-files-found: error
+      - name: Attach report and viewer to the published release
+        if: github.event_name == 'release'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload "${{ github.event.release.tag_name }}" \
+            results/bet-2026-ensemble-report.html \
+            results/bet-2026-ensemble-interactive-viewer.html \
+            results/report-manifest.csv \
+            bet-2026-ensemble-report-bundle.zip \
+            --clobber

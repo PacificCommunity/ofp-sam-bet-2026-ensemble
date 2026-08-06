@@ -1,0 +1,5 @@
+"Indicator","Criterion","Models","Percent"
+"Below the LRP","SBrecent/SBF=0 < 0.20",21,23.8636363636364
+"Below SBMSY","SBrecent/SBMSY < 1",14,15.9090909090909
+"Above FMSY","Frecent/FMSY > 1",26,29.5454545454545
+"Below the model-specific 2012–2015 objective","Drecent / mean(D2012–2015) < 1",80,90.9090909090909

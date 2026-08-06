@@ -123,7 +123,7 @@ if (
 }
 
 method <- paste(
-  "For each positive-definite MFCL Hessian, correlated parameter-space",
+  "For each positive-definite assessment-model Hessian, correlated parameter-space",
   "normal draws were propagated jointly through dependent-variable",
   "gradients on the log scale. No Hessian regularisation or eigenvalue",
   "replacement was applied. Near-PDH models retain their central estimates",

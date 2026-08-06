@@ -124,9 +124,9 @@ if (anyNA(catch_match)) {
 proj_data$catch[future_rows] <- quarterly_mean_catch$catch[catch_match]
 proj_data$effort[future_rows] <- -1
 # MFCL option 7 requires every retained future incident to have a positive
-# catch.  Use a 1e-6 numerical placeholder (less than 5 g per fishery-year)
-# only where the exact three-year mean is zero; the audit below verifies that
-# this does not change the annual total at reporting precision.
+# catch. Use a 1e-6 numerical placeholder in each fishery's original input
+# unit only where the exact three-year mean is zero; the audit below verifies
+# that this does not change the conditioning value at reporting precision.
 zero_future_rows <- future_rows[proj_data$catch[future_rows] == 0]
 if (length(zero_future_rows)) proj_data$catch[zero_future_rows] <- 1e-6
 freq(proj_frq) <- proj_data

@@ -72,7 +72,7 @@ HESSIAN_DRAWS_PER_MODEL="${HESSIAN_DRAWS_PER_MODEL:-100}" \
 
 gzip -c "$work_dir/native-gradient.stdout" > "$model_output/native-gradient.stdout.gz"
 gzip -c "$work_dir/native-gradient.stderr" > "$model_output/native-gradient.stderr.gz"
-sha256sum "$model_output/${ensemble_id}.rds" > "$model_output/SHA256SUMS"
+(cd "$model_output" && sha256sum "${ensemble_id}.rds" > SHA256SUMS)
 printf '%s\n' success > "$model_output/status.txt"
 
 printf 'Stored reusable assessment-model Hessian payload for %s (%s draws).\n' \

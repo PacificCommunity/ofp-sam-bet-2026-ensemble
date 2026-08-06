@@ -51,10 +51,15 @@ management_correction <- management_correction[order(
 base$management_draws <- base$management_draws[order(
   base$management_draws$ensemble_id, base$management_draws$draw
 ), ]
-if (!identical(
-  base$management_draws[c("ensemble_id", "draw")],
-  management_correction[c("ensemble_id", "draw")]
-)) stop("Base Hessian draw keys do not align.", call. = FALSE)
+base_keys <- base$management_draws[c("ensemble_id", "draw")]
+correction_keys <- management_correction[c("ensemble_id", "draw")]
+if (anyDuplicated(base_keys) || anyDuplicated(correction_keys) ||
+    !identical(as.character(base_keys$ensemble_id),
+               as.character(correction_keys$ensemble_id)) ||
+    !identical(as.integer(base_keys$draw),
+               as.integer(correction_keys$draw))) {
+  stop("Base Hessian draw keys do not align.", call. = FALSE)
+}
 for (name in c(
   "sb_recent_sb0", "historical_target_depletion",
   "recent_historical_target_ratio"

@@ -122,12 +122,17 @@ These are structural ensemble draws, not optimizer jitters.
 
 ## Reusable Hessian uncertainty
 
-The repository stores compact, checksum-locked MFCL uncertainty
+The repository stores compact, checksum-locked assessment-model uncertainty
 payloads under `data/estimation/`. For each of the 68 models with a
 positive-definite Hessian, 100 correlated parameter-space draws are propagated
-jointly through MFCL dependent-variable gradients. The 20 Near-PDH central
-fits remain part of structural summaries, but their indefinite Hessians are
-not regularized, eigenvalue-clipped or used for parameter draws.
+jointly through model dependent-variable gradients using a first-order
+multivariate delta method. Recent and unfished spawning biomass retain their
+joint covariance, and implicit derivatives of each model's equilibrium curves
+propagate the MSY-based quantities. The 20 Near-PDH central fits remain part of
+the equal-model-weight mixture, but their indefinite Hessians are not
+regularized, eigenvalue-clipped or used for parameter draws. The all-model
+mixture is therefore structural uncertainty augmented by available estimation
+uncertainty, not complete estimation-uncertainty propagation for all 88 fits.
 
 Both the per-model RDS files and the aggregate payload are retained with
 SHA-256 manifests. Re-rendering the report therefore reuses the verified draws
@@ -135,16 +140,20 @@ and does not repeat the Hessian calculations.
 
 ## Stochastic projections and reusable caches
 
-The projection workflow uses the fitted assessment models through `mfclo64`.
+The projection workflow uses the fitted assessment models through the checked
+model executable.
 Each completed ensemble model is
 projected for 30 years (2025–2054) with 10 stochastic recruitment sequences.
 Every fishery is catch-conditioned at its exact 2022–2024 mean annual catch;
 absent fishery-quarter incidents contribute zero to that average, and future
-recruitment is sampled by MFCL from the fitted 1972–2023 recruitment deviates.
-MFCL's input flags retain each fishery's original catch unit: fisheries 1–11
+recruitment is sampled by the model from the fitted 1972–2023 recruitment
+deviates. The input flags retain each fishery's original catch unit: fisheries 1–11
 and 29–33 are in numbers and fisheries 12–28 are in weight. Consequently the
 fishery-specific conditioning values are audited individually and are never
 summed as if they were a single stock-wide catch quantity.
+The checksum-locked `data/projection/fishery-quarter-conditioning.csv`
+reconstructs all 132 fishery-quarter means and records the exact-zero cells
+used by the projection input audit.
 
 ```sh
 projection/cache-native-projection MODEL_DIR ensemble-001 \
@@ -176,7 +185,9 @@ locked scenario changes.
 ## Reproducible report
 
 `./run-report` verifies all structural, Hessian and projection manifests before
-creating the self-contained report and interactive 88-model viewer. The report
-combines equal-weight structural uncertainty with Hessian-based parameter uncertainty,
-and summarizes the 2025–2054 stochastic projections without requiring
-access to Kflow or the original compute nodes.
+creating the self-contained report and interactive 88-model viewer. Historical
+and current-status summaries augment equal-weight structural uncertainty with
+available Hessian-based parameter uncertainty; the 2025–2054 projection
+summaries combine model structure and stochastic recruitment without Hessian
+draws. Rendering requires neither Kflow nor access to the original compute
+nodes.
