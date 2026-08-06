@@ -50,13 +50,18 @@ for (value in report_required) {
 }
 
 viewer_required <- c(
-  "BET 2026 ensemble model results", "80 assessment configurations passing MGC",
+  "BET 2026 ensemble model results", "80 assessment configurations retained",
   "depletion", "recruitment", "spawning", "fishing",
-  "Filter table", "Near-PDH", "F (year⁻¹)",
-  "SBrecent/SBF=0", "SBrecent/SBMSY", "Frecent/FMSY"
+  "Models &middot; 80 included", "Select all", "Clear", "Fit summary",
+  "Near-PDH", "F (year⁻¹)", "modelList", "fitTable",
+  "<sub>recent</sub>", "<sub>MSY</sub>", "&tau;"
 )
 for (value in viewer_required) {
   if (!grepl(value, viewer, fixed = TRUE)) stop("Missing interactive-viewer element: ", value)
+}
+if (grepl("Ensemble median", viewer, fixed = TRUE) ||
+    grepl("Filter table", viewer, fixed = TRUE)) {
+  stop("The interactive viewer contains a removed median or filter-table control.")
 }
 
 fit_output <- read.csv(

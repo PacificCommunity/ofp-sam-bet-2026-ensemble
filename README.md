@@ -195,3 +195,13 @@ available Hessian-based parameter uncertainty; the 2025–2054 projection
 summaries combine model structure and stochastic recruitment without Hessian
 draws. Rendering requires neither Kflow nor access to the original compute
 nodes.
+
+The report contrasts the 100 planned configurations with the 80 retained
+models for every design axis, without publishing excluded model identifiers.
+The self-contained viewer follows the sensitivity-analysis viewer layout: its
+checkbox list supports simultaneous selection of any retained models, assigns
+each model a fixed colour, and identifies the full configuration using
+steepness, tag overdispersion, tag-mixing cutoff, pre-mixing reporting,
+quarterly natural mortality and effort creep. A separate fit-summary view
+lists MGC, objective function, Hessian status and the recent management
+quantities for all 80 retained models.

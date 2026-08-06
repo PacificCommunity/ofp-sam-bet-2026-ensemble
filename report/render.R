@@ -1,4 +1,5 @@
 options(stringsAsFactors = FALSE)
+set.seed(20260806)
 
 required_packages <- c("ggplot2", "patchwork", "ragg", "scales", "jsonlite", "MASS")
 missing_packages <- required_packages[
@@ -12,6 +13,7 @@ series_all <- readRDS("data/ensemble/ensemble-timeseries.rds")
 fit_all <- read.csv("data/ensemble/fit-diagnostics.csv", check.names = FALSE)
 management_all <- read.csv("data/ensemble/management-quantities.csv", check.names = FALSE)
 design_all <- read.csv("data/ensemble/successful-model-design.csv", check.names = FALSE)
+planned_design <- read.csv("design/model-draws.csv", check.names = FALSE)
 parameters <- read.csv("design/distribution-parameters.csv", check.names = FALSE)
 
 output_dir <- Sys.getenv("REPORT_OUTPUT_DIR", "results")
@@ -31,6 +33,10 @@ included_ids <- sort(fit_all$ensemble_id[fit_all$mgc_pass])
 excluded_ids <- sort(fit_all$ensemble_id[!fit_all$mgc_pass])
 if (length(included_ids) != 80L || length(excluded_ids) != 8L) {
   stop("The locked MGC <= 1e-4 rule must retain 80 of 88 completed models.")
+}
+if (nrow(planned_design) != 100L || anyDuplicated(planned_design$ensemble_id) ||
+    !setequal(planned_design$ensemble_id, sprintf("ensemble-%03d", seq_len(100L)))) {
+  stop("The planned ensemble design must contain exactly 100 unique configurations.")
 }
 
 fit <- fit_all[fit_all$ensemble_id %in% included_ids, , drop = FALSE]
@@ -384,23 +390,42 @@ m_tag <- parameter_value("Tag-analysis M0", "estimate")
 m_tag_lower <- parameter_value("Tag-analysis M0", "lower_90")
 m_tag_upper <- parameter_value("Tag-analysis M0", "upper_90")
 
-h_panel <- ggplot2::ggplot(design, ggplot2::aes(x = .data$steepness)) +
+h_panel <- ggplot2::ggplot() +
   ggplot2::geom_histogram(
-    ggplot2::aes(y = ggplot2::after_stat(density)), bins = 10,
-    fill = "#8CC7E3", colour = "white", alpha = 0.90
+    data = planned_design,
+    ggplot2::aes(x = .data$steepness, y = ggplot2::after_stat(density), fill = "Planned 100"),
+    bins = 10, colour = "white", alpha = 0.48
+  ) +
+  ggplot2::geom_histogram(
+    data = design,
+    ggplot2::aes(x = .data$steepness, y = ggplot2::after_stat(density), fill = "Included 80"),
+    bins = 10, colour = "white", alpha = 0.78
   ) +
   ggplot2::geom_line(
     data = h_grid, ggplot2::aes(x = .data$x, y = .data$density),
     inherit.aes = FALSE, colour = "#0072B2", linewidth = 0.95
   ) +
-  ggplot2::geom_rug(colour = "#0072B2", alpha = 0.35, sides = "b") +
+  ggplot2::geom_rug(
+    data = design, ggplot2::aes(x = .data$steepness),
+    inherit.aes = FALSE, colour = "#0072B2", alpha = 0.35, sides = "b"
+  ) +
+  ggplot2::scale_fill_manual(
+    values = c("Planned 100" = "#CBD5DA", "Included 80" = "#16899A"),
+    name = NULL
+  ) +
   ggplot2::labs(x = "Steepness, h", y = "Density") + theme_report(10.4)
 
 m_y <- max(c(m_grid$selected, m_grid$hamel_cope), na.rm = TRUE)
-m_panel <- ggplot2::ggplot(design, ggplot2::aes(x = .data$m_age40_quarterly)) +
+m_panel <- ggplot2::ggplot() +
   ggplot2::geom_histogram(
-    ggplot2::aes(y = ggplot2::after_stat(density)), bins = 10,
-    fill = "#F1BF7A", colour = "white", alpha = 0.90
+    data = planned_design,
+    ggplot2::aes(x = .data$m_age40_quarterly, y = ggplot2::after_stat(density), fill = "Planned 100"),
+    bins = 10, colour = "white", alpha = 0.48
+  ) +
+  ggplot2::geom_histogram(
+    data = design,
+    ggplot2::aes(x = .data$m_age40_quarterly, y = ggplot2::after_stat(density), fill = "Included 80"),
+    bins = 10, colour = "white", alpha = 0.78
   ) +
   ggplot2::geom_line(
     data = m_grid, ggplot2::aes(x = .data$x, y = .data$selected, colour = "Selected distribution"),
@@ -419,45 +444,99 @@ m_panel <- ggplot2::ggplot(design, ggplot2::aes(x = .data$m_age40_quarterly)) +
     "point", x = m_tag, y = 0.06 * m_y,
     colour = "#168C67", size = 2.2
   ) +
-  ggplot2::geom_rug(colour = "#D66B00", alpha = 0.34, sides = "b") +
+  ggplot2::geom_rug(
+    data = design, ggplot2::aes(x = .data$m_age40_quarterly),
+    inherit.aes = FALSE, colour = "#D66B00", alpha = 0.34, sides = "b"
+  ) +
   ggplot2::scale_colour_manual(
     values = c("Selected distribution" = "#D66B00", "Hamel–Cope, scaled to M₀" = "#5E6366"),
+    name = NULL
+  ) +
+  ggplot2::scale_fill_manual(
+    values = c("Planned 100" = "#CBD5DA", "Included 80" = "#16899A"),
     name = NULL
   ) +
   ggplot2::labs(
     x = expression(italic(M)[0]~at~italic(L)(40.5)~(quarter^{-1})), y = "Density"
   ) + theme_report(10.4)
 
-count_panel <- function(data, column, x_label, fill, levels = NULL) {
-  x <- data[[column]]
-  if (!is.null(levels)) x <- factor(x, levels = levels)
-  counts <- as.data.frame(table(x), stringsAsFactors = FALSE)
-  names(counts) <- c("level", "count")
-  ggplot2::ggplot(counts, ggplot2::aes(x = .data$level, y = .data$count)) +
-    ggplot2::geom_col(fill = fill, width = 0.78) +
-    ggplot2::geom_text(ggplot2::aes(label = .data$count), vjust = -0.35, size = 3.0) +
+count_panel <- function(planned, retained, column, x_label, fill, levels = NULL) {
+  count_set <- function(data, set_label) {
+    x <- data[[column]]
+    if (!is.null(levels)) x <- factor(x, levels = levels)
+    out <- as.data.frame(table(x), stringsAsFactors = FALSE)
+    names(out) <- c("level", "count")
+    out$set <- set_label
+    out
+  }
+  counts <- rbind(
+    count_set(planned, "Planned 100"),
+    count_set(retained, "Included 80")
+  )
+  if (!is.null(levels)) {
+    counts$level <- factor(as.character(counts$level), levels = levels)
+  }
+  counts$set <- factor(counts$set, levels = c("Planned 100", "Included 80"))
+  ggplot2::ggplot(
+    counts,
+    ggplot2::aes(x = .data$level, y = .data$count, fill = .data$set)
+  ) +
+    ggplot2::geom_col(position = ggplot2::position_dodge(width = 0.78), width = 0.72) +
+    ggplot2::geom_text(
+      ggplot2::aes(label = .data$count),
+      position = ggplot2::position_dodge(width = 0.78),
+      vjust = -0.35, size = 2.85
+    ) +
+    ggplot2::scale_fill_manual(
+      values = c("Planned 100" = "#C9D3D8", "Included 80" = fill),
+      name = NULL
+    ) +
     ggplot2::scale_y_continuous(expand = ggplot2::expansion(mult = c(0, 0.12))) +
-    ggplot2::labs(x = x_label, y = "Completed models") + theme_report(10.4)
+    ggplot2::labs(x = x_label, y = "Models") + theme_report(10.4) +
+    ggplot2::theme(
+      axis.text.x = ggplot2::element_text(
+        angle = if (column == "effort_label") 28 else 0,
+        hjust = if (column == "effort_label") 1 else 0.5,
+        vjust = if (column == "effort_label") 1 else 0.5
+      )
+    )
 }
 
-design$tag_tau_label <- format(design$tag_tau, nsmall = 1)
-design$k_label <- sprintf("%.2f", design$tag_mixing_k_cutoff)
-design$reporting_label <- ifelse(design$tag_reporting == "inclusion", "Included", "Excluded")
-design$effort_label <- sprintf(
-  "%.1f / %.2f%%",
-  100 * design$effort_creep_primary,
-  100 * design$effort_creep_secondary
-)
+add_design_labels <- function(data) {
+  data$tag_tau_label <- format(data$tag_tau, nsmall = 1)
+  data$k_label <- sprintf("%.2f", data$tag_mixing_k_cutoff)
+  data$reporting_label <- ifelse(data$tag_reporting == "inclusion", "Included", "Excluded")
+  data$effort_label <- sprintf(
+    "%.1f / %.2f%%",
+    100 * data$effort_creep_primary,
+    100 * data$effort_creep_secondary
+  )
+  data
+}
+planned_design <- add_design_labels(planned_design)
+design <- add_design_labels(design)
 
 design_continuous_plot <- h_panel / m_panel +
+  patchwork::plot_layout(guides = "collect") +
   patchwork::plot_annotation(tag_levels = "a")
 design_discrete_plot <- patchwork::wrap_plots(list(
-  count_panel(design, "tag_tau_label", expression("Tag overdispersion, " * tau), "#D55E00", c("1.2", "1.3", "1.4")),
-  count_panel(design, "k_label", "KS dissimilarity cutoff, K", "#009E73", sprintf("%.2f", seq(0.05, 0.35, 0.05))),
-  count_panel(design, "reporting_label", "Pre-mixing reporting rates", "#8073AC", c("Included", "Excluded")),
-  count_panel(design, "effort_label", "Primary / secondary effort creep", "#0072B2", c("0.5 / 0.25%", "1.0 / 0.50%", "1.5 / 0.75%", "2.0 / 1.00%", "2.5 / 1.25%"))
-), ncol = 1, guides = "collect") +
+  count_panel(planned_design, design, "tag_tau_label", expression("Tag overdispersion, " * tau), "#16899A", c("1.2", "1.3", "1.4")),
+  count_panel(planned_design, design, "k_label", "KS dissimilarity cutoff, K", "#16899A", sprintf("%.2f", seq(0.05, 0.35, 0.05))),
+  count_panel(planned_design, design, "reporting_label", "Pre-mixing reporting rates", "#16899A", c("Included", "Excluded")),
+  count_panel(planned_design, design, "effort_label", "Primary / secondary effort creep", "#16899A", c("0.5 / 0.25%", "1.0 / 0.50%", "1.5 / 0.75%", "2.0 / 1.00%", "2.5 / 1.25%"))
+), ncol = 2, guides = "collect") +
   patchwork::plot_annotation(tag_levels = "a")
+design_continuous_plot <- design_continuous_plot & ggplot2::theme(
+  legend.position = "bottom", legend.box = "vertical",
+  legend.text = ggplot2::element_text(size = 9.2),
+  legend.key.width = grid::unit(0.82, "cm")
+)
+design_discrete_plot <- design_discrete_plot & ggplot2::theme(
+  legend.position = "bottom", legend.box = "horizontal",
+  legend.text = ggplot2::element_text(size = 9.2),
+  legend.key.width = grid::unit(0.82, "cm"),
+  axis.text.x = ggplot2::element_text(size = 8.7)
+)
 
 fit$ordered_model <- reorder(fit$ensemble_id, fit$maximum_gradient)
 qc_plot <- ggplot2::ggplot(
@@ -701,11 +780,11 @@ captions$trajectories_process <- paste0(
   "Recruitment is in millions of fish and fishing mortality is annual."
 )
 captions$design_continuous <- paste0(
-  "Realized steepness (a) and natural mortality at the reference length (b) for the 80 retained models. Histograms show included fits and curves show the specified input distributions. ",
+  "Planned and retained continuous ensemble inputs. Light histograms show the 100 planned configurations and coloured histograms show the 80 models retained after the convergence filter: steepness (a) and natural mortality at the reference length (b). Curves show the specified input distributions. ",
   "In panel b the dashed curve is the Hamel–Cope adult-mortality prior transformed to the assessment-model <i>M</i><sub>0</sub> scale; the green point and line show the tag-based estimate and 90% confidence interval."
 )
 captions$design_discrete <- paste0(
-  "Realized counts for the discrete ensemble axes among the 80 retained models: tag overdispersion (a), tag-mixing cutoff (b), pre-mixing tag-reporting treatment (c), and paired effort-creep rates (d). Counts describe the MGC-filtered subset rather than the planned 100-model design."
+  "Planned and retained counts for the discrete ensemble axes: tag overdispersion (a), tag-mixing cutoff (b), pre-mixing tag-reporting treatment (c), and paired effort-creep rates (d). Light bars show all 100 planned configurations and coloured bars show the 80 models retained after the convergence filter."
 )
 latex_captions$trajectories_stock <- paste0(
   "Annual depletion (a) and spawning potential (b) across the 80 retained assessment models. Grey lines are individual models; nested blue bands are pointwise 50\\%, 80\\% and 95\\% structural intervals, with the WCPFC 10th--90th percentile interval shown as the middle band. ",
@@ -715,10 +794,10 @@ latex_captions$trajectories_process <- paste0(
   "Annual recruitment (a) and fishing mortality (b) across the 80 retained assessment models. Grey lines are individual models; nested blue bands are pointwise 50\\%, 80\\% and 95\\% structural intervals. The dark-blue line is the equal-weight median. Recruitment is in millions of fish and fishing mortality is annual."
 )
 latex_captions$design_continuous <- paste0(
-  "Realized steepness (a) and natural mortality at the reference length (b) for the 80 retained models. Histograms show included fits and curves show the specified input distributions. In panel b the dashed curve is the Hamel--Cope adult-mortality prior transformed to the assessment-model $M_0$ scale; the green point and line show the tag-based estimate and 90\\% confidence interval."
+  "Planned and retained continuous ensemble inputs. Light histograms show the 100 planned configurations and coloured histograms show the 80 models retained after the convergence filter: steepness (a) and natural mortality at the reference length (b). Curves show the specified input distributions. In panel b the dashed curve is the Hamel--Cope adult-mortality prior transformed to the assessment-model $M_0$ scale; the green point and line show the tag-based estimate and 90\\% confidence interval."
 )
 latex_captions$design_discrete <- paste0(
-  "Realized counts for the discrete ensemble axes among the 80 retained models: tag overdispersion (a), tag-mixing cutoff (b), pre-mixing tag-reporting treatment (c), and paired effort-creep rates (d). Counts describe the MGC-filtered subset rather than the planned 100-model design."
+  "Planned and retained counts for the discrete ensemble axes: tag overdispersion (a), tag-mixing cutoff (b), pre-mixing tag-reporting treatment (c), and paired effort-creep rates (d). Light bars show all 100 planned configurations and coloured bars show the 80 models retained after the convergence filter."
 )
 
 html <- paste0(
@@ -736,7 +815,7 @@ html <- paste0(
   "</style></head><body><main><h1>BET 2026 ensemble analysis</h1>",
   "<p class='lede'>Equal-weight results from 80 bigeye tuna assessment models retained after applying MGC ≤ 1 × 10<sup>−4</sup>, with structural uncertainty, available Hessian-based estimation uncertainty and stochastic projections kept explicit.</p>",
   "<div class='actions'><a href='bet-2026-ensemble-interactive-viewer.html'>Open 80-model interactive viewer</a></div>",
-  "<div class='summary'><div class='stat'><b>", n_models, "</b>included models</div><div class='stat'><b>", n_pdh, "</b>PDH</div><div class='stat'><b>", n_near, "</b>Near-PDH</div><div class='stat'><b>", n_total_mgc_excluded, "</b>excluded by MGC</div></div>",
+  "<div class='summary'><div class='stat'><b>100 &rarr; ", n_models, "</b>planned &rarr; included</div><div class='stat'><b>", n_pdh, "</b>PDH</div><div class='stat'><b>", n_near, "</b>Near-PDH</div><div class='stat'><b>20</b>not retained</div></div>",
   "<h2>Overview</h2><div class='method-grid'>",
   "<article class='method'><h3>Ensemble</h3><p>One hundred configurations were planned. Ten did not meet the MGC ≤ 1 × 10<sup>−4</sup> criterion even after extended optimization runs and were excluded; ten had no completed result. The remaining 80 models enter with equal structural weight.</p></article>",
   "<article class='method'><h3>Estimation uncertainty</h3><p>For each of 62 retained PDH fits, 100 joint normal parameter perturbations were generated from the inverse Hessian and propagated with a first-order multivariate delta method. Log-scale derived-quantity gradients and implicit derivatives of the model-specific equilibrium curves are evaluated with the same perturbation, preserving covariance. The 18 retained Near-PDH fits contribute central estimates only.</p></article>",

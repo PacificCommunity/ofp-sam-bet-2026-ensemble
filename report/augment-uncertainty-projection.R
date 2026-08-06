@@ -1,4 +1,5 @@
 options(stringsAsFactors = FALSE)
+set.seed(20260806)
 
 required_packages <- c("ggplot2", "patchwork", "ragg", "scales", "jsonlite", "MASS")
 missing_packages <- required_packages[
