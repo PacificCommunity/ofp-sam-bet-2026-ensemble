@@ -152,13 +152,6 @@ adult_noeff <- annual_log_gradient(
 recruitment <- annual_log_gradient(
   labels$value[recruitment_rows], gradient[recruitment_rows, , drop = FALSE], "sum"
 )
-depletion <- annual_log_gradient(
-  labels$value[adult_rows] - labels_noeff$value[adult_noeff_rows],
-  gradient[adult_rows, , drop = FALSE] -
-    gradient_noeff[adult_noeff_rows, , drop = FALSE],
-  "mean"
-)
-
 direct_log_row <- function(label) {
   row <- match(label, labels$label)
   if (is.na(row)) stop("Missing MFCL dependent variable: ", label)
@@ -171,7 +164,6 @@ recent_sbmsy <- direct_log_row("average_SB/SBmsy(recent)")
 recent_ffmsy <- direct_log_row("average_F/Fmsy(recent)")
 
 central_log <- c(
-  depletion$value,
   adult$value,
   adult_noeff$value,
   recruitment$value,
@@ -179,7 +171,6 @@ central_log <- c(
   recent_ffmsy$value
 )
 derived_gradient <- rbind(
-  depletion$gradient,
   adult$gradient,
   adult_noeff$gradient,
   recruitment$gradient,
@@ -187,7 +178,6 @@ derived_gradient <- rbind(
   recent_ffmsy$gradient
 )
 quantity <- c(
-  rep("depletion", n_year),
   rep("spawning_potential", n_year),
   rep("spawning_potential_noeff", n_year),
   rep("recruitment", n_year),
@@ -213,7 +203,6 @@ annual_draws <- data.frame(
   ensemble_id = ensemble_id,
   draw = rep(seq_len(n_draws), each = n_year),
   year = rep(years, times = n_draws),
-  depletion = as.vector(draw_matrix[quantity_index$depletion, , drop = FALSE]),
   spawning_potential = as.vector(
     draw_matrix[quantity_index$spawning_potential, , drop = FALSE] / 1e6
   ),
@@ -225,6 +214,17 @@ annual_draws <- data.frame(
   ),
   stringsAsFactors = FALSE
 )
+# Annual depletion is the ratio of annual mean spawning biomass to annual
+# mean no-fishing spawning biomass.  It is not the mean of the four quarterly
+# biomass ratios.  Computing it from the two jointly propagated annual draws
+# also preserves their Hessian covariance exactly.
+annual_draws$depletion <- with(
+  annual_draws, spawning_potential / spawning_potential_noeff
+)
+annual_draws <- annual_draws[c(
+  "ensemble_id", "draw", "year", "depletion", "spawning_potential",
+  "spawning_potential_noeff", "recruitment"
+)]
 
 draw_by_year <- split(annual_draws, annual_draws$draw)
 management_draws <- do.call(rbind, lapply(draw_by_year, function(value) {
@@ -255,7 +255,7 @@ management_draws <- management_draws[c(
 
 label_central <- data.frame(
   year = years,
-  depletion = exp(depletion$value),
+  depletion = exp(adult$value - adult_noeff$value),
   spawning_potential = exp(adult$value) / 1e6,
   recruitment = exp(recruitment$value) / 1e6
 )

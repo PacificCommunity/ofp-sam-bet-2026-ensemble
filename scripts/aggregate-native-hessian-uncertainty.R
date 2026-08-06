@@ -47,6 +47,50 @@ if ("method" %in% names(metadata)) {
 annual_draws <- do.call(rbind, lapply(per_model, `[[`, "annual_draws"))
 management_draws <- do.call(rbind, lapply(per_model, `[[`, "management_draws"))
 
+# Payloads created before schema 1.1 stored the mean of quarterly depletion
+# ratios.  The official annual definition is the ratio of annual mean biomass
+# quantities.  Both joint biomass draws are retained in every payload, so the
+# correction is exact and requires no Hessian rerun.
+annual_draws$depletion <- with(
+  annual_draws, spawning_potential / spawning_potential_noeff
+)
+draw_groups <- split(annual_draws, interaction(
+  annual_draws$ensemble_id, annual_draws$draw, drop = TRUE
+))
+management_correction <- do.call(rbind, lapply(draw_groups, function(value) {
+  terminal_year <- max(value$year)
+  recent_sb <- mean(value$spawning_potential[
+    value$year %in% (terminal_year - 3L):terminal_year
+  ])
+  recent_sb0 <- mean(value$spawning_potential_noeff[
+    value$year %in% (terminal_year - 10L):(terminal_year - 1L)
+  ])
+  historical <- mean(value$depletion[value$year %in% 2012:2015])
+  data.frame(
+    ensemble_id = value$ensemble_id[[1L]],
+    draw = value$draw[[1L]],
+    sb_recent_sb0 = recent_sb / recent_sb0,
+    historical_target_depletion = historical,
+    recent_historical_target_ratio = (recent_sb / recent_sb0) / historical
+  )
+}))
+management_correction <- management_correction[order(
+  management_correction$ensemble_id, management_correction$draw
+), ]
+management_draws <- management_draws[order(
+  management_draws$ensemble_id, management_draws$draw
+), ]
+if (!identical(
+  management_draws[c("ensemble_id", "draw")],
+  management_correction[c("ensemble_id", "draw")]
+)) {
+  stop("Annual and management Hessian draws do not align.", call. = FALSE)
+}
+for (name in c(
+  "sb_recent_sb0", "historical_target_depletion",
+  "recent_historical_target_ratio"
+)) management_draws[[name]] <- management_correction[[name]]
+
 validation_tolerance <- if ("point_validation_tolerance" %in% names(metadata)) {
   ifelse(is.na(metadata$point_validation_tolerance), 1e-3,
          metadata$point_validation_tolerance)
@@ -87,7 +131,7 @@ method <- paste(
 )
 
 payload <- list(
-  schema_version = "1.0.0",
+  schema_version = "1.1.0",
   created_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
   method = method,
   pdh_model_ids = pdh_ids,

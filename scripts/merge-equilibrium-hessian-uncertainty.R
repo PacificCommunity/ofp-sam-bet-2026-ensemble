@@ -21,6 +21,44 @@ metadata_file <- args[[5L]]
 
 base <- readRDS(base_file)
 fit <- read.csv(fit_file, check.names = FALSE)
+# Enforce the official annual-depletion definition even when the base cache
+# predates that correction.  The two joint biomass draws are already retained.
+base$annual_draws$depletion <- with(
+  base$annual_draws, spawning_potential / spawning_potential_noeff
+)
+draw_groups <- split(base$annual_draws, interaction(
+  base$annual_draws$ensemble_id, base$annual_draws$draw, drop = TRUE
+))
+management_correction <- do.call(rbind, lapply(draw_groups, function(value) {
+  terminal_year <- max(value$year)
+  recent_sb <- mean(value$spawning_potential[
+    value$year %in% (terminal_year - 3L):terminal_year
+  ])
+  recent_sb0 <- mean(value$spawning_potential_noeff[
+    value$year %in% (terminal_year - 10L):(terminal_year - 1L)
+  ])
+  historical <- mean(value$depletion[value$year %in% 2012:2015])
+  data.frame(
+    ensemble_id = value$ensemble_id[[1L]], draw = value$draw[[1L]],
+    sb_recent_sb0 = recent_sb / recent_sb0,
+    historical_target_depletion = historical,
+    recent_historical_target_ratio = (recent_sb / recent_sb0) / historical
+  )
+}))
+management_correction <- management_correction[order(
+  management_correction$ensemble_id, management_correction$draw
+), ]
+base$management_draws <- base$management_draws[order(
+  base$management_draws$ensemble_id, base$management_draws$draw
+), ]
+if (!identical(
+  base$management_draws[c("ensemble_id", "draw")],
+  management_correction[c("ensemble_id", "draw")]
+)) stop("Base Hessian draw keys do not align.", call. = FALSE)
+for (name in c(
+  "sb_recent_sb0", "historical_target_depletion",
+  "recent_historical_target_ratio"
+)) base$management_draws[[name]] <- management_correction[[name]]
 pdh_ids <- sort(fit$ensemble_id[as.logical(fit$positive_definite_hessian)])
 paths <- file.path(input_dir, paste0(pdh_ids, ".rds"))
 if (any(!file.exists(paths))) {

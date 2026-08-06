@@ -102,12 +102,27 @@ if (length(yield_rows) < 3L ||
     min(sb_rows) != max(yield_rows) + 1L) {
   stop("The full equilibrium-yield or spawning-biomass curve is missing.")
 }
-# The program evaluates each model's equilibrium curve on a 0.01 fishing-
-# multiplier grid, but extends the curve far enough for that model's yield to
-# decline.  The number of points therefore differs among models.  Recover the
-# exact grid from the complete paired curve lengths rather than fixing the
-# length observed for any one model.
-f_multiplier <- (seq_along(yield_rows) - 1L) * 0.01
+# The program evaluates each model's equilibrium curve first at 1e-6 and then
+# on a 0.01 fishing-multiplier grid, extending it far enough for that model's
+# yield to decline. Labels are printed to only one decimal place, so they
+# cannot recover the exact grid by themselves; use them as a rounded audit of
+# the program-defined grid rather than treating their duplicated suffixes as
+# exact values. The paired curve length remains model-specific.
+f_multiplier <- c(1e-6, seq(0.01, by = 0.01, length.out = length(yield_rows) - 1L))
+label_multiplier <- function(value, prefix) {
+  as.numeric(sub(paste0("^", prefix, "[[:space:]]+"), "", value))
+}
+yield_label_multiplier <- label_multiplier(
+  labels$label[yield_rows], "pred_yield_for_F_mult"
+)
+sb_label_multiplier <- label_multiplier(
+  labels$label[sb_rows], "pred_equilib_SB_for_F_mult"
+)
+if (anyNA(yield_label_multiplier) || anyNA(sb_label_multiplier) ||
+    any(abs(yield_label_multiplier - f_multiplier) > 0.050001) ||
+    any(abs(sb_label_multiplier - f_multiplier) > 0.050001)) {
+  stop("Equilibrium-curve labels do not match the program multiplier grid.")
+}
 
 central_yield <- labels$value[yield_rows]
 central_sb <- labels$value[sb_rows]
@@ -130,7 +145,8 @@ quadratic_maximum <- function(y) {
   denominator <- y[index - 1L] - 2 * y[index] + y[index + 1L]
   if (!is.finite(denominator) || denominator >= 0) return(f_multiplier[[index]])
   offset <- 0.5 * (y[index - 1L] - y[index + 1L]) / denominator
-  f_multiplier[[index]] + max(-1, min(1, offset)) * 0.01
+  local_step <- f_multiplier[[index + 1L]] - f_multiplier[[index]]
+  f_multiplier[[index]] + max(-1, min(1, offset)) * local_step
 }
 
 central_fmult <- quadratic_maximum(central_yield)
@@ -168,9 +184,17 @@ weight_upper <- if (lower_index == upper_index) 0 else
 sb_partial_gradient <-
   (1 - weight_upper) * gradient[sb_rows[lower_index], ] +
   weight_upper * gradient[sb_rows[upper_index], ]
-sb_multiplier_slope <- (
-  central_sb[central_index + 1L] - central_sb[central_index - 1L]
-) / (2 * step)
+sb_multiplier_slope <- if (lower_index == upper_index) {
+  # The interpolated optimum can coincide with a grid point to machine
+  # precision. Use the immediately bracketing interval in that rare case.
+  bracket_lower <- max(1L, lower_index - 1L)
+  bracket_upper <- min(length(f_multiplier), upper_index + 1L)
+  (central_sb[bracket_upper] - central_sb[bracket_lower]) /
+    (f_multiplier[bracket_upper] - f_multiplier[bracket_lower])
+} else {
+  (central_sb[upper_index] - central_sb[lower_index]) /
+    (f_multiplier[upper_index] - f_multiplier[lower_index])
+}
 sbmsy_gradient <- sb_partial_gradient + sb_multiplier_slope * fmult_gradient
 sbmsy_draw <- as.vector(exp(
   log(central_sbmsy) + (sbmsy_gradient / central_sbmsy) %*% parameter_delta
