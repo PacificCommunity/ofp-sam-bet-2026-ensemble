@@ -36,6 +36,9 @@ tags:
   model_refit: "false"
 
 metadata:
+  task_visibility: primary
+  internal_task: false
+  task_role: ensemble-report
   included_models: 80
   pdh_models: 62
   near_pdh_models: 18
