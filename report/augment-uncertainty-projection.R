@@ -29,7 +29,11 @@ obsolete_projection_figures <- file.path(
     "regional-spawning-biomass-regions-1-3.png",
     "regional-spawning-biomass-regions-1-3.pdf",
     "regional-spawning-biomass-regions-4-5-stock.png",
-    "regional-spawning-biomass-regions-4-5-stock.pdf"
+    "regional-spawning-biomass-regions-4-5-stock.pdf",
+    "regional-spawning-potential.png",
+    "regional-spawning-potential.pdf",
+    "regional-depletion.png",
+    "regional-depletion.pdf"
   )
 )
 invisible(file.remove(
@@ -1689,7 +1693,7 @@ for (object_name in c(
   assign(object_name, object)
 }
 
-regional_spawning_plot <- function(region_labels = regional_plot_levels) {
+regional_spawning_plot <- function(region_labels = "All regions") {
   historical_summary <- historical_region_summary[
     historical_region_summary$region_label %in% region_labels,
   ]
@@ -1800,9 +1804,6 @@ regional_spawning_plot <- function(region_labels = regional_plot_levels) {
       xintercept = 2024.5, colour = "#5D6C73", linewidth = 0.48,
       linetype = "33"
     ) +
-    ggplot2::facet_wrap(
-      ~ region_label, ncol = 3, scales = "free_y", drop = FALSE
-    ) +
     ggplot2::scale_colour_manual(
       values = c("Historical" = "#4F626C", "Projection" = "#07566B"),
       name = NULL
@@ -1818,24 +1819,19 @@ regional_spawning_plot <- function(region_labels = regional_plot_levels) {
     ) +
     ggplot2::coord_cartesian(ylim = c(0, NA)) +
     ggplot2::labs(
-      x = "Year", y = expression(Spawning~potential~(10^3~plain(MT)))
-    ) + theme_report(9.3) +
+      x = "Year", y = "Spawning potential (thousand metric tonnes)"
+    ) + theme_report(10.8) +
     ggplot2::theme(
       legend.position = "bottom", legend.box = "vertical",
       legend.text = ggplot2::element_text(size = 8.2),
       legend.key.width = grid::unit(0.75, "cm"),
-      strip.background = ggplot2::element_rect(fill = "#E4ECEF", colour = "#607985"),
-      strip.text = ggplot2::element_text(face = "bold", size = 8.8),
-      axis.title = ggplot2::element_text(size = 9.4),
-      axis.text = ggplot2::element_text(size = 7.8),
+      axis.title = ggplot2::element_text(size = 10.8),
+      axis.text = ggplot2::element_text(size = 9.4),
       plot.margin = ggplot2::margin(4, 5, 4, 5)
     )
 }
 
-regional_spawning_files <- save_plot(
-  regional_spawning_plot(),
-  "regional-spawning-potential", height = 5.6
-)
+spawning_all_regions_plot <- regional_spawning_plot("All regions")
 
 if (!identical(projection$schema_version, "1.2.0") ||
     !all(c("spawning_biomass_noeff_mt", "depletion") %in%
@@ -1956,7 +1952,7 @@ representative_projected_depletion <- merge(
   projected_regional_depletion,
   by = c("ensemble_id", "simulation"), sort = FALSE
 )
-regional_depletion_levels <- regional_plot_levels
+regional_depletion_levels <- "All regions"
 for (object_name in c(
   "historical_regional_depletion_summary",
   "projected_regional_depletion_summary",
@@ -2089,7 +2085,6 @@ regional_depletion_plot <- ggplot2::ggplot() +
     xintercept = 2024.5, colour = "#5D6C73", linewidth = 0.48,
     linetype = "33"
   ) +
-  ggplot2::facet_wrap(~ region_label, ncol = 3, drop = FALSE) +
   ggplot2::scale_colour_manual(
     values = c("Historical" = "#4F626C", "Projection" = "#07566B"),
     name = NULL
@@ -2107,20 +2102,36 @@ regional_depletion_plot <- ggplot2::ggplot() +
   ggplot2::coord_cartesian(ylim = c(0, NA)) +
   ggplot2::labs(
     x = "Year",
-    y = expression(italic(SB)[recent] / italic(SB)[italic(F) == 0])
-  ) + theme_report(9.3) +
+    y = expression(Spawning~depletion~~italic(SB)[recent] / italic(SB)[italic(F) == 0])
+  ) + theme_report(10.8) +
   ggplot2::theme(
     legend.position = "bottom", legend.box = "vertical",
     legend.text = ggplot2::element_text(size = 8.2),
     legend.key.width = grid::unit(0.75, "cm"),
-    strip.background = ggplot2::element_rect(fill = "#E4ECEF", colour = "#607985"),
-    strip.text = ggplot2::element_text(face = "bold", size = 8.8),
-    axis.title = ggplot2::element_text(size = 9.4),
-    axis.text = ggplot2::element_text(size = 7.8),
+    axis.title = ggplot2::element_text(size = 10.8),
+    axis.text = ggplot2::element_text(size = 9.4),
     plot.margin = ggplot2::margin(4, 5, 4, 5)
   )
-regional_depletion_files <- save_plot(
-  regional_depletion_plot, "regional-depletion", height = 5.6
+projection_stock_plot <- (regional_depletion_plot / spawning_all_regions_plot) +
+  patchwork::plot_layout(guides = "collect", heights = c(1, 1)) +
+  patchwork::plot_annotation(
+    title = "All regions", tag_levels = "a",
+    theme = ggplot2::theme(
+      plot.title = ggplot2::element_text(
+        face = "bold", colour = "#183246", size = 13, hjust = 0.5
+      )
+    )
+  ) &
+  ggplot2::theme(
+    legend.position = "bottom",
+    legend.box = "vertical",
+    plot.tag = ggplot2::element_text(
+      face = "bold", colour = "#183246", size = 12
+    )
+  )
+projection_stock_files <- save_plot(
+  projection_stock_plot, "projection-stock-trajectories",
+  width = 10.8, height = 8.4
 )
 
 projection_years <- c(2030L, 2040L, 2054L)
@@ -2530,11 +2541,8 @@ terminal_status_caption <- paste0(
   "Terminal Kobe (a) and Majuro (b) status for a projection ending in 2054 across 800 equally weighted model–recruitment combinations. Biomass is mean SB over 2051–2054; fishing mortality is averaged over 2050–2053 and divided by FMSY. Kobe biomass is relative to SBMSY, whereas Majuro depletion is relative to SBF=0 with an LRP of 0.20. ",
   "Points are individual combinations, nested shading gives the 50%, 80% and 95% bivariate kernel HDRs, and labels give the percentage in each background category. Projection uncertainty includes model structure and stochastic recruitment, not Hessian parameter draws."
 )
-regional_spawning_caption <- paste0(
-  "Spawning potential for Regions 1–5 and all regions, joining estimates through 2024 to projections for 2025–2054. Medians and central 50%, 80% and 95% intervals use all 800 model–recruitment realizations; ten thin lines show individual projection realizations. Historical intervals show structural uncertainty; projections add recruitment variability without Hessian parameter draws. Units are thousands of metric tonnes."
-)
-regional_depletion_caption <- paste0(
-  "Depletion for Regions 1–5 and all regions, joining estimates through 2024 to projections for 2025–2054. Depletion is the four-year mean spawning biomass divided by the preceding ten-year mean no-fishing biomass. Medians and central 50%, 80% and 95% intervals use all 800 model–recruitment realizations; ten thin lines show individual projection realizations. The 0.20 line is the stock-wide LRP shown for reference, not a region-specific threshold."
+projection_stock_caption <- paste0(
+  "All-region spawning depletion (a) and spawning potential in thousand metric tonnes (b), joining estimates through 2024 to projections for 2025–2054. Depletion is the four-year mean spawning biomass divided by the preceding ten-year mean no-fishing biomass. Medians and central 50%, 80% and 95% intervals use all 800 model–recruitment realizations; ten thin lines show individual projection realizations. Historical intervals show structural uncertainty; projections add recruitment variability without Hessian parameter draws. The 0.20 line in panel a is the stock-wide LRP."
 )
 
 catch_below_years <- sum(catch_msy_summary$median < 1)
@@ -2560,7 +2568,7 @@ main_insert <- paste0(
   figure_block("combined-current-status", "Kobe and Majuro status", current_status_caption, plain_latex_caption(current_status_caption), current_status_files),
   figure_block("dynamic-current-status", "Time-dynamic Kobe and Majuro status", dynamic_status_caption, plain_latex_caption(dynamic_status_caption), dynamic_status_files),
   figure_block("projection-key-quantities", "Projection summary", projection_key_caption, plain_latex_caption(projection_key_caption), projection_key_files),
-  figure_block("regional-depletion", "Regional depletion", regional_depletion_caption, plain_latex_caption(regional_depletion_caption), regional_depletion_files),
+  figure_block("projection-stock-trajectories", "All-region projection trajectories", projection_stock_caption, plain_latex_caption(projection_stock_caption), projection_stock_files),
   copy_table_block("projection-summary", "Projection summary", projection_caption, projection_display, projection_latex),
   copy_table_block("projection-terminal-management", "Terminal management quantities", terminal_caption, terminal_display, terminal_latex)
 )
@@ -2572,7 +2580,6 @@ supplementary_insert <- paste0(
   figure_block("discrete-axis-status-a", "Management quantities by tag uncertainty axes", discrete_axis_a_caption, plain_latex_caption(discrete_axis_a_caption), discrete_axis_a_files),
   figure_block("discrete-axis-status-b", "Management quantities by reporting and effort axes", discrete_axis_b_caption, plain_latex_caption(discrete_axis_b_caption), discrete_axis_b_files),
   figure_block("terminal-status", "Terminal projection status", terminal_status_caption, plain_latex_caption(terminal_status_caption), terminal_status_files),
-  figure_block("regional-spawning", "Regional spawning potential", regional_spawning_caption, plain_latex_caption(regional_spawning_caption), regional_spawning_files),
   copy_table_block("fit-hessian-summary", "Fit and Hessian diagnostics", fit_caption, fit_display, fit_latex)
 )
 
@@ -2597,8 +2604,8 @@ manifest_files <- c(
     uncertainty_files, current_status_files,
     continuous_axis_files, discrete_axis_a_files, discrete_axis_b_files,
     projection_key_files,
-    terminal_status_files, regional_spawning_files,
-    dynamic_status_files, regional_depletion_files
+    terminal_status_files, projection_stock_files,
+    dynamic_status_files
   ))),
   "tables/projection-summary.csv", "tables/fit-hessian-summary.csv",
   "tables/projection-terminal-management.csv",

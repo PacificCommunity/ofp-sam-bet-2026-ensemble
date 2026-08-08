@@ -20,8 +20,8 @@ if (any(!file.exists(required))) stop("The rendered public report is incomplete.
 
 pngs <- list.files(file.path(output_dir, "figures"), pattern = "[.]png$", full.names = TRUE)
 pdfs <- list.files(file.path(output_dir, "figures"), pattern = "[.]pdf$", full.names = TRUE)
-if (length(pngs) != 11L || length(pdfs) != 11L) {
-  stop("Expected 11 publication figure sets in both PNG and vector PDF formats.")
+if (length(pngs) != 10L || length(pdfs) != 10L) {
+  stop("Expected 10 publication figure sets in both PNG and vector PDF formats.")
 }
 if (any(file.info(c(pngs, pdfs))$size < 10000L)) {
   stop("A rendered report figure is unexpectedly small.")
@@ -37,7 +37,8 @@ report_required <- c(
   "Management quantities with available estimation uncertainty", "Terminal management quantities",
   "Supporting structural reference points", "Monte Carlo audit",
   "Time-dynamic Kobe and Majuro status",
-  "Regional depletion", "Regional spawning potential", "all regions",
+  "All-region projection trajectories", "All-region spawning depletion",
+  "spawning potential in thousand metric tonnes",
   "Scope",
   "data-report-tab='overview'", "data-report-tab='figures'",
   "data-report-tab='tables'", "id='figures-list'", "id='tables-list'",
@@ -47,7 +48,7 @@ report_required <- c(
 for (value in report_required) {
   if (!grepl(value, report, fixed = TRUE)) stop("Missing public-report element: ", value)
 }
-if (length(gregexpr("class='figure-card'", report, fixed = TRUE)[[1L]]) != 11L ||
+if (length(gregexpr("class='figure-card'", report, fixed = TRUE)[[1L]]) != 10L ||
     length(gregexpr("class='table-card'", report, fixed = TRUE)[[1L]]) != 7L) {
   stop("The report tabs do not contain exactly 11 unique figures and 7 unique tables.")
 }
@@ -124,4 +125,4 @@ if (!identical(manifest$sha256, unname(actual))) {
   stop("A final report manifest checksum does not match.")
 }
 
-cat("Validated the self-contained 80-model report, viewer, 11 figure sets and 7 copy-ready tables.\n")
+cat("Validated the self-contained 80-model report, viewer, 10 figure sets and 7 copy-ready tables.\n")
