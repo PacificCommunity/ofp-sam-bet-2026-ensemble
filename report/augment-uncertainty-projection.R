@@ -2448,7 +2448,7 @@ fit_latex <- paste0(
 uncertainty_caption <- paste0(
   "Annual depletion (a), spawning potential (b), recruitment (c) and fishing mortality (d) across the 80 retained models. ",
   "The median and pointwise central 50%, 80% and 95% intervals use the uncertainty samples available for each quantity. Grey lines show central model trajectories. ",
-  "Individual trajectories can be examined in the <a href='https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/latest/download/bet-2026-ensemble-interactive-viewer.html'>interactive viewer</a>."
+  "Individual trajectories can be examined in the <a href='https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/bet-2026-ensemble-interactive-viewer.html'>interactive viewer</a>."
 )
 uncertainty_latex_caption <- paste0(
   "Annual depletion (a), spawning potential (b), recruitment (c) and fishing mortality (d) across the 80 retained models. ",
