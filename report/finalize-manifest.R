@@ -4,7 +4,10 @@ output_dir <- Sys.getenv("REPORT_OUTPUT_DIR", "results")
 if (!dir.exists(output_dir)) stop("The report output directory does not exist.")
 
 files <- list.files(output_dir, recursive = TRUE, full.names = FALSE)
-files <- sort(files[files != "report-manifest.csv"])
+files <- sort(files[
+  files != "report-manifest.csv" &
+    !grepl("[.]pre-rev1-root-owned$", files)
+])
 paths <- file.path(output_dir, files)
 if (!length(files) || any(!file.exists(paths)) || any(file.info(paths)$isdir)) {
   stop("The report output set is incomplete.")

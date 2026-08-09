@@ -94,8 +94,9 @@ ensemble. Histograms and rugs show the 100 retained values; continuous curves
 show the probability distributions represented by those midpoint quantiles.
 Natural mortality is defined at the
 reference length `L(40.5 quarters)`. The selected ensemble distribution is
-shown against the Hamel–Cope adult-mortality prior after model-specific scaling
-to `M0`, the tag-based estimate and its 90% confidence interval, and the 2023
+shown against the Hamel (2015) longevity prior, using the updated practical
+formulation of Hamel and Cope (2022), after model-specific scaling to `M0`; the
+tag-based estimate and its 90% confidence interval; and the 2023
 assessment value. The model reference age (10.125 years) is not an assumed
 maximum age: age class 40 is a plus group, while the longevity calculation uses
 `Amax = 15 years`. The selected `M0` curve approaches zero density smoothly at

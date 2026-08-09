@@ -397,8 +397,8 @@ m_grid$selected <- stats::dnorm(stats::qlogis(m_scaled), m_mu, m_sigma) /
   (m_scaled * (1 - m_scaled) * (m_upper - m_lower))
 m_grid$hamel_cope <- stats::dlnorm(
   m_grid$x,
-  log(parameter_value("Hamel-Cope model-aligned M0", "quarterly_median")),
-  parameter_value("Hamel-Cope Amax prior", "log_sd")
+  log(parameter_value("Hamel (2015) / Hamel and Cope (2022) model-aligned M0", "quarterly_median")),
+  parameter_value("Hamel (2015) / Hamel and Cope (2022) Amax prior", "log_sd")
 )
 m_tag <- parameter_value("Tag-analysis M0", "estimate")
 m_tag_lower <- parameter_value("Tag-analysis M0", "lower_90")
@@ -490,7 +490,7 @@ m_panel <- ggplot2::ggplot(
     inherit.aes = FALSE, linewidth = 0.95
   ) +
   ggplot2::geom_line(
-    data = m_grid, ggplot2::aes(x = .data$x, y = .data$hamel_cope_count, colour = "Hamel–Cope, scaled to M₀"),
+    data = m_grid, ggplot2::aes(x = .data$x, y = .data$hamel_cope_count, colour = "Longevity prior, scaled to M₀"),
     inherit.aes = FALSE, linewidth = 0.72, linetype = "22"
   ) +
   ggplot2::geom_segment(
@@ -512,7 +512,7 @@ m_panel <- ggplot2::ggplot(
   ggplot2::scale_colour_manual(
     values = c(
       "Selected distribution" = "#D66B00",
-      "Hamel–Cope, scaled to M₀" = "#5E6366",
+      "Longevity prior, scaled to M₀" = "#5E6366",
       "Tag analysis (90% CI)" = "#168C67"
     ),
     name = NULL
@@ -530,7 +530,9 @@ m_panel <- ggplot2::ggplot(
 # curves use the Diagnostic growth schedule and fixed Lorenzen exponent (-1),
 # so they differ only in the M0 evidence applied at the reference length.
 m_diagnostic <- parameter_value("Ensemble quarterly M at reference length", "median")
-m_hamel_cope <- parameter_value("Hamel-Cope model-aligned M0", "quarterly_median")
+m_hamel_cope <- parameter_value(
+  "Hamel (2015) / Hamel and Cope (2022) model-aligned M0", "quarterly_median"
+)
 growth_l1 <- parameter_value("Diagnostic growth", "mean_length_age_1_cm")
 growth_l40 <- parameter_value("Diagnostic growth", "mean_length_age_40_cm")
 growth_kappa <- parameter_value("Diagnostic growth", "kappa_quarterly")
@@ -549,7 +551,7 @@ m_age <- rbind(
   data.frame(
     age_years = (age_class - 1) / 4,
     mortality = m_hamel_cope * lorenzen_shape,
-    evidence = "Hamel–Cope, model-aligned"
+    evidence = "Longevity prior"
   ),
   data.frame(
     age_years = (age_class - 1) / 4,
@@ -559,7 +561,7 @@ m_age <- rbind(
 )
 m_age$evidence <- factor(
   m_age$evidence,
-  levels = c("2026 diagnostic", "Hamel–Cope, model-aligned", "Tag estimate")
+  levels = c("2026 diagnostic", "Longevity prior", "Tag estimate")
 )
 m_tag_age_interval <- data.frame(
   age_years = (age_class - 1) / 4,
@@ -583,7 +585,7 @@ m_evidence_panel <- ggplot2::ggplot() +
   ggplot2::scale_colour_manual(
     values = c(
       "2026 diagnostic" = "#0B5267",
-      "Hamel–Cope, model-aligned" = "#D66B00",
+      "Longevity prior" = "#D66B00",
       "Tag estimate" = "#168C67"
     ),
     name = NULL,
@@ -598,7 +600,7 @@ m_evidence_panel <- ggplot2::ggplot() +
   ggplot2::scale_linetype_manual(
     values = c(
       "2026 diagnostic" = "solid",
-      "Hamel–Cope, model-aligned" = "22",
+      "Longevity prior" = "22",
       "Tag estimate" = "42"
     ), name = NULL, guide = "none"
   ) +
@@ -903,10 +905,10 @@ captions <- list(
     "Kobe (a), Majuro (b) and a supplementary model-specific historical-objective diagnostic (c) for the 80 retained models. <i>D</i><sub>recent</sub> is mean spawning biomass for 2021–2024 divided by mean unfished spawning biomass for 2014–2023. In panel a the biomass boundary is <i>SB</i><sub>MSY</sub>; in panel b it is the depletion LRP of 0.20. Backgrounds denote green (biomass criterion met and <i>F</i>/<i>F</i><sub>MSY</sub> ≤ 1), yellow (biomass criterion not met and <i>F</i>/<i>F</i><sub>MSY</sub> ≤ 1), orange (biomass criterion met and <i>F</i>/<i>F</i><sub>MSY</sub> &gt; 1), and red (neither criterion met). Shaded contours are 50%, 80% and 95% bivariate highest-density regions (HDRs), calculated from an equal-weight Gaussian kernel-density estimate of the central model points using normal-reference bandwidths. These structural two-dimensional HDRs are distinct from the one-dimensional equal-tailed reporting interval. Point colours identify fixed tag overdispersion τ; filled and open symbols distinguish PDH and Near-PDH fits. Panel c is a supplementary diagnostic that plots each model's <i>D</i><sub>recent</sub> against its own mean annual depletion during 2012–2015; the diagonal denotes equality."
   ),
   design = paste0(
-    "Realized inputs for the 80 retained models. Histograms and bars show included fits only. Continuous curves show the specified steepness and natural-mortality distributions; the dashed natural-mortality curve is the Hamel–Cope adult-mortality prior transformed to the assessment-model <i>M</i><sub>0</sub> scale, and the green point and interval show the tag-based estimate and 90% confidence interval."
+    "Realized inputs for the 80 retained models. Histograms and bars show included fits only. Continuous curves show the specified steepness and natural-mortality distributions; the dashed natural-mortality curve is the longevity prior originating with Hamel (2015), using the updated practical formulation of Hamel and Cope (2022), transformed to the assessment-model <i>M</i><sub>0</sub> scale. The green point and interval show the tag-based estimate and 90% confidence interval."
   ),
   natural_mortality = paste0(
-    "Age-specific quarterly natural mortality obtained by applying three assessment-relevant <i>M</i><sub>0</sub> values to the same 2026 Diagnostic growth schedule and fixed Lorenzen exponent (−1). Curves show the Diagnostic value (0.07814), the model-aligned Hamel–Cope median (0.08082), and the Ducharme-Barth et al. (2026) tag estimate (0.0624). Shading is the tag estimate's 90% confidence interval (0.0500–0.0749) propagated over age."
+    "Age-specific quarterly natural mortality obtained by applying three assessment-relevant <i>M</i><sub>0</sub> values to the same 2026 Diagnostic growth schedule and fixed Lorenzen exponent (−1). Curves show the Diagnostic value (0.07814), the model-aligned longevity-prior median (0.08082; framework of Hamel 2015, updated practical formulation of Hamel and Cope 2022), and the Ducharme-Barth et al. (2026) tag estimate (0.0624). Shading is the tag estimate's 90% confidence interval (0.0500–0.0749) propagated over age."
   )
 )
 
@@ -921,10 +923,10 @@ latex_captions <- list(
     "Kobe (a), Majuro (b) and a supplementary model-specific historical-objective diagnostic (c) for the 80 retained models. $D_{recent}$ is mean spawning biomass for 2021--2024 divided by mean unfished spawning biomass for 2014--2023. In panel a the biomass boundary is $SB_{MSY}$; in panel b it is the depletion LRP of 0.20. Backgrounds denote green (biomass criterion met and $F/F_{MSY}\\leq1$), yellow (biomass criterion not met and $F/F_{MSY}\\leq1$), orange (biomass criterion met and $F/F_{MSY}>1$), and red (neither criterion met). Shaded contours are 50\\%, 80\\% and 95\\% bivariate highest-density regions (HDRs), calculated from an equal-weight Gaussian kernel-density estimate of the central model points using normal-reference bandwidths. These structural two-dimensional HDRs are distinct from the one-dimensional equal-tailed reporting interval. Point colours identify fixed tag overdispersion $\\tau$; filled and open symbols distinguish PDH and Near-PDH fits. Panel c is a supplementary diagnostic that plots each model's $D_{recent}$ against its own mean annual depletion during 2012--2015; the diagonal denotes equality."
   ),
   design = paste0(
-    "Realized inputs for the 80 retained models. Histograms and bars show included fits only. Continuous curves show the specified steepness and natural-mortality distributions; the dashed natural-mortality curve is the Hamel--Cope adult-mortality prior transformed to the assessment-model $M_0$ scale, and the green point and interval show the tag-based estimate and 90\\% confidence interval."
+    "Realized inputs for the 80 retained models. Histograms and bars show included fits only. Continuous curves show the specified steepness and natural-mortality distributions; the dashed natural-mortality curve is the longevity prior originating with Hamel (2015), using the updated practical formulation of Hamel and Cope (2022), transformed to the assessment-model $M_0$ scale. The green point and interval show the tag-based estimate and 90\\% confidence interval."
   ),
   natural_mortality = paste0(
-    "Age-specific quarterly natural mortality obtained by applying three assessment-relevant $M_0$ values to the same 2026 Diagnostic growth schedule and fixed Lorenzen exponent ($-1$). Curves show the Diagnostic value (0.07814), the model-aligned Hamel--Cope median (0.08082), and the Ducharme-Barth et al. (2026) tag estimate (0.0624). Shading is the tag estimate's 90\\% confidence interval (0.0500--0.0749) propagated over age."
+    "Age-specific quarterly natural mortality obtained by applying three assessment-relevant $M_0$ values to the same 2026 Diagnostic growth schedule and fixed Lorenzen exponent ($-1$). Curves show the Diagnostic value (0.07814), the model-aligned longevity-prior median (0.08082; framework of Hamel 2015, updated practical formulation of Hamel and Cope 2022), and the Ducharme-Barth et al. (2026) tag estimate (0.0624). Shading is the tag estimate's 90\\% confidence interval (0.0500--0.0749) propagated over age."
   )
 )
 
@@ -940,7 +942,7 @@ captions$trajectories_process <- paste0(
 )
 captions$design_continuous <- paste0(
   "Planned and retained continuous ensemble inputs. Muted-gold bars show the 100 planned configurations and teal bars show the 80 models retained after the convergence filter: steepness (a) and natural mortality at the reference length (b). Curves show the specified input distributions. ",
-  "In panel b the dashed curve is the Hamel–Cope adult-mortality prior transformed to the assessment-model <i>M</i><sub>0</sub> scale; the green point and line show the tag-based estimate and 90% confidence interval."
+  "In panel b the dashed curve is the longevity prior originating with Hamel (2015), using the updated practical formulation of Hamel and Cope (2022), transformed to the assessment-model <i>M</i><sub>0</sub> scale; the green point and line show the tag-based estimate and 90% confidence interval."
 )
 captions$design_discrete <- paste0(
   "Planned and retained counts for the discrete ensemble axes: tag overdispersion (a), tag-mixing cutoff (b), pre-mixing tag-reporting treatment (c), and paired effort-creep rates (d). Muted-gold bars show all 100 planned configurations and teal bars show the 80 models retained after the convergence filter."
@@ -957,7 +959,7 @@ latex_captions$trajectories_process <- paste0(
   "Annual recruitment (a) and fishing mortality (b) across the 80 retained assessment models. Grey lines are individual models; nested blue bands are pointwise 50\\%, 80\\% and 95\\% structural intervals. The dark-blue line is the equal-weight median. Recruitment is in millions of fish and fishing mortality is annual."
 )
 latex_captions$design_continuous <- paste0(
-  "Planned and retained continuous ensemble inputs. Muted-gold bars show the 100 planned configurations and teal bars show the 80 models retained after the convergence filter: steepness (a) and natural mortality at the reference length (b). Curves show the specified input distributions. In panel b the dashed curve is the Hamel--Cope adult-mortality prior transformed to the assessment-model $M_0$ scale; the green point and line show the tag-based estimate and 90\\% confidence interval."
+  "Planned and retained continuous ensemble inputs. Muted-gold bars show the 100 planned configurations and teal bars show the 80 models retained after the convergence filter: steepness (a) and natural mortality at the reference length (b). Curves show the specified input distributions. In panel b the dashed curve is the longevity prior originating with Hamel (2015), using the updated practical formulation of Hamel and Cope (2022), transformed to the assessment-model $M_0$ scale; the green point and line show the tag-based estimate and 90\\% confidence interval."
 )
 latex_captions$design_discrete <- paste0(
   "Planned and retained counts for the discrete ensemble axes: tag overdispersion (a), tag-mixing cutoff (b), pre-mixing tag-reporting treatment (c), and paired effort-creep rates (d). Muted-gold bars show all 100 planned configurations and teal bars show the 80 models retained after the convergence filter."
@@ -1004,7 +1006,8 @@ html <- paste0(
   "<li><a href='https://cmm.wcpfc.int/sites/default/files/cmm_attachments/CMM%202025-02%20Conservation%20and%20Management%20Measure%20for%20Bigeye%2C%20Yellowfin%20and%20Skipjack%20Tuna%20in%20the%20Western%20And%20Central%20Pacific%20Ocean%20%281%29.pdf'>WCPFC CMM 2025-02 for bigeye, yellowfin and skipjack tuna</a>.</li>",
   "<li><a href='https://meetings.wcpfc.int/file/19559/download'>WCPFC stock-status and management-advice definitions for tropical tunas</a>.</li>",
   "<li><a href='https://meetings.wcpfc.int/taxonomy/term/2786'>WCPFC First Bigeye Management Workshop: 2012–2015 depletion objective and candidate TRP process</a>.</li>",
-  "<li><a href='https://doi.org/10.1016/j.fishres.2022.106477'>Hamel and Cope (2022): longevity-based natural-mortality prior</a>.</li>",
+  "<li><a href='https://doi.org/10.1093/icesjms/fsu131'>Hamel, O. S. (2015). A method for calculating a meta-analytical prior for the natural mortality rate using multiple life history correlates</a>.</li>",
+  "<li><a href='https://doi.org/10.1016/j.fishres.2022.106477'>Hamel, O. S. and Cope, J. M. (2022). Development and considerations for application of a longevity-based prior for the natural mortality rate</a>.</li>",
   "<li><a href='https://meetings.wcpfc.int/node/32286'>Ducharme-Barth, N., Peatman, T., Scutt Phillips, J., and Minte-Vera, C. (2026). Natural mortality estimation for WCPO bigeye tuna: a joint cohort analysis of Coral Sea and Region 4 tagging data (WCPFC-SC22-2026-SA-IP14)</a>.</li>",
   "<li><a href='https://meetings.wcpfc.int/file/4756/download'>Pilling et al. (2016). Approaches for balancing biological model uncertainty in stock-assessment projections for tropical tunas</a>.</li>",
   "</ol></section></section>",

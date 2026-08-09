@@ -21,18 +21,18 @@
 "Tag-analysis M0","se",0.0076
 "Tag-analysis M0","lower_90",0.05
 "Tag-analysis M0","upper_90",0.0749
-"Hamel-Cope Amax prior","amax_years",15
-"Hamel-Cope Amax prior","annual_median",0.36
-"Hamel-Cope Amax prior","quarterly_median",0.09
-"Hamel-Cope Amax prior","quarterly_mean",0.094430080365185
-"Hamel-Cope Amax prior","log_sd",0.31
-"Hamel-Cope Amax prior","lower_95",0.0490196302446562
-"Hamel-Cope Amax prior","upper_95",0.165239924486844
-"Hamel-Cope model-aligned M0","adult_mean_to_m0_divisor",1.113625591117
-"Hamel-Cope model-aligned M0","quarterly_median",0.0808171082973473
-"Hamel-Cope model-aligned M0","quarterly_mean",0.0847951781266707
-"Hamel-Cope model-aligned M0","lower_95",0.0440180529575367
-"Hamel-Cope model-aligned M0","upper_95",0.148380143025542
+"Hamel (2015) / Hamel and Cope (2022) Amax prior","amax_years",15
+"Hamel (2015) / Hamel and Cope (2022) Amax prior","annual_median",0.36
+"Hamel (2015) / Hamel and Cope (2022) Amax prior","quarterly_median",0.09
+"Hamel (2015) / Hamel and Cope (2022) Amax prior","quarterly_mean",0.094430080365185
+"Hamel (2015) / Hamel and Cope (2022) Amax prior","log_sd",0.31
+"Hamel (2015) / Hamel and Cope (2022) Amax prior","lower_95",0.0490196302446562
+"Hamel (2015) / Hamel and Cope (2022) Amax prior","upper_95",0.165239924486844
+"Hamel (2015) / Hamel and Cope (2022) model-aligned M0","adult_mean_to_m0_divisor",1.113625591117
+"Hamel (2015) / Hamel and Cope (2022) model-aligned M0","quarterly_median",0.0808171082973473
+"Hamel (2015) / Hamel and Cope (2022) model-aligned M0","quarterly_mean",0.0847951781266707
+"Hamel (2015) / Hamel and Cope (2022) model-aligned M0","lower_95",0.0440180529575367
+"Hamel (2015) / Hamel and Cope (2022) model-aligned M0","upper_95",0.148380143025542
 "Design","models",100
 "Design","randomized_pairing_axes",6
 "Design","pairing_map_rows",100

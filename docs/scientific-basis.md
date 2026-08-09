@@ -130,9 +130,12 @@ tag loss or reporting heterogeneity can act like mortality. The paper therefore
 interprets the result as supporting somewhat lower M while broadly
 corroborating the previous order of magnitude.
 
-### Hamel–Cope longevity prior and the MFCL reference age
+### Longevity prior and the MFCL reference age
 
-Hamel and Cope (2022) define a lognormal prior with
+The longevity-based meta-analytical framework originates with Hamel (2015).
+Hamel and Cope (2022) subsequently re-evaluated the relationship and developed
+the practical longevity-based formulation used here. Their updated formulation
+defines a lognormal prior with
 
 \[
 \mathrm{median}(M_{annual}) = 5.40/A_{max}, \qquad
@@ -150,7 +153,7 @@ Its quarterly mean is 0.09443 and its 2.5th and 97.5th percentiles are 0.04902
 and 0.16524. These are probability limits, not hard biological bounds. The
 coefficient 5.40/Amax is explicitly the **median**, not the arithmetic mean, so
 that half the prior probability lies on each side of the point estimate.
-Hamel and Cope also caution that Amax should be supported by adequate,
+Hamel and Cope (2022) also caution that Amax should be supported by adequate,
 representative and validated age sampling.
 
 `Amax = 15 years` and the MFCL reference `L(40.5 quarters)` have different
@@ -168,7 +171,8 @@ age class. Thus the first coefficient in row 5 of `age_pars` is `log(M0)` and
 the second is the length exponent. The Diagnostic values `-2.54930339768360`
 and `-1` produce `M0 = 0.078136` per quarter at age class 40.
 
-Hamel–Cope, however, derives an approximately age-invariant adult mortality
+The Hamel (2015) longevity framework, as updated for practical application by
+Hamel and Cope (2022), derives an approximately age-invariant adult mortality
 from longevity. It is therefore useful as external adult-M information but is
 not mathematically identical to MFCL `M0`. Following the published practice of
 scaling a Lorenzen curve so that its maturity-weighted adult mean equals the
@@ -181,8 +185,8 @@ longevity estimate, the Diagnostic growth curve, maturity ogive and exponent
 
 The `Amax = 15` prior consequently has a model-aligned `M0` median of 0.08082
 per quarter and a 95% interval of 0.04402–0.14838. This is close to the
-Diagnostic `M0 = 0.07814`. Ducharme-Barth et al. (2026) displayed the original
-Hamel–Cope curve directly against `M0`; the age-specific comparison in the
+Diagnostic `M0 = 0.07814`. Ducharme-Barth et al. (2026) displayed the
+longevity-prior curve directly against `M0`; the age-specific comparison in the
 report instead applies the above scale conversion and the same Diagnostic
 growth schedule to all three `M0` values, so the curves use the same parameter
 definition. The tag-analysis 90% interval is propagated over age using that
@@ -209,13 +213,14 @@ of 0.803491. The resulting 95% distribution interval is 0.05723–0.12016. The
 density approaches zero smoothly at both limits, avoiding the vertical edge
 created by truncating a distribution with positive boundary density.
 
-This selected distribution is therefore **not** described as the Hamel–Cope
-prior itself. It combines the tag result and the previous assessment, while the
-model-aligned longevity prior is used as an external plausibility check. The
+This selected distribution is therefore **not** the longevity prior of Hamel
+(2015), as updated by Hamel and Cope (2022). It combines the tag result and the
+previous assessment, while the model-aligned longevity prior is used as an
+external plausibility check. The
 mode and median are elicited synthesis choices rather than statistics reported
 by a single paper: 0.0702 is the requested midpoint of two assessment-relevant
 estimates, and 0.078136 retains the Diagnostic centre. The range endpoints were
-requested from the approximate Hamel–Cope adult-M 95% limits, but they are used
+requested from the approximate longevity-prior adult-M 95% limits, but they are used
 here only as finite ensemble controls; they are not asserted to be biological
 confidence bounds for MFCL `M0`. The 100 retained values are deterministic
 midpoints of equal-probability intervals (`p = 0.005, 0.015, ..., 0.995`). The
@@ -230,7 +235,8 @@ applied at model input.
 Sources:
 
 - [Ducharme-Barth et al. (2026), WCPFC-SC22-2026-SA-IP14](https://meetings.wcpfc.int/node/32286)
-- [Hamel and Cope (2022), longevity-based prior for natural mortality](https://doi.org/10.1016/j.fishres.2022.106477)
+- [Hamel (2015), meta-analytical prior for natural mortality using life-history correlates](https://doi.org/10.1093/icesjms/fsu131)
+- [Hamel and Cope (2022), updated development and application of the longevity-based prior](https://doi.org/10.1016/j.fishres.2022.106477)
 - [Hoyle (2021), scaling longevity-based adult M to a Lorenzen schedule](https://iotc.org/sites/default/files/documents/2021/10/IOTC-2021-WPTT23-08_Rev1_0.pdf)
 - [Andrews et al. (2024), WCPO tuna age validation](https://doi.org/10.1093/icesjms/fsae074)
 - [2023 WCPO bigeye stock assessment](https://meetings.wcpfc.int/node/19353)

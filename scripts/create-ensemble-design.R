@@ -73,7 +73,8 @@ m_upper95 <- qbounded_logit_normal(0.975)
 m_probability <- (seq_len(n_models) - 0.5) / n_models
 m_draw <- qbounded_logit_normal(m_probability)
 
-# Hamel-Cope estimates an age-invariant adult M from longevity, whereas MFCL
+# Hamel (2015), using the practical update of Hamel and Cope (2022), estimates
+# an age-invariant adult M from longevity, whereas MFCL
 # estimates M0 at L(40.5). Under the fixed -1 Lorenzen slope, the Diagnostic
 # growth curve and its maturity-at-age ogive imply that the maturity-weighted
 # mean adult M is 1.113625591117 * M0. Therefore the model-aligned equivalent
@@ -280,14 +281,16 @@ distribution_parameters <- data.frame(
   axis = c(
     rep("Steepness", 6L),
     rep("Ensemble quarterly M at reference length", 8L),
+    rep("Diagnostic growth", 4L),
     rep("Tag-analysis M0", 4L),
-    rep("Hamel-Cope Amax prior", 7L),
-    rep("Hamel-Cope model-aligned M0", 5L),
+    rep("Hamel (2015) / Hamel and Cope (2022) Amax prior", 7L),
+    rep("Hamel (2015) / Hamel and Cope (2022) model-aligned M0", 5L),
     rep("Design", 8L)
   ),
   parameter = c(
     "lower", "upper", "mean", "sd", "beta_alpha", "beta_beta",
     "lower", "upper", "mode", "median", "logit_mean", "logit_sd", "lower_95", "upper_95",
+    "mean_length_age_1_cm", "mean_length_age_40_cm", "kappa_quarterly", "age_classes",
     "estimate", "se", "lower_90", "upper_90",
     "amax_years", "annual_median", "quarterly_median", "quarterly_mean", "log_sd", "lower_95", "upper_95",
     "adult_mean_to_m0_divisor", "quarterly_median", "quarterly_mean", "lower_95", "upper_95",
@@ -298,6 +301,7 @@ distribution_parameters <- data.frame(
   value = c(
     h_lower, h_upper, h_mean, h_sd, h_alpha, h_beta,
     m_min, m_max, m_mode, m_median, m_logit_mean, m_logit_sd, m_lower95, m_upper95,
+    25.6823044190401, 156.433634113025, 0.0956168424103606, 40,
     m_tag_estimate, m_tag_se, m_tag_lower90, m_tag_upper90,
     m_hc_amax_years, m_hc_annual_median, m_hc_quarterly_median, m_hc_quarterly_mean,
     m_log_sd_hamel_cope, m_hc_lower95, m_hc_upper95,
@@ -316,8 +320,8 @@ m_evidence <- data.frame(
   source = c(
     "Ducharme-Barth et al. (2026) tag analysis",
     "2023 WCPO BET diagnostic",
-    "Hamel and Cope (2022), Amax = 15 years, adult M",
-    "Hamel and Cope (2022), Amax = 15 years, model-aligned M0",
+    "Hamel (2015), updated by Hamel and Cope (2022), Amax = 15 years, adult M",
+    "Hamel (2015), updated by Hamel and Cope (2022), Amax = 15 years, model-aligned M0",
     "Selected ensemble distribution"
   ),
   statistic = c("estimate", "point value", "median", "median", "median / mode"),
@@ -474,7 +478,7 @@ draw_publication_figure <- function() {
   abline(v = m_previous, col = blue, lwd = 1.4, lty = 3)
   legend("topright",
          legend = c("Actual 100 values", "Selected distribution",
-                    "Hamel-Cope, scaled to M0", "Tag estimate (90% CI)",
+                    "Hamel (2015); Hamel and Cope (2022), scaled to M0", "Tag estimate (90% CI)",
                     "2023 assessment"),
          col = c(orange, orange, grey, green, blue), lty = c(NA, 1, 2, 1, 3),
          lwd = c(NA, 2.0, 1.6, 2.2, 1.4), pch = c(15, NA, NA, 19, NA),

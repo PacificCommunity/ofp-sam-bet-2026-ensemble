@@ -40,6 +40,9 @@ report_required <- c(
   "All-region projection trajectories", "All-region spawning depletion",
   "spawning potential in thousand metric tonnes",
   "Scope",
+  "10.1093/icesjms/fsu131",
+  "10.1016/j.fishres.2022.106477",
+  "framework of Hamel 2015, updated practical formulation of Hamel and Cope 2022",
   "retained 34 inclusion models and 46 exclusion models",
   "data-report-tab='overview'", "data-report-tab='figures'",
   "data-report-tab='tables'", "id='figures-list'", "id='tables-list'",
@@ -114,7 +117,10 @@ if (grepl("<img[^>]+src=['\"](?!data:)", report, ignore.case = TRUE, perl = TRUE
 
 manifest <- read.csv(manifest_file, check.names = FALSE)
 expected <- list.files(output_dir, recursive = TRUE, full.names = FALSE)
-expected <- sort(expected[expected != "report-manifest.csv"])
+expected <- sort(expected[
+  expected != "report-manifest.csv" &
+    !grepl("[.]pre-rev1-root-owned$", expected)
+])
 if (!identical(manifest$file, expected) || anyDuplicated(manifest$file)) {
   stop("The final report manifest does not enumerate every output exactly once.")
 }
