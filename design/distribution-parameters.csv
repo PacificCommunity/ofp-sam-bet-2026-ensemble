@@ -13,6 +13,10 @@
 "Ensemble quarterly M at reference length","logit_sd",0.803491153479678
 "Ensemble quarterly M at reference length","lower_95",0.0572276723066398
 "Ensemble quarterly M at reference length","upper_95",0.120155781738336
+"Diagnostic growth","mean_length_age_1_cm",25.6823044190401
+"Diagnostic growth","mean_length_age_40_cm",156.433634113025
+"Diagnostic growth","kappa_quarterly",0.0956168424103606
+"Diagnostic growth","age_classes",40
 "Tag-analysis M0","estimate",0.0624
 "Tag-analysis M0","se",0.0076
 "Tag-analysis M0","lower_90",0.05

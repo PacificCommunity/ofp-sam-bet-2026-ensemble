@@ -97,6 +97,17 @@ positive-mixing events receive flag 2 = 0. The source mixing periods themselves
 are not altered, and the number of compatibility exclusions is recorded for
 every design row.
 
+The planned design was balanced (50 inclusion and 50 exclusion models), but
+only 34 inclusion models were retained compared with 46 exclusion models. This
+imbalance reflects differential numerical stability, not unequal design
+weights. In the MFCL pre-mixing calculation, inclusion reconstructs tag catches
+by dividing by the estimated reporting rate (with a small numerical offset).
+Very small reporting rates can therefore generate large intermediate values
+and numerical overflow. The MFCL manual similarly cautions that reporting rates
+may be poorly determined during mixing and recommends excluding them from this
+calculation. The reporting-rate treatment remains an uncertainty axis, while
+the unequal retention is reported explicitly rather than reweighted away.
+
 ## Natural mortality
 
 The sampled parameter is quarterly `M0` at the Lorenzen reference length
@@ -171,8 +182,11 @@ longevity estimate, the Diagnostic growth curve, maturity ogive and exponent
 The `Amax = 15` prior consequently has a model-aligned `M0` median of 0.08082
 per quarter and a 95% interval of 0.04402–0.14838. This is close to the
 Diagnostic `M0 = 0.07814`. Ducharme-Barth et al. (2026) displayed the original
-Hamel–Cope curve directly against `M0`; the present figure instead applies the
-above scale conversion so both curves use the same parameter definition.
+Hamel–Cope curve directly against `M0`; the age-specific comparison in the
+report instead applies the above scale conversion and the same Diagnostic
+growth schedule to all three `M0` values, so the curves use the same parameter
+definition. The tag-analysis 90% interval is propagated over age using that
+same fixed Lorenzen shape.
 
 The WCPO evidence supports 15 years as a plausible working longevity, but the
 strength of that evidence should be stated precisely. Bomb-radiocarbon work

@@ -526,6 +526,101 @@ m_panel <- ggplot2::ggplot(
     y = "Models per bin"
   ) + theme_report(10.4)
 
+# Standalone age-specific comparison used by the assessment report. All three
+# curves use the Diagnostic growth schedule and fixed Lorenzen exponent (-1),
+# so they differ only in the M0 evidence applied at the reference length.
+m_diagnostic <- parameter_value("Ensemble quarterly M at reference length", "median")
+m_hamel_cope <- parameter_value("Hamel-Cope model-aligned M0", "quarterly_median")
+growth_l1 <- parameter_value("Diagnostic growth", "mean_length_age_1_cm")
+growth_l40 <- parameter_value("Diagnostic growth", "mean_length_age_40_cm")
+growth_kappa <- parameter_value("Diagnostic growth", "kappa_quarterly")
+n_age <- as.integer(parameter_value("Diagnostic growth", "age_classes"))
+age_class <- seq_len(n_age)
+growth_rho <- exp(-growth_kappa)
+relative_growth <- (1 - growth_rho^(age_class - 1)) / (1 - growth_rho^(n_age - 1))
+mean_length_at_age <- growth_l1 + (growth_l40 - growth_l1) * relative_growth
+lorenzen_shape <- growth_l40 / mean_length_at_age
+m_age <- rbind(
+  data.frame(
+    age_years = (age_class - 1) / 4,
+    mortality = m_diagnostic * lorenzen_shape,
+    evidence = "2026 diagnostic"
+  ),
+  data.frame(
+    age_years = (age_class - 1) / 4,
+    mortality = m_hamel_cope * lorenzen_shape,
+    evidence = "Hamel–Cope, model-aligned"
+  ),
+  data.frame(
+    age_years = (age_class - 1) / 4,
+    mortality = m_tag * lorenzen_shape,
+    evidence = "Tag estimate"
+  )
+)
+m_age$evidence <- factor(
+  m_age$evidence,
+  levels = c("2026 diagnostic", "Hamel–Cope, model-aligned", "Tag estimate")
+)
+m_tag_age_interval <- data.frame(
+  age_years = (age_class - 1) / 4,
+  lower = m_tag_lower * lorenzen_shape,
+  upper = m_tag_upper * lorenzen_shape
+)
+m_evidence_panel <- ggplot2::ggplot() +
+  ggplot2::geom_ribbon(
+    data = m_tag_age_interval,
+    ggplot2::aes(.data$age_years, ymin = .data$lower, ymax = .data$upper),
+    fill = "#75C7B0", alpha = 0.20
+  ) +
+  ggplot2::geom_line(
+    data = m_age,
+    ggplot2::aes(
+      .data$age_years, .data$mortality,
+      colour = .data$evidence, linetype = .data$evidence
+    ),
+    linewidth = 1.05, lineend = "round"
+  ) +
+  ggplot2::scale_colour_manual(
+    values = c(
+      "2026 diagnostic" = "#0B5267",
+      "Hamel–Cope, model-aligned" = "#D66B00",
+      "Tag estimate" = "#168C67"
+    ),
+    name = NULL,
+    guide = ggplot2::guide_legend(
+      nrow = 1, byrow = TRUE,
+      override.aes = list(
+        linewidth = c(1.25, 1.05, 1.05),
+        linetype = c("solid", "22", "42")
+      )
+    )
+  ) +
+  ggplot2::scale_linetype_manual(
+    values = c(
+      "2026 diagnostic" = "solid",
+      "Hamel–Cope, model-aligned" = "22",
+      "Tag estimate" = "42"
+    ), name = NULL, guide = "none"
+  ) +
+  ggplot2::scale_y_continuous(
+    limits = c(0, NA), expand = ggplot2::expansion(mult = c(0, 0.035))
+  ) +
+  ggplot2::scale_x_continuous(
+    breaks = seq(0, 10, by = 2),
+    expand = ggplot2::expansion(mult = c(0.01, 0.01))
+  ) +
+  ggplot2::labs(
+    x = "Age (years)",
+    y = expression("Quarterly natural mortality,"~italic(M)[a]~(quarter^{-1}))
+  ) +
+  theme_report(10.8) +
+  ggplot2::theme(
+    legend.position = "bottom",
+    legend.box = "horizontal",
+    legend.key.width = grid::unit(1.15, "cm"),
+    legend.text = ggplot2::element_text(size = 8.7)
+  )
+
 count_panel <- function(planned, retained, column, x_label, fill, levels = NULL) {
   count_set <- function(data, set_label) {
     x <- data[[column]]
@@ -615,6 +710,9 @@ save_plot <- function(plot, stem, width = 7.1, height = 8.8) {
 figures <- list(
   design = save_plot(
     design_plot, "ensemble-design-retention", height = 7.5
+  ),
+  natural_mortality = save_plot(
+    m_evidence_panel, "natural-mortality-evidence", width = 7.1, height = 5.2
   )
 )
 unlink(file.path(figure_dir, paste0("convergence-hessian-qc", c(".png", ".pdf"))))
@@ -784,7 +882,7 @@ figure_card <- function(id, title, caption, latex_caption, files) {
   paste0(
     "<section class='figure-card' id='", id, "'><h2>", title, "</h2>",
     "<img src='", image_uri(files[["png"]]), "' alt='", html_escape(title), "'>",
-    "<p class='caption'><strong>Figure XX.</strong> ", caption, "</p>",
+    "<p class='caption'><strong>Figure.</strong> ", caption, "</p>",
     "<div class='actions'><button onclick=\"copyText('cap-", id, "',this)\">Copy caption</button>",
     "<a download='", basename(files[["png"]]), "' href='", image_uri(files[["png"]]), "'>Save PNG</a>",
     "<a href='figures/", basename(files[["pdf"]]), "'>Open vector PDF</a>",
@@ -806,6 +904,9 @@ captions <- list(
   ),
   design = paste0(
     "Realized inputs for the 80 retained models. Histograms and bars show included fits only. Continuous curves show the specified steepness and natural-mortality distributions; the dashed natural-mortality curve is the Hamel–Cope adult-mortality prior transformed to the assessment-model <i>M</i><sub>0</sub> scale, and the green point and interval show the tag-based estimate and 90% confidence interval."
+  ),
+  natural_mortality = paste0(
+    "Age-specific quarterly natural mortality obtained by applying three assessment-relevant <i>M</i><sub>0</sub> values to the same 2026 Diagnostic growth schedule and fixed Lorenzen exponent (−1). Curves show the Diagnostic value (0.07814), the model-aligned Hamel–Cope median (0.08082), and the Ducharme-Barth et al. (2026) tag estimate (0.0624). Shading is the tag estimate's 90% confidence interval (0.0500–0.0749) propagated over age."
   )
 )
 
@@ -821,6 +922,9 @@ latex_captions <- list(
   ),
   design = paste0(
     "Realized inputs for the 80 retained models. Histograms and bars show included fits only. Continuous curves show the specified steepness and natural-mortality distributions; the dashed natural-mortality curve is the Hamel--Cope adult-mortality prior transformed to the assessment-model $M_0$ scale, and the green point and interval show the tag-based estimate and 90\\% confidence interval."
+  ),
+  natural_mortality = paste0(
+    "Age-specific quarterly natural mortality obtained by applying three assessment-relevant $M_0$ values to the same 2026 Diagnostic growth schedule and fixed Lorenzen exponent ($-1$). Curves show the Diagnostic value (0.07814), the model-aligned Hamel--Cope median (0.08082), and the Ducharme-Barth et al. (2026) tag estimate (0.0624). Shading is the tag estimate's 90\\% confidence interval (0.0500--0.0749) propagated over age."
   )
 )
 
@@ -889,9 +993,11 @@ html <- paste0(
   "<article class='method'><h3>Management quantities</h3><p><i>SB</i><sub>recent</sub> uses 2021–2024, <i>SB</i><sub><i>F</i>=0</sub> 2014–2023 and <i>F</i><sub>recent</sub> 2020–2023. The LRP is 0.2<i>SB</i><sub><i>F</i>=0</sub>; MSY reference points are model-specific equilibrium quantities. Projected depletion is the rolling four-year biomass mean divided by the preceding ten-year unfished mean.</p></article>",
   "<article class='method'><h3>Intervals</h3><p>One-dimensional results report the median and central 80% equal-tailed interval; 50% and 95% bands are supplementary. Kobe and Majuro plots use two-dimensional 50%, 80% and 95% kernel highest-density regions.</p></article>",
   "<article class='method'><h3>Scope</h3><p>Hessian intervals are first-order normal approximations. Regional results cover Regions 1–5, with the stock-wide LRP shown only as a reference. Axis summaries are descriptive; no causal attribution, variance decomposition or posterior correlation analysis is made.</p></article></div>",
+  "<div class='note'><strong>Pre-mixing reporting-rate stability.</strong> The design assigned 50 models to each treatment, but retained 34 inclusion models and 46 exclusion models. MFCL reconstructs pre-mixing tag catches under inclusion by dividing by the estimated reporting rate; rates approaching zero can create very large intermediate values and numerical overflow. The MFCL manual therefore cautions that these rates may be poorly determined during mixing and recommends exclusion. The imbalance is interpreted as differential numerical stability, not as an intended difference in model weight.</div>",
   "<div id='analysis-results'></div>",
   "<h2 id='supplementary-material'>Supporting outputs</h2><p>Ensemble-design, uncertainty-axis, regional and projection outputs are organized in the Figures and Tables tabs.</p>",
   figure_card("ensemble-design", "Planned and retained ensemble inputs", captions$design, latex_captions$design, figures$design),
+  figure_card("natural-mortality-evidence", "Natural-mortality evidence", captions$natural_mortality, latex_captions$natural_mortality, figures$natural_mortality),
   "<section class='refs'><h2>References</h2><ol>",
   "<li><a href='https://meetings.wcpfc.int/system/files/2023-09/SC19-SA-WP-05_BET_2023_Rev2%20%28Posted%20on%2015Sep2023%29.pdf'>2023 WCPO bigeye tuna stock assessment</a>.</li>",
   "<li><a href='https://meetings.wcpfc.int/system/files/2023-12/WCPFC20-2023-15_Rev01_CMM_2021-01_eval_SPC-OFP%20-%20rev1%20%287%20Dec%202023%29.pdf'>2023 bigeye assessment projections and tropical-tuna measure evaluation</a>.</li>",
@@ -904,7 +1010,7 @@ html <- paste0(
   "</ol></section></section>",
   "<section class='report-panel' id='figures-panel' data-report-panel='figures'><h2>Figures</h2><p class='panel-intro'>Publication figures are grouped here once, with report-ready captions and PNG and vector-PDF downloads.</p><div class='output-list' id='figures-list'></div></section>",
   "<section class='report-panel' id='tables-panel' data-report-panel='tables'><h2>Tables</h2><p class='panel-intro'>Report tables are grouped here once, with Word, LaTeX and CSV outputs.</p><div class='output-list' id='tables-list'></div></section>",
-  "<script>function copyText(id,button){const x=document.getElementById(id);navigator.clipboard.writeText(x.value).then(()=>{const old=button.textContent;button.textContent='Copied';button.classList.add('copied');setTimeout(()=>{button.textContent=old;button.classList.remove('copied')},1400);});}function setReportTab(name,scroll=true){document.querySelectorAll('[data-report-tab]').forEach(button=>button.classList.toggle('active',button.dataset.reportTab===name));document.querySelectorAll('[data-report-panel]').forEach(panel=>panel.classList.toggle('active',panel.dataset.reportPanel===name));history.replaceState(null,'','#'+name);if(scroll)window.scrollTo({top:0,behavior:'smooth'});}function organizeReportOutputs(){const figures=document.getElementById('figures-list'),tables=document.getElementById('tables-list');document.querySelectorAll('.figure-card').forEach(card=>figures.appendChild(card));document.querySelectorAll('.table-card').forEach(card=>tables.appendChild(card));document.querySelectorAll('[data-report-tab]').forEach(button=>button.addEventListener('click',()=>setReportTab(button.dataset.reportTab)));const requested=location.hash.slice(1);setReportTab(['overview','figures','tables'].includes(requested)?requested:'overview',false);}document.addEventListener('DOMContentLoaded',organizeReportOutputs);</script>",
+  "<script>function copyText(id,button){const x=document.getElementById(id);navigator.clipboard.writeText(x.value).then(()=>{const old=button.textContent;button.textContent='Copied';button.classList.add('copied');setTimeout(()=>{button.textContent=old;button.classList.remove('copied')},1400);});}function setReportTab(name,scroll=true,updateHash=true){document.querySelectorAll('[data-report-tab]').forEach(button=>button.classList.toggle('active',button.dataset.reportTab===name));document.querySelectorAll('[data-report-panel]').forEach(panel=>panel.classList.toggle('active',panel.dataset.reportPanel===name));if(updateHash)history.replaceState(null,'','#'+name);if(scroll)window.scrollTo({top:0,behavior:'smooth'});}function organizeReportOutputs(){const figures=document.getElementById('figures-list'),tables=document.getElementById('tables-list');document.querySelectorAll('.figure-card').forEach(card=>figures.appendChild(card));document.querySelectorAll('.table-card').forEach(card=>tables.appendChild(card));document.querySelectorAll('[data-report-tab]').forEach(button=>button.addEventListener('click',()=>setReportTab(button.dataset.reportTab)));document.querySelectorAll(\"a[href^='http']\").forEach(a=>{a.target='_blank';a.rel='noopener noreferrer';});const requested=location.hash.slice(1);if(['overview','figures','tables'].includes(requested)){setReportTab(requested,false,false);return;}const target=requested?document.getElementById(requested):null;if(target){setReportTab(target.classList.contains('table-card')?'tables':'figures',false,false);setTimeout(()=>target.scrollIntoView({block:'start'}),0);}else{setReportTab('overview',false,false);}}document.addEventListener('DOMContentLoaded',organizeReportOutputs);</script>",
   "</main></body></html>"
 )
 

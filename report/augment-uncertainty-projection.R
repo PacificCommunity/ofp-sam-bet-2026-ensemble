@@ -205,7 +205,7 @@ word_table <- function(caption, data) {
 copy_table_block <- function(id, title, caption, display, latex) {
   paste0(
     "<section class='table-card' id='table-", id, "'><h2>", title,
-    "</h2><p><strong>Table XX.</strong> ", caption_math(caption), "</p>",
+    "</h2><p><strong>Table.</strong> ", caption_math(caption), "</p>",
     "<div class='actions'><button onclick=\"copyText('word-", id, "',this)\">Copy table for Word</button>",
     "<button onclick=\"copyText('latex-", id, "',this)\">Copy LaTeX</button>",
     "<a href='tables/", id, ".csv'>Download CSV</a></div>", html_table(display),
@@ -224,7 +224,7 @@ figure_block <- function(id, title, caption, latex_caption, files) {
   paste0(
     "<section class='figure-card' id='", id, "'><h2>", title, "</h2>",
     "<img src='", image_uri(files[["png"]]), "' alt='", html_escape(title), "'>",
-    "<p class='caption'><strong>Figure XX.</strong> ", caption_math(caption), "</p>",
+    "<p class='caption'><strong>Figure.</strong> ", caption_math(caption), "</p>",
     "<div class='actions'><button onclick=\"copyText('cap-", id, "',this)\">Copy caption</button>",
     "<a download='", basename(files[["png"]]), "' href='", image_uri(files[["png"]]), "'>Save PNG</a>",
     "<a href='figures/", basename(files[["pdf"]]), "'>Open vector PDF</a>",
