@@ -59,7 +59,7 @@ stopifnot(
   nrow(mixing_sources) == 7L,
   all(mixing_sources$source_branch == "SC22-IP10-regionMean"),
   all(mixing_sources$source_commit == "efe3107c72774ee73b5e6dc45e44cf51f0fc20e8"),
-  nrow(parameters) == 38L,
+  nrow(parameters) == 42L,
   parameters$value[parameters$parameter == "randomized_pairing_axes"] == 6,
   parameters$value[parameters$parameter == "pairing_map_rows"] == 100,
   parameters$value[parameters$parameter == "max_abs_spearman_limit"] == 0.10,
