@@ -44,6 +44,26 @@ annual_stock_total <- function(x) {
   stats::setNames(annual$value, annual$year)
 }
 
+period_mean_rolling_depletion <- function(
+    spawning, nofishing, target_years, nofishing_window = 10L) {
+  annual_depletion <- vapply(target_years, function(year) {
+    denominator_years <- seq.int(year - nofishing_window, year - 1L)
+    required_years <- as.character(c(year, denominator_years))
+    if (!all(required_years %in% names(spawning)) ||
+        !all(required_years %in% names(nofishing))) {
+      return(NA_real_)
+    }
+    denominator <- mean(nofishing[as.character(denominator_years)])
+    numerator <- spawning[[as.character(year)]]
+    if (!is.finite(numerator) || !is.finite(denominator) ||
+        numerator <= 0 || denominator <= 0) {
+      return(NA_real_)
+    }
+    numerator / denominator
+  }, numeric(1))
+  mean(annual_depletion)
+}
+
 scalar <- function(x, default = NA_real_) {
   value <- suppressWarnings(as.numeric(x)[[1]])
   if (length(value) && is.finite(value)) value else default
@@ -128,28 +148,40 @@ for (archive in sort(archive_files)) {
   sb0_recent <- mean(sb0[as.character(sb0_recent_years)], na.rm = TRUE)
   bmsy <- scalar(slot(rep, "BMSY"))
   fmult <- scalar(slot(rep, "Fmult"))
-  historical_target <- mean(
-    ts$depletion[match(historical_target_years, ts$year)]
+  # Keep the adopted LRP quantity (mean recent SB divided by the separate
+  # 2014--2023 mean SB_F=0) distinct from the CMM objective.  For each CMM
+  # year y, annual depletion is SB_y divided by mean SB_F=0 over y-10:y-1;
+  # the recent and historical quantities are arithmetic means of those D_y.
+  recent_mean_depletion <- period_mean_rolling_depletion(
+    sb, sb0, sb_recent_years
   )
-  if (!is.finite(historical_target)) {
-    stop(ensemble_id, ": incomplete 2012--2015 depletion history.")
+  historical_target <- period_mean_rolling_depletion(
+    sb, sb0, historical_target_years
+  )
+  if (!is.finite(recent_mean_depletion) || recent_mean_depletion <= 0) {
+    stop(ensemble_id, ": incomplete recent annual-depletion history.")
   }
-  recent_depletion <- sb_recent / sb0_recent
+  if (!is.finite(historical_target) || historical_target <= 0) {
+    stop(ensemble_id, ": incomplete 2012--2015 annual-depletion history.")
+  }
+  recent_sb_sb0 <- sb_recent / sb0_recent
   endpoint_rows[[ensemble_id]] <- data.frame(
     ensemble_id = ensemble_id,
     terminal_year = terminal_year,
     sb_recent_period = paste(range(sb_recent_years), collapse = "–"),
     sb0_recent_period = paste(range(sb0_recent_years), collapse = "–"),
+    recent_depletion_period = paste(range(sb_recent_years), collapse = "–"),
     f_recent_period = paste(range(f_recent_years), collapse = "–"),
     sb_recent_kt = sb_recent / 1000,
     sb0_recent_kt = sb0_recent / 1000,
-    sb_recent_sb0 = recent_depletion,
+    sb_recent_sb0 = recent_sb_sb0,
+    recent_mean_depletion = recent_mean_depletion,
     sb_recent_sbmsy = sb_recent / bmsy,
     f_recent_fmsy = 1 / fmult,
     historical_target_period = paste(range(historical_target_years), collapse = "–"),
     historical_target_depletion = historical_target,
-    recent_historical_target_ratio = recent_depletion / historical_target,
-    below_lrp_020 = recent_depletion < 0.20,
+    recent_historical_target_ratio = recent_mean_depletion / historical_target,
+    below_lrp_020 = recent_sb_sb0 < 0.20,
     below_sbmsy = sb_recent / bmsy < 1,
     above_fmsy = 1 / fmult > 1,
     stringsAsFactors = FALSE

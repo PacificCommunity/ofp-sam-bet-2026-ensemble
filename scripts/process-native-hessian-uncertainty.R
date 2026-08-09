@@ -226,17 +226,47 @@ annual_draws <- annual_draws[c(
   "spawning_potential_noeff", "recruitment"
 )]
 
+terminal_year <- max(years)
+recent_depletion_years <- (terminal_year - 3L):terminal_year
+historical_depletion_years <- 2012:2015
+depletion_target_years <- c(recent_depletion_years, historical_depletion_years)
+required_management_years <- unique(unlist(lapply(
+  depletion_target_years,
+  function(year) c(year, seq.int(year - 10L, year - 1L))
+)))
+if (!all(required_management_years %in% years)) {
+  stop("Point-estimate years do not cover the management periods for ", ensemble_id)
+}
+period_mean_rolling_depletion <- function(value, target_years) {
+  mean(vapply(target_years, function(year) {
+    numerator <- value$spawning_potential[value$year == year]
+    denominator <- mean(value$spawning_potential_noeff[
+      value$year %in% seq.int(year - 10L, year - 1L)
+    ])
+    numerator / denominator
+  }, numeric(1)))
+}
 draw_by_year <- split(annual_draws, annual_draws$draw)
 management_draws <- do.call(rbind, lapply(draw_by_year, function(value) {
-  recent_sb <- mean(value$spawning_potential[value$year %in% (max(years) - 3L):max(years)])
-  recent_sb0 <- mean(value$spawning_potential_noeff[
-    value$year %in% (max(years) - 10L):(max(years) - 1L)
+  recent_sb <- mean(value$spawning_potential[
+    value$year %in% recent_depletion_years
   ])
-  historical <- mean(value$depletion[value$year %in% 2012:2015])
+  recent_sb0 <- mean(value$spawning_potential_noeff[
+    value$year %in% (terminal_year - 10L):(terminal_year - 1L)
+  ])
+  # The CMM comparison averages D_y = SB_y / mean(SB_F=0,y-10:y-1), whereas
+  # sb_recent_sb0 retains the separate LRP numerator and denominator windows.
+  recent_mean_depletion <- period_mean_rolling_depletion(
+    value, recent_depletion_years
+  )
+  historical <- period_mean_rolling_depletion(
+    value, historical_depletion_years
+  )
   data.frame(
     sb_recent_sb0 = recent_sb / recent_sb0,
+    recent_mean_depletion = recent_mean_depletion,
     historical_target_depletion = historical,
-    recent_historical_target_ratio = (recent_sb / recent_sb0) / historical
+    recent_historical_target_ratio = recent_mean_depletion / historical
   )
 }))
 management_draws$ensemble_id <- ensemble_id
@@ -249,7 +279,8 @@ management_draws$f_recent_fmsy_native <- as.vector(
 )
 management_draws <- management_draws[c(
   "ensemble_id", "draw", "sb_recent_sb0", "sb_recent_sbmsy_native",
-  "f_recent_fmsy_native", "historical_target_depletion",
+  "f_recent_fmsy_native", "recent_mean_depletion",
+  "historical_target_depletion",
   "recent_historical_target_ratio"
 )]
 

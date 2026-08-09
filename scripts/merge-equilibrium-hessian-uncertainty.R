@@ -22,27 +22,41 @@ metadata_file <- args[[5L]]
 base <- readRDS(base_file)
 fit <- read.csv(fit_file, check.names = FALSE)
 # Enforce the official annual-depletion definition even when the base cache
-# predates that correction.  The two joint biomass draws are already retained.
+# predates that correction.  Schema 1.2 also separates the rolling LRP biomass
+# ratio from the CMM comparison of period-mean annual depletion.  The two joint
+# biomass draws are already retained, so both corrections are exact.
 base$annual_draws$depletion <- with(
   base$annual_draws, spawning_potential / spawning_potential_noeff
 )
 draw_groups <- split(base$annual_draws, interaction(
   base$annual_draws$ensemble_id, base$annual_draws$draw, drop = TRUE
 ))
+period_mean_rolling_depletion <- function(value, target_years) {
+  mean(vapply(target_years, function(year) {
+    numerator <- value$spawning_potential[value$year == year]
+    denominator <- mean(value$spawning_potential_noeff[
+      value$year %in% seq.int(year - 10L, year - 1L)
+    ])
+    numerator / denominator
+  }, numeric(1)))
+}
 management_correction <- do.call(rbind, lapply(draw_groups, function(value) {
   terminal_year <- max(value$year)
+  recent_years <- (terminal_year - 3L):terminal_year
   recent_sb <- mean(value$spawning_potential[
-    value$year %in% (terminal_year - 3L):terminal_year
+    value$year %in% recent_years
   ])
   recent_sb0 <- mean(value$spawning_potential_noeff[
     value$year %in% (terminal_year - 10L):(terminal_year - 1L)
   ])
-  historical <- mean(value$depletion[value$year %in% 2012:2015])
+  recent_mean_depletion <- period_mean_rolling_depletion(value, recent_years)
+  historical <- period_mean_rolling_depletion(value, 2012:2015)
   data.frame(
     ensemble_id = value$ensemble_id[[1L]], draw = value$draw[[1L]],
     sb_recent_sb0 = recent_sb / recent_sb0,
+    recent_mean_depletion = recent_mean_depletion,
     historical_target_depletion = historical,
-    recent_historical_target_ratio = (recent_sb / recent_sb0) / historical
+    recent_historical_target_ratio = recent_mean_depletion / historical
   )
 }))
 management_correction <- management_correction[order(
@@ -61,7 +75,7 @@ if (anyDuplicated(base_keys) || anyDuplicated(correction_keys) ||
   stop("Base Hessian draw keys do not align.", call. = FALSE)
 }
 for (name in c(
-  "sb_recent_sb0", "historical_target_depletion",
+  "sb_recent_sb0", "recent_mean_depletion", "historical_target_depletion",
   "recent_historical_target_ratio"
 )) base$management_draws[[name]] <- management_correction[[name]]
 pdh_ids <- sort(fit$ensemble_id[as.logical(fit$positive_definite_hessian)])
@@ -94,7 +108,7 @@ if (nrow(management) != nrow(base$management_draws)) {
   stop("The exact management draws did not join one-to-one.", call. = FALSE)
 }
 
-base$schema_version <- "1.1.0"
+base$schema_version <- "1.2.0"
 base$created_utc <- format(Sys.time(), tz = "UTC", usetz = TRUE)
 base$method <- paste(
   "For each positive-definite Hessian, a single joint parameter draw is",

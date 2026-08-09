@@ -1,0 +1,4 @@
+"Quantity","Aggregation","Models","Value"
+"Mean annual spawning depletion, 2021–2024","Arithmetic mean across 80 central models",80,0.27831217439783
+"Mean annual spawning depletion, 2012–2015","Arithmetic mean across 80 central models",80,0.287776359260905
+"Recent-to-2012–2015 spawning depletion ratio","Ratio of the preceding two arithmetic means",80,0.967112709023834

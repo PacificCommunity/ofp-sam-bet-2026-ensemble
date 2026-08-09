@@ -250,8 +250,7 @@ near_annual <- merge(
 hybrid_annual <- rbind(pdh_annual, near_annual[names(pdh_annual)])
 
 management_columns <- c(
-  "sb_recent_sb0", "sb_recent_sbmsy", "f_recent_fmsy",
-  "historical_target_depletion", "recent_historical_target_ratio"
+  "sb_recent_sb0", "sb_recent_sbmsy", "f_recent_fmsy"
 )
 if (!all(management_columns %in% names(hessian$management_draws))) {
   stop("The exact estimation-inclusive management quantities are unavailable.")
@@ -269,19 +268,90 @@ near_management <- merge(
 )
 hybrid_management <- rbind(pdh_management, near_management[names(pdh_management)])
 
+# The recent-to-2012--2015 spawning depletion ratio uses all 80 retained
+# central models.  It
+# is deliberately kept separate from the Hessian-draw distribution below,
+# because defensible estimation draws are available only for the PDH subset.
+cmm_recent_mean <- mean(management$recent_mean_depletion)
+cmm_historical_mean <- mean(management$historical_target_depletion)
+cmm_ratio_of_means <- cmm_recent_mean / cmm_historical_mean
+if (any(!is.finite(c(
+  cmm_recent_mean, cmm_historical_mean, cmm_ratio_of_means
+)))) {
+  stop("The 80-model recent-to-2012--2015 spawning depletion ratio is unavailable.")
+}
+cmm_comparison_numeric <- data.frame(
+  Quantity = c(
+    "Mean annual spawning depletion, 2021–2024",
+    "Mean annual spawning depletion, 2012–2015",
+    "Recent-to-2012–2015 spawning depletion ratio"
+  ),
+  Aggregation = c(
+    "Arithmetic mean across 80 central models",
+    "Arithmetic mean across 80 central models",
+    "Ratio of the preceding two arithmetic means"
+  ),
+  Models = length(included_ids),
+  Value = c(cmm_recent_mean, cmm_historical_mean, cmm_ratio_of_means),
+  check.names = FALSE
+)
+write.csv(
+  cmm_comparison_numeric,
+  file.path(table_dir, "cmm-depletion-comparison.csv"), row.names = FALSE
+)
+cmm_comparison_display <- cmm_comparison_numeric
+cmm_comparison_display$Value <- sprintf("%.3f", cmm_comparison_display$Value)
+cmm_comparison_caption <-
+  "Recent spawning depletion relative to the 2012–2015 average"
+cmm_latex_quantity <- c(
+  "$\\overline{D}_{2021--2024}$",
+  "$\\overline{D}_{2012--2015}$",
+  "$E(\\overline{D}_{2021--2024})/E(\\overline{D}_{2012--2015})$"
+)
+cmm_comparison_rows <- vapply(seq_len(nrow(cmm_comparison_display)), function(i) {
+  paste0(
+    paste(c(
+      cmm_latex_quantity[[i]],
+      latex_escape(cmm_comparison_display$Aggregation[[i]]),
+      cmm_comparison_display$Models[[i]],
+      cmm_comparison_display$Value[[i]]
+    ), collapse = " & "),
+    " \\\\"
+  )
+}, character(1))
+cmm_comparison_latex <- paste0(
+  "% Requires \\usepackage{booktabs,tabularx}\n",
+  "\\begin{table}[htbp]\n\\centering\n\\caption{",
+  latex_escape(cmm_comparison_caption), "}\n",
+  "\\small\n\\begin{tabularx}{\\textwidth}{@{}lXrr@{}}\n",
+  "\\toprule\nQuantity & Aggregation & Models & Value \\\\\n\\midrule\n",
+  paste(cmm_comparison_rows, collapse = "\n"),
+  "\n\\bottomrule\n\\end{tabularx}\n\\end{table}"
+)
+
+cmm_comparison_note <- sprintf(
+  paste0(
+    "<div class='definition'><strong>Recent-to-2012–2015 spawning depletion ratio.</strong> ",
+    "CMM 2025-02 contains an objective to maintain the spawning biomass depletion ratio at or above the average ",
+    "<i>SB</i>/<i>SB</i><sub><i>F</i>=0</sub> for 2012–2015. Annual <i>D</i><sub><i>y</i></sub> is ",
+    "<i>SB</i><sub><i>y</i></sub> divided by mean <i>SB</i><sub><i>F</i>=0</sub> over years ",
+    "<i>y</i>−10 through <i>y</i>−1, excluding year <i>y</i>. Across the 80 central models and excluding ",
+    "estimation uncertainty, the arithmetic means are %.3f for 2021–2024 and %.3f for 2012–2015; ",
+    "the recent-to-2012–2015 spawning depletion ratio is %.3f, so stock status is slightly below the objective.</div>"
+  ),
+  cmm_recent_mean, cmm_historical_mean, cmm_ratio_of_means
+)
+
 management_uncertainty_values <- lapply(
   management_columns, function(column) hybrid_management[[column]]
 )
 management_uncertainty_numeric <- data.frame(
   Quantity = c(
-    "SBrecent / SBF=0", "SBrecent / SBMSY", "Frecent / FMSY",
-    "Mean depletion, 2012–2015",
-    "Recent / 2012–2015 depletion"
+    "SBrecent / SBF=0", "SBrecent / SBMSY", "Frecent / FMSY"
   ),
   Period = c(
     "2021–2024 / 2014–2023", "2021–2024 / equilibrium SBMSY",
-    "2020–2023 / equilibrium FMSY", "2012–2015",
-    "Recent / 2012–2015"
+    "2020–2023 / equilibrium FMSY"
   ),
   `2.5%` = vapply(management_uncertainty_values, stats::quantile, numeric(1), probs = 0.025, names = FALSE),
   `10%` = vapply(management_uncertainty_values, stats::quantile, numeric(1), probs = 0.10, names = FALSE),
@@ -317,16 +387,15 @@ write.csv(
   file.path(table_dir, "estimation-management-summary.csv"), row.names = FALSE
 )
 management_uncertainty_caption <- paste0(
-  "Management quantities from the equal-model-weight structural mixture with available Hessian estimation uncertainty. ",
+  "LRP- and MSY-based management quantities from the equal-model-weight structural mixture with available Hessian estimation uncertainty. ",
   "Each of 62 PDH models contributes 100 joint Hessian draws; each of 18 Near-PDH models contributes its central estimate with equal total model weight. ",
+  "The LRP statistic is mean spawning biomass for 2021–2024 divided by mean unfished spawning biomass for 2014–2023. ",
   "Values are the median and central 50%, 80% and 95% equal-tailed intervals; the 80% interval is primary. Estimation uncertainty is unavailable for the Near-PDH fits."
 )
 management_latex_quantity <- c(
   "$SB_{\\mathrm{recent}}/SB_{F=0}$",
   "$SB_{\\mathrm{recent}}/SB_{MSY}$",
-  "$F_{\\mathrm{recent}}/F_{MSY}$",
-  "$\\overline{D}_{2012--2015}$",
-  "$D_{\\mathrm{recent}}/\\overline{D}_{2012--2015}$"
+  "$F_{\\mathrm{recent}}/F_{MSY}$"
 )
 management_uncertainty_rows <- vapply(seq_len(nrow(management_uncertainty_display)), function(i) {
   remainder <- vapply(management_uncertainty_display[i, -1L], latex_escape, character(1))
@@ -344,13 +413,12 @@ management_uncertainty_latex <- paste0(
 management_risk_numeric <- data.frame(
   Criterion = c(
     "SBrecent/SBF=0 < 0.20", "SBrecent/SBMSY < 1",
-    "Frecent/FMSY > 1", "Recent depletion below 2012–2015 objective"
+    "Frecent/FMSY > 1"
   ),
   Probability = c(
     mean(hybrid_management$sb_recent_sb0 < 0.20),
     mean(hybrid_management$sb_recent_sbmsy < 1),
-    mean(hybrid_management$f_recent_fmsy > 1),
-    mean(hybrid_management$recent_historical_target_ratio < 1)
+    mean(hybrid_management$f_recent_fmsy > 1)
   ),
   check.names = FALSE
 )
@@ -363,14 +431,13 @@ management_risk_display$Probability <- scales::percent(
   management_risk_display$Probability, accuracy = 0.1
 )
 management_risk_caption <- paste0(
-  "Status probabilities and the model-specific 2012–2015 depletion objective. ",
+  "Status probabilities for the LRP and MSY-based reference points. ",
   "They use the same equal-model-weight mixture as the management summary: Hessian estimation uncertainty is included for the 62 retained PDH models, while the 18 retained Near-PDH models are represented by point estimates."
 )
 management_risk_latex_criterion <- c(
   "$SB_{\\mathrm{recent}}/SB_{F=0}<0.20$",
   "$SB_{\\mathrm{recent}}/SB_{\\mathrm{MSY}}<1$",
-  "$F_{\\mathrm{recent}}/F_{\\mathrm{MSY}}>1$",
-  "$D_{\\mathrm{recent}}<\\overline{D}_{2012--2015}$"
+  "$F_{\\mathrm{recent}}/F_{\\mathrm{MSY}}>1$"
 )
 management_risk_rows <- vapply(seq_len(nrow(management_risk_display)), function(i) {
   paste0(
@@ -1158,12 +1225,10 @@ historical_depletion <- summarise_by(
 )
 historical_spawning <- summarise_by(series, "spawning_potential")
 proj_risk <- stats::aggregate(
-  cbind(below_lrp_020, below_historical_objective) ~ year,
+  below_lrp_020 ~ year,
   data = projection_management$projected, FUN = mean
 )
-names(proj_risk)[2:3] <- c(
-  "probability_below_lrp", "probability_below_historical_objective"
-)
+names(proj_risk)[[2L]] <- "simulation_frequency_below_lrp"
 
 terminal_depletion_rank <- projection_management$projected[
   projection_management$projected$year == max(projection$projection_years),
@@ -1363,31 +1428,20 @@ p_proj_depletion <- projection_panel(
 )
 p_proj_spawning <- projection_panel(
   historical_spawning, proj_spawning_summary,
-  expression(Spawning~potential~(10^3~plain(MT))), FALSE,
+  expression(Spawning~potential~(10^3~plain(t))), FALSE,
   representative_historical_spawning, representative_projection_spawning
 )
-p_proj_risk <- ggplot2::ggplot(proj_risk, ggplot2::aes(x = .data$year)) +
+p_proj_risk <- ggplot2::ggplot(
+  proj_risk,
+  ggplot2::aes(x = .data$year, y = .data$simulation_frequency_below_lrp)
+) +
   ggplot2::geom_line(
-    ggplot2::aes(
-      y = .data$probability_below_lrp,
-      colour = "Below LRP"
-    ), linewidth = 0.92
-  ) +
-  ggplot2::geom_line(
-    ggplot2::aes(
-      y = .data$probability_below_historical_objective,
-      colour = "Below 2012–2015 objective"
-    ), linewidth = 0.92
-  ) +
-  ggplot2::scale_colour_manual(
-    values = c(
-      "Below LRP" = "#A62929",
-      "Below 2012–2015 objective" = "#D0791E"
-    ), name = NULL
+    colour = "#A62929", linewidth = 0.92
   ) +
   ggplot2::scale_x_continuous(breaks = seq(2030, 2050, 10)) +
   ggplot2::scale_y_continuous(labels = scales::label_percent(accuracy = 1), limits = c(0, 1)) +
-  ggplot2::labs(x = "Year", y = "Probability below threshold") + theme_report(10.8)
+  ggplot2::labs(x = "Year", y = "Simulation frequency below LRP") +
+  theme_report(10.8)
 
 catch_msy <- projection$catch_msy
 catch_msy_summary <- summarise_by(catch_msy, "catch_msy")
@@ -1819,7 +1873,7 @@ regional_spawning_plot <- function(region_labels = "All regions") {
     ) +
     ggplot2::coord_cartesian(ylim = c(0, NA)) +
     ggplot2::labs(
-      x = "Year", y = "Spawning potential (thousand metric tonnes)"
+      x = "Year", y = expression(Spawning~potential~(10^3~plain(t)))
     ) + theme_report(10.8) +
     ggplot2::theme(
       legend.position = "bottom", legend.box = "vertical",
@@ -2102,7 +2156,7 @@ regional_depletion_plot <- ggplot2::ggplot() +
   ggplot2::coord_cartesian(ylim = c(0, NA)) +
   ggplot2::labs(
     x = "Year",
-    y = expression(Spawning~depletion~~italic(SB)[recent] / italic(SB)[italic(F) == 0])
+    y = expression(italic(SB)[recent] / italic(SB)[italic(F) == 0])
   ) + theme_report(10.8) +
   ggplot2::theme(
     legend.position = "bottom", legend.box = "vertical",
@@ -2114,14 +2168,7 @@ regional_depletion_plot <- ggplot2::ggplot() +
   )
 projection_stock_plot <- (regional_depletion_plot / spawning_all_regions_plot) +
   patchwork::plot_layout(guides = "collect", heights = c(1, 1)) +
-  patchwork::plot_annotation(
-    title = "All regions", tag_levels = "a",
-    theme = ggplot2::theme(
-      plot.title = ggplot2::element_text(
-        face = "bold", colour = "#183246", size = 13, hjust = 0.5
-      )
-    )
-  ) &
+  patchwork::plot_annotation(tag_levels = "a") &
   ggplot2::theme(
     legend.position = "bottom",
     legend.box = "vertical",
@@ -2155,9 +2202,8 @@ projection_display <- data.frame(
   `SBrecent/SBF=0 10%` = sprintf("%.3f", projection_summary$q10_depletion),
   `SBrecent/SBF=0 median` = sprintf("%.3f", projection_summary$median_depletion),
   `SBrecent/SBF=0 90%` = sprintf("%.3f", projection_summary$q90_depletion),
-  `Below LRP` = scales::percent(projection_summary$probability_below_lrp, accuracy = 0.1),
-  `Below 2012–2015 objective` = scales::percent(
-    projection_summary$probability_below_historical_objective, accuracy = 0.1
+  `Simulation frequency below LRP` = scales::percent(
+    projection_summary$simulation_frequency_below_lrp, accuracy = 0.1
   ),
   `Spawning potential median (10^3 MT)` = sprintf("%.1f", projection_summary$median_spawning),
   `Catch/MSY 10%` = sprintf("%.3f", projection_summary$q10),
@@ -2170,7 +2216,8 @@ write.csv(projection_display, file.path(table_dir, "projection-summary.csv"), ro
 projection_caption <- paste0(
   "Projected management quantities at selected years across ",
   projection$projection_complete_models,
-  " models and ten recruitment sequences per model. Depletion is the four-year mean spawning biomass divided by the preceding ten-year mean unfished spawning biomass; the LRP is 0.20. ",
+  " models and ten recruitment sequences per model. The reported SBrecent/SBF=0 columns and LRP comparison use the four-year mean spawning biomass divided by the preceding ten-year mean unfished spawning biomass. ",
+  "The below-LRP percentage is the simulation frequency across model–recruitment realizations. ",
   "Catches are fixed by fishery to their 2022–2024 means, and intervals exclude Hessian parameter uncertainty."
 )
 projection_rows <- vapply(seq_len(nrow(projection_display)), function(i) {
@@ -2179,8 +2226,8 @@ projection_rows <- vapply(seq_len(nrow(projection_display)), function(i) {
 projection_latex <- paste0(
   "% Requires \\usepackage{booktabs,tabularx}\n",
   "\\begin{table}[htbp]\n\\centering\n\\caption{", latex_escape(projection_caption), "}\n",
-  "\\scriptsize\n\\setlength{\\tabcolsep}{1.5pt}\n\\begin{tabularx}{\\textwidth}{@{}rrrrrrXrrr@{}}\n",
-  "\\toprule\nYear & $D$ 10\\% & $D$ median & $D$ 90\\% & Below LRP & Below objective & Spawning median ($10^3$ MT) & $C/MSY$ 10\\% & $C/MSY$ median & $C/MSY$ 90\\% \\\\\n\\midrule\n",
+  "\\scriptsize\n\\setlength{\\tabcolsep}{1.5pt}\n\\begin{tabularx}{\\textwidth}{@{}rrrrrXrrr@{}}\n",
+  "\\toprule\nYear & $SB_{recent}/SB_{F=0}$ 10\\% & Median & 90\\% & Simulation freq. below LRP & Spawning median ($10^3$ MT) & $C/MSY$ 10\\% & $C/MSY$ median & $C/MSY$ 90\\% \\\\\n\\midrule\n",
   paste(projection_rows, collapse = "\n"),
   "\n\\bottomrule\n\\end{tabularx}\n\\end{table}"
 )
@@ -2506,7 +2553,7 @@ plain_latex_caption <- function(value) {
 }
 
 current_status_caption <- paste0(
-  "Current status based on mean spawning biomass for 2021–2024 and mean fishing mortality for 2020–2023. Panel (a) is relative to SBMSY and FMSY; panel (b) uses depletion with an LRP of 0.20. ",
+  "Current status based on mean spawning biomass for 2021–2024 and mean fishing mortality for 2020–2023. Panel (a) is relative to SBMSY and FMSY; panel (b) uses the LRP statistic, mean 2021–2024 spawning biomass divided by mean 2014–2023 SBF=0, with an LRP of 0.20. ",
   "Points are the 80 central model estimates; filled and open symbols distinguish PDH and Near-PDH fits. Nested 50%, 80% and 95% HDRs combine structural uncertainty with available joint Hessian uncertainty. ",
   "Background colours follow the Kobe four-category and Majuro three-category definitions. Labels give the probability in each category from the same equal-model-weight distribution used for the combined HDRs."
 )
@@ -2515,40 +2562,44 @@ dynamic_status_caption <- paste0(
   "The axes are SBt/SBF=0,t and Ft/FMSY,t for Majuro, and SBt/SBMSY,t and Ft/FMSY,t for Kobe. Colour shows year and the outlined point marks 2024. The ensemble trajectory summarizes the 80 retained central models and therefore represents structural medians rather than Hessian estimation uncertainty."
 )
 continuous_axis_caption <- paste0(
-  "All-model uncertainty distributions of Frecent/FMSY (top) and SBrecent/SBF=0 (bottom), grouped by quartiles of steepness and natural mortality at the reference length. ",
+  "All-model uncertainty distributions of Frecent/FMSY (top) and the LRP statistic SBrecent/SBF=0 (bottom), grouped by quartiles of steepness and natural mortality at the reference length. ",
+  "The LRP statistic divides mean spawning biomass for 2021–2024 by mean unfished spawning biomass for 2014–2023. ",
   "Violin width represents density and the inset box shows the interquartile range and median. Each model has equal total weight; PDH models contribute joint Hessian draws and Near-PDH models contribute their central estimates. ",
   "Because all ensemble axes vary jointly, differences among groups are descriptive and not one-factor causal effects."
 )
 discrete_axis_a_caption <- paste0(
-  "All-model uncertainty distributions of Frecent/FMSY (top) and SBrecent/SBF=0 (bottom), grouped by fixed tag overdispersion and tag-mixing cutoff. ",
+  "All-model uncertainty distributions of Frecent/FMSY (top) and the LRP statistic SBrecent/SBF=0 (bottom), grouped by fixed tag overdispersion and tag-mixing cutoff. ",
+  "The LRP statistic divides mean spawning biomass for 2021–2024 by mean unfished spawning biomass for 2014–2023. ",
   "Each assessment model has equal total weight. Violins show density and boxes show the median and interquartile range; comparisons are marginal descriptions of a jointly varying ensemble."
 )
 discrete_axis_b_caption <- paste0(
-  "All-model uncertainty distributions of Frecent/FMSY (top) and SBrecent/SBF=0 (bottom), grouped by tag-reporting treatment and paired annual effort-creep rates. ",
+  "All-model uncertainty distributions of Frecent/FMSY (top) and the LRP statistic SBrecent/SBF=0 (bottom), grouped by tag-reporting treatment and paired annual effort-creep rates. ",
+  "The LRP statistic divides mean spawning biomass for 2021–2024 by mean unfished spawning biomass for 2014–2023. ",
   "Each assessment model has equal total weight. Violins show density and boxes show the median and interquartile range; comparisons are marginal descriptions rather than controlled one-factor sensitivities."
 )
 
 projection_key_caption <- paste0(
-  "Projection risk relative to the LRP and model-specific 2012–2015 objective (a), and current versus terminal F/FMSY (b). ",
+  "Projection simulation frequency below the LRP (a), and current versus terminal F/FMSY (b). ",
+  "The LRP statistic divides the four-year mean spawning biomass by the preceding ten-year mean unfished biomass. ",
   "Points in panel b are medians; dark, medium and light ranges are the central 50%, 80% and 95% intervals. ",
-  "Projected probabilities and the mean 2050–2053 F/FMSY combine model structure and stochastic recruitment without Hessian draws; current Frecent/FMSY includes available Hessian uncertainty."
+  "The LRP simulation frequency and mean 2050–2053 F/FMSY combine model structure and stochastic recruitment without Hessian draws; current Frecent/FMSY includes available Hessian uncertainty."
 )
 projection_catch_caption <- paste0(
   "Projected annual biomass catch relative to equilibrium MSY, 2025–2054. The median and central 50%, 80% and 95% intervals use all 800 model–recruitment realizations; ten thin lines show individual projection realizations. ",
   "Number-conditioned fisheries are converted using model-predicted mean weight; number and weight inputs are not summed."
 )
 terminal_status_caption <- paste0(
-  "Terminal Kobe (a) and Majuro (b) status for a projection ending in 2054 across 800 equally weighted model–recruitment combinations. Biomass is mean SB over 2051–2054; fishing mortality is averaged over 2050–2053 and divided by FMSY. Kobe biomass is relative to SBMSY, whereas Majuro depletion is relative to SBF=0 with an LRP of 0.20. ",
+  "Terminal Kobe (a) and Majuro (b) status for a projection ending in 2054 across 800 equally weighted model–recruitment combinations. Biomass is mean SB over 2051–2054; fishing mortality is averaged over 2050–2053 and divided by FMSY. Kobe biomass is relative to SBMSY, whereas the Majuro LRP statistic divides mean SB over 2051–2054 by the preceding ten-year mean SBF=0 and uses an LRP of 0.20. ",
   "Points are individual combinations, nested shading gives the 50%, 80% and 95% bivariate kernel HDRs, and labels give the percentage in each background category. Projection uncertainty includes model structure and stochastic recruitment, not Hessian parameter draws."
 )
 projection_stock_caption <- paste0(
-  "All-region spawning depletion (a) and spawning potential in thousand metric tonnes (b), joining estimates through 2024 to projections for 2025–2054. Depletion is the four-year mean spawning biomass divided by the preceding ten-year mean no-fishing biomass. Medians and central 50%, 80% and 95% intervals use all 800 model–recruitment realizations; ten thin lines show individual projection realizations. Historical intervals show structural uncertainty; projections add recruitment variability without Hessian parameter draws. The 0.20 line in panel a is the stock-wide LRP."
+  "All-region LRP depletion statistic (a) and spawning potential in thousand metric tonnes (b), joining estimates through 2024 to projections for 2025–2054. The LRP statistic is the four-year mean spawning biomass divided by the preceding ten-year mean no-fishing biomass. Medians and central 50%, 80% and 95% intervals use all 800 model–recruitment realizations; ten thin lines show individual projection realizations. Historical intervals show structural uncertainty; projections add recruitment variability without Hessian parameter draws. The 0.20 line in panel a is the stock-wide LRP."
 )
 
 catch_below_years <- sum(catch_msy_summary$median < 1)
 recovery_note <- sprintf(
   paste0(
-    "<div class='note'><strong>Recovery audit.</strong> Mean projected depletion in 2040 ranges from %.3f to %.3f across steepness quartiles. ",
+    "<div class='note'><strong>Recovery audit.</strong> The mean projected LRP depletion statistic in 2040 ranges from %.3f to %.3f across steepness quartiles. ",
     "The annual median Catch/MSY ranges from %.3f to %.3f and is below 1 in %d of 30 projection years. ",
     "The terminal <i>F</i><sub>2050–2053</sub>/<i>F</i><sub>MSY</sub> median is %.3f, with %s of model–recruitment combinations above 1. ",
     "These diagnostics show that the recovery trajectory is a result of the specified catch-conditioned scenario and stochastic recruitment; steepness modifies its magnitude but is not its sole cause. This is a scenario evaluation, not a management recommendation.</div>"
@@ -2562,6 +2613,8 @@ recovery_note <- sprintf(
 )
 
 main_insert <- paste0(
+  cmm_comparison_note,
+  copy_table_block("cmm-depletion-comparison", "Recent spawning depletion relative to the 2012–2015 average", cmm_comparison_caption, cmm_comparison_display, cmm_comparison_latex),
   figure_block("combined-uncertainty", "Structural and available estimation uncertainty", uncertainty_caption, uncertainty_latex_caption, uncertainty_files),
   copy_table_block("estimation-management-summary", "Management quantities with available estimation uncertainty", management_uncertainty_caption, management_uncertainty_display, management_uncertainty_latex),
   copy_table_block("estimation-management-risk", "Status probabilities with available estimation uncertainty", management_risk_caption, management_risk_display, management_risk_latex),
@@ -2609,6 +2662,7 @@ manifest_files <- c(
   ))),
   "tables/projection-summary.csv", "tables/fit-hessian-summary.csv",
   "tables/projection-terminal-management.csv",
+  "tables/cmm-depletion-comparison.csv",
   "tables/estimation-management-summary.csv",
   "tables/estimation-management-intervals.csv",
   "tables/estimation-management-risk.csv",

@@ -13,7 +13,7 @@ required <- c(
     "estimation-management-risk.csv", "projection-summary.csv",
     "projection-terminal-management.csv", "fit-hessian-summary.csv",
     "structural-reference-points.csv", "estimation-uncertainty-audit.csv",
-    "model-id-map.csv"
+    "model-id-map.csv", "cmm-depletion-comparison.csv"
   ))
 )
 if (any(!file.exists(required))) stop("The rendered public report is incomplete.")
@@ -37,7 +37,7 @@ report_required <- c(
   "Management quantities with available estimation uncertainty", "Terminal management quantities",
   "Supporting structural reference points", "Monte Carlo audit",
   "Time-dynamic Kobe and Majuro status",
-  "All-region projection trajectories", "All-region spawning depletion",
+  "All-region projection trajectories", "All-region LRP depletion statistic",
   "spawning potential in thousand metric tonnes",
   "Scope",
   "10.1093/icesjms/fsu131",
@@ -47,14 +47,14 @@ report_required <- c(
   "data-report-tab='overview'", "data-report-tab='figures'",
   "data-report-tab='tables'", "id='figures-list'", "id='tables-list'",
   "Copy table for Word", "Copy LaTeX", "Open vector PDF",
-  "ten failed the criterion and ten were incomplete"
+  "ten did not meet the MGC criterion and ten were incomplete"
 )
 for (value in report_required) {
   if (!grepl(value, report, fixed = TRUE)) stop("Missing public-report element: ", value)
 }
 if (length(gregexpr("class='figure-card'", report, fixed = TRUE)[[1L]]) != 11L ||
-    length(gregexpr("class='table-card'", report, fixed = TRUE)[[1L]]) != 7L) {
-  stop("The report tabs do not contain exactly 11 unique figures and 7 unique tables.")
+    length(gregexpr("class='table-card'", report, fixed = TRUE)[[1L]]) != 8L) {
+  stop("The report tabs do not contain exactly 11 unique figures and 8 unique tables.")
 }
 
 viewer_required <- c(
@@ -132,4 +132,4 @@ if (!identical(manifest$sha256, unname(actual))) {
   stop("A final report manifest checksum does not match.")
 }
 
-cat("Validated the self-contained 80-model report, viewer, 11 figure sets and 7 copy-ready tables.\n")
+cat("Validated the self-contained 80-model report, viewer, 11 figure sets and 8 copy-ready tables.\n")

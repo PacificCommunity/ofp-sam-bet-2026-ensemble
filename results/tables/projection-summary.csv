@@ -1,4 +1,4 @@
-"Year","SBrecent/SBF=0 10%","SBrecent/SBF=0 median","SBrecent/SBF=0 90%","Below LRP","Below 2012–2015 objective","Spawning potential median (10^3 MT)","Catch/MSY 10%","Catch/MSY median","Catch/MSY 90%"
-2030,"0.225","0.355","0.514","5.2%","6.9%","523.1","0.638","0.811","1.003"
-2040,"0.409","0.517","0.628","0.0%","0.0%","690.5","0.642","0.842","1.052"
-2054,"0.455","0.545","0.641","0.0%","0.0%","720.6","0.648","0.847","1.053"
+"Year","SBrecent/SBF=0 10%","SBrecent/SBF=0 median","SBrecent/SBF=0 90%","Simulation frequency below LRP","Spawning potential median (10^3 MT)","Catch/MSY 10%","Catch/MSY median","Catch/MSY 90%"
+2030,"0.225","0.355","0.514","5.2%","523.1","0.638","0.811","1.003"
+2040,"0.409","0.517","0.628","0.0%","690.5","0.642","0.842","1.052"
+2054,"0.455","0.545","0.641","0.0%","720.6","0.648","0.847","1.053"

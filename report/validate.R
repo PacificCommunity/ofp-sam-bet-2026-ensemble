@@ -38,7 +38,8 @@ expected_fit <- c(
 )
 expected_management <- c(
   "ensemble_id", "terminal_year", "sb_recent_sb0", "sb_recent_sbmsy",
-  "f_recent_fmsy", "historical_target_depletion",
+  "f_recent_fmsy", "recent_depletion_period", "recent_mean_depletion",
+  "historical_target_depletion",
   "recent_historical_target_ratio", "below_lrp_020", "below_sbmsy",
   "above_fmsy"
 )
@@ -76,33 +77,47 @@ if (any(!vapply(coverage, function(years) setequal(years, 1952:2024), logical(1)
 if (any(management$terminal_year != 2024L) ||
     any(management$sb_recent_period != "2021–2024") ||
     any(management$sb0_recent_period != "2014–2023") ||
+    any(management$recent_depletion_period != "2021–2024") ||
     any(management$f_recent_period != "2020–2023") ||
     any(management$historical_target_period != "2012–2015")) {
   stop("The official BET recent or historical-target periods are inconsistent.", call. = FALSE)
 }
-historical_check <- aggregate(
-  depletion ~ ensemble_id,
-  data = series[series$year %in% 2012:2015, ],
-  FUN = mean
-)
-historical_check <- historical_check$depletion[
-  match(management$ensemble_id, historical_check$ensemble_id)
-]
-if (any(abs(historical_check - management$historical_target_depletion) > 1e-12)) {
-  stop("The 2012--2015 historical target was not computed from annual depletion.", call. = FALSE)
-}
-historical_management <- rolling_recent_depletion(
+period_management_check <- rolling_recent_depletion(
   series[c(
     "ensemble_id", "year", "spawning_potential", "spawning_potential_nofish"
   )],
-  "ensemble_id", target_years = 2024L
+  "ensemble_id", target_years = c(2015L, 2024L)
 )
+historical_check <- period_management_check[
+  period_management_check$year == 2015L,
+]
+historical_check <- historical_check$recent_mean_depletion[
+  match(management$ensemble_id, historical_check$ensemble_id)
+]
+if (any(abs(historical_check - management$historical_target_depletion) > 1e-12)) {
+  stop(
+    "The 2012--2015 target was not computed from rolling annual depletion.",
+    call. = FALSE
+  )
+}
+historical_management <- period_management_check[
+  period_management_check$year == 2024L,
+]
 historical_management <- historical_management[
   match(management$ensemble_id, historical_management$ensemble_id),
 ]
 if (any(abs(historical_management$sb_recent - management$sb_recent_kt) > 1e-10) ||
     any(abs(historical_management$sb_f0_recent - management$sb0_recent_kt) > 1e-10) ||
     any(abs(historical_management$sb_recent_sb0 - management$sb_recent_sb0) > 1e-12) ||
+    any(abs(
+      historical_management$recent_mean_depletion -
+        management$recent_mean_depletion
+    ) > 1e-12) ||
+    any(abs(
+      management$recent_historical_target_ratio -
+        management$recent_mean_depletion /
+          management$historical_target_depletion
+    ) > 1e-12) ||
     any(management$below_lrp_020 != (management$sb_recent_sb0 < 0.20)) ||
     any(management$below_sbmsy != (management$sb_recent_sbmsy < 1)) ||
     any(management$above_fmsy != (management$f_recent_fmsy > 1))) {
@@ -129,11 +144,18 @@ if (length(included_ids) != 80L ||
 }
 
 hessian <- readRDS("data/estimation/native-hessian-uncertainty.rds")
-if (length(hessian$pdh_model_ids) != 68L ||
+expected_hessian_management <- c(
+  "ensemble_id", "draw", "sb_recent_sb0", "sb_recent_sbmsy",
+  "f_recent_fmsy", "recent_mean_depletion",
+  "historical_target_depletion", "recent_historical_target_ratio"
+)
+if (!identical(hessian$schema_version, "1.2.0") ||
+    length(hessian$pdh_model_ids) != 68L ||
     length(hessian$near_pdh_model_ids) != 20L ||
     hessian$draws_per_pdh_model != 100L ||
     nrow(hessian$annual_draws) != 68L * 100L * 73L ||
-    nrow(hessian$management_draws) != 68L * 100L) {
+    nrow(hessian$management_draws) != 68L * 100L ||
+    !all(expected_hessian_management %in% names(hessian$management_draws))) {
   stop("The Hessian uncertainty cache has unexpected dimensions.", call. = FALSE)
 }
 if (!setequal(hessian$pdh_model_ids, fit$ensemble_id[fit$positive_definite_hessian]) ||
@@ -148,14 +170,73 @@ if (any(!is.finite(hessian$annual_draws$depletion)) ||
     )) > 1e-12 ||
     any(!is.finite(unlist(hessian$management_draws[c(
       "sb_recent_sb0", "sb_recent_sbmsy", "f_recent_fmsy",
-      "historical_target_depletion", "recent_historical_target_ratio"
+      "recent_mean_depletion", "historical_target_depletion",
+      "recent_historical_target_ratio"
     )]))) ||
+    any(abs(
+      hessian$management_draws$recent_historical_target_ratio -
+        hessian$management_draws$recent_mean_depletion /
+          hessian$management_draws$historical_target_depletion
+    ) > 1e-12) ||
     any(c("sb_recent_sbmsy_native", "f_recent_fmsy_native") %in%
         names(hessian$management_draws)) ||
     nrow(hessian$equilibrium_metadata) != 68L ||
     max(hessian$equilibrium_metadata$central_f_recent_fmsy_relative_error) > 1e-3 ||
     max(hessian$equilibrium_metadata$central_sb_recent_sbmsy_relative_error) > 5e-3) {
   stop("The exact joint Hessian uncertainty cache is invalid.", call. = FALSE)
+}
+
+period_hessian_check <- rolling_recent_depletion(
+  hessian$annual_draws[c(
+    "ensemble_id", "draw", "year", "spawning_potential",
+    "spawning_potential_noeff"
+  )],
+  c("ensemble_id", "draw"), target_years = c(2015L, 2024L),
+  nofishing_column = "spawning_potential_noeff"
+)
+recent_hessian_check <- period_hessian_check[
+  period_hessian_check$year == 2024L,
+  c("ensemble_id", "draw", "recent_mean_depletion"),
+  drop = FALSE
+]
+historical_hessian_check <- period_hessian_check[
+  period_hessian_check$year == 2015L,
+  c("ensemble_id", "draw", "recent_mean_depletion"),
+  drop = FALSE
+]
+names(historical_hessian_check)[
+  names(historical_hessian_check) == "recent_mean_depletion"
+] <-
+  "historical_target_depletion"
+hessian_management_check <- merge(
+  recent_hessian_check, historical_hessian_check,
+  by = c("ensemble_id", "draw"), sort = FALSE
+)
+hessian_management_check <- hessian_management_check[order(
+  hessian_management_check$ensemble_id,
+  as.integer(hessian_management_check$draw)
+), ]
+hessian_management_values <- hessian$management_draws[
+  order(hessian$management_draws$ensemble_id, hessian$management_draws$draw),
+]
+if (nrow(hessian_management_check) != 68L * 100L ||
+    !identical(
+      as.character(hessian_management_check$ensemble_id),
+      as.character(hessian_management_values$ensemble_id)
+    ) ||
+    !identical(
+      as.integer(hessian_management_check$draw),
+      as.integer(hessian_management_values$draw)
+    ) ||
+    max(abs(
+      hessian_management_check$recent_mean_depletion -
+        hessian_management_values$recent_mean_depletion
+    )) > 1e-12 ||
+    max(abs(
+      hessian_management_check$historical_target_depletion -
+        hessian_management_values$historical_target_depletion
+    )) > 1e-12) {
+  stop("Hessian period-mean depletion quantities do not reproduce exactly.")
 }
 
 projection <- readRDS("data/projection/native-projections.rds")
@@ -344,6 +425,12 @@ projection_management <- build_projection_management(series, projection)
 if (nrow(projection_management$projected) != 88L * 10L * 30L ||
     !setequal(projection_management$projected$year, 2025:2054) ||
     any(!is.finite(projection_management$projected$sb_recent_sb0)) ||
+    any(!is.finite(projection_management$projected$recent_mean_depletion)) ||
+    any(abs(
+      projection_management$projected$recent_historical_target_ratio -
+        projection_management$projected$recent_mean_depletion /
+          projection_management$projected$historical_target_depletion
+    ) > 1e-12) ||
     any(projection_management$projected$below_lrp_020 !=
       (projection_management$projected$sb_recent_sb0 < 0.20)) ||
     any(projection_management$projected$below_historical_objective !=

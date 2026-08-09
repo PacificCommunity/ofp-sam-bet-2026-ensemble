@@ -54,24 +54,38 @@ management_draws <- do.call(rbind, lapply(per_model, `[[`, "management_draws"))
 annual_draws$depletion <- with(
   annual_draws, spawning_potential / spawning_potential_noeff
 )
+# Schema 1.2 additionally separates the adopted rolling LRP biomass ratio from
+# the CMM comparison of recent and 2012--2015 mean annual depletion.
 draw_groups <- split(annual_draws, interaction(
   annual_draws$ensemble_id, annual_draws$draw, drop = TRUE
 ))
+period_mean_rolling_depletion <- function(value, target_years) {
+  mean(vapply(target_years, function(year) {
+    numerator <- value$spawning_potential[value$year == year]
+    denominator <- mean(value$spawning_potential_noeff[
+      value$year %in% seq.int(year - 10L, year - 1L)
+    ])
+    numerator / denominator
+  }, numeric(1)))
+}
 management_correction <- do.call(rbind, lapply(draw_groups, function(value) {
   terminal_year <- max(value$year)
+  recent_years <- (terminal_year - 3L):terminal_year
   recent_sb <- mean(value$spawning_potential[
-    value$year %in% (terminal_year - 3L):terminal_year
+    value$year %in% recent_years
   ])
   recent_sb0 <- mean(value$spawning_potential_noeff[
     value$year %in% (terminal_year - 10L):(terminal_year - 1L)
   ])
-  historical <- mean(value$depletion[value$year %in% 2012:2015])
+  recent_mean_depletion <- period_mean_rolling_depletion(value, recent_years)
+  historical <- period_mean_rolling_depletion(value, 2012:2015)
   data.frame(
     ensemble_id = value$ensemble_id[[1L]],
     draw = value$draw[[1L]],
     sb_recent_sb0 = recent_sb / recent_sb0,
+    recent_mean_depletion = recent_mean_depletion,
     historical_target_depletion = historical,
-    recent_historical_target_ratio = (recent_sb / recent_sb0) / historical
+    recent_historical_target_ratio = recent_mean_depletion / historical
   )
 }))
 management_correction <- management_correction[order(
@@ -80,14 +94,17 @@ management_correction <- management_correction[order(
 management_draws <- management_draws[order(
   management_draws$ensemble_id, management_draws$draw
 ), ]
-if (!identical(
-  management_draws[c("ensemble_id", "draw")],
-  management_correction[c("ensemble_id", "draw")]
-)) {
+management_keys <- management_draws[c("ensemble_id", "draw")]
+correction_keys <- management_correction[c("ensemble_id", "draw")]
+if (anyDuplicated(management_keys) || anyDuplicated(correction_keys) ||
+    !identical(as.character(management_keys$ensemble_id),
+               as.character(correction_keys$ensemble_id)) ||
+    !identical(as.integer(management_keys$draw),
+               as.integer(correction_keys$draw))) {
   stop("Annual and management Hessian draws do not align.", call. = FALSE)
 }
 for (name in c(
-  "sb_recent_sb0", "historical_target_depletion",
+  "sb_recent_sb0", "recent_mean_depletion", "historical_target_depletion",
   "recent_historical_target_ratio"
 )) management_draws[[name]] <- management_correction[[name]]
 
@@ -131,7 +148,7 @@ method <- paste(
 )
 
 payload <- list(
-  schema_version = "1.1.0",
+  schema_version = "1.2.0",
   created_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
   method = method,
   pdh_model_ids = pdh_ids,

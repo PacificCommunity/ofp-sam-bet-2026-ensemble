@@ -1,3 +1,7 @@
+# Return both management quantities without conflating their denominators:
+# sb_recent_sb0 is the adopted ratio of biomass-window means used for the LRP;
+# recent_mean_depletion averages annual D_y, where each D_y is SB_y divided by
+# mean SB_F=0 over the preceding ten years, excluding y.
 rolling_recent_depletion <- function(
     data, group_columns, target_years = NULL,
     spawning_column = "spawning_potential",
@@ -27,21 +31,49 @@ rolling_recent_depletion <- function(
     rows <- lapply(years, function(year) {
       spawning_years <- seq.int(year - recent_window + 1L, year)
       nofishing_years <- seq.int(year - nofishing_window, year - 1L)
+      annual_depletion_nofishing_years <- unique(unlist(lapply(
+        spawning_years,
+        function(spawning_year) {
+          seq.int(
+            spawning_year - nofishing_window,
+            spawning_year - 1L
+          )
+        }
+      )))
       if (!all(spawning_years %in% available_years) ||
-          !all(nofishing_years %in% available_years)) {
+          !all(nofishing_years %in% available_years) ||
+          !all(annual_depletion_nofishing_years %in% available_years)) {
         return(NULL)
       }
-      recent_spawning <- mean(spawning[as.character(spawning_years)])
-      recent_nofishing <- mean(nofishing[as.character(nofishing_years)])
-      if (!is.finite(recent_spawning) || !is.finite(recent_nofishing) ||
-          recent_nofishing <= 0) {
+      recent_spawning_values <- spawning[as.character(spawning_years)]
+      recent_nofishing_values <- nofishing[as.character(nofishing_years)]
+      annual_depletion_nofishing_values <- nofishing[
+        as.character(annual_depletion_nofishing_years)
+      ]
+      if (any(!is.finite(recent_spawning_values)) ||
+          any(!is.finite(recent_nofishing_values)) ||
+          any(!is.finite(annual_depletion_nofishing_values)) ||
+          any(recent_nofishing_values <= 0) ||
+          any(annual_depletion_nofishing_values <= 0)) {
         stop("Invalid biomass in rolling management depletion.")
       }
+      recent_spawning <- mean(recent_spawning_values)
+      recent_nofishing <- mean(recent_nofishing_values)
+      annual_depletion <- vapply(spawning_years, function(spawning_year) {
+        denominator_years <- seq.int(
+          spawning_year - nofishing_window,
+          spawning_year - 1L
+        )
+        spawning[[as.character(spawning_year)]] /
+          mean(nofishing[as.character(denominator_years)])
+      }, numeric(1))
+      recent_mean_depletion <- mean(annual_depletion)
       out <- value[1L, group_columns, drop = FALSE]
       out$year <- year
       out$sb_recent <- recent_spawning
       out$sb_f0_recent <- recent_nofishing
       out$sb_recent_sb0 <- recent_spawning / recent_nofishing
+      out$recent_mean_depletion <- recent_mean_depletion
       out
     })
     rows <- Filter(Negate(is.null), rows)
@@ -87,15 +119,16 @@ build_projection_management <- function(series, projection) {
     target_years = projection$projection_years
   )
 
-  target <- stats::aggregate(
-    depletion ~ ensemble_id,
-    data = series[series$year %in% 2012:2015, ],
-    FUN = mean
-  )
-  names(target)[names(target) == "depletion"] <- "historical_target_depletion"
+  target <- historical[
+    historical$year == 2015L,
+    c("ensemble_id", "recent_mean_depletion"),
+    drop = FALSE
+  ]
+  names(target)[names(target) == "recent_mean_depletion"] <-
+    "historical_target_depletion"
   projected <- merge(projected, target, by = "ensemble_id", sort = FALSE)
   projected$recent_historical_target_ratio <- with(
-    projected, sb_recent_sb0 / historical_target_depletion
+    projected, recent_mean_depletion / historical_target_depletion
   )
   projected$below_lrp_020 <- projected$sb_recent_sb0 < 0.20
   projected$below_historical_objective <-

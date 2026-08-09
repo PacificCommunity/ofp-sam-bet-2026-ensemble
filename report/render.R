@@ -197,10 +197,6 @@ management_plot <- (
   distribution_panel(
     management, "f_recent_fmsy",
     expression(italic(F)[recent] / italic(F)[MSY]), 1, "1.0"
-  ) |
-  distribution_panel(
-    management, "recent_historical_target_ratio",
-    expression(italic(D)[recent] / bar(italic(D))[2012-2015]), 1, "2012–2015 objective"
   )
 ) + patchwork::plot_annotation(tag_levels = "a")
 
@@ -254,9 +250,6 @@ management$tau_factor <- factor(format(management$tau, nsmall = 1), levels = nam
 management$mgc_alpha <- ifelse(management$maximum_gradient <= 1e-4, 0.86, 0.45)
 kobe_hdr <- hdr_surface(management, "sb_recent_sbmsy", "f_recent_fmsy")
 majuro_hdr <- hdr_surface(management, "sb_recent_sb0", "f_recent_fmsy")
-historical_objective_hdr <- hdr_surface(
-  management, "historical_target_depletion", "sb_recent_sb0"
-)
 
 status_theme <- theme_report(10.8) +
   ggplot2::theme(legend.position = "bottom", legend.box = "horizontal")
@@ -329,42 +322,8 @@ majuro_plot <- ggplot2::ggplot(
   ) +
   ggplot2::coord_cartesian(xlim = c(0, NA), ylim = c(0, NA)) + status_theme
 
-target_limit <- max(c(
-  management$historical_target_depletion,
-  management$sb_recent_sb0
-)) * 1.06
-historical_plot <- ggplot2::ggplot(
-  management,
-  ggplot2::aes(
-    x = .data$historical_target_depletion, y = .data$sb_recent_sb0,
-    colour = .data$tau_factor, shape = .data$hessian_qc
-  )
-) +
-  ggplot2::annotate("rect", xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = 0.2, fill = "#F2D6D3", alpha = 0.54) +
-  ggplot2::geom_contour_filled(
-    data = historical_objective_hdr,
-    ggplot2::aes(x = .data$x, y = .data$y, z = .data$density),
-    breaks = attr(historical_objective_hdr, "breaks"), alpha = 0.68,
-    colour = "#4F7C86", linewidth = 0.28, inherit.aes = FALSE
-  ) +
-  ggplot2::geom_abline(slope = 1, intercept = 0, colour = "#5D6C73", linewidth = 0.48, linetype = "33") +
-  ggplot2::geom_hline(yintercept = 0.2, colour = "#B83232", linewidth = 0.55, linetype = "33") +
-  ggplot2::geom_point(ggplot2::aes(alpha = .data$mgc_alpha), size = 2.45, stroke = 0.75) +
-  ggplot2::scale_colour_manual(values = tau_colours, name = expression(tau)) +
-  ggplot2::scale_fill_manual(
-    values = status_band_colours,
-    labels = c("95% HDR", "80% HDR", "50% HDR"), name = "Structural HDR"
-  ) +
-  ggplot2::scale_shape_manual(values = c("PDH" = 16, "Near-PDH" = 1), name = "Hessian") +
-  ggplot2::scale_alpha_identity() +
-  ggplot2::labs(
-    x = expression(bar(italic(D))[2012-2015]),
-    y = expression(italic(D)[recent])
-  ) +
-  ggplot2::coord_equal(xlim = c(0, target_limit), ylim = c(0, target_limit)) + status_theme
-
 status_plot <- patchwork::wrap_plots(
-  list(kobe_plot, majuro_plot, historical_plot), ncol = 3, guides = "collect"
+  list(kobe_plot, majuro_plot), ncol = 2, guides = "collect"
 ) +
   patchwork::plot_annotation(tag_levels = "a") &
   ggplot2::theme(
@@ -722,18 +681,14 @@ unlink(file.path(figure_dir, paste0("convergence-hessian-qc", c(".png", ".pdf"))
 quantity_values <- list(
   management$sb_recent_sb0,
   management$sb_recent_sbmsy,
-  management$f_recent_fmsy,
-  management$historical_target_depletion,
-  management$recent_historical_target_ratio
+  management$f_recent_fmsy
 )
 summary_rows <- data.frame(
   Quantity = c(
-    "SBrecent / SBF=0", "SBrecent / SBMSY", "Frecent / FMSY",
-    "Mean depletion, 2012–2015", "Recent / 2012–2015 depletion"
+    "SBrecent / SBF=0", "SBrecent / SBMSY", "Frecent / FMSY"
   ),
   Period = c(
-    "2021–2024 / 2014–2023", "2021–2024", "2020–2023",
-    "2012–2015", "Recent / 2012–2015"
+    "2021–2024 / 2014–2023", "2021–2024", "2020–2023"
   ),
   Models = n_models,
   `10%` = vapply(quantity_values, stats::quantile, numeric(1), probs = 0.10, names = FALSE),
@@ -744,16 +699,15 @@ summary_rows <- data.frame(
 
 risk_rows <- data.frame(
   Indicator = c(
-    "Below the LRP", "Below SBMSY", "Above FMSY",
-    "Below the model-specific 2012–2015 objective"
+    "Below the LRP", "Below SBMSY", "Above FMSY"
   ),
   Criterion = c(
     "SBrecent/SBF=0 < 0.20", "SBrecent/SBMSY < 1",
-    "Frecent/FMSY > 1", "Drecent / mean(D2012–2015) < 1"
+    "Frecent/FMSY > 1"
   ),
   Models = c(
     sum(management$below_lrp_020), sum(management$below_sbmsy),
-    sum(management$above_fmsy), sum(management$recent_historical_target_ratio < 1)
+    sum(management$above_fmsy)
   ),
   stringsAsFactors = FALSE
 )
@@ -839,17 +793,16 @@ word_table <- function(caption, data) {
 
 summary_caption <- paste0(
   "Distribution of stock-status quantities across the 80 BET 2026 ensemble models retained after applying MGC ≤ 1e-4. ",
-  "Recent spawning biomass is averaged over 2021–2024, unfished spawning biomass over 2014–2023, ",
-  "and recent fishing mortality over 2020–2023."
+  "The LRP statistic is mean spawning biomass for 2021–2024 divided by mean unfished spawning biomass for 2014–2023. ",
+  "Recent fishing mortality covers 2020–2023."
 )
 risk_caption <- paste0(
-  "Equal-weight structural-ensemble frequencies for the reported stock-status thresholds and ",
-  "the 2012–2015 historical depletion objective. These percentages do not yet include parameter-estimation uncertainty."
+  "Equal-weight structural-ensemble frequencies for the reported LRP and MSY-based stock-status thresholds. ",
+  "These percentages do not yet include parameter-estimation uncertainty."
 )
 
 summary_math <- c(
-  "$SB_{recent}/SB_{F=0}$", "$SB_{recent}/SB_{MSY}$", "$F_{recent}/F_{MSY}$",
-  "$\\overline{D}_{2012--2015}$", "$D_{recent}/\\overline{D}_{2012--2015}$"
+  "$SB_{recent}/SB_{F=0}$", "$SB_{recent}/SB_{MSY}$", "$F_{recent}/F_{MSY}$"
 )
 summary_latex_rows <- vapply(seq_len(nrow(summary_display)), function(i) {
   cells <- c(summary_math[[i]], vapply(summary_display[i, -1, drop = FALSE], latex_escape, character(1)))
@@ -899,10 +852,10 @@ captions <- list(
     "Annual estimates across the 80 models retained after applying MGC ≤ 1 × 10<sup>−4</sup>. Grey lines are individual models; nested blue bands are pointwise central 50%, 80% and 95% structural intervals. The dark-blue line is the equal-weight median. The depletion line marks the limit reference point (LRP = 0.2)."
   ),
   management = paste0(
-    "Equal-weight structural distributions of recent depletion, spawning biomass relative to <i>SB</i><sub>MSY</sub>, fishing mortality relative to <i>F</i><sub>MSY</sub>, and recent depletion relative to each model’s mean depletion during 2012–2015. Recent periods are 2021–2024 for spawning biomass, 2014–2023 for unfished spawning biomass and 2020–2023 for fishing mortality."
+    "Equal-weight structural distributions of the LRP depletion statistic, spawning biomass relative to <i>SB</i><sub>MSY</sub>, and fishing mortality relative to <i>F</i><sub>MSY</sub>. The LRP statistic uses mean spawning biomass for 2021–2024 divided by mean unfished spawning biomass for 2014–2023; recent fishing mortality covers 2020–2023."
   ),
   status = paste0(
-    "Kobe (a), Majuro (b) and a supplementary model-specific historical-objective diagnostic (c) for the 80 retained models. <i>D</i><sub>recent</sub> is mean spawning biomass for 2021–2024 divided by mean unfished spawning biomass for 2014–2023. In panel a the biomass boundary is <i>SB</i><sub>MSY</sub>; in panel b it is the depletion LRP of 0.20. Backgrounds denote green (biomass criterion met and <i>F</i>/<i>F</i><sub>MSY</sub> ≤ 1), yellow (biomass criterion not met and <i>F</i>/<i>F</i><sub>MSY</sub> ≤ 1), orange (biomass criterion met and <i>F</i>/<i>F</i><sub>MSY</sub> &gt; 1), and red (neither criterion met). Shaded contours are 50%, 80% and 95% bivariate highest-density regions (HDRs), calculated from an equal-weight Gaussian kernel-density estimate of the central model points using normal-reference bandwidths. These structural two-dimensional HDRs are distinct from the one-dimensional equal-tailed reporting interval. Point colours identify fixed tag overdispersion τ; filled and open symbols distinguish PDH and Near-PDH fits. Panel c is a supplementary diagnostic that plots each model's <i>D</i><sub>recent</sub> against its own mean annual depletion during 2012–2015; the diagonal denotes equality."
+    "Kobe (a) and Majuro (b) status for the 80 retained models. Panel (b) uses the LRP statistic: mean spawning biomass for 2021–2024 divided by mean unfished spawning biomass for 2014–2023. In panel a the biomass boundary is <i>SB</i><sub>MSY</sub>; in panel b it is the depletion LRP of 0.20. Backgrounds denote green (biomass criterion met and <i>F</i>/<i>F</i><sub>MSY</sub> ≤ 1), yellow (biomass criterion not met and <i>F</i>/<i>F</i><sub>MSY</sub> ≤ 1), orange (biomass criterion met and <i>F</i>/<i>F</i><sub>MSY</sub> &gt; 1), and red (neither criterion met). Shaded contours are 50%, 80% and 95% bivariate highest-density regions (HDRs), calculated from an equal-weight Gaussian kernel-density estimate of the central model points using normal-reference bandwidths. These structural two-dimensional HDRs are distinct from the one-dimensional equal-tailed reporting interval. Point colours identify fixed tag overdispersion τ; filled and open symbols distinguish PDH and Near-PDH fits."
   ),
   design = paste0(
     "Realized inputs for the 80 retained models. Histograms and bars show included fits only. Continuous curves show the specified steepness and natural-mortality distributions; the dashed natural-mortality curve is the longevity prior originating with Hamel (2015), using the updated practical formulation of Hamel and Cope (2022), transformed to the assessment-model <i>M</i><sub>0</sub> scale. The green point and interval show the tag-based estimate and 90% confidence interval."
@@ -917,10 +870,10 @@ latex_captions <- list(
     "Annual estimates across the 80 models retained after applying $\\mathrm{MGC}\\leq1\\times10^{-4}$. Grey lines are individual models; nested blue bands are pointwise central 50\\%, 80\\% and 95\\% structural intervals. The dark-blue line is the equal-weight median. The depletion line marks the limit reference point (LRP $=0.2$)."
   ),
   management = paste0(
-    "Equal-weight structural distributions of $SB_{recent}/SB_{F=0}$, $SB_{recent}/SB_{MSY}$, $F_{recent}/F_{MSY}$, and $D_{recent}/\\overline{D}_{2012--2015}$. Recent periods are 2021--2024 for spawning biomass, 2014--2023 for unfished spawning biomass and 2020--2023 for fishing mortality."
+    "Equal-weight structural distributions of the LRP statistic $SB_{recent}/SB_{F=0}$, $SB_{recent}/SB_{MSY}$, and $F_{recent}/F_{MSY}$. The LRP statistic uses mean spawning biomass for 2021--2024 divided by mean unfished spawning biomass for 2014--2023; recent fishing mortality covers 2020--2023."
   ),
   status = paste0(
-    "Kobe (a), Majuro (b) and a supplementary model-specific historical-objective diagnostic (c) for the 80 retained models. $D_{recent}$ is mean spawning biomass for 2021--2024 divided by mean unfished spawning biomass for 2014--2023. In panel a the biomass boundary is $SB_{MSY}$; in panel b it is the depletion LRP of 0.20. Backgrounds denote green (biomass criterion met and $F/F_{MSY}\\leq1$), yellow (biomass criterion not met and $F/F_{MSY}\\leq1$), orange (biomass criterion met and $F/F_{MSY}>1$), and red (neither criterion met). Shaded contours are 50\\%, 80\\% and 95\\% bivariate highest-density regions (HDRs), calculated from an equal-weight Gaussian kernel-density estimate of the central model points using normal-reference bandwidths. These structural two-dimensional HDRs are distinct from the one-dimensional equal-tailed reporting interval. Point colours identify fixed tag overdispersion $\\tau$; filled and open symbols distinguish PDH and Near-PDH fits. Panel c is a supplementary diagnostic that plots each model's $D_{recent}$ against its own mean annual depletion during 2012--2015; the diagonal denotes equality."
+    "Kobe (a) and Majuro (b) status for the 80 retained models. Panel (b) uses the LRP statistic: mean spawning biomass for 2021--2024 divided by mean unfished spawning biomass for 2014--2023. In panel a the biomass boundary is $SB_{MSY}$; in panel b it is the depletion LRP of 0.20. Backgrounds denote green (biomass criterion met and $F/F_{MSY}\\leq1$), yellow (biomass criterion not met and $F/F_{MSY}\\leq1$), orange (biomass criterion met and $F/F_{MSY}>1$), and red (neither criterion met). Shaded contours are 50\\%, 80\\% and 95\\% bivariate highest-density regions (HDRs), calculated from an equal-weight Gaussian kernel-density estimate of the central model points using normal-reference bandwidths. These structural two-dimensional HDRs are distinct from the one-dimensional equal-tailed reporting interval. Point colours identify fixed tag overdispersion $\\tau$; filled and open symbols distinguish PDH and Near-PDH fits."
   ),
   design = paste0(
     "Realized inputs for the 80 retained models. Histograms and bars show included fits only. Continuous curves show the specified steepness and natural-mortality distributions; the dashed natural-mortality curve is the longevity prior originating with Hamel (2015), using the updated practical formulation of Hamel and Cope (2022), transformed to the assessment-model $M_0$ scale. The green point and interval show the tag-based estimate and 90\\% confidence interval."
@@ -989,10 +942,10 @@ html <- paste0(
   "<nav class='report-tabs' aria-label='Report sections'><button class='report-tab active' type='button' data-report-tab='overview'>Overview</button><button class='report-tab' type='button' data-report-tab='figures'>Figures</button><button class='report-tab' type='button' data-report-tab='tables'>Tables</button></nav>",
   "<section class='report-panel active' id='overview-panel' data-report-panel='overview'>",
   "<h2>Overview</h2><div class='method-grid'>",
-  "<article class='method'><h3>Ensemble</h3><p>Of 100 planned configurations, 80 met MGC ≤ 1 × 10<sup>−4</sup> and were retained with equal model weight; ten failed the criterion and ten were incomplete.</p></article>",
+  "<article class='method'><h3>Ensemble</h3><p>Of 100 planned configurations, 80 met MGC ≤ 1 × 10<sup>−4</sup> and were retained with equal model weight; ten did not meet the MGC criterion and ten were incomplete.</p></article>",
   "<article class='method'><h3>Uncertainty</h3><p>All 80 central fits represent structural uncertainty. For 62 PDH fits, 100 correlated inverse-Hessian draws were propagated jointly by the multivariate delta method; 18 Near-PDH fits contribute central estimates only. Estimation uncertainty is therefore available, but not complete for all models.</p></article>",
   "<article class='method'><h3>Projections</h3><p>Each model contributes ten recruitment paths for 2025–2054, sampled from its estimated 1972–2023 recruitment deviations; the first 20 assessment years and terminal 2024 are excluded. All 33 fisheries are catch-conditioned separately by fishery and quarter at the 2022–2024 mean, with missing observations set to zero. Projection bands exclude Hessian draws.</p></article>",
-  "<article class='method'><h3>Management quantities</h3><p><i>SB</i><sub>recent</sub> uses 2021–2024, <i>SB</i><sub><i>F</i>=0</sub> 2014–2023 and <i>F</i><sub>recent</sub> 2020–2023. The LRP is 0.2<i>SB</i><sub><i>F</i>=0</sub>; MSY reference points are model-specific equilibrium quantities. Projected depletion is the rolling four-year biomass mean divided by the preceding ten-year unfished mean.</p></article>",
+  "<article class='method'><h3>Management quantities</h3><p>The LRP statistic divides mean spawning biomass for 2021–2024 by mean unfished spawning biomass for 2014–2023. CMM 2025-02 contains an objective to maintain the spawning biomass depletion ratio at or above the average <i>SB</i>/<i>SB</i><sub><i>F</i>=0</sub> for 2012–2015. For the recent-to-2012–2015 spawning depletion ratio, annual <i>D</i><sub>y</sub> divides <i>SB</i><sub>y</sub> by mean <i>SB</i><sub><i>F</i>=0</sub> over the preceding ten years (<i>y</i>−10 to <i>y</i>−1), excluding year <i>y</i>. The report gives the 80-model arithmetic means of annual <i>D</i><sub>y</sub> for 2021–2024 and 2012–2015 and their ratio. <i>F</i><sub>recent</sub> covers 2020–2023; MSY reference points are model-specific equilibrium quantities.</p></article>",
   "<article class='method'><h3>Intervals</h3><p>One-dimensional results report the median and central 80% equal-tailed interval; 50% and 95% bands are supplementary. Kobe and Majuro plots use two-dimensional 50%, 80% and 95% kernel highest-density regions.</p></article>",
   "<article class='method'><h3>Scope</h3><p>Hessian intervals are first-order normal approximations. Regional results cover Regions 1–5, with the stock-wide LRP shown only as a reference. Axis summaries are descriptive; no causal attribution, variance decomposition or posterior correlation analysis is made.</p></article></div>",
   "<div class='note'><strong>Pre-mixing reporting-rate stability.</strong> The design assigned 50 models to each treatment, but retained 34 inclusion models and 46 exclusion models. MFCL reconstructs pre-mixing tag catches under inclusion by dividing by the estimated reporting rate; rates approaching zero can create very large intermediate values and numerical overflow. The MFCL manual therefore cautions that these rates may be poorly determined during mixing and recommends exclusion. The imbalance is interpreted as differential numerical stability, not as an intended difference in model weight.</div>",
