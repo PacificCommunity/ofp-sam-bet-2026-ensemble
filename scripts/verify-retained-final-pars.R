@@ -137,14 +137,38 @@ if (file.exists(version_resolved)) stop("Could not remove version scratch.", cal
 
 expected_paths <- file.path(par_root, manifest$ensemble_id, "final.par")
 actual_paths <- Sys.glob(file.path(par_root, "ensemble-*", "final.par"))
+expected_rep_paths <- file.path(
+  par_root, manifest$ensemble_id, "plot-11.par.rep"
+)
+rep_present <- file.exists(expected_rep_paths)
+if (any(rep_present) && !all(rep_present)) {
+  stop(
+    "FINAL_PAR_DIR has an incomplete set of retained plot-11.par.rep files.",
+    call. = FALSE
+  )
+}
+expected_files <- if (all(rep_present)) {
+  c(expected_paths, expected_rep_paths)
+} else {
+  expected_paths
+}
 actual_files <- list.files(par_root, recursive = TRUE, full.names = TRUE, all.files = TRUE)
 actual_files <- actual_files[!file.info(actual_files)$isdir]
 if (
   !setequal(normalizePath(actual_paths, mustWork = TRUE), normalizePath(expected_paths, mustWork = TRUE)) ||
-    length(actual_files) != 80L ||
-    any(nzchar(Sys.readlink(expected_paths)))
+    !setequal(
+      normalizePath(actual_files, mustWork = TRUE),
+      normalizePath(expected_files, mustWork = TRUE)
+    ) ||
+    any(nzchar(Sys.readlink(expected_files)))
 ) {
-  stop("FINAL_PAR_DIR must contain exactly the 80 manifest paths and no other files.", call. = FALSE)
+  stop(
+    paste(
+      "FINAL_PAR_DIR must contain exactly the 80 manifest PARs, optionally",
+      "paired with all 80 plot-11.par.rep files, and no other files."
+    ),
+    call. = FALSE
+  )
 }
 
 numeric_rows_after <- function(lines, marker, count, source) {

@@ -171,4 +171,25 @@ if (!is.null(retained_status) && retained_status != 0L) {
 }
 cat(paste(retained_validation, collapse = "\n"), "\n", sep = "")
 
+retained_rep_validation <- system2(
+  "Rscript",
+  c(
+    shQuote(file.path(repo, "scripts", "verify-retained-final-reps.R")),
+    shQuote(file.path(repo, "final-par")),
+    shQuote(file.path(repo, "data", "ensemble", "retained-final-rep-manifest.csv")),
+    "fast"
+  ),
+  stdout = TRUE,
+  stderr = TRUE
+)
+retained_rep_status <- attr(retained_rep_validation, "status")
+if (!is.null(retained_rep_status) && retained_rep_status != 0L) {
+  stop(
+    "Committed retained-final-REP validation failed:\n",
+    paste(retained_rep_validation, collapse = "\n"),
+    call. = FALSE
+  )
+}
+cat(paste(retained_rep_validation, collapse = "\n"), "\n", sep = "")
+
 cat("Validated 100 deterministic BET 2026 ensemble configurations.\n")

@@ -86,6 +86,7 @@ chmod 755 "$bundle/mfclo64" "$bundle/run.sh"
 mkdir -p -- "$bundle/data/ensemble" "$bundle/final-par"
 cp -- "$repo_dir/data/ensemble/fit-diagnostics.csv" "$bundle/data/ensemble/"
 cp -- "$repo_dir/data/ensemble/retained-final-par-manifest.csv" "$bundle/data/ensemble/"
+cp -- "$repo_dir/data/ensemble/retained-final-rep-manifest.csv" "$bundle/data/ensemble/"
 cp -a -- "$final_par_dir/." "$bundle/final-par/"
 cp -- "$validation_csv" "$bundle/native-final-par-validation.csv"
 
@@ -97,7 +98,7 @@ if [ ! -x "$bundle/mfclo64" ] ||
 fi
 
 {
-  echo "bundle=BET 2026 ensemble retained final PARs"
+  echo "bundle=BET 2026 ensemble retained final PARs and Viewer REPs"
   echo "bundle_repository_commit=$repo_commit"
   echo "release_tag=retained-final-pars-2026.08.11"
   echo "release_asset=bet-2026-ensemble-retained-final-pars-2026.08.11.tar.gz"
@@ -119,10 +120,13 @@ fi
   cd "$bundle"
   sha256sum -c SHA256SUMS >/dev/null
   ./scripts/verify-retained-final-pars final-par - 1 fast
+  ./scripts/verify-retained-final-reps \
+    final-par data/ensemble/retained-final-rep-manifest.csv fast
 )
 
 archive_epoch=$(git -C "$repo_dir" show -s --format=%ct HEAD)
 tar --sort=name --mtime="@$archive_epoch" --owner=0 --group=0 --numeric-owner \
+  --mode='u+rwX,go+rX,go-w' \
   -czf "$temporary_tar" -C "$stage_root" bet-2026-ensemble-reproducibility
 tar -tzf "$temporary_tar" >/dev/null
 chmod 644 "$temporary_tar"

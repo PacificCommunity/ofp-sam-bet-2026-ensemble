@@ -1,11 +1,20 @@
-# Retained native MFCL final PARs
+# Retained native MFCL final PARs and Viewer REPs
 
 This repository directly preserves the exact final PAR files for the 80
 ensemble fits retained by the public maximum-gradient-component criterion
-(`MGC <= 1e-4`) under `final-par/<source-id>/final.par`. A clone also contains
-the runnable inputs, scripts and actual native MFCL executable, so ordinary
-users do not need Kflow, access to Suva or a separate release download. The
-bundled executable is statically linked for x86-64 Linux.
+(`MGC <= 1e-4`) together with their final Viewer outputs:
+
+```text
+final-par/<source-id>/final.par
+final-par/<source-id>/plot-11.par.rep
+```
+
+`plot-11.par.rep` is the canonical REP produced from the retained fit with the
+final Phase 11 settings and can be supplied directly to mfclshiny or another
+MFCL REP reader. A clone also contains the runnable inputs, scripts and actual
+native MFCL executable, so ordinary users do not need Kflow, access to Suva or
+a separate release download. The bundled executable is statically linked for
+x86-64 Linux.
 
 The source audit covers all 100 Kflow archives. Ninety archives contain a
 completed `final.par`. Ten configurations have no completed PAR:
@@ -32,24 +41,50 @@ extracting its declared member. For each committed, recovered or downloaded
 PAR, the public verifier checks its PAR SHA/size, raw objective, raw MGC,
 active-parameter count and MFCL compilation version. It then checks the fitted
 steepness, fixed tau, natural mortality, DM concentration and exact 33-fishery
-Diagnostic selectivity against the design row. Full mode materializes the
-model-specific inputs and asks native MFCL to load and evaluate every PAR
-without refitting; the evaluated objective must match.
+Diagnostic selectivity against the design row. Native PAR mode materializes
+the model-specific inputs and asks MFCL to load each PAR with zero function
+evaluations; this is an objective/model parity check, not REP reproduction.
+
+The committed `plot-11.par.rep` files are generated separately by running the
+same native executable from each exact `final.par` with the final Phase 11
+controls and one function evaluation. This preserves the committed PAR while
+reproducing the canonical final Viewer output. All 80 regenerated files are
+byte-identical to the corresponding Kflow archive outputs. Their exact
+identities are locked in `data/ensemble/retained-final-rep-manifest.csv`.
 
 From a normal repository clone:
 
 ```sh
 ./scripts/verify-retained-final-pars final-par - 2 fast
 ./scripts/verify-retained-final-pars final-par - 2 native
+./scripts/verify-retained-final-reps final-par
 ./run.sh ensemble-001
 ```
 
 The first command quickly verifies all hashes, archived metadata and fitted
 model controls. The second additionally performs native load/evaluation for
-all 80 PARs. The third independently refits a selected configuration from its
+all 80 PARs with zero function evaluations. The third verifies that the 80
+committed REPs have the exact recorded SHA/size, Viewer header and required
+sections. The fourth independently refits a selected configuration from its
 ordinary `bet.ini -makepar` start; it does not start from the retained PAR.
+If FLR4MFCL is installed, its semantic REP parser can also be exercised with:
 
-An optional archive of the same self-contained material is published from the
+```sh
+./scripts/verify-retained-final-reps \
+  final-par data/ensemble/retained-final-rep-manifest.csv parse
+```
+
+To reproduce all REPs without overwriting the committed files, generate them
+in a new directory and verify that output against its generated manifest:
+
+```sh
+./scripts/generate-retained-final-reps \
+  final-par /tmp/bet-reps /tmp/retained-final-rep-manifest.csv 2 all
+./scripts/verify-retained-final-reps \
+  /tmp/bet-reps /tmp/retained-final-rep-manifest.csv fast
+```
+
+An optional archive of the retained PAR material is published from the
 non-version prerelease tag
 `retained-final-pars-2026.08.11` as
 [`bet-2026-ensemble-retained-final-pars-2026.08.11.tar.gz`](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/retained-final-pars-2026.08.11/bet-2026-ensemble-retained-final-pars-2026.08.11.tar.gz).

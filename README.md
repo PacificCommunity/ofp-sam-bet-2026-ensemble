@@ -90,27 +90,33 @@ The exact values remain in the metadata rather than the rounded label. Kflow
 uses the same command with one independent Suva job per design row and a phase
 10/11 convergence criterion of `1e-4`.
 
-## Retained final PAR files
+## Retained final PAR and Viewer REP files
 
-The repository directly contains the exact 80 MGC-retained native PARs under
-`final-par/<source-id>/final.par`, together with the matching executable,
-runnable inputs and checksum/native-load verifier. A clone is sufficient; no
-Suva, Kflow or separate download is required. The bundled `mfclo64` is a
-statically linked x86-64 Linux executable.
+The repository directly contains the exact 80 MGC-retained native PARs and
+their final Viewer outputs under
+`final-par/<source-id>/{final.par,plot-11.par.rep}`. `plot-11.par.rep` is the
+canonical REP produced from the retained fit at the final Phase 11 settings;
+each committed copy is byte-identical to its source Kflow output and can be
+supplied directly to mfclshiny or another MFCL REP reader. The matching
+executable, runnable inputs and checksum/native verifiers are also included. A
+clone is sufficient; no Suva, Kflow or separate download is required. The
+bundled `mfclo64` is a statically linked x86-64 Linux executable.
 
 ```sh
 ./scripts/verify-retained-final-pars final-par - 2 fast
 ./scripts/verify-retained-final-pars final-par - 2 native
+./scripts/verify-retained-final-reps final-par
 ./run.sh ensemble-001
 ```
 
 The first command verifies all 80 archived identities and model controls. The
-second additionally loads and evaluates every PAR with native MFCL. The third
-is different: it refits one configuration from its ordinary
-`bet.ini -makepar` start. Exact source IDs, exclusions and provenance are
-documented in [`docs/retained-final-pars.md`](docs/retained-final-pars.md). The
-existing release archive remains an optional copy of the same self-contained
-material.
+second additionally loads every PAR with native MFCL using zero function
+evaluations and checks objective parity; its temporary REP is only a load-test
+artifact. The third verifies the committed canonical Phase 11 REPs, including
+their exact checksums and required Viewer sections. The fourth is different:
+it refits one configuration from its ordinary `bet.ini -makepar` start. Exact
+source IDs, exclusions, REP regeneration and provenance are documented in
+[`docs/retained-final-pars.md`](docs/retained-final-pars.md).
 
 ## Distribution figure
 
@@ -146,6 +152,8 @@ vector version is available as
 - `design/rank-correlation.csv` — pairwise cross-axis association audit
 - `design/distributions.png` and `design/distributions.pdf` — publication-ready figure
 - `data/ensemble/retained-final-par-manifest.csv` — exact archive/PAR provenance for the 80 MGC-retained fits
+- `data/ensemble/retained-final-rep-manifest.csv` — exact native Phase 11 Viewer REP provenance
+- `final-par/<source-id>/{final.par,plot-11.par.rep}` — retained fit and its directly readable Viewer output
 
 These are structural ensemble draws, not optimizer jitters.
 
