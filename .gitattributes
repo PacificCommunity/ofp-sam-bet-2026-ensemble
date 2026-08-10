@@ -1,4 +1,5 @@
 # Frozen MFCL inputs must retain byte identity with their recorded hashes.
 model/bet.* -text -diff
 sources/** -text -diff
+final-par/** -text -diff
 mfclo64 binary

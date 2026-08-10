@@ -90,15 +90,27 @@ The exact values remain in the metadata rather than the rounded label. Kflow
 uses the same command with one independent Suva job per design row and a phase
 10/11 convergence criterion of `1e-4`.
 
-## Retained final PAR reproducibility bundle
+## Retained final PAR files
 
-The exact 80 MGC-retained native `final.par` files are preserved separately
-from Git history in a
-[self-contained release bundle](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/retained-final-pars-2026.08.11/bet-2026-ensemble-retained-final-pars-2026.08.11.tar.gz)
-with the executable, runnable inputs and checksum/native-load verification. The
-exact source IDs, exclusions and Kflow/MFCL provenance are documented in
-[`docs/retained-final-pars.md`](docs/retained-final-pars.md); ordinary users do
-not need Suva access or Kflow to use the release asset.
+The repository directly contains the exact 80 MGC-retained native PARs under
+`final-par/<source-id>/final.par`, together with the matching executable,
+runnable inputs and checksum/native-load verifier. A clone is sufficient; no
+Suva, Kflow or separate download is required. The bundled `mfclo64` is a
+statically linked x86-64 Linux executable.
+
+```sh
+./scripts/verify-retained-final-pars final-par - 2 fast
+./scripts/verify-retained-final-pars final-par - 2 native
+./run.sh ensemble-001
+```
+
+The first command verifies all 80 archived identities and model controls. The
+second additionally loads and evaluates every PAR with native MFCL. The third
+is different: it refits one configuration from its ordinary
+`bet.ini -makepar` start. Exact source IDs, exclusions and provenance are
+documented in [`docs/retained-final-pars.md`](docs/retained-final-pars.md). The
+existing release archive remains an optional copy of the same self-contained
+material.
 
 ## Distribution figure
 

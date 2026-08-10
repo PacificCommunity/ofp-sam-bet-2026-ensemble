@@ -1,9 +1,11 @@
 # Retained native MFCL final PARs
 
-The self-contained release bundle preserves the exact final PAR files for the
-80 ensemble fits retained by the public maximum-gradient-component criterion
-(`MGC <= 1e-4`). It also contains the runnable inputs, scripts and the actual
-native MFCL executable, so ordinary users do not need Kflow or access to Suva.
+This repository directly preserves the exact final PAR files for the 80
+ensemble fits retained by the public maximum-gradient-component criterion
+(`MGC <= 1e-4`) under `final-par/<source-id>/final.par`. A clone also contains
+the runnable inputs, scripts and actual native MFCL executable, so ordinary
+users do not need Kflow, access to Suva or a separate release download. The
+bundled executable is statically linked for x86-64 Linux.
 
 The source audit covers all 100 Kflow archives. Ninety archives contain a
 completed `final.par`. Ten configurations have no completed PAR:
@@ -26,25 +28,29 @@ The authoritative execution provenance is:
 - native MFCL: version `2.2.7.9`, SHA-256 `8995f72019869863c1d1c0b4f44fc6a6268d1f79031f5bc79dc354ee10f0a63e`
 
 The maintainer-only recovery step checks each source archive SHA before
-extracting its declared member. For each recovered or publicly downloaded PAR,
-the public verifier checks its PAR SHA/size, raw objective, raw MGC,
+extracting its declared member. For each committed, recovered or downloaded
+PAR, the public verifier checks its PAR SHA/size, raw objective, raw MGC,
 active-parameter count and MFCL compilation version. It then checks the fitted
 steepness, fixed tau, natural mortality, DM concentration and exact 33-fishery
 Diagnostic selectivity against the design row. Full mode materializes the
 model-specific inputs and asks native MFCL to load and evaluate every PAR
 without refitting; the evaluated objective must match.
 
-From the extracted release bundle:
+From a normal repository clone:
 
 ```sh
-./scripts/verify-retained-final-pars final-par native-validation.csv 2 native
+./scripts/verify-retained-final-pars final-par - 2 fast
+./scripts/verify-retained-final-pars final-par - 2 native
 ./run.sh ensemble-001
 ```
 
-The first command validates the archived fits. The second independently
-refits a selected configuration from its ordinary `bet.ini -makepar` start.
+The first command quickly verifies all hashes, archived metadata and fitted
+model controls. The second additionally performs native load/evaluation for
+all 80 PARs. The third independently refits a selected configuration from its
+ordinary `bet.ini -makepar` start; it does not start from the retained PAR.
 
-The bundle is published from the non-version prerelease tag
+An optional archive of the same self-contained material is published from the
+non-version prerelease tag
 `retained-final-pars-2026.08.11` as
 [`bet-2026-ensemble-retained-final-pars-2026.08.11.tar.gz`](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/retained-final-pars-2026.08.11/bet-2026-ensemble-retained-final-pars-2026.08.11.tar.gz).
 This separate prerelease does not replace the existing report release or alter
@@ -61,6 +67,6 @@ After recovery, a maintainer can build the release asset locally:
 
 ```sh
 ./scripts/build-ensemble-reproducibility-bundle \
-  /tmp/bet-ensemble-retained-final-pars \
+  final-par \
   bet-2026-ensemble-retained-final-pars-2026.08.11.tar.gz 2
 ```

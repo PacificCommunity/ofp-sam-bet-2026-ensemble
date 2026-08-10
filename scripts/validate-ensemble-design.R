@@ -152,4 +152,23 @@ stopifnot(all(vapply(
   integer(1)
 ) == mixing_sources$zero_mixing_events))
 
+retained_validation <- system2(
+  "Rscript",
+  c(
+    shQuote(file.path(repo, "scripts", "verify-retained-final-pars.R")),
+    shQuote(file.path(repo, "final-par")), "-", "2", "fast"
+  ),
+  stdout = TRUE,
+  stderr = TRUE
+)
+retained_status <- attr(retained_validation, "status")
+if (!is.null(retained_status) && retained_status != 0L) {
+  stop(
+    "Committed retained-final-PAR validation failed:\n",
+    paste(retained_validation, collapse = "\n"),
+    call. = FALSE
+  )
+}
+cat(paste(retained_validation, collapse = "\n"), "\n", sep = "")
+
 cat("Validated 100 deterministic BET 2026 ensemble configurations.\n")
