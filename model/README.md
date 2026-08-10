@@ -9,7 +9,10 @@ and applies no seed, jitter or fitted checkpoint. It retains Job 21641 Diagnosti
 selectivity and uses the direct negative-binomial parameterization
 `tau = 1 + exp(fish_pars(4))`. Each ensemble fit fixes tau at its selected value
 (`1.2`, `1.3` or `1.4`) with fish flags 43/44 fixed at zero. The ensemble
-preparation changes steepness and tau in the selected model configuration while
+preparation writes each design row's steepness directly into both the
+run-directory `bet.ini` and selected model configuration before MFCL starts;
+`doitall.sh` rejects any mismatch and passes a byte-identical INI copy to
+`-makepar`. It writes tau directly into the selected model configuration while
 keeping Diagnostic selectivity fixed. The fitted output is `11.par`; the root
 runner also saves it as `final.par`.
 

@@ -69,9 +69,14 @@ F10/F33 weak non-decreasing selectivity exactly.
 
 Every run starts from the frozen Diagnostic-model inputs with ordinary
 `bet.ini -makepar`; no seed, jitter or fitted checkpoint is applied. The
-preparation step changes only the selected six axes, then compares the
-resulting INI, Diagnostic model configuration, FRQ and `doitall.sh` against both the
-design row and authoritative source files before MFCL starts.
+preparation step materializes the selected steepness directly in the runnable
+INI and model configuration, changes only the selected six axes, then compares
+the resulting INI, Diagnostic model configuration, FRQ and `doitall.sh` against
+both the design row and authoritative source files before MFCL starts. The
+runner rejects any INI/config mismatch rather than rewriting steepness during
+the fit. Diagnostic selectivity is likewise read from the committed 33-fishery
+`model/selectivity-models/F2.csv`, applied in the phase controls and audited
+after every fitted phase.
 
 ```sh
 ./run.sh ensemble-001
@@ -84,6 +89,16 @@ but self-describing; for example:
 The exact values remain in the metadata rather than the rounded label. Kflow
 uses the same command with one independent Suva job per design row and a phase
 10/11 convergence criterion of `1e-4`.
+
+## Retained final PAR reproducibility bundle
+
+The exact 80 MGC-retained native `final.par` files are preserved separately
+from Git history in a
+[self-contained release bundle](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/retained-final-pars-2026.08.11/bet-2026-ensemble-retained-final-pars-2026.08.11.tar.gz)
+with the executable, runnable inputs and checksum/native-load verification. The
+exact source IDs, exclusions and Kflow/MFCL provenance are documented in
+[`docs/retained-final-pars.md`](docs/retained-final-pars.md); ordinary users do
+not need Suva access or Kflow to use the release asset.
 
 ## Distribution figure
 
@@ -118,6 +133,7 @@ vector version is available as
 - `design/input-validation-summary.csv` — exact preflight result for all 100 frozen inputs
 - `design/rank-correlation.csv` — pairwise cross-axis association audit
 - `design/distributions.png` and `design/distributions.pdf` — publication-ready figure
+- `data/ensemble/retained-final-par-manifest.csv` — exact archive/PAR provenance for the 80 MGC-retained fits
 
 These are structural ensemble draws, not optimizer jitters.
 

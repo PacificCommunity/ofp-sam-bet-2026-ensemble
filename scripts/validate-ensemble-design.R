@@ -28,6 +28,12 @@ kflow_text <- readLines(file.path(repo, "kflow.yaml"), warn = FALSE)
 model_paths <- list.files(file.path(repo, "model"), recursive = TRUE, all.files = TRUE)
 source(file.path(repo, "scripts", "ensemble-inputs.R"))
 mixing_paths <- file.path(repo, "sources", "mixing", mixing_sources$tag_mixing_source_file)
+base_ini_h <- as.numeric(ensemble_value_after(
+  file.path(repo, "model", "bet.ini"),
+  "^# sv[(]29[)][[:space:]]*$",
+  1L,
+  1L
+))
 
 stopifnot(
   nrow(draws) == 100L,
@@ -94,6 +100,11 @@ stopifnot(
   sum(grepl("^[[:space:]]*-999[[:space:]]+44[[:space:]]+0([[:space:]]|$)", doitall_text)) == 1L,
   sum(model_input_text == "TAU=2.0") == 1L,
   sum(model_input_text == "TAU_FISH_PARS4=0") == 1L,
+  abs(base_ini_h - 0.90) < 1e-12,
+  sum(doitall_text == 'if [ "$ini_steepness" != "$fixed_steepness" ]; then') == 1L,
+  sum(doitall_text == "cp bet.ini bet.model.ini") == 1L,
+  sum(doitall_text == "if ! cmp -s bet.ini bet.model.ini; then") == 1L,
+  !any(grepl("replace_next", doitall_text)),
   nrow(selectivity) == 33L,
   identical(selectivity$fishery, seq_len(33L)),
   identical(which(selectivity$flag16 == 1L), c(10L, 33L)),

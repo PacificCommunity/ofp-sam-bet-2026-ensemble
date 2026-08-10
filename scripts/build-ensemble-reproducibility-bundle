@@ -1,0 +1,131 @@
+#!/bin/sh
+set -eu
+
+if [ "$#" -lt 1 ] || [ "$#" -gt 3 ]; then
+  echo "Usage: ./scripts/build-ensemble-reproducibility-bundle FINAL_PAR_DIR [OUTPUT_TAR_GZ] [PARALLEL]" >&2
+  exit 2
+fi
+
+final_par_dir=$1
+output=${2:-bet-2026-ensemble-retained-final-pars-2026.08.11.tar.gz}
+parallel_jobs=${3:-1}
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+expected_mfcl_sha=8995f72019869863c1d1c0b4f44fc6a6268d1f79031f5bc79dc354ee10f0a63e
+
+if [ ! -d "$final_par_dir" ] || [ -L "$final_par_dir" ]; then
+  echo "FINAL_PAR_DIR must be a real directory." >&2
+  exit 2
+fi
+final_par_dir=$(CDPATH= cd -- "$final_par_dir" && pwd)
+output_parent=$(CDPATH= cd -- "$(dirname -- "$output")" && pwd)
+output="$output_parent/$(basename -- "$output")"
+if [ -e "$output" ] || [ -L "$output" ]; then
+  echo "Refusing to overwrite bundle: $output" >&2
+  exit 2
+fi
+
+if [ "${ALLOW_DIRTY_BUNDLE:-0}" != 1 ] &&
+   [ -n "$(git -C "$repo_dir" status --porcelain --untracked-files=normal)" ]; then
+  echo "Refusing to build a release asset from a dirty worktree." >&2
+  echo "Commit the verified files first, or set ALLOW_DIRTY_BUNDLE=1 only for a local test." >&2
+  exit 2
+fi
+repo_commit=$(git -C "$repo_dir" rev-parse HEAD)
+
+if [ ! -x "$repo_dir/mfclo64" ] ||
+   [ "$(sha256sum "$repo_dir/mfclo64" | awk '{print $1}')" != "$expected_mfcl_sha" ] ||
+   ! file "$repo_dir/mfclo64" | grep -q 'ELF 64-bit'; then
+  echo "mfclo64 is not the executable archived with the retained fits." >&2
+  echo "A pointer or other non-ELF placeholder must never be packaged in this bundle." >&2
+  exit 3
+fi
+
+stage_root=$(mktemp -d "${TMPDIR:-/tmp}/bet-ensemble-bundle.XXXXXX")
+temporary_tar=$(mktemp "$output_parent/.bet-ensemble-bundle.XXXXXX.tar.gz")
+cleanup()
+{
+  case "$stage_root" in
+    "${TMPDIR:-/tmp}"/bet-ensemble-bundle.*)
+      if [ -d "$stage_root" ] && [ ! -L "$stage_root" ]; then
+        rm -rf -- "$stage_root"
+      fi
+      ;;
+    *)
+      echo "Refusing unexpected bundle-stage cleanup: $stage_root" >&2
+      exit 3
+      ;;
+  esac
+  case "$temporary_tar" in
+    "$output_parent"/.bet-ensemble-bundle.*.tar.gz)
+      if [ -f "$temporary_tar" ] && [ ! -L "$temporary_tar" ]; then
+        rm -- "$temporary_tar"
+      fi
+      ;;
+    *)
+      echo "Refusing unexpected temporary-tar cleanup: $temporary_tar" >&2
+      exit 3
+      ;;
+  esac
+}
+trap cleanup EXIT HUP INT TERM
+
+validation_csv="$stage_root/native-final-par-validation.csv"
+"$repo_dir/scripts/verify-retained-final-pars" \
+  "$final_par_dir" "$validation_csv" "$parallel_jobs" native
+
+bundle="$stage_root/bet-2026-ensemble-reproducibility"
+mkdir -m 700 -- "$bundle"
+cp -- "$repo_dir/README.md" "$repo_dir/kflow.yaml" "$repo_dir/run.sh" "$bundle/"
+cp -- "$repo_dir/mfclo64" "$bundle/mfclo64"
+chmod 755 "$bundle/mfclo64" "$bundle/run.sh"
+(
+  cd "$repo_dir"
+  git ls-files -z -- model design sources scripts docs |
+    xargs -0 cp --parents -t "$bundle"
+)
+mkdir -p -- "$bundle/data/ensemble" "$bundle/final-par"
+cp -- "$repo_dir/data/ensemble/fit-diagnostics.csv" "$bundle/data/ensemble/"
+cp -- "$repo_dir/data/ensemble/retained-final-par-manifest.csv" "$bundle/data/ensemble/"
+cp -a -- "$final_par_dir/." "$bundle/final-par/"
+cp -- "$validation_csv" "$bundle/native-final-par-validation.csv"
+
+if [ ! -x "$bundle/mfclo64" ] ||
+   [ "$(sha256sum "$bundle/mfclo64" | awk '{print $1}')" != "$expected_mfcl_sha" ] ||
+   ! file "$bundle/mfclo64" | grep -q 'ELF 64-bit'; then
+  echo "The staged bundle does not contain the real executable." >&2
+  exit 3
+fi
+
+{
+  echo "bundle=BET 2026 ensemble retained final PARs"
+  echo "bundle_repository_commit=$repo_commit"
+  echo "release_tag=retained-final-pars-2026.08.11"
+  echo "release_asset=bet-2026-ensemble-retained-final-pars-2026.08.11.tar.gz"
+  echo "source_kflow_task=bet-2026-ensemble-tau"
+  echo "source_kflow_commit=24483e3c3a36cddb511fc85454b81a218e1c46e7"
+  echo "native_mfcl_version=2.2.7.9"
+  echo "native_mfcl_sha256=$expected_mfcl_sha"
+  echo "retained_models=80"
+  echo "retention_criterion=maximum_gradient_component <= 1e-4"
+} > "$bundle/BUNDLE-METADATA.txt"
+
+(
+  cd "$bundle"
+  find . -type f ! -name SHA256SUMS -print0 |
+    LC_ALL=C sort -z |
+    xargs -0 sha256sum > SHA256SUMS
+)
+(
+  cd "$bundle"
+  sha256sum -c SHA256SUMS >/dev/null
+  ./scripts/verify-retained-final-pars final-par - 1 fast
+)
+
+archive_epoch=$(git -C "$repo_dir" show -s --format=%ct HEAD)
+tar --sort=name --mtime="@$archive_epoch" --owner=0 --group=0 --numeric-owner \
+  -czf "$temporary_tar" -C "$stage_root" bet-2026-ensemble-reproducibility
+tar -tzf "$temporary_tar" >/dev/null
+chmod 644 "$temporary_tar"
+mv -- "$temporary_tar" "$output"
+sha256sum "$output"
+echo "Built self-contained release bundle: $output"
