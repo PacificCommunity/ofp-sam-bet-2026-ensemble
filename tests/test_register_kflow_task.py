@@ -83,6 +83,33 @@ class CampaignTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "task branch"):
             MODULE.verify_task_contract(stored, self.task)
 
+    def test_registered_source_commit_comes_from_consistent_task_snapshot(self) -> None:
+        stored = {**self.task, "code": MODULE.TASK_NAME}
+        self.assertEqual(MODULE.registered_source_commit(stored), self.commit)
+
+    def test_registered_source_commit_rejects_incomplete_or_disagreeing_snapshot(self) -> None:
+        missing = {**self.task, "code": MODULE.TASK_NAME, "metadata": {**self.task["metadata"]}}
+        del missing["metadata"]["source_commit"]
+        with self.assertRaisesRegex(ValueError, "complete source-commit provenance"):
+            MODULE.registered_source_commit(missing)
+
+        disagreeing = {
+            **self.task,
+            "code": MODULE.TASK_NAME,
+            "metadata": {**self.task["metadata"], "source_commit": "0" * 40},
+        }
+        with self.assertRaisesRegex(ValueError, "source-commit provenance disagrees"):
+            MODULE.registered_source_commit(disagreeing)
+
+    def test_registered_source_commit_rejects_invalid_sha(self) -> None:
+        invalid = {
+            **self.task,
+            "code": MODULE.TASK_NAME,
+            "env": {**self.task["env"], "EXPECTED_REPOSITORY_COMMIT": "not-a-sha"},
+        }
+        with self.assertRaisesRegex(ValueError, "invalid source-commit provenance"):
+            MODULE.registered_source_commit(invalid)
+
     def test_existing_task_is_checked_before_any_registration_post(self) -> None:
         stored = {**self.task, "code": MODULE.TASK_NAME}
         with mock.patch.object(MODULE, "get_report", return_value=stored), mock.patch.object(
@@ -160,6 +187,44 @@ class CampaignTests(unittest.TestCase):
         MODULE.verify_job_contract(stored, expected)
         stored["details"]["git_commit_sha"] = "0" * 40
         with self.assertRaisesRegex(ValueError, "resolved git_commit_sha"):
+            MODULE.verify_job_contract(stored, expected)
+
+    def test_noumea_local_host_normalization_is_accepted_with_matching_slot(self) -> None:
+        expected = next(
+            job for job in self.jobs if job["metadata"]["submission_site"] == "noumea"
+        )
+        stored = self.persisted_job(expected)
+        stored["remote_host"] = "local"
+        stored["remote_host_slot"] = "slot1_1@nouofpcand03.corp.spc.int"
+        MODULE.verify_job_contract(stored, expected)
+
+    def test_local_host_normalization_is_rejected_for_suva(self) -> None:
+        expected = next(
+            job for job in self.jobs if job["metadata"]["submission_site"] == "suva"
+        )
+        stored = self.persisted_job(expected)
+        stored["remote_host"] = "local"
+        stored["remote_host_slot"] = "slot1_1@suvofpcand03.corp.spc.int"
+        with self.assertRaisesRegex(ValueError, "remote_host"):
+            MODULE.verify_job_contract(stored, expected)
+
+    def test_remote_host_slot_must_match_expected_site_when_present(self) -> None:
+        expected = next(
+            job for job in self.jobs if job["metadata"]["submission_site"] == "noumea"
+        )
+        stored = self.persisted_job(expected)
+        stored["remote_host"] = "local"
+        stored["remote_host_slot"] = "slot1_1@suvofpcand03.corp.spc.int"
+        with self.assertRaisesRegex(ValueError, "remote_host_slot"):
+            MODULE.verify_job_contract(stored, expected)
+
+    def test_canonical_remote_host_still_checks_persisted_slot_prefix(self) -> None:
+        expected = next(
+            job for job in self.jobs if job["metadata"]["submission_site"] == "suva"
+        )
+        stored = self.persisted_job(expected)
+        stored["remote_host_slot"] = "slot1_1@nouofpcand03.corp.spc.int"
+        with self.assertRaisesRegex(ValueError, "remote_host_slot"):
             MODULE.verify_job_contract(stored, expected)
 
 

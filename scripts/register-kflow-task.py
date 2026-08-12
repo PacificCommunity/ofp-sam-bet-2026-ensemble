@@ -15,6 +15,7 @@ import json
 import math
 import os
 import random
+import re
 import subprocess
 import time
 import urllib.error
@@ -58,6 +59,7 @@ SITE_SEED_DECIMAL = (
 SITE_CONTRACT = {
     "noumea": {
         "remote_host": "nouofpsubmit.corp.spc.int",
+        "slot_prefix": "nouofp",
         "slot_requirements": (
             'regexp("^nouofp", Machine) && OpSys == "LINUX" '
             "&& HasDocker =?= True"
@@ -65,6 +67,7 @@ SITE_CONTRACT = {
     },
     "suva": {
         "remote_host": "suvofpsubmit.corp.spc.int",
+        "slot_prefix": "suvofp",
         "slot_requirements": (
             'regexp("^suvofp", Machine) && OpSys == "LINUX" '
             "&& HasDocker =?= True"
@@ -539,6 +542,40 @@ def verify_task_contract(report: dict[str, Any], expected: dict[str, Any]) -> No
         raise ValueError("task metadata.model_rows does not match all 100 frozen campaign rows.")
 
 
+def registered_source_commit(report: dict[str, Any]) -> str:
+    """Return the immutable campaign SHA recorded by the registered task.
+
+    Audits intentionally use the registered snapshot, not the checkout running
+    the audit.  Every persisted copy of the SHA must be present, valid, and
+    identical before it is trusted to reconstruct the expected job payloads.
+    """
+
+    metadata = report.get("metadata") if isinstance(report.get("metadata"), dict) else {}
+    env = report.get("env") if isinstance(report.get("env"), dict) else {}
+    recorded = {
+        "task metadata.repository_commit": metadata.get("repository_commit"),
+        "task metadata.source_commit": metadata.get("source_commit"),
+        "task env.EXPECTED_REPOSITORY_COMMIT": env.get("EXPECTED_REPOSITORY_COMMIT"),
+    }
+    missing = [label for label, value in recorded.items() if value in (None, "")]
+    if missing:
+        raise ValueError(
+            "Registered task does not contain complete source-commit provenance: "
+            + ", ".join(missing)
+        )
+    invalid = {
+        label: value
+        for label, value in recorded.items()
+        if re.fullmatch(r"[0-9a-fA-F]{40}", str(value)) is None
+    }
+    if invalid:
+        raise ValueError(f"Registered task contains invalid source-commit provenance: {invalid}")
+    normalized = {str(value).lower() for value in recorded.values()}
+    if len(normalized) != 1:
+        raise ValueError(f"Registered task source-commit provenance disagrees: {recorded}")
+    return normalized.pop()
+
+
 def register_or_verify_task(
     base_url: str, token: str, expected: dict[str, Any]
 ) -> tuple[dict[str, Any], bool]:
@@ -623,6 +660,48 @@ def get_job_detail(base_url: str, token: str, summary: dict[str, Any]) -> dict[s
     return job
 
 
+def verify_job_remote_target(
+    job: dict[str, Any], expected: dict[str, Any], key: str
+) -> None:
+    """Verify the requested submit host and any persisted execution-slot hint.
+
+    Kflow stores jobs sent through its own Noumea submitter as ``local``.  That
+    single normalization is accepted; Suva and every other alias remain exact.
+    When Kflow exposes the selected remote_host_slot, its site prefix must also
+    agree with the requested site.
+    """
+
+    expected_host = expected["remote_host"]
+    site_matches = [
+        (site, contract)
+        for site, contract in SITE_CONTRACT.items()
+        if contract["remote_host"] == expected_host
+    ]
+    if len(site_matches) != 1:
+        raise ValueError(f"job {key} has an unknown expected remote host {expected_host!r}")
+    site, contract = site_matches[0]
+    actual_host = job.get("remote_host")
+    normalized_noumea = (
+        site == "noumea"
+        and expected_host == SITE_CONTRACT["noumea"]["remote_host"]
+        and actual_host == "local"
+    )
+    if actual_host != expected_host and not normalized_noumea:
+        raise ValueError(
+            f"job {key} remote_host: expected {expected_host!r}, found {actual_host!r}"
+        )
+
+    remote_host_slot = job.get("remote_host_slot")
+    if remote_host_slot not in (None, ""):
+        slot = str(remote_host_slot).rsplit("@", 1)[-1].casefold()
+        prefix = str(contract["slot_prefix"]).casefold()
+        if not slot.startswith(prefix):
+            raise ValueError(
+                f"job {key} remote_host_slot must start with {prefix!r} for {site}; "
+                f"found {remote_host_slot!r}"
+            )
+
+
 def verify_job_contract(job: dict[str, Any], expected: dict[str, Any]) -> None:
     key = expected["env"]["JOB_KEY"]
     scalar_pairs = {
@@ -631,7 +710,6 @@ def verify_job_contract(job: dict[str, Any], expected: dict[str, Any]) -> None:
         "branch": expected["branch"],
         "command": expected["command"],
         "docker_image": expected["docker_image"],
-        "remote_host": expected["remote_host"],
         "remote_user": expected["remote_user"],
         "cpus": expected["cpus"],
         "memory": expected["memory"],
@@ -640,6 +718,7 @@ def verify_job_contract(job: dict[str, Any], expected: dict[str, Any]) -> None:
     }
     for field, value in scalar_pairs.items():
         expect_equal(job.get(field), value, f"job {key} {field}")
+    verify_job_remote_target(job, expected, key)
     remote_dir = str(job.get("remote_dir") or "")
     expected_prefix = f"{expected['remote_base_dir'].rstrip('/')}/"
     if not remote_dir.startswith(expected_prefix):
@@ -910,6 +989,13 @@ def main() -> int:
         report = get_report(base_url, token)
         if report is None:
             raise SystemExit(f"Kflow task {TASK_NAME} does not exist.")
+        commit = registered_source_commit(report)
+        task = task_payload(config, rows, sites, commit)
+        jobs = [
+            job_payload(config, row, site, index, commit)
+            for index, (row, site) in enumerate(zip(rows, sites), 1)
+        ]
+        payloads = {payload["env"]["JOB_KEY"]: payload for payload in jobs}
         verify_task_contract(report, task)
         existing = jobs_by_key(list_all_jobs(base_url, token), set(payloads))
         verify_jobs(base_url, token, existing, payloads, args.max_workers)
