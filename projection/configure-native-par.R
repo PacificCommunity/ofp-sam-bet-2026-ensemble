@@ -85,7 +85,7 @@ flagval(proj_par, 1, 239) <- 1
 flagval(proj_par, -(1:33), 55) <- 0
 
 # Preserve the fitted negative-binomial tag-overdispersion level for each
-# ensemble member.  The ensemble uses fixed tau values of 1.2, 1.3 or 1.4,
+# ensemble member.  The ensemble uses fixed tau values of 4.96, 5.14 or 5.20,
 # represented natively by fish_pars(4) = log(tau - 1).
 if (!identical(as.numeric(flagval(proj_par, 1, 305)$value), 1)) {
   stop("Native negative-binomial tag likelihood (parest 305=1) was not retained.")
@@ -100,8 +100,8 @@ if (
   stop("The generated projection par did not preserve fitted fish_pars(4).")
 }
 tau_value <- 1 + exp(unique(round(tau_row, 12)))
-if (length(tau_value) != 1L || !any(abs(tau_value - c(1.2, 1.3, 1.4)) < 1e-8)) {
-  stop("The fitted ensemble tau is not one of 1.2, 1.3 or 1.4.")
+if (length(tau_value) != 1L || !any(abs(tau_value - c(4.96, 5.14, 5.20)) < 1e-8)) {
+  stop("The fitted ensemble tau is not one of 4.96, 5.14 or 5.20.")
 }
 
 option7_fished <- proj_par
@@ -166,7 +166,7 @@ audit <- data.frame(
     flagval(projection, 2, 183)$value,
     flagval(projection, 2, 199)$value,
     paste(format(tau_row, scientific = FALSE, trim = TRUE), collapse = ","),
-    format(tau_value, nsmall = 1, trim = TRUE)
+    format(tau_value, nsmall = 2, trim = TRUE)
   ),
   stringsAsFactors = FALSE
 )
@@ -198,7 +198,7 @@ write.csv(
 cat(sprintf(
   paste0(
     "Configured MFCL options 7/8 and final pars; recruitment indices ",
-    "%d--%d (%d--%d); seed %d; tau=%.1f fixed.\n"
+    "%d--%d (%d--%d); seed %d; tau=%.2f fixed.\n"
   ),
   recruitment_period[["pf232"]], recruitment_period[["pf233"]],
   recruitment_year_start, recruitment_year_end, recruitment_seed, tau_value

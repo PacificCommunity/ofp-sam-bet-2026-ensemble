@@ -1,5 +1,11 @@
 # Assessment-model projection cache
 
+> **Legacy `main` payload on `more_tau`.** The committed fitted models and
+> projection caches described below use tau 1.2, 1.3 and 1.4. They are retained
+> for provenance only and are not results of the new 4.96/5.14/5.20 design.
+> `projection/cache-native-projection` refuses to run while
+> `MORE_TAU_RESULTS_PENDING.md` exists.
+
 This folder contains the standalone, resumable BET 2026 ensemble projection
 workflow. The locked scenario is:
 
@@ -15,7 +21,7 @@ workflow. The locked scenario is:
   recruitment deviations (the first 20 assessment years and terminal 2024
   are excluded);
 - no future catch or effort randomisation; and
-- each model's fixed tag-overdispersion value (`tau = 1.2`, `1.3` or `1.4`)
+- each model's fixed tag-overdispersion value (`tau = 4.96`, `5.14` or `5.20`)
   preserved in the projection parameter file.
 
 `cache-native-projection` is the public entry point. It validates and hashes

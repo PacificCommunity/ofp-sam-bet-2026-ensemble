@@ -1,24 +1,24 @@
-# BET 2026 Diagnostic ensemble
+# BET 2026 Diagnostic ensemble: `more_tau`
 
 This repository defines a reproducible 100-model structural ensemble based on
 the BET 2026 Diagnostic model. Each row of
 [`design/model-draws.csv`](design/model-draws.csv) is one model configuration.
 The ensemble changes only the six uncertainty axes listed below; all other
 inputs, Diagnostic selectivity and the ordinary `-makepar` fitting path remain
-unchanged. The preceding fixed-`tau=2` ensemble is preserved on the
+unchanged. Relative to `main`, this branch replaces only the fixed tau margin:
+all 100 steepness, mixing, reporting, natural-mortality and effort-creep values,
+their row assignments and the frozen pairing map are identical. The preceding
+fixed-`tau=2` ensemble is preserved on the
 [`tau=2`](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/tree/tau%3D2)
 branch; the earlier ensemble is preserved on
 [`tau=1`](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/tree/tau%3D1).
-Relative to the `tau=2` branch, current `main` adds the three-level tau axis and
-uses midpoint-stratified rather than boundary-inclusive quantiles for the same
-natural-mortality distribution and replaces modular coupling with a frozen,
-separately randomized pairing of all six axes. The other four axes and all
-non-ensemble model settings are unchanged.
+The prior `main` design and all of its fitted result payloads remain available
+on `main`; they are not relabelled as results from this branch.
 
 | Axis | 100-model representation |
 |---|---|
 | Steepness | 100 stratified quantiles from the 2024 South Pacific albacore censored beta prior: mean 0.87, SD 0.063, bounded by 0.2 and 1.0 |
-| Tag overdispersion, tau | Fixed independently in each fit at `1.2`, `1.3` or `1.4`, represented by 33, 34 and 33 models |
+| Tag overdispersion, tau | Three-point empirical anchor distribution: fixed independently at `4.96`, `5.14` or `5.20`, represented by 33, 34 and 33 models (range 4.96–5.20; median 5.14) |
 | Tag mixing periods (`K` cutoff) | Release-group mixing periods derived at Kolmogorov dissimilarity cutoffs 0.05–0.35, with 0.20 most frequent: 6, 12, 19, 26, 19, 12 and 6 models |
 | Tag reporting | MFCL tag flag column 2: 50 inclusion (`0`) and 50 exclusion (`1`) models; zero-mixing events remain excluded for current-MFCL compatibility |
 | Natural mortality | 100 midpoint quantiles from a quarterly Lorenzen `M0` bounded logit-normal at `L(40.5)`: elicited controls 0.050–0.165, mode 0.0702 and median 0.078136; realised draws 0.0545–0.1328 |
@@ -37,9 +37,16 @@ Only base R is required.
 ```sh
 Rscript scripts/create-ensemble-design.R
 Rscript scripts/validate-ensemble-design.R
+Rscript scripts/validate-more-tau-parity.R
 Rscript scripts/validate-all-model-inputs.R
 ./scripts/smoke-test-ensemble-axes
 ```
+
+The parity check compares this branch with the exact source `main` commit
+`3a940f07aac5c123d019adadc73b3b0ab3897a88`. It requires all 17 non-tau
+fields in every row and `design/pairing-map.csv` to be identical, permits
+changes only to `tag_tau`, `tau_fish_pars4` and `model_label`, and rejects any
+tracked or untracked change under the preserved legacy result roots.
 
 Continuous axes use fixed
 midpoint quantiles: the distribution is divided into 100 equal 1% probability
@@ -55,6 +62,11 @@ the committed 100 models exactly reproducible. The realised steepness range is
 `design/model-draws.csv` is the generated source of truth for model settings.
 `design/rank-correlation.csv` reports the actual pairwise rank correlations;
 no composite balance score is used.
+
+The three tau values are empirical anchors, not draws from an assumed
+continuous probability law. The reported result that each solution-specific
+95% lower confidence limit exceeded 4.5 motivates the high-tau check but is not
+encoded as a confidence interval for these fixed design values.
 
 GitHub Actions recreates the deterministic design, verifies the exact prepared
 inputs for all 100 models, and confirms that only the six intended axes change.
@@ -85,12 +97,22 @@ after every fitted phase.
 The output folder contains `ensemble-metadata.csv` and
 `input-change-audit.csv` with full-precision values. Display labels are concise
 but self-describing; for example:
-`E001 | h=0.669 | tau=1.2 | K=0.20 | RR=include | M0=0.0663/qtr | creep=1.0/0.50%`.
+`E001 | h=0.916 | tau=5.14 | K=0.10 | RR=include | M0=0.0883/qtr | creep=0.5/0.25%`.
 The exact values remain in the metadata rather than the rounded label. Kflow
-uses the same command with one independent Suva job per design row and a phase
-10/11 convergence criterion of `1e-4`.
+uses the same command with one independent job per design row, split evenly
+between Noumea and Suva, and a phase 10/11 convergence criterion of `1e-4`.
 
-## Retained final PAR and Viewer REP files
+## Legacy `main` result payloads
+
+The committed fitted PAR/REP, Hessian, projection and report-facing payloads
+were produced by the preceding `main` tau design. They remain byte-identical
+for provenance but must not be interpreted as results of this branch. The
+[`MORE_TAU_RESULTS_PENDING.md`](MORE_TAU_RESULTS_PENDING.md) marker prevents
+report rendering and projection reuse until new fits and their derived outputs
+have replaced the complete legacy payload. The exact legacy PAR/REP hashes are
+still validated independently of the new design.
+
+### Retained final PAR and Viewer REP files from `main`
 
 The repository directly contains the exact 80 MGC-retained native PARs and
 their final Viewer outputs under
@@ -157,7 +179,7 @@ vector version is available as
 
 These are structural ensemble draws, not optimizer jitters.
 
-## Reusable Hessian uncertainty
+## Legacy `main` Hessian uncertainty
 
 The repository stores compact, checksum-locked assessment-model uncertainty
 payloads under `data/estimation/`. For each of the 62 retained models with a
@@ -175,7 +197,7 @@ Both the per-model RDS files and the aggregate payload are retained with
 SHA-256 manifests. Re-rendering the report therefore reuses the verified draws
 and does not repeat the Hessian calculations.
 
-## Stochastic projections and reusable caches
+## Legacy `main` stochastic projections and reusable caches
 
 The projection workflow uses the fitted assessment models through the checked
 model executable.

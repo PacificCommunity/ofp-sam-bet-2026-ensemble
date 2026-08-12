@@ -17,15 +17,21 @@ correlations are reported directly; no composite balance score is defined.
 ## Tag overdispersion
 
 The direct negative-binomial tag parameter is included as a three-level
-structural axis. Tau is fixed, not estimated, at `1.2`, `1.3` or `1.4` in
-33, 34 and 33 models, respectively. MFCL uses
+structural axis. This branch uses a three-point empirical anchor distribution:
+tau is fixed, not estimated, at `4.96`, `5.14` or `5.20` in 33, 34 and 33
+models, respectively. The realised range is therefore 4.96–5.20 and the
+finite-ensemble median is 5.14. These anchors reproduce the reported range and
+median without inventing a continuous sampling distribution. The reported
+solution-specific 95% lower confidence limits all exceeding 4.5 are supporting
+evidence for the range; those intervals are not represented as draws or model
+weights in this fixed-tau ensemble. MFCL uses
 
 \[
 \tau = 1 + \exp\{\mathrm{fish\_pars}(4)\},
 \]
 
-so the corresponding fixed direct parameters are `log(0.2)`, `log(0.3)` and
-`log(0.4)`. The tag likelihood remains negative binomial (`parest 111=4`),
+so the corresponding fixed direct parameters are `log(3.96)`, `log(4.14)` and
+`log(4.20)`. The tag likelihood remains negative binomial (`parest 111=4`),
 the direct parameterization remains active (`parest 305=1`), and fish flags
 43/44 remain zero in every fit. Runtime audits verify the selected value after
 makepar and after every estimation phase.

@@ -1,11 +1,14 @@
-name: bet-2026-ensemble-tau
-description: BET 2026 Diagnostic ensemble from Job 21641; ordinary makepar with no fitted seed; 100 independent Suva fits varying h, fixed tag tau, tag mixing, tag reporting, M and effort creep.
+name: bet-2026-ensemble-more-tau
+description: BET 2026 Diagnostic more_tau ensemble from Job 21641; 100 independent fits with an audited frozen 50 Noumea / 50 Suva site split and only the fixed tau anchors changed from main.
 command: bash run.sh
 docker_image: ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360
-remote_host: suva
+# The task default is Noumea. Every submitted job overrides remote_host and
+# slot_requirements from design/submission-sites.csv; the registrar verifies
+# the complete 50/50 split before and after submission.
+remote_host: nouofpsubmit.corp.spc.int
 remote_user: kyuhank
 remote_base_dir: /home/kyuhank/KflowOutput
-slot_requirements: 'regexp("^suvofp", Machine)'
+slot_requirements: 'regexp("^nouofp", Machine) && OpSys == "LINUX" && HasDocker =?= True'
 resources:
   cpus: 2
   memory: 8GB
@@ -15,6 +18,7 @@ exclude_slots: []
 env:
   ENSEMBLE_SELECT: ensemble-001
   PROGRAM_PATH: /home/mfcl/mfclo64
+  EXPECTED_PROGRAM_SHA256: f5bc1e232a86e51f920bce7271d8e0930d0b160e4d18dc46de44078f0fa24cd0
   BET_PHASE10_11_CONVERGENCE: "-4"
   TUNA_FLOW_RUNTIME_UPDATE: never
 tags:
@@ -27,16 +31,25 @@ output_patterns:
 metadata:
   reference_model: Diagnostic Job 21641
   source_job: 21641
-  tau_levels: [1.2, 1.3, 1.4]
+  tau_distribution: three-point-empirical-anchor
+  tau_levels: [4.96, 5.14, 5.20]
   tau_counts: [33, 34, 33]
   selectivity_model: Diagnostic
   initialization: ordinary-makepar-no-seed
   model_count: 100
-  execution: independent-concurrent
+  execution: independent-concurrent-dual-site
+  submission_sites: {noumea: 50, suva: 50}
+  submission_site_file: design/submission-sites.csv
+  submission_site_seed_label: more_tau-site-split-v1
+  submission_site_attempt: 2242
+  submission_site_seed_sha256: d528c13cc9a6fda081ae2eb5e221a52df96528cf031d96e93c5fdc0861f29f01
+  submission_site_max_abs_spearman: 0.02462
+  program_path: /home/mfcl/mfclo64
+  program_sha256: f5bc1e232a86e51f920bce7271d8e0930d0b160e4d18dc46de44078f0fa24cd0
   pairing: random-frozen-v1
   maximum_absolute_spearman: 0.076428
   convergence: 1e-4
   inputs: frozen-and-preflight-verified
-  changes_from_previous: Fixed-tau=2 ensemble plus one structural axis; tau fixed at 1.2, 1.3 or 1.4 in 33, 34 and 33 fits; all other axes and Diagnostic controls retained
+  changes_from_main: Tau fixed at empirical anchors 4.96, 5.14 or 5.20 in 33, 34 and 33 fits; all other model rows, axes and Diagnostic controls retained exactly
   tag_mixing_source_branch: SC22-IP10-regionMean
   tag_mixing_source_commit: efe3107c72774ee73b5e6dc45e44cf51f0fc20e8

@@ -1,5 +1,9 @@
 # Retained native MFCL final PARs and Viewer REPs
 
+> On the `more_tau` branch these are byte-preserved legacy `main` outputs from
+> the tau 1.2/1.3/1.4 design. They are verified for provenance only and are not
+> fitted results for tau 4.96/5.14/5.20.
+
 This repository directly preserves the exact final PAR files for the 80
 ensemble fits retained by the public maximum-gradient-component criterion
 (`MGC <= 1e-4`) together with their final Viewer outputs:

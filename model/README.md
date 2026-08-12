@@ -8,7 +8,7 @@ copies these files into a fresh model directory before fitting.
 and applies no seed, jitter or fitted checkpoint. It retains Job 21641 Diagnostic
 selectivity and uses the direct negative-binomial parameterization
 `tau = 1 + exp(fish_pars(4))`. Each ensemble fit fixes tau at its selected value
-(`1.2`, `1.3` or `1.4`) with fish flags 43/44 fixed at zero. The ensemble
+(`4.96`, `5.14` or `5.20`) with fish flags 43/44 fixed at zero. The ensemble
 preparation writes each design row's steepness directly into both the
 run-directory `bet.ini` and selected model configuration before MFCL starts;
 `doitall.sh` rejects any mismatch and passes a byte-identical INI copy to
@@ -33,4 +33,5 @@ The source archive is Kflow Job 21641, fitted from diagnostic repository commit
 `3abf0c64fb9b0c2d70b9c672dc7d9a655d3060d6`. The frozen data files are
 byte-for-byte identical to the previous ensemble base; the fitting controls and
 provenance use the Job 21641 Diagnostic model as the tau=2 reference before the
-declared tau axis is applied.
+declared tau axis is applied. Relative to `main`, only the three fixed tau
+values change; every other row-level input remains identical.

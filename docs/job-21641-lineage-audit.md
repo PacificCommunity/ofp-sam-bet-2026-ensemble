@@ -35,3 +35,7 @@ direct negative-binomial parameterization remain common to all 100 fits. Tau
 is now the declared three-level fixed axis (`1.2`, `1.3`, `1.4`); runtime audits
 check its selected value, steepness, M, DM and Diagnostic selectivity after
 every fitted phase.
+
+On the `more_tau` branch, the same frozen rank assignments instead select the
+three empirical anchors `4.96`, `5.14` and `5.20` in 33, 34 and 33 models. No
+other row-level input or Job 21641 control is changed.

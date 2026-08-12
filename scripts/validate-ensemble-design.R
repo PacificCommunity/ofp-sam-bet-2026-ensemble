@@ -35,12 +35,38 @@ base_ini_h <- as.numeric(ensemble_value_after(
   1L
 ))
 
+sha256_file <- function(path) {
+  output <- system2("sha256sum", shQuote(path), stdout = TRUE, stderr = TRUE)
+  status <- attr(output, "status")
+  if (!is.null(status) && status != 0L) {
+    stop("sha256sum failed for ", path, call. = FALSE)
+  }
+  sub("[[:space:]].*$", "", output[[1L]])
+}
+
+# Canonical checksum of every origin/main model-draw field except the three
+# tau-dependent columns. It was calculated from main commit
+# 3a940f07aac5c123d019adadc73b3b0ab3897a88 and makes any accidental change to
+# h, M, mixing, reporting, effort, initialization or row pairing fail locally
+# even when the baseline Git object is unavailable.
+tau_dependent_columns <- c("tag_tau", "tau_fish_pars4", "model_label")
+non_tau_draws <- draws[setdiff(names(draws), tau_dependent_columns)]
+non_tau_canonical <- tempfile(pattern = "more-tau-non-tau-")
+on.exit(unlink(non_tau_canonical), add = TRUE)
+options(digits = 15)
+write.csv(non_tau_draws, non_tau_canonical, row.names = FALSE, quote = TRUE)
+non_tau_main_sha256 <- "fff0f5257ffb2d3b8158ff38db32cd49dd5faafee82b488870d441454758848b"
+pairing_main_sha256 <- "ba566e38e9211da4ef1d6cfe6ff3dee494e7dd1444a87679d6c7b315b414f58c"
+
 stopifnot(
   nrow(draws) == 100L,
+  sha256_file(non_tau_canonical) == non_tau_main_sha256,
+  sha256_file(file.path(design_dir, "pairing-map.csv")) == pairing_main_sha256,
   length(unique(draws$ensemble_id)) == 100L,
   identical(draws$ensemble_id, sprintf("ensemble-%03d", seq_len(100L))),
   identical(as.integer(table(draws$tag_tau)), c(33L, 34L, 33L)),
-  identical(as.numeric(names(table(draws$tag_tau))), c(1.2, 1.3, 1.4)),
+  identical(as.numeric(names(table(draws$tag_tau))), c(4.96, 5.14, 5.20)),
+  identical(unname(quantile(draws$tag_tau, c(0, 0.5, 1))), c(4.96, 5.14, 5.20)),
   all(abs(draws$tag_tau - (1 + exp(draws$tau_fish_pars4))) < 1e-12),
   max(abs(rank_correlation[upper.tri(rank_correlation)])) <= 0.10,
   abs(parameters$value[parameters$parameter == "max_abs_spearman_observed"] -
@@ -123,8 +149,8 @@ stopifnot(
   sum(grepl("^audit_dm_concentration_fixed (00[.]fixed|0[1-9]|1[01])[.]par ", doitall_text)) == 12L,
   sum(grepl("^audit_selectivity_model (0[1-9]|1[01])[.]par ", doitall_text)) == 11L,
   sum(grepl("^MODEL_ID=S0[.]90-F2 PROGRAM_PATH=", runner_text)) == 1L,
-  sum(kflow_text == "name: bet-2026-ensemble-tau") == 1L,
-  sum(grepl("title = f\"BET Diagnostic | {row['model_label']}\"", registrar_text, fixed = TRUE)) == 1L,
+  sum(kflow_text == "name: bet-2026-ensemble-more-tau") == 1L,
+  sum(grepl("title = f\"BET more_tau | {row['model_label']}\"", registrar_text, fixed = TRUE)) == 1L,
   !any(grepl("tau=2/F2|tau2/F2|Job-21641-S0[.]90-F2", c(kflow_text, registrar_text))),
   abs(m_evidence$central[1] - 0.0624) < 1e-12,
   abs(m_evidence$lower[1] - 0.0500) < 1e-12,
@@ -141,7 +167,13 @@ stopifnot(
   abs(m_evidence$lower[5] - 0.0572276723066398) < 1e-12,
   abs(m_evidence$upper[5] - 0.120155781738336) < 1e-12,
   file.info(file.path(design_dir, "distributions.png"))$size > 10000,
-  file.info(file.path(design_dir, "distributions.pdf"))$size > 10000
+  file.info(file.path(design_dir, "distributions.pdf"))$size > 10000,
+  file.exists(file.path(repo, "MORE_TAU_RESULTS_PENDING.md")),
+  any(grepl("MORE_TAU_RESULTS_PENDING[.]md", readLines(file.path(repo, "run-report"), warn = FALSE))),
+  any(grepl(
+    "MORE_TAU_RESULTS_PENDING[.]md",
+    readLines(file.path(repo, "projection", "cache-native-projection"), warn = FALSE)
+  ))
 )
 
 ensemble_source_hashes(repo)
@@ -152,25 +184,10 @@ stopifnot(all(vapply(
   integer(1)
 ) == mixing_sources$zero_mixing_events))
 
-retained_validation <- system2(
-  "Rscript",
-  c(
-    shQuote(file.path(repo, "scripts", "verify-retained-final-pars.R")),
-    shQuote(file.path(repo, "final-par")), "-", "2", "fast"
-  ),
-  stdout = TRUE,
-  stderr = TRUE
-)
-retained_status <- attr(retained_validation, "status")
-if (!is.null(retained_status) && retained_status != 0L) {
-  stop(
-    "Committed retained-final-PAR validation failed:\n",
-    paste(retained_validation, collapse = "\n"),
-    call. = FALSE
-  )
-}
-cat(paste(retained_validation, collapse = "\n"), "\n", sep = "")
-
+# The committed final PAR/REP and report/projection payloads belong to the
+# preceding main-branch tau=1.2/1.3/1.4 fits. Their joint PAR/REP manifest is
+# still verified byte-for-byte below, but they must not be validated against or
+# interpreted as results from this branch's replacement tau design.
 retained_rep_validation <- system2(
   "Rscript",
   c(
@@ -191,5 +208,6 @@ if (!is.null(retained_rep_status) && retained_rep_status != 0L) {
   )
 }
 cat(paste(retained_rep_validation, collapse = "\n"), "\n", sep = "")
+cat("Legacy main-branch PAR/REP payload verified and isolated from the more_tau design.\n")
 
-cat("Validated 100 deterministic BET 2026 ensemble configurations.\n")
+cat("Validated 100 deterministic BET 2026 more_tau ensemble configurations.\n")

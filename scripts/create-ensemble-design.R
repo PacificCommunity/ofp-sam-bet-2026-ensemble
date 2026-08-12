@@ -136,10 +136,12 @@ mixing_sources <- data.frame(
 # MFCL tag flag column 2: 0 includes pre-mixing reporting, 1 excludes it.
 rr_draw <- rep(c(0L, 1L), each = n_models / 2L)
 
-# Direct negative-binomial tag overdispersion. The Diagnostic reference fixes
-# tau=2; the new structural axis fixes tau at the three requested lower values.
-# Counts are exact and symmetric apart from the unavoidable centre allocation.
-tau_levels <- c(1.2, 1.3, 1.4)
+# Direct negative-binomial tag overdispersion. This branch evaluates the
+# reported solution-specific range and median using a three-point empirical
+# anchor distribution. These are fixed model inputs, not draws from a fitted
+# continuous distribution and not confidence-limit draws. Counts are exact and
+# symmetric apart from the unavoidable centre allocation.
+tau_levels <- c(4.96, 5.14, 5.20)
 tau_counts <- c(33L, 34L, 33L)
 tau_draw <- rep(tau_levels, tau_counts)
 
@@ -226,7 +228,7 @@ design$tag_reporting_zero_mixing_exclusions <- ifelse(
   0L
 )
 design$model_label <- sprintf(
-  "E%03d | h=%.3f | tau=%.1f | K=%.2f | RR=%s | M0=%.4f/qtr | creep=%.1f/%.2f%%",
+  "E%03d | h=%.3f | tau=%.2f | K=%.2f | RR=%s | M0=%.4f/qtr | creep=%.1f/%.2f%%",
   seq_len(n_models), design$steepness, design$tag_tau, design$tag_mixing_k_cutoff,
   ifelse(design$tag_reporting_flag2 == 0L, "include", "exclude"),
   design$m_age40_quarterly,
@@ -362,7 +364,7 @@ continuous_summary <- rbind(
 write.csv(continuous_summary, file.path(output_dir, "continuous-summary.csv"), row.names = FALSE, quote = TRUE)
 
 discrete_summary <- rbind(
-  data.frame(axis = "Tag overdispersion tau", level = format(tau_levels, nsmall = 1),
+  data.frame(axis = "Tag overdispersion tau", level = format(tau_levels, nsmall = 2),
              count = as.integer(table(factor(design$tag_tau, levels = tau_levels)))),
   data.frame(axis = "Tag mixing periods (K cutoff)", level = names(table(design$tag_mixing_k_cutoff)),
              count = as.integer(table(design$tag_mixing_k_cutoff))),
@@ -495,7 +497,7 @@ draw_publication_figure <- function() {
                    cex_names = 0.68)
 
   tau_values <- as.integer(table(factor(design$tag_tau, levels = tau_levels)))
-  labelled_barplot(tau_values, format(tau_levels, nsmall = 1), orange,
+  labelled_barplot(tau_values, format(tau_levels, nsmall = 2), orange,
                    c(0, 39), "Models", expression("Fixed tag overdispersion, " * tau),
                    "f", "Tag overdispersion")
 }

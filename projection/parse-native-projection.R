@@ -284,7 +284,7 @@ flag_audit <- read.csv(
 tau <- as.numeric(flag_audit$value[
   flag_audit$flag_type == "derived" & is.na(flag_audit$flag)
 ])
-if (length(tau) != 1L || !any(abs(tau - c(1.2, 1.3, 1.4)) < 1e-8)) {
+if (length(tau) != 1L || !any(abs(tau - c(4.96, 5.14, 5.20)) < 1e-8)) {
   stop("The fixed ensemble tau audit is invalid.")
 }
 

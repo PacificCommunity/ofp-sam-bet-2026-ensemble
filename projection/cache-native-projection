@@ -2,6 +2,12 @@
 set -euo pipefail
 
 repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+if [[ -f "$repo_dir/MORE_TAU_RESULTS_PENDING.md" ]]; then
+  printf '%s\n' \
+    'Refusing projection: this branch still contains legacy main-branch fitted results.' \
+    'Replace and validate the fitted more_tau results before removing MORE_TAU_RESULTS_PENDING.md.' >&2
+  exit 1
+fi
 if [[ "$#" -ne 3 ]]; then
   printf '%s\n' \
     "Usage: projection/cache-native-projection MODEL_DIR ENSEMBLE_ID OUTPUT_RDS" >&2

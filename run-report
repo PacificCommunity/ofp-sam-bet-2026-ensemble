@@ -4,6 +4,12 @@ set -eu
 repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 cd "$repo_dir"
 
+if [ -f MORE_TAU_RESULTS_PENDING.md ]; then
+  echo "Refusing to render: this branch still contains legacy main-branch result payloads." >&2
+  echo "Replace and validate all fitted, Hessian and projection outputs before removing MORE_TAU_RESULTS_PENDING.md." >&2
+  exit 1
+fi
+
 (cd data/ensemble && sha256sum -c SHA256SUMS)
 (cd data/estimation && sha256sum -c SHA256SUMS)
 (cd data/estimation && sha256sum -c PER_MODEL_SHA256SUMS >/dev/null)
