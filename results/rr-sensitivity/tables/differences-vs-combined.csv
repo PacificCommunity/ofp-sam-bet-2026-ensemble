@@ -1,0 +1,61 @@
+"Group","Domain","Metric","Statistic","Value","Combined_value","Difference","Relative_difference"
+"RR=0: inclusion","Current structural management","SBrecent / SBF=0","Median",0.255477385245047,0.278343268806794,-0.0228658835617465,-0.0821499426221741
+"RR=0: inclusion","Current structural management","SBrecent / SBMSY","Median",1.41813458565866,1.50722590514988,-0.08909131949122,-0.0591094667274582
+"RR=0: inclusion","Current structural management","Frecent / FMSY","Median",0.915331999504003,0.838575750287964,0.0767562492160394,0.0915316823670152
+"RR=1: exclusion","Current structural management","SBrecent / SBF=0","Median",0.290895695269712,0.278343268806794,0.012552426462918,0.0450969283961059
+"RR=1: exclusion","Current structural management","SBrecent / SBMSY","Median",1.64346440087554,1.50722590514988,0.13623849572566,0.0903902296664099
+"RR=1: exclusion","Current structural management","Frecent / FMSY","Median",0.783392207932483,0.838575750287964,-0.0551835423554811,-0.0658062701390199
+"RR=0: inclusion","Current structural risk","SBrecent/SBF=0 < 0.20","Probability",0.235294117647059,0.1875,0.0477941176470588,0.254901960784314
+"RR=0: inclusion","Current structural risk","SBrecent/SBMSY < 1","Probability",0.117647058823529,0.1,0.0176470588235294,0.176470588235294
+"RR=0: inclusion","Current structural risk","Frecent/FMSY > 1","Probability",0.294117647058824,0.2375,0.0566176470588236,0.238390092879257
+"RR=1: exclusion","Current structural risk","SBrecent/SBF=0 < 0.20","Probability",0.152173913043478,0.1875,-0.0353260869565217,-0.188405797101449
+"RR=1: exclusion","Current structural risk","SBrecent/SBMSY < 1","Probability",0.0869565217391304,0.1,-0.0130434782608696,-0.130434782608696
+"RR=1: exclusion","Current structural risk","Frecent/FMSY > 1","Probability",0.195652173913043,0.2375,-0.0418478260869565,-0.176201372997712
+"RR=0: inclusion","Current structure + available estimation","SBrecent / SBF=0","Median",0.254319093973045,0.27723254422898,-0.0229134502559351,-0.082650650989264
+"RR=0: inclusion","Current structure + available estimation","SBrecent / SBMSY","Median",1.4060060878655,1.5320563655761,-0.126050277710602,-0.082275222075921
+"RR=0: inclusion","Current structure + available estimation","Frecent / FMSY","Median",0.915750915750916,0.838392299011998,0.0773586167389184,0.0922701900173482
+"RR=1: exclusion","Current structure + available estimation","SBrecent / SBF=0","Median",0.294433435599521,0.27723254422898,0.017200891370541,0.062044993376874
+"RR=1: exclusion","Current structure + available estimation","SBrecent / SBMSY","Median",1.65489340083552,1.5320563655761,0.122837035259424,0.0801778824979676
+"RR=1: exclusion","Current structure + available estimation","Frecent / FMSY","Median",0.783699059561129,0.838392299011998,-0.0546932394508687,-0.0652358561920498
+"RR=0: inclusion","Current risk + available estimation","SBrecent/SBF=0 < 0.20","Probability",0.236470588235294,0.186375,0.0500955882352941,0.268789205823174
+"RR=0: inclusion","Current risk + available estimation","SBrecent/SBMSY < 1","Probability",0.197647058823529,0.173,0.0246470588235294,0.142468548112887
+"RR=0: inclusion","Current risk + available estimation","Frecent/FMSY > 1","Probability",0.291764705882353,0.240625,0.0511397058823529,0.212528647822765
+"RR=1: exclusion","Current risk + available estimation","SBrecent/SBF=0 < 0.20","Probability",0.149347826086957,0.186375,-0.0370271739130435,-0.198670282564955
+"RR=1: exclusion","Current risk + available estimation","SBrecent/SBMSY < 1","Probability",0.154782608695652,0.173,-0.0182173913043478,-0.105302839909525
+"RR=1: exclusion","Current risk + available estimation","Frecent/FMSY > 1","Probability",0.202826086956522,0.240625,-0.0377989130434783,-0.157086391869001
+"RR=0: inclusion","Terminal projection","SB2051–2054 / SBMSY","Median",2.52389713700052,2.58858278943271,-0.0646856524321899,-0.0249888289052427
+"RR=0: inclusion","Terminal projection","SB2051–2054 / SBMSY","Beyond_criterion_probability",0,0,0,NA
+"RR=0: inclusion","Terminal projection","SB2051–2054 / SBF=0","Median",0.521828711502266,0.544813505401779,-0.0229847938995125,-0.0421883702801422
+"RR=0: inclusion","Terminal projection","SB2051–2054 / SBF=0","Beyond_criterion_probability",0,0,0,NA
+"RR=0: inclusion","Terminal projection","F2050–2053 / FMSY","Median",0.60686818741224,0.504307053295223,0.102561134117017,0.203370413812114
+"RR=0: inclusion","Terminal projection","F2050–2053 / FMSY","Beyond_criterion_probability",0.0617647058823529,0.045,0.0167647058823529,0.372549019607843
+"RR=1: exclusion","Terminal projection","SB2051–2054 / SBMSY","Median",2.63668600803203,2.58858278943271,0.0481032185993211,0.018582839535089
+"RR=1: exclusion","Terminal projection","SB2051–2054 / SBMSY","Beyond_criterion_probability",0,0,0,NA
+"RR=1: exclusion","Terminal projection","SB2051–2054 / SBF=0","Median",0.562397580188274,0.544813505401779,0.0175840747864956,0.0322754017882285
+"RR=1: exclusion","Terminal projection","SB2051–2054 / SBF=0","Beyond_criterion_probability",0,0,0,NA
+"RR=1: exclusion","Terminal projection","F2050–2053 / FMSY","Median",0.452009166230575,0.504307053295223,-0.0522978870646481,-0.103702469999032
+"RR=1: exclusion","Terminal projection","F2050–2053 / FMSY","Beyond_criterion_probability",0.0326086956521739,0.045,-0.0123913043478261,-0.27536231884058
+"RR=0: inclusion","Projection selected years","2030","Depletion_median",0.323716706301101,0.355399972066591,-0.0316832657654901,-0.089148194304173
+"RR=0: inclusion","Projection selected years","2030","Probability_below_LRP",0.0705882352941176,0.0525,0.0180882352941176,0.34453781512605
+"RR=0: inclusion","Projection selected years","2030","Spawning_median_kt",472.52775,523.095,-50.5672500000001,-0.0966693430447625
+"RR=0: inclusion","Projection selected years","2030","Catch_MSY_median",0.904583924818351,0.811098035790311,0.0934858890280396,0.115258433509766
+"RR=0: inclusion","Projection selected years","2040","Depletion_median",0.485568730726994,0.517167636080995,-0.0315989053540008,-0.0610999280493492
+"RR=0: inclusion","Projection selected years","2040","Probability_below_LRP",0,0,0,NA
+"RR=0: inclusion","Projection selected years","2040","Spawning_median_kt",625.76125,690.4925,-64.73125,-0.0937464925397452
+"RR=0: inclusion","Projection selected years","2040","Catch_MSY_median",0.952590415479097,0.841936947202728,0.110653468276368,0.131427262628164
+"RR=0: inclusion","Projection selected years","2054","Depletion_median",0.521828711502266,0.544813505401779,-0.0229847938995125,-0.0421883702801422
+"RR=0: inclusion","Projection selected years","2054","Probability_below_LRP",0,0,0,NA
+"RR=0: inclusion","Projection selected years","2054","Spawning_median_kt",644.31125,720.615,-76.30375,-0.105886985422174
+"RR=0: inclusion","Projection selected years","2054","Catch_MSY_median",0.957963498985039,0.847144874892446,0.110818624092593,0.13081425311894
+"RR=1: exclusion","Projection selected years","2030","Depletion_median",0.386698874274599,0.355399972066591,0.031298902208008,0.0880666985594009
+"RR=1: exclusion","Projection selected years","2030","Probability_below_LRP",0.0391304347826087,0.0525,-0.0133695652173913,-0.254658385093168
+"RR=1: exclusion","Projection selected years","2030","Spawning_median_kt",610.63025,523.095,87.5352499999999,0.167341018361865
+"RR=1: exclusion","Projection selected years","2030","Catch_MSY_median",0.751315058289008,0.811098035790311,-0.0597829775013035,-0.0737062289184964
+"RR=1: exclusion","Projection selected years","2040","Depletion_median",0.537829749744851,0.517167636080995,0.0206621136638558,0.0399524491138496
+"RR=1: exclusion","Projection selected years","2040","Probability_below_LRP",0,0,0,NA
+"RR=1: exclusion","Projection selected years","2040","Spawning_median_kt",798.0844043,690.4925,107.5919043,0.155819077397654
+"RR=1: exclusion","Projection selected years","2040","Catch_MSY_median",0.767048223714947,0.841936947202728,-0.0748887234877815,-0.0889481376682584
+"RR=1: exclusion","Projection selected years","2054","Depletion_median",0.562397580188274,0.544813505401779,0.0175840747864956,0.0322754017882285
+"RR=1: exclusion","Projection selected years","2054","Probability_below_LRP",0,0,0,NA
+"RR=1: exclusion","Projection selected years","2054","Spawning_median_kt",829.61375,720.615,108.99875,0.151257953276021
+"RR=1: exclusion","Projection selected years","2054","Catch_MSY_median",0.769313207073272,0.847144874892446,-0.0778316678191739,-0.0918752743786067

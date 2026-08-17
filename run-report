@@ -11,9 +11,11 @@ cd "$repo_dir"
 (cd data/diagnostic && sha256sum -c SHA256SUMS)
 (cd data/projection && sha256sum -c SHA256SUMS)
 (cd data/projection && sha256sum -c PER_MODEL_SHA256SUMS >/dev/null)
+python3 scripts/split-retained-final-pars-by-reporting.py --check
 Rscript report/validate.R
 Rscript report/render.R
 Rscript report/augment-uncertainty-projection.R
+Rscript report/rr-sensitivity.R
 Rscript report/render-viewer.R
 Rscript report/finalize-manifest.R
 Rscript report/validate-output.R

@@ -688,7 +688,8 @@ summary_rows <- data.frame(
     "SBrecent / SBF=0", "SBrecent / SBMSY", "Frecent / FMSY"
   ),
   Period = c(
-    "2021–2024 / 2014–2023", "2021–2024", "2020–2023"
+    "2021–2024 / 2014–2023", "2021–2024 / equilibrium SBMSY",
+    "2020–2023 / equilibrium FMSY"
   ),
   Models = n_models,
   `10%` = vapply(quantity_values, stats::quantile, numeric(1), probs = 0.10, names = FALSE),
@@ -705,13 +706,14 @@ risk_rows <- data.frame(
     "SBrecent/SBF=0 < 0.20", "SBrecent/SBMSY < 1",
     "Frecent/FMSY > 1"
   ),
-  Models = c(
+  Events = c(
     sum(management$below_lrp_020), sum(management$below_sbmsy),
     sum(management$above_fmsy)
   ),
+  Models = rep(n_models, 3L),
   stringsAsFactors = FALSE
 )
-risk_rows$Percent <- 100 * risk_rows$Models / n_models
+risk_rows$Percent <- 100 * risk_rows$Events / risk_rows$Models
 
 write.csv(summary_rows, file.path(table_dir, "management-summary.csv"), row.names = FALSE)
 write.csv(risk_rows, file.path(table_dir, "management-risk.csv"), row.names = FALSE)
@@ -966,7 +968,7 @@ html <- paste0(
   "</ol></section></section>",
   "<section class='report-panel' id='figures-panel' data-report-panel='figures'><h2>Figures</h2><p class='panel-intro'>Publication figures are grouped here once, with report-ready captions and PNG and vector-PDF downloads.</p><div class='output-list' id='figures-list'></div></section>",
   "<section class='report-panel' id='tables-panel' data-report-panel='tables'><h2>Tables</h2><p class='panel-intro'>Report tables are grouped here once, with Word, LaTeX and CSV outputs.</p><div class='output-list' id='tables-list'></div></section>",
-  "<script>function copyText(id,button){const x=document.getElementById(id);navigator.clipboard.writeText(x.value).then(()=>{const old=button.textContent;button.textContent='Copied';button.classList.add('copied');setTimeout(()=>{button.textContent=old;button.classList.remove('copied')},1400);});}function setReportTab(name,scroll=true,updateHash=true){document.querySelectorAll('[data-report-tab]').forEach(button=>button.classList.toggle('active',button.dataset.reportTab===name));document.querySelectorAll('[data-report-panel]').forEach(panel=>panel.classList.toggle('active',panel.dataset.reportPanel===name));if(updateHash)history.replaceState(null,'','#'+name);if(scroll)window.scrollTo({top:0,behavior:'smooth'});}function organizeReportOutputs(){const figures=document.getElementById('figures-list'),tables=document.getElementById('tables-list');document.querySelectorAll('.figure-card').forEach(card=>figures.appendChild(card));document.querySelectorAll('.table-card').forEach(card=>tables.appendChild(card));document.querySelectorAll('[data-report-tab]').forEach(button=>button.addEventListener('click',()=>setReportTab(button.dataset.reportTab)));document.querySelectorAll(\"a[href^='http']\").forEach(a=>{a.target='_blank';a.rel='noopener noreferrer';});const requested=location.hash.slice(1);if(['overview','figures','tables'].includes(requested)){setReportTab(requested,false,false);return;}const target=requested?document.getElementById(requested):null;if(target){setReportTab(target.classList.contains('table-card')?'tables':'figures',false,false);setTimeout(()=>target.scrollIntoView({block:'start'}),0);}else{setReportTab('overview',false,false);}}document.addEventListener('DOMContentLoaded',organizeReportOutputs);</script>",
+  "<script>function copyText(id,button){const x=document.getElementById(id);navigator.clipboard.writeText(x.value).then(()=>{const old=button.textContent;button.textContent='Copied';button.classList.add('copied');setTimeout(()=>{button.textContent=old;button.classList.remove('copied')},1400);});}function setReportTab(name,scroll=true,updateHash=true){document.querySelectorAll('[data-report-tab]').forEach(button=>button.classList.toggle('active',button.dataset.reportTab===name));document.querySelectorAll('[data-report-panel]').forEach(panel=>panel.classList.toggle('active',panel.dataset.reportPanel===name));if(updateHash)history.replaceState(null,'','#'+name);if(scroll)window.scrollTo({top:0,behavior:'smooth'});}function organizeReportOutputs(){const figures=document.getElementById('figures-list'),tables=document.getElementById('tables-list');document.querySelectorAll('.figure-card').forEach(card=>figures.appendChild(card));document.querySelectorAll('.table-card').forEach(card=>tables.appendChild(card));document.querySelectorAll('[data-report-tab]').forEach(button=>button.addEventListener('click',()=>setReportTab(button.dataset.reportTab)));document.querySelectorAll(\"a[href^='http']\").forEach(a=>{a.target='_blank';a.rel='noopener noreferrer';});const requested=location.hash.slice(1);if(['overview','figures','tables'].includes(requested)){setReportTab(requested,false,false);return;}const target=requested?document.getElementById(requested):null;if(target){const panel=target.closest('[data-report-panel]');setReportTab(panel?panel.dataset.reportPanel:'overview',false,false);setTimeout(()=>target.scrollIntoView({block:'start'}),0);}else{setReportTab('overview',false,false);}}document.addEventListener('DOMContentLoaded',organizeReportOutputs);</script>",
   "</main></body></html>"
 )
 

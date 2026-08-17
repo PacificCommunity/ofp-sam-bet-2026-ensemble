@@ -1,0 +1,10 @@
+"Group","Criterion","Models","Mixture_rows","Probability"
+"Combined (RR=0 + RR=1)","SBrecent/SBF=0 < 0.20",80,8000,0.186375
+"Combined (RR=0 + RR=1)","SBrecent/SBMSY < 1",80,8000,0.173
+"Combined (RR=0 + RR=1)","Frecent/FMSY > 1",80,8000,0.240625
+"RR=0: inclusion","SBrecent/SBF=0 < 0.20",34,3400,0.236470588235294
+"RR=0: inclusion","SBrecent/SBMSY < 1",34,3400,0.197647058823529
+"RR=0: inclusion","Frecent/FMSY > 1",34,3400,0.291764705882353
+"RR=1: exclusion","SBrecent/SBF=0 < 0.20",46,4600,0.149347826086957
+"RR=1: exclusion","SBrecent/SBMSY < 1",46,4600,0.154782608695652
+"RR=1: exclusion","Frecent/FMSY > 1",46,4600,0.202826086956522

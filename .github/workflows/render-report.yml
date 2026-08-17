@@ -10,6 +10,9 @@ on:
       - "data/diagnostic/**"
       - "data/projection/**"
       - "design/**"
+      - "final-par/**"
+      - "final-par-rr-inclusion-flag2-0/**"
+      - "final-par-rr-exclusion-flag2-1/**"
       - "report/**"
       - "scripts/**"
       - "run-report"
@@ -51,8 +54,21 @@ jobs:
           test -s results/report-manifest.csv
           test -s results/figures/natural-mortality-evidence.png
           test -s results/figures/projection-stock-trajectories.png
+          test -s results/rr-sensitivity/tables/group-counts-qc.csv
+          test -s results/rr-sensitivity/tables/differences-vs-combined.csv
+          test -s results/bet-2026-ensemble-report-rr0-inclusion.html
+          test -s results/bet-2026-ensemble-report-rr1-exclusion.html
+          test "$(find results/rr-sensitivity/tables -maxdepth 1 -name '*.csv' -type f | wc -l)" -eq 32
+          test "$(find results/rr-sensitivity/figures -maxdepth 1 -name '*.png' -type f | wc -l)" -eq 23
+          test "$(find results/rr-sensitivity/figures -maxdepth 1 -name '*.pdf' -type f | wc -l)" -eq 23
           test "$(find results/figures -maxdepth 1 -name '*.png' -type f | wc -l)" -ge 10
           grep -q 'data:image/png;base64,' results/bet-2026-ensemble-report.html
+          grep -q 'Reporting-rate retained-subset sensitivity' results/bet-2026-ensemble-report.html
+          grep -q 'Reporting-rate analysis scope' results/bet-2026-ensemble-interactive-viewer.html
+          grep -q '34 equal-weight retained models' results/bet-2026-ensemble-report-rr0-inclusion.html
+          grep -q '46 equal-weight retained models' results/bet-2026-ensemble-report-rr1-exclusion.html
+          grep -q 'Estimation uncertainty is unavailable for the Near-PDH fits' results/bet-2026-ensemble-report-rr0-inclusion.html
+          grep -q 'Projection uncertainty excludes Hessian parameter draws' results/bet-2026-ensemble-report-rr1-exclusion.html
           grep -q 'pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/bet-2026-ensemble-interactive-viewer.html' results/bet-2026-ensemble-report.html
           ! grep -q 'releases/latest/download/bet-2026-ensemble-interactive-viewer.html' results/bet-2026-ensemble-report.html
 

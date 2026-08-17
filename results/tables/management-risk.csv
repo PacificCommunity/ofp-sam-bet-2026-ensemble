@@ -1,4 +1,4 @@
-"Indicator","Criterion","Models","Percent"
-"Below the LRP","SBrecent/SBF=0 < 0.20",15,18.75
-"Below SBMSY","SBrecent/SBMSY < 1",8,10
-"Above FMSY","Frecent/FMSY > 1",19,23.75
+"Indicator","Criterion","Events","Models","Percent"
+"Below the LRP","SBrecent/SBF=0 < 0.20",15,80,18.75
+"Below SBMSY","SBrecent/SBMSY < 1",8,80,10
+"Above FMSY","Frecent/FMSY > 1",19,80,23.75

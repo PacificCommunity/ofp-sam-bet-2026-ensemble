@@ -1,0 +1,88 @@
+#!/bin/sh
+set -eu
+
+if [ "$#" -lt 1 ] || [ "$#" -gt 3 ]; then
+  echo "Usage: ./scripts/fetch-retained-final-ini-manifest OUTPUT.csv [SSH_HOST] [REMOTE_TASK_ROOT]" >&2
+  exit 2
+fi
+
+output=$1
+ssh_host=${2:-kyuhank@suvofpsubmit.corp.spc.int}
+remote_task=${3:-/home/kyuhank/KflowOutput/bet-2026-ensemble-tau}
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+par_manifest="$repo_dir/data/ensemble/retained-final-par-manifest.csv"
+streamer="$repo_dir/scripts/stream-retained-final-ini-manifest.py"
+
+case "$ssh_host" in
+  *[!A-Za-z0-9_.@-]*|'')
+    echo "Refusing an invalid SSH host." >&2
+    exit 2
+    ;;
+esac
+case "$remote_task" in
+  /home/*/KflowOutput/bet-2026-ensemble-tau) ;;
+  *)
+    echo "Refusing an unexpected remote Kflow task path." >&2
+    exit 2
+    ;;
+esac
+if [ ! -f "$par_manifest" ] || [ ! -f "$streamer" ]; then
+  echo "The retained-PAR manifest or read-only INI auditor is missing." >&2
+  exit 2
+fi
+if [ -e "$output" ] || [ -L "$output" ]; then
+  echo "OUTPUT.csv must not already exist: $output" >&2
+  exit 2
+fi
+output_parent=$(dirname -- "$output")
+if [ ! -d "$output_parent" ] || [ -L "$output_parent" ]; then
+  echo "OUTPUT.csv parent must be an existing real directory." >&2
+  exit 2
+fi
+
+temporary=$(mktemp "$output_parent/.retained-final-ini-manifest.XXXXXX")
+cleanup()
+{
+  case "$temporary" in
+    "$output_parent"/.retained-final-ini-manifest.*)
+      if [ -f "$temporary" ] && [ ! -L "$temporary" ]; then
+        rm -- "$temporary"
+      fi
+      ;;
+    *)
+      echo "Refusing unexpected temporary manifest cleanup: $temporary" >&2
+      exit 3
+      ;;
+  esac
+}
+trap cleanup EXIT HUP INT TERM
+
+encoded_manifest=$(base64 < "$par_manifest" | tr -d '\n')
+echo "Read-only INI audit of $ssh_host:$remote_task" >&2
+ssh -o BatchMode=yes -- "$ssh_host" \
+  python3 - "$remote_task" "$encoded_manifest" \
+  < "$streamer" > "$temporary"
+
+python3 - "$temporary" "$par_manifest" <<'PY'
+import csv
+import re
+import sys
+
+with open(sys.argv[1], encoding="utf-8", newline="") as handle:
+    ini_rows = list(csv.DictReader(handle))
+with open(sys.argv[2], encoding="utf-8", newline="") as handle:
+    par_rows = list(csv.DictReader(handle))
+if len(ini_rows) != 80 or len({row["ensemble_id"] for row in ini_rows}) != 80:
+    raise SystemExit("Remote INI manifest is not the exact 80-model set")
+if {row["ensemble_id"] for row in ini_rows} != {row["ensemble_id"] for row in par_rows}:
+    raise SystemExit("Remote INI and retained-PAR manifest IDs differ")
+for row in ini_rows:
+    if not re.fullmatch(r"[0-9a-f]{64}", row["bet_ini_sha256"]):
+        raise SystemExit("Invalid archived INI SHA-256 for " + row["ensemble_id"])
+    if row["bet_ini_model_ini_byte_identical"] != "TRUE":
+        raise SystemExit("Archived INI identity check failed for " + row["ensemble_id"])
+PY
+
+chmod 644 "$temporary"
+mv -- "$temporary" "$output"
+echo "Wrote verified 80-row retained final-INI manifest: $output" >&2

@@ -118,6 +118,21 @@ it refits one configuration from its ordinary `bet.ini -makepar` start. Exact
 source IDs, exclusions, REP regeneration and provenance are documented in
 [`docs/retained-final-pars.md`](docs/retained-final-pars.md).
 
+For direct RR-sensitivity handoff, the same 80 retained fits are also
+materialized without changing the authoritative archive:
+
+- `final-par-rr-inclusion-flag2-0/` — 34 exact `final.par` + model-specific
+  `bet.ini` pairs;
+- `final-par-rr-exclusion-flag2-1/` — 46 exact pairs.
+
+These are the requested model treatments, with inclusion=`0` and
+exclusion=`1`. Every INI is the exact Kflow model input: the archived
+`bet.ini` is byte-identical to the `bet.model.ini` passed to `-makepar`, and
+the local materializer independently reproduces its hash. Run
+`./scripts/split-retained-final-pars-by-reporting.py --check` to verify the
+34/46 partition, no overlap, exact 80-model union, design controls, and both
+file types against their locked manifests.
+
 ## Distribution figure
 
 ![BET 2026 ensemble marginal distributions](design/distributions.png)
@@ -152,8 +167,12 @@ vector version is available as
 - `design/rank-correlation.csv` — pairwise cross-axis association audit
 - `design/distributions.png` and `design/distributions.pdf` — publication-ready figure
 - `data/ensemble/retained-final-par-manifest.csv` — exact archive/PAR provenance for the 80 MGC-retained fits
+- `data/ensemble/retained-final-ini-manifest.csv` — exact archived Kflow `bet.ini` and `bet.model.ini` identity for the 80 fits
 - `data/ensemble/retained-final-rep-manifest.csv` — exact native Phase 11 Viewer REP provenance
+- `data/ensemble/retained-final-par-rr-split-manifest.csv` — exact 34/46 RR membership and PAR/INI provenance
 - `final-par/<source-id>/{final.par,plot-11.par.rep}` — retained fit and its directly readable Viewer output
+- `final-par-rr-inclusion-flag2-0/<source-id>/{final.par,bet.ini}` — 34 RR-inclusion fits
+- `final-par-rr-exclusion-flag2-1/<source-id>/{final.par,bet.ini}` — 46 RR-exclusion fits
 
 These are structural ensemble draws, not optimizer jitters.
 
@@ -250,3 +269,51 @@ quantities for all 80 retained models. Public display labels are reassigned
 sequentially as `ensemble-001` through `ensemble-080` after filtering; the
 checksum-listed model map preserves the source identifiers used by the
 calculation payloads.
+
+### Reporting-rate retained-subset sensitivity
+
+The report and viewer expose three calculation scopes from the same
+checksum-locked structural, Hessian and projection caches:
+
+- **Combined:** the existing equal-model-weight 80-model ensemble. It keeps
+  its original composition of 34/80 reporting-inclusion and 46/80
+  reporting-exclusion models; it is not reweighted to 50/50.
+- **RR=0 — inclusion:** 34 retained models, including pre-mixing reporting
+  rates where the mixing period is positive.
+- **RR=1 — exclusion:** 46 retained models, excluding pre-mixing reporting
+  rates.
+
+Both treatments continue to exclude zero-mixing events for compatibility with
+the current MFCL implementation. Within each scope, every retained model has
+equal weight. RR=0 versus RR=1 is a retained-subset sensitivity contrast—not a
+matched-pair or isolated causal effect—because the frozen randomized design
+couples reporting treatment with the other uncertainty axes and retention
+rates differ between groups.
+
+`./run-report` regenerates the canonical combined report, the three-scope
+interactive viewer, two independent subgroup reports, and the RR comparison
+products without rerunning MFCL, Hessians or projections:
+
+- `results/bet-2026-ensemble-report.html` — canonical combined 80-model report;
+- `results/bet-2026-ensemble-report-rr0-inclusion.html` — 34-model RR-inclusion
+  report;
+- `results/bet-2026-ensemble-report-rr1-exclusion.html` — 46-model RR-exclusion
+  report;
+- `results/rr-sensitivity/tables/` — grouped comparison tables plus the
+  main-report table contract recalculated separately for RR=0 and RR=1;
+- `results/rr-sensitivity/figures/` — cross-scope comparisons and eight
+  main-report-style figure sets for each retained subset.
+
+The subgroup reports keep uncertainty domains explicit. Central-model tables
+and the CMM 2012–2015 comparison describe structural uncertainty only.
+Current management intervals and Kobe/Majuro status combine the available
+joint Hessian uncertainty for PDH models with Near-PDH central estimates at
+equal total model weight. Projection summaries contain ten stochastic
+recruitment paths per model and no Hessian parameter draws. These definitions
+are checked against the printed values and periods in WP-06 Tables 8–13; the
+combined output must reproduce the assessment report before either subgroup
+report is accepted.
+
+The self-contained viewer starts with all 80 retained models and provides
+large scope controls for all, RR=0 and RR=1. Public model IDs and colours remain
+fixed while the plot, management summary and fit table change scope.

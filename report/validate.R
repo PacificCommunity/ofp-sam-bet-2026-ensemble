@@ -44,8 +44,10 @@ expected_management <- c(
   "above_fmsy"
 )
 expected_design <- c(
-  "ensemble_id", "steepness", "tag_mixing_k_cutoff", "tag_reporting",
-  "tag_tau", "m_age40_quarterly", "effort_creep_primary"
+  "ensemble_id", "steepness", "tag_mixing_k_cutoff",
+  "tag_reporting_flag2", "tag_reporting", "zero_mixing_events",
+  "tag_reporting_zero_mixing_exclusions", "tag_tau",
+  "m_age40_quarterly", "effort_creep_primary"
 )
 for (check in list(
   series = list(data = series, columns = expected_series),
@@ -141,6 +143,45 @@ if (length(included_ids) != 80L ||
     sum(included_fit$positive_definite_hessian) != 62L ||
     sum(!included_fit$positive_definite_hessian) != 18L) {
   stop("The MGC-filtered reporting ensemble must contain 80 models: 62 PDH and 18 Near-PDH.", call. = FALSE)
+}
+
+# Reporting-rate sensitivity uses MFCL tag flag column 2. Requested flag 0
+# includes pre-mixing reporting rates wherever the mixing period is positive;
+# zero-mixing events remain excluded for current-MFCL compatibility. Flag 1
+# excludes pre-mixing reporting rates throughout.
+reporting_flag <- as.integer(design$tag_reporting_flag2)
+if (anyNA(reporting_flag) ||
+    any((reporting_flag == 0L) != (design$tag_reporting == "inclusion")) ||
+    any((reporting_flag == 1L) != (design$tag_reporting == "exclusion")) ||
+    any(reporting_flag == 0L &
+      design$tag_reporting_zero_mixing_exclusions != design$zero_mixing_events) ||
+    any(reporting_flag == 1L &
+      design$tag_reporting_zero_mixing_exclusions != 0L)) {
+  stop("The reporting-rate flag mapping or zero-mixing compatibility rule is invalid.", call. = FALSE)
+}
+completed_reporting <- table(factor(
+  design$tag_reporting, levels = c("inclusion", "exclusion")
+))
+retained_design <- design[design$ensemble_id %in% included_ids, , drop = FALSE]
+retained_reporting <- table(factor(
+  retained_design$tag_reporting, levels = c("inclusion", "exclusion")
+))
+retained_qc <- merge(
+  retained_design[c("ensemble_id", "tag_reporting")],
+  included_fit[c("ensemble_id", "positive_definite_hessian")],
+  by = "ensemble_id", sort = FALSE
+)
+if (!identical(as.integer(completed_reporting), c(41L, 47L)) ||
+    !identical(as.integer(retained_reporting), c(34L, 46L)) ||
+    sum(retained_qc$tag_reporting == "inclusion" &
+      retained_qc$positive_definite_hessian) != 25L ||
+    sum(retained_qc$tag_reporting == "inclusion" &
+      !retained_qc$positive_definite_hessian) != 9L ||
+    sum(retained_qc$tag_reporting == "exclusion" &
+      retained_qc$positive_definite_hessian) != 37L ||
+    sum(retained_qc$tag_reporting == "exclusion" &
+      !retained_qc$positive_definite_hessian) != 9L) {
+  stop("The reporting-rate completed, retained or Hessian-QC counts are not the locked 41/47 and 34/46 split.", call. = FALSE)
 }
 
 hessian <- readRDS("data/estimation/native-hessian-uncertainty.rds")

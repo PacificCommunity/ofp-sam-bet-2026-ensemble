@@ -5,75 +5,785 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BET 2026 ensemble model results</title>
 <style>
-:root{color-scheme:light;--ink:#102b3a;--muted:#657987;--line:#cfe0e8;--panel:#fff;--soft:#eef6f8;--accent:#17617f;--accent2:#00a6c8;--green:#588f2d;--orange:#c96c18}
-*{box-sizing:border-box}body{margin:0;background:repeating-linear-gradient(0deg,rgba(23,97,127,.035) 0 1px,transparent 1px 42px),repeating-linear-gradient(90deg,rgba(23,97,127,.03) 0 1px,transparent 1px 42px),linear-gradient(145deg,#eef8fb 0%,#f7fbfc 48%,#edf3f5 100%);background-attachment:fixed;color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}body:before{content:"";position:fixed;inset:0 0 auto;height:6px;background:linear-gradient(90deg,#034ea2,#00b2cd,#76b82a);z-index:30}
-main{max-width:1780px;margin:0 auto;padding:28px 22px 24px}.hero{align-items:center;display:flex;gap:20px;justify-content:space-between;margin:6px 0 18px}.brand h1{font-size:30px;line-height:1.05;margin:0}.brand p{color:#557181;font-size:13px;font-weight:700;margin:6px 0 0}.flow{align-items:center;background:rgba(255,255,255,.86);border:1px solid var(--line);border-radius:8px;box-shadow:0 12px 34px rgba(20,53,73,.08);display:flex;gap:10px;padding:9px 13px;white-space:nowrap}.flow span{color:#6a7f8d;font-size:11px;font-weight:850;text-transform:uppercase}.flow strong{color:#174d68;font-size:18px}.flow i{color:#7a929f;font-style:normal;font-weight:900}.flow .kept{color:var(--green)}
-.shell{display:grid;gap:16px;grid-template-columns:minmax(350px,440px) minmax(0,1fr)}.panel{background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:8px;box-shadow:0 18px 48px rgba(20,53,73,.10)}.side{align-self:start;padding:14px;position:sticky;top:18px}.content{min-width:0;padding:14px}.tabs{border-bottom:1px solid #e0edf2;display:grid;gap:4px;margin-bottom:12px;padding-bottom:12px}.tab{align-items:center;background:transparent;border:0;border-radius:6px;color:#28495b;cursor:pointer;display:flex;font-size:13px;font-weight:850;justify-content:space-between;padding:9px;text-align:left}.tab:hover{background:#f0f7fa}.tab.active{background:linear-gradient(135deg,#17617f,#0b7892);box-shadow:0 8px 18px rgba(23,97,127,.18);color:white}.tab.active:after{content:"";background:white;border-radius:99px;height:6px;opacity:.85;width:6px}.section-label{color:#607684;display:block;font-size:11px;font-weight:900;letter-spacing:.06em;margin-bottom:6px;text-transform:uppercase}.actions{display:grid;gap:7px;grid-template-columns:1fr 1fr;margin:8px 0}.actions button{background:#fff;border:1px solid #bfd4df;border-radius:6px;color:#174d68;cursor:pointer;font-size:12px;font-weight:850;padding:7px 9px}.actions button:hover{background:#f4fafc}.models{display:grid;gap:2px;max-height:690px;overflow:auto;padding-right:2px}.model{align-items:start;border:1px solid transparent;border-radius:6px;cursor:pointer;display:grid;gap:8px;grid-template-columns:16px 25px minmax(0,1fr);padding:7px 6px}.model:hover{background:#f5fafb;border-color:#e2edf2}.model input{appearance:none;background:#fff;border:1.5px solid #a9c3d0;border-radius:4px;height:15px;margin:2px 0 0;width:15px}.model input:checked{background:#17617f;border-color:#17617f;box-shadow:inset 0 0 0 3px white}.swatch{border-radius:99px;height:4px;margin-top:8px;width:25px}.model-name{font-size:12px;line-height:1.25;min-width:0;overflow-wrap:anywhere}.model-name b{color:#153b50;display:block;font-size:13px;margin-bottom:2px}.model-name small{color:#607684;font-size:11px}.topline{align-items:center;display:flex;gap:10px;justify-content:space-between;margin-bottom:9px}.topline strong{font-size:15px}.topline code{background:#f6fafb;border:1px solid #d9e8ef;border-radius:5px;color:#536b7b;font-size:12px;padding:2px 6px}.line-note{background:#f4fafc;border:1px solid #dbe9ee;border-radius:6px;color:#516d7c;font-size:12px;margin-bottom:12px;padding:7px 9px}.line-note b{color:#174d68}.plots{display:grid;gap:12px;grid-template-columns:1fr 1fr}.plot{background:white;border:1px solid #dce8ee;border-radius:6px;padding:7px}.plot-label{color:#203747;font-family:Georgia,serif;font-size:14px;font-weight:800;padding:2px 6px 4px}.plot canvas{display:block;height:320px;width:100%}.hidden{display:none!important}
-.selection-table{margin-top:12px}.table-wrap{background:white;border:1px solid #dce8ee;border-radius:6px;max-height:690px;max-width:100%;overflow:auto;scrollbar-gutter:stable}.data-table{border-collapse:collapse;font-size:12px;min-width:100%;table-layout:auto;width:max-content}.data-table th{background:#f4f8fa;border-bottom:1px solid #dce8ee;color:#284558;font-size:10px;letter-spacing:.02em;padding:9px 10px;position:sticky;text-align:left;text-transform:uppercase;top:0;vertical-align:bottom;white-space:nowrap;z-index:2}.data-table td{border-bottom:1px solid #edf3f6;padding:8px 10px;vertical-align:middle;white-space:nowrap}.data-table th,.data-table td{border-right:1px solid #edf3f6}.data-table td.num,.data-table th.num{text-align:right;font-variant-numeric:tabular-nums}.data-table tr:hover td{background:#f8fbfc}.data-table tr.selected td{background:#edf8fa}.table-swatch{border-radius:99px;display:inline-block;height:4px;margin-right:7px;vertical-align:middle;width:22px}.status-ok{color:#3e7a37;font-weight:850}.status-near{color:#b25f16;font-weight:850}var{font-family:Georgia,serif}.empty{color:#6a7d8c;font-weight:750;padding:18px}.table-note{color:#607684;font-size:11px;margin:7px 1px 0}
-@media(max-width:1000px){.shell{grid-template-columns:1fr}.side{position:static}.models{grid-template-columns:1fr 1fr;max-height:340px}}@media(max-width:760px){main{padding:18px 10px}.hero{align-items:flex-start;display:grid}.flow{white-space:normal}.plots,.models{grid-template-columns:1fr}.plot canvas{height:290px}}
+:root {
+  color-scheme: light;
+  --ink: #102b3a;
+  --muted: #5b7280;
+  --line: #cfe0e8;
+  --panel: #fff;
+  --soft: #eef6f8;
+  --accent: #17617f;
+  --accent-dark: #07566b;
+  --accent2: #00a6c8;
+  --green: #588f2d;
+  --orange: #c96c18;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(23,97,127,.035) 0 1px, transparent 1px 42px),
+    repeating-linear-gradient(90deg, rgba(23,97,127,.03) 0 1px, transparent 1px 42px),
+    linear-gradient(145deg, #eef8fb 0%, #f7fbfc 48%, #edf3f5 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+body:before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: 6px;
+  background: linear-gradient(90deg, #034ea2, #00b2cd, #76b82a);
+  z-index: 30;
+}
+main { max-width: 1780px; margin: 0 auto; padding: 28px 22px 28px; }
+.hero {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin: 6px 0 16px;
+}
+.brand h1 { font-size: 32px; line-height: 1.05; margin: 0; }
+.brand p { color: #557181; font-size: 14px; font-weight: 700; margin: 7px 0 0; }
+.flow {
+  align-items: center;
+  background: rgba(255,255,255,.88);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  box-shadow: 0 12px 34px rgba(20,53,73,.08);
+  display: flex;
+  gap: 10px;
+  padding: 10px 14px;
+  white-space: nowrap;
+}
+.flow span { color: #607684; font-size: 12px; font-weight: 850; text-transform: uppercase; }
+.flow strong { color: #174d68; font-size: 20px; }
+.flow i { color: #7a929f; font-style: normal; font-weight: 900; }
+.flow .kept { color: var(--green); }
+.scope-panel {
+  background: rgba(255,255,255,.96);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  box-shadow: 0 14px 36px rgba(20,53,73,.08);
+  margin-bottom: 16px;
+  padding: 13px;
+}
+.scope-heading {
+  align-items: baseline;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin: 0 1px 9px;
+}
+.scope-heading strong { color: #183f54; font-size: 15px; }
+.scope-heading span { color: var(--muted); font-size: 12px; font-weight: 700; }
+.scope-buttons { display: grid; gap: 10px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.scope-button {
+  align-items: center;
+  background: linear-gradient(145deg, #fff, #f4fafc);
+  border: 1px solid #bcd3de;
+  border-radius: 8px;
+  color: #194458;
+  cursor: pointer;
+  display: grid;
+  gap: 2px 11px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 13px 15px;
+  text-align: left;
+  transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+.scope-button:hover { border-color: #5f9bae; box-shadow: 0 7px 18px rgba(23,97,127,.12); transform: translateY(-1px); }
+.scope-button.active {
+  background: linear-gradient(135deg, #17617f, #0b7892);
+  border-color: #0b7892;
+  box-shadow: 0 9px 22px rgba(23,97,127,.20);
+  color: #fff;
+}
+.scope-button b { font-size: 16px; line-height: 1.1; }
+.scope-button strong { font-size: 28px; grid-row: span 2; line-height: 1; }
+.scope-button small { color: #637d8b; font-size: 12px; font-weight: 700; }
+.scope-button.active small { color: rgba(255,255,255,.82); }
+.scope-help {
+  color: #526b79;
+  display: grid;
+  font-size: 12px;
+  gap: 3px;
+  line-height: 1.4;
+  margin: 10px 3px 0;
+}
+.scope-help b { color: #174d68; }
+.shell { display: grid; gap: 16px; grid-template-columns: minmax(355px, 440px) minmax(0, 1fr); }
+.panel {
+  background: rgba(255,255,255,.97);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  box-shadow: 0 18px 48px rgba(20,53,73,.10);
+}
+.side {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 36px);
+  overflow: hidden;
+  padding: 14px;
+  position: sticky;
+  top: 18px;
+}
+.content { min-width: 0; padding: 14px; }
+.tabs { border-bottom: 1px solid #e0edf2; display: grid; gap: 5px; margin-bottom: 12px; padding-bottom: 12px; }
+.tab {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: #28495b;
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  font-weight: 850;
+  justify-content: space-between;
+  padding: 10px;
+  text-align: left;
+}
+.tab:hover { background: #f0f7fa; }
+.tab.active { background: linear-gradient(135deg, #17617f, #0b7892); box-shadow: 0 8px 18px rgba(23,97,127,.18); color: white; }
+.tab.active:after { background: white; border-radius: 99px; content: ""; height: 7px; opacity: .85; width: 7px; }
+.section-label {
+  color: #607684;
+  display: block;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.actions { display: grid; gap: 7px; grid-template-columns: 1fr 1fr; margin: 8px 0; }
+.actions button {
+  background: #fff;
+  border: 1px solid #bfd4df;
+  border-radius: 6px;
+  color: #174d68;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 850;
+  padding: 8px 9px;
+}
+.actions button:hover { background: #f4fafc; }
+#modelControls {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+}
+.models {
+  display: grid;
+  flex: 1 1 auto;
+  gap: 3px;
+  min-height: 0;
+  overflow: auto;
+  padding-right: 3px;
+  scrollbar-gutter: stable;
+}
+.model {
+  align-items: start;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  display: grid;
+  gap: 9px;
+  grid-template-columns: 17px 28px minmax(0,1fr);
+  padding: 8px 6px;
+}
+.model:hover { background: #f5fafb; border-color: #e2edf2; }
+.model input {
+  appearance: none;
+  background: #fff;
+  border: 1.5px solid #9fbcca;
+  border-radius: 4px;
+  height: 16px;
+  margin: 2px 0 0;
+  width: 16px;
+}
+.model input:checked { background: #17617f; border-color: #17617f; box-shadow: inset 0 0 0 3px white; }
+.swatch { border-radius: 99px; height: 5px; margin-top: 8px; width: 28px; }
+.model-name { font-size: 13px; line-height: 1.28; min-width: 0; overflow-wrap: anywhere; }
+.model-name b { color: #153b50; display: block; font-size: 14px; margin-bottom: 2px; }
+.model-name small { color: #607684; font-size: 11.5px; }
+.topline { align-items: center; display: flex; gap: 10px; justify-content: space-between; margin-bottom: 10px; }
+.topline strong { font-size: 17px; }
+.topline code { background: #f6fafb; border: 1px solid #d9e8ef; border-radius: 5px; color: #536b7b; font-size: 13px; padding: 3px 7px; }
+.summary-grid { display: grid; gap: 9px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 8px; }
+.summary-card {
+  background: linear-gradient(145deg, #fafdfe, #eef7f9);
+  border: 1px solid #cfe1e8;
+  border-radius: 7px;
+  min-width: 0;
+  padding: 10px 11px;
+}
+.summary-card h3 { color: #214658; font-family: Georgia, serif; font-size: 14px; line-height: 1.2; margin: 0; }
+.summary-card .period { color: #6a7f8d; display: block; font-size: 10.5px; margin-top: 2px; }
+.summary-value { align-items: baseline; display: flex; gap: 7px; margin: 7px 0 3px; }
+.summary-value strong { color: #073f56; font-size: 24px; line-height: 1; }
+.summary-value span { color: #526e7d; font-size: 11px; font-weight: 750; }
+.summary-detail { align-items: center; display: flex; flex-wrap: wrap; gap: 5px 8px; }
+.delta { background: #e7f2f6; border-radius: 99px; color: #155d78; font-size: 11px; font-weight: 850; padding: 3px 7px; }
+.delta.negative { background: #fff1e7; color: #99500f; }
+.risk { color: #4f6978; font-size: 11px; font-weight: 750; }
+.scope-context {
+  background: #fff8e8;
+  border-left: 4px solid #d28a24;
+  color: #5b6570;
+  font-size: 12px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  padding: 7px 10px;
+}
+.scope-context b { color: #6d4a14; }
+.plot-stage { background: rgba(255,255,255,.985); border-radius: 7px; padding-bottom: 2px; z-index: 4; }
+.line-note {
+  align-items: center;
+  background: #f4fafc;
+  border: 1px solid #dbe9ee;
+  border-radius: 6px;
+  color: #516d7c;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 13px;
+  gap: 7px 15px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 8px 10px;
+}
+.line-note b { color: #174d68; }
+.plot-key { align-items: center; display: inline-flex; gap: 8px; font-size: 12px; font-weight: 750; white-space: nowrap; }
+.key-line { border-top: 3px solid #167a8b; display: inline-block; width: 24px; }
+.key-line.lrp { border-top-color: #b83232; border-top-style: dashed; }
+.plots { display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
+.plot { background: white; border: 1px solid #dce8ee; border-radius: 6px; padding: 7px; }
+.plot-label { color: #203747; font-family: Georgia, serif; font-size: 16px; font-weight: 800; padding: 2px 7px 4px; }
+.plot canvas { display: block; height: 282px; width: 100%; }
+.hidden { display: none !important; }
+.selection-table { margin-top: 12px; }
+.table-wrap {
+  background: white;
+  border: 1px solid #dce8ee;
+  border-radius: 6px;
+  max-height: 690px;
+  max-width: 100%;
+  overflow: auto;
+  scrollbar-gutter: stable;
+}
+.data-table { border-collapse: collapse; font-size: 13px; min-width: 100%; table-layout: auto; width: max-content; }
+.data-table th {
+  background: #f4f8fa;
+  border-bottom: 1px solid #dce8ee;
+  color: #284558;
+  font-size: 11px;
+  letter-spacing: .02em;
+  padding: 9px 10px;
+  position: sticky;
+  text-align: left;
+  text-transform: uppercase;
+  top: 0;
+  vertical-align: bottom;
+  white-space: nowrap;
+  z-index: 2;
+}
+.data-table td { border-bottom: 1px solid #edf3f6; padding: 8px 10px; vertical-align: middle; white-space: nowrap; }
+.data-table th, .data-table td { border-right: 1px solid #edf3f6; }
+.data-table td.num, .data-table th.num { font-variant-numeric: tabular-nums; text-align: right; }
+.data-table tr:hover td { background: #f8fbfc; }
+.data-table tr.selected td { background: #edf8fa; }
+.table-swatch { border-radius: 99px; display: inline-block; height: 5px; margin-right: 7px; vertical-align: middle; width: 24px; }
+.status-ok { color: #3e7a37; font-weight: 850; }
+.status-near { color: #b25f16; font-weight: 850; }
+var { font-family: Georgia, serif; }
+.empty { color: #6a7d8c; font-weight: 750; padding: 18px; }
+.table-note { color: #607684; font-size: 12px; margin: 8px 1px 0; }
+@media (min-width: 1001px) and (min-height: 780px) {
+  .plot-stage { position: sticky; top: 10px; }
+}
+@media (max-width: 1180px) {
+  .shell { grid-template-columns: minmax(330px, 390px) minmax(0,1fr); }
+  .plot canvas { height: 255px; }
+  .summary-value strong { font-size: 21px; }
+}
+@media (max-width: 1000px) {
+  .shell { grid-template-columns: 1fr; }
+  .side { max-height: none; overflow: visible; position: static; }
+  #modelControls { flex: none; }
+  .models { flex: none; grid-template-columns: 1fr 1fr; max-height: 360px; }
+  .plot-stage { position: static; }
+}
+@media (max-width: 760px) {
+  main { padding: 18px 10px; }
+  .hero { align-items: flex-start; display: grid; }
+  .flow { white-space: normal; }
+  .scope-heading { align-items: flex-start; display: grid; }
+  .scope-buttons, .summary-grid, .plots, .models { grid-template-columns: 1fr; }
+  .scope-button { padding: 12px; }
+  .plot canvas { height: 300px; }
+  .topline { align-items: flex-start; display: grid; }
+}
 </style>
 </head>
 <body>
 <main>
-<header class="hero">
-  <div class="brand"><h1>BET 2026 ensemble model results</h1><p>Interactive comparison of the 80 assessment configurations retained after the convergence filter.</p></div>
-  <div class="flow" aria-label="Ensemble filtering summary"><span><strong>100</strong> planned</span><i>&rarr;</i><span>completion and<br>MGC filter</span><i>&rarr;</i><span class="kept"><strong>80</strong> included<br>MGC &le; 1 &times; 10<sup>&minus;4</sup></span></div>
-</header>
-<section class="shell">
-  <aside class="panel side">
-    <div class="tabs"><button class="tab active" data-view="quantities" type="button">Key quantities</button><button class="tab" data-view="fit" type="button">Fit summary</button></div>
-    <div id="modelControls">
-      <span class="section-label">Models &middot; ensemble-001&ndash;ensemble-080</span>
-      <div class="actions"><button id="selectAll" type="button">Select all</button><button id="selectNone" type="button">Clear</button></div>
-      <div class="models" id="modelList"></div>
+  <header class="hero">
+    <div class="brand">
+      <h1>BET 2026 ensemble model results</h1>
+      <p>Interactive comparison of the 80 assessment configurations retained after the convergence filter.</p>
     </div>
-  </aside>
-  <section class="panel content">
-    <div class="topline"><strong id="viewTitle">Key quantities</strong><code id="rowCount"></code></div>
-    <div id="quantityView">
-      <div class="line-note"><b>Line colours identify individual retained models</b> and match the swatches in the model list. Labels run sequentially from ensemble-001 to ensemble-080 within the retained set. Select any combination of models for direct comparison.</div>
-      <div class="plots">
-        <div class="plot"><div class="plot-label">(a) Dynamic spawning depletion</div><canvas id="depletion"></canvas></div>
-        <div class="plot"><div class="plot-label">(b) Recruitment</div><canvas id="recruitment"></canvas></div>
-        <div class="plot"><div class="plot-label">(c) Spawning potential</div><canvas id="spawning"></canvas></div>
-        <div class="plot"><div class="plot-label">(d) Fishing mortality</div><canvas id="fishing"></canvas></div>
-      </div>
-      <div class="selection-table" id="selectedSummary"></div>
+    <div class="flow" aria-label="Ensemble filtering summary">
+      <span><strong>100</strong> planned</span><i>&rarr;</i><span>completion and<br>MGC filter</span><i>&rarr;</i><span class="kept"><strong>80</strong> included<br>MGC &le; 1 &times; 10<sup>&minus;4</sup></span>
     </div>
-    <div id="fitView" class="hidden"><div class="table-wrap" id="fitTable"></div><p class="table-note">All values are from the 80 retained assessment configurations, numbered sequentially after filtering. Clicking a row switches to the trajectory view and selects that model.</p></div>
+  </header>
+
+  <section class="scope-panel" aria-labelledby="scopeTitle">
+    <div class="scope-heading">
+      <strong id="scopeTitle">Reporting-rate analysis scope</strong>
+      <span>Choose a retained-model mixture; switching scope selects every model in that scope.</span>
+    </div>
+    <div class="scope-buttons" id="scopeButtons">
+      <button class="scope-button active" data-scope="all" type="button" aria-pressed="true">
+        <b>All retained</b><strong>80</strong><small>34 inclusion + 46 exclusion</small>
+      </button>
+      <button class="scope-button" data-scope="rr0" type="button" aria-pressed="false">
+        <b>RR inclusion &middot; flag2=0</b><strong>34</strong><small>retained subset</small>
+      </button>
+      <button class="scope-button" data-scope="rr1" type="button" aria-pressed="false">
+        <b>RR exclusion &middot; flag2=1</b><strong>46</strong><small>retained subset</small>
+      </button>
+    </div>
+    <div class="scope-help">
+      <span><b>Retained-subset sensitivity; not an isolated RR effect.</b> The combined scope is the existing model-equal mixture: 34/80 inclusion and 46/80 exclusion.</span>
+      <span>Flag2=0 includes pre-mixing reporting rates; flag2=1 excludes them. Zero-mixing events remain excluded in both treatments for current-MFCL compatibility.</span>
+    </div>
   </section>
-</section>
+
+  <section class="shell">
+    <aside class="panel side">
+      <div class="tabs">
+        <button class="tab active" data-view="quantities" type="button">Key quantities</button>
+        <button class="tab" data-view="fit" type="button">Fit summary</button>
+      </div>
+      <div id="modelControls">
+        <span class="section-label" id="modelListLabel">Models &middot; ensemble-001&ndash;ensemble-080</span>
+        <div class="actions">
+          <button id="selectAll" type="button">Select all</button>
+          <button id="selectNone" type="button">Clear</button>
+        </div>
+        <div class="models" id="modelList"></div>
+      </div>
+    </aside>
+
+    <section class="panel content">
+      <div class="topline"><strong id="viewTitle">Key quantities &middot; All retained</strong><code id="rowCount"></code></div>
+      <div class="summary-grid" id="scopeSummary" aria-label="Scope management summary"></div>
+      <div class="scope-context" id="scopeContext"><b>All retained:</b> 34 inclusion + 46 exclusion; model-equal combined mixture.</div>
+
+      <div id="quantityView">
+        <div class="plot-stage">
+          <div class="line-note">
+            <span><b>Line colours identify individual retained models.</b> The axes retain the all-model range so scopes can be compared directly.</span>
+            <span class="plot-key"><i class="key-line"></i> Model trajectory <i class="key-line lrp"></i> LRP</span>
+          </div>
+          <div class="plots">
+            <div class="plot"><div class="plot-label">(a) Dynamic spawning depletion</div><canvas id="depletion"></canvas></div>
+            <div class="plot"><div class="plot-label">(b) Recruitment</div><canvas id="recruitment"></canvas></div>
+            <div class="plot"><div class="plot-label">(c) Spawning potential</div><canvas id="spawning"></canvas></div>
+            <div class="plot"><div class="plot-label">(d) Fishing mortality</div><canvas id="fishing"></canvas></div>
+          </div>
+        </div>
+        <div class="selection-table" id="selectedSummary"></div>
+      </div>
+
+      <div id="fitView" class="hidden">
+        <div class="table-wrap" id="fitTable"></div>
+        <p class="table-note">All values are from the retained assessment configurations in the selected reporting-rate scope. Public model identifiers and colours stay fixed to the 80-model mapping. Clicking a row switches to the trajectory view and selects that model.</p>
+      </div>
+    </section>
+  </section>
 </main>
+
 <script type="application/json" id="viewer-data">__VIEWER_DATA__</script>
 <script>
-(function(){
-const DATA=JSON.parse(document.getElementById('viewer-data').textContent);
-const models=DATA.models, seriesById=new Map(DATA.series.map(x=>[x.id,x])), metaById=new Map(models.map(x=>[x.id,x]));
-const state={view:'quantities',selected:new Set(models.map(x=>x.id))};
-const specs={
-  depletion:{label:'Dynamic spawning depletion',axis:'depletion',lrp:.2},
-  recruitment:{label:'Recruitment (millions of fish)',axis:'recruitment'},
-  spawning:{label:'Spawning potential (10³ MT)',axis:'spawning'},
-  fishing:{label:'F (year⁻¹)',axis:'fishing'}
-};
-const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const fmt=(v,d=3)=>Number(v).toFixed(d);
-const modelFormula=m=>'<i>h</i>='+fmt(m.h,3)+' &middot; &tau;='+fmt(m.tau,1)+' &middot; K='+fmt(m.K,2)+' &middot; reporting '+esc(m.reporting)+'<br><i>M</i><sub>0</sub>='+fmt(m.M0,4)+' quarter<sup>&minus;1</sup> &middot; creep '+fmt(m.creep_primary,1)+'/'+fmt(m.creep_secondary,2)+'%';
-function renderModels(){
-  const list=document.getElementById('modelList');list.innerHTML='';
-  models.forEach(m=>{const label=document.createElement('label');label.className='model';label.innerHTML='<input type="checkbox" '+(state.selected.has(m.id)?'checked':'')+'><i class="swatch" style="background:'+esc(m.color)+'"></i><span class="model-name"><b>'+esc(m.id)+'</b><small>'+modelFormula(m)+'</small></span>';const input=label.querySelector('input');input.onchange=()=>{if(input.checked)state.selected.add(m.id);else state.selected.delete(m.id);renderQuantities();};list.appendChild(label);});
-}
-function selectedSeries(){return models.filter(m=>state.selected.has(m.id)).map(m=>seriesById.get(m.id));}
-function drawAxisLabel(ctx,key,x,y){ctx.save();ctx.translate(x,y);ctx.rotate(-Math.PI/2);ctx.fillStyle='#17364a';ctx.textAlign='center';if(key==='depletion'){ctx.font='bold 13px Georgia';const a='SB(t) / SB',b='F=0(t)';const aw=ctx.measureText(a).width;ctx.font='bold 9px Georgia';const bw=ctx.measureText(b).width;const start=-(aw+bw)/2;ctx.font='bold 13px Georgia';ctx.textAlign='left';ctx.fillText(a,start,0);ctx.font='bold 9px Georgia';ctx.fillText(b,start+aw,4);}else{ctx.font='bold 13px Georgia';ctx.fillText(specs[key].label,0,0);}ctx.restore();}
-function draw(key){
-  const canvas=document.getElementById(key),rect=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1;canvas.width=rect.width*ratio;canvas.height=rect.height*ratio;const ctx=canvas.getContext('2d');ctx.scale(ratio,ratio);const W=rect.width,H=rect.height,mar={l:73,r:18,t:10,b:46},iw=W-mar.l-mar.r,ih=H-mar.t-mar.b;const all=DATA.series,shown=selectedSeries(),years=all[0].year;let ymax=0;all.forEach(s=>s[key].forEach(v=>{if(Number.isFinite(v)&&v>ymax)ymax=v}));ymax*=1.05;if(key==='depletion')ymax=Math.max(1.03,ymax);const X=i=>mar.l+iw*i/(years.length-1),Y=v=>mar.t+ih*(1-v/ymax);ctx.fillStyle='white';ctx.fillRect(0,0,W,H);ctx.font='12px system-ui';for(let k=0;k<=4;k++){const yy=mar.t+ih*k/4;ctx.strokeStyle='#e3eaed';ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(mar.l,yy);ctx.lineTo(W-mar.r,yy);ctx.stroke();const value=ymax*(1-k/4);ctx.fillStyle='#456273';ctx.textAlign='right';ctx.fillText(value<2?value.toFixed(2):Math.round(value).toLocaleString(),mar.l-8,yy+4);}[1960,1980,2000,2020].forEach(year=>{const i=years.indexOf(year);if(i>=0){const xx=X(i);ctx.strokeStyle='#edf2f4';ctx.beginPath();ctx.moveTo(xx,mar.t);ctx.lineTo(xx,H-mar.b);ctx.stroke();ctx.fillStyle='#456273';ctx.textAlign='center';ctx.fillText(year,xx,H-mar.b+19);}});if(specs[key].lrp){ctx.setLineDash([6,5]);ctx.strokeStyle='#b83232';ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(mar.l,Y(specs[key].lrp));ctx.lineTo(W-mar.r,Y(specs[key].lrp));ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='#b83232';ctx.textAlign='left';ctx.fillText('LRP = 0.20',mar.l+7,Y(specs[key].lrp)-5);}const many=shown.length>30;shown.forEach(s=>{const m=metaById.get(s.id);ctx.strokeStyle=m.color;ctx.globalAlpha=many?.56:.92;ctx.lineWidth=many?1.05:2.15;ctx.beginPath();s[key].forEach((v,i)=>i?ctx.lineTo(X(i),Y(v)):ctx.moveTo(X(i),Y(v)));ctx.stroke();});ctx.globalAlpha=1;ctx.strokeStyle='#536c79';ctx.lineWidth=.8;ctx.strokeRect(mar.l,mar.t,iw,ih);ctx.fillStyle='#17364a';ctx.font='bold 13px Georgia';ctx.textAlign='center';ctx.fillText('Year',mar.l+iw/2,H-8);drawAxisLabel(ctx,key,18,mar.t+ih/2);
-}
-function statusHeaders(){return '<thead><tr><th>Model</th><th><var>SB</var><sub>recent</sub>/<var>SB</var><sub><var>F</var>=0</sub><br>2021&ndash;2024 / 2014&ndash;2023</th><th><var>SB</var><sub>recent</sub>/<var>SB</var><sub>MSY</sub><br>2021&ndash;2024</th><th><var>F</var><sub>recent</sub>/<var>F</var><sub>MSY</sub><br>2020&ndash;2023</th></tr></thead>';}
-function renderSelectedSummary(){const selected=models.filter(m=>state.selected.has(m.id));const host=document.getElementById('selectedSummary');if(!selected.length){host.innerHTML='<div class="empty">No models selected. Use the checkboxes at left to add trajectories.</div>';return;}host.innerHTML='<span class="section-label">Selected-model status</span><div class="table-wrap"><table class="data-table">'+statusHeaders()+'<tbody>'+selected.map(m=>'<tr><td><i class="table-swatch" style="background:'+esc(m.color)+'"></i>'+esc(m.id)+'</td><td class="num">'+fmt(m.depletion_recent)+'</td><td class="num">'+fmt(m.sb_sbmsy_recent)+'</td><td class="num">'+fmt(m.f_fmsy_recent)+'</td></tr>').join('')+'</tbody></table></div>';}
-function renderQuantities(){const n=state.selected.size;document.getElementById('rowCount').textContent=n+' of 80 models selected';Object.keys(specs).forEach(draw);renderSelectedSummary();document.querySelectorAll('#modelList input').forEach((input,i)=>{input.checked=state.selected.has(models[i].id);});}
-function renderFit(){const host=document.getElementById('fitTable');const head='<thead><tr><th>Model and configuration</th><th class="num">MGC</th><th class="num">Objective function</th><th>Hessian</th><th class="num"><var>SB</var><sub>recent</sub>/<var>SB</var><sub><var>F</var>=0</sub></th><th class="num"><var>SB</var><sub>recent</sub>/<var>SB</var><sub>MSY</sub></th><th class="num"><var>F</var><sub>recent</sub>/<var>F</var><sub>MSY</sub></th></tr></thead>';host.innerHTML='<table class="data-table">'+head+'<tbody>'+models.map(m=>'<tr data-id="'+esc(m.id)+'" class="'+(state.selected.has(m.id)?'selected':'')+'"><td><i class="table-swatch" style="background:'+esc(m.color)+'"></i><b>'+esc(m.id)+'</b><br><small>'+modelFormula(m)+'</small></td><td class="num">'+Number(m.mgc).toExponential(2)+'</td><td class="num">'+Number(m.objective).toLocaleString()+'</td><td class="'+(m.hessian==='PDH'?'status-ok':'status-near')+'">'+esc(m.hessian)+'</td><td class="num">'+fmt(m.depletion_recent)+'</td><td class="num">'+fmt(m.sb_sbmsy_recent)+'</td><td class="num">'+fmt(m.f_fmsy_recent)+'</td></tr>').join('')+'</tbody></table>';host.querySelectorAll('tbody tr').forEach(row=>row.onclick=()=>{state.selected=new Set([row.dataset.id]);setView('quantities');renderModels();renderQuantities();});document.getElementById('rowCount').textContent='80 retained model fits';}
-function setView(view){state.view=view;document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.view===view));document.getElementById('quantityView').classList.toggle('hidden',view!=='quantities');document.getElementById('fitView').classList.toggle('hidden',view!=='fit');document.getElementById('modelControls').classList.toggle('hidden',view==='fit');document.getElementById('viewTitle').textContent=view==='fit'?'Fit summary':'Key quantities';if(view==='fit')renderFit();else renderQuantities();}
-document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>setView(b.dataset.view));document.getElementById('selectAll').onclick=()=>{state.selected=new Set(models.map(x=>x.id));renderModels();renderQuantities();};document.getElementById('selectNone').onclick=()=>{state.selected.clear();renderModels();renderQuantities();};window.addEventListener('resize',()=>{if(state.view==='quantities')Object.keys(specs).forEach(draw);});renderModels();renderQuantities();
+(function () {
+  'use strict';
+
+  const DATA = JSON.parse(document.getElementById('viewer-data').textContent);
+  const models = DATA.models;
+  const seriesById = new Map(DATA.series.map(value => [value.id, value]));
+  const metaById = new Map(models.map(value => [value.id, value]));
+  const scopeById = new Map(DATA.scopes.map(value => [value.id, value]));
+  const summaryById = new Map(DATA.summaries.map(value => [value.id, value]));
+  const rr0Count = models.filter(value => Number(value.reporting_flag2) === 0).length;
+  const rr1Count = models.filter(value => Number(value.reporting_flag2) === 1).length;
+
+  if (
+    models.length !== 80 || rr0Count !== 34 || rr1Count !== 46 ||
+    rr0Count + rr1Count !== models.length ||
+    DATA.metadata.reporting_flag_mapping['0'] !== 'inclusion' ||
+    DATA.metadata.reporting_flag_mapping['1'] !== 'exclusion'
+  ) {
+    throw new Error('Invalid retained reporting-rate scope payload.');
+  }
+  DATA.scopes.forEach(scope => {
+    if (scope.model_ids.length !== Number(scope.model_count)) {
+      throw new Error('A reporting-rate scope count does not match its model identifiers.');
+    }
+  });
+
+  const state = {
+    view: 'quantities',
+    scope: 'all',
+    selected: new Set(scopeById.get('all').model_ids)
+  };
+  const specs = {
+    depletion: { label: 'Dynamic spawning depletion', lrp: .2 },
+    recruitment: { label: 'Recruitment (millions of fish)' },
+    spawning: { label: 'Spawning potential (10³ MT)' },
+    fishing: { label: 'F (year⁻¹)' }
+  };
+  const esc = value => String(value == null ? '' : value).replace(
+    /[&<>"']/g,
+    character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]
+  );
+  const fmt = (value, digits = 3) => Number(value).toFixed(digits);
+  const fmtPercent = value => (100 * Number(value)).toFixed(1) + '%';
+  const fmtDifference = value => {
+    const number = Number(value);
+    const sign = number >= 0 ? '+' : '−';
+    return sign + Math.abs(number).toFixed(3);
+  };
+  const metricTitle = id => ({
+    depletion: '<var>SB</var><sub>recent</sub>/<var>SB</var><sub><var>F</var>=0</sub>',
+    sbmsy: '<var>SB</var><sub>recent</sub>/<var>SB</var><sub>MSY</sub>',
+    fmsy: '<var>F</var><sub>recent</sub>/<var>F</var><sub>MSY</sub>'
+  })[id];
+  const modelFormula = model =>
+    '<i>h</i>=' + fmt(model.h, 3) +
+    ' &middot; &tau;=' + fmt(model.tau, 1) +
+    ' &middot; K=' + fmt(model.K, 2) +
+    ' &middot; RR ' + esc(model.reporting) + ' (flag2=' + Number(model.reporting_flag2) + ')<br>' +
+    '<i>M</i><sub>0</sub>=' + fmt(model.M0, 4) + ' quarter<sup>&minus;1</sup>' +
+    ' &middot; creep ' + fmt(model.creep_primary, 1) + '/' + fmt(model.creep_secondary, 2) + '%';
+
+  function currentScope() {
+    return scopeById.get(state.scope);
+  }
+
+  function scopedModels() {
+    const allowed = new Set(currentScope().model_ids);
+    return models.filter(model => allowed.has(model.id));
+  }
+
+  function selectedModels() {
+    return scopedModels().filter(model => state.selected.has(model.id));
+  }
+
+  function selectedSeries() {
+    return selectedModels().map(model => seriesById.get(model.id));
+  }
+
+  function renderScopeButtons() {
+    document.querySelectorAll('.scope-button').forEach(button => {
+      const active = button.dataset.scope === state.scope;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+  }
+
+  function renderScopeSummary() {
+    const scope = currentScope();
+    const summary = summaryById.get(scope.id);
+    const host = document.getElementById('scopeSummary');
+    host.innerHTML = summary.metrics.map(metric => {
+      const difference = Number(metric.median_difference_from_all);
+      return '<article class="summary-card">' +
+        '<h3>' + metricTitle(metric.id) + '</h3>' +
+        '<span class="period">' + esc(metric.period) + '</span>' +
+        '<div class="summary-value"><strong>' + fmt(metric.median) + '</strong>' +
+        '<span>median<br>10–90%: ' + fmt(metric.q10) + '–' + fmt(metric.q90) + '</span></div>' +
+        '<div class="summary-detail"><span class="delta ' + (difference < 0 ? 'negative' : '') +
+        '">Δ median vs all ' + fmtDifference(difference) + '</span>' +
+        '<span class="risk">' + esc(metric.risk_label) + ': ' + fmtPercent(metric.risk_proportion) + '</span></div>' +
+        '</article>';
+    }).join('');
+    document.getElementById('scopeContext').innerHTML =
+      '<b>' + esc(scope.label) + ':</b> ' + esc(scope.detail) +
+      '. Retained-subset sensitivity; not an isolated RR effect.';
+  }
+
+  function renderModels() {
+    const scoped = scopedModels();
+    const list = document.getElementById('modelList');
+    list.innerHTML = '';
+    scoped.forEach(model => {
+      const label = document.createElement('label');
+      label.className = 'model';
+      label.innerHTML =
+        '<input type="checkbox" ' + (state.selected.has(model.id) ? 'checked' : '') + '>' +
+        '<i class="swatch" style="background:' + esc(model.color) + '"></i>' +
+        '<span class="model-name"><b>' + esc(model.id) + '</b><small>' + modelFormula(model) + '</small></span>';
+      const input = label.querySelector('input');
+      input.onchange = () => {
+        if (input.checked) state.selected.add(model.id);
+        else state.selected.delete(model.id);
+        renderQuantities();
+      };
+      list.appendChild(label);
+    });
+    document.getElementById('modelListLabel').textContent =
+      'Models · ' + currentScope().label + ' (' + scoped.length + ')';
+  }
+
+  function drawAxisLabel(context, key, x, y) {
+    context.save();
+    context.translate(x, y);
+    context.rotate(-Math.PI / 2);
+    context.fillStyle = '#17364a';
+    context.textAlign = 'center';
+    if (key === 'depletion') {
+      const primary = 'SB(t) / SB';
+      const subscript = 'F=0(t)';
+      context.font = 'bold 15px Georgia';
+      const primaryWidth = context.measureText(primary).width;
+      context.font = 'bold 10px Georgia';
+      const subscriptWidth = context.measureText(subscript).width;
+      const start = -(primaryWidth + subscriptWidth) / 2;
+      context.font = 'bold 15px Georgia';
+      context.textAlign = 'left';
+      context.fillText(primary, start, 0);
+      context.font = 'bold 10px Georgia';
+      context.fillText(subscript, start + primaryWidth, 5);
+    } else {
+      context.font = 'bold 15px Georgia';
+      context.fillText(specs[key].label, 0, 0);
+    }
+    context.restore();
+  }
+
+  function draw(key) {
+    const canvas = document.getElementById(key);
+    const rect = canvas.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    const ratio = window.devicePixelRatio || 1;
+    canvas.width = Math.round(rect.width * ratio);
+    canvas.height = Math.round(rect.height * ratio);
+    const context = canvas.getContext('2d');
+    context.scale(ratio, ratio);
+    const width = rect.width;
+    const height = rect.height;
+    const margin = { left: 78, right: 18, top: 10, bottom: 48 };
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+    const shown = selectedSeries();
+    const years = DATA.series[0].year;
+    let maximum = 0;
+    DATA.series.forEach(series => series[key].forEach(value => {
+      if (Number.isFinite(value) && value > maximum) maximum = value;
+    }));
+    maximum *= 1.05;
+    if (key === 'depletion') maximum = Math.max(1.03, maximum);
+    const xPosition = index => margin.left + innerWidth * index / (years.length - 1);
+    const yPosition = value => margin.top + innerHeight * (1 - value / maximum);
+
+    context.fillStyle = 'white';
+    context.fillRect(0, 0, width, height);
+    context.font = '13px system-ui';
+    for (let index = 0; index <= 4; index += 1) {
+      const y = margin.top + innerHeight * index / 4;
+      context.strokeStyle = '#dde7eb';
+      context.lineWidth = .8;
+      context.beginPath();
+      context.moveTo(margin.left, y);
+      context.lineTo(width - margin.right, y);
+      context.stroke();
+      const value = maximum * (1 - index / 4);
+      context.fillStyle = '#38596c';
+      context.textAlign = 'right';
+      context.fillText(value < 2 ? value.toFixed(2) : Math.round(value).toLocaleString(), margin.left - 9, y + 4);
+    }
+    [1960, 1980, 2000, 2020].forEach(year => {
+      const index = years.indexOf(year);
+      if (index >= 0) {
+        const x = xPosition(index);
+        context.strokeStyle = '#e8eef1';
+        context.beginPath();
+        context.moveTo(x, margin.top);
+        context.lineTo(x, height - margin.bottom);
+        context.stroke();
+        context.fillStyle = '#38596c';
+        context.textAlign = 'center';
+        context.fillText(year, x, height - margin.bottom + 20);
+      }
+    });
+    if (specs[key].lrp) {
+      context.setLineDash([7, 5]);
+      context.strokeStyle = '#b83232';
+      context.lineWidth = 1.5;
+      context.beginPath();
+      context.moveTo(margin.left, yPosition(specs[key].lrp));
+      context.lineTo(width - margin.right, yPosition(specs[key].lrp));
+      context.stroke();
+      context.setLineDash([]);
+      context.fillStyle = '#b83232';
+      context.font = 'bold 13px system-ui';
+      context.textAlign = 'left';
+      context.fillText('LRP = 0.20', margin.left + 7, yPosition(specs[key].lrp) - 6);
+    }
+    const many = shown.length > 30;
+    shown.forEach(series => {
+      const model = metaById.get(series.id);
+      context.strokeStyle = model.color;
+      context.globalAlpha = many ? .58 : .94;
+      context.lineWidth = many ? 1.18 : 2.35;
+      context.beginPath();
+      series[key].forEach((value, index) => {
+        if (index) context.lineTo(xPosition(index), yPosition(value));
+        else context.moveTo(xPosition(index), yPosition(value));
+      });
+      context.stroke();
+    });
+    context.globalAlpha = 1;
+    context.strokeStyle = '#536c79';
+    context.lineWidth = .9;
+    context.strokeRect(margin.left, margin.top, innerWidth, innerHeight);
+    context.fillStyle = '#17364a';
+    context.font = 'bold 15px Georgia';
+    context.textAlign = 'center';
+    context.fillText('Year', margin.left + innerWidth / 2, height - 8);
+    drawAxisLabel(context, key, 20, margin.top + innerHeight / 2);
+  }
+
+  function statusHeaders() {
+    return '<thead><tr><th>Model</th>' +
+      '<th><var>SB</var><sub>recent</sub>/<var>SB</var><sub><var>F</var>=0</sub><br>2021&ndash;2024 / 2014&ndash;2023</th>' +
+      '<th><var>SB</var><sub>recent</sub>/<var>SB</var><sub>MSY</sub><br>2021&ndash;2024</th>' +
+      '<th><var>F</var><sub>recent</sub>/<var>F</var><sub>MSY</sub><br>2020&ndash;2023</th></tr></thead>';
+  }
+
+  function renderSelectedSummary() {
+    const selected = selectedModels();
+    const host = document.getElementById('selectedSummary');
+    if (!selected.length) {
+      host.innerHTML = '<div class="empty">No models selected. Use the checkboxes at left to add trajectories.</div>';
+      return;
+    }
+    host.innerHTML =
+      '<span class="section-label">Selected-model status &middot; ' + esc(currentScope().label) + '</span>' +
+      '<div class="table-wrap"><table class="data-table">' + statusHeaders() + '<tbody>' +
+      selected.map(model =>
+        '<tr><td><i class="table-swatch" style="background:' + esc(model.color) + '"></i>' + esc(model.id) + '</td>' +
+        '<td class="num">' + fmt(model.depletion_recent) + '</td>' +
+        '<td class="num">' + fmt(model.sb_sbmsy_recent) + '</td>' +
+        '<td class="num">' + fmt(model.f_fmsy_recent) + '</td></tr>'
+      ).join('') + '</tbody></table></div>';
+  }
+
+  function updateViewTitle() {
+    const title = state.view === 'fit' ? 'Fit summary' : 'Key quantities';
+    document.getElementById('viewTitle').textContent = title + ' · ' + currentScope().label;
+  }
+
+  function renderQuantities() {
+    const scoped = scopedModels();
+    const selected = selectedModels();
+    document.getElementById('rowCount').textContent =
+      selected.length + ' of ' + scoped.length + ' models selected';
+    Object.keys(specs).forEach(draw);
+    renderSelectedSummary();
+    document.querySelectorAll('#modelList input').forEach((input, index) => {
+      input.checked = state.selected.has(scoped[index].id);
+    });
+  }
+
+  function renderFit() {
+    const scoped = scopedModels();
+    const host = document.getElementById('fitTable');
+    const head = '<thead><tr><th>Model and configuration</th><th class="num">MGC</th>' +
+      '<th class="num">Objective function</th><th>Hessian</th>' +
+      '<th class="num"><var>SB</var><sub>recent</sub>/<var>SB</var><sub><var>F</var>=0</sub></th>' +
+      '<th class="num"><var>SB</var><sub>recent</sub>/<var>SB</var><sub>MSY</sub></th>' +
+      '<th class="num"><var>F</var><sub>recent</sub>/<var>F</var><sub>MSY</sub></th></tr></thead>';
+    host.innerHTML = '<table class="data-table">' + head + '<tbody>' + scoped.map(model =>
+      '<tr data-id="' + esc(model.id) + '" class="' + (state.selected.has(model.id) ? 'selected' : '') + '">' +
+      '<td><i class="table-swatch" style="background:' + esc(model.color) + '"></i><b>' + esc(model.id) + '</b><br><small>' + modelFormula(model) + '</small></td>' +
+      '<td class="num">' + Number(model.mgc).toExponential(2) + '</td>' +
+      '<td class="num">' + Number(model.objective).toLocaleString() + '</td>' +
+      '<td class="' + (model.hessian === 'PDH' ? 'status-ok' : 'status-near') + '">' + esc(model.hessian) + '</td>' +
+      '<td class="num">' + fmt(model.depletion_recent) + '</td>' +
+      '<td class="num">' + fmt(model.sb_sbmsy_recent) + '</td>' +
+      '<td class="num">' + fmt(model.f_fmsy_recent) + '</td></tr>'
+    ).join('') + '</tbody></table>';
+    host.querySelectorAll('tbody tr').forEach(row => {
+      row.onclick = () => {
+        state.selected = new Set([row.dataset.id]);
+        setView('quantities');
+        renderModels();
+        renderQuantities();
+      };
+    });
+    document.getElementById('rowCount').textContent = scoped.length + ' retained model fits';
+  }
+
+  function setView(view) {
+    state.view = view;
+    document.querySelectorAll('.tab').forEach(button => {
+      button.classList.toggle('active', button.dataset.view === view);
+    });
+    document.getElementById('quantityView').classList.toggle('hidden', view !== 'quantities');
+    document.getElementById('fitView').classList.toggle('hidden', view !== 'fit');
+    document.getElementById('modelControls').classList.toggle('hidden', view === 'fit');
+    updateViewTitle();
+    if (view === 'fit') renderFit();
+    else renderQuantities();
+  }
+
+  function setScope(scopeId) {
+    if (!scopeById.has(scopeId)) return;
+    state.scope = scopeId;
+    state.selected = new Set(currentScope().model_ids);
+    renderScopeButtons();
+    renderScopeSummary();
+    renderModels();
+    updateViewTitle();
+    if (state.view === 'fit') renderFit();
+    else renderQuantities();
+  }
+
+  document.querySelectorAll('.scope-button').forEach(button => {
+    button.onclick = () => setScope(button.dataset.scope);
+  });
+  document.querySelectorAll('.tab').forEach(button => {
+    button.onclick = () => setView(button.dataset.view);
+  });
+  document.getElementById('selectAll').onclick = () => {
+    state.selected = new Set(currentScope().model_ids);
+    renderModels();
+    renderQuantities();
+  };
+  document.getElementById('selectNone').onclick = () => {
+    state.selected.clear();
+    renderModels();
+    renderQuantities();
+  };
+  let resizeFrame = null;
+  window.addEventListener('resize', () => {
+    if (resizeFrame != null) window.cancelAnimationFrame(resizeFrame);
+    resizeFrame = window.requestAnimationFrame(() => {
+      resizeFrame = null;
+      if (state.view === 'quantities') Object.keys(specs).forEach(draw);
+    });
+  });
+
+  renderScopeButtons();
+  renderScopeSummary();
+  renderModels();
+  renderQuantities();
 })();
 </script>
 </body>

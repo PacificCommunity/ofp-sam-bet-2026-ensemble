@@ -1,0 +1,4 @@
+"Indicator","Criterion","Events","Models","Percent"
+"Below the LRP","SBrecent/SBF=0 < 0.20",7,46,15.2173913043478
+"Below SBMSY","SBrecent/SBMSY < 1",4,46,8.69565217391304
+"Above FMSY","Frecent/FMSY > 1",9,46,19.5652173913043

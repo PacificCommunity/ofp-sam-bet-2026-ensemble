@@ -1,0 +1,10 @@
+"Group","Criterion","Models","Events","Probability"
+"Combined (RR=0 + RR=1)","SBrecent/SBF=0 < 0.20",80,15,0.1875
+"Combined (RR=0 + RR=1)","SBrecent/SBMSY < 1",80,8,0.1
+"Combined (RR=0 + RR=1)","Frecent/FMSY > 1",80,19,0.2375
+"RR=0: inclusion","SBrecent/SBF=0 < 0.20",34,8,0.235294117647059
+"RR=0: inclusion","SBrecent/SBMSY < 1",34,4,0.117647058823529
+"RR=0: inclusion","Frecent/FMSY > 1",34,10,0.294117647058824
+"RR=1: exclusion","SBrecent/SBF=0 < 0.20",46,7,0.152173913043478
+"RR=1: exclusion","SBrecent/SBMSY < 1",46,4,0.0869565217391304
+"RR=1: exclusion","Frecent/FMSY > 1",46,9,0.195652173913043

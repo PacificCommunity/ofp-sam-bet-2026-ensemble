@@ -1,0 +1,4 @@
+"Group","RR_flag2","Planned_models","Public_payload_models","Completed_final_PAR_models","Retained_models","Documented_MGC_excluded","Documented_incomplete","PDH_models","Near_PDH_models","Hessian_draws_per_PDH","Hessian_mixture_rows","Projection_sequences_per_model","Projection_combinations","Within_group_model_weight","Share_of_combined"
+"Combined (RR=0 + RR=1)","0 + 1",100,88,90,80,10,10,62,18,100,8000,10,800,0.0125,1
+"RR=0: inclusion","0",50,41,43,34,9,7,25,9,100,3400,10,340,0.0294117647058824,0.425
+"RR=1: exclusion","1",50,47,47,46,1,3,37,9,100,4600,10,460,0.0217391304347826,0.575
