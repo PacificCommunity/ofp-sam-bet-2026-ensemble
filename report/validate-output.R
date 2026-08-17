@@ -3,6 +3,9 @@ options(stringsAsFactors = FALSE)
 output_dir <- Sys.getenv("REPORT_OUTPUT_DIR", "results")
 report_file <- file.path(output_dir, "bet-2026-ensemble-report.html")
 viewer_file <- file.path(output_dir, "bet-2026-ensemble-interactive-viewer.html")
+rr_comparison_file <- file.path(
+  output_dir, "bet-2026-ensemble-report-rr-comparison.html"
+)
 manifest_file <- file.path(output_dir, "report-manifest.csv")
 rr_table_names <- c(
   "group-counts-qc.csv", "structural-management-summary.csv",
@@ -52,7 +55,7 @@ rr_scope_figures <- as.vector(outer(
 ))
 
 required <- c(
-  report_file, viewer_file, manifest_file,
+  report_file, viewer_file, rr_comparison_file, manifest_file,
   file.path(output_dir, rr_scope_report_names),
   file.path(output_dir, "tables", c(
     "management-summary.csv", "management-risk.csv",
@@ -118,6 +121,9 @@ if (length(rr_csvs) != length(expected_rr_tables) ||
 
 report <- paste(readLines(report_file, warn = FALSE), collapse = "\n")
 viewer <- paste(readLines(viewer_file, warn = FALSE), collapse = "\n")
+rr_comparison <- paste(
+  readLines(rr_comparison_file, warn = FALSE), collapse = "\n"
+)
 count_fixed <- function(text, pattern) {
   matches <- gregexpr(pattern, text, fixed = TRUE)[[1L]]
   if (length(matches) == 1L && matches[[1L]] == -1L) 0L else length(matches)
@@ -153,6 +159,7 @@ report_required <- c(
   "not an isolated causal effect",
   "stored flag2=1 is inactive because no pre-mixing window exists; no tag event or recapture is removed",
   "34/80 (42.5%)", "46/80 (57.5%)",
+  "Open three-scope comparison report",
   "const panel=target.closest('[data-report-panel]')",
   "RR_SENSITIVITY_START", "RR_SENSITIVITY_END"
 )
@@ -223,6 +230,121 @@ for (prefix in rr_scope_prefixes) {
   if (any(!file.exists(file.path(output_dir, local_hrefs)))) {
     stop(prefix, " report contains a broken local download link.")
   }
+}
+
+comparison_required <- c(
+  "BET 2026 · RR comparison",
+  "Combined 80 vs RR=0 inclusion 34 vs RR=1 exclusion 46",
+  "data-tab='overview'", "data-tab='figures'", "data-tab='tables'",
+  "80</strong>Combined models", "34</strong>RR=0 inclusion",
+  "46</strong>RR=1 exclusion", "62 + 18</strong>PDH + Near-PDH",
+  "34/80 (42.5%)", "46/80 (57.5%)",
+  "Tables 8 and 10", "Structure + available Hessian estimation uncertainty",
+  "Tables 9 and 11", "Central structural models only; no Hessian draws",
+  "Table 12", "All-model/PDH-only and 50/100-draw audit",
+  "Table 13", "Structure + stochastic recruitment; no Hessian draws",
+  "MFCL v2.5 provisional caveat",
+  "pre-fix MFCL v2.5 (f5bc1e23...)",
+  "corrected v2.6 implementation (a5a83cd)",
+  "must not be interpreted as a clean intended RR-exclusion sensitivity",
+  "retained-subset sensitivity summaries", "not an isolated causal effect",
+  "stored flag2=1 is inactive because no pre-mixing window exists; no tag event or recapture is removed",
+  "Table 8 · Management quantities with estimation uncertainty",
+  "Table 9 · CMM depletion comparison",
+  "Table 10 · Status probabilities",
+  "Table 11 · Full structural reference-point quantities",
+  "Table 12 · Estimation-uncertainty audit",
+  "Table 13 · Projection summary",
+  "Canonical current status · three scopes",
+  "Combined 80 · current Kobe and Majuro status",
+  "RR=0 inclusion 34 · current Kobe and Majuro status",
+  "RR=1 exclusion 46 · current Kobe and Majuro status",
+  "0.967", "0.970", "0.965",
+  "Combined 80-model report", "RR=0 report", "RR=1 report",
+  "Three-scope viewer"
+)
+for (value in comparison_required) {
+  if (!grepl(value, rr_comparison, fixed = TRUE)) {
+    stop("Missing standalone RR-comparison element: ", value)
+  }
+}
+if (count_fixed(rr_comparison, "class='figure-card'") != 9L ||
+    count_fixed(rr_comparison, "class='table-card'") != 6L ||
+    count_fixed(rr_comparison, "data:image/png;base64,") != 9L ||
+    count_fixed(rr_comparison, "Open vector PDF") != 9L ||
+    count_fixed(rr_comparison, "Save PNG") != 9L ||
+    count_fixed(rr_comparison, "Copy caption") != 9L ||
+    count_fixed(rr_comparison, "Copy figure for LaTeX") != 9L ||
+    count_fixed(rr_comparison, "Copy table for Word") != 6L ||
+    count_fixed(rr_comparison, "Copy LaTeX") != 6L ||
+    count_fixed(rr_comparison, "Download CSV") != 6L ||
+    count_fixed(rr_comparison, "<tbody>") != 6L ||
+    count_fixed(rr_comparison, "<tr>") != 78L) {
+  stop("The standalone RR-comparison report has an incomplete figure/table control contract.")
+}
+comparison_figure_assets <- c(
+  "rr-sensitivity/figures/rr-sensitivity-history-comparison",
+  "rr-sensitivity/figures/rr-sensitivity-management-distributions",
+  "rr-sensitivity/figures/rr-sensitivity-projections",
+  "rr-sensitivity/figures/rr-sensitivity-key-combined",
+  "rr-sensitivity/figures/rr-sensitivity-key-inclusion",
+  "rr-sensitivity/figures/rr-sensitivity-key-exclusion",
+  "figures/combined-kobe-majuro-status",
+  "rr-sensitivity/figures/rr0-inclusion-combined-kobe-majuro-status",
+  "rr-sensitivity/figures/rr1-exclusion-combined-kobe-majuro-status"
+)
+for (stem in comparison_figure_assets) {
+  for (extension in c("png", "pdf")) {
+    asset <- paste0(stem, ".", extension)
+    if (!grepl(asset, rr_comparison, fixed = TRUE)) {
+      stop("The standalone RR-comparison report omits figure asset: ", asset)
+    }
+  }
+}
+if (grepl(
+  "rr-sensitivity/figures/rr-sensitivity-current-status",
+  rr_comparison, fixed = TRUE
+)) {
+  stop("The standalone RR comparison references the superseded status panel.")
+}
+for (filename in c(
+  "estimation-management-intervals.csv",
+  "estimation-management-summary.csv", "cmm-depletion-comparison.csv",
+  "estimation-management-risk.csv", "structural-reference-points.csv",
+  "estimation-uncertainty-audit.csv", "projection-summary.csv"
+)) {
+  if (!grepl(filename, rr_comparison, fixed = TRUE)) {
+    stop("The standalone RR-comparison report omits grouped table file: ", filename)
+  }
+}
+table11_marker <- "<article class='table-card' id='comparison-table-11'>"
+table11_start <- regexpr(table11_marker, rr_comparison, fixed = TRUE)[[1L]]
+if (table11_start < 1L) stop("The full comparison Table 11 is missing.")
+table11_tail <- substr(rr_comparison, table11_start, nchar(rr_comparison))
+table11_end <- regexpr("</article>", table11_tail, fixed = TRUE)[[1L]]
+if (table11_end < 1L ||
+    count_fixed(substr(table11_tail, 1L, table11_end), "<tr>") != 28L) {
+  stop("The comparison Table 11 does not contain all 27 three-scope rows.")
+}
+if (grepl("<script[^>]+src=|<link[^>]+href=", rr_comparison,
+          ignore.case = TRUE, perl = TRUE) ||
+    grepl("<img[^>]+src=['\"](?!data:)", rr_comparison,
+          ignore.case = TRUE, perl = TRUE) ||
+    grepl("https?://", rr_comparison, ignore.case = TRUE, perl = TRUE)) {
+  stop("The standalone RR-comparison report has an external dependency.")
+}
+comparison_href_matches <- regmatches(
+  rr_comparison,
+  gregexpr("href=['\"][^'\"]+['\"]", rr_comparison, perl = TRUE)
+)[[1L]]
+comparison_hrefs <- sub("^href=['\"]", "", comparison_href_matches)
+comparison_hrefs <- sub("['\"]$", "", comparison_hrefs)
+comparison_local_hrefs <- comparison_hrefs[
+  !grepl("^(mailto:|#)", comparison_hrefs)
+]
+if (length(comparison_local_hrefs) == 0L ||
+    any(!file.exists(file.path(output_dir, comparison_local_hrefs)))) {
+  stop("The standalone RR-comparison report has a broken local link.")
 }
 
 viewer_required <- c(
@@ -1298,6 +1420,9 @@ for (value in forbidden) {
       stop(prefix, " report contains forbidden text: ", value)
     }
   }
+  if (grepl(value, rr_comparison, fixed = TRUE)) {
+    stop("RR-comparison report contains forbidden text: ", value)
+  }
 }
 if (grepl("<script[^>]+src=|<link[^>]+href=", viewer, ignore.case = TRUE, perl = TRUE)) {
   stop("The interactive viewer depends on an external script or stylesheet.")
@@ -1325,6 +1450,7 @@ if (!identical(manifest$sha256, unname(actual))) {
 
 cat(paste0(
   "Validated the self-contained 80-model report and three-scope viewer, ",
-  "two standalone subgroup reports, 11 main figure sets, 8 main tables, ",
+  "two standalone subgroup reports and one standalone comparison report, ",
+  "11 main figure sets, 8 main tables, ",
   "23 RR figure sets and 39 RR tables.\n"
 ))

@@ -3512,6 +3512,12 @@ caveat_note <- paste0(
   "a matched-pair contrast, or a controlled one-factor experiment. RR=0 denotes requested inclusion of pre-mixing reporting rates. ",
   "For mixing=0 rows, stored flag2=1 is inactive because no pre-mixing window exists; no tag event or recapture is removed."
 )
+v25_caveat_note <- paste0(
+  "A subsequent runtime audit found that the retained fits used pre-fix MFCL v2.5 (f5bc1e23...), ",
+  "which applied RR exclusion inconsistently between tag dynamics and likelihood. The 46 RR-exclusion fits ",
+  "and all derived split/combined contrasts are provisional until refitted with the corrected v2.6 implementation ",
+  "(a5a83cd); they must not be interpreted as a clean intended RR-exclusion sensitivity."
+)
 
 grouped_table09_display <- grouped_wp06_tables$table09
 grouped_table09_display$Value <- sprintf("%.3f", grouped_table09_display$Value)
@@ -3561,6 +3567,300 @@ grouped_wp06_links <- paste0(
   "</div>"
 )
 
+# Standalone three-scope comparison report --------------------------------
+#
+# This page is deliberately a presentation layer over the already validated
+# cross-scope figures and grouped Tables 8--13 above. It must not create a
+# second calculation path for any public management quantity.
+comparison_table_card <- function(id, title, caption, display, filename) {
+  word_id <- paste0("comparison-word-", id)
+  latex_id <- paste0("comparison-latex-", id)
+  paste0(
+    "<article class='table-card' id='comparison-", html_escape(id), "'>",
+    "<h2>", html_escape(title), "</h2>",
+    "<p class='caption'><strong>Table.</strong> ", html_escape(caption), "</p>",
+    "<div class='actions'><button onclick=\"copyText('", word_id,
+    "',this)\">Copy table for Word</button>",
+    "<button onclick=\"copyText('", latex_id,
+    "',this)\">Copy LaTeX</button>",
+    "<a href='rr-sensitivity/tables/", filename,
+    "' download>Download CSV</a></div>",
+    html_table(display),
+    "<textarea id='", word_id, "' class='copy-source'>",
+    html_escape(scope_word_table(caption, display)), "</textarea>",
+    "<textarea id='", latex_id, "' class='copy-source'>",
+    html_escape(scope_latex_table(caption, display)), "</textarea></article>"
+  )
+}
+
+comparison_figure_card <- function(
+    id, title, caption, files,
+    relative_dir = file.path("rr-sensitivity", "figures")) {
+  caption_id <- paste0("comparison-caption-", id)
+  latex_id <- paste0("comparison-figure-latex-", id)
+  relative_pdf <- file.path(relative_dir, basename(files[["pdf"]]))
+  relative_png <- file.path(relative_dir, basename(files[["png"]]))
+  latex_figure <- paste0(
+    "\\begin{figure}[htbp]\n\\centering\n",
+    "\\includegraphics[width=\\textwidth]{", relative_pdf, "}\n",
+    "\\caption{", scope_latex_escape(caption), "}\n\\end{figure}"
+  )
+  paste0(
+    "<article class='figure-card' id='comparison-", html_escape(id), "'>",
+    "<h2>", html_escape(title), "</h2>",
+    "<img src='", image_uri(files[["png"]]), "' alt='", html_escape(title), "'>",
+    "<p class='caption'><strong>Figure.</strong> ", html_escape(caption), "</p>",
+    "<div class='actions'><button onclick=\"copyText('", caption_id,
+    "',this)\">Copy caption</button>",
+    "<a href='", relative_pdf, "'>Open vector PDF</a>",
+    "<a href='", relative_png, "' download>Save PNG</a>",
+    "<button onclick=\"copyText('", latex_id,
+    "',this)\">Copy figure for LaTeX</button></div>",
+    "<textarea id='", caption_id, "' class='copy-source'>",
+    html_escape(caption), "</textarea>",
+    "<textarea id='", latex_id, "' class='copy-source'>",
+    html_escape(latex_figure), "</textarea></article>"
+  )
+}
+
+comparison_table_cards <- list(
+  table08 = comparison_table_card(
+    "table-08", "Table 8 · Management quantities with estimation uncertainty",
+    paste0(
+      "Combined, RR=0 and RR=1 management quantities from equal-model-weight mixtures. ",
+      "PDH fits contribute 100 joint Hessian draws per model and Near-PDH fits contribute ",
+      "their repeated central estimates with equal total model weight. Values are medians ",
+      "and central 50%, 80% and 95% equal-tailed intervals."
+    ),
+    grouped_wp06_tables$table08_summary,
+    grouped_wp06_filenames[["table08_summary"]]
+  ),
+  table09 = comparison_table_card(
+    "table-09", "Table 9 · CMM depletion comparison",
+    paste0(
+      "Recent spawning depletion relative to the 2012–2015 average for Combined, RR=0 ",
+      "and RR=1. Period values are arithmetic means across equal-weight central models; ",
+      "the final row within each group is their ratio. Estimation uncertainty is excluded."
+    ),
+    grouped_table09_display, grouped_wp06_filenames[["table09"]]
+  ),
+  table10 = comparison_table_card(
+    "table-10", "Table 10 · Status probabilities",
+    paste0(
+      "Stock-status probabilities for Combined, RR=0 and RR=1 from the same ",
+      "equal-model-weight structural plus available Hessian mixture as Table 8."
+    ),
+    grouped_table10_display, grouped_wp06_filenames[["table10"]]
+  ),
+  table11 = comparison_table_card(
+    "table-11", "Table 11 · Full structural reference-point quantities",
+    paste0(
+      "All reference-point rows for Combined, RR=0 and RR=1. Ratios and reference points ",
+      "are calculated within each central model before summarising; intervals describe ",
+      "structural uncertainty only and exclude Hessian estimation uncertainty."
+    ),
+    grouped_table11_display, grouped_wp06_filenames[["table11"]]
+  ),
+  table12 = comparison_table_card(
+    "table-12", "Table 12 · Estimation-uncertainty audit",
+    paste0(
+      "All-model and PDH-only results for the three core stock-status quantities in each ",
+      "scope, plus the largest q10, median or q90 change when using 50 rather than 100 ",
+      "draws per model."
+    ),
+    grouped_table12_display, grouped_wp06_filenames[["table12"]]
+  ),
+  table13 = comparison_table_card(
+    "table-13", "Table 13 · Projection summary",
+    paste0(
+      "Selected-year projection quantities for Combined, RR=0 and RR=1. Intervals include ",
+      "structural differences and ten stochastic recruitment paths per model; Hessian ",
+      "parameter uncertainty is excluded."
+    ),
+    grouped_wp06_tables$table13, grouped_wp06_filenames[["table13"]]
+  )
+)
+
+combined_current_status_files <- c(
+  png = file.path(output_dir, "figures", "combined-kobe-majuro-status.png"),
+  pdf = file.path(output_dir, "figures", "combined-kobe-majuro-status.pdf")
+)
+assert_true(
+  all(file.exists(combined_current_status_files)) &&
+    all(file.info(combined_current_status_files)$size > 10000L),
+  "The canonical Combined Kobe/Majuro figure set is unavailable."
+)
+
+comparison_figure_cards <- list(
+  history = comparison_figure_card(
+    "history", "Historical trajectories",
+    paste0(
+      "Combined 80-model, RR=0 inclusion and RR=1 exclusion trajectories. Lines are medians ",
+      "and bands are central 80% intervals. Annual depletion, spawning potential and recruitment ",
+      "include available Hessian estimation uncertainty; fishing mortality is structural-only."
+    ), history_files
+  ),
+  management = comparison_figure_card(
+    "management", "Current management distributions",
+    paste0(
+      "Equal-model-weight distributions of the three core management quantities for Combined, ",
+      "RR=0 and RR=1. PDH joint Hessian draws and Near-PDH central point masses have equal total ",
+      "model weight, so available estimation uncertainty is included."
+    ), management_files
+  ),
+  status_combined = comparison_figure_card(
+    "status-combined", "Combined 80 · current Kobe and Majuro status",
+    paste0(
+      "Canonical Combined current-status figure. Points are the 80 equal-weight central models; ",
+      "nested 50%, 80% and 95% HDRs and region probabilities use the 62-PDH plus 18-Near-PDH ",
+      "equal-model-weight mixture with available Hessian estimation uncertainty."
+    ), combined_current_status_files, relative_dir = "figures"
+  ),
+  status_inclusion = comparison_figure_card(
+    "status-inclusion", "RR=0 inclusion 34 · current Kobe and Majuro status",
+    paste0(
+      "Canonical RR=0 current-status figure. Points are the 34 equal-weight central models; ",
+      "nested 50%, 80% and 95% HDRs and region probabilities use 25 PDH draw sets plus nine ",
+      "Near-PDH central point masses with equal total model weight."
+    ), scope_figure_files$inclusion$current_status
+  ),
+  status_exclusion = comparison_figure_card(
+    "status-exclusion", "RR=1 exclusion 46 · current Kobe and Majuro status",
+    paste0(
+      "Canonical RR=1 current-status figure. Points are the 46 equal-weight central models; ",
+      "nested 50%, 80% and 95% HDRs and region probabilities use 37 PDH draw sets plus nine ",
+      "Near-PDH central point masses with equal total model weight. The interpretation remains ",
+      "subject to the MFCL v2.5 provisional caveat."
+    ), scope_figure_files$exclusion$current_status
+  ),
+  projection = comparison_figure_card(
+    "projection", "Stochastic projections",
+    paste0(
+      "Projected depletion, spawning potential, catch relative to MSY and frequency below the ",
+      "LRP for Combined, RR=0 and RR=1. Lines are medians and bands are central 80% intervals ",
+      "across ten recruitment paths per model; Hessian parameter uncertainty is excluded."
+    ), projection_files
+  ),
+  combined = comparison_figure_card(
+    "key-combined", "Combined 80-model key quantities",
+    paste0(
+      "Key historical, current and projected quantities for the canonical Combined result. ",
+      "Its weights remain 34/80 RR=0 and 46/80 RR=1; it is not reweighted to a 50:50 mixture."
+    ), group_key_files$combined
+  ),
+  inclusion = comparison_figure_card(
+    "key-inclusion", "RR=0 inclusion · 34-model key quantities",
+    paste0(
+      "Key quantities after renormalising equal model weight within the 34 retained RR=0 ",
+      "inclusion models. This is a retained-subset summary rather than a matched causal contrast."
+    ), group_key_files$inclusion
+  ),
+  exclusion = comparison_figure_card(
+    "key-exclusion", "RR=1 exclusion · 46-model key quantities",
+    paste0(
+      "Key quantities after renormalising equal model weight within the 46 retained RR=1 ",
+      "exclusion models. This provisional result is subject to the MFCL v2.5 caveat in Overview."
+    ), group_key_files$exclusion
+  )
+)
+
+comparison_figures_html <- paste0(
+  comparison_figure_cards$history,
+  comparison_figure_cards$management,
+  "<section class='status-block'><h2>Canonical current status · three scopes</h2>",
+  "<p>The three panels use the canonical status layout and exact equal-model weights and category probabilities for each scope.</p>",
+  "<div class='status-grid'>",
+  comparison_figure_cards$status_combined,
+  comparison_figure_cards$status_inclusion,
+  comparison_figure_cards$status_exclusion,
+  "</div></section>",
+  comparison_figure_cards$projection,
+  comparison_figure_cards$combined,
+  comparison_figure_cards$inclusion,
+  comparison_figure_cards$exclusion
+)
+
+comparison_download_links <- paste(vapply(
+  names(grouped_wp06_filenames), function(product_name) {
+    filename <- grouped_wp06_filenames[[product_name]]
+    paste0(
+      "<a href='rr-sensitivity/tables/", filename, "' download>",
+      html_escape(filename), "</a>"
+    )
+  }, character(1)), collapse = ""
+)
+
+comparison_html <- paste0(
+  "<!doctype html><html lang='en'><head><meta charset='utf-8'>",
+  "<meta name='viewport' content='width=device-width,initial-scale=1'>",
+  "<title>BET 2026 · RR comparison</title><style>",
+  ":root{--navy:#082f49;--teal:#087f8f;--orange:#d97706;--red:#b83232;--ink:#203846;--muted:#58707d;--line:#c8dce2;--paper:#f4f8fa}",
+  "*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 Georgia,'Times New Roman',serif}",
+  "header{background:linear-gradient(120deg,#062d4a,#087f8f);color:white;padding:34px clamp(20px,5vw,72px) 28px}header h1{font-size:clamp(2rem,4vw,3.5rem);line-height:1.05;margin:.25rem 0}.kicker{font:700 .86rem Arial,sans-serif;letter-spacing:.11em;text-transform:uppercase;color:#bcecf2}header p{max-width:1050px;font-size:1.08rem;margin:.6rem 0}",
+  ".shell{width:min(1500px,96vw);margin:0 auto;padding:24px 0 60px}.tabs{position:sticky;top:0;z-index:10;display:flex;gap:8px;flex-wrap:wrap;padding:10px;background:rgba(244,248,250,.96);border-bottom:1px solid var(--line)}",
+  ".tabs button,.actions a,.actions button{border:0;border-radius:5px;background:var(--teal);color:white;padding:9px 13px;text-decoration:none;font:700 .86rem Arial,sans-serif;cursor:pointer}.tabs button.active{background:var(--navy)}",
+  ".panel{display:none}.panel.active{display:block}.hero-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:16px 0}.stat{background:white;border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:16px;box-shadow:0 4px 14px #173b4d14}.stat strong{display:block;font:800 1.55rem Arial,sans-serif;color:var(--navy)}",
+  ".boundary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;background:#e8f5f6;border-left:6px solid var(--teal);padding:15px;margin:16px 0}.boundary div{padding:7px}.boundary strong{display:block;color:#07566b;font-family:Arial,sans-serif}",
+  ".context,.warning{padding:14px 18px;margin:16px 0}.context{background:#e8f5f6;border-left:6px solid var(--teal)}.warning{background:#fff2e6;border-left:6px solid var(--orange)}.warning strong{color:#8d4300}.context a{color:#07566b;font-weight:bold}",
+  ".figure-card,.table-card,.downloads{background:white;border:1px solid var(--line);border-radius:9px;padding:clamp(14px,2vw,24px);margin:18px 0;box-shadow:0 5px 18px #173b4d12}.figure-card img{width:100%;height:auto;display:block;margin:10px auto}.figure-card h2,.table-card h2,.downloads h2{color:#07566b;margin:.1rem 0 .5rem;font-size:clamp(1.35rem,2.2vw,1.9rem)}",
+  ".status-block{border-top:4px solid var(--teal);margin:28px 0 20px;padding-top:12px}.status-block>h2{color:var(--navy);font:800 clamp(1.5rem,2.5vw,2.1rem) Arial,sans-serif}.status-grid{display:grid;grid-template-columns:1fr;gap:14px}.status-grid .figure-card{margin:8px 0}",
+  ".caption{color:#405e6d}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.actions button.copied{background:#2a9d8f}.copy-source{position:absolute;left:-10000px;width:1px;height:1px}",
+  ".rr-table-wrap{overflow:auto;max-height:650px;border:1px solid #d7e3e8;margin:12px 0}.rr-table-wrap table{width:100%;min-width:940px;border-collapse:collapse}.rr-table-wrap th{position:sticky;top:0;background:#0a5266;color:white;font-family:Arial,sans-serif}.rr-table-wrap th,.rr-table-wrap td{padding:9px 11px;border-bottom:1px solid #d7e3e8;text-align:left;white-space:nowrap}.rr-table-wrap tr:nth-child(even){background:#f1f7f8}",
+  "#comparison-table-08 th:nth-child(n+4),#comparison-table-08 td:nth-child(n+4),#comparison-table-09 th:nth-child(n+4),#comparison-table-09 td:nth-child(n+4),#comparison-table-10 th:nth-child(3),#comparison-table-10 td:nth-child(3),#comparison-table-11 th:nth-child(n+5),#comparison-table-11 td:nth-child(n+5),#comparison-table-12 th:nth-child(n+3),#comparison-table-12 td:nth-child(n+3),#comparison-table-13 th:nth-child(n+2),#comparison-table-13 td:nth-child(n+2){text-align:right;font-variant-numeric:tabular-nums}",
+  "footer{color:var(--muted);font-size:.92rem;border-top:1px solid var(--line);padding-top:18px;margin-top:28px}",
+  "@media(max-width:900px){.hero-grid,.boundary{grid-template-columns:1fr 1fr}}@media(max-width:560px){.hero-grid,.boundary{grid-template-columns:1fr}.shell{width:98vw}.tabs{position:static}.rr-table-wrap table{min-width:760px}}",
+  "@media print{.tabs,.actions{display:none!important}.panel{display:block!important}.shell{width:100%;padding:0}.figure-card,.table-card{break-inside:avoid;box-shadow:none}}",
+  "</style></head><body><header>",
+  "<div class='kicker'>BET 2026 · reporting-rate retained-subset sensitivity</div>",
+  "<h1>Combined 80 vs RR=0 inclusion 34 vs RR=1 exclusion 46</h1>",
+  "<p>One direct comparison of the validated figures and WP-06 Tables 8–13. No model fitting, Hessian calculation, projection or management-quantity calculation is repeated by this page.</p></header>",
+  "<main class='shell'><nav class='tabs' aria-label='Comparison sections'>",
+  "<button class='active' data-tab='overview'>Overview</button>",
+  "<button data-tab='figures'>Figures</button>",
+  "<button data-tab='tables'>Tables</button>",
+  "<button onclick='window.print()'>Print / PDF</button></nav>",
+  "<section class='panel active' data-panel='overview'>",
+  "<div class='hero-grid'><div class='stat'><strong>80</strong>Combined models</div>",
+  "<div class='stat'><strong>34</strong>RR=0 inclusion</div>",
+  "<div class='stat'><strong>46</strong>RR=1 exclusion</div>",
+  "<div class='stat'><strong>62 + 18</strong>PDH + Near-PDH</div></div>",
+  "<div class='context'><strong>Weighting.</strong> ", html_escape(method_note), "</div>",
+  "<div class='boundary'><div><strong>Tables 8 and 10</strong>Structure + available Hessian estimation uncertainty</div>",
+  "<div><strong>Tables 9 and 11</strong>Central structural models only; no Hessian draws</div>",
+  "<div><strong>Table 12</strong>All-model/PDH-only and 50/100-draw audit</div>",
+  "<div><strong>Table 13</strong>Structure + stochastic recruitment; no Hessian draws</div></div>",
+  "<div class='warning'><strong>Interpretation boundary.</strong> ", html_escape(caveat_note), "</div>",
+  "<div class='warning'><strong>MFCL v2.5 provisional caveat.</strong> ", html_escape(v25_caveat_note), "</div>",
+  "<div class='context'><strong>Related outputs.</strong> <a href='bet-2026-ensemble-report.html'>Combined 80-model report</a> · ",
+  "<a href='bet-2026-ensemble-report-rr0-inclusion.html'>RR=0 report</a> · ",
+  "<a href='bet-2026-ensemble-report-rr1-exclusion.html'>RR=1 report</a> · ",
+  "<a href='bet-2026-ensemble-interactive-viewer.html'>Three-scope viewer</a></div>",
+  "</section><section class='panel' data-panel='figures'>",
+  comparison_figures_html,
+  "</section><section class='panel' data-panel='tables'>",
+  paste(unname(unlist(comparison_table_cards)), collapse = ""),
+  "<div class='downloads'><h2>All grouped WP-06 table files</h2><div class='actions'>",
+  comparison_download_links,
+  "</div><p>The formatted and numeric Table 8 files are both retained. Every grouped file binds the already validated Combined, RR=0 and RR=1 products without recalculation.</p></div>",
+  "</section><footer>Generated from the checksum-locked retained ensemble, Hessian cache and projection cache. Combined rows reproduce the canonical 80-model report.</footer></main>",
+  "<script>function copyText(id,button){const source=document.getElementById(id);const old=button.textContent;const done=()=>{button.textContent='Copied';button.classList.add('copied');setTimeout(()=>{button.textContent=old;button.classList.remove('copied')},1400)};const fallback=()=>{source.focus();source.select();document.execCommand('copy');done()};if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(source.value).then(done).catch(fallback)}else{fallback()}}(()=>{const buttons=[...document.querySelectorAll('[data-tab]')],panels=[...document.querySelectorAll('[data-panel]')];buttons.forEach(b=>b.addEventListener('click',()=>{buttons.forEach(x=>x.classList.toggle('active',x===b));panels.forEach(p=>p.classList.toggle('active',p.dataset.panel===b.dataset.tab));history.replaceState(null,'','#'+b.dataset.tab)}));const target=location.hash.slice(1);const button=buttons.find(b=>b.dataset.tab===target);if(button)button.click()})();</script>",
+  "</body></html>"
+)
+
+comparison_report_path <- file.path(
+  output_dir, "bet-2026-ensemble-report-rr-comparison.html"
+)
+assert_true(
+  !grepl("https?://", comparison_html) &&
+    length(gregexpr("class='figure-card'", comparison_html, fixed = TRUE)[[1L]]) == 9L &&
+    length(gregexpr("class='table-card'", comparison_html, fixed = TRUE)[[1L]]) == 6L &&
+    length(gregexpr("data:image/png;base64,", comparison_html, fixed = TRUE)[[1L]]) == 9L &&
+    grepl("MFCL v2.5 provisional caveat", comparison_html, fixed = TRUE) &&
+    grepl("Table 11 · Full structural reference-point quantities", comparison_html, fixed = TRUE),
+  "Standalone RR comparison HTML structure or caveat is incomplete."
+)
+writeLines(comparison_html, comparison_report_path, useBytes = TRUE)
+
 rr_html <- paste0(
   "<!-- RR_SENSITIVITY_START -->",
   "<section id='rr-sensitivity' class='rr-sensitivity'>",
@@ -3576,7 +3876,8 @@ rr_html <- paste0(
   "</style>",
   "<h2>Reporting-rate retained-subset sensitivity</h2>",
   "<p>This section recalculates the report's central management, available Hessian uncertainty, stochastic projections and key figures for RR=0 only, RR=1 only, and both treatments combined.</p>",
-  "<div class='rr-actions'><a href='bet-2026-ensemble-report-rr0-inclusion.html'>Open RR=0 inclusion analysis</a>",
+  "<div class='rr-actions'><a href='bet-2026-ensemble-report-rr-comparison.html'>Open three-scope comparison report</a>",
+  "<a href='bet-2026-ensemble-report-rr0-inclusion.html'>Open RR=0 inclusion analysis</a>",
   "<a href='bet-2026-ensemble-report-rr1-exclusion.html'>Open RR=1 exclusion analysis</a></div>",
   "<div class='rr-method'><strong>Weights.</strong> ", method_note, "</div>",
   "<div class='rr-note'><strong>Interpretation boundary.</strong> ", caveat_note, "</div>",
