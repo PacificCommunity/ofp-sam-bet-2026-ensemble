@@ -1,0 +1,10 @@
+"Group","Quantity","Aggregation","Models","Value"
+"Combined (RR=0 + RR=1)","Mean annual spawning depletion, 2021–2024","Arithmetic mean across 80 central models",80,0.27831217439783
+"Combined (RR=0 + RR=1)","Mean annual spawning depletion, 2012–2015","Arithmetic mean across 80 central models",80,0.287776359260905
+"Combined (RR=0 + RR=1)","Recent-to-2012–2015 spawning depletion ratio","Ratio of the preceding two arithmetic means",80,0.967112709023834
+"RR=0: inclusion","Mean annual spawning depletion, 2021–2024","Arithmetic mean across 34 central models",34,0.257822915208676
+"RR=0: inclusion","Mean annual spawning depletion, 2012–2015","Arithmetic mean across 34 central models",34,0.265900492318231
+"RR=0: inclusion","Recent-to-2012–2015 spawning depletion ratio","Ratio of the preceding two arithmetic means",34,0.969621804611448
+"RR=1: exclusion","Mean annual spawning depletion, 2021–2024","Arithmetic mean across 46 central models",46,0.293456409450683
+"RR=1: exclusion","Mean annual spawning depletion, 2012–2015","Arithmetic mean across 46 central models",46,0.303945478305489
+"RR=1: exclusion","Recent-to-2012–2015 spawning depletion ratio","Ratio of the preceding two arithmetic means",46,0.965490294794698

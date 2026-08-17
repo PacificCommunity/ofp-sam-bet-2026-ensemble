@@ -8,7 +8,11 @@ rr_table_names <- c(
   "group-counts-qc.csv", "structural-management-summary.csv",
   "structural-management-risk.csv", "hessian-management-intervals.csv",
   "hessian-management-risk.csv", "projection-terminal-summary.csv",
-  "projection-selected-years.csv", "differences-vs-combined.csv"
+  "projection-selected-years.csv", "differences-vs-combined.csv",
+  "estimation-management-intervals.csv",
+  "estimation-management-summary.csv", "cmm-depletion-comparison.csv",
+  "estimation-management-risk.csv", "structural-reference-points.csv",
+  "estimation-uncertainty-audit.csv", "projection-summary.csv"
 )
 rr_figure_stems <- c(
   "rr-sensitivity-history-comparison",
@@ -109,7 +113,7 @@ expected_rr_tables <- c(rr_table_names, paste0(rr_scope_tables, ".csv"))
 if (length(rr_csvs) != length(expected_rr_tables) ||
     !setequal(basename(rr_csvs), expected_rr_tables) ||
     any(file.info(rr_csvs)$size <= 0L)) {
-  stop("The 32 RR-sensitivity tables are incomplete or unexpectedly empty.")
+  stop("The 39 RR-sensitivity tables are incomplete or unexpectedly empty.")
 }
 
 report <- paste(readLines(report_file, warn = FALSE), collapse = "\n")
@@ -147,7 +151,7 @@ report_required <- c(
   "Combined (RR=0 + RR=1)", "RR=0: inclusion", "RR=1: exclusion",
   "retained-subset sensitivity summaries",
   "not an isolated causal effect",
-  "zero-mixing events remain excluded for MFCL compatibility",
+  "stored flag2=1 is inactive because no pre-mixing window exists; no tag event or recapture is removed",
   "34/80 (42.5%)", "46/80 (57.5%)",
   "const panel=target.closest('[data-report-panel]')",
   "RR_SENSITIVITY_START", "RR_SENSITIVITY_END"
@@ -180,7 +184,7 @@ for (prefix in rr_scope_prefixes) {
     paste0(counts[["projection"]], " model–recruitment combinations"),
     "retained-subset sensitivity, not a matched causal reporting-rate effect",
     paste0("MFCL tag flag column 2 = ", counts[["flag"]]),
-    "Zero-mixing events remain excluded for current-MFCL compatibility",
+    "For mixing=0 rows, stored flag2=1 is an inactive compatibility sentinel; no tag event or recapture is removed",
     paste0("Each of ", counts[["pdh"]], " PDH models contributes 100 joint draws"),
     paste0("each of ", counts[["near"]], " Near-PDH models contributes its central estimate"),
     "Estimation uncertainty is unavailable for the Near-PDH fits; their central estimates are repeated only to preserve equal total model weight.",
@@ -234,7 +238,7 @@ viewer_required <- c(
   "Reporting-rate analysis scope", "All retained",
   "RR inclusion &middot; flag2=0", "RR exclusion &middot; flag2=1",
   "34 inclusion + 46 exclusion", "Retained-subset sensitivity; not an isolated RR effect",
-  "zero-mixing events remain excluded in both treatments for current-MFCL compatibility",
+  "For mixing=0 rows, stored flag2=1 is an inactive compatibility sentinel; no tag event or recapture is removed",
   "scopeButtons", "scopeSummary", "median_difference_from_all"
 )
 for (value in viewer_required) {
@@ -1041,6 +1045,50 @@ for (prefix in names(scope_groups)) {
   }
 }
 
+# The unprefixed RR tables bind the exact canonical Combined rows and the two
+# independently checked scope tables, preserving the original Table 8–13
+# schemas and row order for direct three-scope comparison.
+grouped_wp06_stems <- c(
+  "estimation-management-intervals", "estimation-management-summary",
+  "cmm-depletion-comparison", "estimation-management-risk",
+  "structural-reference-points", "estimation-uncertainty-audit",
+  "projection-summary"
+)
+for (stem in grouped_wp06_stems) {
+  pieces <- list(
+    `Combined (RR=0 + RR=1)` = read.csv(
+      file.path(output_dir, "tables", paste0(stem, ".csv")),
+      check.names = FALSE
+    ),
+    `RR=0: inclusion` = read_scope_table("rr0-inclusion", stem),
+    `RR=1: exclusion` = read_scope_table("rr1-exclusion", stem)
+  )
+  expected_grouped <- do.call(rbind, lapply(names(pieces), function(group) {
+    data.frame(Group = group, pieces[[group]], check.names = FALSE)
+  }))
+  rownames(expected_grouped) <- NULL
+  observed_grouped <- rr_tables[[paste0(stem, ".csv")]]
+  if (!identical(names(observed_grouped), names(expected_grouped)) ||
+      nrow(observed_grouped) != nrow(expected_grouped)) {
+    stop("Grouped WP-06 table schema mismatch: ", stem, ".")
+  }
+  for (column in names(expected_grouped)) {
+    if (is.numeric(expected_grouped[[column]]) ||
+        is.integer(expected_grouped[[column]])) {
+      assert_close(
+        as.numeric(observed_grouped[[column]]),
+        as.numeric(expected_grouped[[column]]), 5e-12,
+        paste("grouped WP-06", stem, column)
+      )
+    } else if (!identical(
+      as.character(observed_grouped[[column]]),
+      as.character(expected_grouped[[column]])
+    )) {
+      stop("Grouped WP-06 table identity mismatch: ", stem, " / ", column, ".")
+    }
+  }
+}
+
 # Full-precision combined parity: the canonical 80-model tables must be the
 # same calculation as the independently reconstructed Combined rows above.
 combined_group <- "Combined (RR=0 + RR=1)"
@@ -1278,5 +1326,5 @@ if (!identical(manifest$sha256, unname(actual))) {
 cat(paste0(
   "Validated the self-contained 80-model report and three-scope viewer, ",
   "two standalone subgroup reports, 11 main figure sets, 8 main tables, ",
-  "23 RR figure sets and 32 RR tables.\n"
+  "23 RR figure sets and 39 RR tables.\n"
 ))

@@ -776,6 +776,29 @@ theme_rr <- function(base_size = 12.5) {
     )
 }
 
+# Match the canonical public-report figure styling for scope-specific copies.
+theme_main_report <- function(base_size = 10.8) {
+  ggplot2::theme_bw(base_size = base_size, base_family = "serif") +
+    ggplot2::theme(
+      panel.grid.minor = ggplot2::element_blank(),
+      panel.grid.major = ggplot2::element_line(
+        colour = "#E2E8EB", linewidth = 0.28
+      ),
+      panel.border = ggplot2::element_rect(
+        colour = "#263844", fill = NA, linewidth = 0.45
+      ),
+      axis.title = ggplot2::element_text(face = "bold", colour = "#183246"),
+      axis.text = ggplot2::element_text(colour = "#36566A"),
+      legend.position = "bottom",
+      legend.title = ggplot2::element_text(face = "bold"),
+      legend.key.width = grid::unit(1.1, "cm"),
+      plot.tag = ggplot2::element_text(
+        face = "bold", colour = "#183246", size = 12
+      ),
+      plot.margin = ggplot2::margin(7, 9, 7, 8)
+    )
+}
+
 group_colours <- c(
   "Combined" = "#173F5F", "RR=0" = "#D97706", "RR=1" = "#0F8B8D"
 )
@@ -954,7 +977,7 @@ status_panel <- function(key, diagram = c("kobe", "majuro"), show_title = TRUE) 
   central$hessian_status <- ifelse(
     central$positive_definite_hessian, "PDH", "Near-PDH"
   )
-  central$point_alpha <- ifelse(central$maximum_gradient <= 1e-4, 0.92, 0.48)
+  central$point_alpha <- ifelse(central$maximum_gradient <= 1e-4, 0.90, 0.46)
   x_column <- if (diagram == "kobe") "sb_recent_sbmsy" else "sb_recent_sb0"
   x_boundary <- if (diagram == "kobe") 1 else 0.20
   surface <- hdr_surface(draws, x_column, "f_recent_fmsy")
@@ -1696,6 +1719,46 @@ scope_table_products <- function(key) {
 
 scope_products <- setNames(lapply(group_keys, scope_table_products), group_keys)
 
+bind_scope_product <- function(product_name) {
+  output <- do.call(rbind, lapply(group_keys, function(key) {
+    data.frame(
+      Group = group_labels[[key]],
+      scope_products[[key]][[product_name]],
+      check.names = FALSE
+    )
+  }))
+  rownames(output) <- NULL
+  output
+}
+
+# Copy-ready cross-scope versions of the report's Tables 8–13. These bind the
+# exact per-scope products rather than recalculating a second set of summaries.
+grouped_wp06_tables <- list(
+  table08_intervals = bind_scope_product("table08_intervals"),
+  table08_summary = bind_scope_product("table08_summary"),
+  table09 = bind_scope_product("table09"),
+  table10 = bind_scope_product("table10"),
+  table11 = bind_scope_product("table11"),
+  table12 = bind_scope_product("table12"),
+  table13 = bind_scope_product("table13")
+)
+grouped_wp06_filenames <- c(
+  table08_intervals = "estimation-management-intervals.csv",
+  table08_summary = "estimation-management-summary.csv",
+  table09 = "cmm-depletion-comparison.csv",
+  table10 = "estimation-management-risk.csv",
+  table11 = "structural-reference-points.csv",
+  table12 = "estimation-uncertainty-audit.csv",
+  table13 = "projection-summary.csv"
+)
+for (product_name in names(grouped_wp06_filenames)) {
+  write.csv(
+    grouped_wp06_tables[[product_name]],
+    file.path(table_dir, grouped_wp06_filenames[[product_name]]),
+    row.names = FALSE
+  )
+}
+
 assert_numeric_frame_equal <- function(observed, expected_path, label, tolerance = 5e-12) {
   expected <- read.csv(expected_path, check.names = FALSE)
   assert_true(
@@ -2092,7 +2155,7 @@ scope_report_html <- function(key) {
       "current-status", "Current Kobe and Majuro status",
       paste0(
         "Current status based on mean spawning biomass for 2021–2024 and mean fishing mortality for 2020–2023 across ",
-        length(ids), " equally weighted models. Panel (a) is relative to SBMSY and FMSY; panel (b) divides mean 2021–2024 spawning biomass by mean 2014–2023 SBF=0 and uses the LRP of 0.20. Central points are coloured by tag overdispersion τ; filled and open symbols distinguish the ",
+        length(ids), " equally weighted models. Panel (a) is relative to SBMSY and FMSY; panel (b) divides mean 2021–2024 spawning biomass by mean 2014–2023 SBF=0 and uses the LRP of 0.20. Filled and open central points distinguish the ",
         pdh_count, " PDH and ", near_count,
         " Near-PDH fits. Nested 50%, 80% and 95% bivariate kernel highest-density regions combine structure with available joint Hessian uncertainty, with Near-PDH central estimates repeated to retain equal model weight. Backgrounds follow the Kobe four-category and Majuro three-category definitions; labels give probabilities from the same mixture."
       ), figures$current_status
@@ -2145,7 +2208,7 @@ scope_report_html <- function(key) {
       paste0(
         "All-region LRP depletion (a) and spawning potential in thousand metric tonnes (b), joining estimates through 2024 to projections for 2025–2054 across ",
         length(ids), " models and ", length(ids) * 10L,
-        " model–recruitment combinations. The LRP statistic is each four-year mean spawning biomass divided by the preceding ten-year mean no-fishing biomass. Lines are medians and nested bands are central 50%, 80% and 95% intervals. Historical bands show structural uncertainty only; projections add stochastic recruitment without Hessian parameter draws. The 0.20 line is the stock-wide LRP; axes are fixed across RR scopes."
+        " model–recruitment combinations. The LRP statistic is each four-year mean spawning biomass divided by the preceding ten-year mean no-fishing biomass. Thick lines are medians; ten thin lines show representative linked historical–projection paths; nested bands are central 50%, 80% and 95% intervals. Historical bands show structural uncertainty only; projections add stochastic recruitment without Hessian parameter draws. The 0.20 line is the stock-wide LRP; axes are fixed across RR scopes."
       ),
       figures$projection_stock
     )
@@ -2176,6 +2239,7 @@ scope_report_html <- function(key) {
     ".figure-card,.table-card{background:white;border:1px solid var(--line);border-radius:9px;padding:clamp(14px,2vw,24px);margin:18px 0;box-shadow:0 5px 18px #173b4d12}.figure-card img{width:100%;height:auto;display:block;margin:10px auto}.figure-card h2,.table-card h2{color:#07566b;margin:.1rem 0 .5rem;font-size:clamp(1.35rem,2.2vw,1.9rem)}",
     ".caption{color:#405e6d}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.actions button.copied{background:#2a9d8f}.copy-source{position:absolute;left:-10000px;width:1px;height:1px}.downloads{background:white;border:1px solid var(--line);border-radius:8px;padding:16px}.downloads .actions a{margin:2px}",
     ".rr-table-wrap{overflow:auto;max-height:560px;border:1px solid #d7e3e8;margin:12px 0}.rr-table-wrap table{width:100%;min-width:760px;border-collapse:collapse}.rr-table-wrap th{position:sticky;top:0;background:#0a5266;color:white;font-family:Arial,sans-serif}.rr-table-wrap th,.rr-table-wrap td{padding:9px 11px;border-bottom:1px solid #d7e3e8;text-align:left;white-space:nowrap}.rr-table-wrap tr:nth-child(even){background:#f1f7f8}",
+    "#table-08 th:nth-child(n+3),#table-08 td:nth-child(n+3),#table-09 th:nth-child(n+3),#table-09 td:nth-child(n+3),#table-10 th:nth-child(2),#table-10 td:nth-child(2),#table-11 th:nth-child(n+4),#table-11 td:nth-child(n+4),#table-12 th:nth-child(n+2),#table-12 td:nth-child(n+2),#table-13 th,#table-13 td{text-align:right;font-variant-numeric:tabular-nums}",
     "footer{color:var(--muted);font-size:.92rem;border-top:1px solid var(--line);padding-top:18px;margin-top:28px}",
     "@media(max-width:900px){.hero-grid,.boundary{grid-template-columns:1fr 1fr}}@media(max-width:560px){.hero-grid,.boundary{grid-template-columns:1fr}.shell{width:98vw}.tabs{position:static}.rr-table-wrap table{min-width:680px}}",
     "@media print{.tabs,.actions{display:none!important}.panel{display:block!important}.shell{width:100%;padding:0}.figure-card,.table-card{break-inside:avoid;box-shadow:none}}",
@@ -2183,7 +2247,7 @@ scope_report_html <- function(key) {
     "<header><div class='kicker'>BET 2026 · reporting-rate sensitivity</div>",
     "<h1>", html_escape(group_labels[[key]]), "</h1>",
     "<p>MFCL tag flag column 2 = ", flag, " · ", html_escape(treatment),
-    ". Zero-mixing events remain excluded for current-MFCL compatibility.</p></header>",
+    ". For mixing=0 rows, stored flag2=1 is an inactive compatibility sentinel; no tag event or recapture is removed.</p></header>",
     "<main class='shell'><nav class='tabs' aria-label='Result sections'>",
     "<button class='active' data-tab='overview'>Overview</button>",
     "<button data-tab='figures'>Figures</button>",
@@ -2267,7 +2331,7 @@ save_scope_plot <- function(plot, key, stem, width, height) {
 }
 
 scope_hdr_surface <- function(
-    data, x, y, probabilities = c(0.95, 0.80, 0.50), n = 180L) {
+    data, x, y, probabilities = c(0.95, 0.80, 0.50), n = 220L) {
   x_values <- data[[x]]
   y_values <- data[[y]]
   keep <- is.finite(x_values) & is.finite(y_values)
@@ -2312,6 +2376,28 @@ scope_hdr_surface <- function(
   surface
 }
 
+scope_hdr_bounds <- function(surface) {
+  x <- sort(unique(surface$x))
+  y <- sort(unique(surface$y))
+  density <- matrix(surface$density, nrow = length(x), ncol = length(y))
+  contours <- do.call(c, lapply(
+    head(attr(surface, "breaks"), -1L),
+    function(level) grDevices::contourLines(x, y, density, levels = level)
+  ))
+  assert_true(length(contours) > 0L, "Scope HDR contours are empty.")
+  contour_x <- unlist(lapply(contours, `[[`, "x"), use.names = FALSE)
+  contour_y <- unlist(lapply(contours, `[[`, "y"), use.names = FALSE)
+  assert_true(
+    length(contour_x) > 0L && length(contour_y) > 0L &&
+      all(is.finite(contour_x)) && all(is.finite(contour_y)),
+    "Scope HDR contour coordinates are invalid."
+  )
+  c(
+    x_min = min(contour_x), x_max = max(contour_x),
+    y_min = min(contour_y), y_max = max(contour_y)
+  )
+}
+
 scope_kobe_category <- function(sb, fishing) {
   ifelse(
     sb >= 1 & fishing <= 1, "Green",
@@ -2330,23 +2416,27 @@ scope_majuro_category <- function(depletion, fishing) {
 }
 
 scope_status_background <- function(
-    x_boundary, diagram = c("kobe", "majuro")) {
+    x_boundary, diagram = c("kobe", "majuro"), x_upper = NULL) {
   diagram <- match.arg(diagram)
   if (diagram == "kobe") {
     list(
-      ggplot2::annotate("rect", xmin = x_boundary, xmax = Inf, ymin = -Inf, ymax = 1, fill = "#2a9d8f", alpha = 0.66),
-      ggplot2::annotate("rect", xmin = -Inf, xmax = x_boundary, ymin = -Inf, ymax = 1, fill = "#e9c46a", alpha = 0.66),
-      ggplot2::annotate("rect", xmin = x_boundary, xmax = Inf, ymin = 1, ymax = Inf, fill = "#f4a261", alpha = 0.64),
-      ggplot2::annotate("rect", xmin = -Inf, xmax = x_boundary, ymin = 1, ymax = Inf, fill = "#e76f51", alpha = 0.66),
+      ggplot2::annotate("rect", xmin = x_boundary, xmax = Inf, ymin = -Inf, ymax = 1, fill = "#2a9d8f", alpha = 0.72),
+      ggplot2::annotate("rect", xmin = -Inf, xmax = x_boundary, ymin = -Inf, ymax = 1, fill = "#e9c46a", alpha = 0.72),
+      ggplot2::annotate("rect", xmin = x_boundary, xmax = Inf, ymin = 1, ymax = Inf, fill = "#f4a261", alpha = 0.70),
+      ggplot2::annotate("rect", xmin = -Inf, xmax = x_boundary, ymin = 1, ymax = Inf, fill = "#e76f51", alpha = 0.72),
       ggplot2::geom_hline(yintercept = 1, colour = "#1f2937", linewidth = 0.48),
       ggplot2::geom_vline(xintercept = x_boundary, colour = "#1f2937", linewidth = 0.48)
     )
   } else {
+    if (is.null(x_upper)) x_upper <- Inf
     list(
-      ggplot2::annotate("rect", xmin = -Inf, xmax = x_boundary, ymin = -Inf, ymax = Inf, fill = "#e76f51", alpha = 0.66),
-      ggplot2::annotate("rect", xmin = x_boundary, xmax = Inf, ymin = -Inf, ymax = 1, fill = "#2a9d8f", alpha = 0.66),
-      ggplot2::annotate("rect", xmin = x_boundary, xmax = Inf, ymin = 1, ymax = Inf, fill = "#f4a261", alpha = 0.64),
-      ggplot2::geom_hline(yintercept = 1, colour = "#1f2937", linewidth = 0.48),
+      ggplot2::annotate("rect", xmin = -Inf, xmax = x_boundary, ymin = -Inf, ymax = Inf, fill = "#e76f51", alpha = 0.72),
+      ggplot2::annotate("rect", xmin = x_boundary, xmax = Inf, ymin = -Inf, ymax = 1, fill = "#2a9d8f", alpha = 0.72),
+      ggplot2::annotate("rect", xmin = x_boundary, xmax = Inf, ymin = 1, ymax = Inf, fill = "#f4a261", alpha = 0.70),
+      ggplot2::annotate(
+        "segment", x = x_boundary, xend = x_upper, y = 1, yend = 1,
+        colour = "#1f2937", linewidth = 0.48
+      ),
       ggplot2::geom_vline(xintercept = x_boundary, colour = "#1f2937", linewidth = 0.48)
     )
   }
@@ -2386,26 +2476,43 @@ scope_status_panel <- function(
   }
   probability <- as.numeric(table(factor(category, levels = category_levels))) /
     length(category)
-  probability_text <- paste0(
-    category_levels, " ", scales::percent(probability, accuracy = 0.1),
-    collapse = " · "
-  )
+  probability_labels <- if (diagram == "kobe") {
+    data.frame(
+      x = c(
+        mean(c(x_boundary, x_upper)), x_boundary * 0.50,
+        mean(c(x_boundary, x_upper)), x_boundary * 0.50
+      ),
+      y = c(
+        min(0.48, y_upper * 0.24), min(0.48, y_upper * 0.24),
+        mean(c(1, y_upper)), mean(c(1, y_upper))
+      ),
+      label = scales::percent(probability, accuracy = 0.1)
+    )
+  } else {
+    data.frame(
+      x = c(
+        mean(c(x_boundary, x_upper)),
+        mean(c(x_boundary, x_upper)), x_boundary * 0.50
+      ),
+      y = c(
+        min(0.48, y_upper * 0.24), mean(c(1, y_upper)), y_upper * 0.50
+      ),
+      label = scales::percent(probability, accuracy = 0.1)
+    )
+  }
   encoded_current_points <- all(c(
-    "tag_tau", "hessian_status", "point_alpha"
+    "hessian_status", "point_alpha"
   ) %in% names(central))
+  contour_alpha <- if (encoded_current_points) 0.82 else 0.78
+  contour_colour <- if (encoded_current_points) "#285F6B" else "#426D76"
+  contour_linewidth <- if (encoded_current_points) 0.42 else 0.34
   plot <- ggplot2::ggplot() +
-    scope_status_background(x_boundary, diagram) +
+    scope_status_background(x_boundary, diagram, x_upper) +
     ggplot2::geom_contour_filled(
       data = surface,
       ggplot2::aes(x = .data$x, y = .data$y, z = .data$density),
-      breaks = attr(surface, "breaks"), alpha = 0.78,
-      colour = "#285F6B", linewidth = 0.38
-    ) +
-    ggplot2::annotate(
-      "label", x = x_upper * 0.98, y = y_upper * 0.97,
-      label = probability_text, hjust = 1, vjust = 1,
-      size = 3.15, colour = "#173042", fill = "white",
-      alpha = 0.86, linewidth = 0.18
+      breaks = attr(surface, "breaks"), alpha = contour_alpha,
+      colour = contour_colour, linewidth = contour_linewidth
     ) +
     ggplot2::scale_fill_manual(
       values = c("#D4EDF1", "#8BC9D3", "#2F93A5"),
@@ -2417,16 +2524,8 @@ scope_status_panel <- function(
         data = central,
         ggplot2::aes(
           x = .data[[x_column]], y = .data[[y_column]],
-          colour = .data$tag_tau, shape = .data$hessian_status,
-          alpha = .data$point_alpha
-        ), size = 2.35, stroke = 0.82
-      ) +
-      ggplot2::scale_colour_viridis_c(
-        option = "C", begin = 0.10, end = 0.95,
-        name = expression("Tag " * tau),
-        guide = ggplot2::guide_colourbar(
-          barwidth = grid::unit(4.3, "cm"), order = 2
-        )
+          shape = .data$hessian_status, alpha = .data$point_alpha
+        ), colour = "#0B6477", size = 2.25, stroke = 0.75
       ) +
       ggplot2::scale_shape_manual(
         values = c("PDH" = 16, "Near-PDH" = 1),
@@ -2435,26 +2534,50 @@ scope_status_panel <- function(
       ) +
       ggplot2::scale_alpha_identity() +
       ggplot2::guides(
-        fill = ggplot2::guide_legend(order = 1, nrow = 1),
-        shape = ggplot2::guide_legend(order = 3, nrow = 1)
+        fill = ggplot2::guide_legend(order = 1, nrow = 1, byrow = TRUE),
+        shape = ggplot2::guide_legend(order = 2, nrow = 1, byrow = TRUE)
       )
   } else {
     plot <- plot +
       ggplot2::geom_point(
         data = central,
         ggplot2::aes(x = .data[[x_column]], y = .data[[y_column]]),
-        shape = 21, fill = "white", colour = "#07566B",
-        size = 1.85, stroke = 0.52, alpha = 0.78
-      ) +
-      ggplot2::guides(fill = ggplot2::guide_legend(nrow = 1))
+        colour = "#0B6477", size = 1.24, alpha = 0.28
+      )
+  }
+  label_alpha <- if (encoded_current_points) 0.82 else 0.84
+  label_size <- if (encoded_current_points) 3.05 else 3.0
+  panel_theme <- if (encoded_current_points) {
+    theme_main_report(11.6) +
+      ggplot2::theme(
+        legend.position = "bottom", legend.box = "horizontal",
+        legend.text = ggplot2::element_text(size = 8.8),
+        legend.key.width = grid::unit(0.66, "cm"),
+        legend.spacing.x = grid::unit(0.14, "cm"),
+        plot.margin = ggplot2::margin(3, 4, 3, 4)
+      )
+  } else {
+    theme_main_report(11.2) +
+      ggplot2::theme(
+        legend.position = "bottom", legend.box = "horizontal",
+        legend.text = ggplot2::element_text(size = 8.8),
+        legend.key.width = grid::unit(0.70, "cm"),
+        plot.margin = ggplot2::margin(3, 5, 3, 5)
+      )
   }
   plot +
+    ggplot2::geom_label(
+      data = probability_labels,
+      ggplot2::aes(x = .data$x, y = .data$y, label = .data$label),
+      inherit.aes = FALSE, colour = "#173042", fill = "white",
+      alpha = label_alpha, linewidth = 0.15, size = label_size,
+      fontface = "bold", label.padding = grid::unit(0.12, "lines")
+    ) +
     ggplot2::coord_cartesian(
       xlim = c(0, x_upper), ylim = c(0, y_upper), expand = FALSE
     ) +
     ggplot2::labs(x = x_label, y = y_label) +
-    theme_rr(12.2) +
-    ggplot2::theme(legend.position = "bottom")
+    panel_theme
 }
 
 scope_history_upper <- setNames(vapply(history_specs$metric, function(metric) {
@@ -2536,24 +2659,69 @@ scope_history_figure <- function(key) {
     ) & ggplot2::theme(legend.position = "bottom")
 }
 
+current_status_limit_components <- lapply(
+  standalone_scope_keys, function(scope_key) {
+    scope_ids <- group_ids[[scope_key]]
+    draws <- hybrid_management[
+      hybrid_management$ensemble_id %in% scope_ids, , drop = FALSE
+    ]
+    central <- management_retained[
+      management_retained$ensemble_id %in% scope_ids, , drop = FALSE
+    ]
+    kobe_bounds <- scope_hdr_bounds(scope_hdr_surface(
+      draws, "sb_recent_sbmsy", "f_recent_fmsy"
+    ))
+    majuro_bounds <- scope_hdr_bounds(scope_hdr_surface(
+      draws, "sb_recent_sb0", "f_recent_fmsy"
+    ))
+    assert_true(
+      min(kobe_bounds[c("x_min", "y_min")]) >= 0 &&
+        min(majuro_bounds[c("x_min", "y_min")]) >= 0,
+      paste0("A current-status HDR crosses a zero axis for ", scope_key, ".")
+    )
+    c(
+      kobe_x = max(
+        stats::quantile(
+          draws$sb_recent_sbmsy, 0.995, names = FALSE, na.rm = TRUE
+        ),
+        central$sb_recent_sbmsy, 1, kobe_bounds[["x_max"]], na.rm = TRUE
+      ),
+      majuro_x = max(
+        stats::quantile(
+          draws$sb_recent_sb0, 0.995, names = FALSE, na.rm = TRUE
+        ),
+        central$sb_recent_sb0, 0.20, majuro_bounds[["x_max"]], na.rm = TRUE
+      ),
+      y = max(
+        stats::quantile(
+          draws$f_recent_fmsy, 0.995, names = FALSE, na.rm = TRUE
+        ),
+        central$f_recent_fmsy, 1,
+        kobe_bounds[["y_max"]], majuro_bounds[["y_max"]], na.rm = TRUE
+      )
+    )
+  }
+)
 combined_current_status_limits <- list(
-  kobe_x = max(
-    stats::quantile(hybrid_management$sb_recent_sbmsy, 0.995, names = FALSE),
-    management_retained$sb_recent_sbmsy, 1
-  ) * 1.04,
-  majuro_x = max(
-    stats::quantile(hybrid_management$sb_recent_sb0, 0.995, names = FALSE),
-    management_retained$sb_recent_sb0, 0.20
-  ) * 1.04,
-  y = max(
-    stats::quantile(hybrid_management$f_recent_fmsy, 0.995, names = FALSE),
-    management_retained$f_recent_fmsy, 1
-  ) * 1.04
+  kobe_x = max(vapply(
+    current_status_limit_components, `[[`, numeric(1), "kobe_x"
+  )) * 1.01,
+  majuro_x = max(vapply(
+    current_status_limit_components, `[[`, numeric(1), "majuro_x"
+  )) * 1.01,
+  y = max(vapply(
+    current_status_limit_components, `[[`, numeric(1), "y"
+  )) * 1.01
 )
 
 scope_current_status_figure <- function(key) {
   ids <- group_ids[[key]]
   draws <- hybrid_management[hybrid_management$ensemble_id %in% ids, , drop = FALSE]
+  assert_true(
+    nrow(draws) == length(ids) * 100L &&
+      all(table(draws$ensemble_id) == 100L),
+    paste0("Current-status mixture is not equal-model-weight for ", key, ".")
+  )
   central <- Reduce(
     function(x, y) merge(x, y, by = "ensemble_id", sort = FALSE),
     list(
@@ -2564,33 +2732,30 @@ scope_current_status_figure <- function(key) {
         fit_retained$ensemble_id %in% ids,
         c("ensemble_id", "maximum_gradient", "positive_definite_hessian"),
         drop = FALSE
-      ],
-      design_retained[
-        design_retained$ensemble_id %in% ids,
-        c("ensemble_id", "tag_tau"), drop = FALSE
       ]
     )
   )
   central$hessian_status <- ifelse(
     central$positive_definite_hessian, "PDH", "Near-PDH"
   )
-  central$point_alpha <- ifelse(central$maximum_gradient <= 1e-4, 0.92, 0.48)
+  central$point_alpha <- ifelse(central$maximum_gradient <= 1e-4, 0.90, 0.46)
   kobe <- scope_status_panel(
     draws, central, "sb_recent_sbmsy", "f_recent_fmsy", 1, "kobe",
-    "SBrecent / SBMSY", "Frecent / FMSY",
-    combined_current_status_limits$kobe_x, combined_current_status_limits$y
+    expression(italic(SB)[recent] / italic(SB)[MSY]),
+    expression(italic(F)[recent] / italic(F)[MSY]),
+    combined_current_status_limits$kobe_x,
+    combined_current_status_limits$y
   )
   majuro <- scope_status_panel(
     draws, central, "sb_recent_sb0", "f_recent_fmsy", 0.20, "majuro",
-    "SBrecent / SBF=0", "Frecent / FMSY",
-    combined_current_status_limits$majuro_x, combined_current_status_limits$y
+    expression(italic(SB)[recent] / italic(SB)[italic(F) == 0]),
+    expression(italic(F)[recent] / italic(F)[MSY]),
+    combined_current_status_limits$majuro_x,
+    combined_current_status_limits$y
   )
   (kobe | majuro) + patchwork::plot_layout(guides = "collect") +
-    patchwork::plot_annotation(
-      title = paste0(group_labels[[key]], " — current Kobe and Majuro status"),
-      subtitle = "50%, 80% and 95% HDRs: structure + available Hessian; colour = tag τ; filled/open = PDH/Near-PDH",
-      tag_levels = "a"
-    ) & ggplot2::theme(legend.position = "bottom")
+    patchwork::plot_annotation(tag_levels = "a") &
+    ggplot2::theme(legend.position = "bottom", legend.box = "horizontal")
 }
 
 scope_dynamic_panel <- function(
@@ -2603,7 +2768,7 @@ scope_dynamic_panel <- function(
   if (is.null(y_upper)) y_upper <- max(data$f_fmsy, 1) * 1.06
   terminal_row <- data[data$year == max(data$year), , drop = FALSE]
   ggplot2::ggplot() +
-    scope_status_background(boundary, diagram) +
+    scope_status_background(boundary, diagram, x_upper) +
     ggplot2::geom_path(
       data = data,
       ggplot2::aes(
@@ -2854,24 +3019,23 @@ scope_terminal_figure <- function(key) {
   data <- scope_products[[key]]$terminal_rows
   kobe <- scope_status_panel(
     data, data, "terminal_sb_sbmsy", "terminal_f_fmsy", 1, "kobe",
-    "SB2051–2054 / SBMSY", "F2050–2053 / FMSY",
+    expression(bar(italic(SB))[2051:2054] / italic(SB)[MSY]),
+    expression(bar(italic(F))[2050:2053] / italic(F)[MSY]),
     combined_terminal_status_limits$kobe_x,
     combined_terminal_status_limits$y
   )
   majuro <- scope_status_panel(
     data, data, "sb_recent_sb0", "terminal_f_fmsy", 0.20, "majuro",
-    "SB2051–2054 / SBF=0", "F2050–2053 / FMSY",
+    expression(
+      bar(italic(SB))[2051:2054] / italic(SB)[italic(F) == 0]
+    ),
+    expression(bar(italic(F))[2050:2053] / italic(F)[MSY]),
     combined_terminal_status_limits$majuro_x,
     combined_terminal_status_limits$y
   )
   (kobe | majuro) + patchwork::plot_layout(guides = "collect") +
-    patchwork::plot_annotation(
-      title = paste0(group_labels[[key]], " — terminal projection status"),
-      subtitle = paste0(
-        length(group_ids[[key]]) * 10L,
-        " model–recruitment combinations; stochastic recruitment included, Hessian uncertainty excluded"
-      ), tag_levels = "a"
-    ) & ggplot2::theme(legend.position = "bottom")
+    patchwork::plot_annotation(tag_levels = "a") &
+    ggplot2::theme(legend.position = "bottom", legend.box = "horizontal")
 }
 
 combined_projection_f_upper <- max(c(1, unlist(lapply(
@@ -2955,45 +3119,165 @@ scope_projection_key_figure <- function(key) {
 
 scope_trajectory_panel <- function(
     historical, projected, value, y_label, fixed_upper,
-    reference = NULL) {
+    reference = NULL, historical_trajectories = NULL,
+    projected_trajectories = NULL) {
   h <- summarise_by(historical, value, "year")
   p <- summarise_by(projected, value, "year")
-  h$Source <- "Historical structural"
-  p$Source <- "Projection + recruitment"
-  data <- rbind(h, p)
-  plot <- ggplot2::ggplot(
-    data, ggplot2::aes(
-      x = .data$year, y = .data$median, colour = .data$Source
-    )
-  ) +
+  historical_end <- h[which.max(h$year), c("year", "median"), drop = FALSE]
+  projection_start <- p[which.min(p$year), c("year", "median"), drop = FALSE]
+  assert_true(
+    nrow(historical_end) == 1L && nrow(projection_start) == 1L &&
+      historical_end$year == 2024L && projection_start$year == 2025L &&
+      is.finite(historical_end$median) && is.finite(projection_start$median),
+    paste0("Invalid 2024–2025 transition for ", value, ".")
+  )
+  transition <- data.frame(
+    year_historical = historical_end$year,
+    year_projected = projection_start$year,
+    median_historical = historical_end$median,
+    median_projected = projection_start$median
+  )
+  assert_true(
+    is.data.frame(historical_trajectories) &&
+      is.data.frame(projected_trajectories) &&
+      all(c("trajectory_id", "year", "value") %in%
+        names(historical_trajectories)) &&
+      all(c("trajectory_id", "year", "value") %in%
+        names(projected_trajectories)),
+    paste0("Representative trajectories are missing for ", value, ".")
+  )
+  trajectory_transition <- merge(
+    historical_trajectories[
+      historical_trajectories$year == max(historical_trajectories$year),
+      c("trajectory_id", "year", "value"), drop = FALSE
+    ],
+    projected_trajectories[
+      projected_trajectories$year == min(projected_trajectories$year),
+      c("trajectory_id", "year", "value"), drop = FALSE
+    ],
+    by = "trajectory_id", suffixes = c("_historical", "_projected")
+  )
+  assert_true(
+    nrow(trajectory_transition) == 10L &&
+      all(trajectory_transition$year_historical == 2024L) &&
+      all(trajectory_transition$year_projected == 2025L) &&
+      all(is.finite(trajectory_transition$value_historical)) &&
+      all(is.finite(trajectory_transition$value_projected)),
+    paste0("Representative 2024–2025 links are invalid for ", value, ".")
+  )
+  plot <- ggplot2::ggplot() +
     ggplot2::geom_ribbon(
-      ggplot2::aes(ymin = .data$q025, ymax = .data$q975, fill = .data$Source),
-      alpha = 0.16, colour = NA
+      data = h,
+      ggplot2::aes(x = .data$year, ymin = .data$q025, ymax = .data$q975),
+      fill = "#C8D0D4", alpha = 0.28
     ) +
     ggplot2::geom_ribbon(
-      ggplot2::aes(ymin = .data$q10, ymax = .data$q90, fill = .data$Source),
-      alpha = 0.22, colour = NA
+      data = h,
+      ggplot2::aes(x = .data$year, ymin = .data$q10, ymax = .data$q90),
+      fill = "#9FABAF", alpha = 0.34
     ) +
     ggplot2::geom_ribbon(
-      ggplot2::aes(ymin = .data$q25, ymax = .data$q75, fill = .data$Source),
-      alpha = 0.30, colour = NA
+      data = h,
+      ggplot2::aes(x = .data$year, ymin = .data$q25, ymax = .data$q75),
+      fill = "#75868D", alpha = 0.40
     ) +
-    ggplot2::geom_line(linewidth = 0.90) +
-    ggplot2::scale_colour_manual(values = c(
-      "Historical structural" = "#4F626C",
-      "Projection + recruitment" = "#07566B"
-    ), name = NULL) +
-    ggplot2::scale_fill_manual(values = c(
-      "Historical structural" = "#AAB8BE",
-      "Projection + recruitment" = "#53AAB9"
-    ), name = NULL) +
-    ggplot2::scale_x_continuous(breaks = c(1965, 1990, 2024, 2054)) +
+    ggplot2::geom_ribbon(
+      data = p,
+      ggplot2::aes(
+        x = .data$year, ymin = .data$q025, ymax = .data$q975,
+        fill = "95% interval"
+      ), alpha = 0.42
+    ) +
+    ggplot2::geom_ribbon(
+      data = p,
+      ggplot2::aes(
+        x = .data$year, ymin = .data$q10, ymax = .data$q90,
+        fill = "80% interval"
+      ), alpha = 0.54
+    ) +
+    ggplot2::geom_ribbon(
+      data = p,
+      ggplot2::aes(
+        x = .data$year, ymin = .data$q25, ymax = .data$q75,
+        fill = "50% interval"
+      ), alpha = 0.66
+    ) +
+    ggplot2::geom_line(
+      data = historical_trajectories,
+      ggplot2::aes(
+        x = .data$year, y = .data$value, group = .data$trajectory_id
+      ), colour = "#687A83", linewidth = 0.25, alpha = 0.27
+    ) +
+    ggplot2::geom_line(
+      data = projected_trajectories,
+      ggplot2::aes(
+        x = .data$year, y = .data$value, group = .data$trajectory_id
+      ), colour = "#218899", linewidth = 0.30, alpha = 0.40
+    ) +
+    ggplot2::geom_segment(
+      data = trajectory_transition,
+      ggplot2::aes(
+        x = .data$year_historical, xend = .data$year_projected,
+        y = .data$value_historical, yend = .data$value_projected,
+        group = .data$trajectory_id
+      ), colour = "#218899", linewidth = 0.28, alpha = 0.36
+    ) +
+    ggplot2::geom_line(
+      data = h,
+      ggplot2::aes(x = .data$year, y = .data$median, colour = "Historical"),
+      linewidth = 0.72
+    ) +
+    ggplot2::geom_line(
+      data = p,
+      ggplot2::aes(x = .data$year, y = .data$median, colour = "Projection"),
+      linewidth = 0.90
+    ) +
+    ggplot2::geom_segment(
+      data = transition,
+      ggplot2::aes(
+        x = .data$year_historical, xend = .data$year_projected,
+        y = .data$median_historical, yend = .data$median_projected
+      ),
+      inherit.aes = FALSE, colour = "#07566B", linewidth = 0.86
+    ) +
+    ggplot2::geom_vline(
+      xintercept = 2024.5, colour = "#5D6C73", linewidth = 0.48,
+      linetype = "33"
+    ) +
+    ggplot2::scale_colour_manual(
+      values = c("Historical" = "#4F626C", "Projection" = "#07566B"),
+      name = NULL
+    ) +
+    ggplot2::scale_fill_manual(
+      values = c(
+        "50% interval" = "#53AAB9", "80% interval" = "#9CCFD8",
+        "95% interval" = "#D5E9ED"
+      ), name = NULL
+    ) +
+    ggplot2::scale_x_continuous(breaks = c(1960, 1990, 2024, 2054)) +
     ggplot2::coord_cartesian(ylim = c(0, fixed_upper)) +
-    ggplot2::labs(x = "Year", y = y_label) + theme_rr(12.0)
-  if (!is.null(reference)) {
-    plot <- plot + ggplot2::geom_hline(
-      yintercept = reference, colour = "#B83232", linetype = "33", linewidth = 0.55
+    ggplot2::labs(x = "Year", y = y_label) + theme_main_report(10.8) +
+    ggplot2::theme(
+      legend.position = "bottom", legend.box = "vertical",
+      legend.text = ggplot2::element_text(size = 8.2),
+      legend.key.width = grid::unit(0.75, "cm"),
+      axis.title = ggplot2::element_text(size = 10.8),
+      axis.text = ggplot2::element_text(size = 9.4),
+      plot.margin = ggplot2::margin(4, 5, 4, 5)
     )
+  if (!is.null(reference)) {
+    reference_data <- data.frame(
+      y = reference, reference = "Stock-wide LRP (0.20)"
+    )
+    plot <- plot +
+      ggplot2::geom_hline(
+        data = reference_data,
+        ggplot2::aes(yintercept = .data$y, linetype = .data$reference),
+        colour = "#B83232", linewidth = 0.54
+      ) +
+      ggplot2::scale_linetype_manual(
+        values = c("Stock-wide LRP (0.20)" = "33"), name = NULL
+      )
   }
   plot
 }
@@ -3001,6 +3285,32 @@ scope_trajectory_panel <- function(
 projection_spawning_all <- projection$annual_stock
 projection_spawning_all$spawning_potential <-
   projection_spawning_all$spawning_biomass_mt / 1000
+
+scope_representative_keys <- function(key) {
+  ids <- group_ids[[key]]
+  terminal_rank <- projection_management$projected[
+    projection_management$projected$ensemble_id %in% ids &
+      projection_management$projected$year ==
+        max(projection_management$projected$year),
+    c("ensemble_id", "simulation", "sb_recent_sb0"), drop = FALSE
+  ]
+  terminal_rank <- terminal_rank[
+    order(terminal_rank$sb_recent_sb0), , drop = FALSE
+  ]
+  representative_positions <- local({
+    set.seed(20260806L + match(key, standalone_scope_keys))
+    sort(sample.int(nrow(terminal_rank), size = 10L, replace = FALSE))
+  })
+  representative_keys <- terminal_rank[
+    representative_positions, c("ensemble_id", "simulation"), drop = FALSE
+  ]
+  representative_keys$trajectory_id <- paste(
+    representative_keys$ensemble_id,
+    representative_keys$simulation,
+    sep = " / "
+  )
+  representative_keys
+}
 
 scope_trajectory_upper <- function(historical, projected, value) {
   max(c(0, unlist(lapply(standalone_scope_keys, function(scope_key) {
@@ -3013,8 +3323,22 @@ scope_trajectory_upper <- function(historical, projected, value) {
       projected[projected$ensemble_id %in% scope_ids, , drop = FALSE],
       value, "year"
     )
-    c(historical_summary$q975, projected_summary$q975)
-  })))) * 1.04
+    representative_keys <- scope_representative_keys(scope_key)
+    representative_historical <- merge(
+      representative_keys["ensemble_id"],
+      historical[c("ensemble_id", value)],
+      by = "ensemble_id", sort = FALSE
+    )
+    representative_projected <- merge(
+      representative_keys[c("ensemble_id", "simulation")],
+      projected[c("ensemble_id", "simulation", value)],
+      by = c("ensemble_id", "simulation"), sort = FALSE
+    )
+    c(
+      historical_summary$q975, projected_summary$q975,
+      representative_historical[[value]], representative_projected[[value]]
+    )
+  }))), na.rm = TRUE) * 1.01
 }
 
 combined_projection_trajectory_limits <- c(
@@ -3029,6 +3353,28 @@ combined_projection_trajectory_limits <- c(
     "spawning_potential"
   )
 )
+
+scope_representative_paths <- function(
+    keys, historical, projected, value) {
+  historical_paths <- merge(
+    keys[c("ensemble_id", "trajectory_id")],
+    historical[c("ensemble_id", "year", value)],
+    by = "ensemble_id", sort = FALSE
+  )
+  projected_paths <- merge(
+    keys,
+    projected[c("ensemble_id", "simulation", "year", value)],
+    by = c("ensemble_id", "simulation"), sort = FALSE
+  )
+  names(historical_paths)[names(historical_paths) == value] <- "value"
+  names(projected_paths)[names(projected_paths) == value] <- "value"
+  assert_true(
+    length(unique(historical_paths$trajectory_id)) == 10L &&
+      length(unique(projected_paths$trajectory_id)) == 10L,
+    paste0("Representative path coverage is incomplete for ", value, ".")
+  )
+  list(historical = historical_paths, projected = projected_paths)
+}
 
 scope_projection_stock_figure <- function(key) {
   ids <- group_ids[[key]]
@@ -3045,23 +3391,39 @@ scope_projection_stock_figure <- function(key) {
   projected_spawning <- projection_spawning_all[
     projection_spawning_all$ensemble_id %in% ids, , drop = FALSE
   ]
+  representative_keys <- scope_representative_keys(key)
+  depletion_paths <- scope_representative_paths(
+    representative_keys, historical_depletion, projected_depletion,
+    "sb_recent_sb0"
+  )
+  spawning_paths <- scope_representative_paths(
+    representative_keys, historical_spawning, projected_spawning,
+    "spawning_potential"
+  )
   depletion_plot <- scope_trajectory_panel(
     historical_depletion, projected_depletion, "sb_recent_sb0",
-    "SBrecent / SBF=0", combined_projection_trajectory_limits[["depletion"]],
-    reference = 0.20
+    expression(italic(SB)[recent] / italic(SB)[italic(F) == 0]),
+    combined_projection_trajectory_limits[["depletion"]],
+    reference = 0.20,
+    historical_trajectories = depletion_paths$historical,
+    projected_trajectories = depletion_paths$projected
   )
   spawning_plot <- scope_trajectory_panel(
     historical_spawning, projected_spawning, "spawning_potential",
-    "Spawning potential (10^3 MT)",
-    combined_projection_trajectory_limits[["spawning"]]
+    expression(Spawning~potential~(10^3~plain(t))),
+    combined_projection_trajectory_limits[["spawning"]],
+    historical_trajectories = spawning_paths$historical,
+    projected_trajectories = spawning_paths$projected
   )
   (depletion_plot / spawning_plot) +
-    patchwork::plot_layout(guides = "collect") +
-    patchwork::plot_annotation(
-      title = paste0(group_labels[[key]], " — stock trajectories"),
-      subtitle = "Historical bands are structural-only; projection bands add stochastic recruitment and exclude Hessian uncertainty",
-      tag_levels = "a"
-    ) & ggplot2::theme(legend.position = "bottom")
+    patchwork::plot_layout(guides = "collect", heights = c(1, 1)) +
+    patchwork::plot_annotation(tag_levels = "a") &
+    ggplot2::theme(
+      legend.position = "bottom", legend.box = "vertical",
+      plot.tag = ggplot2::element_text(
+        face = "bold", colour = "#183246", size = 12
+      )
+    )
 }
 
 scope_figure_files <- setNames(vector("list", length(group_keys)), group_keys)
@@ -3074,7 +3436,7 @@ for (key in standalone_scope_keys) {
     ),
     current_status = save_scope_plot(
       scope_current_status_figure(key), key,
-      "combined-kobe-majuro-status", 11.8, 5.2
+      "combined-kobe-majuro-status", 7.1, 4.1
     ),
     dynamic_status = save_scope_plot(
       scope_dynamic_figure(key), key,
@@ -3090,7 +3452,7 @@ for (key in standalone_scope_keys) {
     ),
     terminal_status = save_scope_plot(
       scope_terminal_figure(key), key,
-      "projection-terminal-status", 11.8, 5.2
+      "projection-terminal-status", 7.1, 4.25
     ),
     projection_key = save_scope_plot(
       scope_projection_key_figure(key), key,
@@ -3098,7 +3460,7 @@ for (key in standalone_scope_keys) {
     ),
     projection_stock = save_scope_plot(
       scope_projection_stock_figure(key), key,
-      "projection-stock-trajectories", 11.8, 8.4
+      "projection-stock-trajectories", 10.8, 8.4
     )
   )
   assert_true(
@@ -3147,8 +3509,56 @@ method_note <- paste0(
 caveat_note <- paste0(
   "The six ensemble axes were randomly paired and the reporting treatments experienced different completion and MGC retention. ",
   "Therefore RR=0 versus RR=1 differences are retained-subset sensitivity summaries. They are not an isolated causal effect, ",
-  "a matched-pair contrast, or a controlled one-factor experiment. RR=0 denotes requested inclusion of pre-mixing reporting rates; ",
-  "zero-mixing events remain excluded for MFCL compatibility."
+  "a matched-pair contrast, or a controlled one-factor experiment. RR=0 denotes requested inclusion of pre-mixing reporting rates. ",
+  "For mixing=0 rows, stored flag2=1 is inactive because no pre-mixing window exists; no tag event or recapture is removed."
+)
+
+grouped_table09_display <- grouped_wp06_tables$table09
+grouped_table09_display$Value <- sprintf("%.3f", grouped_table09_display$Value)
+grouped_table10_display <- grouped_wp06_tables$table10
+grouped_table10_display$Probability <- scales::percent(
+  grouped_table10_display$Probability, accuracy = 0.1
+)
+grouped_table11_display <- grouped_wp06_tables$table11
+for (column in c("Minimum", "10%", "Median", "Mean", "90%", "Maximum")) {
+  grouped_table11_display[[column]] <- vapply(
+    seq_len(nrow(grouped_table11_display)), function(index) {
+      digits <- if (grouped_table11_display$Unit[[index]] == "thousand MT") 1L else 3L
+      sprintf(
+        paste0("%.", digits, "f"),
+        grouped_wp06_tables$table11[[column]][[index]]
+      )
+    }, character(1)
+  )
+}
+grouped_table12_display <- data.frame(
+  Group = grouped_wp06_tables$table12$Group,
+  Quantity = grouped_wp06_tables$table12$Quantity,
+  `All models: median (80% interval)` = sprintf(
+    "%.3f (%.3f–%.3f)", grouped_wp06_tables$table12$All_median,
+    grouped_wp06_tables$table12$All_q10,
+    grouped_wp06_tables$table12$All_q90
+  ),
+  `PDH only: median (80% interval)` = sprintf(
+    "%.3f (%.3f–%.3f)", grouped_wp06_tables$table12$PDH_median,
+    grouped_wp06_tables$table12$PDH_q10,
+    grouped_wp06_tables$table12$PDH_q90
+  ),
+  `Max |50-draw − 100-draw quantile|` = sprintf(
+    "%.4f", grouped_wp06_tables$table12$Max_50_100_difference
+  ),
+  check.names = FALSE
+)
+grouped_wp06_links <- paste0(
+  "<div class='rr-actions'>",
+  paste(vapply(names(grouped_wp06_filenames), function(product_name) {
+    filename <- grouped_wp06_filenames[[product_name]]
+    paste0(
+      "<a href='rr-sensitivity/tables/", filename,
+      "' download>", html_escape(filename), "</a>"
+    )
+  }, character(1)), collapse = ""),
+  "</div>"
 )
 
 rr_html <- paste0(
@@ -3170,6 +3580,21 @@ rr_html <- paste0(
   "<a href='bet-2026-ensemble-report-rr1-exclusion.html'>Open RR=1 exclusion analysis</a></div>",
   "<div class='rr-method'><strong>Weights.</strong> ", method_note, "</div>",
   "<div class='rr-note'><strong>Interpretation boundary.</strong> ", caveat_note, "</div>",
+  "<h3>WP-06 Tables 8–13 · combined, RR=0 and RR=1</h3>",
+  "<p>Each table below uses the original WP-06 definition and uncertainty boundary. Combined rows reproduce the canonical 80-model report exactly.</p>",
+  "<h4>Table 8 · Management quantities with available Hessian uncertainty</h4>",
+  html_table(grouped_wp06_tables$table08_summary),
+  "<h4>Table 9 · Dynamic depletion relative to 2012–2015</h4>",
+  html_table(grouped_table09_display),
+  "<h4>Table 10 · Hessian-inclusive status probabilities</h4>",
+  html_table(grouped_table10_display),
+  "<h4>Table 11 · Structural reference-point quantities</h4>",
+  html_table(grouped_table11_display),
+  "<h4>Table 12 · Estimation-uncertainty and draw-count audit</h4>",
+  html_table(grouped_table12_display),
+  "<h4>Table 13 · Projection summary</h4>",
+  html_table(grouped_wp06_tables$table13),
+  grouped_wp06_links,
   "<h3>Counts and quality control</h3>", html_table(qc_display),
   "<p><strong>Count source.</strong> Planned, incomplete and MGC-excluded counts use the authoritative 100-model audit; the 88-row public payload omits two completed-PAR MGC failures.</p>",
   "<h3>Central management quantities (structural ensemble)</h3>",

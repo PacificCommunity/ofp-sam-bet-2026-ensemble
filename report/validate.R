@@ -146,9 +146,10 @@ if (length(included_ids) != 80L ||
 }
 
 # Reporting-rate sensitivity uses MFCL tag flag column 2. Requested flag 0
-# includes pre-mixing reporting rates wherever the mixing period is positive;
-# zero-mixing events remain excluded for current-MFCL compatibility. Flag 1
-# excludes pre-mixing reporting rates throughout.
+# includes pre-mixing reporting rates wherever the mixing period is positive.
+# Where mixing is zero, stored flag2=1 is an inactive compatibility sentinel:
+# no pre-mixing window exists and no tag event or recapture is removed. Flag 1
+# excludes pre-mixing reporting rates wherever a positive window exists.
 reporting_flag <- as.integer(design$tag_reporting_flag2)
 if (anyNA(reporting_flag) ||
     any((reporting_flag == 0L) != (design$tag_reporting == "inclusion")) ||

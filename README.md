@@ -20,7 +20,7 @@ non-ensemble model settings are unchanged.
 | Steepness | 100 stratified quantiles from the 2024 South Pacific albacore censored beta prior: mean 0.87, SD 0.063, bounded by 0.2 and 1.0 |
 | Tag overdispersion, tau | Fixed independently in each fit at `1.2`, `1.3` or `1.4`, represented by 33, 34 and 33 models |
 | Tag mixing periods (`K` cutoff) | Release-group mixing periods derived at Kolmogorov dissimilarity cutoffs 0.05–0.35, with 0.20 most frequent: 6, 12, 19, 26, 19, 12 and 6 models |
-| Tag reporting | MFCL tag flag column 2: 50 inclusion (`0`) and 50 exclusion (`1`) models; zero-mixing events remain excluded for current-MFCL compatibility |
+| Tag reporting | Requested pre-mixing treatment: 50 inclusion models (`flag2=0` where mixing > 0) and 50 exclusion models (`flag2=1`); when mixing = 0, `flag2` is operationally N/A and stored as `1` for compatibility |
 | Natural mortality | 100 midpoint quantiles from a quarterly Lorenzen `M0` bounded logit-normal at `L(40.5)`: elicited controls 0.050–0.165, mode 0.0702 and median 0.078136; realised draws 0.0545–0.1328 |
 | Effort creep | Five official BET/YFT scenarios with 20 models each |
 
@@ -132,6 +132,16 @@ the local materializer independently reproduces its hash. Run
 `./scripts/split-retained-final-pars-by-reporting.py --check` to verify the
 34/46 partition, no overlap, exact 80-model union, design controls, and all
 three file types against their locked manifests.
+
+**RR interpretation boundary.** A zero-mixing row such as `0 1` does not
+remove tag data: there is no pre-mixing window, so column 2 is inactive and a
+controlled `1 -> 0` test produced identical objectives and REPs. A subsequent
+runtime audit found that the retained fits used pre-fix MFCL v2.5
+(`f5bc1e23...`), which applied RR exclusion inconsistently between tag
+dynamics and likelihood. The 46 RR-exclusion fits and derived split/combined
+contrasts are therefore provisional until refitted with the corrected v2.6
+implementation (`a5a83cd`); they must not be interpreted as a clean intended
+RR-exclusion sensitivity.
 
 ## Distribution figure
 
@@ -283,12 +293,14 @@ checksum-locked structural, Hessian and projection caches:
 - **RR=1 — exclusion:** 46 retained models, excluding pre-mixing reporting
   rates.
 
-Both treatments continue to exclude zero-mixing events for compatibility with
-the current MFCL implementation. Within each scope, every retained model has
-equal weight. RR=0 versus RR=1 is a retained-subset sensitivity contrast—not a
-matched-pair or isolated causal effect—because the frozen randomized design
-couples reporting treatment with the other uncertainty axes and retention
-rates differ between groups.
+Zero-mixing events are not removed: they have no pre-mixing window, their
+stored `flag2=1` is inactive, and ordinary reporting-rate treatment applies
+from the first modelled return period. Within each scope, every retained model
+has equal weight. Pending the corrected-v2.6 refit noted above, RR=0 versus
+RR=1 is only a provisional retained-subset contrast—not a matched-pair,
+isolated causal effect, or validated implementation sensitivity—because the
+frozen randomized design couples reporting treatment with the other
+uncertainty axes and retention rates differ between groups.
 
 `./run-report` regenerates the canonical combined report, the three-scope
 interactive viewer, two independent subgroup reports, and the RR comparison

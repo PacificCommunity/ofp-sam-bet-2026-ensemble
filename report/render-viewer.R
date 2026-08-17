@@ -59,7 +59,7 @@ if (
   )
 ) {
   stop(
-    "The reporting-rate mapping must be flag2=0 inclusion and flag2=1 exclusion, with zero-mixing events excluded.",
+    "The reporting-rate mapping must be flag2=0 inclusion and flag2=1 exclusion, with the mixing=0 compatibility sentinel preserved.",
     call. = FALSE
   )
 }
@@ -232,8 +232,8 @@ payload <- list(
       "The combined scope gives every retained model equal weight."
     ),
     zero_mixing_note = paste0(
-      "Flag2=0 includes pre-mixing reporting rates and flag2=1 excludes them; ",
-      "zero-mixing events remain excluded in both treatments for current-MFCL compatibility."
+      "Flag2=0 includes pre-mixing reporting rates and flag2=1 excludes them. ",
+      "For mixing=0 rows, stored flag2=1 is an inactive compatibility sentinel; no tag event or recapture is removed."
     )
   ),
   scopes = scope_payload,
