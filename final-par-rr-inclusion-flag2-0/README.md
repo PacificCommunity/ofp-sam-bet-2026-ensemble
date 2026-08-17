@@ -1,10 +1,12 @@
-# Retained final PARs: RR inclusion (`tag_reporting_flag2=0`)
+# Retained MFCL outputs: RR inclusion (`tag_reporting_flag2=0`)
 
-This directory contains 34 exact retained native MFCL model pairs in the
+This directory contains 34 exact retained native MFCL model triplets in the
 **inclusion** reporting-rate group. Original source IDs and filenames are
-preserved as `ensemble-NNN/final.par` and `ensemble-NNN/bet.ini`. The companion
+preserved as `ensemble-NNN/final.par`, `ensemble-NNN/bet.ini`, and
+`ensemble-NNN/plot-11.par.rep`. The companion
 group is **exclusion** (`tag_reporting_flag2=1`). Authoritative
-PARs under `../final-par/` are not moved, renamed, or modified.
+PARs and Viewer-ready Phase 11 REPs under `../final-par/` are not moved,
+renamed, or modified.
 
 Each `bet.ini` is the model-specific Kflow input, not the generic base INI. Its
 size and SHA-256 are taken from the checksum-verified source archive. The run
@@ -13,6 +15,10 @@ passed `bet.model.ini` to MFCL `-makepar`; the archive audit independently
 confirms that both archived files are byte-identical for all 80 retained fits.
 The tracked materializer reapplies steepness, natural mortality, mixing period,
 and requested RR controls and must reproduce each archived INI hash exactly.
+Each `plot-11.par.rep` is the exact final Phase 11 Viewer output for that
+retained fit. Its byte size, line count and SHA-256 are locked against the
+checksum-verified Kflow archive by
+`../data/ensemble/retained-final-rep-manifest.csv`.
 
 Membership is the requested model-design axis in
 `../design/model-draws.csv::tag_reporting_flag2`, after independently deriving
@@ -29,7 +35,8 @@ that every event-level flag in an inclusion PAR is zero. In this group,
 exclusion (`tag_reporting_flag2=1`) has effective flag 2 equal to 1 for every
 event.
 
-`SHA256SUMS` covers the 34 PARs and 34 matching INIs. The complete
+`SHA256SUMS` covers the 34 PARs, 34 matching INIs and 34 matching
+REPs. The complete
 mapping, MGC values, archive members, source/destination paths, sizes, hashes,
 and zero-mixing fields are in
 `../data/ensemble/retained-final-par-rr-split-manifest.csv`. Exact archived INI

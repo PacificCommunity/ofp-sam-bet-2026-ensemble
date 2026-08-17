@@ -121,17 +121,17 @@ source IDs, exclusions, REP regeneration and provenance are documented in
 For direct RR-sensitivity handoff, the same 80 retained fits are also
 materialized without changing the authoritative archive:
 
-- `final-par-rr-inclusion-flag2-0/` — 34 exact `final.par` + model-specific
-  `bet.ini` pairs;
-- `final-par-rr-exclusion-flag2-1/` — 46 exact pairs.
+- `final-par-rr-inclusion-flag2-0/` — 34 exact `final.par`, model-specific
+  `bet.ini`, and Viewer-ready `plot-11.par.rep` triplets;
+- `final-par-rr-exclusion-flag2-1/` — 46 exact triplets.
 
 These are the requested model treatments, with inclusion=`0` and
 exclusion=`1`. Every INI is the exact Kflow model input: the archived
 `bet.ini` is byte-identical to the `bet.model.ini` passed to `-makepar`, and
 the local materializer independently reproduces its hash. Run
 `./scripts/split-retained-final-pars-by-reporting.py --check` to verify the
-34/46 partition, no overlap, exact 80-model union, design controls, and both
-file types against their locked manifests.
+34/46 partition, no overlap, exact 80-model union, design controls, and all
+three file types against their locked manifests.
 
 ## Distribution figure
 
@@ -169,10 +169,10 @@ vector version is available as
 - `data/ensemble/retained-final-par-manifest.csv` — exact archive/PAR provenance for the 80 MGC-retained fits
 - `data/ensemble/retained-final-ini-manifest.csv` — exact archived Kflow `bet.ini` and `bet.model.ini` identity for the 80 fits
 - `data/ensemble/retained-final-rep-manifest.csv` — exact native Phase 11 Viewer REP provenance
-- `data/ensemble/retained-final-par-rr-split-manifest.csv` — exact 34/46 RR membership and PAR/INI provenance
+- `data/ensemble/retained-final-par-rr-split-manifest.csv` — exact 34/46 RR membership and PAR/INI/REP provenance
 - `final-par/<source-id>/{final.par,plot-11.par.rep}` — retained fit and its directly readable Viewer output
-- `final-par-rr-inclusion-flag2-0/<source-id>/{final.par,bet.ini}` — 34 RR-inclusion fits
-- `final-par-rr-exclusion-flag2-1/<source-id>/{final.par,bet.ini}` — 46 RR-exclusion fits
+- `final-par-rr-inclusion-flag2-0/<source-id>/{final.par,bet.ini,plot-11.par.rep}` — 34 RR-inclusion fits
+- `final-par-rr-exclusion-flag2-1/<source-id>/{final.par,bet.ini,plot-11.par.rep}` — 46 RR-exclusion fits
 
 These are structural ensemble draws, not optimizer jitters.
 

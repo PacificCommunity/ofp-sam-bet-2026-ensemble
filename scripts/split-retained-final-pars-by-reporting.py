@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Materialize and verify the retained final-PAR reporting-region split.
+"""Materialize and verify retained PAR/INI/REP reporting-rate splits.
 
 The split is deliberately copy-only: ``final-par`` remains the authoritative
 source and existing destination files are never overwritten or removed.
@@ -105,7 +105,7 @@ def expected_inventory(root: Path, model_ids: list[str]) -> tuple[set[Path], set
     files = {
         root / model_id / filename
         for model_id in model_ids
-        for filename in ("bet.ini", "final.par")
+        for filename in ("bet.ini", "final.par", "plot-11.par.rep")
     }
     files.update({root / "README.md", root / "SHA256SUMS"})
     return directories, files
@@ -181,13 +181,34 @@ def install_bytes_without_overwrite(path: Path, payload: bytes) -> None:
             temporary.unlink()
 
 
+def replace_generated_bytes(path: Path, payload: bytes) -> None:
+    """Atomically refresh a known generated metadata file."""
+    if path.exists() or path.is_symlink():
+        regular_unlinked_file(path, "generated metadata")
+        if path.read_bytes() == payload:
+            return
+
+    descriptor, temporary_name = tempfile.mkstemp(prefix=".split-metadata-", dir=path.parent)
+    temporary = Path(temporary_name)
+    try:
+        with os.fdopen(descriptor, "wb") as handle:
+            handle.write(payload)
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.chmod(temporary, 0o644)
+        os.replace(temporary, path)
+    finally:
+        if temporary.exists():
+            temporary.unlink()
+
+
 def copy_without_overwrite(
     source: Path, destination: Path, expected_size: int, expected_sha: str
 ) -> None:
     if destination.exists() or destination.is_symlink():
-        regular_unlinked_file(destination, "split PAR")
+        regular_unlinked_file(destination, "split artifact")
         if destination.stat().st_size != expected_size or sha256_path(destination) != expected_sha:
-            fail(f"refusing to overwrite changed split PAR: {destination}")
+            fail(f"refusing to overwrite changed split artifact: {destination}")
         return
 
     descriptor, temporary_name = tempfile.mkstemp(prefix=".split-final-par-", dir=destination.parent)
@@ -208,9 +229,9 @@ def copy_without_overwrite(
         try:
             os.link(temporary, destination)
         except FileExistsError:
-            regular_unlinked_file(destination, "concurrently created split PAR")
+            regular_unlinked_file(destination, "concurrently created split artifact")
             if destination.stat().st_size != expected_size or sha256_path(destination) != expected_sha:
-                fail(f"concurrently created split PAR differs: {destination}")
+                fail(f"concurrently created split artifact differs: {destination}")
     finally:
         if temporary.exists():
             temporary.unlink()
@@ -263,13 +284,15 @@ def materialize_exact_model_inis(repo: Path, model_ids: list[str]) -> dict[str, 
 def readme_payload(group: str, flag: int, count: int, zero_mixing_models: int) -> bytes:
     other_group = "exclusion" if group == "inclusion" else "inclusion"
     other_flag = 1 - flag
-    return f"""# Retained final PARs: RR {group} (`tag_reporting_flag2={flag}`)
+    return f"""# Retained MFCL outputs: RR {group} (`tag_reporting_flag2={flag}`)
 
-This directory contains {count} exact retained native MFCL model pairs in the
+This directory contains {count} exact retained native MFCL model triplets in the
 **{group}** reporting-rate group. Original source IDs and filenames are
-preserved as `ensemble-NNN/final.par` and `ensemble-NNN/bet.ini`. The companion
+preserved as `ensemble-NNN/final.par`, `ensemble-NNN/bet.ini`, and
+`ensemble-NNN/plot-11.par.rep`. The companion
 group is **{other_group}** (`tag_reporting_flag2={other_flag}`). Authoritative
-PARs under `../final-par/` are not moved, renamed, or modified.
+PARs and Viewer-ready Phase 11 REPs under `../final-par/` are not moved,
+renamed, or modified.
 
 Each `bet.ini` is the model-specific Kflow input, not the generic base INI. Its
 size and SHA-256 are taken from the checksum-verified source archive. The run
@@ -278,6 +301,10 @@ passed `bet.model.ini` to MFCL `-makepar`; the archive audit independently
 confirms that both archived files are byte-identical for all 80 retained fits.
 The tracked materializer reapplies steepness, natural mortality, mixing period,
 and requested RR controls and must reproduce each archived INI hash exactly.
+Each `plot-11.par.rep` is the exact final Phase 11 Viewer output for that
+retained fit. Its byte size, line count and SHA-256 are locked against the
+checksum-verified Kflow archive by
+`../data/ensemble/retained-final-rep-manifest.csv`.
 
 Membership is the requested model-design axis in
 `../design/model-draws.csv::tag_reporting_flag2`, after independently deriving
@@ -294,7 +321,8 @@ that every event-level flag in an inclusion PAR is zero. In this group,
 exclusion (`tag_reporting_flag2=1`) has effective flag 2 equal to 1 for every
 event.
 
-`SHA256SUMS` covers the {count} PARs and {count} matching INIs. The complete
+`SHA256SUMS` covers the {count} PARs, {count} matching INIs and {count} matching
+REPs. The complete
 mapping, MGC values, archive members, source/destination paths, sizes, hashes,
 and zero-mixing fields are in
 `../data/ensemble/retained-final-par-rr-split-manifest.csv`. Exact archived INI
@@ -325,6 +353,7 @@ def main() -> None:
     fit_path = repo / "data" / "ensemble" / "fit-diagnostics.csv"
     retained_path = repo / "data" / "ensemble" / "retained-final-par-manifest.csv"
     retained_ini_path = repo / "data" / "ensemble" / "retained-final-ini-manifest.csv"
+    retained_rep_path = repo / "data" / "ensemble" / "retained-final-rep-manifest.csv"
     mapping_path = repo / "data" / "ensemble" / "retained-final-par-rr-split-manifest.csv"
     output_roots = {
         0: repo / "final-par-rr-inclusion-flag2-0",
@@ -372,6 +401,27 @@ def main() -> None:
     if set(retained_ini) != set(retained):
         fail("retained final-PAR and final-INI manifest ensemble IDs differ")
 
+    retained_rep_rows = read_csv(
+        retained_rep_path,
+        (
+            "ensemble_id",
+            "source_archive",
+            "archive_sha256",
+            "final_par_sha256",
+            "plot_rep_file",
+            "source_rep_member",
+            "plot_rep_sha256",
+            "plot_rep_bytes",
+            "plot_rep_lines",
+            "source_commit",
+        ),
+    )
+    retained_rep = rows_by_model(
+        retained_rep_rows, "retained final-REP manifest", EXPECTED_RETAINED
+    )
+    if set(retained_rep) != set(retained):
+        fail("retained final-PAR and final-REP manifest ensemble IDs differ")
+
     fit_rows = read_csv(fit_path, ("ensemble_id", "maximum_gradient"))
     fit = rows_by_model(fit_rows, "fit diagnostics")
     retained_from_mgc = {
@@ -415,6 +465,7 @@ def main() -> None:
     for model_id in sorted_retained_ids:
         retained_row = retained[model_id]
         retained_ini_row = retained_ini[model_id]
+        retained_rep_row = retained_rep[model_id]
         fit_row = fit[model_id]
         design_row = design[model_id]
 
@@ -498,6 +549,32 @@ def main() -> None:
                 f"Kflow archive for {model_id}"
             )
 
+        for field in ("source_archive", "archive_sha256", "source_commit"):
+            if retained_rep_row[field] != retained_row[field]:
+                fail(f"retained PAR and REP archive provenance differ for {model_id}: {field}")
+        if retained_rep_row["final_par_sha256"] != expected_sha:
+            fail(f"retained REP manifest references a different final PAR for {model_id}")
+        expected_rep_file = f"{model_id}/plot-11.par.rep"
+        expected_rep_member = f"./outputs/models/{model_id}/plot-11.par.rep"
+        if (
+            retained_rep_row["plot_rep_file"] != expected_rep_file
+            or retained_rep_row["source_rep_member"] != expected_rep_member
+        ):
+            fail(f"unexpected retained REP path or archive member for {model_id}")
+        rep_sha = retained_rep_row["plot_rep_sha256"]
+        rep_size = parse_nonnegative_integer(
+            retained_rep_row["plot_rep_bytes"], f"plot_rep_bytes for {model_id}"
+        )
+        rep_lines = parse_nonnegative_integer(
+            retained_rep_row["plot_rep_lines"], f"plot_rep_lines for {model_id}"
+        )
+        if SHA256_RE.fullmatch(rep_sha) is None or rep_lines != 6349:
+            fail(f"invalid retained REP hash or line count for {model_id}")
+        rep_source = source_root / model_id / "plot-11.par.rep"
+        regular_unlinked_file(rep_source, "authoritative retained Phase 11 REP")
+        if rep_source.stat().st_size != rep_size or sha256_path(rep_source) != rep_sha:
+            fail(f"authoritative retained REP differs from its manifest: {model_id}")
+
         groups[requested_flag].append(
             {
                 "ensemble_id": model_id,
@@ -522,6 +599,14 @@ def main() -> None:
                 "bet_ini_split_path": f"{output_roots[requested_flag].name}/{model_id}/bet.ini",
                 "bet_ini_bytes": ini_size,
                 "bet_ini_sha256": ini_sha,
+                "plot_rep_source_path": f"final-par/{model_id}/plot-11.par.rep",
+                "plot_rep_split_path": (
+                    f"{output_roots[requested_flag].name}/{model_id}/plot-11.par.rep"
+                ),
+                "plot_rep_archive_member": retained_rep_row["source_rep_member"],
+                "plot_rep_bytes": rep_size,
+                "plot_rep_lines": rep_lines,
+                "plot_rep_sha256": rep_sha,
             }
         )
 
@@ -559,6 +644,12 @@ def main() -> None:
         "bet_ini_split_path",
         "bet_ini_bytes",
         "bet_ini_sha256",
+        "plot_rep_source_path",
+        "plot_rep_split_path",
+        "plot_rep_archive_member",
+        "plot_rep_bytes",
+        "plot_rep_lines",
+        "plot_rep_sha256",
     )
     mapping_rows = [
         {field: str(row[field]) for field in mapping_fields}
@@ -618,8 +709,23 @@ def main() -> None:
                     )
             else:
                 install_bytes_without_overwrite(ini_destination, ini_payload)
+
+            rep_size = int(row["plot_rep_bytes"])
+            rep_sha = str(row["plot_rep_sha256"])
+            rep_source = source_root / model_id / "plot-11.par.rep"
+            rep_destination = root / model_id / "plot-11.par.rep"
+            if arguments.check:
+                regular_unlinked_file(rep_destination, "split Phase 11 REP")
+                if (
+                    rep_destination.stat().st_size != rep_size
+                    or sha256_path(rep_destination) != rep_sha
+                ):
+                    fail(f"split REP is not byte-identical to its source: {rep_destination}")
+            else:
+                copy_without_overwrite(rep_source, rep_destination, rep_size, rep_sha)
             sha_lines.append(f"{ini_sha}  {model_id}/bet.ini\n")
             sha_lines.append(f"{expected_sha}  {model_id}/final.par\n")
+            sha_lines.append(f"{rep_sha}  {model_id}/plot-11.par.rep\n")
 
         zero_mixing_models = sum(int(row["zero_mixing_events"]) > 0 for row in rows)
         readme = readme_payload(
@@ -632,13 +738,13 @@ def main() -> None:
                 if path.read_bytes() != expected:
                     fail(f"generated split metadata is not reproducible: {path}")
         else:
-            install_bytes_without_overwrite(root / "README.md", readme)
-            install_bytes_without_overwrite(root / "SHA256SUMS", sums)
+            replace_generated_bytes(root / "README.md", readme)
+            replace_generated_bytes(root / "SHA256SUMS", sums)
 
         inspect_output_inventory(root, model_ids, require_complete=True)
 
     if not arguments.check:
-        install_bytes_without_overwrite(mapping_path, mapping_bytes)
+        replace_generated_bytes(mapping_path, mapping_bytes)
     regular_unlinked_file(mapping_path, "RR split mapping manifest")
     if mapping_path.read_bytes() != mapping_bytes:
         fail(f"generated mapping manifest verification failed: {mapping_path}")
@@ -649,15 +755,16 @@ def main() -> None:
         root = output_roots[flag]
         par_bytes = sum(int(row["final_par_bytes"]) for row in groups[flag])
         ini_bytes = sum(int(row["bet_ini_bytes"]) for row in groups[flag])
+        rep_bytes = sum(int(row["plot_rep_bytes"]) for row in groups[flag])
         sums_sha = sha256_path(root / "SHA256SUMS")
         print(
-            f"  {group_names[flag]} flag2={flag}: {len(groups[flag])} PAR+INI pairs, "
-            f"PAR bytes={par_bytes}, INI bytes={ini_bytes}, "
+            f"  {group_names[flag]} flag2={flag}: {len(groups[flag])} PAR+INI+REP triplets, "
+            f"PAR bytes={par_bytes}, INI bytes={ini_bytes}, REP bytes={rep_bytes}, "
             f"SHA256SUMS sha256={sums_sha}, path={root.relative_to(repo)}"
         )
     print(
-        "  overlap=0; union=80; PARs match final-par sources; INIs match archived "
-        "bet.ini and bet.model.ini bytes"
+        "  overlap=0; union=80; PARs and REPs match final-par sources; INIs match "
+        "archived bet.ini and bet.model.ini bytes"
     )
     print(
         "  mapping: 80 rows, "

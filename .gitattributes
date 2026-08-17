@@ -4,4 +4,6 @@ sources/** -text -diff
 final-par/** -text -diff
 final-par-rr-inclusion-flag2-0/*/final.par -text -diff
 final-par-rr-exclusion-flag2-1/*/final.par -text -diff
+final-par-rr-inclusion-flag2-0/*/plot-11.par.rep -text -diff
+final-par-rr-exclusion-flag2-1/*/plot-11.par.rep -text -diff
 mfclo64 binary
