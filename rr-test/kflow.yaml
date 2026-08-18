@@ -1,0 +1,36 @@
+name: bet-2026-rr-paired-test
+description: Exact RR1 counterparts for all 34 retained RR0 BET 2026 ensemble fits; every paired input is identical except requested MFCL tag flag column 2.
+command: bash rr-test/run.sh
+docker_image: ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360
+remote_host: suva
+remote_user: kyuhank
+remote_base_dir: /home/kyuhank/KflowOutput
+slot_requirements: 'regexp("^suvofp", Machine)'
+resources:
+  cpus: 2
+  memory: 8GB
+  disk: 20GB
+env:
+  RR_TEST_SELECT: rrtest-001-rr1
+  PROGRAM_PATH: /home/mfcl/mfclo64
+  BET_PHASE10_11_CONVERGENCE: "-4"
+  TUNA_FLOW_RUNTIME_UPDATE: never
+tags:
+  stage: rr-paired-test
+  species: BET
+  assessment_year: "2026"
+  reference_model: Job-21641-Diagnostic
+metadata:
+  source_campaign: bet-2026-ensemble-tau
+  source_group: retained-RR0
+  source_model_count: 34
+  submitted_model_count: 34
+  paired_difference: tag_reporting_flag2-only
+  initialization: ordinary-makepar-no-seed
+  execution: independent-concurrent
+  inputs: exact-pair-preflight-verified
+  downstream_hessian_partitions_per_fit: 3
+  downstream_hessian_workflow: authoritative-checks-auto-merge-attach
+  mfcl_sha256: f5bc1e232a86e51f920bce7271d8e0930d0b160e4d18dc46de44078f0fa24cd0
+output_patterns:
+  - outputs/rr-test/**
