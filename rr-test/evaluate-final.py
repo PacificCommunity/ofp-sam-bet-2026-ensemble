@@ -62,7 +62,7 @@ def compare_rep(actual, original):
         for source in (a, b):
             rows = source.get(name, [])
             if len(rows) != shape[0] or any(len(row) != shape[1] for row in rows):
-                raise ValueError(f"invalid REP dimensions: {name}")
+                raise ValueError(f"invalid REP dimensions: {name}; file={actual if source is a else original}; expected={shape}; rows={len(rows)}; widths={sorted(set(map(len, rows)))}")
             numbers = [float(token) for row in rows for token in row]
             if any(not math.isfinite(x) or x <= 0 for x in numbers):
                 raise ValueError(f"invalid REP values: {name}")
