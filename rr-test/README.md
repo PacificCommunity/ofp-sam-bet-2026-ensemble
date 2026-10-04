@@ -1,10 +1,16 @@
+<a name="exact-rr-paired-reruns"></a>
+
 # Exact paired RR fits
 
 This folder preserves the 34-model Kflow campaign used for the [SC22 reporting-rate follow-up](https://meetings.wcpfc.int/node/32932). Fits were submitted on 18 August 2026 from commit [`2ffa434`](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/commit/2ffa4347760459ad20562ef93f92a70861cee420), task `bet-2026-rr-paired-test`.
 
 Thirty counterparts completed and passed MGC ≤ 1e-4. Four failed with exit code 134 and a `choleski_exception`: anchors **001, 022, 025 and 080**. Their original status files and stderr excerpts are in [failures/](failures/). They are excluded from the paired summaries.
 
+<a name="reproduce-and-validate"></a>
+
 ## Review the saved results
+
+See the [paired results and original SC22 figures](results.md) for the comparison overview.
 
 ```sh
 git clone --branch RR_test --single-branch https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble.git
@@ -48,6 +54,8 @@ Each arm starts from ordinary `-makepar`, without a fitted checkpoint or jitter.
 
 Results go to `outputs/rr-test-local/rrtest-005-rr1/run/` and `outputs/rr-test-local/ensemble-005/run/`. Each parent folder also contains the command receipt and run log. To repeat an attempt, choose a fresh folder with `--output-dir /new/path`. Numerical convergence and elapsed time can differ across reruns; inspect final MGC and the stock-status quantities.
 
+<a name="pairing-contract"></a>
+
 ## Pairing and interpretation
 
 Steepness, M, mixing cutoff K, tau, effort creep, selectivity and initialization are fixed within each pair. In `bet.ini`, positive-mixing tag rows change column 2 from 0 to 1. Zero-mixing rows retain sentinel 1 in both arms. The saved RR1 INIs are checked against the archived RR0 INIs; `validate.R` also checks prepared inputs against the historical archive hashes.
@@ -57,5 +65,7 @@ The summary uses mean SB in **2021–2024** divided by mean SB_F=0 in **2014–2
 The historical image is `tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360`, with `/home/mfcl/mfclo64` and required SHA-256 `f5bc1e232a86e51f920bce7271d8e0930d0b160e4d18dc46de44078f0fa24cd0`. The repository's bundled executable has a different hash and is not used by the rerun helper. The old RR0 PAR manifest labels that bundled hash as the runtime; the later runtime audit identifies the pre-fix image executable. Those provenance records are preserved; the new manifest distinguishes the declared fit executable from the saved PAR/REP file identities.
 
 The pre-fix implementation handled RR exclusion inconsistently between tag dynamics and likelihood. These preserved fits do not demonstrate the corrected v2.6 response or establish an unbiased setting. The successful pairs are also a selected subset of the 34 attempted counterparts.
+
+<a name="submit"></a>
 
 The original Kflow registrar remains available for maintainers. `--with-hessian` needs PyYAML and a sibling `ofp-sam-bet-2026-checks` checkout. It submits a new campaign and is not needed to read, verify or rerun an individual saved pair.
