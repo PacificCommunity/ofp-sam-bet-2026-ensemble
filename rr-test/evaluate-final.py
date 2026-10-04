@@ -123,11 +123,11 @@ def evaluate(program, source, expected_sha, run):
     parameters = scalar(evaluated, "# The number of parameters")
     log = (run / "mfcl-evaluation.log").read_text()
     objectives = re.findall(r"^\s*Total func\s+([^\s]+)\s*$", log, re.MULTILINE)
-    logged_objective = float(objectives[-1]) if objectives else math.nan
+    logged_objective = float(objectives[0]) if objectives else math.nan
     if parameters != expected_parameters or expected_parameters != 1997:
         raise ValueError("evaluated parameter count differs from the saved model")
     if not math.isfinite(logged_objective) or max(abs(observed_objective - expected_objective), abs(logged_objective - expected_objective)) > 1e-6:
-        raise ValueError("native objective differs from the saved model by more than 1e-6")
+        raise ValueError(f"native objective differs from the saved model by more than 1e-6: saved={expected_objective}, PAR={observed_objective}, first_log={logged_objective}, all_logged={objectives}")
     rep_difference = compare_rep(rep, original_rep)
     if verify_inputs(source, run) != input_hashes:
         raise ValueError("native inputs changed during evaluation")

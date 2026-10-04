@@ -75,6 +75,16 @@ class EvaluationGuards(unittest.TestCase):
         self.assertEqual(receipt["native_exit_code"], 3)
         self.assertEqual(evaluation.digest(self.source), self.sha)
 
+    def test_impact_analysis_log_does_not_replace_fit_objective(self):
+        def impact(*args, **kwargs):
+            result = self.native_mock(*args, **kwargs)
+            kwargs["stdout"].write("Total func      200\n")
+            return result
+        self.invoke(impact)
+        receipt = json.loads((self.run / "evaluation-check.json").read_text())
+        self.assertEqual(receipt["logged_objective"], 100)
+        self.assertEqual(receipt["evaluated_objective"], 100)
+
     def test_stale_outputs_refused_before_native_call(self):
         for name in ("input.par", "evaluated.par", "plot-evaluated.par.rep", "mfcl-evaluation.log", "evaluation-check.json"):
             with self.subTest(name=name):
