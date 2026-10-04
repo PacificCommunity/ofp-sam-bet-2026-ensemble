@@ -3,7 +3,7 @@
 # Transparent reconstruction from the historical v2.5 native outputs.
 # No FLR packages, model execution, Hessian estimates or known stock truth.
 # Usage: Rscript rr-test/summarize.R [output-root]
-# The optional output root receives results/ and figures/; default: rr-test/.
+# The optional new output root receives results/ and figures/; default: outputs/rr-test-summary/.
 options(stringsAsFactors = FALSE, warn = 2)
 argv <- commandArgs(trailingOnly = TRUE)
 if (length(argv) > 1L) stop("Usage: Rscript rr-test/summarize.R [output-root]")
@@ -11,7 +11,15 @@ script_arg <- grep("^--file=", commandArgs(), value = TRUE)
 if (length(script_arg) != 1L) stop("Run this script with Rscript.")
 script <- normalizePath(sub("^--file=", "", script_arg), mustWork = TRUE)
 repo <- dirname(dirname(script))
-out <- if (length(argv)) argv[[1L]] else file.path(repo, "rr-test")
+out <- normalizePath(if (length(argv)) argv[[1L]] else file.path(repo, "outputs", "rr-test-summary"), mustWork = FALSE)
+out_link <- Sys.readlink(out)
+if (file.exists(out) || dir.exists(out) || (!is.na(out_link) && nzchar(out_link))) {
+  stop("Choose a new summary output folder; existing paths are refused.", call. = FALSE)
+}
+if (identical(out, repo) || (startsWith(out, paste0(repo, .Platform$file.sep)) &&
+    !startsWith(out, paste0(repo, .Platform$file.sep, "outputs", .Platform$file.sep)))) {
+  stop("Summary outputs inside the checkout must be beneath outputs/.", call. = FALSE)
+}
 result_dir <- file.path(out, "results")
 figure_dir <- file.path(out, "figures")
 
@@ -19,6 +27,20 @@ fail <- function(...) stop(..., call. = FALSE)
 assert <- function(test, ...) if (!isTRUE(test)) fail(...)
 read_csv <- function(path) utils::read.csv(path, check.names = FALSE)
 path <- function(...) file.path(repo, ...)
+
+# One checked Python source materializes only exact RR1 PAR/central sections.
+# Original RR0 PAR/REP paths remain in final-par/. No model is executed.
+saved_root <- tempfile("bet-rr-saved-")
+python <- Sys.which("python3")
+assert(nzchar(python), "Python 3 is required to check the compact native archive.")
+status <- system2(python, c(shQuote(path("rr-test", "saved.py")), "summary-files", shQuote(saved_root)))
+assert(status == 0L, "Compact saved-file verification failed.")
+saved <- read_csv(file.path(saved_root, "models.csv"))
+saved_file <- function(model, column) {
+  rows <- saved[saved$model == model, , drop = FALSE]
+  assert(nrow(rows) == 1L, "Expected a unique saved model: ", model)
+  rows[[column]][[1L]]
+}
 
 # Section boundaries come from headers, never fixed line offsets. In this
 # historical single-species report, biomass rows are quarters and columns are
@@ -135,10 +157,9 @@ assert(nrow(design) == 34L && !anyDuplicated(design$ensemble_id) &&
 assert(nrow(reference) == 30L && !anyDuplicated(reference$model) &&
          nrow(drivers) == 30L && !anyDuplicated(drivers$model),
        "Expected the two recovered original 30-pair reference tables.")
-fits <- list.dirs(path("rr-test", "fits"), full.names = FALSE, recursive = FALSE)
-fits <- fits[grepl("^rrtest-[0-9]{3}-rr1$", fits)]
+fits <- saved$model[grepl("^rrtest-[0-9]{3}-rr1$", saved$model)]
 assert(length(fits) == 30L && all(fits %in% design$ensemble_id),
-       "Expected exactly the 30 recovered RR1 fit directories.")
+       "Expected exactly the 30 recovered RR1 saved models.")
 failed <- sort(design$anchor_ensemble_id[!design$ensemble_id %in% fits])
 assert(identical(failed, paste0("ensemble-", c("001", "022", "025", "080"))),
        "Recovered/missing IDs differ from the documented campaign.")
@@ -157,8 +178,8 @@ for (i in seq_len(nrow(design))) {
   ledger <- manifest[manifest$ensemble_id == id0, , drop = FALSE]
   assert(nrow(source) == 1L && nrow(ledger) == 1L && source$rr_group == "inclusion",
          id0, ": missing unique original RR0 manifest anchor.")
-  rep0 <- read_rep(path(source$plot_rep_split_path))
-  par0 <- read_par(path(source$final_par_split_path))
+  rep0 <- read_rep(saved_file(id0, "rep"))
+  par0 <- read_par(saved_file(id0, "final_par"))
   check_equal(par0$mgc, ledger$maximum_gradient_component, paste(id0, "manifest MGC"), 1e-12)
   check_equal(par0$objective, ledger$objective_function, paste(id0, "manifest objective"), 1e-12)
   assert(par0$mgc <= 1e-4, id0, ": RR0 MGC fails retention.")
@@ -176,8 +197,8 @@ for (i in seq_len(nrow(design))) {
     check_equal(as.numeric(rep0$sb0) / 1000, ts0$spawning_potential_nofish, paste(id0, "annual SBF0")),
     check_equal(as.numeric(rep0$sb / rep0$sb0), ts0$depletion, paste(id0, "annual depletion")))
   if (!id1 %in% fits) next
-  rep1 <- read_rep(path("rr-test", "fits", id1, "plot-11.par.rep"))
-  par1 <- read_par(path("rr-test", "fits", id1, "final.par"))
+  rep1 <- read_rep(saved_file(id1, "rep"))
+  par1 <- read_par(saved_file(id1, "final_par"))
   assert(par1$mgc <= 1e-4, id1, ": RR1 MGC fails retention.")
   q1 <- quantities(rep1)
   orig <- reference[reference$model == id0, , drop = FALSE]
@@ -364,3 +385,5 @@ cat("Opposite depletion IDs:", paste(pairs$anchor_ensemble_id[
 cat("Opposite F/FMSY IDs:", paste(pairs$anchor_ensemble_id[
   pairs$delta_f_recent_fmsy_rr1_minus_rr0 > 0], collapse = ", "), "\n")
 cat("Runtime:", R.version.string, "|", Sys.info()[["sysname"]], Sys.info()[["machine"]], "\n")
+
+unlink(saved_root, recursive = TRUE, force = TRUE)

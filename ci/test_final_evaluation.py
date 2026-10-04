@@ -2,12 +2,16 @@ import csv
 import hashlib
 import importlib.util
 import json
+import os
 from pathlib import Path
 import subprocess
 import tempfile
+import sys
 import unittest
 from unittest.mock import patch
 
+
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'rr-test'))
 
 spec = importlib.util.spec_from_file_location("final_evaluation", Path(__file__).resolve().parents[1] / "rr-test/evaluate-final.py")
 evaluation = importlib.util.module_from_spec(spec)
@@ -28,7 +32,7 @@ class EvaluationGuards(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        self.root = Path(self.temp.name).resolve()
         self.source = self.root / "rr-test/fits/rrtest-005-rr1/final.par"
         self.source.parent.mkdir(parents=True)
         self.source.write_text("# Objective function value\n100\n# The number of parameters\n1997\n")
@@ -54,12 +58,43 @@ class EvaluationGuards(unittest.TestCase):
         self.addCleanup(patch.stopall)
         patch.object(evaluation, "REPO", self.root).start()
         patch.object(evaluation, "MFCL_SHA256", evaluation.digest(self.program)).start()
+        original_rep_sha = evaluation.digest(self.rep)
+        expected_inputs = {name: evaluation.digest(self.run/name) for name in evaluation.INPUTS}
+        case = self
+        class MockSaved:
+            def model(self, model):
+                case.assertEqual(model, 'rrtest-005-rr1')
+                return {'final_par':{'sha256':case.sha},'reference_rep':{'sha256':original_rep_sha}}
+            def input_hashes(self, model):
+                return expected_inputs
+            def read(self, record):
+                if evaluation.digest(case.rep) != record['sha256']:
+                    raise ValueError('original reference REP checksum mismatch')
+                return case.rep.read_bytes()
+        patch.object(evaluation, "Source", return_value=MockSaved()).start()
+        if not Path("/proc/self/fd").is_dir():
+            # Scientific child calls are mocked here; keep FD assertions portable.
+            def child_kwargs(owner, *fds):
+                owner.check()
+                return {"cwd": f"/proc/self/fd/{owner.fd}", "pass_fds": (owner.fd, *fds)}
+            patch.object(evaluation.NativeDirectory, "child_kwargs", child_kwargs).start()
 
-    def native_mock(self, command, input, text, cwd, stdout, stderr):
+    def native_mock(self, command, input, text, cwd, stdout, stderr, pass_fds):
         self.assertEqual(command[1:], ["bet.frq", "input.par", "evaluated.par", "-file", "-"])
         self.assertEqual(input, "1 1 1\n1 50 -4\n1 121 0\n1 186 0\n1 187 0\n1 188 0\n1 189 0\n1 190 1\n1 246 1\n")
-        (cwd / "evaluated.par").write_bytes(self.source.read_bytes())
-        (cwd / "plot-evaluated.par.rep").write_bytes(self.rep.read_bytes())
+        directory_fd = int(str(cwd).rsplit("/", 1)[1])
+        engine_fd = int(command[0].rsplit("/", 1)[1])
+        self.assertIn(directory_fd, pass_fds)
+        self.assertIn(engine_fd, pass_fds)
+        self.assertEqual(os.fstat(directory_fd).st_ino, self.run.stat().st_ino)
+        self.assertEqual(os.pread(engine_fd, 100, 0), self.program.read_bytes())
+        for name, data in (("evaluated.par", self.source.read_bytes()),
+                           ("plot-evaluated.par.rep", self.rep.read_bytes())):
+            fd = os.open(name, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600, dir_fd=directory_fd)
+            try:
+                os.write(fd, data)
+            finally:
+                os.close(fd)
         stdout.write("Total func      100\n")
         return subprocess.CompletedProcess(command, 3)
 
@@ -107,6 +142,15 @@ class EvaluationGuards(unittest.TestCase):
         self.program.write_text("different engine")
         with self.assertRaisesRegex(ValueError, "executable checksum"):
             self.invoke()
+
+    def test_other_model_PAR_binding_refused_before_native_call(self):
+        class WrongBinding:
+            def model(self, model):
+                return {'final_par':{'sha256':'0'*64}}
+        with patch.object(evaluation.subprocess, "run") as native:
+            with self.assertRaisesRegex(ValueError, "original model binding"):
+                evaluation.evaluate(self.program,self.source,self.sha,self.run,saved=WrongBinding())
+            native.assert_not_called()
 
     def test_source_par_corruption_refused(self):
         self.source.write_text("changed PAR")

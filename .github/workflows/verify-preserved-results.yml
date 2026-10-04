@@ -37,20 +37,19 @@ jobs:
           git diff --exit-code
   native-rr:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: r-lib/actions/setup-r@v2
         with:
           r-version: release
-      - name: Regenerate both arms of all 30 completed pairs
+      - name: Regenerate all 110 completed saved models
         shell: bash
         run: |
           runtime="$RUNNER_TEMP/bet-mfcl"
           mkdir "$runtime"
-          curl --fail --location --retry 2 --output "$runtime/engine.tar" https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-runtime-engine-candidate.tar
-          printf '%s  %s\n' 91bb7603582bf229426a8f6ceb98b4f4afd483323299b0a9b3a6242128b01b8d "$runtime/engine.tar" | sha256sum -c -
-          tar -xf "$runtime/engine.tar" -C "$runtime" runtime-engine-candidate/mfclo64
-          chmod +x "$runtime/runtime-engine-candidate/mfclo64"
-          python3 ci/regenerate-rr.py "$runtime/runtime-engine-candidate/mfclo64" "$RUNNER_TEMP/bet-rr-evaluated"
+          curl --fail --location --retry 2 --output "$runtime/mfclo64" https://raw.githubusercontent.com/PacificCommunity/ofp-sam-bet-2026-jitter/bb3f4016b2d145f42c7a76072ed2b10b49aff71f/data/diagnostic/mfcl/mfclo64
+          printf '%s  %s\n' f5bc1e232a86e51f920bce7271d8e0930d0b160e4d18dc46de44078f0fa24cd0 "$runtime/mfclo64" | sha256sum -c -
+          chmod +x "$runtime/mfclo64"
+          python3 ci/regenerate-rr.py "$runtime/mfclo64" "$RUNNER_TEMP/bet-rr-evaluated"
           git diff --exit-code

@@ -21,7 +21,7 @@ The median RR1 − RR0 change in recent SB/SB_F=0 is **+0.01816**. RR1 gives low
 - [Paired quantities](results/paired-quantities.csv) and [annual histories](results/paired-timeseries.csv).
 - [All 34 source jobs and outcomes](results/run-manifest.csv), including the four failures.
 - [Original SC22 tables and figures](reference/), preserved with checksums.
-- [RR1 PAR, REP and input files](fits/); [RR0 anchors](../final-par-rr-inclusion-flag2-0/).
+- [Compact RR1 PARs, central REP sections and native inputs](../reproduce/README.md); [original anchors](../final-par/).
 - [Verification and rerun guide](README.md).
 
 ![Thirty exact paired depletion histories](reference/rr-exact-paired-30-timeseries.png)
@@ -42,6 +42,6 @@ Rscript rr-test/summarize.R /tmp/bet-rr-review
 ./rr-test/rerun rrtest-005-rr1 --dry-run
 ```
 
-Reading and rebuilding the summary requires no Kflow account. Rebuilding uses base R; an actual model rerun requires Docker and the pinned Linux image. See the [guide](README.md) for both-arm commands and output locations.
+Reading and rebuilding the summary requires no Kflow account. Rebuilding uses base R and Python. Saved-PAR evaluation uses the small pinned Linux executable; full refits use Docker and the historical image. See the [guide](README.md) for both-arm commands and output locations.
 
 The original unpaired ensemble report remains on [RR-sens-ensemble](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/tree/RR-sens-ensemble).

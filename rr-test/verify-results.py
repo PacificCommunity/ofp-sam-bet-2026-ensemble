@@ -8,6 +8,8 @@ import math
 from pathlib import Path
 import re
 
+from saved import Source
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -110,7 +112,7 @@ def compare_generated_results(rebuilt_root):
 
 
 def scalar(path, header):
-    lines = path.read_text().splitlines()
+    lines = (path.decode() if isinstance(path, bytes) else path.read_text()).splitlines()
     positions = [i for i, line in enumerate(lines) if line.strip() == header]
     require(len(positions) == 1, f"Missing or repeated {header}: {path}")
     value = float(lines[positions[0] + 1])
@@ -119,8 +121,8 @@ def scalar(path, header):
 
 
 def verify_ini(anchor, counterpart):
-    left = anchor.read_text().splitlines()
-    right = counterpart.read_text().splitlines()
+    left = (anchor.decode() if isinstance(anchor, bytes) else anchor.read_text()).splitlines()
+    right = (counterpart.decode() if isinstance(counterpart, bytes) else counterpart.read_text()).splitlines()
     require(len(left) == len(right), f"INI length differs: {counterpart}")
     start = left.index("# tag flags") + 1
     tag_rows = set(range(start, start + 98))
@@ -154,15 +156,27 @@ def main():
     require({row["rr1_id"] for row in runs} == {row["ensemble_id"] for row in design}, "Run/design membership differs.")
     require({row["anchor_id"] for row in runs} == {row["anchor_ensemble_id"] for row in design}, "Anchor membership differs.")
     require(len({row["rr1_kflow_job"] for row in runs}) == 34, "Repeated source job numbers.")
+    saved = Source(ROOT)
     recorded_paths = set()
+    expected_records = {}
+    for model in saved.models.values():
+        for record in list(model["files"].values())+[model["final_par"],model["reference_rep"]]:
+            key = (record["storage"],record.get("path","reproduce/native.tar.gz"),record.get("member",""))
+            require(key not in expected_records,"Repeated indexed native file")
+            expected_records[key] = record
     for row in files:
-        path = ROOT / row["path"]
-        require(path.resolve().is_relative_to(ROOT), f"Non-repository path: {path}")
-        require(row["path"] not in recorded_paths, f"Repeated file: {path}")
-        recorded_paths.add(row["path"])
-        require(path.is_file(), f"Missing file: {path}")
-        require(path.stat().st_size == int(row["bytes"]), f"Size mismatch: {path}")
-        require(hashlib.sha256(path.read_bytes()).hexdigest() == row["sha256"], f"SHA-256 mismatch: {path}")
+        key = (row["storage"],row["path"],row["member"])
+        require(key not in recorded_paths,f"Repeated delivered file: {key}")
+        recorded_paths.add(key)
+        if row["role"] == "original_failure_evidence":
+            require(row["storage"]=="repository" and row["path"].startswith("rr-test/failures/"),"Invalid failure evidence path")
+        else:
+            require(key in expected_records,f"Unindexed delivered file: {key}")
+            expected = expected_records[key]
+            require(row["sha256"]==expected["sha256"] and int(row["bytes"])==expected["bytes"],f"Delivered file binding changed: {key}")
+        saved.read(row)
+    require(set(expected_records) <= recorded_paths,"Missing delivered native files")
+    require(len(files)==998 and len(expected_records)==990,"Expected exact 990 saved files plus 8 failure files")
     source = {row["ensemble_id"]: row for row in read_csv("rr-test/reference/retained-final-par-rr-split-manifest.csv")}
     provenance = {row["ensemble_id"]: row for row in read_csv("data/ensemble/retained-final-par-manifest.csv")}
     passed, failed = [], []
@@ -171,23 +185,24 @@ def main():
         model = row["rr1_id"]
         require(model == anchor.replace("ensemble-", "rrtest-", 1) + "-rr1", f"Pair mapping changed: {model}")
         require(row["rr0_kflow_job"] == provenance[anchor]["kflow_job"], f"Anchor job changed: {anchor}")
-        for kind in ("final_par", "bet_ini", "plot_rep"):
-            path = source[anchor][kind + "_split_path"]
-            entries = [entry for entry in files if entry["path"] == path]
-            require(len(entries) == 1 and entries[0]["sha256"] == source[anchor][kind + "_sha256"], f"Anchor source hash changed: {path}")
-        mgc0 = scalar(ROOT / source[anchor]["final_par_split_path"], "# Maximum magnitude gradient value")
+        original = saved.model(anchor)
+        for kind, entry in (("final_par",original["final_par"]),("bet_ini",original["files"]["bet.ini"]),("plot_rep",original["reference_rep"])):
+            require(entry["sha256"]==source[anchor][kind+"_sha256"],f"Anchor source hash changed: {anchor}:{kind}")
+        saved.input_hashes(anchor)
+        mgc0 = scalar(saved.read(original["final_par"]), "# Maximum magnitude gradient value")
         require(mgc0 <= 1e-4 and math.isclose(mgc0, float(row["rr0_mgc"]), abs_tol=1e-15), f"RR0 MGC mismatch: {anchor}")
         folder = ROOT / "rr-test/fits" / model
         if row["rr1_status"] == "completed":
             require(row["included_in_pair_summary"] == "true", f"Completed pair missing: {model}")
-            mgc1 = scalar(folder / "final.par", "# Maximum magnitude gradient value")
+            counterpart = saved.model(model)
+            mgc1 = scalar(saved.read(counterpart["final_par"]), "# Maximum magnitude gradient value")
             require(mgc1 <= 1e-4 and math.isclose(mgc1, float(row["rr1_mgc"]), abs_tol=1e-15), f"RR1 MGC mismatch: {model}")
-            verify_ini(ROOT / source[anchor]["bet_ini_split_path"], folder / "bet.ini")
-            for path in folder.iterdir():
-                require(path.is_file() and str(path.relative_to(ROOT)) in recorded_paths, f"Unrecorded fit file: {path}")
+            saved.input_hashes(model)
+            verify_ini(saved.read(original["files"]["bet.ini"]), saved.read(counterpart["files"]["bet.ini"]))
+            require(not folder.exists(),f"Unexpected duplicate raw fit folder: {folder}")
             passed.append(model)
         else:
-            require(row["rr1_status"] == "failed" and row["included_in_pair_summary"] == "false" and not folder.exists(), f"Unexpected failed-fit state: {model}")
+            require(row["rr1_status"] == "failed" and row["included_in_pair_summary"] == "false" and not folder.exists() and model not in saved.models, f"Unexpected failed-fit state: {model}")
             text = (ROOT / "rr-test/failures" / model / "status.txt").read_text()
             require("Exit code: 134" in text and "Job id: " + row["rr1_source_id"] in text, f"Failure identity differs: {model}")
             failed.append(model)
@@ -196,7 +211,7 @@ def main():
     for row in references:
         path = ROOT / "rr-test/reference" / row["original_name"]
         require(path.stat().st_size == row["bytes"] and hashlib.sha256(path.read_bytes()).hexdigest() == row["sha256"], f"Original analysis changed: {path}")
-    print(f"Verified {len(runs)} source jobs, {len(files)} original files, {len(references)} original analysis files; 30 exact MGC-passing pairs and 4 failed fits.")
+    print(f"Verified {len(runs)} source jobs, {len(files)} delivered files, {len(references)} original analysis files; 30 exact MGC-passing pairs and 4 failed fits.")
     if args.rebuilt_root is not None:
         compare_generated_results(args.rebuilt_root)
 
