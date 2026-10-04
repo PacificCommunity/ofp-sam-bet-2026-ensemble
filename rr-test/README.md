@@ -11,9 +11,12 @@ git clone --branch RR_test --single-branch https://github.com/PacificCommunity/o
 cd ofp-sam-bet-2026-ensemble
 python3 rr-test/verify-results.py
 Rscript rr-test/summarize.R /tmp/bet-rr-review
+python3 rr-test/verify-results.py --rebuilt-root /tmp/bet-rr-review
 ```
 
 Python 3.9 or later verifies the saved file checksums, source identities, both-arm MGC and the actual archived input differences. Base R rebuilds the paired tables and plots from the native REP/PAR files and compares them with the original 30-pair table. It writes to the chosen output root; omit the last argument to rebuild the committed summary in `rr-test/`.
+
+The final command also compares all three rebuilt tables with the published tables. Columns, row order, IDs, periods and counts must match exactly. Calculated real values allow absolute error `1e-10` or relative error `1e-12` for platform roundoff; saved original files still require exact checksums.
 
 | Location | Contents |
 |---|---|

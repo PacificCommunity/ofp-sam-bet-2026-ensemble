@@ -32,8 +32,6 @@ jobs:
         run: |
           python3 rr-test/verify-results.py
           Rscript rr-test/summarize.R "$RUNNER_TEMP/bet-rr-review"
-          for table in paired-quantities.csv paired-timeseries.csv summary.csv; do
-            diff -u "rr-test/results/$table" "$RUNNER_TEMP/bet-rr-review/results/$table"
-          done
+          python3 rr-test/verify-results.py --rebuilt-root "$RUNNER_TEMP/bet-rr-review"
       - name: Confirm generated tables are current
         run: git diff --exit-code -- 'design/*.csv' rr-test/model-draws.csv
