@@ -3,3 +3,11 @@ model/bet.* -text -diff
 sources/** -text -diff
 final-par/** -text -diff
 mfclo64 binary
+
+# Retained paired-fit artifacts also keep their original bytes on every clone.
+final-par-rr-inclusion-flag2-0/** -text -diff
+final-par-rr-exclusion-flag2-1/** -text -diff
+rr-test/fits/** -text -diff
+rr-test/failures/** -text -diff
+rr-test/reference/** -text
+rr-test/results/*.csv -text

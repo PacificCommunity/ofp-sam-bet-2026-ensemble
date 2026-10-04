@@ -3,12 +3,6 @@
   "source_commit": "3a940f07aac5c123d019adadc73b3b0ab3897a88",
   "files": [
     {
-      "path": ".gitattributes",
-      "sha256": "a69d80b8efca87fb85884f9e6911c2bcf684d485173d3c816f058dc09e5f0d40",
-      "bytes": 162,
-      "mode": "100644"
-    },
-    {
       "path": ".github/workflows/render-report.yml",
       "sha256": "a397d42a6b9868ed60f07c9d8588afe1d7327ef061db26b6d0c1f7ce2310134e",
       "bytes": 4787,
