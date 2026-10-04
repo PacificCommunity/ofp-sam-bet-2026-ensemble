@@ -18,11 +18,22 @@ jobs:
           r-version: release
       - name: Recreate design
         run: Rscript scripts/create-ensemble-design.R
+      - name: Recreate exact paired RR design
+        run: Rscript rr-test/create-design.R
       - name: Validate design
         run: Rscript scripts/validate-ensemble-design.R
       - name: Validate all frozen model inputs
         run: Rscript scripts/validate-all-model-inputs.R
+      - name: Validate archived RR0 anchors and exact RR1 counterparts
+        run: Rscript rr-test/validate.R
       - name: Smoke-test representative models across every axis
         run: ./scripts/smoke-test-ensemble-axes
+      - name: Validate frozen paired output package
+        run: |
+          python3 rr-test/verify-results.py
+          Rscript rr-test/summarize.R "$RUNNER_TEMP/bet-rr-review"
+          for table in paired-quantities.csv paired-timeseries.csv summary.csv; do
+            diff -u "rr-test/results/$table" "$RUNNER_TEMP/bet-rr-review/results/$table"
+          done
       - name: Confirm generated tables are current
-        run: git diff --exit-code -- 'design/*.csv'
+        run: git diff --exit-code -- 'design/*.csv' rr-test/model-draws.csv

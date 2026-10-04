@@ -1,0 +1,42 @@
+[
+  {
+    "original_name": "rr-completed-aggregate-paired-model-values.csv",
+    "sha256": "abb73f7d07b5ef6bac0d5b37618440b4d9a3ccf7ccf3645d118183136ff0ce59",
+    "bytes": 10201
+  },
+  {
+    "original_name": "rr-paired-effect-drivers-model-level.csv",
+    "sha256": "fb1de6d0bac594909bd5c70af7fd4ef22850abcb168365237cf8eede7c0b8c41",
+    "bytes": 11182
+  },
+  {
+    "original_name": "rr-exact-paired-30-timeseries.png",
+    "sha256": "0358d590434043139a5ef57b85451e46892d038797f5289c5dbaeace3d4b4e59",
+    "bytes": 656958
+  },
+  {
+    "original_name": "rr-exact-paired-30-timeseries.pdf",
+    "sha256": "c65215ca4bec9952e802f92c64cf0181d3f2b1e8f37775b226cd985fe8fc32f9",
+    "bytes": 42703
+  },
+  {
+    "original_name": "rr-exact-paired-30-timeseries-caption.txt",
+    "sha256": "beac83cb3f279159e56760cdbd388afbccc733b8bc5b26197b3ca28ab1c513b9",
+    "bytes": 428
+  },
+  {
+    "original_name": "rr-exact-paired-history-selection.png",
+    "sha256": "31fb71943db75ad08524b25fb764547a8ff686e4e270615b10782113b095af20",
+    "bytes": 267728
+  },
+  {
+    "original_name": "rr-exact-paired-history-selection.pdf",
+    "sha256": "b4abbbf4d57134d8240534bab35c8b39e491262ba71dce92a3827abad678471f",
+    "bytes": 30202
+  },
+  {
+    "original_name": "rr-exact-paired-history-selection-caption.txt",
+    "sha256": "82de52296a0ff5e564001f7c2a0bc5bea0f0b360aacc9e7f278b72afdf7f1d46",
+    "bytes": 462
+  }
+]

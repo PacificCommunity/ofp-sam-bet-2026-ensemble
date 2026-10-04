@@ -1,0 +1,32 @@
+Original Kflow condor_job.err: final 30 lines.
+
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+putting in kludge for nya=0 setting it equal to 1
+terminate called after throwing an instance of 'choleski_exception'
+  what():  Choleski exception happened
+Aborted (core dumped)

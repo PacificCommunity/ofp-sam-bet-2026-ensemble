@@ -7,3 +7,10 @@ final-par-rr-exclusion-flag2-1/*/final.par -text -diff
 final-par-rr-inclusion-flag2-0/*/plot-11.par.rep -text -diff
 final-par-rr-exclusion-flag2-1/*/plot-11.par.rep -text -diff
 mfclo64 binary
+
+# Preserve archived paired model and failure files byte-for-byte.
+rr-test/fits/** -text -diff
+rr-test/failures/*/status.txt -text -diff
+rr-test/reference/** -text
+final-par-rr-inclusion-flag2-0/*/bet.ini -text -diff
+final-par-rr-exclusion-flag2-1/*/bet.ini -text -diff

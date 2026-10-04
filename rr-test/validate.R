@@ -9,16 +9,42 @@ source(file.path(repo, "scripts", "ensemble-inputs.R"))
 canonical_path <- file.path(repo, "design", "model-draws.csv")
 paired_path <- file.path(repo, "rr-test", "model-draws.csv")
 retained_path <- file.path(repo, "data", "ensemble", "retained-final-par-manifest.csv")
+retained_ini_path <- file.path(repo, "data", "ensemble", "retained-final-ini-manifest.csv")
 
 canonical <- read.csv(canonical_path, stringsAsFactors = FALSE, check.names = FALSE)
 paired <- read.csv(paired_path, stringsAsFactors = FALSE, check.names = FALSE)
 retained <- read.csv(retained_path, stringsAsFactors = FALSE, check.names = FALSE)
+retained_ini <- read.csv(retained_ini_path, stringsAsFactors = FALSE, check.names = FALSE)
 
 fail <- function(...) stop(..., call. = FALSE)
 assert <- function(value, ...) if (!isTRUE(value)) fail(...)
 
 assert(nrow(canonical) == 100L, "Canonical design must contain exactly 100 rows.")
 assert(nrow(retained) == 80L, "Retained manifest must contain exactly 80 rows.")
+assert(nrow(retained_ini) == 80L, "Historical INI manifest must contain exactly 80 rows.")
+assert(length(unique(retained_ini$ensemble_id)) == 80L,
+       "Historical INI manifest model IDs are not unique.")
+assert(setequal(retained_ini$ensemble_id, retained$ensemble_id),
+       "Historical INI and retained PAR manifests must cover the same model IDs.")
+historical_columns <- c(
+  "ensemble_id", "kflow_job", "kflow_task", "source_archive", "archive_sha256", "source_commit",
+  "bet_ini_member", "bet_ini_sha256", "bet_ini_bytes", "bet_model_ini_member",
+  "bet_model_ini_sha256", "bet_model_ini_bytes", "bet_ini_model_ini_byte_identical"
+)
+assert(!length(setdiff(historical_columns, names(retained_ini))),
+       "Historical INI manifest is missing required provenance columns.")
+retained_ini <- retained_ini[match(retained$ensemble_id, retained_ini$ensemble_id), , drop = FALSE]
+for (column in c("kflow_job", "kflow_task", "source_archive", "archive_sha256", "source_commit")) {
+  assert(identical(retained_ini[[column]], retained[[column]]),
+         "Historical INI and retained PAR archive provenance differ in ", column, ".")
+}
+assert(all(grepl("^[0-9a-f]{64}$", retained_ini$bet_ini_sha256)) &&
+         all(grepl("^[0-9a-f]{64}$", retained_ini$archive_sha256)),
+       "Historical INI or archive SHA-256 values are malformed.")
+assert(all(retained_ini$bet_ini_model_ini_byte_identical %in% TRUE) &&
+         identical(retained_ini$bet_ini_sha256, retained_ini$bet_model_ini_sha256) &&
+         identical(retained_ini$bet_ini_bytes, retained_ini$bet_model_ini_bytes),
+       "Historical bet.ini and bet.model.ini must be byte-identical.")
 assert(nrow(paired) == 34L, "Paired design must contain exactly 34 RR1 rows.")
 assert(length(unique(paired$ensemble_id)) == 34L, "Paired model IDs are not unique.")
 assert(length(unique(paired$anchor_ensemble_id)) == 34L, "Anchor model IDs are not unique.")
@@ -38,6 +64,9 @@ assert(identical(paired$anchor_ensemble_id, retained_rr0$ensemble_id),
        "Paired design does not cover the complete retained RR0 set exactly once.")
 assert(identical(anchors$ensemble_id, paired$anchor_ensemble_id),
        "Anchor lookup did not preserve paired-design order.")
+historical_anchors <- retained_ini[match(anchors$ensemble_id, retained_ini$ensemble_id), , drop = FALSE]
+assert(identical(historical_anchors$ensemble_id, anchors$ensemble_id),
+       "Historical INI lookup did not preserve anchor order.")
 assert(all(anchors$tag_reporting_flag2 == 0L & anchors$tag_reporting == "inclusion"),
        "Every anchor must be an RR0 inclusion row.")
 assert(all(paired$tag_reporting_flag2 == 1L & paired$tag_reporting == "exclusion"),
@@ -195,18 +224,39 @@ scratch <- tempfile("rr-pair-validation-")
 dir.create(scratch, recursive = TRUE, showWarnings = FALSE)
 on.exit(unlink(scratch, recursive = TRUE, force = TRUE), add = TRUE)
 
-for (i in seq_len(nrow(paired))) {
+# The complete design contract is checked above even for a bounded subset.
+# With no selectors, CI and reviewers materialize every pair.
+selectors <- commandArgs(trailingOnly = TRUE)
+assert(!anyDuplicated(selectors), "Pair selectors must be unique.")
+unknown_selectors <- setdiff(selectors, paired$ensemble_id)
+assert(!length(unknown_selectors),
+       "Unknown RR pair selector(s): ", paste(unknown_selectors, collapse = ", "))
+validation_rows <- if (length(selectors)) sort(match(selectors, paired$ensemble_id)) else seq_len(nrow(paired))
+
+for (position in seq_along(validation_rows)) {
+  i <- validation_rows[[position]]
   anchor_dir <- file.path(scratch, "anchor")
   test_dir <- file.path(scratch, "test")
   materialize("design/model-draws.csv", anchors$ensemble_id[[i]], anchor_dir)
   materialize("rr-test/model-draws.csv", paired$ensemble_id[[i]], test_dir)
+  historical <- historical_anchors[i, , drop = FALSE]
+  observed_ini_sha256 <- ensemble_sha256(file.path(anchor_dir, "bet.ini"))
+  assert(identical(observed_ini_sha256, historical$bet_ini_sha256),
+         "Prepared RR0 bet.ini does not match archived Kflow job ", historical$kflow_job,
+         " for ", historical$ensemble_id, ": observed ", observed_ini_sha256,
+         "; expected ", historical$bet_ini_sha256, ".")
+  assert(file.info(file.path(anchor_dir, "bet.ini"))$size == historical$bet_ini_bytes,
+         "Prepared RR0 bet.ini byte count differs from the historical archive for ",
+         historical$ensemble_id, ".")
   assert_pair_files(anchor_dir, test_dir, anchors[i, , drop = FALSE], paired[i, , drop = FALSE])
   unlink(anchor_dir, recursive = TRUE, force = TRUE)
   unlink(test_dir, recursive = TRUE, force = TRUE)
-  cat(sprintf("[%02d/34] exact pair verified: %s -> %s\n",
-              i, anchors$ensemble_id[[i]], paired$ensemble_id[[i]]))
+  cat(sprintf("[%02d/%02d] exact pair verified: %s -> %s\n",
+              position, length(validation_rows), anchors$ensemble_id[[i]], paired$ensemble_id[[i]]))
 }
 
-cat("Validated 34 retained RR0 anchors and 34 exact RR1 counterparts.\n")
+cat(sprintf("Validated %d retained RR0 anchors and %d exact RR1 counterparts.\n",
+            length(validation_rows), length(validation_rows)))
+cat("Every prepared RR0 bet.ini matches its archived Kflow INI SHA-256 and byte count.\n")
 cat("All non-reporting prepared inputs are byte-identical within every pair.\n")
 cat("Zero-mixing tag rows are sentinel 1 in both arms; positive-mixing rows are RR0=0 and RR1=1.\n")

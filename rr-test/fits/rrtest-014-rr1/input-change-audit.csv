@@ -1,0 +1,2 @@
+"ensemble_id","model_label","steepness","tag_mixing_k_cutoff","tag_reporting_flag2","tag_reporting_zero_mixing_exclusions","tag_tau","tau_fish_pars4","m0_quarterly","effort_creep_primary","effort_creep_secondary","status"
+"rrtest-014-rr1","RR paired test | anchor=ensemble-014 | h=0.799 | tau=1.2 | K=0.20 | RR=exclude | M0=0.0562/qtr | creep=0.5/0.25%",0.798761897930364,0.2,1,0,1.2,-1.6094379124341,0.0561650364615546,0.005,0.0025,"passed"
