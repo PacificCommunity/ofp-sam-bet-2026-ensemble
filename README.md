@@ -1,3 +1,5 @@
+[![Preservation checks](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/actions/workflows/verify-preserved-results.yml/badge.svg?branch=main)](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/actions/workflows/verify-preserved-results.yml?query=branch%3Amain) [![Design checks](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/actions/workflows/validate.yml?query=branch%3Amain)
+
 # BET 2026 Diagnostic ensemble
 
 Frozen inputs, 80 retained fits and cached uncertainty/projection results for the [SC22 assessment](https://meetings.wcpfc.int/node/33590).
