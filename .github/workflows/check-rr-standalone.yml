@@ -1,0 +1,72 @@
+name: Check RR standalone
+
+on:
+  push:
+    branches: [main, rr-standalone-check]
+    paths:
+      - rr-test/standalone.zip
+      - rr-test/README.md
+      - ci/check-rr-standalone.py
+      - .github/workflows/check-rr-standalone.yml
+
+permissions:
+  contents: read
+
+jobs:
+  native:
+    name: Saved-PAR outputs (no optimisation, shard ${{ matrix.shard }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check preserved files before evaluation
+        run: python3 ci/verify-preserved-files.py
+      - name: Check 20 saved models without optimisation
+        run: >-
+          python3 ci/check-rr-standalone.py --shard ${{ matrix.shard }}
+          --work-parent "$RUNNER_TEMP"
+          --proof-dir "$RUNNER_TEMP/rr-standalone-proof-${{ matrix.shard }}"
+      - name: Check preserved files after evaluation
+        if: always()
+        run: python3 ci/verify-preserved-files.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rr-standalone-shard-${{ matrix.shard }}
+          path: ${{ runner.temp }}/rr-standalone-proof-${{ matrix.shard }}
+          retention-days: 14
+          if-no-files-found: warn
+  all-60:
+    needs: native
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check preserved files before aggregation
+        run: python3 ci/verify-preserved-files.py
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: rr-standalone-shard-*
+          path: ${{ runner.temp }}/rr-standalone-shards
+      - name: Require all 60 saved cases
+        env:
+          NATIVE_MATRIX_RESULT: ${{ needs.native.result }}
+        run: >-
+          python3 ci/check-rr-standalone.py
+          --aggregate "$RUNNER_TEMP/rr-standalone-shards"
+          --proof-dir "$RUNNER_TEMP/rr-standalone-all-60"
+      - name: Check preserved files after aggregation
+        if: always()
+        run: python3 ci/verify-preserved-files.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rr-standalone-all-60
+          path: ${{ runner.temp }}/rr-standalone-all-60
+          retention-days: 14
+          if-no-files-found: warn
