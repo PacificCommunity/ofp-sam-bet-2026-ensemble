@@ -1,0 +1,1212 @@
+{
+  "schema_version": 1,
+  "models": [
+    {
+      "source_job": 19181,
+      "source_id": "j87b58e4f13e",
+      "model_key": "02-NewExeIni1007",
+      "source_archive_id": "a-ea39cf5f14ef5480c5782dbd5b69b12b9e1d5c90929c0d2b4f8daa8cc2cc1b56",
+      "source_archive_sha256": "ea39cf5f14ef5480c5782dbd5b69b12b9e1d5c90929c0d2b4f8daa8cc2cc1b56",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 0,
+        "name": "stepwise/job-019181/02-NewExeIni1007/final.par",
+        "bytes": 3773575,
+        "sha256": "1848d54f05784b1760e66d5b52527817aa8c1acc975a78cf6b742a9581ddc7b9"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 2,
+          "name": "stepwise/job-019181/02-NewExeIni1007/plot-11.par.rep",
+          "bytes": 4205938,
+          "sha256": "be5dc4313fc20c482ca12e35da4089a44ba446cb7bc758003e4545f8efc881e1"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-ea39cf5f14ef5480c5782dbd5b69b12b9e1d5c90929c0d2b4f8daa8cc2cc1b56",
+        "ordinal": 14,
+        "name": "./outputs/models/02-NewExeIni1007/mfcl-inputs/doitall.sh",
+        "sha256": "d20b2399af03b4c5ca9c268e1b2fdd1262c2507e9ef8de7231612662aed44add"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_953170/ofp-sam-bet-2026-stepwise/work/models/02-NewExeIni1007/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 14,
+          "name": "./outputs/models/02-NewExeIni1007/mfcl-inputs/doitall.sh",
+          "sha256": "d20b2399af03b4c5ca9c268e1b2fdd1262c2507e9ef8de7231612662aed44add"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 26,
+          "name": "./outputs/models/02-NewExeIni1007/model_payload.rds",
+          "bytes": 4384222,
+          "sha256": "0ae8484257717e2c94ca4d3c136100ce9312e6d7c7baf17eeda0cc25c9d87082"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 19182,
+      "source_id": "j566179200e2",
+      "model_key": "01-Diag2023",
+      "source_archive_id": "a-80d8ddcf55c6748aa445818874861cc83c0d66ab5a10af1e25383891afa88acc",
+      "source_archive_sha256": "80d8ddcf55c6748aa445818874861cc83c0d66ab5a10af1e25383891afa88acc",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 8,
+        "name": "stepwise/job-019182/01-Diag2023/final.par",
+        "bytes": 3773495,
+        "sha256": "87bb55f34080f2726cd74cb809d297309aa4a89cb5a8b14621c935d12fb199ff"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 10,
+          "name": "stepwise/job-019182/01-Diag2023/plot-11.par.rep",
+          "bytes": 4205523,
+          "sha256": "76cb5bbd08167d140dd7a93a852b3dd4a88d769d51fd64f071208e1fe64da053"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-80d8ddcf55c6748aa445818874861cc83c0d66ab5a10af1e25383891afa88acc",
+        "ordinal": 17,
+        "name": "./outputs/models/01-Diag2023/mfcl-inputs/doitall.sh",
+        "sha256": "c7f2e79fa93d15a803493e98f4ffed1463852620642bc38cc58ffa39aced3bd7"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_390438/scratch/ofp-sam-bet-2026-stepwise/work/models/01-Diag2023/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 17,
+          "name": "./outputs/models/01-Diag2023/mfcl-inputs/doitall.sh",
+          "sha256": "c7f2e79fa93d15a803493e98f4ffed1463852620642bc38cc58ffa39aced3bd7"
+        },
+        "last_explicit_program_output_command": "mfclo64 bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 8,
+          "name": "./outputs/models/01-Diag2023/model_payload.rds",
+          "bytes": 4251784,
+          "sha256": "0074bedb0737e2fa52abe43a28844c742de283ab7cb7894799ba62f9f9b90079"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 19183,
+      "source_id": "jce1c4321127",
+      "model_key": "05-NewStructure",
+      "source_archive_id": "a-d54faafa14ffe27b8377694e7719d51b674961450217726d99c529027d91b50d",
+      "source_archive_sha256": "d54faafa14ffe27b8377694e7719d51b674961450217726d99c529027d91b50d",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 14,
+        "name": "stepwise/job-019183/05-NewStructure/final.par",
+        "bytes": 2821521,
+        "sha256": "eb79613e6daee0b42e2d55e342b31016785cae28c823f2da7253bc2bfb643e99"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 16,
+          "name": "stepwise/job-019183/05-NewStructure/plot-11.par.rep",
+          "bytes": 2729813,
+          "sha256": "41abc308f753dcffc758c65f2ad25ebedb508d36a9614618b5cc6629b6fbfe2c"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-d54faafa14ffe27b8377694e7719d51b674961450217726d99c529027d91b50d",
+        "ordinal": 7,
+        "name": "./outputs/models/05-NewStructure/mfcl-inputs/doitall.sh",
+        "sha256": "ae0a526d21053da82ed1ecb9865a55d7ac85e64bfc1c393aa7e89106ff90b6d9"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_985126/ofp-sam-bet-2026-stepwise/work/models/05-NewStructure/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 7,
+          "name": "./outputs/models/05-NewStructure/mfcl-inputs/doitall.sh",
+          "sha256": "ae0a526d21053da82ed1ecb9865a55d7ac85e64bfc1c393aa7e89106ff90b6d9"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 17,
+          "name": "./outputs/models/05-NewStructure/model_payload.rds",
+          "bytes": 2971089,
+          "sha256": "aa2fd1008d0227b08dc06d17de52f94ee618aa6d2a38e16e830cf5d131f5fefd"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 19184,
+      "source_id": "jd1abdbea4ba",
+      "model_key": "10-RegionalCPUE",
+      "source_archive_id": "a-f8af9ee4ba32fa8e11e5847dfb3edebeaa5e85f664e97ac4e141d6ff8db30d02",
+      "source_archive_sha256": "f8af9ee4ba32fa8e11e5847dfb3edebeaa5e85f664e97ac4e141d6ff8db30d02",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 22,
+        "name": "stepwise/job-019184/10-RegionalCPUE/final.par",
+        "bytes": 2955358,
+        "sha256": "e5772b5af358903e99917270e8df026e16027c5b9b97328f933cef51d0efc2fb"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 24,
+          "name": "stepwise/job-019184/10-RegionalCPUE/plot-11.par.rep",
+          "bytes": 2848176,
+          "sha256": "4f237c8626ddb6ac60e6b91fda0a2412eeae646afe104d9c360a84f7b60de5bc"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-f8af9ee4ba32fa8e11e5847dfb3edebeaa5e85f664e97ac4e141d6ff8db30d02",
+        "ordinal": 13,
+        "name": "./outputs/models/10-RegionalCPUE/mfcl-inputs/doitall.sh",
+        "sha256": "f36ac8e7dfcac54ffea15de32515773ee06a8d1eb3af2acc5d943a9db132248b"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_1005942/ofp-sam-bet-2026-stepwise/work/models/10-RegionalCPUE/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 13,
+          "name": "./outputs/models/10-RegionalCPUE/mfcl-inputs/doitall.sh",
+          "sha256": "f36ac8e7dfcac54ffea15de32515773ee06a8d1eb3af2acc5d943a9db132248b"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 25,
+          "name": "./outputs/models/10-RegionalCPUE/model_payload.rds",
+          "bytes": 2825842,
+          "sha256": "0361c08cacc90f6b1b33288c559c600bf3037032d899488f4236079fec770d52"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 19185,
+      "source_id": "jb7455305a8b",
+      "model_key": "09-SizeDataQC",
+      "source_archive_id": "a-7662b62a6a493a8c92a3576155865eac3d63861db61b2a20465f236bdb5272e7",
+      "source_archive_sha256": "7662b62a6a493a8c92a3576155865eac3d63861db61b2a20465f236bdb5272e7",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 32,
+        "name": "stepwise/job-019185/09-SizeDataQC/final.par",
+        "bytes": 2956029,
+        "sha256": "060796fb959ccac348dd66c6538c2c26369e6dbc9cefbaf2c2f30c581f48cbea"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 34,
+          "name": "stepwise/job-019185/09-SizeDataQC/plot-11.par.rep",
+          "bytes": 2851187,
+          "sha256": "f175b75dda4940816216efaff187b991b31e4ae70352c2062b310ef0cbedbde1"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-7662b62a6a493a8c92a3576155865eac3d63861db61b2a20465f236bdb5272e7",
+        "ordinal": 18,
+        "name": "./outputs/models/09-SizeDataQC/mfcl-inputs/doitall.sh",
+        "sha256": "229b00ad8c49efd66f4b9239fb74d5e9f99854cfadb9c5a2ea320d878864f0b1"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_974770/ofp-sam-bet-2026-stepwise/work/models/09-SizeDataQC/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 18,
+          "name": "./outputs/models/09-SizeDataQC/mfcl-inputs/doitall.sh",
+          "sha256": "229b00ad8c49efd66f4b9239fb74d5e9f99854cfadb9c5a2ea320d878864f0b1"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 5,
+          "name": "./outputs/models/09-SizeDataQC/model_payload.rds",
+          "bytes": 2821049,
+          "sha256": "fde16274fef12a534f5233b937add597ec4fe46b324520ce9b65bcb4bcd5706e"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 19186,
+      "source_id": "j1a7bab4cdbb",
+      "model_key": "04-LengthWeight",
+      "source_archive_id": "a-e2d4646ee67128731ca858dd6aee3cd2c68cf5db32eb5f907222f4b478631aa9",
+      "source_archive_sha256": "e2d4646ee67128731ca858dd6aee3cd2c68cf5db32eb5f907222f4b478631aa9",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 40,
+        "name": "stepwise/job-019186/04-LengthWeight/final.par",
+        "bytes": 3773523,
+        "sha256": "ba8f22cddd6f42b0e57f081c77e2da48e1b61848d4159db8883342bf85f9a628"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 42,
+          "name": "stepwise/job-019186/04-LengthWeight/plot-11.par.rep",
+          "bytes": 4206675,
+          "sha256": "9985e07fab83f818c3ff819a786abb84a1b157ca7a9699982b13aa2e0edc4005"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-e2d4646ee67128731ca858dd6aee3cd2c68cf5db32eb5f907222f4b478631aa9",
+        "ordinal": 24,
+        "name": "./outputs/models/04-LengthWeight/mfcl-inputs/doitall.sh",
+        "sha256": "3b183b9ac5851b6b59de454f3b9b91efe680d895d4f9c306a2deea8b767e62e7"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_565453/scratch/ofp-sam-bet-2026-stepwise/work/models/04-LengthWeight/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 24,
+          "name": "./outputs/models/04-LengthWeight/mfcl-inputs/doitall.sh",
+          "sha256": "3b183b9ac5851b6b59de454f3b9b91efe680d895d4f9c306a2deea8b767e62e7"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 13,
+          "name": "./outputs/models/04-LengthWeight/model_payload.rds",
+          "bytes": 4370604,
+          "sha256": "44f8a0cf17a58338f68a1f6e13955c9b44162c7e4ec2ca3e9305aa817e0bc26f"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 19187,
+      "source_id": "j83392901d7e",
+      "model_key": "06-ConvertToLength",
+      "source_archive_id": "a-3c83e1ca8cab445f5b957d1461af0b4ffbeb4cc16c0887125f1073a06a9a85c2",
+      "source_archive_sha256": "3c83e1ca8cab445f5b957d1461af0b4ffbeb4cc16c0887125f1073a06a9a85c2",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 48,
+        "name": "stepwise/job-019187/06-ConvertToLength/final.par",
+        "bytes": 2821540,
+        "sha256": "f9138e3fe8c4686798ff635676c218abaff49d8a2518fd7cccad8e77bf861fc4"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 50,
+          "name": "stepwise/job-019187/06-ConvertToLength/plot-11.par.rep",
+          "bytes": 2729679,
+          "sha256": "a5839f35f39a3f24e6838218fa932ff98eac672cf45f582dca9089900b0f5c53"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-3c83e1ca8cab445f5b957d1461af0b4ffbeb4cc16c0887125f1073a06a9a85c2",
+        "ordinal": 10,
+        "name": "./outputs/models/06-ConvertToLength/mfcl-inputs/doitall.sh",
+        "sha256": "ae0a526d21053da82ed1ecb9865a55d7ac85e64bfc1c393aa7e89106ff90b6d9"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_382666/scratch/ofp-sam-bet-2026-stepwise/work/models/06-ConvertToLength/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 10,
+          "name": "./outputs/models/06-ConvertToLength/mfcl-inputs/doitall.sh",
+          "sha256": "ae0a526d21053da82ed1ecb9865a55d7ac85e64bfc1c393aa7e89106ff90b6d9"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 19,
+          "name": "./outputs/models/06-ConvertToLength/model_payload.rds",
+          "bytes": 2710076,
+          "sha256": "47cd766d7f1c52375f96855956673bb5ba79065449a8286afc61f1935205bb75"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 19188,
+      "source_id": "jd75421a27dc",
+      "model_key": "03-FixM",
+      "source_archive_id": "a-51c982d739b64f5428559c1aed439fbc7d6c2a9013b78dfd34680ab66b703ae9",
+      "source_archive_sha256": "51c982d739b64f5428559c1aed439fbc7d6c2a9013b78dfd34680ab66b703ae9",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 56,
+        "name": "stepwise/job-019188/03-FixM/final.par",
+        "bytes": 3773578,
+        "sha256": "f2ff308ded81f199e792d8d0ff84f8fc5040b4a96702ac2735a06762eaba98d6"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 58,
+          "name": "stepwise/job-019188/03-FixM/plot-11.par.rep",
+          "bytes": 4206522,
+          "sha256": "d951581551db618fc7781f9aebbf9810164ece0bc5c80c52bc783356a994e8ec"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-51c982d739b64f5428559c1aed439fbc7d6c2a9013b78dfd34680ab66b703ae9",
+        "ordinal": 12,
+        "name": "./outputs/models/03-FixM/mfcl-inputs/doitall.sh",
+        "sha256": "3b183b9ac5851b6b59de454f3b9b91efe680d895d4f9c306a2deea8b767e62e7"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_1005944/ofp-sam-bet-2026-stepwise/work/models/03-FixM/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 12,
+          "name": "./outputs/models/03-FixM/mfcl-inputs/doitall.sh",
+          "sha256": "3b183b9ac5851b6b59de454f3b9b91efe680d895d4f9c306a2deea8b767e62e7"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 19,
+          "name": "./outputs/models/03-FixM/model_payload.rds",
+          "bytes": 4378377,
+          "sha256": "3ba4e0fa21e37dad28efcfe933f3af37b30e5db1f26a2f87b118fe8e899f2119"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 19189,
+      "source_id": "j168e6b23399",
+      "model_key": "07-AddLengthData",
+      "source_archive_id": "a-8ccb78354cd54c12f3e507bf5ab9be9d8f4aad25fbd262d6ae4da91edd173e23",
+      "source_archive_sha256": "8ccb78354cd54c12f3e507bf5ab9be9d8f4aad25fbd262d6ae4da91edd173e23",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 64,
+        "name": "stepwise/job-019189/07-AddLengthData/final.par",
+        "bytes": 2821532,
+        "sha256": "7aebfbc6eff8804c75c281d63847966fea4b6888f939e594d889b3ca02b1a949"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 66,
+          "name": "stepwise/job-019189/07-AddLengthData/plot-11.par.rep",
+          "bytes": 2730341,
+          "sha256": "b2880f44414b15ccba040c8b2490751f8979792ba32856022ccf0fa1bacba5d2"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-8ccb78354cd54c12f3e507bf5ab9be9d8f4aad25fbd262d6ae4da91edd173e23",
+        "ordinal": 11,
+        "name": "./outputs/models/07-AddLengthData/mfcl-inputs/doitall.sh",
+        "sha256": "ae0a526d21053da82ed1ecb9865a55d7ac85e64bfc1c393aa7e89106ff90b6d9"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_1227778/scratch/ofp-sam-bet-2026-stepwise/work/models/07-AddLengthData/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 11,
+          "name": "./outputs/models/07-AddLengthData/mfcl-inputs/doitall.sh",
+          "sha256": "ae0a526d21053da82ed1ecb9865a55d7ac85e64bfc1c393aa7e89106ff90b6d9"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 4,
+          "name": "./outputs/models/07-AddLengthData/model_payload.rds",
+          "bytes": 2721394,
+          "sha256": "84e63d9b4701a72622e2fec734758bc2011db776ac8dddcdedef8030d4b05e66"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 19190,
+      "source_id": "j6834098342b",
+      "model_key": "08-DataTo2024",
+      "source_archive_id": "a-8a612fc5bcca0d499f1d7c1dc7b81c218f02c1ffb8175c8e4a701b327475a639",
+      "source_archive_sha256": "8a612fc5bcca0d499f1d7c1dc7b81c218f02c1ffb8175c8e4a701b327475a639",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 72,
+        "name": "stepwise/job-019190/08-DataTo2024/final.par",
+        "bytes": 2955938,
+        "sha256": "505b744d3fd1cb7c08754db53dfae75610ade4ce9e6516dcc120dea5eced85eb"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 74,
+          "name": "stepwise/job-019190/08-DataTo2024/plot-11.par.rep",
+          "bytes": 2851454,
+          "sha256": "3dcb37b4cf47599821ebe3fb7bd3230fb0a022f6ded276f5e0681014e1ebb16c"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-8a612fc5bcca0d499f1d7c1dc7b81c218f02c1ffb8175c8e4a701b327475a639",
+        "ordinal": 10,
+        "name": "./outputs/models/08-DataTo2024/mfcl-inputs/doitall.sh",
+        "sha256": "ae0a526d21053da82ed1ecb9865a55d7ac85e64bfc1c393aa7e89106ff90b6d9"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_905639/scratch/ofp-sam-bet-2026-stepwise/work/models/08-DataTo2024/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 10,
+          "name": "./outputs/models/08-DataTo2024/mfcl-inputs/doitall.sh",
+          "sha256": "ae0a526d21053da82ed1ecb9865a55d7ac85e64bfc1c393aa7e89106ff90b6d9"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 18,
+          "name": "./outputs/models/08-DataTo2024/model_payload.rds",
+          "bytes": 2829221,
+          "sha256": "87c1e36a3b74bf9a28256718700541a3c70454015c1d67f5b3789b39b8b72565"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 19191,
+      "source_id": "jc669574f706",
+      "model_key": "11-TimeVaryingCV",
+      "source_archive_id": "a-69683f84c89168857e15ae10c3a4c0edc5fb7ca71feab8060fbbc8645293e600",
+      "source_archive_sha256": "69683f84c89168857e15ae10c3a4c0edc5fb7ca71feab8060fbbc8645293e600",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 80,
+        "name": "stepwise/job-019191/11-TimeVaryingCV/final.par",
+        "bytes": 2955391,
+        "sha256": "a3f7f03100f0e656ed40e5439762b186d42b8f00424c5af0ee7f16496dd6ea94"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 82,
+          "name": "stepwise/job-019191/11-TimeVaryingCV/plot-11.par.rep",
+          "bytes": 2849470,
+          "sha256": "2a2706649f322799bc1d794a73451fa6dbd73460577058723a642a6276700069"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-69683f84c89168857e15ae10c3a4c0edc5fb7ca71feab8060fbbc8645293e600",
+        "ordinal": 11,
+        "name": "./outputs/models/11-TimeVaryingCV/mfcl-inputs/doitall.sh",
+        "sha256": "14fcde3fef6008d6524e6028052f27e903c3914d3f71f332648d69668aae6f4a"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_371595/scratch/ofp-sam-bet-2026-stepwise/work/models/11-TimeVaryingCV/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 11,
+          "name": "./outputs/models/11-TimeVaryingCV/mfcl-inputs/doitall.sh",
+          "sha256": "14fcde3fef6008d6524e6028052f27e903c3914d3f71f332648d69668aae6f4a"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 25,
+          "name": "./outputs/models/11-TimeVaryingCV/model_payload.rds",
+          "bytes": 2824306,
+          "sha256": "3e999548b975523f3d0afefa577e372f2650daaa459952dfcd53941e87cf47ac"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 19192,
+      "source_id": "jb9f3a5ff730",
+      "model_key": "12-CPUEErrorCalibration",
+      "source_archive_id": "a-c45bdeb4bc3e27b7707e8355af728fda5d9fcef2ab12a7e625f1d8bda44b70ed",
+      "source_archive_sha256": "c45bdeb4bc3e27b7707e8355af728fda5d9fcef2ab12a7e625f1d8bda44b70ed",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 90,
+        "name": "stepwise/job-019192/12-CPUEErrorCalibration/final.par",
+        "bytes": 2955380,
+        "sha256": "fe0794b3bd131ec9af9624838c6b4fdf747fe804de5df91ab621a10ae3835912"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 92,
+          "name": "stepwise/job-019192/12-CPUEErrorCalibration/plot-11.par.rep",
+          "bytes": 2847868,
+          "sha256": "e2917d79ff047c69da8e4e18e673019a60117b1b5df14801b3bc28318fb163d2"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-c45bdeb4bc3e27b7707e8355af728fda5d9fcef2ab12a7e625f1d8bda44b70ed",
+        "ordinal": 30,
+        "name": "./outputs/models/12-CPUEErrorCalibration/mfcl-inputs/doitall.sh",
+        "sha256": "baec5406639d6818414514ba0eb82bb88eadeb30db1cb5da08651c12f97c0239"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_962730/ofp-sam-bet-2026-stepwise/work/models/12-CPUEErrorCalibration/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 30,
+          "name": "./outputs/models/12-CPUEErrorCalibration/mfcl-inputs/doitall.sh",
+          "sha256": "baec5406639d6818414514ba0eb82bb88eadeb30db1cb5da08651c12f97c0239"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 12,
+          "name": "./outputs/models/12-CPUEErrorCalibration/model_payload.rds",
+          "bytes": 2820839,
+          "sha256": "f4831fdc38eb7c8f5b953e147533ae8d0eecd137079877b13a4f6af82626c6ce"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 19193,
+      "source_id": "j5ab0d3c4fd8",
+      "model_key": "14b-SUB075",
+      "source_archive_id": "a-baaab787cdfb648a0d57a565f1939a6a6d3cd885c63756b35e0aadd5e54f6316",
+      "source_archive_sha256": "baaab787cdfb648a0d57a565f1939a6a6d3cd885c63756b35e0aadd5e54f6316",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 100,
+        "name": "stepwise/job-019193/14b-SUB075/final.par",
+        "bytes": 2955385,
+        "sha256": "6a9486142e5cf3cd42f8339fd59c909b33f2709f525124f0cedb04bbe4341b03"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 102,
+          "name": "stepwise/job-019193/14b-SUB075/plot-11.par.rep",
+          "bytes": 2847668,
+          "sha256": "c4c55b8ff75fe030cc6f9437ec37f3a39d2b927838588bc56c5ffdc369e27d80"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-baaab787cdfb648a0d57a565f1939a6a6d3cd885c63756b35e0aadd5e54f6316",
+        "ordinal": 8,
+        "name": "./outputs/models/14b-SUB075/mfcl-inputs/doitall.sh",
+        "sha256": "baec5406639d6818414514ba0eb82bb88eadeb30db1cb5da08651c12f97c0239"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_985128/ofp-sam-bet-2026-stepwise/work/models/14b-SUB075/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 8,
+          "name": "./outputs/models/14b-SUB075/mfcl-inputs/doitall.sh",
+          "sha256": "baec5406639d6818414514ba0eb82bb88eadeb30db1cb5da08651c12f97c0239"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 24,
+          "name": "./outputs/models/14b-SUB075/model_payload.rds",
+          "bytes": 2826569,
+          "sha256": "2ba70614198a220deb3023f0b108d5064522522d155444a39a09100ac1aef5a8"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 19194,
+      "source_id": "j9e6c8fa2c99",
+      "model_key": "14a-REG075",
+      "source_archive_id": "a-5317be852a6e780f05feb5ba43bad1650f325cf05b9db57f04df3839502187e8",
+      "source_archive_sha256": "5317be852a6e780f05feb5ba43bad1650f325cf05b9db57f04df3839502187e8",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 110,
+        "name": "stepwise/job-019194/14a-REG075/final.par",
+        "bytes": 2955362,
+        "sha256": "e3f34f8174ab200f9691d4f2b19f00bb3176256a2a6b92004c68a257eab83262"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 112,
+          "name": "stepwise/job-019194/14a-REG075/plot-11.par.rep",
+          "bytes": 2848145,
+          "sha256": "5a8356df950ccf03f6b12fe204cc3d4429e8c0ec63b0af1353e546b97ff742a8"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-5317be852a6e780f05feb5ba43bad1650f325cf05b9db57f04df3839502187e8",
+        "ordinal": 24,
+        "name": "./outputs/models/14a-REG075/mfcl-inputs/doitall.sh",
+        "sha256": "baec5406639d6818414514ba0eb82bb88eadeb30db1cb5da08651c12f97c0239"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_977705/ofp-sam-bet-2026-stepwise/work/models/14a-REG075/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 24,
+          "name": "./outputs/models/14a-REG075/mfcl-inputs/doitall.sh",
+          "sha256": "baec5406639d6818414514ba0eb82bb88eadeb30db1cb5da08651c12f97c0239"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 16,
+          "name": "./outputs/models/14a-REG075/model_payload.rds",
+          "bytes": 2827035,
+          "sha256": "a8c352de9d55655b5472ce669c501f836ac388c4d9d985ae0dfa9ae689e63ce2"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 19195,
+      "source_id": "j3ee20fa0a8d",
+      "model_key": "13-NewAgeData",
+      "source_archive_id": "a-d230f87d66e74fbf903c5086e11790948b4c5f437486c0ea5c2bfb103ac8e628",
+      "source_archive_sha256": "d230f87d66e74fbf903c5086e11790948b4c5f437486c0ea5c2bfb103ac8e628",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 120,
+        "name": "stepwise/job-019195/13-NewAgeData/final.par",
+        "bytes": 2955371,
+        "sha256": "80ddfbf6c528f827efaaee9c88c365f778bb2dabb47019106beadd5a28ddfb5a"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 122,
+          "name": "stepwise/job-019195/13-NewAgeData/plot-11.par.rep",
+          "bytes": 2847428,
+          "sha256": "1d4afa74241ae2b5fc884ef9f14215252776972fce1ee669789caebbcf625551"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-d230f87d66e74fbf903c5086e11790948b4c5f437486c0ea5c2bfb103ac8e628",
+        "ordinal": 20,
+        "name": "./outputs/models/13-NewAgeData/mfcl-inputs/doitall.sh",
+        "sha256": "baec5406639d6818414514ba0eb82bb88eadeb30db1cb5da08651c12f97c0239"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_946643/ofp-sam-bet-2026-stepwise/work/models/13-NewAgeData/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 20,
+          "name": "./outputs/models/13-NewAgeData/mfcl-inputs/doitall.sh",
+          "sha256": "baec5406639d6818414514ba0eb82bb88eadeb30db1cb5da08651c12f97c0239"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 28,
+          "name": "./outputs/models/13-NewAgeData/model_payload.rds",
+          "bytes": 2828494,
+          "sha256": "472053e73481fa9356bf0c5e084602a2dfe22721c14a5e08a7fbb976e035678b"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 20217,
+      "source_id": "jac62f465741",
+      "model_key": "16-MIX020",
+      "source_archive_id": "a-ef6b3823b49c384aea51722f3d7b26a90b4a15f0ac569c4f9228b8192b3783e8",
+      "source_archive_sha256": "ef6b3823b49c384aea51722f3d7b26a90b4a15f0ac569c4f9228b8192b3783e8",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 130,
+        "name": "stepwise/job-020217/16-MIX020/final.par",
+        "bytes": 2955418,
+        "sha256": "f3652458aec665a22aee550d965dd8af99b7d14fa645afe08ed9101dfa02c9e0"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 132,
+          "name": "stepwise/job-020217/16-MIX020/plot-11.par.rep",
+          "bytes": 2846546,
+          "sha256": "b0d9e781071d21a4eaca15d739609b0ec464bcf89b5906de279b50bb7ea5b243"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-ef6b3823b49c384aea51722f3d7b26a90b4a15f0ac569c4f9228b8192b3783e8",
+        "ordinal": 29,
+        "name": "./outputs/models/16-MIX020/mfcl-inputs/doitall.sh",
+        "sha256": "8564ea34d047cafe3c4365afd046ef719d36b13a824e1f0e95e49ffd26ff71ba"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_646911/scratch/ofp-sam-bet-2026-stepwise/work/models/16-MIX020/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 29,
+          "name": "./outputs/models/16-MIX020/mfcl-inputs/doitall.sh",
+          "sha256": "8564ea34d047cafe3c4365afd046ef719d36b13a824e1f0e95e49ffd26ff71ba"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 13,
+          "name": "./outputs/models/16-MIX020/model_payload.rds",
+          "bytes": 2834316,
+          "sha256": "d93ef0680f6babc9756ef436f66e73500cd18c401addb463363717db0011cb55"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 20218,
+      "source_id": "j711129dee18",
+      "model_key": "15-SelectivityUpdate",
+      "source_archive_id": "a-7c9487256043d2ef33a621155525f13d82b9c02db7e2b018ae10ba0b16889fd4",
+      "source_archive_sha256": "7c9487256043d2ef33a621155525f13d82b9c02db7e2b018ae10ba0b16889fd4",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 140,
+        "name": "stepwise/job-020218/15-SelectivityUpdate/final.par",
+        "bytes": 2955494,
+        "sha256": "e5d6fce5a912b1ecab44ca3e3f1a9867b083849480bc79f9e4770e9b1f955e52"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 142,
+          "name": "stepwise/job-020218/15-SelectivityUpdate/plot-11.par.rep",
+          "bytes": 2849102,
+          "sha256": "0245d78b4d5096454150ba8756571ac26af9072e780477ec00ff7f795179d327"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-7c9487256043d2ef33a621155525f13d82b9c02db7e2b018ae10ba0b16889fd4",
+        "ordinal": 19,
+        "name": "./outputs/models/15-SelectivityUpdate/mfcl-inputs/doitall.sh",
+        "sha256": "8564ea34d047cafe3c4365afd046ef719d36b13a824e1f0e95e49ffd26ff71ba"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_1344370/scratch/ofp-sam-bet-2026-stepwise/work/models/15-SelectivityUpdate/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 19,
+          "name": "./outputs/models/15-SelectivityUpdate/mfcl-inputs/doitall.sh",
+          "sha256": "8564ea34d047cafe3c4365afd046ef719d36b13a824e1f0e95e49ffd26ff71ba"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 25,
+          "name": "./outputs/models/15-SelectivityUpdate/model_payload.rds",
+          "bytes": 2831776,
+          "sha256": "755a9e8ef18c9a29ec9e8412c629aaa8320b51266e3b9f5e40a0ca7f5a49b6c4"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 20219,
+      "source_id": "jc8a37a0ed56",
+      "model_key": "17-TagReportingExclusion",
+      "source_archive_id": "a-f32cfa6f04f1b7ac9419b941210714245e04e9d69de46c0d00cf19e85dd4f022",
+      "source_archive_sha256": "f32cfa6f04f1b7ac9419b941210714245e04e9d69de46c0d00cf19e85dd4f022",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 150,
+        "name": "stepwise/job-020219/17-TagReportingExclusion/final.par",
+        "bytes": 2955411,
+        "sha256": "359cd742cb327fc0366911a610ee53e8b8e23e66c0340267aafa6069cc27c17c"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 152,
+          "name": "stepwise/job-020219/17-TagReportingExclusion/plot-11.par.rep",
+          "bytes": 2849903,
+          "sha256": "3070be28085c1fed62931a727405200536c2419ddeaed9b0fb262a774ebde2f1"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-f32cfa6f04f1b7ac9419b941210714245e04e9d69de46c0d00cf19e85dd4f022",
+        "ordinal": 23,
+        "name": "./outputs/models/17-TagReportingExclusion/mfcl-inputs/doitall.sh",
+        "sha256": "8564ea34d047cafe3c4365afd046ef719d36b13a824e1f0e95e49ffd26ff71ba"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_869940/scratch/ofp-sam-bet-2026-stepwise/work/models/17-TagReportingExclusion/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 23,
+          "name": "./outputs/models/17-TagReportingExclusion/mfcl-inputs/doitall.sh",
+          "sha256": "8564ea34d047cafe3c4365afd046ef719d36b13a824e1f0e95e49ffd26ff71ba"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 12,
+          "name": "./outputs/models/17-TagReportingExclusion/model_payload.rds",
+          "bytes": 2843899,
+          "sha256": "c708c637eea4ce41f59204243bffc064605528af88d31d43f8850f97a24d1312"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 20220,
+      "source_id": "jfe336af68e2",
+      "model_key": "18-EffortCreep",
+      "source_archive_id": "a-b97e317aa027d6d15c0ba75ef40809a2b9d537ce7424e17bdef8d1797e7a8df1",
+      "source_archive_sha256": "b97e317aa027d6d15c0ba75ef40809a2b9d537ce7424e17bdef8d1797e7a8df1",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 160,
+        "name": "stepwise/job-020220/18-EffortCreep/final.par",
+        "bytes": 2955446,
+        "sha256": "f8fca7fff8e90d1fc09259121786c0017dfef01e29061c47c3b3ad9a7f4e36c0"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 162,
+          "name": "stepwise/job-020220/18-EffortCreep/plot-11.par.rep",
+          "bytes": 2850360,
+          "sha256": "9f92b5a0f46cc1b9b336650e4281f131f0c2a6b5bd9b197aea82190b52959ccc"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-b97e317aa027d6d15c0ba75ef40809a2b9d537ce7424e17bdef8d1797e7a8df1",
+        "ordinal": 11,
+        "name": "./outputs/models/18-EffortCreep/mfcl-inputs/doitall.sh",
+        "sha256": "8564ea34d047cafe3c4365afd046ef719d36b13a824e1f0e95e49ffd26ff71ba"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_424722/scratch/ofp-sam-bet-2026-stepwise/work/models/18-EffortCreep/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 11,
+          "name": "./outputs/models/18-EffortCreep/mfcl-inputs/doitall.sh",
+          "sha256": "8564ea34d047cafe3c4365afd046ef719d36b13a824e1f0e95e49ffd26ff71ba"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 26,
+          "name": "./outputs/models/18-EffortCreep/model_payload.rds",
+          "bytes": 2848908,
+          "sha256": "f46d3f5dbad6e4ebcce58114c11d908424cd49b33143ae0b77b6736a4d5b0d68"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 20221,
+      "source_id": "ja7a54d646ea",
+      "model_key": "19-DMG8Nmax25",
+      "source_archive_id": "a-d58cd6b8f7f18efc02cb79a9b23a9ce5cd7b4cf8c814f63f4e7e84dc29eeec89",
+      "source_archive_sha256": "d58cd6b8f7f18efc02cb79a9b23a9ce5cd7b4cf8c814f63f4e7e84dc29eeec89",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 170,
+        "name": "stepwise/job-020221/19-DMG8Nmax25/final.par",
+        "bytes": 2956542,
+        "sha256": "e4d55906c8298582eed5d533108b6af59b3b70f377c575ea5a7d80a753a53c55"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 172,
+          "name": "stepwise/job-020221/19-DMG8Nmax25/plot-11.par.rep",
+          "bytes": 2849894,
+          "sha256": "69ac7e68d3e41cb1fb1fa43d3c11f4f5e99d1e2ea9b523f6012d19db682bf26c"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-d58cd6b8f7f18efc02cb79a9b23a9ce5cd7b4cf8c814f63f4e7e84dc29eeec89",
+        "ordinal": 17,
+        "name": "./outputs/models/19-DMG8Nmax25/mfcl-inputs/doitall.sh",
+        "sha256": "a7233754c8e870d561dc1d06e9f34f0b84d2fe0d3412b373011d42f801cc0a97"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_1420305/scratch/ofp-sam-bet-2026-stepwise/work/models/19-DMG8Nmax25/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 17,
+          "name": "./outputs/models/19-DMG8Nmax25/mfcl-inputs/doitall.sh",
+          "sha256": "a7233754c8e870d561dc1d06e9f34f0b84d2fe0d3412b373011d42f801cc0a97"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 24,
+          "name": "./outputs/models/19-DMG8Nmax25/model_payload.rds",
+          "bytes": 2854265,
+          "sha256": "8bc7cf8cbcf9b66e32108ae985025c82e2f405d08cd06433a6d763895bf81d3b"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 22198,
+      "source_id": "jc31fa3c40f6",
+      "model_key": "20-Tau2Fixed",
+      "source_archive_id": "a-ee493ab6789cedd2ca0f67602a4e8a3f819602a4a2d1a012b13b300d193ce207",
+      "source_archive_sha256": "ee493ab6789cedd2ca0f67602a4e8a3f819602a4a2d1a012b13b300d193ce207",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 180,
+        "name": "stepwise/job-022198/20-Tau2Fixed/final.par",
+        "bytes": 2956592,
+        "sha256": "02fad3785e5b4e7a1992f8d7d2837716c4b1e748fa3273041540a845887d3f7d"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 182,
+          "name": "stepwise/job-022198/20-Tau2Fixed/plot-11.par.rep",
+          "bytes": 2844480,
+          "sha256": "2034a6881f083a52311580350c0281157a3344b5a08f5b3a5a81ea16e082419d"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-ee493ab6789cedd2ca0f67602a4e8a3f819602a4a2d1a012b13b300d193ce207",
+        "ordinal": 21,
+        "name": "./outputs/models/20-Tau2Fixed/mfcl-inputs/doitall.sh",
+        "sha256": "3c7090a85d1d6d3bb54c1e2b1d4caf1ec66b848aa2ad35403d7b4944ae4add1d"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_1531367/scratch/ofp-sam-bet-2026-stepwise/work/models/20-Tau2Fixed/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 21,
+          "name": "./outputs/models/20-Tau2Fixed/mfcl-inputs/doitall.sh",
+          "sha256": "3c7090a85d1d6d3bb54c1e2b1d4caf1ec66b848aa2ad35403d7b4944ae4add1d"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11_TAU2_FIXED",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 28,
+          "name": "./outputs/models/20-Tau2Fixed/model_payload.rds",
+          "bytes": 2842200,
+          "sha256": "e9c5499a40c488d350c1d914be42c8674048c5616e85051b82a09c0ead3abb3e"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 22199,
+      "source_id": "j8ad1ccaf7fc",
+      "model_key": "21-F33WeakPenalty",
+      "source_archive_id": "a-334bb3973b0091f050d0b6b8bed3980b690b89ca327c31f7f6d4ee5e84575221",
+      "source_archive_sha256": "334bb3973b0091f050d0b6b8bed3980b690b89ca327c31f7f6d4ee5e84575221",
+      "terminal_PAR": {
+        "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+        "ordinal": 190,
+        "name": "stepwise/job-022199/21-F33WeakPenalty/final.par",
+        "bytes": 2956592,
+        "sha256": "7db4decd97101bfcf85e1ec0c7e2633329a1245409a1ff5f1d6799074ef20775"
+      },
+      "native_REP": [
+        {
+          "archive_id": "rc-0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+          "ordinal": 192,
+          "name": "stepwise/job-022199/21-F33WeakPenalty/plot-11.par.rep",
+          "bytes": 2844534,
+          "sha256": "fce9565a84e48109a8c3e943df6a4e058a935b2f6936152c544ebe7e710a01b9"
+        }
+      ],
+      "doitall": {
+        "archive_id": "a-334bb3973b0091f050d0b6b8bed3980b690b89ca327c31f7f6d4ee5e84575221",
+        "ordinal": 11,
+        "name": "./outputs/models/21-F33WeakPenalty/mfcl-inputs/doitall.sh",
+        "sha256": "89862594e4acd834613fcafd80829d2165553f1a624e690b9ae5aa521ff2da6f"
+      },
+      "terminal_role_proof": {
+        "recorded_raw_file_artifact_role": "par",
+        "recorded_raw_file_name": "final.par",
+        "recorded_raw_file_source": "/var/lib/condor/execute/dir_1397137/scratch/ofp-sam-bet-2026-stepwise/work/models/21-F33WeakPenalty/11.par",
+        "actual_archived_doitall": {
+          "ordinal": 11,
+          "name": "./outputs/models/21-F33WeakPenalty/mfcl-inputs/doitall.sh",
+          "sha256": "89862594e4acd834613fcafd80829d2165553f1a624e690b9ae5aa521ff2da6f"
+        },
+        "last_explicit_program_output_command": "$program_path bet.frq 10.par 11.par -file - <<PHASE11_TAU2_FIXED",
+        "final_output_argument": "11.par",
+        "source_RDS_regular_member": {
+          "ordinal": 4,
+          "name": "./outputs/models/21-F33WeakPenalty/model_payload.rds",
+          "bytes": 2844025,
+          "sha256": "8f6dcae00e52d500a39abb5ebe3f063aa2f925f39370627bc26987aed6224370"
+        },
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed",
+      "RDS_run_status": "UNKNOWN"
+    },
+    {
+      "source_job": 21641,
+      "source_id": "j470a734773c",
+      "model_key": "22-Diagnostic",
+      "source_archive_id": "a-de732634023a558c38fa364de9ea43c8e37eee197622c8e3d386081eeeaa48c5",
+      "source_archive_sha256": "de732634023a558c38fa364de9ea43c8e37eee197622c8e3d386081eeeaa48c5",
+      "terminal_PAR": {
+        "archive_id": "a-de732634023a558c38fa364de9ea43c8e37eee197622c8e3d386081eeeaa48c5",
+        "ordinal": 47,
+        "name": "./outputs/S0.90-F2-tau2-fixed/11.par",
+        "bytes": 2956541,
+        "sha256": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3"
+      },
+      "native_REP": [
+        {
+          "archive_id": "a-de732634023a558c38fa364de9ea43c8e37eee197622c8e3d386081eeeaa48c5",
+          "ordinal": 54,
+          "name": "./outputs/S0.90-F2-tau2-fixed/plot-11.par.rep",
+          "bytes": 2846950,
+          "sha256": "bdc4468ea540da966bed821c2179c0d0e8bcc82698d4ac4665bfa04685928e3f"
+        }
+      ],
+      "doitall": [
+        {
+          "archive_id": "a-de732634023a558c38fa364de9ea43c8e37eee197622c8e3d386081eeeaa48c5",
+          "ordinal": 95,
+          "name": "./outputs/S0.90-F2-tau2-fixed/doitall.sh",
+          "sha256": "5c53802daf44e700ee91aa8108f0b2289473c0344d7feecf04cab458dc49ca77"
+        }
+      ],
+      "terminal_role_proof": {
+        "published_mapping": {
+          "repository": "ofp-sam-bet-2026-stepwise",
+          "step_id": "22-Diagnostic",
+          "model_job_number": "21641",
+          "payload_job_number": "21747",
+          "kflow_task": "ofp-sam-bet-2026-tau2-steepness-selectivity-grid",
+          "archive_folder": "ofp-sam-bet-2026-tau2-compact-model-payloads",
+          "payload_member": "outputs/models/S0.90-F2-tau2-fixed/model_payload.rds"
+        },
+        "source_terminal_PAR_sha256": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3",
+        "raw_artifact_byte_proof": {
+          "source_payload_job": 21747,
+          "source_id": "ja96647b91fb",
+          "source_RDS_member": "./outputs/models/S0.90-F2-tau2-fixed/model_payload.rds",
+          "source_RDS_sha256": "817b1b675a2cb6cc2acdca0f8265301ddd29f3cf41d1eb75ce66822ff9e875c1",
+          "artifacts": [
+            {
+              "declared": {
+                "role": "par",
+                "name": "final.par",
+                "source": "/var/lib/condor/execute/dir_1504115/scratch/output/models/S0.90-F2-tau2-fixed/final.par",
+                "storage": "raw-file",
+                "compression": "gzip",
+                "size": "2956541",
+                "stored_size": "55105"
+              },
+              "stored_sha256": "61fb66e1e645688d990260e4f16dbf81c1d8ffee9114216e8f7c8f2c314ff820",
+              "native_sha256": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3",
+              "native_bytes": 2956541,
+              "operation": "lossless original raw-file artifact zlib decoding; hash only, no numeric reconstruction"
+            },
+            {
+              "declared": {
+                "role": "rep",
+                "name": "plot-11.par.rep",
+                "source": "/var/lib/condor/execute/dir_1504115/scratch/output/models/S0.90-F2-tau2-fixed/plot-11.par.rep",
+                "storage": "raw-file",
+                "compression": "gzip",
+                "size": "2846950",
+                "stored_size": "772673"
+              },
+              "stored_sha256": "a23d700cb1cb6ad3a595c63d6d87e9dccdfc6e25c879bbdee72fd6587705e317",
+              "native_sha256": "bdc4468ea540da966bed821c2179c0d0e8bcc82698d4ac4665bfa04685928e3f",
+              "native_bytes": 2846950,
+              "operation": "lossless original raw-file artifact zlib decoding; hash only, no numeric reconstruction"
+            }
+          ]
+        },
+        "source_RDS_regular_member": {
+          "archive_id": "a-f88ce2cd70c6c721ca9ffd1fd8655687b158cb229d546b7d78a929fa3508000d",
+          "ordinal": 8,
+          "name": "./outputs/models/S0.90-F2-tau2-fixed/model_payload.rds",
+          "bytes": 12620695,
+          "sha256": "817b1b675a2cb6cc2acdca0f8265301ddd29f3cf41d1eb75ce66822ff9e875c1"
+        },
+        "result": "original published source payload native PAR/REP raw-file artifacts losslessly decoded for hash-only proof match exact original central fit regular PAR/REP members",
+        "scientific_convergence_not_inferred": true
+      },
+      "source_status": "completed"
+    }
+  ],
+  "native_RDS_recoveries": 22,
+  "regular_published_native_fit": 1,
+  "scientific_convergence_not_inferred": true,
+  "metadata_correction": {
+    "schema_version": 1,
+    "reason": "use exact published step_id22-Diagnostic and add native REP/source payload byte identity; prior invented metadata label corrected",
+    "prior_outer_bundle": {
+      "id": "bet2026-stepwise-native-compressed",
+      "path": "/Users/kyuhan_kim/.codex/.chatgpt-projects/g-p-6ac1af98d618819197475f4387a284f4/rr-evidence/bet-preservation/bundles/bet2026-stepwise-native-compressed.tar",
+      "bytes": 58726400,
+      "sha256": "7423eebf437251eb24497ec194eaa8090582f922170eab7cadb25bd6a31cb238"
+    },
+    "original_recovered_native_archive_sha256_unchanged": "0ca1da937ea7fb1a66fa2a35d043cecd62a75d8c84e44efb9e6f1e9cb94b718c",
+    "all_100_recovered_native_file_bytes_unchanged": true,
+    "original_source_files_unchanged": true
+  }
+}

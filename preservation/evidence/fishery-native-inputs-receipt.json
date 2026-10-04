@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "kind": "original local assessment native-input and reference snapshot, newly generated preservation container",
+  "source_root": "/Users/kyuhan_kim/Desktop/SPC/ofp-sam-2026-BET/tmp/pdfs/impact_audit",
+  "source_execution_identity": "UNKNOWN; original local output placement; no Kflow job mapping inferred",
+  "source_files": [
+    {
+      "ordinal": 0,
+      "source_path": "/Users/kyuhan_kim/Desktop/SPC/ofp-sam-2026-BET/tmp/pdfs/impact_audit/diagnostic-plot.rep",
+      "source_sha256_before": "bdc4468ea540da966bed821c2179c0d0e8bcc82698d4ac4665bfa04685928e3f",
+      "source_sha256_after": "bdc4468ea540da966bed821c2179c0d0e8bcc82698d4ac4665bfa04685928e3f",
+      "source_bytes": 2846950,
+      "source_stable": true,
+      "source_stat_mode_observed_at_metadata_correction": 33188,
+      "source_stat_permission_bits_observed_at_metadata_correction": 420
+    },
+    {
+      "ordinal": 1,
+      "source_path": "/Users/kyuhan_kim/Desktop/SPC/ofp-sam-2026-BET/tmp/pdfs/impact_audit/jitter-reference.par",
+      "source_sha256_before": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3",
+      "source_sha256_after": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3",
+      "source_bytes": 2956541,
+      "source_stable": true,
+      "source_stat_mode_observed_at_metadata_correction": 33188,
+      "source_stat_permission_bits_observed_at_metadata_correction": 420
+    },
+    {
+      "ordinal": 2,
+      "source_path": "/Users/kyuhan_kim/Desktop/SPC/ofp-sam-2026-BET/tmp/pdfs/impact_audit/impact_calc_h1_pinned.R",
+      "source_sha256_before": "1323f09cd09e750d6df9abb96f800d98d49606cea3c9772193f5384e0441ae9c",
+      "source_sha256_after": "1323f09cd09e750d6df9abb96f800d98d49606cea3c9772193f5384e0441ae9c",
+      "source_bytes": 10827,
+      "source_stable": true,
+      "source_stat_mode_observed_at_metadata_correction": 33188,
+      "source_stat_permission_bits_observed_at_metadata_correction": 420
+    },
+    {
+      "ordinal": 3,
+      "source_path": "/Users/kyuhan_kim/Desktop/SPC/ofp-sam-2026-BET/tmp/pdfs/impact_audit/impact_calc_h1.R",
+      "source_sha256_before": "1323f09cd09e750d6df9abb96f800d98d49606cea3c9772193f5384e0441ae9c",
+      "source_sha256_after": "1323f09cd09e750d6df9abb96f800d98d49606cea3c9772193f5384e0441ae9c",
+      "source_bytes": 10827,
+      "source_stable": true,
+      "source_stat_mode_observed_at_metadata_correction": 33188,
+      "source_stat_permission_bits_observed_at_metadata_correction": 420
+    },
+    {
+      "ordinal": 4,
+      "source_path": "/Users/kyuhan_kim/Desktop/SPC/ofp-sam-2026-BET/tmp/pdfs/impact_audit/audit_impact.R",
+      "source_sha256_before": "74ca9e4aa36b3ff55b65ddcc474276ca091d29de55d879f121721e1a7b8e4023",
+      "source_sha256_after": "74ca9e4aa36b3ff55b65ddcc474276ca091d29de55d879f121721e1a7b8e4023",
+      "source_bytes": 2792,
+      "source_stable": true,
+      "source_stat_mode_observed_at_metadata_correction": 33188,
+      "source_stat_permission_bits_observed_at_metadata_correction": 420
+    },
+    {
+      "ordinal": 6,
+      "source_path": "/Users/kyuhan_kim/Desktop/SPC/ofp-sam-2026-BET/tmp/pdfs/impact_audit/native_inputs/MANIFEST.sha256",
+      "source_sha256_before": "764327d9a449757e060b537eeeb67a648eb8c16f21caa3353d74974213a3522b",
+      "source_sha256_after": "764327d9a449757e060b537eeeb67a648eb8c16f21caa3353d74974213a3522b",
+      "source_bytes": 983,
+      "source_stable": true,
+      "source_stat_mode_observed_at_metadata_correction": 33188,
+      "source_stat_permission_bits_observed_at_metadata_correction": 420
+    },
+    {
+      "ordinal": 7,
+      "source_path": "/Users/kyuhan_kim/Desktop/SPC/ofp-sam-2026-BET/tmp/pdfs/impact_audit/native_inputs/bet.age_length",
+      "source_sha256_before": "426859b825bd815aa69c8d97c9dd93097027ed1eb6b9e444d88b69562097a00c",
+      "source_sha256_after": "426859b825bd815aa69c8d97c9dd93097027ed1eb6b9e444d88b69562097a00c",
+      "source_bytes": 1403841,
+      "source_stable": true,
+      "source_stat_mode_observed_at_metadata_correction": 33188,
+      "source_stat_permission_bits_observed_at_metadata_correction": 420
+    },
+    {
+      "ordinal": 8,
+      "source_path": "/Users/kyuhan_kim/Desktop/SPC/ofp-sam-2026-BET/tmp/pdfs/impact_audit/native_inputs/bet.frq",
+      "source_sha256_before": "d0d84f0a498e6a62681f2a58ffc1ba53dab9e3d6af856b4ad1fd907196250004",
+      "source_sha256_after": "d0d84f0a498e6a62681f2a58ffc1ba53dab9e3d6af856b4ad1fd907196250004",
+      "source_bytes": 2932052,
+      "source_stable": true,
+      "source_stat_mode_observed_at_metadata_correction": 33188,
+      "source_stat_permission_bits_observed_at_metadata_correction": 420
+    },
+    {
+      "ordinal": 9,
+      "source_path": "/Users/kyuhan_kim/Desktop/SPC/ofp-sam-2026-BET/tmp/pdfs/impact_audit/native_inputs/bet.ini",
+      "source_sha256_before": "fbd064c3d0ccb4d2e1b9beb06fe3eacf0180677821e6a1773d20b308474d984e",
+      "source_sha256_after": "fbd064c3d0ccb4d2e1b9beb06fe3eacf0180677821e6a1773d20b308474d984e",
+      "source_bytes": 66791,
+      "source_stable": true,
+      "source_stat_mode_observed_at_metadata_correction": 33188,
+      "source_stat_permission_bits_observed_at_metadata_correction": 420
+    },
+    {
+      "ordinal": 10,
+      "source_path": "/Users/kyuhan_kim/Desktop/SPC/ofp-sam-2026-BET/tmp/pdfs/impact_audit/native_inputs/bet.reg_scaling",
+      "source_sha256_before": "5f047ddb4053d1f6df9ace18e85e440b11553de246d024ce8138b427f5f9f7e3",
+      "source_sha256_after": "5f047ddb4053d1f6df9ace18e85e440b11553de246d024ce8138b427f5f9f7e3",
+      "source_bytes": 1186,
+      "source_stable": true,
+      "source_stat_mode_observed_at_metadata_correction": 33188,
+      "source_stat_permission_bits_observed_at_metadata_correction": 420
+    },
+    {
+      "ordinal": 11,
+      "source_path": "/Users/kyuhan_kim/Desktop/SPC/ofp-sam-2026-BET/tmp/pdfs/impact_audit/native_inputs/bet.tag",
+      "source_sha256_before": "b140e66eb52f2b7e022ef2c562134f8bc9baf3dede18ce95283a001acd2b013f",
+      "source_sha256_after": "b140e66eb52f2b7e022ef2c562134f8bc9baf3dede18ce95283a001acd2b013f",
+      "source_bytes": 110051,
+      "source_stable": true,
+      "source_stat_mode_observed_at_metadata_correction": 33188,
+      "source_stat_permission_bits_observed_at_metadata_correction": 420
+    },
+    {
+      "ordinal": 12,
+      "source_path": "/Users/kyuhan_kim/Desktop/SPC/ofp-sam-2026-BET/tmp/pdfs/impact_audit/native_inputs/fishery_map.R",
+      "source_sha256_before": "d133fe8735739531f00046485c639bcc3d8a86f077256e569c9c2fa30e39074d",
+      "source_sha256_after": "d133fe8735739531f00046485c639bcc3d8a86f077256e569c9c2fa30e39074d",
+      "source_bytes": 5155,
+      "source_stable": true,
+      "source_stat_mode_observed_at_metadata_correction": 33188,
+      "source_stat_permission_bits_observed_at_metadata_correction": 420
+    },
+    {
+      "ordinal": 13,
+      "source_path": "/Users/kyuhan_kim/Desktop/SPC/ofp-sam-2026-BET/tmp/pdfs/impact_audit/native_inputs/mfcl.cfg",
+      "source_sha256_before": "2ec8a291fae62c6f37541aec1de37444626d42b3290b371bb42b63d510034eae",
+      "source_sha256_after": "2ec8a291fae62c6f37541aec1de37444626d42b3290b371bb42b63d510034eae",
+      "source_bytes": 31,
+      "source_stable": true,
+      "source_stat_mode_observed_at_metadata_correction": 33188,
+      "source_stat_permission_bits_observed_at_metadata_correction": 420
+    },
+    {
+      "ordinal": 14,
+      "source_path": "/Users/kyuhan_kim/Desktop/SPC/ofp-sam-2026-BET/tmp/pdfs/impact_audit/native_inputs/mfclo64",
+      "source_sha256_before": "8995f72019869863c1d1c0b4f44fc6a6268d1f79031f5bc79dc354ee10f0a63e",
+      "source_sha256_after": "8995f72019869863c1d1c0b4f44fc6a6268d1f79031f5bc79dc354ee10f0a63e",
+      "source_bytes": 9433720,
+      "source_stable": true,
+      "source_stat_mode_observed_at_metadata_correction": 33188,
+      "source_stat_permission_bits_observed_at_metadata_correction": 420
+    }
+  ],
+  "raw_bytes": 19781747,
+  "container": {
+    "path": "/Users/kyuhan_kim/.codex/.chatgpt-projects/g-p-6ac1af98d618819197475f4387a284f4/rr-evidence/bet-preservation/bundles/bet2026-fishery-native-inputs.tar.gz",
+    "bytes": 5974323,
+    "sha256": "ae2901193a7a6507fa7b9c2e62811cd2e94cd26f3d07063c5fa7cf057ed742c2"
+  },
+  "credential_scan": {
+    "state": "no_pattern_matches",
+    "findings": []
+  },
+  "limitations": "original data byte preservation only; recovered scripts never executed",
+  "metadata_correction": {
+    "schema_version": 1,
+    "reason": "manifest mode corrected from pre-serialization TarInfo/st_mode to actual retained TAR header mode",
+    "archive_sha256_unchanged": "ae2901193a7a6507fa7b9c2e62811cd2e94cd26f3d07063c5fa7cf057ed742c2",
+    "prior_outer_bundle": {
+      "id": "bet2026-fishery-native-inputs",
+      "path": "/Users/kyuhan_kim/.codex/.chatgpt-projects/g-p-6ac1af98d618819197475f4387a284f4/rr-evidence/bet-preservation/bundles/bet2026-fishery-native-inputs.tar",
+      "bytes": 5990400,
+      "sha256": "c0227e652004cbb59091bffb08d481b4a737eedaa6fad6ef9ff25e4da5a847c1"
+    },
+    "prior_manifest_path": "jobs/prior-metadata-v1/localfish-ae2901193a7a6507fa7b9c2e62811cd2e94cd26f3d07063c5fa7cf057ed742c2.jsonl.gz",
+    "changes": [
+      {
+        "ordinal": 0,
+        "name": "impact_audit/diagnostic-plot.rep",
+        "prior_pre_serialization_mode": 33188,
+        "actual_TAR_header_mode": 420
+      },
+      {
+        "ordinal": 1,
+        "name": "impact_audit/jitter-reference.par",
+        "prior_pre_serialization_mode": 33188,
+        "actual_TAR_header_mode": 420
+      },
+      {
+        "ordinal": 2,
+        "name": "impact_audit/impact_calc_h1_pinned.R",
+        "prior_pre_serialization_mode": 33188,
+        "actual_TAR_header_mode": 420
+      },
+      {
+        "ordinal": 3,
+        "name": "impact_audit/impact_calc_h1.R",
+        "prior_pre_serialization_mode": 33188,
+        "actual_TAR_header_mode": 420
+      },
+      {
+        "ordinal": 4,
+        "name": "impact_audit/audit_impact.R",
+        "prior_pre_serialization_mode": 33188,
+        "actual_TAR_header_mode": 420
+      },
+      {
+        "ordinal": 5,
+        "name": "impact_audit/native_inputs",
+        "prior_pre_serialization_mode": 16877,
+        "actual_TAR_header_mode": 493
+      },
+      {
+        "ordinal": 6,
+        "name": "impact_audit/native_inputs/MANIFEST.sha256",
+        "prior_pre_serialization_mode": 33188,
+        "actual_TAR_header_mode": 420
+      },
+      {
+        "ordinal": 7,
+        "name": "impact_audit/native_inputs/bet.age_length",
+        "prior_pre_serialization_mode": 33188,
+        "actual_TAR_header_mode": 420
+      },
+      {
+        "ordinal": 8,
+        "name": "impact_audit/native_inputs/bet.frq",
+        "prior_pre_serialization_mode": 33188,
+        "actual_TAR_header_mode": 420
+      },
+      {
+        "ordinal": 9,
+        "name": "impact_audit/native_inputs/bet.ini",
+        "prior_pre_serialization_mode": 33188,
+        "actual_TAR_header_mode": 420
+      },
+      {
+        "ordinal": 10,
+        "name": "impact_audit/native_inputs/bet.reg_scaling",
+        "prior_pre_serialization_mode": 33188,
+        "actual_TAR_header_mode": 420
+      },
+      {
+        "ordinal": 11,
+        "name": "impact_audit/native_inputs/bet.tag",
+        "prior_pre_serialization_mode": 33188,
+        "actual_TAR_header_mode": 420
+      },
+      {
+        "ordinal": 12,
+        "name": "impact_audit/native_inputs/fishery_map.R",
+        "prior_pre_serialization_mode": 33188,
+        "actual_TAR_header_mode": 420
+      },
+      {
+        "ordinal": 13,
+        "name": "impact_audit/native_inputs/mfcl.cfg",
+        "prior_pre_serialization_mode": 33188,
+        "actual_TAR_header_mode": 420
+      },
+      {
+        "ordinal": 14,
+        "name": "impact_audit/native_inputs/mfclo64",
+        "prior_pre_serialization_mode": 33188,
+        "actual_TAR_header_mode": 420
+      }
+    ],
+    "all_regular_file_SHA_and_names_sizes_types_linknames_unchanged": true
+  }
+}

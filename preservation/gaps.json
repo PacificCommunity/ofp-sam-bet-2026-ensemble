@@ -1,0 +1,1425 @@
+{
+  "schema_version": 1,
+  "scope_complete": false,
+  "missing_archives": [
+    {
+      "job_key": "kflow-024013",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-diagnostic",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-024011",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-diagnostic",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-024010",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-diagnostic",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-024004",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-diagnostic",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-024000",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023827",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023826",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023825",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023824",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023823",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023822",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023821",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023820",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023819",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023818",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023817",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023816",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023815",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023814",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023813",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023812",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023811",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023810",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023809",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023808",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023807",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023806",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023805",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023804",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023803",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023802",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023801",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023800",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023799",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023798",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023797",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023796",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023795",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023794",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023793",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023792",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023791",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023790",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023789",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023788",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023787",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023786",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023785",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023784",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023783",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023782",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023781",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023780",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023779",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023778",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023777",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023776",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023775",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023774",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023773",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023772",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023771",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023770",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023769",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023768",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023767",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023766",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023765",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023764",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023763",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023762",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023761",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023760",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023759",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023758",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023757",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023756",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023755",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023754",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023753",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023752",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023751",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023750",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023749",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023747",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023746",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023745",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023748",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023744",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023743",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023742",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023741",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023740",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023739",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023738",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023737",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023736",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023735",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023734",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023733",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023732",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023731",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023730",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023729",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-023728",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022975",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022971",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022858",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022854",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022851",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022848",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022846",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022779",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022775",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022771",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022767",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022763",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022759",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022755",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022751",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022743",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022739",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022736",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022686",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022679",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022676",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022674",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022672",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022646",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022644",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022642",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022640",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022638",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    },
+    {
+      "job_key": "kflow-022636",
+      "status": "cancelled",
+      "repository": "PacificCommunity/ofp-sam-bet-2026-checks",
+      "reason": "No archive at recorded original/cache locations",
+      "original_source_status": "removed"
+    }
+  ],
+  "collection_pending": [],
+  "native_gaps": [
+    {
+      "family": "selftest",
+      "files": "50 per-case native PAR/REP/FRQ/TAG/INI/doitall",
+      "evidence": "Recorded original/cache locations and archived RDS examined; execution-node scratch retention remains UNKNOWN_NOT_ACCESSIBLE.",
+      "receipt": "evidence/selftest-native-location-summary.json"
+    },
+    {
+      "family": "jitter",
+      "files": "5 excluded seed-start PARs and native profile PARs",
+      "evidence": "Absent at the bounded examined original/cache/RDS locations; retained seed-start PARs and original ASPM PAR/REP survive."
+    },
+    {
+      "family": "fishery-impact",
+      "identity": "Original Kflow IDs UNKNOWN for local analytical trials",
+      "evidence": "All8native REP published hashes match original local outputs; input/control/log trees preserved.",
+      "receipt": "evidence/fishery-impact-provenance.json"
+    },
+    {
+      "family": "history",
+      "files": "9016 other available public BET source paths,217701045704 bytes",
+      "evidence": "Separate bounded preservation collection pending."
+    }
+  ],
+  "malformed_archives": [
+    {
+      "job_key": "kflow-022101",
+      "archive_id": "a-095140654b66f723e2b6a560a074c38ac10eafeaf823f0d800525c0bb3e2d26e",
+      "reason": "Original compressed source truncated; unchanged raw bytes and89complete members preserved. Valid distinct failure-cache snapshot retained as auxiliary.",
+      "receipt": "evidence/failed22101-original-stream-readiness.json"
+    }
+  ],
+  "source_commit_gaps": [
+    {
+      "repository": "PacificCommunity/ofp-sam-bet-2026-curation",
+      "commits": [
+        "2dbac4dd4f5d9d3c4c65c399739844c94b30e14d",
+        "9bc3e88435b4d170ae18b6c9ee171ca640bab9e1",
+        "c16b11d4590963788f99298287e2948fad3e5f30"
+      ]
+    },
+    {
+      "repository": "PacificCommunity/ofp-sam-bet-2026-exploration",
+      "commits": [
+        "1822306aeb77d91e1f1ebb9fe38f8e52b9d77b77",
+        "22a99dac11c5e3538aa3be2e9a70a4158e8f0008",
+        "2817578b88a5f3248750b595dca41a7890b4e644",
+        "40542e90f2a45cd03a50ef52f6a62bd235d15b26",
+        "473e71f4ed7c85800ba0bead4a686e0d130be532",
+        "71415d934a32f10331b432ed9a803ae20b985b33",
+        "745641d6bc966f2f6f27a4e9d28954c73037f7f3",
+        "7a4586cab39d1d4d4839753e762b21cb960b3ca2",
+        "81a456fa5c36ef1be5bd9da38308ef07ebc55ff4",
+        "84afb5a52536b1043c47a66dc65c0c4f054ee44e",
+        "8df6a0e4b9856c5cd1e06ab7010c6e71c773f428",
+        "99d7327d6222987fed35dd68b23281127279b8cd",
+        "c940601bb95797a5cc5b4a2dbc01cfd6daa86a70",
+        "d71ab31db64a39c143864fcd474e13c25e643fc1",
+        "d89557675dc9aaf93ab21706b96d136e6f30f4f6",
+        "f5cfd89aba8ecded27bc158d939f93d5c432c371",
+        "f7a460da1be5b829cee498e9576004664e920948"
+      ]
+    },
+    {
+      "repository": "PacificCommunity/ofp-sam-bet-2026-mcmc",
+      "commits": [
+        "f8d61707c2742fd1976036a37cb6dc55594c65cc"
+      ]
+    },
+    {
+      "repository": "PacificCommunity/ofp-sam-bet-2026-model-checks",
+      "commits": [
+        "04c707a8433699a5f29bd458892cd8f87ad52756",
+        "174cdc181ded0d9f517388fe952c227dac2b40a8",
+        "1bc4c48a1be8adacbb6887d35872f7021245758d",
+        "1d78e7212f274cdd4c4140de6579d093a999630b",
+        "20e4733f619505141c9510b6efc3fce165442dde",
+        "23da6d765d76a3c8d3ebe3bb2e3c94aadd291274",
+        "241e317e48504807bc355b89f2876b53215dd025",
+        "29436f069d616c33e40588f6cc39fc990ac8a0d7",
+        "2a676afc9c82d9964a713b6cbadba50679440176",
+        "2ab65de3430954d2c3c0aa79f968868664c9ec2c",
+        "2bf1bb67591481b788f7bf61dc42d484798b3c0e",
+        "3464a1023d97a082a86da562a9d484c3cc87a736",
+        "36c82ab79faba6e21d0eb0c428e24724ae5d65f6",
+        "42d307822ebf4fa7dfd8389668b6716d9a48676f",
+        "4c15b69a103d8e3f78517acf76ecd098f9f7d638",
+        "4df8152bee29f8ab0a7aac2b500d0414a2e42325",
+        "514299fa3d7591a2bf7edf97c7b0d562f6941c1a",
+        "57eb20f66fe9b2ea53922a3e4bb92001779e5e97",
+        "581ade4cb16d9d88aaa926bbbf0c4d7b9d888e87",
+        "5c8878551e3dbd30eb8decf3a9ad6d94d9620142",
+        "5d44769c6b3f5bb9cb598062e284f5b68da39f47",
+        "63737be7eb1b5c191d63f67b5515356c1de168d6",
+        "6ac8268cc7270815cf0df54c8c5a275e0481efc5",
+        "6cd0fac6c0e5c74d49c114ac2c2e8757b4ff1ab0",
+        "7dce74a6b5d3f46b349239cb7f1ab467b7e4aed8",
+        "82ba50689072c6e0f952f577417724e165a4a699",
+        "842ae96534550f0093a172d720baad50c69c9c3c",
+        "896710ee76c96ad098bd79d0f02e020bfb06588d",
+        "8f79f4139299cc6e7aa73e13ac096e1e114c1d4a",
+        "913989a79b2e9011370166ceb4a78333128d93ea",
+        "9193e41a72d617163fcb6244b3f1bc73d415b237",
+        "92fcd6cf17aad6f4a35fe785a686a83cdfbe6d57",
+        "94c386de0e4901c614d2481b47f368d985123804",
+        "958cf5a6d49571d0455602c493c3756b31ce44d6",
+        "9c3b5ab9fc4cdffc37244bafa4f8779129e92907",
+        "a71efb020aa32c47a6f16d00dd99ec65c54d9375",
+        "ab9c22ebe9ae546d413ef925a901b4d3aa24463e",
+        "ac32934a8d33a3d9ec1bc85d9dd230a64eabe1a4",
+        "b71e1c0faf21298a0e3373e44536a25aac632acb",
+        "ba790fc3cd6ddcb0822351cb3ae440fe0c7a9f1d",
+        "be7698232471091c7d88ec17df69c31f9916edeb",
+        "cd4b69bfb6511161e8f29bfa24abecf6835caa30",
+        "d0683476d647c78049f4349fc77fa0835eab6ffd",
+        "d20af308825c2d89782958aa9f5e80f706e6b72f",
+        "d56f1565a4e3d0de4fc4e797f7de45dc085e56f6",
+        "d6ccbf67ebce53890645157caf178b58e53ad124",
+        "e721990ac32b528c7675ab6a0a8edd2f10efb87a"
+      ]
+    }
+  ],
+  "runtime_gaps": {
+    "executed_external_Diagnostic_ensemble_engine_hash": "UNKNOWN",
+    "container_and_private_packages": "Pinned container snapshot retained. Historical external/private package updates and executed external engine identities are not fully reconstructible.",
+    "receipt": "evidence/runtime.json"
+  },
+  "catalog_identity_gaps": [
+    {
+      "job_key": "kflow-022101",
+      "gaps": [
+        "member_inventory_error:ReadError",
+        "original_archive_truncated_member_inventory_incomplete"
+      ]
+    },
+    {
+      "job_key": "kflow-022976",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022977",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022978",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022979",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022980",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022981",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022982",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022983",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022984",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022985",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022986",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022987",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022988",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022989",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022990",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022991",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022992",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022993",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022994",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022995",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022996",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022997",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022998",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-022999",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023000",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023001",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023002",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023003",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023004",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023005",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023006",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023007",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023008",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023009",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023010",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023011",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023012",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023013",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023014",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023015",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023016",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023017",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023018",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023019",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023020",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023021",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023022",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023023",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023024",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023025",
+      "gaps": [
+        "selftest_case_native_PAR_REP_FRQ_TAG_INI_doitall_unavailable_at_examined_locations"
+      ]
+    },
+    {
+      "job_key": "kflow-023182",
+      "gaps": [
+        "executed_source_commit_unknown"
+      ]
+    },
+    {
+      "job_key": "kflow-023183",
+      "gaps": [
+        "executed_source_commit_unknown"
+      ]
+    },
+    {
+      "job_key": "kflow-023726",
+      "gaps": [
+        "executed_source_commit_unknown"
+      ]
+    },
+    {
+      "job_key": "kflow-024008",
+      "gaps": [
+        "executed_source_commit_unknown"
+      ]
+    },
+    {
+      "job_key": "kflow-024058",
+      "gaps": [
+        "executed_source_commit_unknown"
+      ]
+    }
+  ],
+  "history": {
+    "available_source_paths": 9016,
+    "available_archive_bytes": 217701045704,
+    "published_history_source_paths": 0,
+    "ack_and_member_verified_source_paths": 203,
+    "collected_source_paths": 216,
+    "pending_source_paths": 8813,
+    "missing_original_archives": 1585,
+    "unmirrored_originals": 37,
+    "ledger": "history-gaps.json",
+    "publication_complete": false,
+    "state": "Additional historical archives are being preserved. Verified private transfers are not yet published in this catalog.",
+    "checked_at": "2026-10-04T09:02:59.550034+00:00"
+  }
+}

@@ -50,6 +50,13 @@ Use Python 3.9 or later, Docker and enough resources for 2 CPUs and 8 GiB. The i
 ./rr-test/rerun rrtest-005-rr1 --anchor
 ```
 
+To use the preserved Docker image, follow the [saved runtime instructions](../preservation/runtime.md), then add `--saved-runtime`. This selects the exact loaded image ID, refuses image pulls, and records that selection in the command receipt.
+
+```sh
+./rr-test/rerun rrtest-005-rr1 --saved-runtime --dry-run
+./rr-test/rerun rrtest-005-rr1 --anchor --saved-runtime --dry-run
+```
+
 Each arm starts from ordinary `-makepar`, without a fitted checkpoint or jitter. The helper verifies the image executable hash before preparing inputs, validates the selected pair against the historical RR0 input hash, and uses the original phase 10/11 convergence criterion (`-4`). It refuses existing output directories.
 
 Results go to `outputs/rr-test-local/rrtest-005-rr1/run/` and `outputs/rr-test-local/ensemble-005/run/`. Each parent folder also contains the command receipt and run log. To repeat an attempt, choose a fresh folder with `--output-dir /new/path`. Numerical convergence and elapsed time can differ across reruns; inspect final MGC and the stock-status quantities.

@@ -1,0 +1,1128 @@
+{
+  "schema_version": 1,
+  "release_tag": "bet2026-kflow-20261004",
+  "bundle_count": 111,
+  "bundle_bytes": 36791595958,
+  "archive_objects": 2003,
+  "catalog_sha256": "814a4b62a6f12ad1f119216602c797acacd63fe097ef71e03149342a9413a484",
+  "objects_sha256": "f971915bb2fb6e796b89c0b84775ff1ff658145c14615477ab89005bed77b222",
+  "tools_sha256": "d405e74faada9c361688a402cf4aa3327a99dac88d96effd763ac6657930c62e",
+  "verification": "Every listed bundle was downloaded afresh from its GitHub asset and matched the recorded full size and SHA-256. Internal file hashes were checked separately before publication.",
+  "limitations": [
+    "Original truncated archive for Job 22101 remains truncated; its member inventory is incomplete.",
+    "Additional historical archives are not yet fully preserved or published; see gaps.json.",
+    "Byte verification does not establish native-fit success or validate a new scientific rerun."
+  ],
+  "bundles": [
+    {
+      "id": "bet2026-stepwise-native-compressed-metadata-v2",
+      "asset_id": 609258257,
+      "bytes": 58736640,
+      "sha256": "e94f50145c2010593ec7369794290471c1e11f81e80cc744ae840e8c1fc8edc7",
+      "downloaded_bytes": 58736640,
+      "downloaded_sha256": "e94f50145c2010593ec7369794290471c1e11f81e80cc744ae840e8c1fc8edc7",
+      "verified_at": "2026-10-04T06:12:35.177680+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-stepwise-native-compressed-metadata-v2.tar"
+    },
+    {
+      "id": "bet2026-fishery-native-snapshot-metadata-v2",
+      "asset_id": 609258625,
+      "bytes": 153497600,
+      "sha256": "eac26cd6949b656ace1563debd91fdad4ca287ce9aec0b6eda1a103bb8879c27",
+      "downloaded_bytes": 153497600,
+      "downloaded_sha256": "eac26cd6949b656ace1563debd91fdad4ca287ce9aec0b6eda1a103bb8879c27",
+      "verified_at": "2026-10-04T06:13:25.508068+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-fishery-native-snapshot-metadata-v2.tar"
+    },
+    {
+      "id": "bet2026-fishery-native-inputs-metadata-v2",
+      "asset_id": 609259654,
+      "bytes": 6000640,
+      "sha256": "0562782ed3304ff26d98dfa5599fba5ed769957f59131448907d859b270af5ff",
+      "downloaded_bytes": 6000640,
+      "downloaded_sha256": "0562782ed3304ff26d98dfa5599fba5ed769957f59131448907d859b270af5ff",
+      "verified_at": "2026-10-04T06:13:31.395462+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-fishery-native-inputs-metadata-v2.tar"
+    },
+    {
+      "id": "bet2026-failed22101-cache-alternative",
+      "asset_id": 609259800,
+      "bytes": 10240,
+      "sha256": "eec9d6b2f1ff986746a29f6f17a13977d07ce9a9020ec3027de9e3d2e2aaae96",
+      "downloaded_bytes": 10240,
+      "downloaded_sha256": "eec9d6b2f1ff986746a29f6f17a13977d07ce9a9020ec3027de9e3d2e2aaae96",
+      "verified_at": "2026-10-04T06:13:34.926425+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-failed22101-cache-alternative.tar"
+    },
+    {
+      "id": "bet2026-checks-001",
+      "asset_id": 609160380,
+      "bytes": 519505920,
+      "sha256": "2dcb68524bacd920bf690d71e9fa1b323636dbc3e67374261cc0faa79b34c7b6",
+      "downloaded_bytes": 519505920,
+      "downloaded_sha256": "2dcb68524bacd920bf690d71e9fa1b323636dbc3e67374261cc0faa79b34c7b6",
+      "verified_at": "2026-10-04T05:02:06.331441+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-checks-001.tar"
+    },
+    {
+      "id": "bet2026-checks21641-001",
+      "asset_id": 609164594,
+      "bytes": 376360960,
+      "sha256": "e25206e85b4a536373f374840e10e42d6756c6e5b67756e7dd173f144c67142b",
+      "downloaded_bytes": 376360960,
+      "downloaded_sha256": "e25206e85b4a536373f374840e10e42d6756c6e5b67756e7dd173f144c67142b",
+      "verified_at": "2026-10-04T05:04:17.692728+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-checks21641-001.tar"
+    },
+    {
+      "id": "bet2026-checks21641-002",
+      "asset_id": 609167265,
+      "bytes": 317921280,
+      "sha256": "bcaafc7d02ee484087c9a6fd0a0fc9360b19d4b4b54dae5165bdb04a2ee23f83",
+      "downloaded_bytes": 317921280,
+      "downloaded_sha256": "bcaafc7d02ee484087c9a6fd0a0fc9360b19d4b4b54dae5165bdb04a2ee23f83",
+      "verified_at": "2026-10-04T05:06:15.689103+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-checks21641-002.tar"
+    },
+    {
+      "id": "bet2026-checks21641-sidecars-001",
+      "asset_id": 609169326,
+      "bytes": 532695040,
+      "sha256": "bc8b906ea5f62e0f4023ffb8f5f119177bf063b18ec08ce2873dc27b2450d148",
+      "downloaded_bytes": 532695040,
+      "downloaded_sha256": "bc8b906ea5f62e0f4023ffb8f5f119177bf063b18ec08ce2873dc27b2450d148",
+      "verified_at": "2026-10-04T05:09:22.193698+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-checks21641-sidecars-001.tar"
+    },
+    {
+      "id": "bet2026-checks21641-sidecars-002",
+      "asset_id": 609172944,
+      "bytes": 26521600,
+      "sha256": "565f9d8be34c980585595a8f1344c1af6330f1b4ca37e5b9917a01c42d79f5af",
+      "downloaded_bytes": 26521600,
+      "downloaded_sha256": "565f9d8be34c980585595a8f1344c1af6330f1b4ca37e5b9917a01c42d79f5af",
+      "verified_at": "2026-10-04T05:09:35.791671+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-checks21641-sidecars-002.tar"
+    },
+    {
+      "id": "bet2026-checks21641-sidecars-003",
+      "asset_id": 609173223,
+      "bytes": 244910080,
+      "sha256": "7a9b41a46d553f2316477abee3bf70192020e87ac046580277e6aaa401a8971c",
+      "downloaded_bytes": 244910080,
+      "downloaded_sha256": "7a9b41a46d553f2316477abee3bf70192020e87ac046580277e6aaa401a8971c",
+      "verified_at": "2026-10-04T05:11:13.334704+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-checks21641-sidecars-003.tar"
+    },
+    {
+      "id": "bet2026-dependencies-001",
+      "asset_id": 609259886,
+      "bytes": 537681920,
+      "sha256": "aa659a2c86e9398f27b71991f4ccb5eb4f7aa6532184dede91023f2b86447d2d",
+      "downloaded_bytes": 537681920,
+      "downloaded_sha256": "aa659a2c86e9398f27b71991f4ccb5eb4f7aa6532184dede91023f2b86447d2d",
+      "verified_at": "2026-10-04T06:16:17.882197+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-001.tar"
+    },
+    {
+      "id": "bet2026-dependencies-002",
+      "asset_id": 609263510,
+      "bytes": 426741760,
+      "sha256": "34f450a7d81fcde685c83cd51a2ed4ac7af712205f321bc38f91f086e9d27ad8",
+      "downloaded_bytes": 426741760,
+      "downloaded_sha256": "34f450a7d81fcde685c83cd51a2ed4ac7af712205f321bc38f91f086e9d27ad8",
+      "verified_at": "2026-10-04T06:18:30.011703+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-002.tar"
+    },
+    {
+      "id": "bet2026-dependencies-003",
+      "asset_id": 609266939,
+      "bytes": 526766080,
+      "sha256": "23595b94e0377d2ec1cbe8b937728c4c707510250b0188abd4fb2e78a1d7734f",
+      "downloaded_bytes": 526766080,
+      "downloaded_sha256": "23595b94e0377d2ec1cbe8b937728c4c707510250b0188abd4fb2e78a1d7734f",
+      "verified_at": "2026-10-04T06:21:06.980155+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-003.tar"
+    },
+    {
+      "id": "bet2026-dependencies-004",
+      "asset_id": 609270977,
+      "bytes": 519843840,
+      "sha256": "e43441308a9bab03d2bcd31f44776456f7351f92271e0f2d265f09a1fc8af64c",
+      "downloaded_bytes": 519843840,
+      "downloaded_sha256": "e43441308a9bab03d2bcd31f44776456f7351f92271e0f2d265f09a1fc8af64c",
+      "verified_at": "2026-10-04T06:24:03.322066+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-004.tar"
+    },
+    {
+      "id": "bet2026-dependencies-005",
+      "asset_id": 609276580,
+      "bytes": 520222720,
+      "sha256": "cc340873d4b37891db85bffe0586565d8d6589651b76ca5d94b8311df7ac8f72",
+      "downloaded_bytes": 520222720,
+      "downloaded_sha256": "cc340873d4b37891db85bffe0586565d8d6589651b76ca5d94b8311df7ac8f72",
+      "verified_at": "2026-10-04T06:27:00.772532+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-005.tar"
+    },
+    {
+      "id": "bet2026-dependencies-006",
+      "asset_id": 609281158,
+      "bytes": 519895040,
+      "sha256": "e4ee61bf7a88c047fc5694910d6cc9acb020929d7813ca17f65d1504bf95e0a7",
+      "downloaded_bytes": 519895040,
+      "downloaded_sha256": "e4ee61bf7a88c047fc5694910d6cc9acb020929d7813ca17f65d1504bf95e0a7",
+      "verified_at": "2026-10-04T06:29:44.020265+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-006.tar"
+    },
+    {
+      "id": "bet2026-dependencies-007",
+      "asset_id": 609284218,
+      "bytes": 520734720,
+      "sha256": "fe843eaea0fae7d14e6c90d0c5d14a1828d73e292c76c4944cfc762e2627318c",
+      "downloaded_bytes": 520734720,
+      "downloaded_sha256": "fe843eaea0fae7d14e6c90d0c5d14a1828d73e292c76c4944cfc762e2627318c",
+      "verified_at": "2026-10-04T06:32:52.034689+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-007.tar"
+    },
+    {
+      "id": "bet2026-dependencies-008",
+      "asset_id": 609289091,
+      "bytes": 519720960,
+      "sha256": "7f5129efd217e20541aa2b50ec8290325d874fda4e4db6950947565f43ed8be0",
+      "downloaded_bytes": 519720960,
+      "downloaded_sha256": "7f5129efd217e20541aa2b50ec8290325d874fda4e4db6950947565f43ed8be0",
+      "verified_at": "2026-10-04T06:35:38.133622+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-008.tar"
+    },
+    {
+      "id": "bet2026-dependencies-009",
+      "asset_id": 609292239,
+      "bytes": 520468480,
+      "sha256": "e5ec151f2d97986cca993d8900edc057e6c349912ed690cc5469bb294fc82688",
+      "downloaded_bytes": 520468480,
+      "downloaded_sha256": "e5ec151f2d97986cca993d8900edc057e6c349912ed690cc5469bb294fc82688",
+      "verified_at": "2026-10-04T06:38:28.308231+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-009.tar"
+    },
+    {
+      "id": "bet2026-dependencies-010",
+      "asset_id": 609296682,
+      "bytes": 520560640,
+      "sha256": "d530823f3a850609cc41064606be66a496613cd394a956dcfdab386e72361aeb",
+      "downloaded_bytes": 520560640,
+      "downloaded_sha256": "d530823f3a850609cc41064606be66a496613cd394a956dcfdab386e72361aeb",
+      "verified_at": "2026-10-04T06:41:26.768069+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-010.tar"
+    },
+    {
+      "id": "bet2026-dependencies-011",
+      "asset_id": 609300333,
+      "bytes": 520376320,
+      "sha256": "b0650cd03c22c2bf0c5069a27bd661164ff801d1cce32419184fce02905284e5",
+      "downloaded_bytes": 520376320,
+      "downloaded_sha256": "b0650cd03c22c2bf0c5069a27bd661164ff801d1cce32419184fce02905284e5",
+      "verified_at": "2026-10-04T06:44:14.293791+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-011.tar"
+    },
+    {
+      "id": "bet2026-dependencies-012",
+      "asset_id": 609303446,
+      "bytes": 520038400,
+      "sha256": "338b18d5204e18a67be0b2c88deb1f0ebfaec10bd18efc49c4b1b03fb0379615",
+      "downloaded_bytes": 520038400,
+      "downloaded_sha256": "338b18d5204e18a67be0b2c88deb1f0ebfaec10bd18efc49c4b1b03fb0379615",
+      "verified_at": "2026-10-04T06:46:58.100152+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-012.tar"
+    },
+    {
+      "id": "bet2026-dependencies-013",
+      "asset_id": 609306783,
+      "bytes": 520427520,
+      "sha256": "ee476b71b6464f7f90c1a9e2bd28e7a0fee196e8afc271e820b16b841738ae4b",
+      "downloaded_bytes": 520427520,
+      "downloaded_sha256": "ee476b71b6464f7f90c1a9e2bd28e7a0fee196e8afc271e820b16b841738ae4b",
+      "verified_at": "2026-10-04T06:49:49.875240+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-013.tar"
+    },
+    {
+      "id": "bet2026-dependencies-014",
+      "asset_id": 609310107,
+      "bytes": 260352000,
+      "sha256": "b6df85d65f400bdbbaa37a63bb8a81e6b1562cbd2309f2cfc352b5188bce197e",
+      "downloaded_bytes": 260352000,
+      "downloaded_sha256": "b6df85d65f400bdbbaa37a63bb8a81e6b1562cbd2309f2cfc352b5188bce197e",
+      "verified_at": "2026-10-04T06:51:53.647778+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-014.tar"
+    },
+    {
+      "id": "bet2026-dependencies-015",
+      "asset_id": 609312664,
+      "bytes": 2396160,
+      "sha256": "ef37bcf38b8495393cdde77400cb8250e1ba1acc054c223bc9ee548e94690c43",
+      "downloaded_bytes": 2396160,
+      "downloaded_sha256": "ef37bcf38b8495393cdde77400cb8250e1ba1acc054c223bc9ee548e94690c43",
+      "verified_at": "2026-10-04T06:52:01.059168+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-015.tar"
+    },
+    {
+      "id": "bet2026-dependencies-016",
+      "asset_id": 609312841,
+      "bytes": 2396160,
+      "sha256": "58188c4e93b25dbcf85daa98358f5befa16bef614787259b9e29d6a704c3df8b",
+      "downloaded_bytes": 2396160,
+      "downloaded_sha256": "58188c4e93b25dbcf85daa98358f5befa16bef614787259b9e29d6a704c3df8b",
+      "verified_at": "2026-10-04T06:52:06.376957+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-016.tar"
+    },
+    {
+      "id": "bet2026-dependencies-017",
+      "asset_id": 609312952,
+      "bytes": 6328320,
+      "sha256": "aafeae7803245f826670e494e37025d53be62609d4cba4e20cbe780c0de827fb",
+      "downloaded_bytes": 6328320,
+      "downloaded_sha256": "aafeae7803245f826670e494e37025d53be62609d4cba4e20cbe780c0de827fb",
+      "verified_at": "2026-10-04T06:52:12.909963+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-017.tar"
+    },
+    {
+      "id": "bet2026-dependencies-sidecars-001",
+      "asset_id": 609313165,
+      "bytes": 51200,
+      "sha256": "7419c135cf1c357f199dba311b8cc5cddc668249504a8c57121b75e5b7debbd5",
+      "downloaded_bytes": 51200,
+      "downloaded_sha256": "7419c135cf1c357f199dba311b8cc5cddc668249504a8c57121b75e5b7debbd5",
+      "verified_at": "2026-10-04T06:52:18.330790+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-sidecars-001.tar"
+    },
+    {
+      "id": "bet2026-dependencies-sidecars-002",
+      "asset_id": 609313241,
+      "bytes": 50749440,
+      "sha256": "d651dd615d1590fc99a32219c79a9eed0c2d6eec820c370e6fa65a05ca3da8e2",
+      "downloaded_bytes": 50749440,
+      "downloaded_sha256": "d651dd615d1590fc99a32219c79a9eed0c2d6eec820c370e6fa65a05ca3da8e2",
+      "verified_at": "2026-10-04T06:52:38.941767+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-dependencies-sidecars-002.tar"
+    },
+    {
+      "id": "bet2026-diagnostic-001",
+      "asset_id": 609175298,
+      "bytes": 527933440,
+      "sha256": "27fc743d7aeb13c44117c050323e556aa2da9d34d2ee793a6f452516507b2bff",
+      "downloaded_bytes": 527933440,
+      "downloaded_sha256": "27fc743d7aeb13c44117c050323e556aa2da9d34d2ee793a6f452516507b2bff",
+      "verified_at": "2026-10-04T05:14:05.890208+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-diagnostic-001.tar"
+    },
+    {
+      "id": "bet2026-diagnostic-002",
+      "asset_id": 609178687,
+      "bytes": 518881280,
+      "sha256": "6884ba5a4bcb75b87e9909b4479e91bf1ae43e231f7bd4369a1be3a16255c28c",
+      "downloaded_bytes": 518881280,
+      "downloaded_sha256": "6884ba5a4bcb75b87e9909b4479e91bf1ae43e231f7bd4369a1be3a16255c28c",
+      "verified_at": "2026-10-04T05:17:16.728477+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-diagnostic-002.tar"
+    },
+    {
+      "id": "bet2026-diagnostic-003",
+      "asset_id": 609182735,
+      "bytes": 169625600,
+      "sha256": "ac82e789fffee18562002407815c0be39de036e03b7ee7b7f4a9946b4c07aa70",
+      "downloaded_bytes": 169625600,
+      "downloaded_sha256": "ac82e789fffee18562002407815c0be39de036e03b7ee7b7f4a9946b4c07aa70",
+      "verified_at": "2026-10-04T05:18:24.358297+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-diagnostic-003.tar"
+    },
+    {
+      "id": "bet2026-diagnostic-004",
+      "asset_id": 609184618,
+      "bytes": 20480,
+      "sha256": "3b3b99a9c21ad9d335172ac3db52f5a75878fecd0bfcd2e719fda86122013bb3",
+      "downloaded_bytes": 20480,
+      "downloaded_sha256": "3b3b99a9c21ad9d335172ac3db52f5a75878fecd0bfcd2e719fda86122013bb3",
+      "verified_at": "2026-10-04T05:18:28.023264+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-diagnostic-004.tar"
+    },
+    {
+      "id": "bet2026-diagnostic-005",
+      "asset_id": 609184704,
+      "bytes": 40151040,
+      "sha256": "4577d0014cf12ec105c1f76ef740e41ff025f12718453c460f3470d3f8c545c7",
+      "downloaded_bytes": 40151040,
+      "downloaded_sha256": "4577d0014cf12ec105c1f76ef740e41ff025f12718453c460f3470d3f8c545c7",
+      "verified_at": "2026-10-04T05:18:45.974389+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-diagnostic-005.tar"
+    },
+    {
+      "id": "bet2026-ensemble-022",
+      "asset_id": 609185162,
+      "bytes": 505743360,
+      "sha256": "1fb2a30a4696baae29a70fe16cbe336c1fd5f35c6bca894fca8d055a6b367355",
+      "downloaded_bytes": 505743360,
+      "downloaded_sha256": "1fb2a30a4696baae29a70fe16cbe336c1fd5f35c6bca894fca8d055a6b367355",
+      "verified_at": "2026-10-04T05:21:54.753155+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-022.tar"
+    },
+    {
+      "id": "bet2026-ensemble-023",
+      "asset_id": 609189493,
+      "bytes": 506572800,
+      "sha256": "955edfcbf52c675e23ef62cc4c959038b9447c76ec17f16d2919c3fa913b68b1",
+      "downloaded_bytes": 506572800,
+      "downloaded_sha256": "955edfcbf52c675e23ef62cc4c959038b9447c76ec17f16d2919c3fa913b68b1",
+      "verified_at": "2026-10-04T05:24:54.394473+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-023.tar"
+    },
+    {
+      "id": "bet2026-ensemble-024",
+      "asset_id": 609313727,
+      "bytes": 506531840,
+      "sha256": "673e0e88586dc57853626dca855b700a14720fdeedde4c3ce29801f2ea585f80",
+      "downloaded_bytes": 506531840,
+      "downloaded_sha256": "673e0e88586dc57853626dca855b700a14720fdeedde4c3ce29801f2ea585f80",
+      "verified_at": "2026-10-04T06:55:52.500131+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-024.tar"
+    },
+    {
+      "id": "bet2026-ensemble-025",
+      "asset_id": 609318779,
+      "bytes": 505507840,
+      "sha256": "45b5d48f4f10a9f5186447746d2056b9fdecbf21c702ad46874535c668024dcd",
+      "downloaded_bytes": 505507840,
+      "downloaded_sha256": "45b5d48f4f10a9f5186447746d2056b9fdecbf21c702ad46874535c668024dcd",
+      "verified_at": "2026-10-04T06:58:15.066224+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-025.tar"
+    },
+    {
+      "id": "bet2026-ensemble-026",
+      "asset_id": 609322260,
+      "bytes": 505989120,
+      "sha256": "9ab2fb2c249306161362e8feb01170ccb9e40710942eceea006b7f185c759137",
+      "downloaded_bytes": 505989120,
+      "downloaded_sha256": "9ab2fb2c249306161362e8feb01170ccb9e40710942eceea006b7f185c759137",
+      "verified_at": "2026-10-04T07:00:31.066562+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-026.tar"
+    },
+    {
+      "id": "bet2026-ensemble-027",
+      "asset_id": 609325087,
+      "bytes": 506306560,
+      "sha256": "a02c64581c04ba8322f96d1923059bbdae90941cdd7f3c461837be29eb015ff9",
+      "downloaded_bytes": 506306560,
+      "downloaded_sha256": "a02c64581c04ba8322f96d1923059bbdae90941cdd7f3c461837be29eb015ff9",
+      "verified_at": "2026-10-04T07:02:47.672467+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-027.tar"
+    },
+    {
+      "id": "bet2026-ensemble-028",
+      "asset_id": 609327896,
+      "bytes": 505866240,
+      "sha256": "9fa5d23e16c31aba3a00eb600a901a2032de79bf42c176bffeb1ef081b9b80ec",
+      "downloaded_bytes": 505866240,
+      "downloaded_sha256": "9fa5d23e16c31aba3a00eb600a901a2032de79bf42c176bffeb1ef081b9b80ec",
+      "verified_at": "2026-10-04T07:05:02.583253+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-028.tar"
+    },
+    {
+      "id": "bet2026-ensemble-029",
+      "asset_id": 609330539,
+      "bytes": 530984960,
+      "sha256": "7b203f36b15e7a61a304859366a8d1f22e025cbe00ed0892a607aaf1cd7fafc6",
+      "downloaded_bytes": 530984960,
+      "downloaded_sha256": "7b203f36b15e7a61a304859366a8d1f22e025cbe00ed0892a607aaf1cd7fafc6",
+      "verified_at": "2026-10-04T07:07:18.900609+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-029.tar"
+    },
+    {
+      "id": "bet2026-ensemble-030",
+      "asset_id": 609333413,
+      "bytes": 520376320,
+      "sha256": "75a8ba90eac570b728143e1f83d75a580aeeb7bce8868db8cde7655891b12fe1",
+      "downloaded_bytes": 520376320,
+      "downloaded_sha256": "75a8ba90eac570b728143e1f83d75a580aeeb7bce8868db8cde7655891b12fe1",
+      "verified_at": "2026-10-04T07:09:32.698704+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-030.tar"
+    },
+    {
+      "id": "bet2026-ensemble-031",
+      "asset_id": 609336465,
+      "bytes": 505344000,
+      "sha256": "ffcc3fd2bdef13aa452b1f3e548c11395fb20412a242075da1c050a505692326",
+      "downloaded_bytes": 505344000,
+      "downloaded_sha256": "ffcc3fd2bdef13aa452b1f3e548c11395fb20412a242075da1c050a505692326",
+      "verified_at": "2026-10-04T07:11:46.975273+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-031.tar"
+    },
+    {
+      "id": "bet2026-ensemble-032",
+      "asset_id": 609340136,
+      "bytes": 519290880,
+      "sha256": "4a151e214d02f3ebd66ae4e3e58f99b70413a5bf75660a085a6410632ad41b8f",
+      "downloaded_bytes": 519290880,
+      "downloaded_sha256": "4a151e214d02f3ebd66ae4e3e58f99b70413a5bf75660a085a6410632ad41b8f",
+      "verified_at": "2026-10-04T07:14:07.027597+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-032.tar"
+    },
+    {
+      "id": "bet2026-ensemble-033",
+      "asset_id": 609342919,
+      "bytes": 518717440,
+      "sha256": "25ca064ae3bd236208ba82b6f2ee2b72b789244336bccbb2c5839bdd82baf2ca",
+      "downloaded_bytes": 518717440,
+      "downloaded_sha256": "25ca064ae3bd236208ba82b6f2ee2b72b789244336bccbb2c5839bdd82baf2ca",
+      "verified_at": "2026-10-04T07:16:24.852448+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-033.tar"
+    },
+    {
+      "id": "bet2026-ensemble-034",
+      "asset_id": 609345999,
+      "bytes": 519086080,
+      "sha256": "206a5cf48f521872a34b1853c712ac17ed47b29bd0ed51b07cc958a6c31bfcc9",
+      "downloaded_bytes": 519086080,
+      "downloaded_sha256": "206a5cf48f521872a34b1853c712ac17ed47b29bd0ed51b07cc958a6c31bfcc9",
+      "verified_at": "2026-10-04T07:18:44.333609+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-034.tar"
+    },
+    {
+      "id": "bet2026-ensemble-035",
+      "asset_id": 609348485,
+      "bytes": 519905280,
+      "sha256": "a2355c2b76cdecf6bed4ec1c6e52e6ceb8a333fbfffe489e4b33727cf52317ff",
+      "downloaded_bytes": 519905280,
+      "downloaded_sha256": "a2355c2b76cdecf6bed4ec1c6e52e6ceb8a333fbfffe489e4b33727cf52317ff",
+      "verified_at": "2026-10-04T07:21:06.945025+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-035.tar"
+    },
+    {
+      "id": "bet2026-ensemble-036",
+      "asset_id": 609351521,
+      "bytes": 519403520,
+      "sha256": "71e21abeb68845bd18b538c1cf19eb1dc750631db0705aaaefab4cdf0634eaeb",
+      "downloaded_bytes": 519403520,
+      "downloaded_sha256": "71e21abeb68845bd18b538c1cf19eb1dc750631db0705aaaefab4cdf0634eaeb",
+      "verified_at": "2026-10-04T07:23:23.527865+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-036.tar"
+    },
+    {
+      "id": "bet2026-ensemble-037",
+      "asset_id": 609354466,
+      "bytes": 519936000,
+      "sha256": "c86f78d3d1c1ac0c7d5c32269ac376ac79dd1fd0ae040247573b93e81cf32833",
+      "downloaded_bytes": 519936000,
+      "downloaded_sha256": "c86f78d3d1c1ac0c7d5c32269ac376ac79dd1fd0ae040247573b93e81cf32833",
+      "verified_at": "2026-10-04T07:25:38.338410+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-037.tar"
+    },
+    {
+      "id": "bet2026-ensemble-038",
+      "asset_id": 609396351,
+      "bytes": 518717440,
+      "sha256": "464120c1699e492b8f07c6794c89df5bf491b754cf5ec54f12e170e7f4a4e2ca",
+      "downloaded_bytes": 518717440,
+      "downloaded_sha256": "464120c1699e492b8f07c6794c89df5bf491b754cf5ec54f12e170e7f4a4e2ca",
+      "verified_at": "2026-10-04T07:57:21.239555+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-038.tar"
+    },
+    {
+      "id": "bet2026-ensemble-039",
+      "asset_id": 609399719,
+      "bytes": 520192000,
+      "sha256": "0d4597ab5394bb7e46233ea7d1bc18a5f88c69806f9dc50df6fe9d2af79442ea",
+      "downloaded_bytes": 520192000,
+      "downloaded_sha256": "0d4597ab5394bb7e46233ea7d1bc18a5f88c69806f9dc50df6fe9d2af79442ea",
+      "verified_at": "2026-10-04T07:59:39.084772+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-039.tar"
+    },
+    {
+      "id": "bet2026-ensemble-040",
+      "asset_id": 609403742,
+      "bytes": 521267200,
+      "sha256": "716dc91671a4d5c5cbfbdcc5305bab0a9e88a091c7148be48c11f0b84b35a0ec",
+      "downloaded_bytes": 521267200,
+      "downloaded_sha256": "716dc91671a4d5c5cbfbdcc5305bab0a9e88a091c7148be48c11f0b84b35a0ec",
+      "verified_at": "2026-10-04T08:02:15.611340+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-040.tar"
+    },
+    {
+      "id": "bet2026-ensemble-041",
+      "asset_id": 609407751,
+      "bytes": 518174720,
+      "sha256": "ace68b382f6fc15a67d2452453c7d0a6dda42c3b2579c5f58db3382934894868",
+      "downloaded_bytes": 518174720,
+      "downloaded_sha256": "ace68b382f6fc15a67d2452453c7d0a6dda42c3b2579c5f58db3382934894868",
+      "verified_at": "2026-10-04T08:04:54.504049+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-041.tar"
+    },
+    {
+      "id": "bet2026-ensemble-042",
+      "asset_id": 609411470,
+      "bytes": 526735360,
+      "sha256": "41da7ff37c87a84e8e57cdf8c41d0d46158b374d28cb4eb3f93880bd83e3e3ae",
+      "downloaded_bytes": 526735360,
+      "downloaded_sha256": "41da7ff37c87a84e8e57cdf8c41d0d46158b374d28cb4eb3f93880bd83e3e3ae",
+      "verified_at": "2026-10-04T08:08:34.286215+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-042.tar"
+    },
+    {
+      "id": "bet2026-ensemble-043",
+      "asset_id": 609416230,
+      "bytes": 518942720,
+      "sha256": "16e884df85bbfb95fcab9f8cb4de4670a1336a650595c1728697073163c6e787",
+      "downloaded_bytes": 518942720,
+      "downloaded_sha256": "16e884df85bbfb95fcab9f8cb4de4670a1336a650595c1728697073163c6e787",
+      "verified_at": "2026-10-04T08:12:12.306497+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-043.tar"
+    },
+    {
+      "id": "bet2026-ensemble-044",
+      "asset_id": 609421064,
+      "bytes": 520058880,
+      "sha256": "f5715980a74f8ec6d580082fa3f21654838d50677b26b76972071297b3617084",
+      "downloaded_bytes": 520058880,
+      "downloaded_sha256": "f5715980a74f8ec6d580082fa3f21654838d50677b26b76972071297b3617084",
+      "verified_at": "2026-10-04T08:15:52.231630+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-044.tar"
+    },
+    {
+      "id": "bet2026-ensemble-045",
+      "asset_id": 609427059,
+      "bytes": 520929280,
+      "sha256": "5360f355b88e449c35a1f0fe66e9c402900f18763cab6392a34290feee8d9d60",
+      "downloaded_bytes": 520929280,
+      "downloaded_sha256": "5360f355b88e449c35a1f0fe66e9c402900f18763cab6392a34290feee8d9d60",
+      "verified_at": "2026-10-04T08:18:52.934807+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-045.tar"
+    },
+    {
+      "id": "bet2026-ensemble-046",
+      "asset_id": 609431656,
+      "bytes": 519516160,
+      "sha256": "2021bbc8ff742a7093405db277e493ac8c6db94462bdbeb3af9622606de8223d",
+      "downloaded_bytes": 519516160,
+      "downloaded_sha256": "2021bbc8ff742a7093405db277e493ac8c6db94462bdbeb3af9622606de8223d",
+      "verified_at": "2026-10-04T08:23:22.357510+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-046.tar"
+    },
+    {
+      "id": "bet2026-ensemble-047",
+      "asset_id": 609438121,
+      "bytes": 519362560,
+      "sha256": "cbed9a390d31d4cc455892d202d0b5d049295152451879ad1bfb3c341c52a50c",
+      "downloaded_bytes": 519362560,
+      "downloaded_sha256": "cbed9a390d31d4cc455892d202d0b5d049295152451879ad1bfb3c341c52a50c",
+      "verified_at": "2026-10-04T08:26:52.487899+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-047.tar"
+    },
+    {
+      "id": "bet2026-ensemble-048",
+      "asset_id": 609442323,
+      "bytes": 198922240,
+      "sha256": "a610ae6fe59b9cec168b558d85ff8e72e1c01d7dfa8b4d941987b2521e3fbfe2",
+      "downloaded_bytes": 198922240,
+      "downloaded_sha256": "a610ae6fe59b9cec168b558d85ff8e72e1c01d7dfa8b4d941987b2521e3fbfe2",
+      "verified_at": "2026-10-04T08:27:49.701105+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-048.tar"
+    },
+    {
+      "id": "bet2026-ensemble-049",
+      "asset_id": 609443608,
+      "bytes": 535408640,
+      "sha256": "2381cde7c39b90af07aa0413d0c03d1652e2573bf4cc4c8ed49f29881f90d120",
+      "downloaded_bytes": 535408640,
+      "downloaded_sha256": "2381cde7c39b90af07aa0413d0c03d1652e2573bf4cc4c8ed49f29881f90d120",
+      "verified_at": "2026-10-04T08:30:10.102826+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-049.tar"
+    },
+    {
+      "id": "bet2026-ensemble-050",
+      "asset_id": 609446655,
+      "bytes": 520601600,
+      "sha256": "8c93002b8c8ef3af746ec4cf0cd01adf6ff1f630c48ef8b80e62ae7af65126ea",
+      "downloaded_bytes": 520601600,
+      "downloaded_sha256": "8c93002b8c8ef3af746ec4cf0cd01adf6ff1f630c48ef8b80e62ae7af65126ea",
+      "verified_at": "2026-10-04T08:32:29.839294+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-050.tar"
+    },
+    {
+      "id": "bet2026-ensemble-051",
+      "asset_id": 609449940,
+      "bytes": 520652800,
+      "sha256": "b28166387701e19dfce6aadbbacba288cd63b4e9f741a0b822e486c824308f63",
+      "downloaded_bytes": 520652800,
+      "downloaded_sha256": "b28166387701e19dfce6aadbbacba288cd63b4e9f741a0b822e486c824308f63",
+      "verified_at": "2026-10-04T08:34:52.926232+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-051.tar"
+    },
+    {
+      "id": "bet2026-ensemble-052",
+      "asset_id": 609453076,
+      "bytes": 40028160,
+      "sha256": "21808835b1717fe39664d3def449d966c4e745fd6f6854f787e920494b6581d1",
+      "downloaded_bytes": 40028160,
+      "downloaded_sha256": "21808835b1717fe39664d3def449d966c4e745fd6f6854f787e920494b6581d1",
+      "verified_at": "2026-10-04T08:35:07.698845+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-052.tar"
+    },
+    {
+      "id": "bet2026-ensemble-053",
+      "asset_id": 609453516,
+      "bytes": 74362880,
+      "sha256": "9dff9b2075b70f8dadda396d3b645dc4078ebb4d278259e554308e60eb2f6c2b",
+      "downloaded_bytes": 74362880,
+      "downloaded_sha256": "9dff9b2075b70f8dadda396d3b645dc4078ebb4d278259e554308e60eb2f6c2b",
+      "verified_at": "2026-10-04T08:35:32.970799+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-ensemble-053.tar"
+    },
+    {
+      "id": "bet2026-jitter-054",
+      "asset_id": 609454131,
+      "bytes": 39372800,
+      "sha256": "fd361776187fc63978aa8ffad1011c74b5f55c71fc0497c72f2f581f5bd31aee",
+      "downloaded_bytes": 39372800,
+      "downloaded_sha256": "fd361776187fc63978aa8ffad1011c74b5f55c71fc0497c72f2f581f5bd31aee",
+      "verified_at": "2026-10-04T08:35:46.980912+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-jitter-054.tar"
+    },
+    {
+      "id": "bet2026-report-057",
+      "asset_id": 609454489,
+      "bytes": 11878400,
+      "sha256": "56432715b22ec5734e491eca4fe312fd3fde0947f1d8909244a851ae1b7054fb",
+      "downloaded_bytes": 11878400,
+      "downloaded_sha256": "56432715b22ec5734e491eca4fe312fd3fde0947f1d8909244a851ae1b7054fb",
+      "verified_at": "2026-10-04T08:35:54.094375+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-report-057.tar"
+    },
+    {
+      "id": "bet2026-retrospective-055",
+      "asset_id": 609454707,
+      "bytes": 4812800,
+      "sha256": "b8f2d21156ae1a47d68a04f02ead66a73eeb0c66ddb508f81fda1a8414ce873c",
+      "downloaded_bytes": 4812800,
+      "downloaded_sha256": "b8f2d21156ae1a47d68a04f02ead66a73eeb0c66ddb508f81fda1a8414ce873c",
+      "verified_at": "2026-10-04T08:35:59.751888+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-retrospective-055.tar"
+    },
+    {
+      "id": "bet2026-selftest-056",
+      "asset_id": 609454844,
+      "bytes": 6768640,
+      "sha256": "443aa5de7853b01625f011e82b9194b4c712c0a2c89548fbf4b542886b596f06",
+      "downloaded_bytes": 6768640,
+      "downloaded_sha256": "443aa5de7853b01625f011e82b9194b4c712c0a2c89548fbf4b542886b596f06",
+      "verified_at": "2026-10-04T08:36:06.066511+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-selftest-056.tar"
+    },
+    {
+      "id": "bet2026-sensitivity-006",
+      "asset_id": 609193505,
+      "bytes": 504371200,
+      "sha256": "1223de8fe5a403a39f1efe46e73b083e0a71a9e410e9dea7204e614f41b6dcc9",
+      "downloaded_bytes": 504371200,
+      "downloaded_sha256": "1223de8fe5a403a39f1efe46e73b083e0a71a9e410e9dea7204e614f41b6dcc9",
+      "verified_at": "2026-10-04T05:28:05.469281+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-sensitivity-006.tar"
+    },
+    {
+      "id": "bet2026-sensitivity-007",
+      "asset_id": 609197631,
+      "bytes": 520130560,
+      "sha256": "5429e36fd876fae32e2b7955c3d29df3b1913d5b98f0cb2fa420ad9379ace38b",
+      "downloaded_bytes": 520130560,
+      "downloaded_sha256": "5429e36fd876fae32e2b7955c3d29df3b1913d5b98f0cb2fa420ad9379ace38b",
+      "verified_at": "2026-10-04T05:30:48.167954+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-sensitivity-007.tar"
+    },
+    {
+      "id": "bet2026-sensitivity-008",
+      "asset_id": 609201143,
+      "bytes": 520785920,
+      "sha256": "ae6dae3ca1ac27ee826f2b99c5288b1a4ef7228f19d1b2bc1b4eb3f591b40fdc",
+      "downloaded_bytes": 520785920,
+      "downloaded_sha256": "ae6dae3ca1ac27ee826f2b99c5288b1a4ef7228f19d1b2bc1b4eb3f591b40fdc",
+      "verified_at": "2026-10-04T05:33:58.600194+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-sensitivity-008.tar"
+    },
+    {
+      "id": "bet2026-sensitivity-009",
+      "asset_id": 609204912,
+      "bytes": 280576000,
+      "sha256": "41c3c01909560ed2bcc39e7eda70e5408b771e52f79e073a1af878bc3600e78e",
+      "downloaded_bytes": 280576000,
+      "downloaded_sha256": "41c3c01909560ed2bcc39e7eda70e5408b771e52f79e073a1af878bc3600e78e",
+      "verified_at": "2026-10-04T05:35:36.613933+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-sensitivity-009.tar"
+    },
+    {
+      "id": "bet2026-sensitivity-010",
+      "asset_id": 609207087,
+      "bytes": 10240,
+      "sha256": "ff2022562279eace6e1be98eed30381ccbdf1820153b58df9c172c383ef3350b",
+      "downloaded_bytes": 10240,
+      "downloaded_sha256": "ff2022562279eace6e1be98eed30381ccbdf1820153b58df9c172c383ef3350b",
+      "verified_at": "2026-10-04T05:35:40.384707+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-sensitivity-010.tar"
+    },
+    {
+      "id": "bet2026-sensitivity-011",
+      "asset_id": 609207154,
+      "bytes": 13844480,
+      "sha256": "8e15186f342d36afc33a47e142c38f718a7b044490eb0cf2451b681c52ed602f",
+      "downloaded_bytes": 13844480,
+      "downloaded_sha256": "8e15186f342d36afc33a47e142c38f718a7b044490eb0cf2451b681c52ed602f",
+      "verified_at": "2026-10-04T05:35:48.541293+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-sensitivity-011.tar"
+    },
+    {
+      "id": "bet2026-sidecars-001",
+      "asset_id": 609207319,
+      "bytes": 1792000,
+      "sha256": "d076b1a2db54e726373e370a21b7738c7e0a80fa713e5836a842e49fdcefdcb4",
+      "downloaded_bytes": 1792000,
+      "downloaded_sha256": "d076b1a2db54e726373e370a21b7738c7e0a80fa713e5836a842e49fdcefdcb4",
+      "verified_at": "2026-10-04T05:35:53.320318+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-sidecars-001.tar"
+    },
+    {
+      "id": "bet2026-sidecars-002",
+      "asset_id": 609207382,
+      "bytes": 221460480,
+      "sha256": "095b8f7e03475a871a9c2267e115bc288de341700a6281c3217a8234b6924309",
+      "downloaded_bytes": 221460480,
+      "downloaded_sha256": "095b8f7e03475a871a9c2267e115bc288de341700a6281c3217a8234b6924309",
+      "verified_at": "2026-10-04T05:37:12.402359+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-sidecars-002.tar"
+    },
+    {
+      "id": "bet2026-sidecars-003-public-redacted",
+      "asset_id": 609208698,
+      "bytes": 557250560,
+      "sha256": "20772d7cd89656a889932d5be7c7a48f378a2055dc42b12065e6b4875dece94a",
+      "downloaded_bytes": 557250560,
+      "downloaded_sha256": "20772d7cd89656a889932d5be7c7a48f378a2055dc42b12065e6b4875dece94a",
+      "verified_at": "2026-10-04T05:40:14.683372+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-sidecars-003-public-redacted.tar"
+    },
+    {
+      "id": "bet2026-sidecars-004",
+      "asset_id": 609212522,
+      "bytes": 544655360,
+      "sha256": "b8d9e65f77ca8de0e4b33bdc3d973a6056eb8048576917dc8d29313ff3f2352a",
+      "downloaded_bytes": 544655360,
+      "downloaded_sha256": "b8d9e65f77ca8de0e4b33bdc3d973a6056eb8048576917dc8d29313ff3f2352a",
+      "verified_at": "2026-10-04T05:43:02.801180+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-sidecars-004.tar"
+    },
+    {
+      "id": "bet2026-sidecars-005",
+      "asset_id": 609215769,
+      "bytes": 282992640,
+      "sha256": "bca1a049dcabb36bf4cbaa67474bb0f7f5e64bb1b76af7c8069aad3659d20996",
+      "downloaded_bytes": 282992640,
+      "downloaded_sha256": "bca1a049dcabb36bf4cbaa67474bb0f7f5e64bb1b76af7c8069aad3659d20996",
+      "verified_at": "2026-10-04T05:44:49.938205+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-sidecars-005.tar"
+    },
+    {
+      "id": "bet2026-stepwise-012",
+      "asset_id": 609218099,
+      "bytes": 527093760,
+      "sha256": "08a3b85960d546a0534c7109aa93a3d040906e30cf1c6a097c6a60233c976ac3",
+      "downloaded_bytes": 527093760,
+      "downloaded_sha256": "08a3b85960d546a0534c7109aa93a3d040906e30cf1c6a097c6a60233c976ac3",
+      "verified_at": "2026-10-04T05:47:40.162632+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-stepwise-012.tar"
+    },
+    {
+      "id": "bet2026-stepwise-013",
+      "asset_id": 609222233,
+      "bytes": 514580480,
+      "sha256": "f446e947bc55b89433db8fb3096d2f2ce4fe8c0468d45f9ac974c54156104807",
+      "downloaded_bytes": 514580480,
+      "downloaded_sha256": "f446e947bc55b89433db8fb3096d2f2ce4fe8c0468d45f9ac974c54156104807",
+      "verified_at": "2026-10-04T05:50:16.613391+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-stepwise-013.tar"
+    },
+    {
+      "id": "bet2026-stepwise-014",
+      "asset_id": 609227173,
+      "bytes": 521123840,
+      "sha256": "74aa1a9a370f9362188b045c51b386f9ceee3d968b037fae40393131e58e9a3a",
+      "downloaded_bytes": 521123840,
+      "downloaded_sha256": "74aa1a9a370f9362188b045c51b386f9ceee3d968b037fae40393131e58e9a3a",
+      "verified_at": "2026-10-04T05:53:08.399902+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-stepwise-014.tar"
+    },
+    {
+      "id": "bet2026-stepwise-015",
+      "asset_id": 609232017,
+      "bytes": 500029440,
+      "sha256": "4a1711b445e54bbc2aa0129d74b40a25e46b5ba2756ecf58e496dd291d763b3b",
+      "downloaded_bytes": 500029440,
+      "downloaded_sha256": "4a1711b445e54bbc2aa0129d74b40a25e46b5ba2756ecf58e496dd291d763b3b",
+      "verified_at": "2026-10-04T05:55:37.714054+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-stepwise-015.tar"
+    },
+    {
+      "id": "bet2026-stepwise-016",
+      "asset_id": 609236119,
+      "bytes": 413593600,
+      "sha256": "73d5a80f85aead07be90081bf5165d2188b17c2987eebe9b8e14c99981c2e306",
+      "downloaded_bytes": 413593600,
+      "downloaded_sha256": "73d5a80f85aead07be90081bf5165d2188b17c2987eebe9b8e14c99981c2e306",
+      "verified_at": "2026-10-04T05:57:35.238040+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-stepwise-016.tar"
+    },
+    {
+      "id": "bet2026-stepwise-017",
+      "asset_id": 609238401,
+      "bytes": 528179200,
+      "sha256": "0dc2d92985be37fbd5835519bd0a4b9fddf5ec330662bec1d29b00bda798b5ad",
+      "downloaded_bytes": 528179200,
+      "downloaded_sha256": "0dc2d92985be37fbd5835519bd0a4b9fddf5ec330662bec1d29b00bda798b5ad",
+      "verified_at": "2026-10-04T06:00:26.524448+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-stepwise-017.tar"
+    },
+    {
+      "id": "bet2026-stepwise-018",
+      "asset_id": 609242137,
+      "bytes": 534466560,
+      "sha256": "e9120d113e81f15e7b55108e1a90c33eaa22d7fca6647798ddd49150bf0bcb8a",
+      "downloaded_bytes": 534466560,
+      "downloaded_sha256": "e9120d113e81f15e7b55108e1a90c33eaa22d7fca6647798ddd49150bf0bcb8a",
+      "verified_at": "2026-10-04T06:03:04.006382+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-stepwise-018.tar"
+    },
+    {
+      "id": "bet2026-stepwise-019",
+      "asset_id": 609245416,
+      "bytes": 536238080,
+      "sha256": "8721c06771c850530e6c1dfa4b91432182a3a73312ae2911c7cf1fd57872187b",
+      "downloaded_bytes": 536238080,
+      "downloaded_sha256": "8721c06771c850530e6c1dfa4b91432182a3a73312ae2911c7cf1fd57872187b",
+      "verified_at": "2026-10-04T06:05:27.649897+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-stepwise-019.tar"
+    },
+    {
+      "id": "bet2026-stepwise-020",
+      "asset_id": 609248462,
+      "bytes": 86835200,
+      "sha256": "93453ab69a3772c75e54caeef94d7a8b8bdb2043880bfec605d7aec644af1526",
+      "downloaded_bytes": 86835200,
+      "downloaded_sha256": "93453ab69a3772c75e54caeef94d7a8b8bdb2043880bfec605d7aec644af1526",
+      "verified_at": "2026-10-04T06:05:56.770139+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-stepwise-020.tar"
+    },
+    {
+      "id": "bet2026-stepwise-021",
+      "asset_id": 609248967,
+      "bytes": 22640640,
+      "sha256": "4af2063544ea5e4b3396ea84a7b9f927c54221443137ee5ad8e1eb65c9075f87",
+      "downloaded_bytes": 22640640,
+      "downloaded_sha256": "4af2063544ea5e4b3396ea84a7b9f927c54221443137ee5ad8e1eb65c9075f87",
+      "verified_at": "2026-10-04T06:06:07.296488+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-stepwise-021.tar"
+    },
+    {
+      "id": "bet2026-retro-native-compressed",
+      "asset_id": 609249176,
+      "bytes": 16312320,
+      "sha256": "d3396e1da90dda01aecd59bad92bcc8486d15043a8c94c997feeb7d80064c0f3",
+      "downloaded_bytes": 16312320,
+      "downloaded_sha256": "d3396e1da90dda01aecd59bad92bcc8486d15043a8c94c997feeb7d80064c0f3",
+      "verified_at": "2026-10-04T06:06:14.443044+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-retro-native-compressed.tar"
+    },
+    {
+      "id": "bet2026-jitter-native-compressed",
+      "asset_id": 609249401,
+      "bytes": 73922560,
+      "sha256": "777e6435541c61ad352c265307312f1dee22b9466d2307fc764cf09a97b69cf0",
+      "downloaded_bytes": 73922560,
+      "downloaded_sha256": "777e6435541c61ad352c265307312f1dee22b9466d2307fc764cf09a97b69cf0",
+      "verified_at": "2026-10-04T06:06:38.362896+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-jitter-native-compressed.tar"
+    },
+    {
+      "id": "source-sensitivity",
+      "asset_id": 609124979,
+      "bytes": 19604845,
+      "sha256": "34184c2b55196efea730be8045e265da3af0700c240f6ac845f5b97f9ad8ebef",
+      "downloaded_bytes": 19604845,
+      "downloaded_sha256": "34184c2b55196efea730be8045e265da3af0700c240f6ac845f5b97f9ad8ebef",
+      "verified_at": "2026-10-04T08:49:41.812838+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/sensitivity.bundle"
+    },
+    {
+      "id": "source-stepwise",
+      "asset_id": 609150119,
+      "bytes": 109724322,
+      "sha256": "cb999a2615bb513683ccb54977c428184d2b1e4032bfb7a3f8ffad210b5d6c58",
+      "downloaded_bytes": 109724322,
+      "downloaded_sha256": "cb999a2615bb513683ccb54977c428184d2b1e4032bfb7a3f8ffad210b5d6c58",
+      "verified_at": "2026-10-04T08:50:01.096445+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/stepwise.bundle"
+    },
+    {
+      "id": "source-jitter",
+      "asset_id": 609150533,
+      "bytes": 35814927,
+      "sha256": "839a020cde4314004be8b475eec29fe4e595d42b90ced4adfba2e3cb42698065",
+      "downloaded_bytes": 35814927,
+      "downloaded_sha256": "839a020cde4314004be8b475eec29fe4e595d42b90ced4adfba2e3cb42698065",
+      "verified_at": "2026-10-04T08:50:06.864854+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/jitter.bundle"
+    },
+    {
+      "id": "source-retrospective",
+      "asset_id": 609150714,
+      "bytes": 9482536,
+      "sha256": "372abd9f89cff68609326bdf013e5d37fc034343d39b12e57c2270cb564e2f9c",
+      "downloaded_bytes": 9482536,
+      "downloaded_sha256": "372abd9f89cff68609326bdf013e5d37fc034343d39b12e57c2270cb564e2f9c",
+      "verified_at": "2026-10-04T08:50:09.384353+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/retrospective.bundle"
+    },
+    {
+      "id": "source-selftest",
+      "asset_id": 609150822,
+      "bytes": 13927869,
+      "sha256": "ec1a1ef6068909cb22fd00ef5e149d84213433db7d6203f9e68a40c554e4f376",
+      "downloaded_bytes": 13927869,
+      "downloaded_sha256": "ec1a1ef6068909cb22fd00ef5e149d84213433db7d6203f9e68a40c554e4f376",
+      "verified_at": "2026-10-04T08:50:14.438875+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/selftest.bundle"
+    },
+    {
+      "id": "source-diagnostic",
+      "asset_id": 609150963,
+      "bytes": 318314805,
+      "sha256": "e5fc46e47806e2904f8edbbd46e38c8ffdd62c1dd13ac5ef509ff81ebe4b57ce",
+      "downloaded_bytes": 318314805,
+      "downloaded_sha256": "e5fc46e47806e2904f8edbbd46e38c8ffdd62c1dd13ac5ef509ff81ebe4b57ce",
+      "verified_at": "2026-10-04T08:51:18.809665+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/diagnostic.bundle"
+    },
+    {
+      "id": "source-checks",
+      "asset_id": 609151933,
+      "bytes": 875016,
+      "sha256": "59cb7c7cd38f9732e8da3f0248bb398b59e05d81d1bc729c9783a4eab4d386b2",
+      "downloaded_bytes": 875016,
+      "downloaded_sha256": "59cb7c7cd38f9732e8da3f0248bb398b59e05d81d1bc729c9783a4eab4d386b2",
+      "verified_at": "2026-10-04T08:51:20.341216+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/checks.bundle"
+    },
+    {
+      "id": "source-ensemble",
+      "asset_id": 609151989,
+      "bytes": 303010389,
+      "sha256": "9e201e09fc6cf71d186487bde55980a43ad76a96cbbd008a855c98659f78dcc6",
+      "downloaded_bytes": 303010389,
+      "downloaded_sha256": "9e201e09fc6cf71d186487bde55980a43ad76a96cbbd008a855c98659f78dcc6",
+      "verified_at": "2026-10-04T08:52:22.153984+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/ensemble.bundle"
+    },
+    {
+      "id": "source-report",
+      "asset_id": 609152832,
+      "bytes": 387651593,
+      "sha256": "caafb11dedf3fdea17dbcd974613c9a26808f77b2b7816a119d7ffb4abed5b4b",
+      "downloaded_bytes": 387651593,
+      "downloaded_sha256": "caafb11dedf3fdea17dbcd974613c9a26808f77b2b7816a119d7ffb4abed5b4b",
+      "verified_at": "2026-10-04T08:53:33.625923+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/report.bundle"
+    },
+    {
+      "id": "source-results",
+      "asset_id": 609480009,
+      "bytes": 151195,
+      "sha256": "029f8051c785a46e22033949f25236cfd0e123b2ef24aed5230bcdced54f7717",
+      "downloaded_bytes": 151195,
+      "downloaded_sha256": "029f8051c785a46e22033949f25236cfd0e123b2ef24aed5230bcdced54f7717",
+      "verified_at": "2026-10-04T08:53:37.561209+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/results.bundle"
+    },
+    {
+      "id": "source-area",
+      "asset_id": 609480105,
+      "bytes": 3441658,
+      "sha256": "56402a8b3f9f450fa58e77416ee4f8ea23ad9dfc6500477754cadf6c44266289",
+      "downloaded_bytes": 3441658,
+      "downloaded_sha256": "56402a8b3f9f450fa58e77416ee4f8ea23ad9dfc6500477754cadf6c44266289",
+      "verified_at": "2026-10-04T08:53:43.070144+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/single-area.bundle"
+    },
+    {
+      "id": "source-tau",
+      "asset_id": 609480198,
+      "bytes": 1419133,
+      "sha256": "f9ce6dac8134a783b5dacca4da4a916412394647e8c106987d4b9c8920feeeaa",
+      "downloaded_bytes": 1419133,
+      "downloaded_sha256": "f9ce6dac8134a783b5dacca4da4a916412394647e8c106987d4b9c8920feeeaa",
+      "verified_at": "2026-10-04T08:53:46.982683+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/tau.bundle"
+    },
+    {
+      "id": "published-pages-20261004",
+      "asset_id": 609154141,
+      "bytes": 112557830,
+      "sha256": "0328b722a7b7e72a2aeae2a54887c79687407dc1d56eea43929786ce46066bf7",
+      "downloaded_bytes": 112557830,
+      "downloaded_sha256": "0328b722a7b7e72a2aeae2a54887c79687407dc1d56eea43929786ce46066bf7",
+      "verified_at": "2026-10-04T08:54:20.548146+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/published-pages-20261004.tar.gz"
+    },
+    {
+      "id": "bet2026-runtime-image-001-metadata-v2",
+      "asset_id": 609481454,
+      "bytes": 524421120,
+      "sha256": "0ec869cac28fc461b9e2eb327edea207e35b89b471a01e6560716419ef2a5a4a",
+      "downloaded_bytes": 524421120,
+      "downloaded_sha256": "0ec869cac28fc461b9e2eb327edea207e35b89b471a01e6560716419ef2a5a4a",
+      "verified_at": "2026-10-04T08:57:04.793394+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-runtime-image-001-metadata-v2.tar"
+    },
+    {
+      "id": "bet2026-runtime-image-002-metadata-v2",
+      "asset_id": 609484521,
+      "bytes": 524421120,
+      "sha256": "136a409e21bebde02cda642080c2d841d1b3ffec1d27114e0c23fbaf83eab88a",
+      "downloaded_bytes": 524421120,
+      "downloaded_sha256": "136a409e21bebde02cda642080c2d841d1b3ffec1d27114e0c23fbaf83eab88a",
+      "verified_at": "2026-10-04T08:59:20.975890+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-runtime-image-002-metadata-v2.tar"
+    },
+    {
+      "id": "bet2026-runtime-image-003-metadata-v2",
+      "asset_id": 609488056,
+      "bytes": 524421120,
+      "sha256": "9190dd9fa394ee4b8e0491178fe058a0f053ede35561d4e082e238605e224146",
+      "downloaded_bytes": 524421120,
+      "downloaded_sha256": "9190dd9fa394ee4b8e0491178fe058a0f053ede35561d4e082e238605e224146",
+      "verified_at": "2026-10-04T09:01:42.902309+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-runtime-image-003-metadata-v2.tar"
+    },
+    {
+      "id": "bet2026-runtime-image-004-metadata-v2",
+      "asset_id": 609492552,
+      "bytes": 264120320,
+      "sha256": "4a2f0cef5417ffc8aa4cae7cc1f8c9e0bce4c4a9e1a0bf609572179c8d7f6376",
+      "downloaded_bytes": 264120320,
+      "downloaded_sha256": "4a2f0cef5417ffc8aa4cae7cc1f8c9e0bce4c4a9e1a0bf609572179c8d7f6376",
+      "verified_at": "2026-10-04T09:02:59.837170+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-runtime-image-004-metadata-v2.tar"
+    },
+    {
+      "id": "bet2026-runtime-engine-candidate",
+      "asset_id": 609495165,
+      "bytes": 34560000,
+      "sha256": "91bb7603582bf229426a8f6ceb98b4f4afd483323299b0a9b3a6242128b01b8d",
+      "downloaded_bytes": 34560000,
+      "downloaded_sha256": "91bb7603582bf229426a8f6ceb98b4f4afd483323299b0a9b3a6242128b01b8d",
+      "verified_at": "2026-10-04T09:03:12.801177+00:00",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-runtime-engine-candidate.tar"
+    }
+  ]
+}

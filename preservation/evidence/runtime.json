@@ -1,0 +1,1170 @@
+{
+  "schema_version": 1,
+  "recorded_executions": [
+    {
+      "job_number": 22523,
+      "id": "j08b4999b1f0",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-024",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22561,
+      "id": "j0950e7729f4",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-062",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22581,
+      "id": "j0db4136e0a6",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-082",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22577,
+      "id": "j174f462790d",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-078",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22530,
+      "id": "j18504d4234f",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-031",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22598,
+      "id": "j1c39aa9aa5d",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-099",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22567,
+      "id": "j1cb9d65d52b",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-068",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22510,
+      "id": "j21f5310712e",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-007",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22587,
+      "id": "j233ad218c26",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-088",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22548,
+      "id": "j23e5281bce6",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-049",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22570,
+      "id": "j24bf7925204",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-071",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22544,
+      "id": "j27aad8f67c2",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-045",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22532,
+      "id": "j27c34a0a360",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-033",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22569,
+      "id": "j2c266e8774d",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-070",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22531,
+      "id": "j3106233740d",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-032",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22542,
+      "id": "j34c5353e2ac",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-043",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22502,
+      "id": "j3d466cf720f",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-009",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22554,
+      "id": "j3d86a3efad5",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-055",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22556,
+      "id": "j3f109895bf7",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-057",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22543,
+      "id": "j4702ed8afe9",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-044",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 21641,
+      "id": "j470a734773c",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-diagnostic",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "KFLOW_RUNTIME_FORCE_UPDATE": "1",
+        "KFLOW_RUNTIME_GITHUB_AUTH": "true",
+        "KFLOW_RUNTIME_PACKAGES": "mfclkit=PacificCommunity/ofp-sam-mfclkit@cf786007b5261f84faac8f3d24f7084bd323119d,mfclshiny=PacificCommunity/mfclshiny@c861bce8c1d8c769d12d897e035765765880bafd",
+        "KFLOW_RUNTIME_REQUIRE_PRIVATE_PACKAGES": "true",
+        "KFLOW_RUNTIME_UPDATE": "auto",
+        "MFCLKIT_GITHUB_REF": "cf786007b5261f84faac8f3d24f7084bd323119d",
+        "MFCLSHINY_GITHUB_REF": "c861bce8c1d8c769d12d897e035765765880bafd",
+        "MODEL_ID": "S0.90-F2",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "auto"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22508,
+      "id": "j536f2b321a2",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-012",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22579,
+      "id": "j55c0e07055b",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-080",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22597,
+      "id": "j5a532ff4db3",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-098",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22515,
+      "id": "j6835106cd34",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-014",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22553,
+      "id": "j6efa41dcf23",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-054",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22592,
+      "id": "j73984c118b2",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-093",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22580,
+      "id": "j758fb85c145",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-081",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22501,
+      "id": "j76609e4f576",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-001",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22537,
+      "id": "j76fe625a912",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-038",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22578,
+      "id": "j783c07f8f86",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-079",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22575,
+      "id": "j79bda40857d",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-076",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22568,
+      "id": "j7a1f6ab4802",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-069",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22584,
+      "id": "j7d2e9ce37b3",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-085",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22585,
+      "id": "j7e9c6716e7a",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-086",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22572,
+      "id": "j8392c36b1fc",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-073",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22504,
+      "id": "j86e091b68b7",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-011",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22555,
+      "id": "j888fc168e81",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-056",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22533,
+      "id": "j8897f877b30",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-034",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22545,
+      "id": "j8b817b42109",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-046",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22562,
+      "id": "j8c6970d5254",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-063",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22549,
+      "id": "j93c8b7cac50",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-050",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22506,
+      "id": "j94b84848013",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-008",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22528,
+      "id": "j9581cdda83e",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-029",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22546,
+      "id": "j96c047f6c80",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-047",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22503,
+      "id": "j9ec3b594f34",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-006",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22591,
+      "id": "ja036b45f36a",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-092",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22526,
+      "id": "ja160811e6fe",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-027",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22586,
+      "id": "ja5439a7a0df",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-087",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22539,
+      "id": "ja8e2bd22331",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-040",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22593,
+      "id": "jab89a481bde",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-094",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22550,
+      "id": "jad4f5536686",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-051",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 24008,
+      "id": "jaff4084e7d9",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-diagnostic",
+      "command": "bash diagnostic-report/run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "KFLOW_RUNTIME_GITHUB_AUTH": "true",
+        "KFLOW_RUNTIME_PACKAGES": "FLR4MFCL=PacificCommunity/ofp-sam-flr4mfcl@ff8367fcec19baff98333170c0f1bca3f9903029,mfclkit=PacificCommunity/ofp-sam-mfclkit@cf786007b5261f84faac8f3d24f7084bd323119d,mfclshiny=PacificCommunity/mfclshiny@a8dffd78de61c99af8cf5b1f6995e861157dc96c",
+        "KFLOW_RUNTIME_REQUIRE_PRIVATE_PACKAGES": "true",
+        "KFLOW_RUNTIME_UPDATE": "always",
+        "MFCLKIT_GITHUB_REF": "cf786007b5261f84faac8f3d24f7084bd323119d",
+        "MFCLSHINY_GITHUB_REF": "a8dffd78de61c99af8cf5b1f6995e861157dc96c",
+        "TUNA_FLOW_RUNTIME_UPDATE": "always"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22521,
+      "id": "jb11b695d142",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-022",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22540,
+      "id": "jb3f86f791a9",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-041",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22574,
+      "id": "jb4da5b4e2cf",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-075",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22571,
+      "id": "jb67a3060815",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-072",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22505,
+      "id": "jbb7ea6dcddd",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-005",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22514,
+      "id": "jbe2155130c1",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-015",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22534,
+      "id": "jc100284d283",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-035",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22588,
+      "id": "jc1c92820b94",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-089",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22524,
+      "id": "jc2040e2bc3d",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-025",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22518,
+      "id": "jc452791ff26",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-018",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22522,
+      "id": "jc89c7069097",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-023",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22552,
+      "id": "jc9ed8b817af",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-053",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22517,
+      "id": "jcc54624a60b",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-019",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22538,
+      "id": "jcf7ec445082",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-039",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22589,
+      "id": "jd591b6882a2",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-090",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22535,
+      "id": "jd880e6bbe78",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-036",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22573,
+      "id": "jdb4bc0a08de",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-074",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22541,
+      "id": "jdc3420b60ca",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-042",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22529,
+      "id": "je5553c78c72",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-030",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22520,
+      "id": "je74bc7dcb27",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-021",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22565,
+      "id": "jea395e2a82c",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-066",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22583,
+      "id": "jec8e9a316e4",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-084",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22590,
+      "id": "jee092c2e4e2",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-091",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22512,
+      "id": "jeed02604f9c",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-010",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22511,
+      "id": "jefd6b3c5cfb",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-004",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22507,
+      "id": "jf055a7ae1db",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-002",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22594,
+      "id": "jf6593e7cc4a",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-095",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22564,
+      "id": "jf977460af39",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-065",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    },
+    {
+      "job_number": 22551,
+      "id": "jfc680e0ab96",
+      "repo_full_name": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+      "command": "bash run.sh",
+      "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+      "safe_runtime_controls": {
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "ENSEMBLE_SELECT": "ensemble-052",
+        "PROGRAM_PATH": "/home/mfcl/mfclo64",
+        "TUNA_FLOW_RUNTIME_UPDATE": "never"
+      },
+      "metadata_source": "original Kflow SQLite readonly selected execution columns and all original JSON env/job_config fields recursively retained except explicit credential-key/value-pattern redactions V4; omissions explicit; not a complete process environment"
+    }
+  ],
+  "bundled_repository_engine_sha256": "8995f72019869863c1d1c0b4f44fc6a6268d1f79031f5bc79dc354ee10f0a63e",
+  "original_executed_external_engine_sha256": "UNKNOWN",
+  "pinned_image_digest": "sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+  "image_preservation": "Exact static Docker-save snapshot preserved; see runtime-static-byte-identity.json.",
+  "image_archive_id": "runtime-80577e91a76c1776a4d2509350c9251d7e3eceb8cbb550a33b652bf7df6d52f4",
+  "static_image_engine_sha256": "f5bc1e232a86e51f920bce7271d8e0930d0b160e4d18dc46de44078f0fa24cd0",
+  "static_byte_receipt": "runtime-static-byte-identity.json"
+}

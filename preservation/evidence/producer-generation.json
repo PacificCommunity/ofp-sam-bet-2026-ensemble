@@ -1,0 +1,473 @@
+{
+  "schema_version": 1,
+  "generation": "20261004T070010Z-46229c81c64c",
+  "kind": "immutable atomic producer metadata snapshot; collection and hash evidence, no scientific approval",
+  "bundles": 93,
+  "archives": 2002,
+  "job_aliases": 1996,
+  "bundle_bytes": 33603676160,
+  "source_receipts": [
+    {
+      "path": "jobs/bet2026-checks-001-receipt.json",
+      "bytes": 142990,
+      "sha256": "c1a5d919143d3c665a565c7a0533d114b0686df838647b3266dd3974dc850278"
+    },
+    {
+      "path": "jobs/bet2026-checks21641-001-receipt.json",
+      "bytes": 85053,
+      "sha256": "3159b09723bc6213ffc4d686696aa6e63f29a17a878186f3b7ea00de7d07fa15"
+    },
+    {
+      "path": "jobs/bet2026-checks21641-002-receipt.json",
+      "bytes": 327149,
+      "sha256": "5e342e283c356c5c2020a2469c588e7778fefe62541fcb72c98344e22833bf18"
+    },
+    {
+      "path": "jobs/bet2026-checks21641-sidecars-001-receipt.json",
+      "bytes": 1074214,
+      "sha256": "06bbc4afe43883197530ea92f1d336d32701f5740d50eba50dcd4a1d24b7457c"
+    },
+    {
+      "path": "jobs/bet2026-checks21641-sidecars-002-receipt.json",
+      "bytes": 1997604,
+      "sha256": "738f6f30c4f992d247179bb00249d7b545c0de6433f862f6c0e0332901c39068"
+    },
+    {
+      "path": "jobs/bet2026-checks21641-sidecars-003-receipt.json",
+      "bytes": 993592,
+      "sha256": "c9b9f0b18441f51433a5b7a182221f39e3ed809759a23b14afeb1c2c00872c99"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-001-receipt.json",
+      "bytes": 79596,
+      "sha256": "5b2958e3eb8cde48c118b8b396cf710fdd2bf78765c34ca6c1420377ba1bf788"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-002-receipt.json",
+      "bytes": 63348,
+      "sha256": "6aa0c44bbfd09450d8c7299267692f3de6f29d5cc4c2b1079ec4b6da53d1d63b"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-003-receipt.json",
+      "bytes": 6499,
+      "sha256": "7a0e47146e7ee7409c071cef4aaaea3a0290a26acc9d637db86d9bb51ba7c268"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-004-receipt.json",
+      "bytes": 16603,
+      "sha256": "10c4dc6de7f3d37de42cf5531674e30c86df1559994339410dc0e2b8246877f1"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-005-receipt.json",
+      "bytes": 16603,
+      "sha256": "cf364b50a303f004d1e5dfd919392d3727bfde4e11b0038fdb2342ee322fe0da"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-006-receipt.json",
+      "bytes": 16603,
+      "sha256": "ba0d9a15e4ed55d9e5f89b5f9b88d438561fb636d23773284ec4b348cb6a3e9d"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-007-receipt.json",
+      "bytes": 16603,
+      "sha256": "dbef39727a6ce1628b69c563a56b89a58fa5f54881c6a367805834d551fb7651"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-008-receipt.json",
+      "bytes": 16603,
+      "sha256": "edfbc87b56d5b6e803e46a1b11312bd846480a59cc08c11daea93be427261248"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-009-receipt.json",
+      "bytes": 16603,
+      "sha256": "2570f9fb776fd09cf12a3e9e779a12a668736cf6a12c94a2da8d82633d744f5e"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-010-receipt.json",
+      "bytes": 16603,
+      "sha256": "e2142d27b3f9124f29056e4a72080706b314d4dde6dbf4fec5050a7eb07e2bd1"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-011-receipt.json",
+      "bytes": 16603,
+      "sha256": "021be75d0dd9197c56b40727c3d6272a4a8bcebd8b9b6084a8b8e9cdcc17621f"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-012-receipt.json",
+      "bytes": 16603,
+      "sha256": "45d46682846376b926d9f9371871c09e32f422a2894a11f26a8e443817fc1891"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-013-receipt.json",
+      "bytes": 16603,
+      "sha256": "a27c474885b77875e587ee432824eff608edca5f5b1f60751692631002ac8814"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-014-receipt.json",
+      "bytes": 8495,
+      "sha256": "82fe3fb59713a2cdf55f75bf98fb50cd0f4ab5de53dbdf7c2763d27c9db98734"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-015-receipt.json",
+      "bytes": 2497,
+      "sha256": "819b2fdf46dc9d75052d2231f583710424dbac1fb21d8ac011d6d85936c32100"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-016-receipt.json",
+      "bytes": 2497,
+      "sha256": "f71240cd207aa0a81e95440b8483c69309f194d6cb21bb65847aa6de728833e4"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-017-receipt.json",
+      "bytes": 2518,
+      "sha256": "99d17820b56b06ee63a254e839274b84d4d51a4a7b30978ac585b0d43848cc2a"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-sidecars-001-receipt.json",
+      "bytes": 20775,
+      "sha256": "ae4cc8a5527f26bdd38ec68cbd54dd7462bd90b02a8d12f674ac21bce4f69f40"
+    },
+    {
+      "path": "jobs/bet2026-dependencies-sidecars-002-receipt.json",
+      "bytes": 3102289,
+      "sha256": "d8dbf3d73e45ef71c6c40555e779519d9d041580f5b0e1794282e31ed09c144d"
+    },
+    {
+      "path": "jobs/bet2026-diagnostic-001-receipt.json",
+      "bytes": 42147,
+      "sha256": "54bd86a7891cdfa3a4ff33af36f103c068b1c93ca78d012cbf6deed5b9a20f97"
+    },
+    {
+      "path": "jobs/bet2026-diagnostic-002-receipt.json",
+      "bytes": 40308,
+      "sha256": "0188afb053ecffbffdd3d5e1c284e32961cb0aad29419e9d5f0ed62cd7d2405b"
+    },
+    {
+      "path": "jobs/bet2026-diagnostic-003-receipt.json",
+      "bytes": 18940,
+      "sha256": "f73d97d213dea223f4714327f2f10c7c64b1e80917943e32304a37c794374a18"
+    },
+    {
+      "path": "jobs/bet2026-diagnostic-004-receipt.json",
+      "bytes": 4426,
+      "sha256": "17fbdf44f88f29f6bafc099eb840dfb5b4ac848f95b78383379e2fa771e05e67"
+    },
+    {
+      "path": "jobs/bet2026-diagnostic-005-receipt.json",
+      "bytes": 10624,
+      "sha256": "8506a6226cb9ebfbafa5d79efa709995e833d85973dc47a5289d1d9aca80eacf"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-022-receipt.json",
+      "bytes": 24163,
+      "sha256": "36377f95fd2294f3d37baa40be00de44dff2d846563c88c4a36249b18e5da016"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-023-receipt.json",
+      "bytes": 24163,
+      "sha256": "77a4413cb4001cc1cba3e2c8704ef97ae9a9ec044b34bf2db701d53ddca0cb74"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-024-receipt.json",
+      "bytes": 24163,
+      "sha256": "e2bc6d23c808557bcd008183122288b64c0751760f69f650041bffbed1677053"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-025-receipt.json",
+      "bytes": 24163,
+      "sha256": "b2c1a202bf1714e4a27a524548f569a238916d98d3cab407b04c32ece52a7d21"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-026-receipt.json",
+      "bytes": 24163,
+      "sha256": "6a3a989cad91aa5120f7095a36c8b1c3d05433afe242490d32a1c2c2e2968981"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-027-receipt.json",
+      "bytes": 24163,
+      "sha256": "2816092595dacbcd3569b9158a53741bede736f9e94fe740205fbe5087f86ad0"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-028-receipt.json",
+      "bytes": 24163,
+      "sha256": "6902306053d596692c80400e6aa31cf87e4c0de3524c97368a9b13b20339ff14"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-029-receipt.json",
+      "bytes": 28295,
+      "sha256": "9739a2d6fd4d375cdc5e6357d1660709bc0502cea0b46517daa2cfe07d7a1a00"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-030-receipt.json",
+      "bytes": 36328,
+      "sha256": "4a7b0b675d11f7cf097088ecb6fb2e36eddc77743b5d11c4125f63e99a469240"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-031-receipt.json",
+      "bytes": 30385,
+      "sha256": "d4802bd042bc84898739fb97226712113c3300beaea987aba1e73b12660b1dbb"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-032-receipt.json",
+      "bytes": 32364,
+      "sha256": "9348a3ab06a09d3dc90dd8c933c4052d9b26198c3cc1820911a2d82d2e55f0f6"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-033-receipt.json",
+      "bytes": 28400,
+      "sha256": "e14ad0f765abeeedac6044b60ffd01a6a5564280a9bb8ac3df62fd8f83368957"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-034-receipt.json",
+      "bytes": 32364,
+      "sha256": "2b86f4dd7621bbdc22dffcf6cf1f5b16fbb4034e4ad634a2b935f7a2d8609290"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-035-receipt.json",
+      "bytes": 28368,
+      "sha256": "5549a5ff2171db640fb7d5fe5281ce84fa3aba8fe1c9f48b80092789cf836391"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-036-receipt.json",
+      "bytes": 28344,
+      "sha256": "a306b487af7ca81f6f74d612f652337e173ed003d59121b414f7e98a4dfecdb7"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-037-receipt.json",
+      "bytes": 30322,
+      "sha256": "c666f5d24f574f2c444e0798ebd25b9a24eee83e2849866026a1027bdcb76e5c"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-038-receipt.json",
+      "bytes": 26366,
+      "sha256": "359b999c84776d11cf8acc36b60254e629f0e1d11712a56ad590f81ac3b724f6"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-039-receipt.json",
+      "bytes": 36256,
+      "sha256": "820716f974111f8f870a34a056b4fc1a835e469be20f25c2684a617be0130809"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-040-receipt.json",
+      "bytes": 28344,
+      "sha256": "f343c7ca4aa146a33953db466ef2bc3ff92ddab3afa0230726c38769525f6db3"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-041-receipt.json",
+      "bytes": 26366,
+      "sha256": "e61ec3173f0745f8965daadb5f5b64ed99cd767171f6e9c67b8d9412c37da049"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-042-receipt.json",
+      "bytes": 1286370,
+      "sha256": "89c57a3ecfcb4d42c91b609981a66a3b999c7a2583268600df1ee3b0470e069b"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-043-receipt.json",
+      "bytes": 28680,
+      "sha256": "7b82ceb1c309ce1e0a85a8b813af7726e47d015df0925e617ff82f8dc0d2da6b"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-044-receipt.json",
+      "bytes": 26678,
+      "sha256": "b5c3e33379597cabf4eb763eb559c3217b8f98cb39bb3bcc545c76760de9a332"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-045-receipt.json",
+      "bytes": 30682,
+      "sha256": "eac3183eba60fdf5442ba0381e0c1ad6084ee4dff5731cc61f3aa08ef6396340"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-046-receipt.json",
+      "bytes": 36101,
+      "sha256": "c1a530c5bcd678d8387a7ce3d5dfce643ccafad27741a58a9e961d5d5c12a268"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-047-receipt.json",
+      "bytes": 32411,
+      "sha256": "eeaf86784b5a91a530188893b6d59d3a1bbf9dcd16704746bdb1cfb702c093dd"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-048-receipt.json",
+      "bytes": 11934,
+      "sha256": "43298ac5984f8dcf4a289672268680a1896f8e86622f38ae4baee809a44ceaca"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-049-receipt.json",
+      "bytes": 56720,
+      "sha256": "e42e9e0429b06502bc6298a5898162885a78adadf78f1f697bfb64f3db9d7e39"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-050-receipt.json",
+      "bytes": 36695,
+      "sha256": "d18a99d46eae6270f4ec4e7c8e5989fb37a82139aedbf88ea1c577c67e38f5e2"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-051-receipt.json",
+      "bytes": 30682,
+      "sha256": "a1d822e7c9af9d3f753071e162218afc1af0996461a22afe0216e00588902eeb"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-052-receipt.json",
+      "bytes": 2401,
+      "sha256": "0dbcef2659fbd3f7507b75bccad4d1798933cce5705f0deb719eff04b0f699d9"
+    },
+    {
+      "path": "jobs/bet2026-ensemble-053-receipt.json",
+      "bytes": 12491,
+      "sha256": "b7e60366f685443d095b4be0d2f16c1923eaf0fc731a91c30a1f3fd6e427a1e3"
+    },
+    {
+      "path": "jobs/bet2026-jitter-054-receipt.json",
+      "bytes": 20953,
+      "sha256": "5994080534a56fd9400800fb004192e6c9a04c648d85a373d9b68b916afa1461"
+    },
+    {
+      "path": "jobs/bet2026-report-057-receipt.json",
+      "bytes": 14804,
+      "sha256": "f7c83a02438f7b352b539da5bc85b939f5787c33b32948b133401fe971bc6222"
+    },
+    {
+      "path": "jobs/bet2026-retrospective-055-receipt.json",
+      "bytes": 8807,
+      "sha256": "ed5b5f542387b3792a2019b0af8d7c08be631063a36a43a083658d0eb87ef4f6"
+    },
+    {
+      "path": "jobs/bet2026-selftest-056-receipt.json",
+      "bytes": 4489,
+      "sha256": "48d67dbe3fdf62a1d0ec35d3b3d636e9bc68705fc0b21dbcda061ea2cfb6575d"
+    },
+    {
+      "path": "jobs/bet2026-sensitivity-006-receipt.json",
+      "bytes": 25690,
+      "sha256": "ca1d0805a427bbd2409b8abad080ce431715a1296cbe890aa04a47344f664f0d"
+    },
+    {
+      "path": "jobs/bet2026-sensitivity-007-receipt.json",
+      "bytes": 26619,
+      "sha256": "05b84dd23597d454bc68ad27d660cd3d0633cbde0fa86710a52c039933de6150"
+    },
+    {
+      "path": "jobs/bet2026-sensitivity-008-receipt.json",
+      "bytes": 26869,
+      "sha256": "34a864b6c265cd86c7b634bb95a2e271d8b41f9c05bab9f79f237f28cf72cdc6"
+    },
+    {
+      "path": "jobs/bet2026-sensitivity-009-receipt.json",
+      "bytes": 20967,
+      "sha256": "f15d07e008ae99f79d472d3ab6a7718cff3a5d460d357a1e54fa8b81f135d43c"
+    },
+    {
+      "path": "jobs/bet2026-sensitivity-010-receipt.json",
+      "bytes": 2384,
+      "sha256": "cd11dc1869286c23fcc64d55c1eac3cba73b385c8e35fa74a8658b2740d7ac9e"
+    },
+    {
+      "path": "jobs/bet2026-sensitivity-011-receipt.json",
+      "bytes": 4430,
+      "sha256": "8cef7c890d9ad400cabc764071537f9240b2d46f30d0316d18f8e7728b23dccc"
+    },
+    {
+      "path": "jobs/bet2026-sidecars-001-receipt.json",
+      "bytes": 735129,
+      "sha256": "b0ff4f4a953e2d41f9d723f8433d2d7ff67d23c7ca53187410de47d55a7cf700"
+    },
+    {
+      "path": "jobs/bet2026-sidecars-002-receipt.json",
+      "bytes": 1243507,
+      "sha256": "53ddcfdb3723cc91fc46b41db43bdd668a68692dffea5c482f18637267584f44"
+    },
+    {
+      "path": "jobs/bet2026-sidecars-003-public-redacted-receipt.json",
+      "bytes": 18378674,
+      "sha256": "1f03c3aa7cf225644cd07fe51f2f9e0d9d9fe43ae88a5551e1a8a0b2d3ba69de"
+    },
+    {
+      "path": "jobs/bet2026-sidecars-003-receipt.json",
+      "bytes": 18378253,
+      "sha256": "156d72b2057732069dcdff5e4293efbdb2daa293427113bb6fffca01a5da6aed"
+    },
+    {
+      "path": "jobs/bet2026-sidecars-004-receipt.json",
+      "bytes": 5441579,
+      "sha256": "af491cb7f645460a6b7130668ac95dc68dc213650980ea136cf5355a6b2fad14"
+    },
+    {
+      "path": "jobs/bet2026-sidecars-005-receipt.json",
+      "bytes": 2650282,
+      "sha256": "18bc42d4d706e0319c2fd4d1a413f14de9a7b88e300503f19bfefa0d22d1078f"
+    },
+    {
+      "path": "jobs/bet2026-stepwise-012-receipt.json",
+      "bytes": 111608,
+      "sha256": "1928d71bd9c77d4e402a69be697daa3aed1e1ebba918c6365e7f7e368b434ce8"
+    },
+    {
+      "path": "jobs/bet2026-stepwise-013-receipt.json",
+      "bytes": 19126,
+      "sha256": "d782bf1d1df06879e82be645a90b7a00167eb08ffbbf69e342c895dd7f4b5625"
+    },
+    {
+      "path": "jobs/bet2026-stepwise-014-receipt.json",
+      "bytes": 19126,
+      "sha256": "dd0b506109fa8ee82281c9dbe83ffb657b8df9152100b3ce387f7df99c42d296"
+    },
+    {
+      "path": "jobs/bet2026-stepwise-015-receipt.json",
+      "bytes": 63914,
+      "sha256": "62ff9e5d8de159704ce9e40468c959c2ae1f0cd6908d9f14a89d43485ed69e8b"
+    },
+    {
+      "path": "jobs/bet2026-stepwise-016-receipt.json",
+      "bytes": 35653,
+      "sha256": "4818326fe2894852b87ad437d1b0f5f3b65dd83143b5dd852184c67f373e436b"
+    },
+    {
+      "path": "jobs/bet2026-stepwise-017-receipt.json",
+      "bytes": 220042,
+      "sha256": "49d6b584f67c78036d894234e9e478356a0934465a94e4c4204b2afa775e669d"
+    },
+    {
+      "path": "jobs/bet2026-stepwise-018-receipt.json",
+      "bytes": 140882,
+      "sha256": "72ef09589d768ba2f0392b5df99d4ee7d4940bdeca7cd2dddc0cf39e4fa01da1"
+    },
+    {
+      "path": "jobs/bet2026-stepwise-019-receipt.json",
+      "bytes": 165489,
+      "sha256": "f93d5fb6d88151958e1aa88d10f527b7600587083bb6490da6731201b1785df4"
+    },
+    {
+      "path": "jobs/bet2026-stepwise-020-receipt.json",
+      "bytes": 32148,
+      "sha256": "91a4d735793f94ba9fab8fbe00aa213528bc879bffdd01969354cc832e555a3e"
+    },
+    {
+      "path": "jobs/bet2026-stepwise-021-receipt.json",
+      "bytes": 10586,
+      "sha256": "8ac5aa850d67dd5824b3d2f2e0ca2195f202f6ed0fdb0629832bcc99a32621f0"
+    }
+  ],
+  "files": {
+    "objects.json": {
+      "path": "jobs/producer-snapshots/20261004T070010Z-46229c81c64c/objects.json",
+      "bytes": 1518810,
+      "sha256": "4a4978c9c68b5e87b5b36f1dec0e2449ab8fc9045b15f7a62e7eb282c8c413ea"
+    },
+    "catalog.json": {
+      "path": "jobs/producer-snapshots/20261004T070010Z-46229c81c64c/catalog.json",
+      "bytes": 4049515,
+      "sha256": "b37f864245deedfef816b70725706a24d6c4bd7f53c7dc4ab57ecb8e2a6bc614"
+    },
+    "private-only-bundles.json": {
+      "path": "jobs/producer-snapshots/20261004T070010Z-46229c81c64c/private-only-bundles.json",
+      "bytes": 405,
+      "sha256": "1e71cc0e52cdd8a7b44c945baf76668b1d5339f9cdfb21da8e9be7ce7a96ecba"
+    },
+    "model-runs.csv": {
+      "path": "jobs/producer-snapshots/20261004T070010Z-46229c81c64c/model-runs.csv",
+      "bytes": 1937459,
+      "sha256": "e7a3ae6141d308a00871aadf818ed29f01a80e2a850cf96780ee244d75525a60"
+    }
+  }
+}

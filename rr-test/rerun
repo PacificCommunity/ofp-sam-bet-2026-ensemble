@@ -17,6 +17,7 @@ IMAGE = (
     "ghcr.io/pacificcommunity/tuna-flow:v2.5@"
     "sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360"
 )
+SAVED_IMAGE = "sha256:898925450ab7ec3f99cb9d8427cc37d24097cc2fe9f0468d74f70aaf35daec3a"
 MFCL_PATH = "/home/mfcl/mfclo64"
 MFCL_SHA256 = "f5bc1e232a86e51f920bce7271d8e0930d0b160e4d18dc46de44078f0fa24cd0"
 REPO = Path(__file__).resolve().parent.parent
@@ -82,9 +83,10 @@ def select_model(selector, anchor):
     return (anchor_id, "design/model-draws.csv") if anchor else (selector, "rr-test/model-draws.csv")
 
 
-def docker_command(model_id, design_file, output_dir, pair_id):
+def docker_command(model_id, design_file, output_dir, pair_id, saved_runtime=False):
     return [
         "docker", "run", "--rm", "--platform", "linux/amd64",
+        *(["--pull=never"] if saved_runtime else []),
         "--cpus", "2", "--memory", "8g", "--network", "none",
         "--user", f"{os.getuid()}:{os.getgid()}",
         "--mount", f"type=bind,source={REPO},target=/workspace,readonly",
@@ -93,7 +95,7 @@ def docker_command(model_id, design_file, output_dir, pair_id):
         "--env", "TUNA_FLOW_RUNTIME_UPDATE=never",
         "--env", "BET_PHASE10_11_CONVERGENCE=-4",
         "--env", f"PROGRAM_PATH={MFCL_PATH}",
-        "--entrypoint", "/bin/sh", IMAGE,
+        "--entrypoint", "/bin/sh", SAVED_IMAGE if saved_runtime else IMAGE,
         "-c", CONTAINER_SCRIPT, "rr-paired-rerun", MFCL_SHA256, MFCL_PATH, model_id, design_file, pair_id,
     ]
 
@@ -104,6 +106,7 @@ def main():
     )
     parser.add_argument("selector", help="exact paired ID, e.g. rrtest-001-rr1")
     parser.add_argument("--anchor", action="store_true", help="rerun the selected pair's original RR0 anchor instead")
+    parser.add_argument("--saved-runtime", action="store_true", help="use the exact locally loaded saved image ID and refuse image pulls")
     parser.add_argument("--output-dir", type=Path, help="new output directory (default: outputs/rr-test-local/MODEL_ID)")
     parser.add_argument("--dry-run", action="store_true", help="validate selection and print command without Docker or file writes")
     args = parser.parse_args()
@@ -120,7 +123,8 @@ def main():
         parser.error("output inside the checkout must be beneath outputs/")
     if any("," in str(path) or "\n" in str(path) for path in (REPO, output_dir)):
         parser.error("Docker bind paths must not contain commas or newlines")
-    command = docker_command(model_id, design_file, output_dir, args.selector)
+    image = SAVED_IMAGE if args.saved_runtime else IMAGE
+    command = docker_command(model_id, design_file, output_dir, args.selector, args.saved_runtime)
     print(f"Model: {model_id}; historical image: TunaFlow v2.5", flush=True)
     print(f"Run files: {output_dir / 'run'}", flush=True)
     if args.dry_run:
@@ -140,7 +144,7 @@ def main():
         "model_id": model_id,
         "arm": "RR0" if args.anchor else "RR1",
         "design_file": design_file,
-        "docker_image": IMAGE,
+        "docker_image": image,
         "platform": "linux/amd64",
         "mfcl_path": MFCL_PATH,
         "mfcl_sha256_required": MFCL_SHA256,

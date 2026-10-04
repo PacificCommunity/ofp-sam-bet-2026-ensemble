@@ -1,0 +1,1305 @@
+{
+  "schema_version": 1,
+  "scope": "bounded static original native input/script closure; no execution",
+  "source_job": 21641,
+  "source_id": "j470a734773c",
+  "source_identity": {
+    "source": "kflow",
+    "source_id": "j470a734773c",
+    "source_number": 21641,
+    "source_task_code": "ofp-sam-bet-2026-tau2-steepness-selectivity-grid",
+    "source_label": null,
+    "id": "source_kflow_j470a734773c",
+    "number": 10621,
+    "task_code": "source_kflow_ofp-sam-bet-2026-tau2-steepness-selectivity-grid",
+    "repo": "PacificCommunity/ofp-sam-bet-2026-diagnostic",
+    "branch": "tau2-exploration",
+    "git_commit_sha": "3abf0c64fb9b0c2d70b9c672dc7d9a655d3060d6",
+    "remote_host": "suvofpsubmit.corp.spc.int",
+    "remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-tau2-steepness-selectivity-grid/job-021641"
+  },
+  "source_archive_id": "a-de732634023a558c38fa364de9ea43c8e37eee197622c8e3d386081eeeaa48c5",
+  "source_archive_sha256": "de732634023a558c38fa364de9ea43c8e37eee197622c8e3d386081eeeaa48c5",
+  "working_relative_folder": "./outputs/S0.90-F2-tau2-fixed/",
+  "actual_doitall": {
+    "ordinal": 95,
+    "name": "./outputs/S0.90-F2-tau2-fixed/doitall.sh",
+    "sha256": "5c53802daf44e700ee91aa8108f0b2289473c0344d7feecf04cab458dc49ca77"
+  },
+  "actual_selected_model_config_text": "MODEL_ID=S0.90-F2\nSTEEPNESS=0.90\nSELECTIVITY_MODEL=F2\nSELECTIVITY_INPUT=selectivity-models/F2.csv\n",
+  "selected_model_config_controls": {
+    "MODEL_ID": "S0.90-F2",
+    "STEEPNESS": "0.90",
+    "SELECTIVITY_MODEL": "F2",
+    "SELECTIVITY_INPUT": "selectivity-models/F2.csv"
+  },
+  "requested_inputs": [
+    {
+      "relative_name": "bet.frq",
+      "state": "regular native bytes present",
+      "members": [
+        {
+          "ordinal": 109,
+          "name": "./outputs/S0.90-F2-tau2-fixed/bet.frq",
+          "bytes": 2932052,
+          "sha256": "d0d84f0a498e6a62681f2a58ffc1ba53dab9e3d6af856b4ad1fd907196250004"
+        }
+      ]
+    },
+    {
+      "relative_name": "bet.ini",
+      "state": "regular native bytes present",
+      "members": [
+        {
+          "ordinal": 115,
+          "name": "./outputs/S0.90-F2-tau2-fixed/bet.ini",
+          "bytes": 66790,
+          "sha256": "5292938d4743c1dfdd2f1a095c1aa87482c9c17f78b8d879671fe6851d58646f"
+        }
+      ]
+    },
+    {
+      "relative_name": "bet.model.ini",
+      "state": "regular native bytes present",
+      "members": [
+        {
+          "ordinal": 139,
+          "name": "./outputs/S0.90-F2-tau2-fixed/bet.model.ini",
+          "bytes": 66791,
+          "sha256": "fbd064c3d0ccb4d2e1b9beb06fe3eacf0180677821e6a1773d20b308474d984e"
+        }
+      ]
+    },
+    {
+      "relative_name": "bet.tag",
+      "state": "regular native bytes present",
+      "members": [
+        {
+          "ordinal": 57,
+          "name": "./outputs/S0.90-F2-tau2-fixed/bet.tag",
+          "bytes": 110051,
+          "sha256": "b140e66eb52f2b7e022ef2c562134f8bc9baf3dede18ce95283a001acd2b013f"
+        }
+      ]
+    },
+    {
+      "relative_name": "bet.age_length",
+      "state": "regular native bytes present",
+      "members": [
+        {
+          "ordinal": 131,
+          "name": "./outputs/S0.90-F2-tau2-fixed/bet.age_length",
+          "bytes": 1403841,
+          "sha256": "426859b825bd815aa69c8d97c9dd93097027ed1eb6b9e444d88b69562097a00c"
+        }
+      ]
+    },
+    {
+      "relative_name": "bet.reg_scaling",
+      "state": "regular native bytes present",
+      "members": [
+        {
+          "ordinal": 91,
+          "name": "./outputs/S0.90-F2-tau2-fixed/bet.reg_scaling",
+          "bytes": 1186,
+          "sha256": "5f047ddb4053d1f6df9ace18e85e440b11553de246d024ce8138b427f5f9f7e3"
+        }
+      ]
+    },
+    {
+      "relative_name": "mfcl.cfg",
+      "state": "regular native bytes present",
+      "members": [
+        {
+          "ordinal": 126,
+          "name": "./outputs/S0.90-F2-tau2-fixed/mfcl.cfg",
+          "bytes": 31,
+          "sha256": "2ec8a291fae62c6f37541aec1de37444626d42b3290b371bb42b63d510034eae"
+        }
+      ]
+    },
+    {
+      "relative_name": "fishery_map.R",
+      "state": "regular native bytes present",
+      "members": [
+        {
+          "ordinal": 53,
+          "name": "./outputs/S0.90-F2-tau2-fixed/fishery_map.R",
+          "bytes": 4984,
+          "sha256": "0e989f4692c4a2a54abf22f12a1c53c7bd29cb7f0f3bd7c4457cdd3d6e1a125c"
+        }
+      ]
+    },
+    {
+      "relative_name": "tag_rep_map.R",
+      "state": "regular native bytes present",
+      "members": [
+        {
+          "ordinal": 87,
+          "name": "./outputs/S0.90-F2-tau2-fixed/tag_rep_map.R",
+          "bytes": 32718,
+          "sha256": "e1bddfe316a8b3e39333d0792f58db8f070d3f6f370770507e2f500f9d88786c"
+        }
+      ]
+    },
+    {
+      "relative_name": "model-inputs/S0.90-F2.conf",
+      "state": "regular native bytes present",
+      "members": [
+        {
+          "ordinal": 26,
+          "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.90-F2.conf",
+          "bytes": 98,
+          "sha256": "ce2c1dbf67d9eecb3ceaeda81ac9124cb7dbe81f42181f6abfb8f246b4f3a048"
+        }
+      ]
+    },
+    {
+      "relative_name": "selectivity-models/F2.csv",
+      "state": "regular native bytes present",
+      "members": [
+        {
+          "ordinal": 102,
+          "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-models/F2.csv",
+          "bytes": 825,
+          "sha256": "790e21a01054349a20f4fbbb7db926f6452d059344815a3a9d6a5de51db3310a"
+        }
+      ]
+    }
+  ],
+  "all_model_input_configs": [
+    {
+      "ordinal": 19,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.80-P4.conf",
+      "bytes": 98,
+      "sha256": "79a3a75308557681d2701c3fad246567063c26f999cd0fc79d340398cb6a032a"
+    },
+    {
+      "ordinal": 20,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.80-F3.conf",
+      "bytes": 98,
+      "sha256": "7142830aeb3d73fb67362380d776d87bdd3475a5906842bde25f09d95bd7c210"
+    },
+    {
+      "ordinal": 21,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.80-P2.conf",
+      "bytes": 98,
+      "sha256": "2880792e2558d6809db214def8e223cbbfed90d7ce9d1a191f48bfeb73b0086d"
+    },
+    {
+      "ordinal": 22,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.90-P3.conf",
+      "bytes": 98,
+      "sha256": "863a2edbc2a7b2f42c99f37e9203742d8793c4a2588c573df777ec3b266cf418"
+    },
+    {
+      "ordinal": 23,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.85-F4.conf",
+      "bytes": 98,
+      "sha256": "ca8f8357aa8db38b86e6bf7241a5a31264ace4c4c118afc1d2a0699013781fd2"
+    },
+    {
+      "ordinal": 24,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.85-F2.conf",
+      "bytes": 98,
+      "sha256": "36124f9382ad58b8bd2c31d95b28dad7a975e9e94053ace29aa1eb5e3e52c7db"
+    },
+    {
+      "ordinal": 25,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.85-F1.conf",
+      "bytes": 98,
+      "sha256": "525681b4643135d28b09416b87a8e5b6731ca02fea09c11f7fd84872d220bb77"
+    },
+    {
+      "ordinal": 26,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.90-F2.conf",
+      "bytes": 98,
+      "sha256": "ce2c1dbf67d9eecb3ceaeda81ac9124cb7dbe81f42181f6abfb8f246b4f3a048"
+    },
+    {
+      "ordinal": 27,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.85-P3.conf",
+      "bytes": 98,
+      "sha256": "998950a02847f88aa5d8e99693e8e148e4ee03bfa0537f348775d0337f707fd5"
+    },
+    {
+      "ordinal": 28,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.80-F2.conf",
+      "bytes": 98,
+      "sha256": "5507d6dc2dde0fa2f36dd5140e1491bac7326923b122b82eff4423e0dd000f3a"
+    },
+    {
+      "ordinal": 29,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.90-F4.conf",
+      "bytes": 98,
+      "sha256": "4696a5b4a10b24a24c45d753eddf0da0bdb29dfb5f195ae3d5be44dd8b0c4793"
+    },
+    {
+      "ordinal": 30,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.90-P2.conf",
+      "bytes": 98,
+      "sha256": "8d58fcba650e9d9dbdba8c168cc74066ce9b77c204a2e32536579c560724821a"
+    },
+    {
+      "ordinal": 31,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.85-P2.conf",
+      "bytes": 98,
+      "sha256": "c7fe30b6832dca562e2d89c0cfbb64a40d5200cbce80c7ad68aac12a4b88d691"
+    },
+    {
+      "ordinal": 32,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.90-P4.conf",
+      "bytes": 98,
+      "sha256": "83b34f340cb293864e11cf02654cd6dfa2be2a822b2840db8fc2dd47cf3ee5e6"
+    },
+    {
+      "ordinal": 33,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.85-P4.conf",
+      "bytes": 98,
+      "sha256": "f0ab5c870339fd4f8fc26709768f19a085f1baa6220efb45ca72c8a1072045e7"
+    },
+    {
+      "ordinal": 34,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.90-F1.conf",
+      "bytes": 98,
+      "sha256": "4d76a6428854251fe0093605e1a7ea0ff7051276044f808285fb6f84decd58b9"
+    },
+    {
+      "ordinal": 35,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.80-P3.conf",
+      "bytes": 98,
+      "sha256": "16049aed8d7ecff10e715034cbddd720851dbf996356391e1b3de0dd17c13ac9"
+    },
+    {
+      "ordinal": 36,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.90-P1.conf",
+      "bytes": 98,
+      "sha256": "c0f9255ba5e910f6fc43643028c4ad062aa5a1605d2e7495963d44c218d7dfc0"
+    },
+    {
+      "ordinal": 37,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.80-F1.conf",
+      "bytes": 98,
+      "sha256": "cdc1c2e23bfb68f826039503a3baa2beb901f616df6b78d6ea1c3e2451228963"
+    },
+    {
+      "ordinal": 38,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.85-P1.conf",
+      "bytes": 98,
+      "sha256": "7de68eae3e41749ca5405e2383a659a65465b32abb6a361fa2a3b0c3e6f3cafa"
+    },
+    {
+      "ordinal": 39,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.80-F4.conf",
+      "bytes": 98,
+      "sha256": "0a70233836e05c67c99a85297728c6640b3ee9c5f949b4c0d947c12a8c24dafb"
+    },
+    {
+      "ordinal": 40,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.85-F3.conf",
+      "bytes": 98,
+      "sha256": "e5195010ea9fbe53e154dc492782ab0fbc05177c3cc109130fba8476c6daf064"
+    },
+    {
+      "ordinal": 41,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.90-F3.conf",
+      "bytes": 98,
+      "sha256": "a95f1154573f51c9520cd64486f6a07b3f7ca52467517a6a6f0b0e6c62a3700e"
+    },
+    {
+      "ordinal": 42,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.80-P1.conf",
+      "bytes": 98,
+      "sha256": "033d4f917f8f2dcc3ea01d5ba60ca4ffc6788a22c41ff47899936eefd44c5179"
+    }
+  ],
+  "all_selectivity_inputs": [
+    {
+      "ordinal": 97,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-models/P4.csv",
+      "bytes": 823,
+      "sha256": "a693ff66922d50c90c878c805c164452be4e67d02e6f435d635bbe3cb2017091"
+    },
+    {
+      "ordinal": 98,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-models/F4.csv",
+      "bytes": 817,
+      "sha256": "030fb09f07a4d5ca9b6afa5ba84425fc85f8e5e642833c465e5159aa632b9941"
+    },
+    {
+      "ordinal": 99,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-models/F1.csv",
+      "bytes": 821,
+      "sha256": "ea4f2655af724b8a677d14da422fb08bfc4de7ad066a7025ed67455576e39cb9"
+    },
+    {
+      "ordinal": 100,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-models/P3.csv",
+      "bytes": 815,
+      "sha256": "6aef9a5265175c9b5af3ae39bf0ab9bc6b04c40a9d362a32b7c81a883b50a94d"
+    },
+    {
+      "ordinal": 101,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-models/P2.csv",
+      "bytes": 815,
+      "sha256": "64152fb2d3e0d94ef9d59aeb0eed9ff035fb76b7ec68996fbfe5e02d6d8d6102"
+    },
+    {
+      "ordinal": 102,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-models/F2.csv",
+      "bytes": 825,
+      "sha256": "790e21a01054349a20f4fbbb7db926f6452d059344815a3a9d6a5de51db3310a"
+    },
+    {
+      "ordinal": 103,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-models/F3.csv",
+      "bytes": 817,
+      "sha256": "275e64bcbb49867d9870330666840e4dd28ac066a81a660834581aae474e26bd"
+    },
+    {
+      "ordinal": 104,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-models/P1.csv",
+      "bytes": 815,
+      "sha256": "1f2e2253232008af89c0761332de937422e886450f8073b5bc7efdabdd18aada"
+    }
+  ],
+  "all_native_folder_regular_members": [
+    {
+      "ordinal": 3,
+      "name": "./outputs/S0.90-F2-tau2-fixed/plot-09.par.rep",
+      "bytes": 2847101,
+      "sha256": "34fabe0735e7db47a217aea46b8f8124fcec5f14af87fed6468b347a01d60c47"
+    },
+    {
+      "ordinal": 4,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-audit.csv",
+      "bytes": 238,
+      "sha256": "834cd24bd5e379826c974e7173ca42f08ae92db72968348c9c9ed89a3b8a126e"
+    },
+    {
+      "ordinal": 5,
+      "name": "./outputs/S0.90-F2-tau2-fixed/05.par",
+      "bytes": 2956554,
+      "sha256": "27d3d77391aec600d518c5b497dc1676510677bba2683a915eba416bb155b7e7"
+    },
+    {
+      "ordinal": 6,
+      "name": "./outputs/S0.90-F2-tau2-fixed/tagcont",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "ordinal": 7,
+      "name": "./outputs/S0.90-F2-tau2-fixed/01.par5",
+      "bytes": 2930398,
+      "sha256": "d812afaf9af7b5553384732bf5952aeff8d72d12c60956e859a7db7413d4ac0a"
+    },
+    {
+      "ordinal": 8,
+      "name": "./outputs/S0.90-F2-tau2-fixed/07.par",
+      "bytes": 2956584,
+      "sha256": "78f3587e2627b959ab0bc62342aafae1f0210fdb6521f365edf4060b8bc74f6a"
+    },
+    {
+      "ordinal": 9,
+      "name": "./outputs/S0.90-F2-tau2-fixed/XXX",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "ordinal": 10,
+      "name": "./outputs/S0.90-F2-tau2-fixed/ssmult.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "ordinal": 11,
+      "name": "./outputs/S0.90-F2-tau2-fixed/plotq0-08.par.rep",
+      "bytes": 2717969,
+      "sha256": "d030c366406156465d56eb7670e37427dccde2a623cd89c0abe43bea847e2cf8"
+    },
+    {
+      "ordinal": 12,
+      "name": "./outputs/S0.90-F2-tau2-fixed/09.par",
+      "bytes": 2956612,
+      "sha256": "0607c0cf8803d3b6282985cd23da6d4539e2b8f53cf792030c5bd831f732483e"
+    },
+    {
+      "ordinal": 13,
+      "name": "./outputs/S0.90-F2-tau2-fixed/03.par",
+      "bytes": 2930929,
+      "sha256": "99f60c0586eb68a162da9cbf90830d79a542d478443c434db9f195cba87aa32e"
+    },
+    {
+      "ordinal": 14,
+      "name": "./outputs/S0.90-F2-tau2-fixed/tc_len_ssmult_fits",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "ordinal": 15,
+      "name": "./outputs/S0.90-F2-tau2-fixed/obstag",
+      "bytes": 78841,
+      "sha256": "4e9e2df90f9bbe0e6e88eaa74acdd90e9f5c933318fff67ad6c9856f18ef8a69"
+    },
+    {
+      "ordinal": 16,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-multi-sex",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "ordinal": 17,
+      "name": "./outputs/S0.90-F2-tau2-fixed/grouped_cpue_obs",
+      "bytes": 11724,
+      "sha256": "7c87df0f9d160c8b2f0f6bad2b8a8fe1ad1fac02477dc38614c02a44c416907e"
+    },
+    {
+      "ordinal": 19,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.80-P4.conf",
+      "bytes": 98,
+      "sha256": "79a3a75308557681d2701c3fad246567063c26f999cd0fc79d340398cb6a032a"
+    },
+    {
+      "ordinal": 20,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.80-F3.conf",
+      "bytes": 98,
+      "sha256": "7142830aeb3d73fb67362380d776d87bdd3475a5906842bde25f09d95bd7c210"
+    },
+    {
+      "ordinal": 21,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.80-P2.conf",
+      "bytes": 98,
+      "sha256": "2880792e2558d6809db214def8e223cbbfed90d7ce9d1a191f48bfeb73b0086d"
+    },
+    {
+      "ordinal": 22,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.90-P3.conf",
+      "bytes": 98,
+      "sha256": "863a2edbc2a7b2f42c99f37e9203742d8793c4a2588c573df777ec3b266cf418"
+    },
+    {
+      "ordinal": 23,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.85-F4.conf",
+      "bytes": 98,
+      "sha256": "ca8f8357aa8db38b86e6bf7241a5a31264ace4c4c118afc1d2a0699013781fd2"
+    },
+    {
+      "ordinal": 24,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.85-F2.conf",
+      "bytes": 98,
+      "sha256": "36124f9382ad58b8bd2c31d95b28dad7a975e9e94053ace29aa1eb5e3e52c7db"
+    },
+    {
+      "ordinal": 25,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.85-F1.conf",
+      "bytes": 98,
+      "sha256": "525681b4643135d28b09416b87a8e5b6731ca02fea09c11f7fd84872d220bb77"
+    },
+    {
+      "ordinal": 26,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.90-F2.conf",
+      "bytes": 98,
+      "sha256": "ce2c1dbf67d9eecb3ceaeda81ac9124cb7dbe81f42181f6abfb8f246b4f3a048"
+    },
+    {
+      "ordinal": 27,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.85-P3.conf",
+      "bytes": 98,
+      "sha256": "998950a02847f88aa5d8e99693e8e148e4ee03bfa0537f348775d0337f707fd5"
+    },
+    {
+      "ordinal": 28,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.80-F2.conf",
+      "bytes": 98,
+      "sha256": "5507d6dc2dde0fa2f36dd5140e1491bac7326923b122b82eff4423e0dd000f3a"
+    },
+    {
+      "ordinal": 29,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.90-F4.conf",
+      "bytes": 98,
+      "sha256": "4696a5b4a10b24a24c45d753eddf0da0bdb29dfb5f195ae3d5be44dd8b0c4793"
+    },
+    {
+      "ordinal": 30,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.90-P2.conf",
+      "bytes": 98,
+      "sha256": "8d58fcba650e9d9dbdba8c168cc74066ce9b77c204a2e32536579c560724821a"
+    },
+    {
+      "ordinal": 31,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.85-P2.conf",
+      "bytes": 98,
+      "sha256": "c7fe30b6832dca562e2d89c0cfbb64a40d5200cbce80c7ad68aac12a4b88d691"
+    },
+    {
+      "ordinal": 32,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.90-P4.conf",
+      "bytes": 98,
+      "sha256": "83b34f340cb293864e11cf02654cd6dfa2be2a822b2840db8fc2dd47cf3ee5e6"
+    },
+    {
+      "ordinal": 33,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.85-P4.conf",
+      "bytes": 98,
+      "sha256": "f0ab5c870339fd4f8fc26709768f19a085f1baa6220efb45ca72c8a1072045e7"
+    },
+    {
+      "ordinal": 34,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.90-F1.conf",
+      "bytes": 98,
+      "sha256": "4d76a6428854251fe0093605e1a7ea0ff7051276044f808285fb6f84decd58b9"
+    },
+    {
+      "ordinal": 35,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.80-P3.conf",
+      "bytes": 98,
+      "sha256": "16049aed8d7ecff10e715034cbddd720851dbf996356391e1b3de0dd17c13ac9"
+    },
+    {
+      "ordinal": 36,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.90-P1.conf",
+      "bytes": 98,
+      "sha256": "c0f9255ba5e910f6fc43643028c4ad062aa5a1605d2e7495963d44c218d7dfc0"
+    },
+    {
+      "ordinal": 37,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.80-F1.conf",
+      "bytes": 98,
+      "sha256": "cdc1c2e23bfb68f826039503a3baa2beb901f616df6b78d6ea1c3e2451228963"
+    },
+    {
+      "ordinal": 38,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.85-P1.conf",
+      "bytes": 98,
+      "sha256": "7de68eae3e41749ca5405e2383a659a65465b32abb6a361fa2a3b0c3e6f3cafa"
+    },
+    {
+      "ordinal": 39,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.80-F4.conf",
+      "bytes": 98,
+      "sha256": "0a70233836e05c67c99a85297728c6640b3ee9c5f949b4c0d947c12a8c24dafb"
+    },
+    {
+      "ordinal": 40,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.85-F3.conf",
+      "bytes": 98,
+      "sha256": "e5195010ea9fbe53e154dc492782ab0fbc05177c3cc109130fba8476c6daf064"
+    },
+    {
+      "ordinal": 41,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.90-F3.conf",
+      "bytes": 98,
+      "sha256": "a95f1154573f51c9520cd64486f6a07b3f7ca52467517a6a6f0b0e6c62a3700e"
+    },
+    {
+      "ordinal": 42,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-inputs/S0.80-P1.conf",
+      "bytes": 98,
+      "sha256": "033d4f917f8f2dcc3ea01d5ba60ca4ffc6788a22c41ff47899936eefd44c5179"
+    },
+    {
+      "ordinal": 43,
+      "name": "./outputs/S0.90-F2-tau2-fixed/catch.rep",
+      "bytes": 68905,
+      "sha256": "11a4ddf1836e5bd27dc230fad171d7ba89a4946178a5bed16158f907ddda1ae3"
+    },
+    {
+      "ordinal": 44,
+      "name": "./outputs/S0.90-F2-tau2-fixed/MANIFEST.sha256",
+      "bytes": 3756,
+      "sha256": "f7d63c081e146d372abe3e6dc94a8ba947bed68332d9720716128b8a6e6e2577"
+    },
+    {
+      "ordinal": 45,
+      "name": "./outputs/S0.90-F2-tau2-fixed/argv1",
+      "bytes": 25,
+      "sha256": "8a954724544602f19b94ad5bb4174b5c22c78755090dfba474ea4c9ea3c00b70"
+    },
+    {
+      "ordinal": 46,
+      "name": "./outputs/S0.90-F2-tau2-fixed/01.par7",
+      "bytes": 2930402,
+      "sha256": "741c9713d1b8c8b392831716c756e73ed46ba22249ae100532784088581baa3d"
+    },
+    {
+      "ordinal": 47,
+      "name": "./outputs/S0.90-F2-tau2-fixed/11.par",
+      "bytes": 2956541,
+      "sha256": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3"
+    },
+    {
+      "ordinal": 48,
+      "name": "./outputs/S0.90-F2-tau2-fixed/test_plot_output",
+      "bytes": 1645911,
+      "sha256": "10aaa90f089401620656b8a83c32d76f32afcfd5c41fab8d0f00647ff477ceb8"
+    },
+    {
+      "ordinal": 49,
+      "name": "./outputs/S0.90-F2-tau2-fixed/plot-10.par.rep",
+      "bytes": 2846950,
+      "sha256": "deb91d5fda3b64ac25e0d4abaa300356985b5fb5d27a98c6976476c1170a7a54"
+    },
+    {
+      "ordinal": 50,
+      "name": "./outputs/S0.90-F2-tau2-fixed/01.par",
+      "bytes": 2930348,
+      "sha256": "da7f8afd374bbb02906ca40dfc6f77e25eb18615434fe5ac3e2a54976648d6c0"
+    },
+    {
+      "ordinal": 51,
+      "name": "./outputs/S0.90-F2-tau2-fixed/model-input-audit.csv",
+      "bytes": 163,
+      "sha256": "a646e4783250fde144f411d41b8af4479c0691e4b7dc82a6d93d4e779f0b7025"
+    },
+    {
+      "ordinal": 52,
+      "name": "./outputs/S0.90-F2-tau2-fixed/testproj",
+      "bytes": 12999,
+      "sha256": "e8cb96aad57375eda00a1dec4b04bbe7154fa12af40b22665c02342de6ecd8a5"
+    },
+    {
+      "ordinal": 53,
+      "name": "./outputs/S0.90-F2-tau2-fixed/fishery_map.R",
+      "bytes": 4984,
+      "sha256": "0e989f4692c4a2a54abf22f12a1c53c7bd29cb7f0f3bd7c4457cdd3d6e1a125c"
+    },
+    {
+      "ordinal": 54,
+      "name": "./outputs/S0.90-F2-tau2-fixed/plot-11.par.rep",
+      "bytes": 2846950,
+      "sha256": "bdc4468ea540da966bed821c2179c0d0e8bcc82698d4ac4665bfa04685928e3f"
+    },
+    {
+      "ordinal": 55,
+      "name": "./outputs/S0.90-F2-tau2-fixed/indepvar.rpt",
+      "bytes": 150837,
+      "sha256": "5792c57d7bcce5e679faa5adac63e6d20886fc478f03a29277814616e313b490"
+    },
+    {
+      "ordinal": 56,
+      "name": "./outputs/S0.90-F2-tau2-fixed/01.par6",
+      "bytes": 2930402,
+      "sha256": "34979076f348c8912dcba128ea99f619fd0dd86863fb9406572ea61426a17ec1"
+    },
+    {
+      "ordinal": 57,
+      "name": "./outputs/S0.90-F2-tau2-fixed/bet.tag",
+      "bytes": 110051,
+      "sha256": "b140e66eb52f2b7e022ef2c562134f8bc9baf3dede18ce95283a001acd2b013f"
+    },
+    {
+      "ordinal": 58,
+      "name": "./outputs/S0.90-F2-tau2-fixed/ests.rep",
+      "bytes": 12696475,
+      "sha256": "b4109ee8c9019c913b09e7ecdb5dd104b2fd585e1caff176c2f7c020cde0b0e5"
+    },
+    {
+      "ordinal": 59,
+      "name": "./outputs/S0.90-F2-tau2-fixed/argv",
+      "bytes": 66,
+      "sha256": "4fb0610b65845d0ac5d27d71a4a103d19b74766024928869f38ab8ae94928aa2"
+    },
+    {
+      "ordinal": 60,
+      "name": "./outputs/S0.90-F2-tau2-fixed/plot-08.par.rep",
+      "bytes": 2850413,
+      "sha256": "fadebe9f2fbf8233a87638739f9039bcc1065845e36a9d23469f4f1ce48ca9f5"
+    },
+    {
+      "ordinal": 61,
+      "name": "./outputs/S0.90-F2-tau2-fixed/cpue_pred_mlv",
+      "bytes": 11774,
+      "sha256": "770572f9f95c9871a4558ba0d61b639e544d4f765a41823c3c92f163cc516a18"
+    },
+    {
+      "ordinal": 62,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selected-selectivity-input.csv",
+      "bytes": 825,
+      "sha256": "790e21a01054349a20f4fbbb7db926f6452d059344815a3a9d6a5de51db3310a"
+    },
+    {
+      "ordinal": 63,
+      "name": "./outputs/S0.90-F2-tau2-fixed/recruitment_debug",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "ordinal": 64,
+      "name": "./outputs/S0.90-F2-tau2-fixed/01.par3",
+      "bytes": 2930396,
+      "sha256": "00a1b8b11a5a099090b3de953aedc564010ed1ff34bc1c9e068a7f4d0bd589f4"
+    },
+    {
+      "ordinal": 65,
+      "name": "./outputs/S0.90-F2-tau2-fixed/plotq0-11.par.rep",
+      "bytes": 2717969,
+      "sha256": "340c29fe105bb35364c980dd4ab504b14bf8751bb3dbbd4e54032034e5374149"
+    },
+    {
+      "ordinal": 66,
+      "name": "./outputs/S0.90-F2-tau2-fixed/cpue_mle_sigma_audit.csv",
+      "bytes": 497,
+      "sha256": "cd2d9a9b61f6efda432318be34c856029b355f0ea35f33681dc1dc37820cbc86"
+    },
+    {
+      "ordinal": 67,
+      "name": "./outputs/S0.90-F2-tau2-fixed/error.log",
+      "bytes": 76,
+      "sha256": "dd5203c77afeedd6021c2dcc7f96953cea573bca1d7d638b5f45c1358ca1c30e"
+    },
+    {
+      "ordinal": 68,
+      "name": "./outputs/S0.90-F2-tau2-fixed/sizemult",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "ordinal": 69,
+      "name": "./outputs/S0.90-F2-tau2-fixed/01.par1",
+      "bytes": 2927261,
+      "sha256": "5139344a3047a656228ef35429db441292065ca886c7e8895fcfefd7d4e8c342"
+    },
+    {
+      "ordinal": 70,
+      "name": "./outputs/S0.90-F2-tau2-fixed/01.par9",
+      "bytes": 2930406,
+      "sha256": "ac94c6da64957de4d4a7570032c57b16f6cbe5970362b9f5cab08998b93fa8ea"
+    },
+    {
+      "ordinal": 71,
+      "name": "./outputs/S0.90-F2-tau2-fixed/01.par13",
+      "bytes": 2930348,
+      "sha256": "2aae85ac54d48eb8cc51f272ec3978b85b47a6b3d14605b99a24335d240151d6"
+    },
+    {
+      "ordinal": 72,
+      "name": "./outputs/S0.90-F2-tau2-fixed/grouped_cpue_pred",
+      "bytes": 11724,
+      "sha256": "787be99e6247e08708ad632f0b3e0929a5a1f22a8b9e09228748f6a32def3fa5"
+    },
+    {
+      "ordinal": 73,
+      "name": "./outputs/S0.90-F2-tau2-fixed/agelengthresids.dat",
+      "bytes": 4815225,
+      "sha256": "d5e33c27e77817c8d00400f79dc73ffb15af4ec8bc822b123a8f3690135fed0c"
+    },
+    {
+      "ordinal": 74,
+      "name": "./outputs/S0.90-F2-tau2-fixed/02.par",
+      "bytes": 2930930,
+      "sha256": "41fbb717d2c460e3e11d23d0e7f7c23ff63e1d977cba2499beac799496538109"
+    },
+    {
+      "ordinal": 75,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selected-model-input.conf",
+      "bytes": 98,
+      "sha256": "ce2c1dbf67d9eecb3ceaeda81ac9124cb7dbe81f42181f6abfb8f246b4f3a048"
+    },
+    {
+      "ordinal": 76,
+      "name": "./outputs/S0.90-F2-tau2-fixed/totalcatchpen",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "ordinal": 77,
+      "name": "./outputs/S0.90-F2-tau2-fixed/plot-06.par.rep",
+      "bytes": 2597555,
+      "sha256": "6787144a35430a331621963d2d1fa3077334d2849b06eee2afd27d171ffac6ca"
+    },
+    {
+      "ordinal": 78,
+      "name": "./outputs/S0.90-F2-tau2-fixed/01.par2",
+      "bytes": 2930398,
+      "sha256": "0e17930b286d5c53fa9c09b79f0aef832050eadbe38aab86221473f40b3ffdff"
+    },
+    {
+      "ordinal": 79,
+      "name": "./outputs/S0.90-F2-tau2-fixed/plotq0-09.par.rep",
+      "bytes": 2717969,
+      "sha256": "ed8e5c9b46d0d931ef3748e63d8049d9ae871c5499de52285bca47073830c593"
+    },
+    {
+      "ordinal": 80,
+      "name": "./outputs/S0.90-F2-tau2-fixed/routine_save",
+      "bytes": 2955816,
+      "sha256": "215127211123d5ffd269655c1482c1d28c1708b7a92646e1a4306504a4551508"
+    },
+    {
+      "ordinal": 81,
+      "name": "./outputs/S0.90-F2-tau2-fixed/std-rec4",
+      "bytes": 14711,
+      "sha256": "885e0c922d9b65e9b03bf12d9afda355a571be24d4d44078781e95599e53120b"
+    },
+    {
+      "ordinal": 82,
+      "name": "./outputs/S0.90-F2-tau2-fixed/01.par11",
+      "bytes": 2930400,
+      "sha256": "44277395de314bd6ed3e1da9a835242be7cee530296fd677a0512a76de437fad"
+    },
+    {
+      "ordinal": 83,
+      "name": "./outputs/S0.90-F2-tau2-fixed/08.par",
+      "bytes": 2956579,
+      "sha256": "f43b0ef0e3e1eab14d6f53c1b27ba9667b44d3869eb714bc0118ba5001ca9a5d"
+    },
+    {
+      "ordinal": 84,
+      "name": "./outputs/S0.90-F2-tau2-fixed/temporary_tag_report",
+      "bytes": 25623859,
+      "sha256": "2c98dbdea63c21a70b5da8ce6d0a2583fb92b39879058382f0e1957cb879ded1"
+    },
+    {
+      "ordinal": 85,
+      "name": "./outputs/S0.90-F2-tau2-fixed/temporary_tag_report_q0",
+      "bytes": 25623859,
+      "sha256": "2c98dbdea63c21a70b5da8ce6d0a2583fb92b39879058382f0e1957cb879ded1"
+    },
+    {
+      "ordinal": 86,
+      "name": "./outputs/S0.90-F2-tau2-fixed/fishmort",
+      "bytes": 2657813,
+      "sha256": "536e8b7c1d05ddac09da259b1f15abec9a6f11c25b49106ad57a914e97798235"
+    },
+    {
+      "ordinal": 87,
+      "name": "./outputs/S0.90-F2-tau2-fixed/tag_rep_map.R",
+      "bytes": 32718,
+      "sha256": "e1bddfe316a8b3e39333d0792f58db8f070d3f6f370770507e2f500f9d88786c"
+    },
+    {
+      "ordinal": 88,
+      "name": "./outputs/S0.90-F2-tau2-fixed/04.par",
+      "bytes": 2956492,
+      "sha256": "4df188bca9a1f8f1262e9488009c16360ff0bbe77075df82ea1d35f36fac03c9"
+    },
+    {
+      "ordinal": 89,
+      "name": "./outputs/S0.90-F2-tau2-fixed/final.par",
+      "bytes": 2956541,
+      "sha256": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3"
+    },
+    {
+      "ordinal": 90,
+      "name": "./outputs/S0.90-F2-tau2-fixed/final.par.sha256",
+      "bytes": 76,
+      "sha256": "c882f5a33bafa654b127663c5caeef54c2ad5cd41e2a7c19dab53a0c50ef4c9c"
+    },
+    {
+      "ordinal": 91,
+      "name": "./outputs/S0.90-F2-tau2-fixed/bet.reg_scaling",
+      "bytes": 1186,
+      "sha256": "5f047ddb4053d1f6df9ace18e85e440b11553de246d024ce8138b427f5f9f7e3"
+    },
+    {
+      "ordinal": 92,
+      "name": "./outputs/S0.90-F2-tau2-fixed/fishmort2",
+      "bytes": 2738625,
+      "sha256": "7fe9c6b92b5e0fe2f9ef85bb4f2d010bb0c595451095175dd27879ccb3f04a48"
+    },
+    {
+      "ordinal": 93,
+      "name": "./outputs/S0.90-F2-tau2-fixed/tag-tau-audit.csv",
+      "bytes": 331,
+      "sha256": "62801797a8ea86a0108826cc3a17ab2c58dcd8470014e90a5b439cb6d8535f4e"
+    },
+    {
+      "ordinal": 94,
+      "name": "./outputs/S0.90-F2-tau2-fixed/01.par4",
+      "bytes": 2930398,
+      "sha256": "e78c6718586688003a3de0b4a9ff5055975fa81fd2abc543356aa94a5c67786a"
+    },
+    {
+      "ordinal": 95,
+      "name": "./outputs/S0.90-F2-tau2-fixed/doitall.sh",
+      "bytes": 40697,
+      "sha256": "5c53802daf44e700ee91aa8108f0b2289473c0344d7feecf04cab458dc49ca77"
+    },
+    {
+      "ordinal": 97,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-models/P4.csv",
+      "bytes": 823,
+      "sha256": "a693ff66922d50c90c878c805c164452be4e67d02e6f435d635bbe3cb2017091"
+    },
+    {
+      "ordinal": 98,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-models/F4.csv",
+      "bytes": 817,
+      "sha256": "030fb09f07a4d5ca9b6afa5ba84425fc85f8e5e642833c465e5159aa632b9941"
+    },
+    {
+      "ordinal": 99,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-models/F1.csv",
+      "bytes": 821,
+      "sha256": "ea4f2655af724b8a677d14da422fb08bfc4de7ad066a7025ed67455576e39cb9"
+    },
+    {
+      "ordinal": 100,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-models/P3.csv",
+      "bytes": 815,
+      "sha256": "6aef9a5265175c9b5af3ae39bf0ab9bc6b04c40a9d362a32b7c81a883b50a94d"
+    },
+    {
+      "ordinal": 101,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-models/P2.csv",
+      "bytes": 815,
+      "sha256": "64152fb2d3e0d94ef9d59aeb0eed9ff035fb76b7ec68996fbfe5e02d6d8d6102"
+    },
+    {
+      "ordinal": 102,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-models/F2.csv",
+      "bytes": 825,
+      "sha256": "790e21a01054349a20f4fbbb7db926f6452d059344815a3a9d6a5de51db3310a"
+    },
+    {
+      "ordinal": 103,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-models/F3.csv",
+      "bytes": 817,
+      "sha256": "275e64bcbb49867d9870330666840e4dd28ac066a81a660834581aae474e26bd"
+    },
+    {
+      "ordinal": 104,
+      "name": "./outputs/S0.90-F2-tau2-fixed/selectivity-models/P1.csv",
+      "bytes": 815,
+      "sha256": "1f2e2253232008af89c0761332de937422e886450f8073b5bc7efdabdd18aada"
+    },
+    {
+      "ordinal": 105,
+      "name": "./outputs/S0.90-F2-tau2-fixed/tags.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "ordinal": 106,
+      "name": "./outputs/S0.90-F2-tau2-fixed/obs_reg_scaling_covar.rpt",
+      "bytes": 297,
+      "sha256": "9cfc0737e1331bc76e41df4913aca36ff90cb329adf575a93aeaaeae8879d209"
+    },
+    {
+      "ordinal": 107,
+      "name": "./outputs/S0.90-F2-tau2-fixed/testgrad",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "ordinal": 108,
+      "name": "./outputs/S0.90-F2-tau2-fixed/gradient.rpt",
+      "bytes": 72712,
+      "sha256": "130151df1bd6e52f092ae3f1b4c400d0fa11147e41d1fa08555e5aed38aed32f"
+    },
+    {
+      "ordinal": 109,
+      "name": "./outputs/S0.90-F2-tau2-fixed/bet.frq",
+      "bytes": 2932052,
+      "sha256": "d0d84f0a498e6a62681f2a58ffc1ba53dab9e3d6af856b4ad1fd907196250004"
+    },
+    {
+      "ordinal": 110,
+      "name": "./outputs/S0.90-F2-tau2-fixed/README.md",
+      "bytes": 1482,
+      "sha256": "341d543a6db65e57e5f97a5da083dbe253acae49e4f4d7f301deebe04e221064"
+    },
+    {
+      "ordinal": 111,
+      "name": "./outputs/S0.90-F2-tau2-fixed/mfcl.log",
+      "bytes": 9822098,
+      "sha256": "f0018e5944e3583059cc43043cbd1c9b62cf076960c790b6feefddcf79dea3b2"
+    },
+    {
+      "ordinal": 112,
+      "name": "./outputs/S0.90-F2-tau2-fixed/01.par15",
+      "bytes": 2930348,
+      "sha256": "44cdd06b38f513c4536779de572993cde0de87dad0adf2dd90dfd83959a2c5d1"
+    },
+    {
+      "ordinal": 113,
+      "name": "./outputs/S0.90-F2-tau2-fixed/plot-07.par.rep",
+      "bytes": 2597555,
+      "sha256": "d8b1067d08ce92814a40718c631d43245fa866dc6d3ce5d3ce4a1e3e30a5aae9"
+    },
+    {
+      "ordinal": 114,
+      "name": "./outputs/S0.90-F2-tau2-fixed/10.par",
+      "bytes": 2956549,
+      "sha256": "727b4271ce854ca137cee6b09f1e74757b502c9388514f987f466a21c83b9e43"
+    },
+    {
+      "ordinal": 115,
+      "name": "./outputs/S0.90-F2-tau2-fixed/bet.ini",
+      "bytes": 66790,
+      "sha256": "5292938d4743c1dfdd2f1a095c1aa87482c9c17f78b8d879671fe6851d58646f"
+    },
+    {
+      "ordinal": 116,
+      "name": "./outputs/S0.90-F2-tau2-fixed/01.par12",
+      "bytes": 2930400,
+      "sha256": "5272b8480f5f809dc9f3ce6ad41a3d4b2ea3f16c2d6ab97264574c165b40efc5"
+    },
+    {
+      "ordinal": 117,
+      "name": "./outputs/S0.90-F2-tau2-fixed/plot-03.par.rep",
+      "bytes": 2597555,
+      "sha256": "f07bf56e52afb01ddab122c2fd7f74047caa5b4af4fe10a5d086c8e85c90116f"
+    },
+    {
+      "ordinal": 118,
+      "name": "./outputs/S0.90-F2-tau2-fixed/plot-02.par.rep",
+      "bytes": 2597555,
+      "sha256": "1f10eb57f1cea0ae95e208f75100cb165035f4a12e6fad69e94c65e51e3d3f77"
+    },
+    {
+      "ordinal": 119,
+      "name": "./outputs/S0.90-F2-tau2-fixed/totalcatches",
+      "bytes": 5827447,
+      "sha256": "f930921db63f9156c4a2bd20597cf48c488a7a17e3b3e4d3c9fe7c2b94dfa4ed"
+    },
+    {
+      "ordinal": 120,
+      "name": "./outputs/S0.90-F2-tau2-fixed/plot-04.par.rep",
+      "bytes": 2597555,
+      "sha256": "774825bfdb35cb16cb3b4ee95eb0a00ead610204d3785d6ee914643cea1cf8f9"
+    },
+    {
+      "ordinal": 121,
+      "name": "./outputs/S0.90-F2-tau2-fixed/tag.rep",
+      "bytes": 278817,
+      "sha256": "0db4e9d3f597fbd41d5c71ce2cd881ff18d40b1266d5e8e0c8709a9e4b8f0792"
+    },
+    {
+      "ordinal": 122,
+      "name": "./outputs/S0.90-F2-tau2-fixed/Missing_catch_report",
+      "bytes": 85,
+      "sha256": "5381b47bd08db1b3d849cd2988e512933f1da55a7200a59c3702aceac9cb25bb"
+    },
+    {
+      "ordinal": 123,
+      "name": "./outputs/S0.90-F2-tau2-fixed/ssmultstuff",
+      "bytes": 103,
+      "sha256": "bb42c5755c1a97603d7ea351137e68322358f96e825b8d9d942abe92ecb73d75"
+    },
+    {
+      "ordinal": 124,
+      "name": "./outputs/S0.90-F2-tau2-fixed/reg_scaling.rpt",
+      "bytes": 114,
+      "sha256": "12831d7efee0a0c1cba24a5d119e2498a1ca357ae3b5b89e280a9377c243e01d"
+    },
+    {
+      "ordinal": 125,
+      "name": "./outputs/S0.90-F2-tau2-fixed/fmin.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "ordinal": 126,
+      "name": "./outputs/S0.90-F2-tau2-fixed/mfcl.cfg",
+      "bytes": 31,
+      "sha256": "2ec8a291fae62c6f37541aec1de37444626d42b3290b371bb42b63d510034eae"
+    },
+    {
+      "ordinal": 127,
+      "name": "./outputs/S0.90-F2-tau2-fixed/q0eval_dbug.rpt",
+      "bytes": 4608,
+      "sha256": "bc032ec8c00dc5b06922d9f4292e4755169bfe1e482a14bee9a57f5378b5c93b"
+    },
+    {
+      "ordinal": 128,
+      "name": "./outputs/S0.90-F2-tau2-fixed/xinit.rpt",
+      "bytes": 54175,
+      "sha256": "b0d7548d6ca8fa4e24a16ed90222e30fd9c0d99f87055d7d51847cb1ecb3d248"
+    },
+    {
+      "ordinal": 129,
+      "name": "./outputs/S0.90-F2-tau2-fixed/01.par10",
+      "bytes": 2930402,
+      "sha256": "f4480c298728b1c4fc478ee7305d66baaf34358a4cf8b8b55ac194ae79afb58b"
+    },
+    {
+      "ordinal": 130,
+      "name": "./outputs/S0.90-F2-tau2-fixed/cpue_pred",
+      "bytes": 11734,
+      "sha256": "7389db832ffe541f4da68af18c0831cf8561f65df24b8fd56d669e4d97c95a16"
+    },
+    {
+      "ordinal": 131,
+      "name": "./outputs/S0.90-F2-tau2-fixed/bet.age_length",
+      "bytes": 1403841,
+      "sha256": "426859b825bd815aa69c8d97c9dd93097027ed1eb6b9e444d88b69562097a00c"
+    },
+    {
+      "ordinal": 132,
+      "name": "./outputs/S0.90-F2-tau2-fixed/00.fixed.par",
+      "bytes": 2900819,
+      "sha256": "f7851619bbd748a3299cd181c6f5f37afa7132a29af3594f6a02380c508b58ec"
+    },
+    {
+      "ordinal": 133,
+      "name": "./outputs/S0.90-F2-tau2-fixed/plot-05.par.rep",
+      "bytes": 2597555,
+      "sha256": "7ab94315a2fe96a3dd772e0ab1832e8e6c8e3c7abb1889686fd362bb525e8659"
+    },
+    {
+      "ordinal": 134,
+      "name": "./outputs/S0.90-F2-tau2-fixed/len_ssmult_fits",
+      "bytes": 5441942,
+      "sha256": "7704cad14765146ae5d0ed7d3744be17a2edeb5931c3fe867dc15912d856e2d8"
+    },
+    {
+      "ordinal": 135,
+      "name": "./outputs/S0.90-F2-tau2-fixed/dmsizemult",
+      "bytes": 206243,
+      "sha256": "4b3b35555f030f5d796f23794550570189ddac662a3602a2f1ca0f0d19073f71"
+    },
+    {
+      "ordinal": 136,
+      "name": "./outputs/S0.90-F2-tau2-fixed/sorted_gradient.rpt",
+      "bytes": 53919,
+      "sha256": "1a836815409dad4149d5081b89706bac2beedceb27caca603f9c5de97ff6f123"
+    },
+    {
+      "ordinal": 137,
+      "name": "./outputs/S0.90-F2-tau2-fixed/01.par8",
+      "bytes": 2930402,
+      "sha256": "6cebafc18d4fb7a6a04eca342a472aac7f7bbc48da6b81059b7b99b7de6cf20d"
+    },
+    {
+      "ordinal": 138,
+      "name": "./outputs/S0.90-F2-tau2-fixed/cpue_obs_mls",
+      "bytes": 11774,
+      "sha256": "56ba8340a56123b0f5e5563282c75b98db8bd0a8c53a30630d2a8f5466b5ef62"
+    },
+    {
+      "ordinal": 139,
+      "name": "./outputs/S0.90-F2-tau2-fixed/bet.model.ini",
+      "bytes": 66791,
+      "sha256": "fbd064c3d0ccb4d2e1b9beb06fe3eacf0180677821e6a1773d20b308474d984e"
+    },
+    {
+      "ordinal": 140,
+      "name": "./outputs/S0.90-F2-tau2-fixed/01.par14",
+      "bytes": 2930348,
+      "sha256": "b58b9a3e6cee30cb8870f67b55512b958c0baea7da9874b2ffa42b17db96069a"
+    },
+    {
+      "ordinal": 141,
+      "name": "./outputs/S0.90-F2-tau2-fixed/avgz",
+      "bytes": 1584,
+      "sha256": "88c4a726762e2b0dd5a8b658372357fa2a622d5f3bb0dd44d32660258a30fe32"
+    },
+    {
+      "ordinal": 142,
+      "name": "./outputs/S0.90-F2-tau2-fixed/06.par",
+      "bytes": 2956554,
+      "sha256": "643b2433b13e0ff302e5b924abe6488ae779571740945305efab8ef509ad3341"
+    },
+    {
+      "ordinal": 143,
+      "name": "./outputs/S0.90-F2-tau2-fixed/plotq0-10.par.rep",
+      "bytes": 2717969,
+      "sha256": "e2ce517aa03762cbe8d686b118a24451aceff57f69c9ebb58775141bf1b46359"
+    },
+    {
+      "ordinal": 144,
+      "name": "./outputs/S0.90-F2-tau2-fixed/cpue_obs",
+      "bytes": 11734,
+      "sha256": "2088a7eab024e2f1d69d7e785ccfd0cc3625cb49a40db10b7415bd101d0fffbd"
+    },
+    {
+      "ordinal": 145,
+      "name": "./outputs/S0.90-F2-tau2-fixed/length.fit",
+      "bytes": 68800931,
+      "sha256": "142d1f396dd09d0b9836eb3c4cbdf162010c97ae3359ba415d812921b22e7b2d"
+    },
+    {
+      "ordinal": 146,
+      "name": "./outputs/S0.90-F2-tau2-fixed/contribs",
+      "bytes": 35,
+      "sha256": "d15223522ea5e75aad3595fa87ab0816801c8639c4ee0c8859209c879d1927c0"
+    },
+    {
+      "ordinal": 147,
+      "name": "./outputs/S0.90-F2-tau2-fixed/00.par",
+      "bytes": 2900953,
+      "sha256": "f583753cc91e6e26c74c46f4b2b24cf14c8052f959caf727b25e7e4544dadc11"
+    }
+  ],
+  "actual_script_environment_references": [
+    "BET_PHASE10_11_CONVERGENCE",
+    "MODEL_ID",
+    "MODEL_STOP_AFTER_PHASE0",
+    "PROGRAM_PATH",
+    "REGIONAL_RECRUITMENT_PENALTY",
+    "SELECTIVITY_AUDIT_PAR",
+    "SELECTIVITY_PRINT_CONTROLS"
+  ],
+  "recorded_scientific_runtime_controls": {
+    "MODEL_ID": "S0.90-F2",
+    "PROGRAM_PATH": "/home/mfcl/mfclo64",
+    "BET_PHASE10_11_CONVERGENCE": "-4",
+    "FLOW_SPECIES": "BET",
+    "FLOW_ASSESSMENT_YEAR": "2026",
+    "MFCLKIT_GITHUB_REF": "cf786007b5261f84faac8f3d24f7084bd323119d",
+    "MFCLSHINY_GITHUB_REF": "c861bce8c1d8c769d12d897e035765765880bafd",
+    "TUNA_FLOW_RUNTIME_UPDATE": "auto"
+  },
+  "script_explicit_MFCL_commands": [
+    "$program_path bet.frq bet.model.ini 00.par -makepar",
+    "$program_path bet.frq 00.fixed.par 01.par -file - <<PHASE1",
+    "$program_path bet.frq 01.par 02.par -file - <<PHASE2",
+    "$program_path bet.frq 02.par 03.par -file - <<PHASE3",
+    "$program_path bet.frq 03.par 04.par -file - <<PHASE4",
+    "$program_path bet.frq 04.par 05.par -file - <<PHASE5",
+    "$program_path bet.frq 05.par 06.par -file - <<PHASE6",
+    "$program_path bet.frq 06.par 07.par -file - <<PHASE7",
+    "$program_path bet.frq 07.par 08.par -file - <<PHASE8",
+    "$program_path bet.frq 08.par 09.par -file - <<PHASE9",
+    "$program_path bet.frq 09.par 10.par -file - <<PHASE10_TAU2_FIXED",
+    "$program_path bet.frq 10.par 11.par -file - <<PHASE11_TAU2_FIXED"
+  ],
+  "script_R_Python_other_shell_invocations": [],
+  "script_starts_ordinary_makepar": true,
+  "native_doitall_runtime_notes": "actual stored shell script invokes MFCL and standard shell/awk/sed/cp/text utilities; no direct R/Rscript/Python invocation detected. Repository bash run.sh orchestration and runtime update/installers are separate preserved source/wrapper evidence.",
+  "execution": {
+    "command": "bash run.sh",
+    "make_target": "all",
+    "docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+    "cpus": 2,
+    "memory": "8GB",
+    "disk": "20GB"
+  },
+  "external_executable_runtime": {
+    "recorded_PROGRAM_PATH": "/home/mfcl/mfclo64",
+    "mfcl_executable_regular_members": [],
+    "recorded_docker_image": "ghcr.io/pacificcommunity/tuna-flow:v2.5@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+    "image_bytes_in_preservation": "UNKNOWN; image digest recorded, no image payload in this job archive"
+  },
+  "limits": [
+    "Static proof of retained native inputs and recorded controls only; MFCL implicit file reads and dynamic loader/runtime contents are not executed or independently validated.",
+    "No complete offline-refit claim; pinned Docker digest is recorded but image byte payload availability is not established by this archive.",
+    "Bundled source MFCL executable bytes are preserved, but original selected external PROGRAM_PATH hash and full Linux library/image byte closure are not established by job native-folder bytes."
+  ],
+  "script_control_defaults_when_not_overridden": {
+    "REGIONAL_RECRUITMENT_PENALTY": "0.1",
+    "MODEL_STOP_AFTER_PHASE0": "script conditional; omitted DB env value remains unrecorded",
+    "PROGRAM_PATH": "./mfclo64",
+    "BET_PHASE10_11_CONVERGENCE": "-4",
+    "MODEL_ID": "S0.80-F1"
+  },
+  "future_native_refit_control_note": "Use recorded MODEL_ID=S0.90-F2 and BET_PHASE10_11_CONVERGENCE=-4. PROGRAM_PATH=/home/mfcl/mfclo64 is recorded inside original pinned Docker environment; executable bytes are not in this native folder. The stored shell script generates bet.model.ini and 00.fixed.par from initial/native inputs; its helper code is retained in doitall.",
+  "preserved_source_executable": {
+    "path": "mfclo64",
+    "diagnostic_commit": "3abf0c64fb9b0c2d70b9c672dc7d9a655d3060d6",
+    "ensemble_retained_source_commit": "24483e3c3a36cddb511fc85454b81a218e1c46e7",
+    "git_blob": "c78c2619d204f2555729a8db684f7f2fab6f04e5",
+    "bytes": 9433720,
+    "sha256": "8995f72019869863c1d1c0b4f44fc6a6268d1f79031f5bc79dc354ee10f0a63e",
+    "source": "rr_audit bounded direct immutable Git object check; parent source Git bundles preserve object",
+    "original_external_PROGRAM_PATH_byte_identity": "UNKNOWN; stored source wrappers do not hash/bind selected /home/mfcl/mfclo64 to repository blob; public ensemble engine provenance is separate evidence"
+  },
+  "source_git_LFS_submodule_check": {
+    "scope": "Diagnostic exact21641 commit3abf0c64 and retained80 ensemble exactcommit24483e3c",
+    "git_LFS_pointers": 0,
+    "gitlinks_submodules": 0,
+    "source": "rr_audit bounded direct tree/blob check"
+  }
+}

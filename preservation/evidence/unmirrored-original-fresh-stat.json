@@ -1,0 +1,2618 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-10-04T05:05:00.233574+00:00",
+  "scope": "Exact37 original BET jobs outside imported mirrored inventory. Fresh lstat of explicitly recorded source archive/job-directory paths on configured original hosts and explicitly recorded original company-cache paths. No alternate path inference, hashes, file reads, collection, source changes, jobs or services.",
+  "count": 37,
+  "repository_counts": {
+    "PacificCommunity/ofp-sam-bet-2026-plot": 23,
+    "PacificCommunity/ofp-sam-bet-2026-curation": 4,
+    "PacificCommunity/ofp-sam-bet-2026-draft": 2,
+    "PacificCommunity/ofp-sam-bet-2026-single-area": 8
+  },
+  "recorded_original_hosts": {
+    "nouofpsubmit.corp.spc.int": 29,
+    "suvofpsubmit.corp.spc.int": 7,
+    "local": 1
+  },
+  "summary": {
+    "fresh_source_archive_present": 0,
+    "fresh_source_archive_absent": 35,
+    "source_archive_path_not_recorded": 1,
+    "original_host_unknown": 1,
+    "fresh_cache_archive_present": 0,
+    "fresh_cache_archive_absent": 37,
+    "fresh_source_directory_absent": 36,
+    "fresh_cache_directory_absent": 37
+  },
+  "evidence_identity": {
+    "unmirrored_original_jobs_sha256": "3cada07b5ab1bf74d10256a3785c01e3b193b8353e386b4b6ddf85ea672df80e",
+    "original_source_metadata_gzip_sha256": "40156729a047d416fe29de9997a293abb306ff0eb227bee1880f025b35f3e894",
+    "fresh_packet_sha256": {
+      "unmirrored-stat-source-nouofpsubmit.json": "03a47f181adc515bb2bd27579797dd5c373a64bb75acec38eaa7a5519507eeea",
+      "unmirrored-stat-source-suvofpsubmit.json": "ef15e32732065c134054b4d3ce1f2b4644fcde97d9033eda3443d954f6fdee47",
+      "unmirrored-stat-cache-nouofpsubmit.json": "3112476f8a75a8d82f7e9bbfbac19192b4e290eb01769e991ef76cb4a91a0dfd"
+    }
+  },
+  "remaining_scope": "Absence at recorded paths only; other backups/storage or lost payloads are not resolved. All37 must remain explicit inventory/gap rows, including ambiguous host/path records.",
+  "jobs": [
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "0b8b1db40de2",
+        "number": 107,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "dbf1910ff2b1ba5b4f3fb0dd4228a98c8931690d",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0004-0b8b1db40de2"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "0b8b1db40de2",
+        "job_number": 107,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/0b8b1db40de2/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/0b8b1db40de2/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/0b8b1db40de2",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/0b8b1db40de2",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "0b8b1db40de2",
+        "job_number": 107,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0004-0b8b1db40de2/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0004-0b8b1db40de2/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0004-0b8b1db40de2",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0004-0b8b1db40de2",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "b05a7bb5c5e8",
+        "number": 112,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "3c2c9aa8a0746123a4aa16c288da4932183b65ef",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0005-b05a7bb5c5e8"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "b05a7bb5c5e8",
+        "job_number": 112,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/b05a7bb5c5e8/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/b05a7bb5c5e8/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/b05a7bb5c5e8",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/b05a7bb5c5e8",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "b05a7bb5c5e8",
+        "job_number": 112,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0005-b05a7bb5c5e8/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0005-b05a7bb5c5e8/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0005-b05a7bb5c5e8",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0005-b05a7bb5c5e8",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "b36514172e3c",
+        "number": 115,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "3c2c9aa8a0746123a4aa16c288da4932183b65ef",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0006-b36514172e3c"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "b36514172e3c",
+        "job_number": 115,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/b36514172e3c/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/b36514172e3c/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/b36514172e3c",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/b36514172e3c",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "b36514172e3c",
+        "job_number": 115,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0006-b36514172e3c/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0006-b36514172e3c/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0006-b36514172e3c",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0006-b36514172e3c",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "e73d180ea4ed",
+        "number": 119,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "3c2c9aa8a0746123a4aa16c288da4932183b65ef",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0007-e73d180ea4ed"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "e73d180ea4ed",
+        "job_number": 119,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/e73d180ea4ed/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/e73d180ea4ed/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/e73d180ea4ed",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/e73d180ea4ed",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "e73d180ea4ed",
+        "job_number": 119,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0007-e73d180ea4ed/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0007-e73d180ea4ed/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0007-e73d180ea4ed",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0007-e73d180ea4ed",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "b51637665919",
+        "number": 123,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "3c2c9aa8a0746123a4aa16c288da4932183b65ef",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0008-b51637665919"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "b51637665919",
+        "job_number": 123,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/b51637665919/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/b51637665919/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/b51637665919",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/b51637665919",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "b51637665919",
+        "job_number": 123,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0008-b51637665919/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0008-b51637665919/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0008-b51637665919",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0008-b51637665919",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "1dcaa1444892",
+        "number": 124,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "3c2c9aa8a0746123a4aa16c288da4932183b65ef",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0009-1dcaa1444892"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "1dcaa1444892",
+        "job_number": 124,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/1dcaa1444892/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/1dcaa1444892/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/1dcaa1444892",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/1dcaa1444892",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "1dcaa1444892",
+        "job_number": 124,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0009-1dcaa1444892/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0009-1dcaa1444892/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0009-1dcaa1444892",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0009-1dcaa1444892",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "66904991ad88",
+        "number": 125,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "3c2c9aa8a0746123a4aa16c288da4932183b65ef",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0010-66904991ad88"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "66904991ad88",
+        "job_number": 125,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/66904991ad88/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/66904991ad88/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/66904991ad88",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/66904991ad88",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "66904991ad88",
+        "job_number": 125,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0010-66904991ad88/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0010-66904991ad88/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0010-66904991ad88",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0010-66904991ad88",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "cc51bd91459f",
+        "number": 130,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "ba61107175feaa6e00a4d52df3c9c544eacabf4b",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0011-cc51bd91459f"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "cc51bd91459f",
+        "job_number": 130,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/cc51bd91459f/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/cc51bd91459f/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/cc51bd91459f",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/cc51bd91459f",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "cc51bd91459f",
+        "job_number": 130,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0011-cc51bd91459f/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0011-cc51bd91459f/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0011-cc51bd91459f",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0011-cc51bd91459f",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "9455b6f6c663",
+        "number": 132,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "c45d3ac09ae3b19fb98e2871043e1fffa78fe705",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0012-9455b6f6c663"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "9455b6f6c663",
+        "job_number": 132,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/9455b6f6c663/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/9455b6f6c663/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/9455b6f6c663",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/9455b6f6c663",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "9455b6f6c663",
+        "job_number": 132,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0012-9455b6f6c663/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0012-9455b6f6c663/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0012-9455b6f6c663",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0012-9455b6f6c663",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "5399720ab988",
+        "number": 134,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "c45d3ac09ae3b19fb98e2871043e1fffa78fe705",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0013-5399720ab988"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "5399720ab988",
+        "job_number": 134,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/5399720ab988/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/5399720ab988/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/5399720ab988",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/5399720ab988",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "5399720ab988",
+        "job_number": 134,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0013-5399720ab988/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0013-5399720ab988/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0013-5399720ab988",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0013-5399720ab988",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "22ea9251e138",
+        "number": 136,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "c45d3ac09ae3b19fb98e2871043e1fffa78fe705",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0014-22ea9251e138"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "22ea9251e138",
+        "job_number": 136,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/22ea9251e138/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/22ea9251e138/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/22ea9251e138",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/22ea9251e138",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "22ea9251e138",
+        "job_number": 136,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0014-22ea9251e138/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0014-22ea9251e138/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0014-22ea9251e138",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0014-22ea9251e138",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "d11dfc26f273",
+        "number": 138,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "c45d3ac09ae3b19fb98e2871043e1fffa78fe705",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0015-d11dfc26f273"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "d11dfc26f273",
+        "job_number": 138,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/d11dfc26f273/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/d11dfc26f273/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/d11dfc26f273",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/d11dfc26f273",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "d11dfc26f273",
+        "job_number": 138,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0015-d11dfc26f273/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0015-d11dfc26f273/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0015-d11dfc26f273",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0015-d11dfc26f273",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "2a4c859cb271",
+        "number": 145,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "c45d3ac09ae3b19fb98e2871043e1fffa78fe705",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0016-2a4c859cb271"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": null,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "2a4c859cb271",
+        "job_number": 145,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/2a4c859cb271/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/2a4c859cb271/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/2a4c859cb271",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/2a4c859cb271",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "2a4c859cb271",
+        "job_number": 145,
+        "stats": {
+          "source_archive": {
+            "status": "UNKNOWN_PATH_NOT_RECORDED",
+            "path": null
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0016-2a4c859cb271",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0016-2a4c859cb271",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "NO_ORIGINAL_ARCHIVE_PATH_RECORDED"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "de3683eef751",
+        "number": 147,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "c45d3ac09ae3b19fb98e2871043e1fffa78fe705",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0017-de3683eef751"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "de3683eef751",
+        "job_number": 147,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/de3683eef751/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/de3683eef751/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/de3683eef751",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/de3683eef751",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "de3683eef751",
+        "job_number": 147,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0017-de3683eef751/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0017-de3683eef751/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0017-de3683eef751",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-0017-de3683eef751",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "ddd4c00f62ec",
+        "number": 153,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "c45d3ac09ae3b19fb98e2871043e1fffa78fe705",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000153"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "ddd4c00f62ec",
+        "job_number": 153,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/ddd4c00f62ec/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/ddd4c00f62ec/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/ddd4c00f62ec",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/ddd4c00f62ec",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "ddd4c00f62ec",
+        "job_number": 153,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000153/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000153/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000153",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000153",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "cdb16c0850c4",
+        "number": 156,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "c45d3ac09ae3b19fb98e2871043e1fffa78fe705",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000156"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "cdb16c0850c4",
+        "job_number": 156,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/cdb16c0850c4/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/cdb16c0850c4/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/cdb16c0850c4",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/cdb16c0850c4",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "cdb16c0850c4",
+        "job_number": 156,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000156/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000156/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000156",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000156",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "7e9781151411",
+        "number": 160,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "c45d3ac09ae3b19fb98e2871043e1fffa78fe705",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000160"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "7e9781151411",
+        "job_number": 160,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/7e9781151411/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/7e9781151411/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/7e9781151411",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/7e9781151411",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "7e9781151411",
+        "job_number": 160,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000160/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000160/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000160",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000160",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "68b87eb577f0",
+        "number": 201,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "524c19edde9344fb70b92b32aa82aab0a06a96b6",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000201"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "68b87eb577f0",
+        "job_number": 201,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/68b87eb577f0/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/68b87eb577f0/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/68b87eb577f0",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/68b87eb577f0",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "68b87eb577f0",
+        "job_number": 201,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000201/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000201/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000201",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000201",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "57addfbf831b",
+        "number": 204,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "524c19edde9344fb70b92b32aa82aab0a06a96b6",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000204"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "57addfbf831b",
+        "job_number": 204,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/57addfbf831b/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/57addfbf831b/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/57addfbf831b",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/57addfbf831b",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "57addfbf831b",
+        "job_number": 204,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000204/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000204/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000204",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000204",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "a4edbee83d80",
+        "number": 208,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "07782d3f0ff774fad8360e86376ccf347f9f7d85",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000208"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "a4edbee83d80",
+        "job_number": 208,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/a4edbee83d80/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/a4edbee83d80/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/a4edbee83d80",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/a4edbee83d80",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "a4edbee83d80",
+        "job_number": 208,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000208/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000208/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000208",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000208",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "14f47eb6ae99",
+        "number": 211,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "5a05ada9e7b1f590c3b7d261cd9aef0aa37e9cc4",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000211"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "14f47eb6ae99",
+        "job_number": 211,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/14f47eb6ae99/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/14f47eb6ae99/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/14f47eb6ae99",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/14f47eb6ae99",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "14f47eb6ae99",
+        "job_number": 211,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000211/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000211/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000211",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000211",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "f4e190290c94",
+        "number": 214,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "9573a461bcdc3a39a177daca46380870f330ed98",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000214"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "f4e190290c94",
+        "job_number": 214,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/f4e190290c94/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/f4e190290c94/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/f4e190290c94",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/f4e190290c94",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "f4e190290c94",
+        "job_number": 214,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000214/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000214/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000214",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000214",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "ed3eeb103e45",
+        "number": 219,
+        "task": "ofp-sam-bet-2026-plot",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+        "branch": "main",
+        "commit_as_recorded": "57d9f34e29bb3431e433a797aca43a9d74e11215",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000219"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "ed3eeb103e45",
+        "job_number": 219,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/ed3eeb103e45/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/ed3eeb103e45/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/ed3eeb103e45",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/ed3eeb103e45",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "ed3eeb103e45",
+        "job_number": 219,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000219/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000219/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000219",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-plot/job-000219",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "e62c16b12f2c",
+        "number": 224,
+        "task": "ofp-sam-bet-2026-curation",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-curation",
+        "branch": "main",
+        "commit_as_recorded": "2dbac4dd4f5d9d3c4c65c399739844c94b30e14d",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "KflowOutput/ofp-sam-bet-2026-curation/job-000224"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "e62c16b12f2c",
+        "job_number": 224,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/e62c16b12f2c/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/e62c16b12f2c/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/e62c16b12f2c",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/e62c16b12f2c",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "e62c16b12f2c",
+        "job_number": 224,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "KflowOutput/ofp-sam-bet-2026-curation/job-000224/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-curation/job-000224/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "KflowOutput/ofp-sam-bet-2026-curation/job-000224",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-curation/job-000224",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "b93a7a0d784b",
+        "number": 228,
+        "task": "ofp-sam-bet-2026-curation",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-curation",
+        "branch": "main",
+        "commit_as_recorded": "2dbac4dd4f5d9d3c4c65c399739844c94b30e14d",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "KflowOutput/ofp-sam-bet-2026-curation/job-000228"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "b93a7a0d784b",
+        "job_number": 228,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/b93a7a0d784b/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/b93a7a0d784b/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/b93a7a0d784b",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/b93a7a0d784b",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "b93a7a0d784b",
+        "job_number": 228,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "KflowOutput/ofp-sam-bet-2026-curation/job-000228/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-curation/job-000228/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "KflowOutput/ofp-sam-bet-2026-curation/job-000228",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-curation/job-000228",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "9141f7a93d3b",
+        "number": 229,
+        "task": "ofp-sam-bet-2026-draft",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-draft",
+        "branch": "main",
+        "commit_as_recorded": "50a8f640b95699c8e5feaad8f9fac7897c38cb3c",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "KflowOutput/ofp-sam-bet-2026-draft/job-000229"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "9141f7a93d3b",
+        "job_number": 229,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/9141f7a93d3b/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/9141f7a93d3b/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/9141f7a93d3b",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/9141f7a93d3b",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "9141f7a93d3b",
+        "job_number": 229,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "KflowOutput/ofp-sam-bet-2026-draft/job-000229/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-draft/job-000229/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "KflowOutput/ofp-sam-bet-2026-draft/job-000229",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-draft/job-000229",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "c90dd2e4d93f",
+        "number": 230,
+        "task": "ofp-sam-bet-2026-draft",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-draft",
+        "branch": "main",
+        "commit_as_recorded": "3f4b3e2003e37d2981b73668f048d6bc41bea920",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "KflowOutput/ofp-sam-bet-2026-draft/job-000230"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "c90dd2e4d93f",
+        "job_number": 230,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/c90dd2e4d93f/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/c90dd2e4d93f/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/c90dd2e4d93f",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/c90dd2e4d93f",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "c90dd2e4d93f",
+        "job_number": 230,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "KflowOutput/ofp-sam-bet-2026-draft/job-000230/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-draft/job-000230/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "KflowOutput/ofp-sam-bet-2026-draft/job-000230",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-draft/job-000230",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "5d8b16cb847f",
+        "number": 232,
+        "task": "ofp-sam-bet-2026-curation",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-curation",
+        "branch": "main",
+        "commit_as_recorded": "c16b11d4590963788f99298287e2948fad3e5f30",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "KflowOutput/ofp-sam-bet-2026-curation/job-000232"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "5d8b16cb847f",
+        "job_number": 232,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/5d8b16cb847f/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/5d8b16cb847f/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/5d8b16cb847f",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/5d8b16cb847f",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "5d8b16cb847f",
+        "job_number": 232,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "KflowOutput/ofp-sam-bet-2026-curation/job-000232/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-curation/job-000232/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "KflowOutput/ofp-sam-bet-2026-curation/job-000232",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-curation/job-000232",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "f9541a2531a2",
+        "number": 236,
+        "task": "ofp-sam-bet-2026-curation",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-curation",
+        "branch": "main",
+        "commit_as_recorded": "9bc3e88435b4d170ae18b6c9ee171ca640bab9e1",
+        "recorded_remote_host": "nouofpsubmit.corp.spc.int",
+        "original_placement": "nouofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-curation/job-000236"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 0,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "f9541a2531a2",
+        "job_number": 236,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/f9541a2531a2/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/f9541a2531a2/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/f9541a2531a2",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/f9541a2531a2",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "f9541a2531a2",
+        "job_number": 236,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-curation/job-000236/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-curation/job-000236/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-curation/job-000236",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-curation/job-000236",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:10.980370+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "709c863c5dfb",
+        "number": 2108,
+        "task": "ofp-sam-bet-2026-single-area",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-single-area",
+        "branch": "main",
+        "commit_as_recorded": "ff17ab5348c983da18f68780e79b8e77c8ee261b",
+        "recorded_remote_host": "suvofpsubmit.corp.spc.int",
+        "original_placement": "suvofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-002108"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 1,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "709c863c5dfb",
+        "job_number": 2108,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/709c863c5dfb/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/709c863c5dfb/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/709c863c5dfb",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/709c863c5dfb",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "709c863c5dfb",
+        "job_number": 2108,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-002108/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-002108/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-002108",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-002108",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.839025+00:00",
+        "observed_storage_host": "suvofpsubmit",
+        "configured_observation_host": "suvofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "2195ace1aaec",
+        "number": 2121,
+        "task": "ofp-sam-bet-2026-single-area",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-single-area",
+        "branch": "main",
+        "commit_as_recorded": "634938b1cb293e4feb860118bd873d8199aa2383",
+        "recorded_remote_host": "suvofpsubmit.corp.spc.int",
+        "original_placement": "suvofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-002121"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 1,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "2195ace1aaec",
+        "job_number": 2121,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/2195ace1aaec/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/2195ace1aaec/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/2195ace1aaec",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/2195ace1aaec",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "2195ace1aaec",
+        "job_number": 2121,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-002121/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-002121/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-002121",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-002121",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.839025+00:00",
+        "observed_storage_host": "suvofpsubmit",
+        "configured_observation_host": "suvofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "06520063e842",
+        "number": 2343,
+        "task": "ofp-sam-bet-2026-single-area",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-single-area",
+        "branch": "main",
+        "commit_as_recorded": "4a79358bcc2d54d8bf10d430acc8441d0f4a6d08",
+        "recorded_remote_host": "local",
+        "original_placement": "UNKNOWN",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-002343"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:36:34.587402+00:00",
+      "recorded_prune_reason": "Artifact older than seven days; locked reports and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 1,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "06520063e842",
+        "job_number": 2343,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/06520063e842/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/06520063e842/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/06520063e842",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/06520063e842",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "status": "UNKNOWN_ORIGINAL_HOST",
+        "reason": "Recorded host alias local does not identify a configured original execution/storage host. No placement inferred and no original-path probe attempted.",
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-002343/output_archive.tar.gz",
+            "exists": null,
+            "status": "UNKNOWN_ORIGINAL_HOST"
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-002343",
+            "exists": null,
+            "status": "UNKNOWN_ORIGINAL_HOST"
+          }
+        }
+      },
+      "collection_eligibility": "UNRESOLVED_SOURCE_IDENTITY"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "j0fdc5375c12",
+        "number": 3890,
+        "task": "ofp-sam-bet-2026-single-area",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-single-area",
+        "branch": "main",
+        "commit_as_recorded": "ed639e7435dcad4c8daea1b8b7ab7b2465913e99",
+        "recorded_remote_host": "suvofpsubmit.corp.spc.int",
+        "original_placement": "suvofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-003890"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:37:40.702578+00:00",
+      "recorded_prune_reason": "Artifact older than five days; locked reports, locked snapshots, and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 1,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "j0fdc5375c12",
+        "job_number": 3890,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/j0fdc5375c12/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/j0fdc5375c12/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/j0fdc5375c12",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/j0fdc5375c12",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "j0fdc5375c12",
+        "job_number": 3890,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-003890/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-003890/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-003890",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-003890",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.839025+00:00",
+        "observed_storage_host": "suvofpsubmit",
+        "configured_observation_host": "suvofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "jaa804ae69d7",
+        "number": 3913,
+        "task": "ofp-sam-bet-2026-single-area",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-single-area",
+        "branch": "main",
+        "commit_as_recorded": "b7d75b59d2c76cb0b1f3790bd8f1e8a462655bbb",
+        "recorded_remote_host": "suvofpsubmit.corp.spc.int",
+        "original_placement": "suvofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-003913"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:37:40.702578+00:00",
+      "recorded_prune_reason": "Artifact older than five days; locked reports, locked snapshots, and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 1,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "jaa804ae69d7",
+        "job_number": 3913,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/jaa804ae69d7/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/jaa804ae69d7/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/jaa804ae69d7",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/jaa804ae69d7",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "jaa804ae69d7",
+        "job_number": 3913,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-003913/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-003913/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-003913",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-003913",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.839025+00:00",
+        "observed_storage_host": "suvofpsubmit",
+        "configured_observation_host": "suvofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "j82926656d58",
+        "number": 3945,
+        "task": "ofp-sam-bet-2026-single-area",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-single-area",
+        "branch": "main",
+        "commit_as_recorded": "83f84f774a0730ce673d36f809b215cc75869e5c",
+        "recorded_remote_host": "suvofpsubmit.corp.spc.int",
+        "original_placement": "suvofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-003945"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:37:40.702578+00:00",
+      "recorded_prune_reason": "Artifact older than five days; locked reports, locked snapshots, and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 1,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "j82926656d58",
+        "job_number": 3945,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/j82926656d58/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/j82926656d58/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/j82926656d58",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/j82926656d58",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "j82926656d58",
+        "job_number": 3945,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-003945/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-003945/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-003945",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-003945",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.839025+00:00",
+        "observed_storage_host": "suvofpsubmit",
+        "configured_observation_host": "suvofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "ja9d3a29c453",
+        "number": 4244,
+        "task": "ofp-sam-bet-2026-single-area",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-single-area",
+        "branch": "main",
+        "commit_as_recorded": "74a544f7b0a07b96b4ab254824018bf9b371c093",
+        "recorded_remote_host": "suvofpsubmit.corp.spc.int",
+        "original_placement": "suvofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-004244"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:37:40.702578+00:00",
+      "recorded_prune_reason": "Artifact older than five days; locked reports, locked snapshots, and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 1,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "ja9d3a29c453",
+        "job_number": 4244,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/ja9d3a29c453/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/ja9d3a29c453/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/ja9d3a29c453",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/ja9d3a29c453",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "ja9d3a29c453",
+        "job_number": 4244,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-004244/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-004244/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-004244",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-004244",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.839025+00:00",
+        "observed_storage_host": "suvofpsubmit",
+        "configured_observation_host": "suvofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    },
+    {
+      "original_source_identity": {
+        "system": "original_Kflow",
+        "id": "jaba7dce8532",
+        "number": 4457,
+        "task": "ofp-sam-bet-2026-single-area",
+        "repository": "PacificCommunity/ofp-sam-bet-2026-single-area",
+        "branch": "BET2026",
+        "commit_as_recorded": "58cb59de94fa53560b8d3495921595d877266a35",
+        "recorded_remote_host": "suvofpsubmit.corp.spc.int",
+        "original_placement": "suvofpsubmit.corp.spc.int",
+        "recorded_remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-004457"
+      },
+      "source_status_as_recorded": "completed",
+      "recorded_artifact_pruned_at": "2026-07-18T06:37:40.702578+00:00",
+      "recorded_prune_reason": "Artifact older than five days; locked reports, locked snapshots, and active dependency chains preserved.",
+      "recorded_workdir_cleanup_done": 1,
+      "current_imported_identity": "UNKNOWN_NOT_INFERRED",
+      "cache_fresh_stat": {
+        "id": "jaba7dce8532",
+        "job_number": 4457,
+        "stats": {
+          "cache_archive": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/jaba7dce8532/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/jaba7dce8532/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "cache_directory": {
+            "recorded_path": "/home/kyuhank/.kflow-app-data/artifacts/jaba7dce8532",
+            "observed_path": "/home/kyuhank/.kflow-app-data/artifacts/jaba7dce8532",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.565082+00:00",
+        "observed_storage_host": "nouofpsubmit",
+        "configured_observation_host": "nouofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "recorded_cached_sha256": null,
+      "recorded_cached_hash_status": "SOURCE_METADATA_ONLY_NOT_FRESH_HASH",
+      "original_path_fresh_stat": {
+        "id": "jaba7dce8532",
+        "job_number": 4457,
+        "stats": {
+          "source_archive": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-004457/output_archive.tar.gz",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-004457/output_archive.tar.gz",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          },
+          "source_directory": {
+            "recorded_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-004457",
+            "observed_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-single-area/job-004457",
+            "exists": false,
+            "status": "ABSENT_AT_RECORDED_PATH",
+            "errno": 2
+          }
+        },
+        "observed_at_utc": "2026-10-04T05:03:11.839025+00:00",
+        "observed_storage_host": "suvofpsubmit",
+        "configured_observation_host": "suvofpsubmit.corp.spc.int",
+        "observed_cwd": "/home/kyuhank"
+      },
+      "collection_eligibility": "ABSENT_AT_ALL_PROBED_RECORDED_ARCHIVE_PATHS"
+    }
+  ]
+}

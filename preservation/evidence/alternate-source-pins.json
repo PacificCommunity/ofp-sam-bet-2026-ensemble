@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "original_repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+      "commit": "07782d3f0ff774fad8360e86376ccf347f9f7d85",
+      "bundle": "results.bundle",
+      "verification": "exact commit object exists after fresh offline clone of preserved bundle"
+    },
+    {
+      "original_repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+      "commit": "3c2c9aa8a0746123a4aa16c288da4932183b65ef",
+      "bundle": "results.bundle",
+      "verification": "exact commit object exists after fresh offline clone of preserved bundle"
+    },
+    {
+      "original_repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+      "commit": "524c19edde9344fb70b92b32aa82aab0a06a96b6",
+      "bundle": "results.bundle",
+      "verification": "exact commit object exists after fresh offline clone of preserved bundle"
+    },
+    {
+      "original_repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+      "commit": "57d9f34e29bb3431e433a797aca43a9d74e11215",
+      "bundle": "results.bundle",
+      "verification": "exact commit object exists after fresh offline clone of preserved bundle"
+    },
+    {
+      "original_repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+      "commit": "5a05ada9e7b1f590c3b7d261cd9aef0aa37e9cc4",
+      "bundle": "results.bundle",
+      "verification": "exact commit object exists after fresh offline clone of preserved bundle"
+    },
+    {
+      "original_repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+      "commit": "9573a461bcdc3a39a177daca46380870f330ed98",
+      "bundle": "results.bundle",
+      "verification": "exact commit object exists after fresh offline clone of preserved bundle"
+    },
+    {
+      "original_repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+      "commit": "ba61107175feaa6e00a4d52df3c9c544eacabf4b",
+      "bundle": "results.bundle",
+      "verification": "exact commit object exists after fresh offline clone of preserved bundle"
+    },
+    {
+      "original_repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+      "commit": "c45d3ac09ae3b19fb98e2871043e1fffa78fe705",
+      "bundle": "results.bundle",
+      "verification": "exact commit object exists after fresh offline clone of preserved bundle"
+    },
+    {
+      "original_repository": "PacificCommunity/ofp-sam-bet-2026-plot",
+      "commit": "dbf1910ff2b1ba5b4f3fb0dd4228a98c8931690d",
+      "bundle": "results.bundle",
+      "verification": "exact commit object exists after fresh offline clone of preserved bundle"
+    },
+    {
+      "original_repository": "PacificCommunity/ofp-sam-bet-2026-draft",
+      "commit": "3f4b3e2003e37d2981b73668f048d6bc41bea920",
+      "bundle": "report.bundle",
+      "verification": "exact commit object exists after fresh offline clone of preserved bundle"
+    },
+    {
+      "original_repository": "PacificCommunity/ofp-sam-bet-2026-draft",
+      "commit": "50a8f640b95699c8e5feaad8f9fac7897c38cb3c",
+      "bundle": "report.bundle",
+      "verification": "exact commit object exists after fresh offline clone of preserved bundle"
+    }
+  ]
+}

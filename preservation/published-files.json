@@ -1,0 +1,1255 @@
+{
+  "scope": "Current report-linked Pages HTML and directly linked assets hosted under the eight BET2026 sites; external citations remain URL references. No scientific rerender.",
+  "files": [
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/bet-2026-diagnostic-report.html",
+      "path": "site/ofp-sam-bet-2026-diagnostic/bet-2026-diagnostic-report.html",
+      "bytes": 58966592,
+      "sha256": "c6ede8abb08eeec9023c70528edac4f527fa402822164980506241d9c78b06e2",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:33.298190+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:46.528591+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/bet-2026-likelihood-profile-viewer.html",
+      "path": "site/ofp-sam-bet-2026-diagnostic/bet-2026-likelihood-profile-viewer.html",
+      "bytes": 1879243,
+      "sha256": "757d83f3f1bf8cd9166c8e83c03dc6479c1fb1aede40ebbd9dd2ac360004ae9d",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:08.211438+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:46.471831+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figure-captions.csv",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figure-captions.csv",
+      "bytes": 12782,
+      "sha256": "fa8fd951e0e412d48beddfb6f3f6aa87ad915cd48dea3eb84e0957cdf5886c8b",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:40.269489+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:46.469499+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/aspm-comparison.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/aspm-comparison.pdf",
+      "bytes": 24633,
+      "sha256": "0dd2004ed82e5ef4c4b33276e10e85b7ff6d8eaf0603546504f1cbeb745fcd5d",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:40.269871+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:46.468712+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/aspm-comparison.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/aspm-comparison.png",
+      "bytes": 386889,
+      "sha256": "f880ea6905a4d7597da21d062d305271e43772e06f685a2710d9252920cf64d4",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:12:40.270028+00:00",
+      "prior_prefix_sha256": "b05a06ef41f789df9e90d1132e08a5c471f64f9e3ca481cf0bea92ed7bcd7c8d",
+      "captured_at": "2026-10-04T03:56:47.067822+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/cpue-fit-residuals.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/cpue-fit-residuals.pdf",
+      "bytes": 163944,
+      "sha256": "6cc9851ea863cf8d7cf61e76b8710a3df32a8b9b0a33dd720195ed51a585e411",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:16.421700+00:00",
+      "prior_prefix_sha256": "873b5f425db7ee10376765fdef30321c99ccdf4e47cf939a32c7ec67ad3a08d2",
+      "captured_at": "2026-10-04T03:56:47.066663+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/cpue-fit-residuals.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/cpue-fit-residuals.png",
+      "bytes": 2925156,
+      "sha256": "3760dd1dd9b63f822c27867616c6de473fa9fad6a1c55dce85f54ea2492240b9",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:16.523805+00:00",
+      "prior_prefix_sha256": "02cf5048781fe28e2abd225977af4022edbe716f640936867766ba9bdfed0d02",
+      "captured_at": "2026-10-04T03:56:48.889177+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/diagnostic-population-dynamics.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/diagnostic-population-dynamics.pdf",
+      "bytes": 30891,
+      "sha256": "88d31f978d9216ef1009b42f3815ee8b102ee4e1228eac0e0764fefff614815b",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:16.547234+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:46.472792+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/diagnostic-population-dynamics.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/diagnostic-population-dynamics.png",
+      "bytes": 516338,
+      "sha256": "1d7d212df7145bf32dbf0540c0be552b90938e8c1359e02a8fa3b911174474b9",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:16.702220+00:00",
+      "prior_prefix_sha256": "c9159a0e59a25f600d90e6737666ec2ba4508c24d8c77b8ae334f33a8d16d339",
+      "captured_at": "2026-10-04T03:56:47.055670+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/hessian-parameter-scales.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/hessian-parameter-scales.pdf",
+      "bytes": 89298,
+      "sha256": "66754e30ccf54e8e3caedeb42e68ecaa5df3c2eef87a16d4dea8894fbaf91dda",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:12:40.271236+00:00",
+      "prior_prefix_sha256": "88cab7cd2e6f8c462c4c0f41db28e0d669c6cc4f1eafe1cd3cd6d9efe816e62a",
+      "captured_at": "2026-10-04T03:56:46.872419+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/hessian-parameter-scales.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/hessian-parameter-scales.png",
+      "bytes": 193934,
+      "sha256": "ca54776674711c333ad874cd83fd914ecf50f6719813170afcbcb61e7ea956ad",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:12:40.526862+00:00",
+      "prior_prefix_sha256": "1c611e88cc84dc0a2a8faddabd796ac084f84bfd0a6d755ce3fb5e1825e88e88",
+      "captured_at": "2026-10-04T03:56:46.982121+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/jitter-diagnostics.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/jitter-diagnostics.pdf",
+      "bytes": 31185,
+      "sha256": "8fe19c08ae6fa24f024cdfcd78ebef60b7c5e30952bd58e18cc44a7202aa3d1e",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:16.808988+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:46.874682+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/jitter-diagnostics.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/jitter-diagnostics.png",
+      "bytes": 327786,
+      "sha256": "2fa0590ddaa5b00d9d6a6a1c13412f75043a3520ce6b20d9f76b25e268d56308",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:16.859170+00:00",
+      "prior_prefix_sha256": "6be6ccc31a9d0b9be86b06a23491c0a3484d1e455b2818a5b191b04b6e80eacc",
+      "captured_at": "2026-10-04T03:56:47.391641+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-caal-region-detail.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-caal-region-detail.pdf",
+      "bytes": 21361,
+      "sha256": "c05c6f5cc656ff7903e36d8d38ea9ed700fcc270836e3e85c32de1c7d4b19895",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:16.984059+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:46.984280+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-caal-region-detail.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-caal-region-detail.png",
+      "bytes": 208044,
+      "sha256": "021a39880b3907b4e63398251359f3f1ed0d19fdf86e00f7fa0421081252e4f5",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:17.082171+00:00",
+      "prior_prefix_sha256": "2e9c1d0792e9831e848f315bef17e1ba9af50badc43b309cc751b8a17068994f",
+      "captured_at": "2026-10-04T03:56:47.487992+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-components.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-components.pdf",
+      "bytes": 13835,
+      "sha256": "3c6bc53a44e095b09eef8015e4ce499088ec9a132b623ba4f4edbbc88d74cdfe",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:17.141868+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:47.056860+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-components.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-components.png",
+      "bytes": 231427,
+      "sha256": "7266cf2160a91085c3b4fca9713b9551a5ef9e71682ff393ed700a972b6f3e5f",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:17.288265+00:00",
+      "prior_prefix_sha256": "cef1f715ba93e4303673d7b335af467f430cbbbc19bd2de4b6d5b9a39c92bcc1",
+      "captured_at": "2026-10-04T03:56:47.650266+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-cpue-detail.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-cpue-detail.pdf",
+      "bytes": 21718,
+      "sha256": "16cc782508900088b87b13cc39296d02cd51e44551b921a22a4b9f59b0f087b1",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:17.359299+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:47.067698+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-cpue-detail.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-cpue-detail.png",
+      "bytes": 224610,
+      "sha256": "c05f89fe0f191360971ba5d0f8eca4e035cea2446dac3599ba0cf45ed48bd3ef",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:17.390998+00:00",
+      "prior_prefix_sha256": "029394ec37d4a093fa9f8c0787e3312240560890fc6ab0bb3bc472aa46f301af",
+      "captured_at": "2026-10-04T03:56:47.590669+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-lf-detail.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-lf-detail.pdf",
+      "bytes": 21233,
+      "sha256": "32ec395b823b0670dcff52338597a21ccd974e7568195a0d987f16773b9d99c0",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:17.560967+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:47.070046+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-lf-detail.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-lf-detail.png",
+      "bytes": 215956,
+      "sha256": "a64bd9b4ee70d0c29071f47d1da68f56343493745be95431c8b64f74978607be",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:17.597609+00:00",
+      "prior_prefix_sha256": "08b4bdd03ebd9aac7a33fabcf933ca2df7f26fbe482d3516a08d41f392bba7d0",
+      "captured_at": "2026-10-04T03:56:47.576067+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-penalty-detail.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-penalty-detail.pdf",
+      "bytes": 30752,
+      "sha256": "2d6822e3f8ef03af5b3998cadb5ba3403664e2e70c4c672df0bf1a20aab7f108",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:17.704446+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:47.394614+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-penalty-detail.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-penalty-detail.png",
+      "bytes": 382621,
+      "sha256": "38b42ea830fb1e08bf7ce93abbd3dd9bbfbd1d835785a0a4106fca0c120b1e6e",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:17.814607+00:00",
+      "prior_prefix_sha256": "95aba3d63afd1de7b7018a7de08332cda6672cb341884662cecd31106ae9da0f",
+      "captured_at": "2026-10-04T03:56:47.995665+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-tag-detail.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-tag-detail.pdf",
+      "bytes": 20183,
+      "sha256": "6afb4cd835a74090d56d2062481099f4d621f98b45c7b8b05fa3d3e189146b95",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:17.883094+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:47.490048+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-tag-detail.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/likelihood-profile-tag-detail.png",
+      "bytes": 168079,
+      "sha256": "9a96a066865f74cf7dfef2e332009229e04c36c54ff7a37c3c1620ba72a1208e",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:17.961487+00:00",
+      "prior_prefix_sha256": "cb29ba4eedefcd3e921ad763359c24c3d8bc271c972bc8aee2dbd55bf5409828",
+      "captured_at": "2026-10-04T03:56:47.925488+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/retrospective-diagnostics.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/retrospective-diagnostics.pdf",
+      "bytes": 34541,
+      "sha256": "836c23edbb78089172d6f4d37b8c3b64d53f1459b7fdb66be8ee66870755b1f3",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:18.107155+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:47.576869+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/retrospective-diagnostics.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/retrospective-diagnostics.png",
+      "bytes": 798014,
+      "sha256": "5c033d3a81c8d972687aa55b220cb9cb6eb16d46f2c113eb5a6a34042b6bf7c6",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:18.133511+00:00",
+      "prior_prefix_sha256": "54071c8482d23504ac549565885c957e9a2bc8e16d926dacd82bfa99f4ea90e2",
+      "captured_at": "2026-10-04T03:56:48.210210+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/self-test-diagnostics.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/self-test-diagnostics.pdf",
+      "bytes": 59440,
+      "sha256": "ab8b65ad7bc366058041c8b681f293fedbbbc5bc9d16ffee11028bd38883ac78",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:40.537917+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:47.591350+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/self-test-diagnostics.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/self-test-diagnostics.png",
+      "bytes": 386214,
+      "sha256": "df2de679809f2a38b8a3f952049a8f50512041073b0fecd65ab8878ce83241dc",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:12:40.563578+00:00",
+      "prior_prefix_sha256": "7efd0d6790192ba0d3bbfcc9c29058957ec793e8feeae8c85317868b17056eee",
+      "captured_at": "2026-10-04T03:56:48.208683+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/stock-recruitment.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/stock-recruitment.pdf",
+      "bytes": 18897,
+      "sha256": "baa82a3331151f3e9981c397d6a4176fd39ea261df45e9a63a016353c68212eb",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:40.582161+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:47.650966+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/figures/stock-recruitment.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/figures/stock-recruitment.png",
+      "bytes": 223865,
+      "sha256": "c00205b15e4dc7168169fe83f08852f3d89c292788f73c910285e5e9e4f0931b",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:12:40.820328+00:00",
+      "prior_prefix_sha256": "099f94982794dfe49773f64209f6370a4e5510109fc7eaa0121efce60acf064f",
+      "captured_at": "2026-10-04T03:56:48.123218+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/latex-table-validation.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/latex-table-validation.pdf",
+      "bytes": 30998,
+      "sha256": "405f770b5b7de8306856c20c9e5e80f58eeb9137a26a62cb266939ad999fb300",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:40.830992+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:47.928857+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-coverage.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-coverage.pdf",
+      "bytes": 36434,
+      "sha256": "1032674104e987fe84a42fb7a2a2c4eed4b7b432bf1032e47116d05bb1ed6c77",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:18.239183+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:47.931550+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-coverage.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-coverage.png",
+      "bytes": 725920,
+      "sha256": "dba6b25d78ec15a54153fb13f1027fc6f30c6c615c266125ea970e1e7b0a9c74",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:18.345061+00:00",
+      "prior_prefix_sha256": "7671ae8ecb8b4d5587c3d0618411fdcf2e2611bcd5f251824890eff634669cc8",
+      "captured_at": "2026-10-04T03:56:48.451182+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-fit-by-region.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-fit-by-region.pdf",
+      "bytes": 146714,
+      "sha256": "71a5fe974305edf9844ef96aaac2bd9ffdef75821758b38f69731cf2aa24670e",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:18.389140+00:00",
+      "prior_prefix_sha256": "d9062c8a0f167c8ca0ae7614ed18b8f60fbd464f0b6aaa0736a185cf42474f21",
+      "captured_at": "2026-10-04T03:56:48.474890+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-fit-by-region.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-fit-by-region.png",
+      "bytes": 1586451,
+      "sha256": "88a85171040f25bd39d7800b70e0f415115da3727749ecb4d0a92435e3bb6522",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:18.407734+00:00",
+      "prior_prefix_sha256": "5d313f81825a3d52e095323b2b7afa677328174f07ff59f37c593fbac724dc68",
+      "captured_at": "2026-10-04T03:56:49.252746+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-fit.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-fit.pdf",
+      "bytes": 33564,
+      "sha256": "302331a7b860035fd422619973f23077348b28db39e2ffed2e694a766a89db69",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:18.544936+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:48.210054+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-fit.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-fit.png",
+      "bytes": 614785,
+      "sha256": "4a24c1d178ccbb93ba5feedce7a14f1da0d1de03674b0809985700fc81de5a41",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:18.630668+00:00",
+      "prior_prefix_sha256": "c88a8687b25017b94bec80a66c9c30fbe26ac4d4e2a6d975a2077aab2a6f5c45",
+      "captured_at": "2026-10-04T03:56:48.822358+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-growth-by-region.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-growth-by-region.pdf",
+      "bytes": 79385,
+      "sha256": "d75847a314cc8f1b3cdbd8ffa4801ae5f75672518abdb61bef0b4b4a93aafbb5",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:18.671117+00:00",
+      "prior_prefix_sha256": "3480532f381ba5e87c150fa4bba0c6b1560ce075860b7fb3c93049e59abba034",
+      "captured_at": "2026-10-04T03:56:48.569942+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-growth-by-region.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-growth-by-region.png",
+      "bytes": 1610495,
+      "sha256": "a310198c8ae277a9df8ff5f2ea8289dab18da82ba10dcd49674d910dedd157b9",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:18.700408+00:00",
+      "prior_prefix_sha256": "473cd42b502d5d2fd258102fb53a50739d2668d89f401ad6d14f545cf305ee12",
+      "captured_at": "2026-10-04T03:56:49.237152+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-residuals-by-region.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-residuals-by-region.pdf",
+      "bytes": 82623,
+      "sha256": "c4b9847307bfc70a23df2b4edde589e2e4ee86df50c4b32a2e3a4b4dc0f3bbdc",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:18.799032+00:00",
+      "prior_prefix_sha256": "156070d775233b30ca026f651ecd2876e43fb54de9ce2c6d7d18d4c311c86c2d",
+      "captured_at": "2026-10-04T03:56:48.883618+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-residuals-by-region.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/age-data-residuals-by-region.png",
+      "bytes": 149428,
+      "sha256": "d1e9898c40c91d58534bf14f709d2b29a5a0db1b6907c8ca1b09ddf1df88cebe",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:18.928286+00:00",
+      "prior_prefix_sha256": "5268329011c74075bc293f2717abf78a531925fb0685f567b68977628626f39d",
+      "captured_at": "2026-10-04T03:56:49.176032+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/catch-by-fishery-fits.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/catch-by-fishery-fits.pdf",
+      "bytes": 89907,
+      "sha256": "7d6deea3c74298881e0cd64870ae1d8a40399f242982da9292aca283998717d5",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:18.968074+00:00",
+      "prior_prefix_sha256": "852bfc41406fbefe02a572f041ad8c56667e6471b812c86b93dd4b79a1efd332",
+      "captured_at": "2026-10-04T03:56:49.233775+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/catch-by-fishery-fits.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/catch-by-fishery-fits.png",
+      "bytes": 615787,
+      "sha256": "dd47ce49b05d0b58350610225cf1248c8be94c7a1860eee3a2ca4f3818b5c6e1",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:19.007831+00:00",
+      "prior_prefix_sha256": "a0a7e541a14bc8a8ad2fc7a605fb9acff7f5206d0c08a8cdecf56cd09b399b07",
+      "captured_at": "2026-10-04T03:56:49.973315+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/depletion-by-area.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/depletion-by-area.pdf",
+      "bytes": 17533,
+      "sha256": "c836634d4b89fd622ca311df14405600c10d11e61bae410af531613d3417678a",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:40.836953+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:48.890345+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/depletion-by-area.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/depletion-by-area.png",
+      "bytes": 304224,
+      "sha256": "4e51b7b3756fa6d73a462b963872c8f7e5a824322235f5e5c5046d541a32967d",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:12:40.865967+00:00",
+      "prior_prefix_sha256": "e071e24a8003b1f857f9edcb29a33721a0e2ea3b0b0cbe12d53d723fb07cc8f5",
+      "captured_at": "2026-10-04T03:56:49.513583+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/f-juvenile-adult-by-area.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/f-juvenile-adult-by-area.pdf",
+      "bytes": 21238,
+      "sha256": "9cd7e598580d17a3bac0b0c6257a6fb742b37718021c166b519c2e355598193d",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:41.100726+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:49.177186+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/f-juvenile-adult-by-area.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/f-juvenile-adult-by-area.png",
+      "bytes": 950683,
+      "sha256": "df185deb7f88ec87533617cf58118f005a2b525761d965d2bd75ee67704baae6",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:12:41.109283+00:00",
+      "prior_prefix_sha256": "127b7fd653769bc19b8176ebc610493fd63dc96342f52f1a04f41606e4b5cba3",
+      "captured_at": "2026-10-04T03:56:49.772992+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/fishery-process.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/fishery-process.pdf",
+      "bytes": 24494,
+      "sha256": "a4eb059582551ded22c273e0116a5215b0d10f79156e77283ffdfdef7c970639",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:41.130096+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:49.234992+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/fishery-process.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/fishery-process.png",
+      "bytes": 781255,
+      "sha256": "d6db6a0466c2f853e2881f83145ea1dee5a1a73a87c32b50b95b9f60ce3829e9",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:12:41.161743+00:00",
+      "prior_prefix_sha256": "627e6b2e7e242615ac126b8442515b7213980b966804a834df6c03e3e30ea87a",
+      "captured_at": "2026-10-04T03:56:49.888483+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/fishery-selectivity-length.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/fishery-selectivity-length.pdf",
+      "bytes": 24346,
+      "sha256": "6d809efd81078a71e281a6d4438110e4270c1b76050c8b655f89d15d86c9da6a",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:41.361593+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:49.238309+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/fishery-selectivity-length.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/fishery-selectivity-length.png",
+      "bytes": 833872,
+      "sha256": "31c60b43b2ff4c04ae8ac36a5a7c1e49932961b72b3c5e01588430d8d4345497",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:12:41.397801+00:00",
+      "prior_prefix_sha256": "5fb1c291c6862e747cc8f3eaeeb749d7ff4a24e1e31cc068f96f0f956118ff57",
+      "captured_at": "2026-10-04T03:56:49.977507+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/growth-curve.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/growth-curve.pdf",
+      "bytes": 13943,
+      "sha256": "bc736ac7b6448f6c623549594998140c656914ad3b8d2cea1188b3b3631ca8d0",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:41.463213+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:49.253647+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/growth-curve.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/growth-curve.png",
+      "bytes": 72054,
+      "sha256": "44a0f3068539d9f6086037372d3881fc3ba6a2d2e8a35e72cfb6f44ebc33cd87",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:12:41.536904+00:00",
+      "prior_prefix_sha256": "6acaa06615bd290a026ea3102660e83f6b6476ec17894c5f2e618d1609f5c2a7",
+      "captured_at": "2026-10-04T03:56:49.585453+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/length-frequency-fit-by-region.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/length-frequency-fit-by-region.pdf",
+      "bytes": 41909,
+      "sha256": "bbc040cad8a8590ef895a7ccb6ae11c60d8a98424e57494c0c9125703c7740af",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:19.071558+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:49.515962+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/length-frequency-fit-by-region.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/length-frequency-fit-by-region.png",
+      "bytes": 695486,
+      "sha256": "09add2adde4acaacfb1de556ab7c954942db5d6016f0320f67815c7e88665ef0",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:19.247222+00:00",
+      "prior_prefix_sha256": "0a788774025b8d6b55a7ec427a6f30d95244b25f69819804a2385e4b34a45bf6",
+      "captured_at": "2026-10-04T03:56:50.043904+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/length-frequency-residuals.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/length-frequency-residuals.pdf",
+      "bytes": 114053,
+      "sha256": "6bd9a355ea2fddf698d7154cfa244e120171bcebdb2c1a0fdfd505bf5f0c79fd",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:19.339141+00:00",
+      "prior_prefix_sha256": "99e6e2f7b2f5b7f0a3069c0ce0a82877bf4a563d619a1015120203fbb946e727",
+      "captured_at": "2026-10-04T03:56:50.043028+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/length-frequency-residuals.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/length-frequency-residuals.png",
+      "bytes": 695211,
+      "sha256": "af7b7ca1bb95247112a603403d0611e41a379a92add1692d14e5aa697399552b",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:19.369589+00:00",
+      "prior_prefix_sha256": "00e4a19ab90909df5ac0a1a478c5fc085b6a7e22ffbcd71800a8402affeee3f9",
+      "captured_at": "2026-10-04T03:56:50.249279+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/length-frequency.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/length-frequency.pdf",
+      "bytes": 115038,
+      "sha256": "56c8673be3b126fb874d5d9d0f1a1f158fcd1bec20dc384aab7b470d7f53f655",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:19.382104+00:00",
+      "prior_prefix_sha256": "e0ce9b10c6b7a7075af00b389807f2427496595c3b91ae7e2845374dcdbf1cd2",
+      "captured_at": "2026-10-04T03:56:50.257432+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/length-frequency.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/length-frequency.png",
+      "bytes": 470265,
+      "sha256": "bc87fddd2e6bef1ce08fc454a414380b55be32d92c9dd24764fda47cc8a14e0c",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:19.522170+00:00",
+      "prior_prefix_sha256": "72eebab8351d89869258161cac37c975cceb1786fa5b6fc90151bf49cd578e24",
+      "captured_at": "2026-10-04T03:56:50.394925+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/population-biology.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/population-biology.pdf",
+      "bytes": 19502,
+      "sha256": "2ccfa2c5ff5bee1a4593c7bc7bdf2950f49d9e8405b3daf23b85ed4453c74278",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:41.637780+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:49.978717+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/population-biology.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/population-biology.png",
+      "bytes": 128949,
+      "sha256": "abb1e8eff25713ea2cda8ef35498c770d8000f6a548d131141879809cb25a746",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:12:41.685355+00:00",
+      "prior_prefix_sha256": "2636bda0e70074b7331c2ee401e35d7fb578f9cfd92ced525cd45b88b4c3a19d",
+      "captured_at": "2026-10-04T03:56:50.340142+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/recruitment-by-area.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/recruitment-by-area.pdf",
+      "bytes": 17597,
+      "sha256": "58cf8df715a4ce4dbb03a134109149b53579f67087b8fe5f6fdb7c76c83c36ed",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:41.704751+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.046456+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/recruitment-by-area.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/recruitment-by-area.png",
+      "bytes": 1033548,
+      "sha256": "47c513801db7ba6e542c330c456dfdaca4b1782ebc61267505977a012e7715a0",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:12:41.819967+00:00",
+      "prior_prefix_sha256": "147159b62f741b5adf73f920a66d89d8c689550fd060c153634415bfa16ba11f",
+      "captured_at": "2026-10-04T03:56:50.608155+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/region-map.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/region-map.pdf",
+      "bytes": 197578,
+      "sha256": "21a07b3bf1418d29c2b6f457c5ee23e302a80932835a213338f70ebc76c5cad3",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:19.632338+00:00",
+      "prior_prefix_sha256": "b570abceafb5b7b67bc4bf3ac76dd7ce931ccb2ca907d800d26a5b2420e495d1",
+      "captured_at": "2026-10-04T03:56:50.461980+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/region-map.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/region-map.png",
+      "bytes": 696469,
+      "sha256": "987c8000ca90b906502713de402b2c09c599f99b590fa14ccd0596b85e29f12c",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:19.653341+00:00",
+      "prior_prefix_sha256": "6a7cfc9896f412c8356fd55eb294dad476a0cc486846aacdcda5094aaafaafec",
+      "captured_at": "2026-10-04T03:56:51.199066+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/regional-movement.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/regional-movement.pdf",
+      "bytes": 19565,
+      "sha256": "5a4ec64f2d465605b860b839449a035f61ee7b1b40c552902f8eaddf339b2ed0",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:41.883610+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.258905+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/regional-movement.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/regional-movement.png",
+      "bytes": 153646,
+      "sha256": "ee318a041fe0ad5a3906ef12d25e6d700cafc14fc989bc624f01bc88b4501211",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:12:41.955139+00:00",
+      "prior_prefix_sha256": "572a7db6cbbc6c924dfe9dd9408f7588af76bdd606320daca489ba945a03ab46",
+      "captured_at": "2026-10-04T03:56:50.675908+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/spawning-potential-with-without-fishing.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/spawning-potential-with-without-fishing.pdf",
+      "bytes": 31298,
+      "sha256": "241966f012ca11ae2ad4f663934a36564ccd79fae88383ef061390732718e86e",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:41.957193+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.341292+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/spawning-potential-with-without-fishing.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/spawning-potential-with-without-fishing.png",
+      "bytes": 211168,
+      "sha256": "122fa8cda48ce5ec82f6ec5efb8d840c273c46812bf7199512b11ccb97dc53b5",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:12:42.091646+00:00",
+      "prior_prefix_sha256": "519e4fa732d63268a5f6ad650f3208b5d0e3f859aa61fa9486004192cc5daabd",
+      "captured_at": "2026-10-04T03:56:50.749784+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/tag-attrition-by-program.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/tag-attrition-by-program.pdf",
+      "bytes": 17881,
+      "sha256": "28a7361719097cc48fc1d12eaef781fe49fb80396e0ab78a0730e55309d2dd99",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:19.851189+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.396039+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/tag-attrition-by-program.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/tag-attrition-by-program.png",
+      "bytes": 308610,
+      "sha256": "0a5c99ff17b6093ac074a45d925fcad7a70b70a78275cf49b6c1116de7be2c3a",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:19.858583+00:00",
+      "prior_prefix_sha256": "a070a3a6d5d8c14ac5defa5240dda41d836c307fd11482928419494923d89f24",
+      "captured_at": "2026-10-04T03:56:50.837715+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/tag-reporting-rates-active.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/tag-reporting-rates-active.pdf",
+      "bytes": 30520,
+      "sha256": "9282b7401bb6f60c134b7668baf711a8e9962f5ed9941135a3c5231be91923d0",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:19.918651+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.463086+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/tag-reporting-rates-active.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/tag-reporting-rates-active.png",
+      "bytes": 356975,
+      "sha256": "5039d3677ccba440c07620ad9a914fa1585b48c307716cb4d1043a9a15bc3587",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:19.937039+00:00",
+      "prior_prefix_sha256": "e373af53476b17d286adc6cfa31670c4b9a292091a26cf63fbab58cd173c2a4e",
+      "captured_at": "2026-10-04T03:56:50.952454+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/tag-returns-all.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/tag-returns-all.pdf",
+      "bytes": 17462,
+      "sha256": "5b7236262bb447cd898216d2982098fe5ae9f2e4a8608098f3ec083cf554eb0f",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:20.130393+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.610925+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/tag-returns-all.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/tag-returns-all.png",
+      "bytes": 125820,
+      "sha256": "602f1a11313df75d47bd016040613a7ba608cda9510c109cc050d491424cb3af",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:20.164257+00:00",
+      "prior_prefix_sha256": "9b7f5f42371c3ef29195b9576a03d7e580376bf87f2c35c43bc2d69d2c270755",
+      "captured_at": "2026-10-04T03:56:50.952189+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/tag-returns-by-group.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/tag-returns-by-group.pdf",
+      "bytes": 42534,
+      "sha256": "ce37b18f3f286e544e206c3b60bbe0e1ee74252f4937404320df5fba67e1940d",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:20.188890+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.676911+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/tag-returns-by-group.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/tag-returns-by-group.png",
+      "bytes": 321312,
+      "sha256": "b862c957730a28d3769fafad13492eaee83c79ec0f1d6b281c579b31e73902fc",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:20.261694+00:00",
+      "prior_prefix_sha256": "c2a054a88a7afc4b151c62642da0d9128ff3fe0b216969103b81c6415084d27c",
+      "captured_at": "2026-10-04T03:56:51.100040+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/total-biomass-with-without-fishing.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/total-biomass-with-without-fishing.pdf",
+      "bytes": 21348,
+      "sha256": "0b96561bc32202d2867580379f0e433a3160ba2e4b89f1913cbd3b92fe32d116",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:42.141096+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.750793+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/total-biomass-with-without-fishing.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/total-biomass-with-without-fishing.png",
+      "bytes": 674472,
+      "sha256": "a077fa1cb0f1c575faf3e8afe32ec726a65110c5d361ce09bba31eee818ddefe",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:12:42.205864+00:00",
+      "prior_prefix_sha256": "ff4dcdad9d18a971d6fabafe1aa2ce54781a5723aa4b55f06eaae2e05ecd592d",
+      "captured_at": "2026-10-04T03:56:51.252447+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/total-catch-fits.pdf",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/total-catch-fits.pdf",
+      "bytes": 17291,
+      "sha256": "2c141cc087604a835d619525235690f899ee0aba76b044d751eff578876d8e02",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:20.400410+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.838660+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/total-catch-fits.png",
+      "path": "site/ofp-sam-bet-2026-diagnostic/mfclshiny/figures/total-catch-fits.png",
+      "bytes": 159172,
+      "sha256": "04d7f23b9d866f7d1901cd6e42275ac3670e836bd76cce3491c80d218bcdc6e2",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:20.450496+00:00",
+      "prior_prefix_sha256": "0e78162dfbdf64bc0ab40d077415f577d5825952b46382d415ee090ed3fb8369",
+      "captured_at": "2026-10-04T03:56:51.275835+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/report-manifest.csv",
+      "path": "site/ofp-sam-bet-2026-diagnostic/report-manifest.csv",
+      "bytes": 8077,
+      "sha256": "189dc7c375d6a834126381541873aff04d85abacdc33a334cc53a2bca35e3903",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:42.221853+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.953576+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/tables/aspm-terminal-summary.csv",
+      "path": "site/ofp-sam-bet-2026-diagnostic/tables/aspm-terminal-summary.csv",
+      "bytes": 192,
+      "sha256": "39e4f086771334f7b3b31c3af3ba32137fbcf46f4828331ffe6436dd10a98a4f",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:42.372762+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.953407+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/tables/diagnostic-check-summary.csv",
+      "path": "site/ofp-sam-bet-2026-diagnostic/tables/diagnostic-check-summary.csv",
+      "bytes": 272,
+      "sha256": "72dd5fe6284a25579921c19405dce31fb6e9abaac0e90b2e5d57654a6ca4f44a",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:20.456130+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.954267+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/tables/fishery-grouping.csv",
+      "path": "site/ofp-sam-bet-2026-diagnostic/tables/fishery-grouping.csv",
+      "bytes": 1598,
+      "sha256": "32b69cb1d3d65f5b82b9d52763a3ddaa0b989c6167d3945d157f8e529ea78042",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:20.574531+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.954380+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/tables/hessian-summary.csv",
+      "path": "site/ofp-sam-bet-2026-diagnostic/tables/hessian-summary.csv",
+      "bytes": 177,
+      "sha256": "6cb60ee5dfa477eb136c67a6100f940b1359c1ccc382343948eb1e5490275ec4",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:42.392566+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.954894+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/tables/jitter-summary.csv",
+      "path": "site/ofp-sam-bet-2026-diagnostic/tables/jitter-summary.csv",
+      "bytes": 148,
+      "sha256": "30a2d2c255632fdae87cfa92fc900011f4e3877f3a527cb5cb96727c5e2f84f3",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:42.458844+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.955017+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/tables/model-fit-summary.csv",
+      "path": "site/ofp-sam-bet-2026-diagnostic/tables/model-fit-summary.csv",
+      "bytes": 257,
+      "sha256": "ca8abdd20a4520e860793ba1454cb17a3c644c45bdab4979255dbb6dce855d0c",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:20.669784+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.955406+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/tables/objective-components.csv",
+      "path": "site/ofp-sam-bet-2026-diagnostic/tables/objective-components.csv",
+      "bytes": 190,
+      "sha256": "bca2e5d1e448c7e0171dddc0a8c97fc833ee09ebe1a9b5c811f5013685f10adb",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:20.728793+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.955688+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/tables/parameter-bounds.csv",
+      "path": "site/ofp-sam-bet-2026-diagnostic/tables/parameter-bounds.csv",
+      "bytes": 501,
+      "sha256": "b547b89d218c07a1d4afc338f76d53256a670cfdf6c42fe110abd48815e2a877",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:42.491558+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.955841+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/tables/parameter-correlations.csv",
+      "path": "site/ofp-sam-bet-2026-diagnostic/tables/parameter-correlations.csv",
+      "bytes": 1084,
+      "sha256": "ed67683b6cf2369cd3d46bb923057b89b26d056bed566e09e939427fb296a326",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:42.624939+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.956125+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/tables/recent-stock-status.csv",
+      "path": "site/ofp-sam-bet-2026-diagnostic/tables/recent-stock-status.csv",
+      "bytes": 234,
+      "sha256": "aff958dc205037b6c45f4cfd8bb781308f9d70e19cd88995b09588206d980a25",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:20.738499+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.956399+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/tables/retrospective-summary.csv",
+      "path": "site/ofp-sam-bet-2026-diagnostic/tables/retrospective-summary.csv",
+      "bytes": 143,
+      "sha256": "9817638bdf4355367e975fbbbde3126b0d475be019eabcc9a8b5f4c993a0e229",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:42.626147+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.956524+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/tables/self-test-summary.csv",
+      "path": "site/ofp-sam-bet-2026-diagnostic/tables/self-test-summary.csv",
+      "bytes": 213,
+      "sha256": "b321de7706856fb1bb600fa34802c0ecbba69d22e89a111ee93404f9eba43028",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:12:42.692699+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.956874+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/tables/tag-release-groups.csv",
+      "path": "site/ofp-sam-bet-2026-diagnostic/tables/tag-release-groups.csv",
+      "bytes": 296,
+      "sha256": "cd8584f88c07874e356cbf41b06cc6920d448dfee98087c31efd970cdcdb5e11",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:20.846703+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.957005+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-diagnostic/tables/tag-reporting-rate-groups.csv",
+      "path": "site/ofp-sam-bet-2026-diagnostic/tables/tag-reporting-rate-groups.csv",
+      "bytes": 2053,
+      "sha256": "c1d12c0ef0ad997a1ec5d109f55a9541fe9fa2f1b2512537caa4a92e1db92168",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:20.932504+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.957408+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/bet-2026-ensemble-interactive-viewer.html",
+      "path": "site/ofp-sam-bet-2026-ensemble/bet-2026-ensemble-interactive-viewer.html",
+      "bytes": 307353,
+      "sha256": "17eb6339227b9d238af5bef7315e1c5ef8b8f4abce13595e62ef92e94dd3b3bf",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:08.726577+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.958354+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/bet-2026-ensemble-report.html",
+      "path": "site/ofp-sam-bet-2026-ensemble/bet-2026-ensemble-report.html",
+      "bytes": 10114166,
+      "sha256": "577d02f3e3628c23ce0b697e040d77bbeb0d64a3ffa93461257f2c0574e95efa",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:08.921312+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.973199+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/figures/combined-kobe-majuro-status.pdf",
+      "path": "site/ofp-sam-bet-2026-ensemble/figures/combined-kobe-majuro-status.pdf",
+      "bytes": 41960,
+      "sha256": "70bc7b28207d9bbb308604b0ced41d0d7be6d206eccd17e07b95608c3d282902",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:20.970498+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.959371+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/figures/combined-structural-estimation-uncertainty.pdf",
+      "path": "site/ofp-sam-bet-2026-ensemble/figures/combined-structural-estimation-uncertainty.pdf",
+      "bytes": 143402,
+      "sha256": "e018a193e872e2dbfd0ab03411d946cbf759fe8de6158ce42f672c549faf2d25",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:20.984653+00:00",
+      "prior_prefix_sha256": "80aed7b862d96621c71225abea51d6a4263069bb64c3a98c81aa33f4306dd0ae",
+      "captured_at": "2026-10-04T03:56:51.313552+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/figures/ensemble-design-retention.pdf",
+      "path": "site/ofp-sam-bet-2026-ensemble/figures/ensemble-design-retention.pdf",
+      "bytes": 51252,
+      "sha256": "ea54d7a00ea6271cec451fe7531e9eaf7c8f53e4e9c5ba001122289724a60017",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:21.174573+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:50.974220+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/figures/management-uncertainty-continuous-axes.pdf",
+      "path": "site/ofp-sam-bet-2026-ensemble/figures/management-uncertainty-continuous-axes.pdf",
+      "bytes": 112763,
+      "sha256": "1cd123b514e743a6ec2768cee53486e070166d42e2004fc6dee7aec38141a183",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:21.234270+00:00",
+      "prior_prefix_sha256": "e4793ec94e105c5d549824dd346fbef828a6d945fc5c94786914871815940481",
+      "captured_at": "2026-10-04T03:56:51.348218+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/figures/management-uncertainty-discrete-axes-a.pdf",
+      "path": "site/ofp-sam-bet-2026-ensemble/figures/management-uncertainty-discrete-axes-a.pdf",
+      "bytes": 132025,
+      "sha256": "6f88ee2090476605f860283b7a554d40ac94b85347d12983304743d3fce4ad62",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:21.272489+00:00",
+      "prior_prefix_sha256": "1a4db8e9f7207aec3800aac8e76c84fc74787d4bec188ae447ec8a9266c4a285",
+      "captured_at": "2026-10-04T03:56:51.433419+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/figures/management-uncertainty-discrete-axes-b.pdf",
+      "path": "site/ofp-sam-bet-2026-ensemble/figures/management-uncertainty-discrete-axes-b.pdf",
+      "bytes": 102736,
+      "sha256": "1885053bb834cb05150beee5a25af7e5b3e173e820c1b6a920db875819d0d5ae",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:21.283183+00:00",
+      "prior_prefix_sha256": "1cf398f48bb9dd0404d2d25c25112948e5bf6552b297db283b9ea49d1495bd20",
+      "captured_at": "2026-10-04T03:56:51.543942+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/figures/natural-mortality-evidence.pdf",
+      "path": "site/ofp-sam-bet-2026-ensemble/figures/natural-mortality-evidence.pdf",
+      "bytes": 17954,
+      "sha256": "8fb0f29e326c3dccef48cf107b2be21aa538e1894ba5c19c30b1197e4e0ea8c3",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:21.462715+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.253206+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/figures/projection-key-quantities.pdf",
+      "path": "site/ofp-sam-bet-2026-ensemble/figures/projection-key-quantities.pdf",
+      "bytes": 13490,
+      "sha256": "e4825473495c38f3afe0c6acd4c8e4623c4811a1c71e4fe6602cac0195c2b34d",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:21.525967+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.253631+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/figures/projection-stock-trajectories.pdf",
+      "path": "site/ofp-sam-bet-2026-ensemble/figures/projection-stock-trajectories.pdf",
+      "bytes": 34328,
+      "sha256": "98c5ab4a1efc8963769116537913a378becc75347315f8f02520507c08de6f5e",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:21.561824+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.253983+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/figures/projection-terminal-status.pdf",
+      "path": "site/ofp-sam-bet-2026-ensemble/figures/projection-terminal-status.pdf",
+      "bytes": 89047,
+      "sha256": "80b652d088da840eddaa09e690ac98d054998c0bda2a828bd4548db523d771a0",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:21.573935+00:00",
+      "prior_prefix_sha256": "006cc07f07732949f060d67847d9c86df182fc241579e4c486705e454951895b",
+      "captured_at": "2026-10-04T03:56:51.573670+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/figures/time-dynamic-kobe-majuro.pdf",
+      "path": "site/ofp-sam-bet-2026-ensemble/figures/time-dynamic-kobe-majuro.pdf",
+      "bytes": 24689,
+      "sha256": "c2fe5d688386a95e004dfc66d995ad9968b54dd1727c1de4a698b904bc1fb234",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:21.714563+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.276473+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/tables/cmm-depletion-comparison.csv",
+      "path": "site/ofp-sam-bet-2026-ensemble/tables/cmm-depletion-comparison.csv",
+      "bytes": 377,
+      "sha256": "5ddc8f3265ff8025936df9f51941035b3c2382ac5a39304ca70c8087869f7b97",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:21.785351+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.276869+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/tables/estimation-management-risk.csv",
+      "path": "site/ofp-sam-bet-2026-ensemble/tables/estimation-management-risk.csv",
+      "bytes": 114,
+      "sha256": "aeafa463a7edb9341089a02715268ca2e06a6105c2e5d35c3f55205347c5b1f3",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:21.835018+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.277208+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/tables/estimation-management-summary.csv",
+      "path": "site/ofp-sam-bet-2026-ensemble/tables/estimation-management-summary.csv",
+      "bytes": 392,
+      "sha256": "aa050081995bc36b080be3d389760e3bdfd09e9806975174404d93ab2aff2264",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:21.968267+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.278070+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/tables/estimation-uncertainty-audit.csv",
+      "path": "site/ofp-sam-bet-2026-ensemble/tables/estimation-uncertainty-audit.csv",
+      "bytes": 527,
+      "sha256": "a258a9c497a27c47f849e1cef52170545ea4af94ba01450acb73e99435f5c9ef",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:21.983496+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.278270+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/tables/fit-hessian-summary.csv",
+      "path": "site/ofp-sam-bet-2026-ensemble/tables/fit-hessian-summary.csv",
+      "bytes": 3490,
+      "sha256": "9ae4b96ff249a33a24f53ef721005afea87117ab64925b38731d71027538636c",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:22.037680+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.278482+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/tables/projection-summary.csv",
+      "path": "site/ofp-sam-bet-2026-ensemble/tables/projection-summary.csv",
+      "bytes": 399,
+      "sha256": "f60378c66f946690b0090d8898a04b49781998e6deac15264df9da25db21e219",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:22.091779+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.278662+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/tables/projection-terminal-management.csv",
+      "path": "site/ofp-sam-bet-2026-ensemble/tables/projection-terminal-management.csv",
+      "bytes": 221,
+      "sha256": "bf1590e5005f0dde774f59f2e6a0ddad54bf391f0e52343334ee7e70b7e42a8a",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:22.220713+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.278839+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/tables/structural-reference-points.csv",
+      "path": "site/ofp-sam-bet-2026-ensemble/tables/structural-reference-points.csv",
+      "bytes": 1268,
+      "sha256": "7d8cd85ab2bc26ad32ed382214663b7419ec70eb1d5933e817abacc7304cd139",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:22.244155+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.279023+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-jitter/jitter-report.html",
+      "path": "site/ofp-sam-bet-2026-jitter/jitter-report.html",
+      "bytes": 4190999,
+      "sha256": "de38c3fc93b1ad3a58fb6c91aca4251cd02bc7297acf4c1179ff5f43903a281a",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:08.984058+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.284530+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-report/",
+      "path": "site/ofp-sam-bet-2026-report/index.html",
+      "bytes": 394,
+      "sha256": "db271a29ad5b6bf62aaba480f7e9db946046a8d598764e4cbfbc417ec8c99706",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:09.052558+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.285180+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-report/WCPFC-SC22-2026-SA-WP-06.pdf",
+      "path": "site/ofp-sam-bet-2026-report/WCPFC-SC22-2026-SA-WP-06.pdf",
+      "bytes": 37145044,
+      "sha256": "541adc4d9831b8a623bc644210379bd47c857c00eac2b8d7bf148290b80e9583",
+      "retrieval": "full GET",
+      "original_observed_at": "2026-10-04T03:10:22.283936+00:00",
+      "prior_prefix_sha256": "91832f32a06fa5b656e6ba4d13f1b3bb3e162b98b562a656509efb234fc5892d",
+      "captured_at": "2026-10-04T03:56:56.741963+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-retrospective/retrospective-report.html",
+      "path": "site/ofp-sam-bet-2026-retrospective/retrospective-report.html",
+      "bytes": 1722475,
+      "sha256": "fe46c835e6ec71509359ce91b3142cd5db5d2a2143105e68c8e5c0c2dac33024",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:09.303011+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.316540+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-selftest/selftest-report.html",
+      "path": "site/ofp-sam-bet-2026-selftest/selftest-report.html",
+      "bytes": 2294512,
+      "sha256": "bc336f2407dc1fcb792949713c8b8bf561013fa75abf67475c8c96ac3eb7fe34",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:09.947314+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.320165+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-sensitivity/bet-2026-sensitivity-interactive-viewer.html",
+      "path": "site/ofp-sam-bet-2026-sensitivity/bet-2026-sensitivity-interactive-viewer.html",
+      "bytes": 721729,
+      "sha256": "87ac10f2fce940d07e97d4751a8e06994f906568ba84fc1ed77626a92e5d441b",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:10.618382+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.321557+00:00"
+    },
+    {
+      "url": "https://pacificcommunity.github.io/ofp-sam-bet-2026-stepwise/interactive-model-viewer.html",
+      "path": "site/ofp-sam-bet-2026-stepwise/interactive-model-viewer.html",
+      "bytes": 16019702,
+      "sha256": "6a424abfb8d5a2ccfb2fe4c81bbc71030fd5692e75472ab450ddb3e9d4b4128a",
+      "retrieval": "previous complete GET body",
+      "original_observed_at": "2026-10-04T03:10:10.797375+00:00",
+      "prior_prefix_sha256": null,
+      "captured_at": "2026-10-04T03:56:51.338650+00:00"
+    }
+  ]
+}

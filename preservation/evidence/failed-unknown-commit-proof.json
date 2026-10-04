@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "rows": [
+    {
+      "bundle": "bet2026-sidecars-003-public-redacted",
+      "bundle_path": "/Users/kyuhan_kim/.codex/.chatgpt-projects/g-p-6ac1af98d618819197475f4387a284f4/rr-evidence/bet-preservation/bundles/bet2026-sidecars-003-public-redacted.tar",
+      "source_number": 24008,
+      "relative": "kflow_meta/kflow_git_commit.txt",
+      "member": "sidecars/jaff4084e7d9/kflow_meta/kflow_git_commit.txt",
+      "source_path": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-diagnostic-report-suva/job-024008/kflow_meta/kflow_git_commit.txt",
+      "bytes": 41,
+      "sha256": "7d6f3a846b52ec5573e1e60f9829fba3db801758e8f67b64f34ce481f2b11851",
+      "ordinal": 1835,
+      "credential_scan_state": "no_pattern_matches",
+      "recorded_commit": "7700cba8b3bed1c3f5a6129a03f6c05a627065e3",
+      "source_evidence_kind": "actual original Kflow git commit sidecar bytes; sourceAPI/SQLite commit field remains separate UNKNOWN",
+      "contrary_metadata": "legacy SourceDB/API commit field unset; no branch->commit inference"
+    }
+  ],
+  "missing_original_git_receipt_jobs": [
+    24058
+  ]
+}

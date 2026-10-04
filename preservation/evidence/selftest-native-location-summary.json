@@ -1,0 +1,1801 @@
+{
+  "scope": "Exact original self-test units 22976\u201323025 used in public merge 23026; recorded submit directories and original artifact caches, archive metadata and all archived RDS only. Compute-node scratch retention not inspected.",
+  "status": "RECORDED_STORAGE_SCOPED_NATIVE_CASE_PAYLOADS_NOT_RECOVERED",
+  "source_merge_sha256": "62f34935ee327bb5c624973553f9aa900b2a6b820f4486abd244abcf52dd1d0e",
+  "source_merge_id": "je015d650027",
+  "source_merge_number": 23026,
+  "unit_source_commit": "0c90f1153f96229a3dd055079529aede02386aec",
+  "observed_storage_host": "nouofpsubmit.corp.spc.int",
+  "route": [
+    "linux-remote-KR",
+    "kflow-connect"
+  ],
+  "locations_inspected": 100,
+  "locations_existing": 100,
+  "depth": 8,
+  "traversal_errors": 0,
+  "clipped_subtrees": 0,
+  "archive_count": 50,
+  "total_original_cached_archive_bytes": 190413716,
+  "rds_members": 1450,
+  "unique_rds_sha256": 750,
+  "rds_decode_errors": 0,
+  "raw_vectors": 0,
+  "raw_bytes": 0,
+  "loose_native_case_files_found": 0,
+  "native_case_PAR_REP_FRQ_TAG_INI_members_found": 0,
+  "surviving_strict_tag_pseudodata_cases": 50,
+  "surviving_strict_tag_pseudodata_bytes_unique_cases": 1879710,
+  "central_PAR_identity": {
+    "source_job_id": "j997478cb07b",
+    "source_job_number": 22976,
+    "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j997478cb07b/output_archive.tar.gz",
+    "ordinal": 52,
+    "member_name": "./models/S0.90-F2-tau2-fixed/final.par",
+    "bytes": 2956541,
+    "sha256": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3"
+  },
+  "remaining_unknowns": [
+    "Retention of each exact source Condor scratch directory on its recorded execution node",
+    "Other locations outside the 100 recorded submit/cache roots",
+    "No assertion of scientific correctness, byte-identical rerun or deletion readiness"
+  ],
+  "cases": [
+    {
+      "source_job_number": 22976,
+      "source_job_id": "j997478cb07b",
+      "replicate": 1,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j997478cb07b/output_archive.tar.gz",
+      "archive_bytes": 3327284,
+      "recorded_execution_host": "nouofpcand04.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1357645",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j997478cb07b",
+          "source_job_number": 22976,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j997478cb07b/output_archive.tar.gz",
+          "ordinal": 38,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_001/strict_tag_pseudo.tsv",
+          "bytes": 38625,
+          "sha256": "af641f74f419ce60a4146244398254796db527fce48a7f3c33532f65bbd21494"
+        },
+        {
+          "source_job_id": "j997478cb07b",
+          "source_job_number": 22976,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j997478cb07b/output_archive.tar.gz",
+          "ordinal": 89,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_001/strict_tag_pseudo.tsv",
+          "bytes": 38625,
+          "sha256": "af641f74f419ce60a4146244398254796db527fce48a7f3c33532f65bbd21494"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22977,
+      "source_job_id": "j99bd37bde8a",
+      "replicate": 3,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j99bd37bde8a/output_archive.tar.gz",
+      "archive_bytes": 3949778,
+      "recorded_execution_host": "nouofpcand20.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1952977",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j99bd37bde8a",
+          "source_job_number": 22977,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j99bd37bde8a/output_archive.tar.gz",
+          "ordinal": 41,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_003/strict_tag_pseudo.tsv",
+          "bytes": 37193,
+          "sha256": "648c261ee119117862707a614be1196058cdd35feaecb105037ba0d4bc568782"
+        },
+        {
+          "source_job_id": "j99bd37bde8a",
+          "source_job_number": 22977,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j99bd37bde8a/output_archive.tar.gz",
+          "ordinal": 94,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_003/strict_tag_pseudo.tsv",
+          "bytes": 37193,
+          "sha256": "648c261ee119117862707a614be1196058cdd35feaecb105037ba0d4bc568782"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22978,
+      "source_job_id": "j5382f306ae4",
+      "replicate": 7,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j5382f306ae4/output_archive.tar.gz",
+      "archive_bytes": 3018106,
+      "recorded_execution_host": "nouofpcand06.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1646739",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j5382f306ae4",
+          "source_job_number": 22978,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j5382f306ae4/output_archive.tar.gz",
+          "ordinal": 46,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_007/strict_tag_pseudo.tsv",
+          "bytes": 37297,
+          "sha256": "c238da5fefb3bda7d422b9076ec470504ae9fe863f9fd6204075ca11dadcdd41"
+        },
+        {
+          "source_job_id": "j5382f306ae4",
+          "source_job_number": 22978,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j5382f306ae4/output_archive.tar.gz",
+          "ordinal": 99,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_007/strict_tag_pseudo.tsv",
+          "bytes": 37297,
+          "sha256": "c238da5fefb3bda7d422b9076ec470504ae9fe863f9fd6204075ca11dadcdd41"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22979,
+      "source_job_id": "jaf413914837",
+      "replicate": 5,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jaf413914837/output_archive.tar.gz",
+      "archive_bytes": 3252272,
+      "recorded_execution_host": "nouofpcand02.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2848280",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "jaf413914837",
+          "source_job_number": 22979,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jaf413914837/output_archive.tar.gz",
+          "ordinal": 30,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_005/strict_tag_pseudo.tsv",
+          "bytes": 37507,
+          "sha256": "047669dc1f75b44c5204c8524bce025a92401242bf380c55955d366fbe1870e8"
+        },
+        {
+          "source_job_id": "jaf413914837",
+          "source_job_number": 22979,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jaf413914837/output_archive.tar.gz",
+          "ordinal": 74,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_005/strict_tag_pseudo.tsv",
+          "bytes": 37507,
+          "sha256": "047669dc1f75b44c5204c8524bce025a92401242bf380c55955d366fbe1870e8"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22980,
+      "source_job_id": "j6701493e723",
+      "replicate": 4,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j6701493e723/output_archive.tar.gz",
+      "archive_bytes": 4564460,
+      "recorded_execution_host": "nouofpcand12.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2183742",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j6701493e723",
+          "source_job_number": 22980,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j6701493e723/output_archive.tar.gz",
+          "ordinal": 24,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_004/strict_tag_pseudo.tsv",
+          "bytes": 37218,
+          "sha256": "756c347ee462a6b74833efe6c2793a2f8f8aa1d8eeb48732ce1e1cf4d6ab2cf1"
+        },
+        {
+          "source_job_id": "j6701493e723",
+          "source_job_number": 22980,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j6701493e723/output_archive.tar.gz",
+          "ordinal": 71,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_004/strict_tag_pseudo.tsv",
+          "bytes": 37218,
+          "sha256": "756c347ee462a6b74833efe6c2793a2f8f8aa1d8eeb48732ce1e1cf4d6ab2cf1"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22981,
+      "source_job_id": "ja07a3269140",
+      "replicate": 6,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/ja07a3269140/output_archive.tar.gz",
+      "archive_bytes": 4478165,
+      "recorded_execution_host": "nouofpcand23.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1530086",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "ja07a3269140",
+          "source_job_number": 22981,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/ja07a3269140/output_archive.tar.gz",
+          "ordinal": 25,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_006/strict_tag_pseudo.tsv",
+          "bytes": 39223,
+          "sha256": "6a90951001a68122a8ac95caaebb196bf4642a52b5c58fb3f991ccc1b0fc63d6"
+        },
+        {
+          "source_job_id": "ja07a3269140",
+          "source_job_number": 22981,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/ja07a3269140/output_archive.tar.gz",
+          "ordinal": 80,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_006/strict_tag_pseudo.tsv",
+          "bytes": 39223,
+          "sha256": "6a90951001a68122a8ac95caaebb196bf4642a52b5c58fb3f991ccc1b0fc63d6"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22982,
+      "source_job_id": "j1caf93e6a1c",
+      "replicate": 2,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j1caf93e6a1c/output_archive.tar.gz",
+      "archive_bytes": 3713845,
+      "recorded_execution_host": "nouofpcand21.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2325327",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j1caf93e6a1c",
+          "source_job_number": 22982,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j1caf93e6a1c/output_archive.tar.gz",
+          "ordinal": 28,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_002/strict_tag_pseudo.tsv",
+          "bytes": 37099,
+          "sha256": "34b8c9ddc936c1807aa6cdf7a210588d05bb90b53e1ca0ddf9db82a0d27e986e"
+        },
+        {
+          "source_job_id": "j1caf93e6a1c",
+          "source_job_number": 22982,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j1caf93e6a1c/output_archive.tar.gz",
+          "ordinal": 83,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_002/strict_tag_pseudo.tsv",
+          "bytes": 37099,
+          "sha256": "34b8c9ddc936c1807aa6cdf7a210588d05bb90b53e1ca0ddf9db82a0d27e986e"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22983,
+      "source_job_id": "j89fa18796d2",
+      "replicate": 8,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j89fa18796d2/output_archive.tar.gz",
+      "archive_bytes": 3930955,
+      "recorded_execution_host": "nouofpcand18.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1381819",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j89fa18796d2",
+          "source_job_number": 22983,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j89fa18796d2/output_archive.tar.gz",
+          "ordinal": 40,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_008/strict_tag_pseudo.tsv",
+          "bytes": 36055,
+          "sha256": "3703359f354266d2635f4407bf27b10637258e62e1d25271685a4bd17da0a029"
+        },
+        {
+          "source_job_id": "j89fa18796d2",
+          "source_job_number": 22983,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j89fa18796d2/output_archive.tar.gz",
+          "ordinal": 99,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_008/strict_tag_pseudo.tsv",
+          "bytes": 36055,
+          "sha256": "3703359f354266d2635f4407bf27b10637258e62e1d25271685a4bd17da0a029"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22984,
+      "source_job_id": "j643d8f97541",
+      "replicate": 9,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j643d8f97541/output_archive.tar.gz",
+      "archive_bytes": 3496299,
+      "recorded_execution_host": "nouofpcand25.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1237913",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j643d8f97541",
+          "source_job_number": 22984,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j643d8f97541/output_archive.tar.gz",
+          "ordinal": 27,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_009/strict_tag_pseudo.tsv",
+          "bytes": 38502,
+          "sha256": "5ca72eb5926906daadb7baf3ba2ef1fd1db2cbbdf50071bd3120be089f8ca7a8"
+        },
+        {
+          "source_job_id": "j643d8f97541",
+          "source_job_number": 22984,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j643d8f97541/output_archive.tar.gz",
+          "ordinal": 81,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_009/strict_tag_pseudo.tsv",
+          "bytes": 38502,
+          "sha256": "5ca72eb5926906daadb7baf3ba2ef1fd1db2cbbdf50071bd3120be089f8ca7a8"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22985,
+      "source_job_id": "j76ecd5edf95",
+      "replicate": 12,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j76ecd5edf95/output_archive.tar.gz",
+      "archive_bytes": 3799000,
+      "recorded_execution_host": "nouofpcand17.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_284565",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j76ecd5edf95",
+          "source_job_number": 22985,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j76ecd5edf95/output_archive.tar.gz",
+          "ordinal": 44,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_012/strict_tag_pseudo.tsv",
+          "bytes": 38170,
+          "sha256": "68ce697fc54f289db18634ad22c5566e18d48a3a8f858764d779bb37fe30c008"
+        },
+        {
+          "source_job_id": "j76ecd5edf95",
+          "source_job_number": 22985,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j76ecd5edf95/output_archive.tar.gz",
+          "ordinal": 92,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_012/strict_tag_pseudo.tsv",
+          "bytes": 38170,
+          "sha256": "68ce697fc54f289db18634ad22c5566e18d48a3a8f858764d779bb37fe30c008"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22986,
+      "source_job_id": "j2db0bb3e794",
+      "replicate": 10,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j2db0bb3e794/output_archive.tar.gz",
+      "archive_bytes": 3339659,
+      "recorded_execution_host": "nouofpcand13.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2360933",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j2db0bb3e794",
+          "source_job_number": 22986,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j2db0bb3e794/output_archive.tar.gz",
+          "ordinal": 31,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_010/strict_tag_pseudo.tsv",
+          "bytes": 37370,
+          "sha256": "c53380cf1a7dca0f898c15450df8e191b4692bfdc1329b8119fb0429b67d0037"
+        },
+        {
+          "source_job_id": "j2db0bb3e794",
+          "source_job_number": 22986,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j2db0bb3e794/output_archive.tar.gz",
+          "ordinal": 84,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_010/strict_tag_pseudo.tsv",
+          "bytes": 37370,
+          "sha256": "c53380cf1a7dca0f898c15450df8e191b4692bfdc1329b8119fb0429b67d0037"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22987,
+      "source_job_id": "jffc29046097",
+      "replicate": 11,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jffc29046097/output_archive.tar.gz",
+      "archive_bytes": 3486606,
+      "recorded_execution_host": "nouofpcand10.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2171498",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "jffc29046097",
+          "source_job_number": 22987,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jffc29046097/output_archive.tar.gz",
+          "ordinal": 39,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_011/strict_tag_pseudo.tsv",
+          "bytes": 37367,
+          "sha256": "ec01d97d8f6de3238b20f3919cac3651df99dcff25214070b5a12daf30059959"
+        },
+        {
+          "source_job_id": "jffc29046097",
+          "source_job_number": 22987,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jffc29046097/output_archive.tar.gz",
+          "ordinal": 90,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_011/strict_tag_pseudo.tsv",
+          "bytes": 37367,
+          "sha256": "ec01d97d8f6de3238b20f3919cac3651df99dcff25214070b5a12daf30059959"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22988,
+      "source_job_id": "j17aee3b5c62",
+      "replicate": 15,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j17aee3b5c62/output_archive.tar.gz",
+      "archive_bytes": 4136517,
+      "recorded_execution_host": "nouofpcand11.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_535555",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j17aee3b5c62",
+          "source_job_number": 22988,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j17aee3b5c62/output_archive.tar.gz",
+          "ordinal": 40,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_015/strict_tag_pseudo.tsv",
+          "bytes": 38880,
+          "sha256": "022b473ac33d7a7281e9c6ce01b68fa7aed828a6d05432834d53bf49b642f40d"
+        },
+        {
+          "source_job_id": "j17aee3b5c62",
+          "source_job_number": 22988,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j17aee3b5c62/output_archive.tar.gz",
+          "ordinal": 86,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_015/strict_tag_pseudo.tsv",
+          "bytes": 38880,
+          "sha256": "022b473ac33d7a7281e9c6ce01b68fa7aed828a6d05432834d53bf49b642f40d"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22989,
+      "source_job_id": "jd9d5a15d6f5",
+      "replicate": 16,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jd9d5a15d6f5/output_archive.tar.gz",
+      "archive_bytes": 3098072,
+      "recorded_execution_host": "nouofpcand08.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1424489",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "jd9d5a15d6f5",
+          "source_job_number": 22989,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jd9d5a15d6f5/output_archive.tar.gz",
+          "ordinal": 29,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_016/strict_tag_pseudo.tsv",
+          "bytes": 37932,
+          "sha256": "13cf23efe032269ff2510f696a068eb182e510d1905a9e29b3275a4cbfde3e0f"
+        },
+        {
+          "source_job_id": "jd9d5a15d6f5",
+          "source_job_number": 22989,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jd9d5a15d6f5/output_archive.tar.gz",
+          "ordinal": 80,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_016/strict_tag_pseudo.tsv",
+          "bytes": 37932,
+          "sha256": "13cf23efe032269ff2510f696a068eb182e510d1905a9e29b3275a4cbfde3e0f"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22990,
+      "source_job_id": "j72ddcc70f11",
+      "replicate": 14,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j72ddcc70f11/output_archive.tar.gz",
+      "archive_bytes": 3934538,
+      "recorded_execution_host": "nouofpcand07.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1175161",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j72ddcc70f11",
+          "source_job_number": 22990,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j72ddcc70f11/output_archive.tar.gz",
+          "ordinal": 45,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_014/strict_tag_pseudo.tsv",
+          "bytes": 37175,
+          "sha256": "9c8583acb2cd88194c16bcd2f345242ff4d6d5daa782fe23965341b5752996e0"
+        },
+        {
+          "source_job_id": "j72ddcc70f11",
+          "source_job_number": 22990,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j72ddcc70f11/output_archive.tar.gz",
+          "ordinal": 93,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_014/strict_tag_pseudo.tsv",
+          "bytes": 37175,
+          "sha256": "9c8583acb2cd88194c16bcd2f345242ff4d6d5daa782fe23965341b5752996e0"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22991,
+      "source_job_id": "jd916032b3e7",
+      "replicate": 13,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jd916032b3e7/output_archive.tar.gz",
+      "archive_bytes": 3705133,
+      "recorded_execution_host": "nouofpcand22.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2156355",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "jd916032b3e7",
+          "source_job_number": 22991,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jd916032b3e7/output_archive.tar.gz",
+          "ordinal": 28,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_013/strict_tag_pseudo.tsv",
+          "bytes": 38403,
+          "sha256": "2d5cd86650429cd26dc35cd5fd1154e4d9e2348ed68e1af8ca127b8427c5acf1"
+        },
+        {
+          "source_job_id": "jd916032b3e7",
+          "source_job_number": 22991,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jd916032b3e7/output_archive.tar.gz",
+          "ordinal": 84,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_013/strict_tag_pseudo.tsv",
+          "bytes": 38403,
+          "sha256": "2d5cd86650429cd26dc35cd5fd1154e4d9e2348ed68e1af8ca127b8427c5acf1"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22992,
+      "source_job_id": "j52331e0389e",
+      "replicate": 17,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j52331e0389e/output_archive.tar.gz",
+      "archive_bytes": 3819621,
+      "recorded_execution_host": "nouofpcand01.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2427396",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j52331e0389e",
+          "source_job_number": 22992,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j52331e0389e/output_archive.tar.gz",
+          "ordinal": 44,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_017/strict_tag_pseudo.tsv",
+          "bytes": 37642,
+          "sha256": "280a800e1cf09775f58c30b33b7baa356c210c62db157528ce6a6924a05ccfe6"
+        },
+        {
+          "source_job_id": "j52331e0389e",
+          "source_job_number": 22992,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j52331e0389e/output_archive.tar.gz",
+          "ordinal": 97,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_017/strict_tag_pseudo.tsv",
+          "bytes": 37642,
+          "sha256": "280a800e1cf09775f58c30b33b7baa356c210c62db157528ce6a6924a05ccfe6"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22993,
+      "source_job_id": "j4bb7680608f",
+      "replicate": 18,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j4bb7680608f/output_archive.tar.gz",
+      "archive_bytes": 3918435,
+      "recorded_execution_host": "nouofpcand09.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1682519",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j4bb7680608f",
+          "source_job_number": 22993,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j4bb7680608f/output_archive.tar.gz",
+          "ordinal": 41,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_018/strict_tag_pseudo.tsv",
+          "bytes": 35957,
+          "sha256": "4a343dd839b1bdf8982de3ce541d3d7d6dd95eec30e78c3bf5338575bdcfebb5"
+        },
+        {
+          "source_job_id": "j4bb7680608f",
+          "source_job_number": 22993,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j4bb7680608f/output_archive.tar.gz",
+          "ordinal": 95,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_018/strict_tag_pseudo.tsv",
+          "bytes": 35957,
+          "sha256": "4a343dd839b1bdf8982de3ce541d3d7d6dd95eec30e78c3bf5338575bdcfebb5"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22994,
+      "source_job_id": "j53616600bb3",
+      "replicate": 19,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j53616600bb3/output_archive.tar.gz",
+      "archive_bytes": 3528571,
+      "recorded_execution_host": "nouofpcand26.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_3327350",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j53616600bb3",
+          "source_job_number": 22994,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j53616600bb3/output_archive.tar.gz",
+          "ordinal": 28,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_019/strict_tag_pseudo.tsv",
+          "bytes": 37955,
+          "sha256": "3dba6173e0034f2d41d957b0dd99015aab5d88a49daf6da3de5304e180c2a8d8"
+        },
+        {
+          "source_job_id": "j53616600bb3",
+          "source_job_number": 22994,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j53616600bb3/output_archive.tar.gz",
+          "ordinal": 83,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_019/strict_tag_pseudo.tsv",
+          "bytes": 37955,
+          "sha256": "3dba6173e0034f2d41d957b0dd99015aab5d88a49daf6da3de5304e180c2a8d8"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22995,
+      "source_job_id": "jca98ec7e35b",
+      "replicate": 22,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jca98ec7e35b/output_archive.tar.gz",
+      "archive_bytes": 4016804,
+      "recorded_execution_host": "nouofpcand05.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2157551",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "jca98ec7e35b",
+          "source_job_number": 22995,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jca98ec7e35b/output_archive.tar.gz",
+          "ordinal": 39,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_022/strict_tag_pseudo.tsv",
+          "bytes": 36622,
+          "sha256": "e4013ec87af9414fbf1e43e5dad3ac19bfdf4f98a2ca1f416eef2c08bed8cbe1"
+        },
+        {
+          "source_job_id": "jca98ec7e35b",
+          "source_job_number": 22995,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jca98ec7e35b/output_archive.tar.gz",
+          "ordinal": 91,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_022/strict_tag_pseudo.tsv",
+          "bytes": 36622,
+          "sha256": "e4013ec87af9414fbf1e43e5dad3ac19bfdf4f98a2ca1f416eef2c08bed8cbe1"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22996,
+      "source_job_id": "jfd4da020aab",
+      "replicate": 21,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jfd4da020aab/output_archive.tar.gz",
+      "archive_bytes": 3469981,
+      "recorded_execution_host": "nouofpcand16.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_275443",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "jfd4da020aab",
+          "source_job_number": 22996,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jfd4da020aab/output_archive.tar.gz",
+          "ordinal": 22,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_021/strict_tag_pseudo.tsv",
+          "bytes": 37262,
+          "sha256": "ac34f8aba4787fdb25f05c4c0b00c4796d709d1040450da8d5b122eedf44ec76"
+        },
+        {
+          "source_job_id": "jfd4da020aab",
+          "source_job_number": 22996,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jfd4da020aab/output_archive.tar.gz",
+          "ordinal": 69,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_021/strict_tag_pseudo.tsv",
+          "bytes": 37262,
+          "sha256": "ac34f8aba4787fdb25f05c4c0b00c4796d709d1040450da8d5b122eedf44ec76"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22997,
+      "source_job_id": "j35f4e92b808",
+      "replicate": 20,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j35f4e92b808/output_archive.tar.gz",
+      "archive_bytes": 3727672,
+      "recorded_execution_host": "nouofpcand19.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2478026",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j35f4e92b808",
+          "source_job_number": 22997,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j35f4e92b808/output_archive.tar.gz",
+          "ordinal": 20,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_020/strict_tag_pseudo.tsv",
+          "bytes": 36995,
+          "sha256": "27d7fa98a87fedaed080ae7c667388968806086d116330a94a46998c35162130"
+        },
+        {
+          "source_job_id": "j35f4e92b808",
+          "source_job_number": 22997,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j35f4e92b808/output_archive.tar.gz",
+          "ordinal": 75,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_020/strict_tag_pseudo.tsv",
+          "bytes": 36995,
+          "sha256": "27d7fa98a87fedaed080ae7c667388968806086d116330a94a46998c35162130"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22998,
+      "source_job_id": "jf3738e12b96",
+      "replicate": 23,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jf3738e12b96/output_archive.tar.gz",
+      "archive_bytes": 3479293,
+      "recorded_execution_host": "nouofpcand14.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1447698",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "jf3738e12b96",
+          "source_job_number": 22998,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jf3738e12b96/output_archive.tar.gz",
+          "ordinal": 24,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_023/strict_tag_pseudo.tsv",
+          "bytes": 37372,
+          "sha256": "a1242da5a8d6d73ef542cdb4c007653ffdcded3cdf91a86d634e9f1c2bab986c"
+        },
+        {
+          "source_job_id": "jf3738e12b96",
+          "source_job_number": 22998,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jf3738e12b96/output_archive.tar.gz",
+          "ordinal": 78,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_023/strict_tag_pseudo.tsv",
+          "bytes": 37372,
+          "sha256": "a1242da5a8d6d73ef542cdb4c007653ffdcded3cdf91a86d634e9f1c2bab986c"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 22999,
+      "source_job_id": "j3a20ad78782",
+      "replicate": 24,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j3a20ad78782/output_archive.tar.gz",
+      "archive_bytes": 3995581,
+      "recorded_execution_host": "nouofpcand24.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1805602",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j3a20ad78782",
+          "source_job_number": 22999,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j3a20ad78782/output_archive.tar.gz",
+          "ordinal": 19,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_024/strict_tag_pseudo.tsv",
+          "bytes": 38009,
+          "sha256": "d3706b30305f1e30b4663e168380e7815de070ef1eab625d3658a3c1c8a55f63"
+        },
+        {
+          "source_job_id": "j3a20ad78782",
+          "source_job_number": 22999,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j3a20ad78782/output_archive.tar.gz",
+          "ordinal": 72,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_024/strict_tag_pseudo.tsv",
+          "bytes": 38009,
+          "sha256": "d3706b30305f1e30b4663e168380e7815de070ef1eab625d3658a3c1c8a55f63"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23000,
+      "source_job_id": "jc3ac7486b89",
+      "replicate": 25,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jc3ac7486b89/output_archive.tar.gz",
+      "archive_bytes": 3780473,
+      "recorded_execution_host": "nouofpcand03.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_881846",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "jc3ac7486b89",
+          "source_job_number": 23000,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jc3ac7486b89/output_archive.tar.gz",
+          "ordinal": 37,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_025/strict_tag_pseudo.tsv",
+          "bytes": 38022,
+          "sha256": "67f2f65e236601fcf480de2ac1e7b5584565f40681026a093c3d36f0b36dfffc"
+        },
+        {
+          "source_job_id": "jc3ac7486b89",
+          "source_job_number": 23000,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jc3ac7486b89/output_archive.tar.gz",
+          "ordinal": 91,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_025/strict_tag_pseudo.tsv",
+          "bytes": 38022,
+          "sha256": "67f2f65e236601fcf480de2ac1e7b5584565f40681026a093c3d36f0b36dfffc"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23001,
+      "source_job_id": "j0ca4de7e55b",
+      "replicate": 26,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j0ca4de7e55b/output_archive.tar.gz",
+      "archive_bytes": 3325792,
+      "recorded_execution_host": "nouofpcand04.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1357647",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j0ca4de7e55b",
+          "source_job_number": 23001,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j0ca4de7e55b/output_archive.tar.gz",
+          "ordinal": 38,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_026/strict_tag_pseudo.tsv",
+          "bytes": 38777,
+          "sha256": "52ce6b1e67e8458fdc48643c6ad0997ce7dec1c2d8dddb7ea3e194ddfa13ebbe"
+        },
+        {
+          "source_job_id": "j0ca4de7e55b",
+          "source_job_number": 23001,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j0ca4de7e55b/output_archive.tar.gz",
+          "ordinal": 89,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_026/strict_tag_pseudo.tsv",
+          "bytes": 38777,
+          "sha256": "52ce6b1e67e8458fdc48643c6ad0997ce7dec1c2d8dddb7ea3e194ddfa13ebbe"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23002,
+      "source_job_id": "j7eded8f6e87",
+      "replicate": 27,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j7eded8f6e87/output_archive.tar.gz",
+      "archive_bytes": 4188149,
+      "recorded_execution_host": "nouofpcand03.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_881848",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j7eded8f6e87",
+          "source_job_number": 23002,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j7eded8f6e87/output_archive.tar.gz",
+          "ordinal": 37,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_027/strict_tag_pseudo.tsv",
+          "bytes": 37818,
+          "sha256": "850afb837165488928608c0032c4924b98f00a5efb2c32c29f53c2a31fe7caf4"
+        },
+        {
+          "source_job_id": "j7eded8f6e87",
+          "source_job_number": 23002,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j7eded8f6e87/output_archive.tar.gz",
+          "ordinal": 91,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_027/strict_tag_pseudo.tsv",
+          "bytes": 37818,
+          "sha256": "850afb837165488928608c0032c4924b98f00a5efb2c32c29f53c2a31fe7caf4"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23003,
+      "source_job_id": "j26357002555",
+      "replicate": 28,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j26357002555/output_archive.tar.gz",
+      "archive_bytes": 4032242,
+      "recorded_execution_host": "nouofpcand13.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2360935",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j26357002555",
+          "source_job_number": 23003,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j26357002555/output_archive.tar.gz",
+          "ordinal": 31,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_028/strict_tag_pseudo.tsv",
+          "bytes": 37168,
+          "sha256": "625abe0ab5a470f9b56753d0c1150f0b2e90110959bfa2f46656e3eba90e7a13"
+        },
+        {
+          "source_job_id": "j26357002555",
+          "source_job_number": 23003,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j26357002555/output_archive.tar.gz",
+          "ordinal": 84,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_028/strict_tag_pseudo.tsv",
+          "bytes": 37168,
+          "sha256": "625abe0ab5a470f9b56753d0c1150f0b2e90110959bfa2f46656e3eba90e7a13"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23004,
+      "source_job_id": "j71acc502376",
+      "replicate": 29,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j71acc502376/output_archive.tar.gz",
+      "archive_bytes": 3596004,
+      "recorded_execution_host": "nouofpcand23.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1530088",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j71acc502376",
+          "source_job_number": 23004,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j71acc502376/output_archive.tar.gz",
+          "ordinal": 25,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_029/strict_tag_pseudo.tsv",
+          "bytes": 38393,
+          "sha256": "512712c986025002ed780bca66d13eb16f14d7647f49283fd4931c59fe6ae85c"
+        },
+        {
+          "source_job_id": "j71acc502376",
+          "source_job_number": 23004,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j71acc502376/output_archive.tar.gz",
+          "ordinal": 80,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_029/strict_tag_pseudo.tsv",
+          "bytes": 38393,
+          "sha256": "512712c986025002ed780bca66d13eb16f14d7647f49283fd4931c59fe6ae85c"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23005,
+      "source_job_id": "j86dd3039be8",
+      "replicate": 30,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j86dd3039be8/output_archive.tar.gz",
+      "archive_bytes": 3378097,
+      "recorded_execution_host": "nouofpcand20.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1952979",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j86dd3039be8",
+          "source_job_number": 23005,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j86dd3039be8/output_archive.tar.gz",
+          "ordinal": 41,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_030/strict_tag_pseudo.tsv",
+          "bytes": 36392,
+          "sha256": "a8190e97248bfa5cb7fcab97fefbaf01848729888a706cbc061f922368d321a3"
+        },
+        {
+          "source_job_id": "j86dd3039be8",
+          "source_job_number": 23005,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j86dd3039be8/output_archive.tar.gz",
+          "ordinal": 94,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_030/strict_tag_pseudo.tsv",
+          "bytes": 36392,
+          "sha256": "a8190e97248bfa5cb7fcab97fefbaf01848729888a706cbc061f922368d321a3"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23006,
+      "source_job_id": "j602e5b88201",
+      "replicate": 31,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j602e5b88201/output_archive.tar.gz",
+      "archive_bytes": 4425337,
+      "recorded_execution_host": "nouofpcand08.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1424491",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j602e5b88201",
+          "source_job_number": 23006,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j602e5b88201/output_archive.tar.gz",
+          "ordinal": 29,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_031/strict_tag_pseudo.tsv",
+          "bytes": 38129,
+          "sha256": "25d43acedf22899ad948e5c2adc7a751d4178361ff23fa5017b48350c877957f"
+        },
+        {
+          "source_job_id": "j602e5b88201",
+          "source_job_number": 23006,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j602e5b88201/output_archive.tar.gz",
+          "ordinal": 80,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_031/strict_tag_pseudo.tsv",
+          "bytes": 38129,
+          "sha256": "25d43acedf22899ad948e5c2adc7a751d4178361ff23fa5017b48350c877957f"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23007,
+      "source_job_id": "j84a71143654",
+      "replicate": 32,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j84a71143654/output_archive.tar.gz",
+      "archive_bytes": 4194482,
+      "recorded_execution_host": "nouofpcand06.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1646741",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j84a71143654",
+          "source_job_number": 23007,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j84a71143654/output_archive.tar.gz",
+          "ordinal": 46,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_032/strict_tag_pseudo.tsv",
+          "bytes": 36805,
+          "sha256": "ef81cf6d73562462103d20ccfbf0c025b1bdf1f438e09ba1056f70bb17d25dc7"
+        },
+        {
+          "source_job_id": "j84a71143654",
+          "source_job_number": 23007,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j84a71143654/output_archive.tar.gz",
+          "ordinal": 99,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_032/strict_tag_pseudo.tsv",
+          "bytes": 36805,
+          "sha256": "ef81cf6d73562462103d20ccfbf0c025b1bdf1f438e09ba1056f70bb17d25dc7"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23008,
+      "source_job_id": "jba16ffccad8",
+      "replicate": 33,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jba16ffccad8/output_archive.tar.gz",
+      "archive_bytes": 3713470,
+      "recorded_execution_host": "nouofpcand07.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1175163",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "jba16ffccad8",
+          "source_job_number": 23008,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jba16ffccad8/output_archive.tar.gz",
+          "ordinal": 45,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_033/strict_tag_pseudo.tsv",
+          "bytes": 37166,
+          "sha256": "77c22e399a261b6f53836632521f778a8eac7e04f15214e2205687df04419c75"
+        },
+        {
+          "source_job_id": "jba16ffccad8",
+          "source_job_number": 23008,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jba16ffccad8/output_archive.tar.gz",
+          "ordinal": 93,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_033/strict_tag_pseudo.tsv",
+          "bytes": 37166,
+          "sha256": "77c22e399a261b6f53836632521f778a8eac7e04f15214e2205687df04419c75"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23009,
+      "source_job_id": "jd61ca30d9ef",
+      "replicate": 34,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jd61ca30d9ef/output_archive.tar.gz",
+      "archive_bytes": 3927415,
+      "recorded_execution_host": "nouofpcand11.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_535557",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "jd61ca30d9ef",
+          "source_job_number": 23009,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jd61ca30d9ef/output_archive.tar.gz",
+          "ordinal": 40,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_034/strict_tag_pseudo.tsv",
+          "bytes": 37585,
+          "sha256": "eed4768b826ae6ec3337604a262308c6a2a6cc2317ed863ec0a5668a1c88e661"
+        },
+        {
+          "source_job_id": "jd61ca30d9ef",
+          "source_job_number": 23009,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jd61ca30d9ef/output_archive.tar.gz",
+          "ordinal": 86,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_034/strict_tag_pseudo.tsv",
+          "bytes": 37585,
+          "sha256": "eed4768b826ae6ec3337604a262308c6a2a6cc2317ed863ec0a5668a1c88e661"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23010,
+      "source_job_id": "j8426937f7c9",
+      "replicate": 35,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j8426937f7c9/output_archive.tar.gz",
+      "archive_bytes": 5483024,
+      "recorded_execution_host": "nouofpcand19.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2478028",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j8426937f7c9",
+          "source_job_number": 23010,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j8426937f7c9/output_archive.tar.gz",
+          "ordinal": 20,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_035/strict_tag_pseudo.tsv",
+          "bytes": 37622,
+          "sha256": "1be1b4c43abbcba0862eca7eb9d089f57fdd0089dd5f8a00234595be8a9451cd"
+        },
+        {
+          "source_job_id": "j8426937f7c9",
+          "source_job_number": 23010,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j8426937f7c9/output_archive.tar.gz",
+          "ordinal": 75,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_035/strict_tag_pseudo.tsv",
+          "bytes": 37622,
+          "sha256": "1be1b4c43abbcba0862eca7eb9d089f57fdd0089dd5f8a00234595be8a9451cd"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23011,
+      "source_job_id": "jbb30dced67a",
+      "replicate": 38,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jbb30dced67a/output_archive.tar.gz",
+      "archive_bytes": 3724973,
+      "recorded_execution_host": "nouofpcand22.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2156357",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "jbb30dced67a",
+          "source_job_number": 23011,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jbb30dced67a/output_archive.tar.gz",
+          "ordinal": 28,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_038/strict_tag_pseudo.tsv",
+          "bytes": 37689,
+          "sha256": "8a064ac7527a3db1f891cf45b02a542313893ad82887687f6d8d50d0800a5eff"
+        },
+        {
+          "source_job_id": "jbb30dced67a",
+          "source_job_number": 23011,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jbb30dced67a/output_archive.tar.gz",
+          "ordinal": 84,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_038/strict_tag_pseudo.tsv",
+          "bytes": 37689,
+          "sha256": "8a064ac7527a3db1f891cf45b02a542313893ad82887687f6d8d50d0800a5eff"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23012,
+      "source_job_id": "j46ff3ac9676",
+      "replicate": 37,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j46ff3ac9676/output_archive.tar.gz",
+      "archive_bytes": 3517339,
+      "recorded_execution_host": "nouofpcand01.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2427398",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j46ff3ac9676",
+          "source_job_number": 23012,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j46ff3ac9676/output_archive.tar.gz",
+          "ordinal": 44,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_037/strict_tag_pseudo.tsv",
+          "bytes": 38310,
+          "sha256": "36355b038a93d614f3e353a79d45bda003cd5c0b93d4d50ab986ff0cf98cb28e"
+        },
+        {
+          "source_job_id": "j46ff3ac9676",
+          "source_job_number": 23012,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j46ff3ac9676/output_archive.tar.gz",
+          "ordinal": 97,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_037/strict_tag_pseudo.tsv",
+          "bytes": 38310,
+          "sha256": "36355b038a93d614f3e353a79d45bda003cd5c0b93d4d50ab986ff0cf98cb28e"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23013,
+      "source_job_id": "j79a74a58842",
+      "replicate": 36,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j79a74a58842/output_archive.tar.gz",
+      "archive_bytes": 2950906,
+      "recorded_execution_host": "nouofpcand05.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2157553",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j79a74a58842",
+          "source_job_number": 23013,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j79a74a58842/output_archive.tar.gz",
+          "ordinal": 39,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_036/strict_tag_pseudo.tsv",
+          "bytes": 37359,
+          "sha256": "eaf2760dc124f5b3a6c2e59f9bde1dc5fe15d2360ac31e957375f1bfdf35d6ac"
+        },
+        {
+          "source_job_id": "j79a74a58842",
+          "source_job_number": 23013,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j79a74a58842/output_archive.tar.gz",
+          "ordinal": 91,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_036/strict_tag_pseudo.tsv",
+          "bytes": 37359,
+          "sha256": "eaf2760dc124f5b3a6c2e59f9bde1dc5fe15d2360ac31e957375f1bfdf35d6ac"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23014,
+      "source_job_id": "j6fa79b50756",
+      "replicate": 39,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j6fa79b50756/output_archive.tar.gz",
+      "archive_bytes": 3641194,
+      "recorded_execution_host": "nouofpcand26.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_3327352",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j6fa79b50756",
+          "source_job_number": 23014,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j6fa79b50756/output_archive.tar.gz",
+          "ordinal": 28,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_039/strict_tag_pseudo.tsv",
+          "bytes": 36725,
+          "sha256": "4d3e6c3b43938257871598f30f5649d0dbafb91783fb9e9d68f276cf49ca313d"
+        },
+        {
+          "source_job_id": "j6fa79b50756",
+          "source_job_number": 23014,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j6fa79b50756/output_archive.tar.gz",
+          "ordinal": 83,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_039/strict_tag_pseudo.tsv",
+          "bytes": 36725,
+          "sha256": "4d3e6c3b43938257871598f30f5649d0dbafb91783fb9e9d68f276cf49ca313d"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23015,
+      "source_job_id": "j1a8c5cda7c2",
+      "replicate": 40,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j1a8c5cda7c2/output_archive.tar.gz",
+      "archive_bytes": 3334686,
+      "recorded_execution_host": "nouofpcand09.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1682521",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j1a8c5cda7c2",
+          "source_job_number": 23015,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j1a8c5cda7c2/output_archive.tar.gz",
+          "ordinal": 41,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_040/strict_tag_pseudo.tsv",
+          "bytes": 37493,
+          "sha256": "f0957f8499eb0b9fae4facf453560a656f71ca504342db29be12882e7bf302ad"
+        },
+        {
+          "source_job_id": "j1a8c5cda7c2",
+          "source_job_number": 23015,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j1a8c5cda7c2/output_archive.tar.gz",
+          "ordinal": 95,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_040/strict_tag_pseudo.tsv",
+          "bytes": 37493,
+          "sha256": "f0957f8499eb0b9fae4facf453560a656f71ca504342db29be12882e7bf302ad"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23016,
+      "source_job_id": "ja0d476a65df",
+      "replicate": 41,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/ja0d476a65df/output_archive.tar.gz",
+      "archive_bytes": 4551580,
+      "recorded_execution_host": "nouofpcand16.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_275445",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "ja0d476a65df",
+          "source_job_number": 23016,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/ja0d476a65df/output_archive.tar.gz",
+          "ordinal": 22,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_041/strict_tag_pseudo.tsv",
+          "bytes": 37503,
+          "sha256": "1b6615d4926b5d85f4216c25df2e2947bd602d6df5d07e2adcfbc31b6116fabe"
+        },
+        {
+          "source_job_id": "ja0d476a65df",
+          "source_job_number": 23016,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/ja0d476a65df/output_archive.tar.gz",
+          "ordinal": 69,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_041/strict_tag_pseudo.tsv",
+          "bytes": 37503,
+          "sha256": "1b6615d4926b5d85f4216c25df2e2947bd602d6df5d07e2adcfbc31b6116fabe"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23017,
+      "source_job_id": "j90064d76819",
+      "replicate": 42,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j90064d76819/output_archive.tar.gz",
+      "archive_bytes": 3993886,
+      "recorded_execution_host": "nouofpcand02.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2848564",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j90064d76819",
+          "source_job_number": 23017,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j90064d76819/output_archive.tar.gz",
+          "ordinal": 30,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_042/strict_tag_pseudo.tsv",
+          "bytes": 37217,
+          "sha256": "27c813083cc7e07c91c49790caf13ede1ee4fa16169c42eb42785d2de8d6b81b"
+        },
+        {
+          "source_job_id": "j90064d76819",
+          "source_job_number": 23017,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j90064d76819/output_archive.tar.gz",
+          "ordinal": 74,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_042/strict_tag_pseudo.tsv",
+          "bytes": 37217,
+          "sha256": "27c813083cc7e07c91c49790caf13ede1ee4fa16169c42eb42785d2de8d6b81b"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23018,
+      "source_job_id": "jca8502985aa",
+      "replicate": 43,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jca8502985aa/output_archive.tar.gz",
+      "archive_bytes": 4043913,
+      "recorded_execution_host": "nouofpcand25.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1238198",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "jca8502985aa",
+          "source_job_number": 23018,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jca8502985aa/output_archive.tar.gz",
+          "ordinal": 27,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_043/strict_tag_pseudo.tsv",
+          "bytes": 37446,
+          "sha256": "4e4c862a6158024bb69d0fa9b1d96a3c973fd5801b5bb3a11aa0971f436dede3"
+        },
+        {
+          "source_job_id": "jca8502985aa",
+          "source_job_number": 23018,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jca8502985aa/output_archive.tar.gz",
+          "ordinal": 81,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_043/strict_tag_pseudo.tsv",
+          "bytes": 37446,
+          "sha256": "4e4c862a6158024bb69d0fa9b1d96a3c973fd5801b5bb3a11aa0971f436dede3"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23019,
+      "source_job_id": "jccae6d4dc56",
+      "replicate": 44,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jccae6d4dc56/output_archive.tar.gz",
+      "archive_bytes": 3850706,
+      "recorded_execution_host": "nouofpcand12.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2184027",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "jccae6d4dc56",
+          "source_job_number": 23019,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jccae6d4dc56/output_archive.tar.gz",
+          "ordinal": 24,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_044/strict_tag_pseudo.tsv",
+          "bytes": 38126,
+          "sha256": "ec670a916142777206650194c19761f068c943f2430aeb73f9b6dca273df0794"
+        },
+        {
+          "source_job_id": "jccae6d4dc56",
+          "source_job_number": 23019,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jccae6d4dc56/output_archive.tar.gz",
+          "ordinal": 71,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_044/strict_tag_pseudo.tsv",
+          "bytes": 38126,
+          "sha256": "ec670a916142777206650194c19761f068c943f2430aeb73f9b6dca273df0794"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23020,
+      "source_job_id": "jfffd5e6b906",
+      "replicate": 47,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jfffd5e6b906/output_archive.tar.gz",
+      "archive_bytes": 3696870,
+      "recorded_execution_host": "nouofpcand10.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2171524",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "jfffd5e6b906",
+          "source_job_number": 23020,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jfffd5e6b906/output_archive.tar.gz",
+          "ordinal": 39,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_047/strict_tag_pseudo.tsv",
+          "bytes": 37036,
+          "sha256": "5c7a12afe1d2cc410a8fb8ea23e145c93554c22d47d6485a20111ed352cc3c64"
+        },
+        {
+          "source_job_id": "jfffd5e6b906",
+          "source_job_number": 23020,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jfffd5e6b906/output_archive.tar.gz",
+          "ordinal": 90,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_047/strict_tag_pseudo.tsv",
+          "bytes": 37036,
+          "sha256": "5c7a12afe1d2cc410a8fb8ea23e145c93554c22d47d6485a20111ed352cc3c64"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23021,
+      "source_job_id": "j5d489d5babd",
+      "replicate": 45,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j5d489d5babd/output_archive.tar.gz",
+      "archive_bytes": 4718714,
+      "recorded_execution_host": "nouofpcand18.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1382108",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j5d489d5babd",
+          "source_job_number": 23021,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j5d489d5babd/output_archive.tar.gz",
+          "ordinal": 40,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_045/strict_tag_pseudo.tsv",
+          "bytes": 36883,
+          "sha256": "97b278b6a6db969689e50f6c9341d3445bf4aa3d0b66ba76993ef4b491229492"
+        },
+        {
+          "source_job_id": "j5d489d5babd",
+          "source_job_number": 23021,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j5d489d5babd/output_archive.tar.gz",
+          "ordinal": 99,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_045/strict_tag_pseudo.tsv",
+          "bytes": 36883,
+          "sha256": "97b278b6a6db969689e50f6c9341d3445bf4aa3d0b66ba76993ef4b491229492"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23022,
+      "source_job_id": "j66191c217af",
+      "replicate": 48,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j66191c217af/output_archive.tar.gz",
+      "archive_bytes": 4469796,
+      "recorded_execution_host": "nouofpcand21.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_2325614",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j66191c217af",
+          "source_job_number": 23022,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j66191c217af/output_archive.tar.gz",
+          "ordinal": 28,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_048/strict_tag_pseudo.tsv",
+          "bytes": 37819,
+          "sha256": "45361080309d4db814468e8172c03bf6be9e96d318b5a4903a790bdba5b497ac"
+        },
+        {
+          "source_job_id": "j66191c217af",
+          "source_job_number": 23022,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j66191c217af/output_archive.tar.gz",
+          "ordinal": 83,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_048/strict_tag_pseudo.tsv",
+          "bytes": 37819,
+          "sha256": "45361080309d4db814468e8172c03bf6be9e96d318b5a4903a790bdba5b497ac"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23023,
+      "source_job_id": "j089e61a997d",
+      "replicate": 46,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j089e61a997d/output_archive.tar.gz",
+      "archive_bytes": 3560724,
+      "recorded_execution_host": "nouofpcand17.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_284849",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j089e61a997d",
+          "source_job_number": 23023,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j089e61a997d/output_archive.tar.gz",
+          "ordinal": 44,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_046/strict_tag_pseudo.tsv",
+          "bytes": 38700,
+          "sha256": "2b90f6918f388116fbcc12876932f543d1bfe5cb789dcf67cf09d4ecc5be09b0"
+        },
+        {
+          "source_job_id": "j089e61a997d",
+          "source_job_number": 23023,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j089e61a997d/output_archive.tar.gz",
+          "ordinal": 92,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_046/strict_tag_pseudo.tsv",
+          "bytes": 38700,
+          "sha256": "2b90f6918f388116fbcc12876932f543d1bfe5cb789dcf67cf09d4ecc5be09b0"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23024,
+      "source_job_id": "j2370880a733",
+      "replicate": 49,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j2370880a733/output_archive.tar.gz",
+      "archive_bytes": 3615139,
+      "recorded_execution_host": "nouofpcand14.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1447984",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "j2370880a733",
+          "source_job_number": 23024,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j2370880a733/output_archive.tar.gz",
+          "ordinal": 24,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_049/strict_tag_pseudo.tsv",
+          "bytes": 37349,
+          "sha256": "c56105a47a3bed4286e850e6744ea0b142d29e3a9a04993a1c5f782478650a56"
+        },
+        {
+          "source_job_id": "j2370880a733",
+          "source_job_number": 23024,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/j2370880a733/output_archive.tar.gz",
+          "ordinal": 78,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_049/strict_tag_pseudo.tsv",
+          "bytes": 37349,
+          "sha256": "c56105a47a3bed4286e850e6744ea0b142d29e3a9a04993a1c5f782478650a56"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    },
+    {
+      "source_job_number": 23025,
+      "source_job_id": "jdf26e9f94a0",
+      "replicate": 50,
+      "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jdf26e9f94a0/output_archive.tar.gz",
+      "archive_bytes": 3512158,
+      "recorded_execution_host": "nouofpcand24.corp.spc.int",
+      "recorded_condor_scratch_dir": "/var/lib/condor/execute/dir_1805856",
+      "execution_scratch_current_retention": "UNKNOWN_NOT_INSPECTED",
+      "native_case_members": [],
+      "strict_tag_pseudodata_refs": [
+        {
+          "source_job_id": "jdf26e9f94a0",
+          "source_job_number": 23025,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jdf26e9f94a0/output_archive.tar.gz",
+          "ordinal": 19,
+          "member_name": "./checks/selftest/S0.90-F2-tau2-fixed/selftest/inputs/rep_050/strict_tag_pseudo.tsv",
+          "bytes": 38348,
+          "sha256": "d39a172dcd777efcd5e66e5f9a42b0d4a39cd07ae7fe24081b7ffad49fa6936a"
+        },
+        {
+          "source_job_id": "jdf26e9f94a0",
+          "source_job_number": 23025,
+          "archive_path": "/home/kyuhank/.kflow-app-data/artifacts/jdf26e9f94a0/output_archive.tar.gz",
+          "ordinal": 72,
+          "member_name": "./models/S0.90-F2-tau2-fixed/selftest/inputs/rep_050/strict_tag_pseudo.tsv",
+          "bytes": 38348,
+          "sha256": "d39a172dcd777efcd5e66e5f9a42b0d4a39cd07ae7fe24081b7ffad49fa6936a"
+        }
+      ],
+      "rds_member_count": 29,
+      "original_db_status": "completed",
+      "cache_marker_status": "failed",
+      "status_conflict": "preserved_without_reinterpretation"
+    }
+  ],
+  "receipts": {
+    "selftest-native-location-evidence.json": "3a42950fe6bd3960af6ddca198d6da63d6be1099c1d0609b1d98a72de2a7a79d",
+    "selftest-native-archive-inventory.json": "82d54d9dfdb5719adf54bd251153f99382499522961fe097f0f2dcbb190eadfb",
+    "selftest-native-rds-evidence.json": "c12c8f37ff343d9a0489bb3640a2e57a9bb8c3534da94fd4c7d90119ef35d0fa",
+    "selftest-native-execution-origin.json": "c8a02afff3c2a2da532eda7cbaecd0c9f2017608e11da50c2be39724a1ee9020"
+  }
+}

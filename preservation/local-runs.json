@@ -1,0 +1,283 @@
+[
+  {
+    "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635",
+    "original_Kflow_job": "UNKNOWN",
+    "source": "original local assessment tree",
+    "members": [
+      {
+        "ordinal": 15,
+        "name": "native_runs/ps_associated/base.par",
+        "bytes": 2956541,
+        "sha256": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 22,
+        "name": "native_runs/ps_associated/catch.rep",
+        "bytes": 68905,
+        "sha256": "11a4ddf1836e5bd27dc230fad171d7ba89a4946178a5bed16158f907ddda1ae3",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 31,
+        "name": "native_runs/ps_associated/evaluated.par",
+        "bytes": 2956533,
+        "sha256": "3de154db56714dd46d12076c63594785bf5d17cdc6353fb736d5bf04a55315bf",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 42,
+        "name": "native_runs/ps_associated/plot-evaluated.par.rep",
+        "bytes": 2845905,
+        "sha256": "2bbb209de33ebd1848940862997f0c2a1e0d797adc613c704cd0940c902e0c2e",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 69,
+        "name": "native_runs/longline/base.par",
+        "bytes": 2956541,
+        "sha256": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 76,
+        "name": "native_runs/longline/catch.rep",
+        "bytes": 68905,
+        "sha256": "11a4ddf1836e5bd27dc230fad171d7ba89a4946178a5bed16158f907ddda1ae3",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 85,
+        "name": "native_runs/longline/evaluated.par",
+        "bytes": 2956533,
+        "sha256": "b8334b00a41542c8844dd993d57f3bd443d6d900c7147fcc9ad986cd0db85651",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 96,
+        "name": "native_runs/longline/plot-evaluated.par.rep",
+        "bytes": 2846983,
+        "sha256": "dda31a6fd80be94e97e0933cad3b9fb5d9f713d7a66bc76d6e0158bd3d4aa656",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 123,
+        "name": "native_runs/pole_line/base.par",
+        "bytes": 2956541,
+        "sha256": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 130,
+        "name": "native_runs/pole_line/catch.rep",
+        "bytes": 68905,
+        "sha256": "11a4ddf1836e5bd27dc230fad171d7ba89a4946178a5bed16158f907ddda1ae3",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 139,
+        "name": "native_runs/pole_line/evaluated.par",
+        "bytes": 2956533,
+        "sha256": "fd4371b4aa511c8c4bd07569329d21225343c9ceb480bb33892744d7b9d8bc64",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 150,
+        "name": "native_runs/pole_line/plot-evaluated.par.rep",
+        "bytes": 2844336,
+        "sha256": "0bbe29c9f8b7f2ee7ccb8314a0d8ef6b69319b26fa94b185dec0c7d0e67d87f0",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 177,
+        "name": "native_runs/all_off_fixed_recruitment/base.par",
+        "bytes": 2956541,
+        "sha256": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 184,
+        "name": "native_runs/all_off_fixed_recruitment/catch.rep",
+        "bytes": 68905,
+        "sha256": "11a4ddf1836e5bd27dc230fad171d7ba89a4946178a5bed16158f907ddda1ae3",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 193,
+        "name": "native_runs/all_off_fixed_recruitment/evaluated.par",
+        "bytes": 2956533,
+        "sha256": "fc9f869f34096af0c858813d9c13a8fcfce66a382358906500c7bc08ea05150e",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 203,
+        "name": "native_runs/all_off_fixed_recruitment/plot-evaluated.par.rep",
+        "bytes": 2846981,
+        "sha256": "e9d355f33d4676d1f706524d5e34d13cd4bf4ab1ad8f2281aa0a2b2cd9186b7d",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 230,
+        "name": "native_runs/all_off/base.par",
+        "bytes": 2956541,
+        "sha256": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 237,
+        "name": "native_runs/all_off/catch.rep",
+        "bytes": 68905,
+        "sha256": "11a4ddf1836e5bd27dc230fad171d7ba89a4946178a5bed16158f907ddda1ae3",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 246,
+        "name": "native_runs/all_off/ests.rep",
+        "bytes": 12696475,
+        "sha256": "b4109ee8c9019c913b09e7ecdb5dd104b2fd585e1caff176c2f7c020cde0b0e5",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 247,
+        "name": "native_runs/all_off/evaluated.par",
+        "bytes": 2956533,
+        "sha256": "3a0ae61c2941c1e8b326060bcd779e33d7e28c7233bb25dbd0b6cbb8ffa56e7a",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 260,
+        "name": "native_runs/all_off/plot-evaluated.par.rep",
+        "bytes": 2846959,
+        "sha256": "d71ad46bc353fd7480287f7c68ce5dff2ad6e95da96634c6f48c9a2963751d82",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 261,
+        "name": "native_runs/all_off/plotq0-evaluated.par.rep",
+        "bytes": 2717978,
+        "sha256": "3f88540efe2538b090fd99edac792e3e50879f60f3c88e06f2c8c8d457710acd",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 273,
+        "name": "native_runs/all_off/tag.rep",
+        "bytes": 278817,
+        "sha256": "0db4e9d3f597fbd41d5c71ce2cd881ff18d40b1266d5e8e0c8709a9e4b8f0792",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 291,
+        "name": "native_runs/miscellaneous/base.par",
+        "bytes": 2956541,
+        "sha256": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 298,
+        "name": "native_runs/miscellaneous/catch.rep",
+        "bytes": 68905,
+        "sha256": "11a4ddf1836e5bd27dc230fad171d7ba89a4946178a5bed16158f907ddda1ae3",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 307,
+        "name": "native_runs/miscellaneous/evaluated.par",
+        "bytes": 2956533,
+        "sha256": "7b4bb1371838b8d7b9d9d593d2096a2d7fe6cf011a7cf6639dba7a4f97c7b081",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 318,
+        "name": "native_runs/miscellaneous/plot-evaluated.par.rep",
+        "bytes": 2845060,
+        "sha256": "1064ad17e503ba246ed9d12fe532c7b4018533dc025a21304382364624c9ad4d",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 345,
+        "name": "native_runs/ps/base.par",
+        "bytes": 2956541,
+        "sha256": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 352,
+        "name": "native_runs/ps/catch.rep",
+        "bytes": 68905,
+        "sha256": "11a4ddf1836e5bd27dc230fad171d7ba89a4946178a5bed16158f907ddda1ae3",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 361,
+        "name": "native_runs/ps/evaluated.par",
+        "bytes": 2956533,
+        "sha256": "40c8861847c018de2a8610ef55872586795436f8489c5836ac37e617d6edc484",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 372,
+        "name": "native_runs/ps/plot-evaluated.par.rep",
+        "bytes": 2843571,
+        "sha256": "7587500aac4f0ea8bd9a4b0fd372cd1fa5948e4a6bdc89852e805b83ed4095bc",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 399,
+        "name": "native_runs/ps_unassociated/base.par",
+        "bytes": 2956541,
+        "sha256": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 406,
+        "name": "native_runs/ps_unassociated/catch.rep",
+        "bytes": 68905,
+        "sha256": "11a4ddf1836e5bd27dc230fad171d7ba89a4946178a5bed16158f907ddda1ae3",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 415,
+        "name": "native_runs/ps_unassociated/evaluated.par",
+        "bytes": 2956533,
+        "sha256": "cf575251de44718a68f93ef730d4b3096898f3ad103dc8b7cb3df6b0b67ee5f1",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      },
+      {
+        "ordinal": 426,
+        "name": "native_runs/ps_unassociated/plot-evaluated.par.rep",
+        "bytes": 2843964,
+        "sha256": "06e7549987b7494565d8c742c1de388c04aee1f9d1af2a01bd7389c7c9b1cb96",
+        "archive_id": "localfish-4819cb10394dac5ebd058231a98748ddf71883c922c4aaf8058ba0b77ee07635"
+      }
+    ],
+    "bundles": [
+      "bet2026-fishery-native-snapshot-metadata-v2"
+    ],
+    "provenance": "evidence/fishery-impact-provenance.json"
+  },
+  {
+    "archive_id": "localfish-ae2901193a7a6507fa7b9c2e62811cd2e94cd26f3d07063c5fa7cf057ed742c2",
+    "original_Kflow_job": "UNKNOWN",
+    "source": "original local assessment tree",
+    "members": [
+      {
+        "ordinal": 0,
+        "name": "impact_audit/diagnostic-plot.rep",
+        "bytes": 2846950,
+        "sha256": "bdc4468ea540da966bed821c2179c0d0e8bcc82698d4ac4665bfa04685928e3f",
+        "archive_id": "localfish-ae2901193a7a6507fa7b9c2e62811cd2e94cd26f3d07063c5fa7cf057ed742c2"
+      },
+      {
+        "ordinal": 1,
+        "name": "impact_audit/jitter-reference.par",
+        "bytes": 2956541,
+        "sha256": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3",
+        "archive_id": "localfish-ae2901193a7a6507fa7b9c2e62811cd2e94cd26f3d07063c5fa7cf057ed742c2"
+      }
+    ],
+    "bundles": [
+      "bet2026-fishery-native-inputs-metadata-v2"
+    ],
+    "provenance": "evidence/fishery-impact-provenance.json"
+  }
+]

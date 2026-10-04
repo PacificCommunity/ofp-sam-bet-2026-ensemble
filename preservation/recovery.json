@@ -1,0 +1,2262 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "source_job_key": "jd01b3877e29",
+      "source_job_number": 22021,
+      "archive_id": "rc-1a7ed36978258e9055cc6833a59728a0005db759dfc1410eb9baa878fe8d452d",
+      "kind": "lossless byte-retained RDS extraction",
+      "terminal_par": {
+        "ordinal": 0,
+        "name": "retro/job-022021/peel_5/final.par",
+        "sha256": "40b6445ebeec09b2eb9f5545b370ab1b7eb550354ced4ff9fbe4f8fb598f37d2"
+      },
+      "REP": [
+        {
+          "name": "retro/job-022021/peel_5/plot-11.par.rep",
+          "sha256": "9b2d343c99cae0b226f57b111dd8965e123bf100a36dd36da5c858685d70dfeb"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/retro/peel_5/retro_info.rds",
+        "source_RDS_sha256": "9026a59277b280d88e4da3f190c157b277b56b5e409923788eb908b96f976b4c",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "0e19b15b6e09feb7dc5796c088908acd64683ed0bafe8d821219ee5af0494db5",
+        "stored_bytes": 51858,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1428492/scratch/output/checks/retro/S0.90-F2-tau2-fixed/retro/peel_5/11.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2724966",
+        "stored_size": "51858",
+        "peel": "5",
+        "terminal_year": "2024",
+        "run_status": "completed",
+        "mfcl_exit_code": "0",
+        "converged": "TRUE",
+        "doitall_declared_final_par": "11.par",
+        "output_par": "11.par"
+      }
+    },
+    {
+      "source_job_key": "j81106751b25",
+      "source_job_number": 22022,
+      "archive_id": "rc-1a7ed36978258e9055cc6833a59728a0005db759dfc1410eb9baa878fe8d452d",
+      "kind": "lossless byte-retained RDS extraction",
+      "terminal_par": {
+        "ordinal": 10,
+        "name": "retro/job-022022/peel_7/final.par",
+        "sha256": "f0a748ef3ffa4f842e45d28d7a4583d8492d9c1deb693dc2cee05823786066dd"
+      },
+      "REP": [
+        {
+          "name": "retro/job-022022/peel_7/plot-11.par.rep",
+          "sha256": "662fa8afe6320fa10a359318792479080a77c523acf832086613aecdf302773e"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/retro/peel_7/retro_info.rds",
+        "source_RDS_sha256": "f8aae7a7b8012fda223428b277849c4746356083c98295b17e466b3659dbd453",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "79f2df9f0bd5aef64c3b12c8ac90528358a0b17adea98c9ac9c143841a31b788",
+        "stored_bytes": 50769,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_486148/scratch/output/checks/retro/S0.90-F2-tau2-fixed/retro/peel_7/11.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2634303",
+        "stored_size": "50769",
+        "peel": "7",
+        "terminal_year": "2024",
+        "run_status": "completed",
+        "mfcl_exit_code": "0",
+        "converged": "TRUE",
+        "doitall_declared_final_par": "11.par",
+        "output_par": "11.par"
+      }
+    },
+    {
+      "source_job_key": "j1ea4437ac4e",
+      "source_job_number": 22023,
+      "archive_id": "rc-1a7ed36978258e9055cc6833a59728a0005db759dfc1410eb9baa878fe8d452d",
+      "kind": "lossless byte-retained RDS extraction",
+      "terminal_par": {
+        "ordinal": 20,
+        "name": "retro/job-022023/peel_1/final.par",
+        "sha256": "585dba52f24e283477dd9657d7d4c3b049dc52a87fe24b29d4a7de1172d14b1e"
+      },
+      "REP": [
+        {
+          "name": "retro/job-022023/peel_1/plot-11.par.rep",
+          "sha256": "bf2a5cef6cea9edb09f1eed053bcfc6f7ded88eac4b3da151beb725cf5c4cfa3"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/retro/peel_1/retro_info.rds",
+        "source_RDS_sha256": "72dfc397010523d173566c69e2ed9b45a8bd1f58ce44a72a54760c7a6066cfa8",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "cd578dca2bb0b985cc42649f58646f3068a911ac6dfbc62510407e5a5c4c6820",
+        "stored_bytes": 54529,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1514998/scratch/output/checks/retro/S0.90-F2-tau2-fixed/retro/peel_1/11.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2913188",
+        "stored_size": "54529",
+        "peel": "1",
+        "terminal_year": "2024",
+        "run_status": "completed",
+        "mfcl_exit_code": "0",
+        "converged": "TRUE",
+        "doitall_declared_final_par": "11.par",
+        "output_par": "11.par"
+      }
+    },
+    {
+      "source_job_key": "j0a177792426",
+      "source_job_number": 22024,
+      "archive_id": "rc-1a7ed36978258e9055cc6833a59728a0005db759dfc1410eb9baa878fe8d452d",
+      "kind": "lossless byte-retained RDS extraction",
+      "terminal_par": {
+        "ordinal": 30,
+        "name": "retro/job-022024/peel_3/final.par",
+        "sha256": "88dc4fff7280dae5d7bee940d12219274931175ce363039edccbe4aa94289b3f"
+      },
+      "REP": [
+        {
+          "name": "retro/job-022024/peel_3/plot-11.par.rep",
+          "sha256": "6d3dc7ce0e785809cf8cc78593e97fdccc498668ad5b8772f6c25df788b1ca48"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/retro/peel_3/retro_info.rds",
+        "source_RDS_sha256": "7555c11c9cfa95e0fc44ff507b0aa892e9d763ad6ac2db4ad36cc510d3c4bb45",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "c398b4f3cc7ab6653635f536a3341ab1dd7926c0700b0faacaf3c9e340a65ea2",
+        "stored_bytes": 53098,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1515000/scratch/output/checks/retro/S0.90-F2-tau2-fixed/retro/peel_3/11.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2821820",
+        "stored_size": "53098",
+        "peel": "3",
+        "terminal_year": "2024",
+        "run_status": "completed",
+        "mfcl_exit_code": "0",
+        "converged": "TRUE",
+        "doitall_declared_final_par": "11.par",
+        "output_par": "11.par"
+      }
+    },
+    {
+      "source_job_key": "jb1ab47b9aa2",
+      "source_job_number": 22025,
+      "archive_id": "rc-1a7ed36978258e9055cc6833a59728a0005db759dfc1410eb9baa878fe8d452d",
+      "kind": "lossless byte-retained RDS extraction",
+      "terminal_par": {
+        "ordinal": 40,
+        "name": "retro/job-022025/peel_4/final.par",
+        "sha256": "b4126f6fd2941b5f342814c3cdce9e6171f6b32b5664c7027993cba10ca9766b"
+      },
+      "REP": [
+        {
+          "name": "retro/job-022025/peel_4/plot-11.par.rep",
+          "sha256": "05da9f586bf2d9b234e5d681371a86ed4d6cbedfa9b4e8aa97bacd5cd4c68c95"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/retro/peel_4/retro_info.rds",
+        "source_RDS_sha256": "f1c5d104d2d571edbe69047e9a1d1b2fe5729fb1c77871a739da8228e6a95511",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "0cfff06c7297fc2bf1ba90c6808d94eb88a4e12478d10945d62d3b5561def5eb",
+        "stored_bytes": 52588,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1398362/scratch/output/checks/retro/S0.90-F2-tau2-fixed/retro/peel_4/11.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2772533",
+        "stored_size": "52588",
+        "peel": "4",
+        "terminal_year": "2024",
+        "run_status": "completed",
+        "mfcl_exit_code": "0",
+        "converged": "TRUE",
+        "doitall_declared_final_par": "11.par",
+        "output_par": "11.par"
+      }
+    },
+    {
+      "source_job_key": "j5d51103e71a",
+      "source_job_number": 22026,
+      "archive_id": "rc-1a7ed36978258e9055cc6833a59728a0005db759dfc1410eb9baa878fe8d452d",
+      "kind": "lossless byte-retained RDS extraction",
+      "terminal_par": {
+        "ordinal": 50,
+        "name": "retro/job-022026/peel_2/final.par",
+        "sha256": "85221f123c9ce3f099f806d643ec5d1d23e5228b0a6de2604b6f7889a66a160e"
+      },
+      "REP": [
+        {
+          "name": "retro/job-022026/peel_2/plot-11.par.rep",
+          "sha256": "a32bf9cc08c76d09a13bde0f7b7eeb849f96033a92a7d85187d39c7967128601"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/retro/peel_2/retro_info.rds",
+        "source_RDS_sha256": "14cd2b986fb9363543f17cc7ac8fe5d7d2003b3e384b8528c16474b5d813a573",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "9de2acbe6007afc584482c8132320388e9badc8798b715ddb5caafba0436175f",
+        "stored_bytes": 53893,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1051701/scratch/output/checks/retro/S0.90-F2-tau2-fixed/retro/peel_2/11.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2869425",
+        "stored_size": "53893",
+        "peel": "2",
+        "terminal_year": "2024",
+        "run_status": "completed",
+        "mfcl_exit_code": "0",
+        "converged": "TRUE",
+        "doitall_declared_final_par": "11.par",
+        "output_par": "11.par"
+      }
+    },
+    {
+      "source_job_key": "je163d4dbd40",
+      "source_job_number": 22027,
+      "archive_id": "rc-1a7ed36978258e9055cc6833a59728a0005db759dfc1410eb9baa878fe8d452d",
+      "kind": "lossless byte-retained RDS extraction",
+      "terminal_par": {
+        "ordinal": 60,
+        "name": "retro/job-022027/peel_6/final.par",
+        "sha256": "1bf7b7b04bdbff89004a36d70a7917d195cefad202a96484938e936b62dbc08a"
+      },
+      "REP": [
+        {
+          "name": "retro/job-022027/peel_6/plot-11.par.rep",
+          "sha256": "80e36e03299197e5cc59d20dc841694dd785b23beadb4dda80bb75354f598105"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/retro/peel_6/retro_info.rds",
+        "source_RDS_sha256": "d7113af88a4705a248abaa9ae0d9d7b527fe0bff2b65013279fea479ece69da2",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "c28f416d1e8acde9f06321cc56cabfeb2a8a63d2e836801af318bb7ae97809da",
+        "stored_bytes": 51505,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1076212/scratch/output/checks/retro/S0.90-F2-tau2-fixed/retro/peel_6/11.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2679506",
+        "stored_size": "51505",
+        "peel": "6",
+        "terminal_year": "2024",
+        "run_status": "completed",
+        "mfcl_exit_code": "0",
+        "converged": "TRUE",
+        "doitall_declared_final_par": "11.par",
+        "output_par": "11.par"
+      }
+    },
+    {
+      "source_job_key": "j0802e86c2c4",
+      "source_job_number": 22032,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 0,
+          "name": "jitter/job-022032/seed_14/final.par",
+          "bytes": 2956622,
+          "sha256": "e25628ed5f13f7b29b5e2d91df04419e7d440f859a30b864054c27b14240a220"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 0,
+        "name": "jitter/job-022032/seed_14/final.par",
+        "bytes": 2956622,
+        "sha256": "e25628ed5f13f7b29b5e2d91df04419e7d440f859a30b864054c27b14240a220"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022032/seed_14/plot-jittered_out_14.par.rep",
+          "sha256": "bde8e498188ce269e3115f1cda83652dfd256a308cd2ca115f756a06998be5e8"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_14/jitter_result.rds",
+        "source_RDS_sha256": "6d169a4d05cb753a07f306fda2215e6292a6277422da121fc096e7973087d78c",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "0750a396f7c79745a7f3a752ff079e8077807dea659c55dedd162df17e4ddb47",
+        "stored_bytes": 55000,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1383443/scratch/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_14/jittered_out_14.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956622",
+        "stored_size": "55000",
+        "seed": "14",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_14.par"
+      }
+    },
+    {
+      "source_job_key": "j4cc538d0d39",
+      "source_job_number": 22033,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 10,
+          "name": "jitter/job-022033/seed_1/final.par",
+          "bytes": 2956628,
+          "sha256": "29f6c1e3086891ca1cb7128490553e336d609320666dd677d5a10291d3f75499"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 10,
+        "name": "jitter/job-022033/seed_1/final.par",
+        "bytes": 2956628,
+        "sha256": "29f6c1e3086891ca1cb7128490553e336d609320666dd677d5a10291d3f75499"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022033/seed_1/plot-jittered_out_1.par.rep",
+          "sha256": "48ed4cea4f1ab5042350882959c7d5fc9bb694e0eae0f1760ff507ea6e4ef7a6"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_1/jitter_result.rds",
+        "source_RDS_sha256": "30a5c4b7b3193a89caf797a88ac33fed88a8c26cf2d72c6d29b8770378a8fffa",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "bb6a5b646137954b459934a0034003f90f24c09fc05c3b135e6cc6b03b048ffb",
+        "stored_bytes": 55249,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_580544/scratch/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_1/jittered_out_1.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956628",
+        "stored_size": "55249",
+        "seed": "1",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_1.par"
+      }
+    },
+    {
+      "source_job_key": "je0bdb17031b",
+      "source_job_number": 22034,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 20,
+          "name": "jitter/job-022034/seed_5/final.par",
+          "bytes": 2956642,
+          "sha256": "55dbea9ef1913eeaa80e7aa7b7685b4b0dda461f40c5b852a404613933bf83a9"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 20,
+        "name": "jitter/job-022034/seed_5/final.par",
+        "bytes": 2956642,
+        "sha256": "55dbea9ef1913eeaa80e7aa7b7685b4b0dda461f40c5b852a404613933bf83a9"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022034/seed_5/plot-jittered_out_5.par.rep",
+          "sha256": "c9dc8800c3c9ee6b99e01bdee85d07a795007bc3228062e912b8477248a60a9c"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_5/jitter_result.rds",
+        "source_RDS_sha256": "53f5bb7c7358fec305e3d6a3a01296555da5ea70557dfaaf024f72f537b7bd1f",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "240081a6150b45127565271f4965e5a42767a3c358b1a9b516a8f45efd7f980b",
+        "stored_bytes": 55034,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_931253/scratch/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_5/jittered_out_5.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956642",
+        "stored_size": "55034",
+        "seed": "5",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_5.par"
+      }
+    },
+    {
+      "source_job_key": "j31e9799d11c",
+      "source_job_number": 22035,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 30,
+          "name": "jitter/job-022035/seed_15/final.par",
+          "bytes": 2956623,
+          "sha256": "3afe9d48f155e80a8dd132a8aa40b54db37efec91d96219f0ddd909daa1b849b"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 30,
+        "name": "jitter/job-022035/seed_15/final.par",
+        "bytes": 2956623,
+        "sha256": "3afe9d48f155e80a8dd132a8aa40b54db37efec91d96219f0ddd909daa1b849b"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022035/seed_15/plot-jittered_out_15.par.rep",
+          "sha256": "36e9efa14957ddc4ed3ff33fdd3e9842460625a19db9a103c0a1310b08cb0a1c"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_15/jitter_result.rds",
+        "source_RDS_sha256": "dddc13b3039a42a109542b8a83fd32dd3f383e4c969b2529ced949ff8f0f95a3",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "99ea2d85e68c9e0b3ec460448e481bcab8ded710ecd1d81ca855823a367e1e9c",
+        "stored_bytes": 55076,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1156730/scratch/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_15/jittered_out_15.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956623",
+        "stored_size": "55076",
+        "seed": "15",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_15.par"
+      }
+    },
+    {
+      "source_job_key": "j9160f172127",
+      "source_job_number": 22036,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 40,
+          "name": "jitter/job-022036/seed_2/final.par",
+          "bytes": 2956576,
+          "sha256": "d32458dd048e7280117d2f66420c6e9b5c18a51ee4b3bbcf69dd29689f5d2d16"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 40,
+        "name": "jitter/job-022036/seed_2/final.par",
+        "bytes": 2956576,
+        "sha256": "d32458dd048e7280117d2f66420c6e9b5c18a51ee4b3bbcf69dd29689f5d2d16"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022036/seed_2/plot-jittered_out_2.par.rep",
+          "sha256": "77e0aea7be9c871f2fd6fb5ee14eed1505ccb6ade93c7733ebf65fc0c0fa4f07"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_2/jitter_result.rds",
+        "source_RDS_sha256": "1469094ceccdf3bca8b6bcf0c492caca70aae5cc6e43280c02524ab62c8ae0aa",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "7d9aa2518064d12e733bbaef34aeb9dbe150a11d21c240eef7fe9f842ba5b9a2",
+        "stored_bytes": 55132,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_586211/scratch/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_2/jittered_out_2.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956576",
+        "stored_size": "55132",
+        "seed": "2",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_2.par"
+      }
+    },
+    {
+      "source_job_key": "jebc91f6675e",
+      "source_job_number": 22037,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 50,
+          "name": "jitter/job-022037/seed_6/final.par",
+          "bytes": 2956637,
+          "sha256": "d2fb6cd6fdaa256fa3fd8852f237410d4ee0d6a28caea460e5a18096e494a71e"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 50,
+        "name": "jitter/job-022037/seed_6/final.par",
+        "bytes": 2956637,
+        "sha256": "d2fb6cd6fdaa256fa3fd8852f237410d4ee0d6a28caea460e5a18096e494a71e"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022037/seed_6/plot-jittered_out_6.par.rep",
+          "sha256": "145c1d767b8124ca4c4552fb1505804af733d49cc465983db38d3ad1e9361d56"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_6/jitter_result.rds",
+        "source_RDS_sha256": "35cebc9328618063239a3919e4e765bab44fd046a70aea156533c98dfd07be31",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "3e9fbc1b896e70355224e5e075466a97b68427e21172d70c90b22c1e6e3c9128",
+        "stored_bytes": 55010,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1255158/scratch/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_6/jittered_out_6.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956637",
+        "stored_size": "55010",
+        "seed": "6",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_6.par"
+      }
+    },
+    {
+      "source_job_key": "j919620894ec",
+      "source_job_number": 22038,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 60,
+          "name": "jitter/job-022038/seed_10/final.par",
+          "bytes": 2956627,
+          "sha256": "71cf670caee2bbf18580ad820ed9edd090ba5c69364ce11362f2d5653e7aa115"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 60,
+        "name": "jitter/job-022038/seed_10/final.par",
+        "bytes": 2956627,
+        "sha256": "71cf670caee2bbf18580ad820ed9edd090ba5c69364ce11362f2d5653e7aa115"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022038/seed_10/plot-jittered_out_10.par.rep",
+          "sha256": "795366f8b26d50cad955e26b3629ddc79751234cc0ef751cc2e93b1b56949658"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_10/jitter_result.rds",
+        "source_RDS_sha256": "4bc824603266affc2818e21c54bdd7d55692c4084428e5f4d8adc91a16b105a7",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "d1159856dfcc50022dbc35367df387d2799affdd5a565ea990b108b9196486a4",
+        "stored_bytes": 55123,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_727217/scratch/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_10/jittered_out_10.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956627",
+        "stored_size": "55123",
+        "seed": "10",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_10.par"
+      }
+    },
+    {
+      "source_job_key": "ja03a20c4bf8",
+      "source_job_number": 22039,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 70,
+          "name": "jitter/job-022039/seed_3/final.par",
+          "bytes": 2956627,
+          "sha256": "b61525ffd6dea342585a4ab7524e91b949b73eae07178380abfd5df3e5048fee"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 70,
+        "name": "jitter/job-022039/seed_3/final.par",
+        "bytes": 2956627,
+        "sha256": "b61525ffd6dea342585a4ab7524e91b949b73eae07178380abfd5df3e5048fee"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022039/seed_3/plot-jittered_out_3.par.rep",
+          "sha256": "3709c856ec52cd30b2de1450c94b7e58ffa361cfbd9bbbaa228739a80d0b4618"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_3/jitter_result.rds",
+        "source_RDS_sha256": "d8d06056e24948a1d1a79864e593d232343feaa2f4a1d21a7ac056ee90e7e77c",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "c2488433452ee5e870784ce38e6bd18877a3f979455fff64e342828d330bab9d",
+        "stored_bytes": 55266,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_570713/scratch/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_3/jittered_out_3.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956627",
+        "stored_size": "55266",
+        "seed": "3",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_3.par"
+      }
+    },
+    {
+      "source_job_key": "j0fdfd84d156",
+      "source_job_number": 22040,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 80,
+          "name": "jitter/job-022040/seed_16/final.par",
+          "bytes": 2956635,
+          "sha256": "45029c5e08e6d55a938d0f6550215c1ea9aea1a015fccb5306ade88ee1faa760"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 80,
+        "name": "jitter/job-022040/seed_16/final.par",
+        "bytes": 2956635,
+        "sha256": "45029c5e08e6d55a938d0f6550215c1ea9aea1a015fccb5306ade88ee1faa760"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022040/seed_16/plot-jittered_out_16.par.rep",
+          "sha256": "6f001c0df5cc74db48ae72fbc201edbea6dd49d6db133567e45fbf26139adb6e"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_16/jitter_result.rds",
+        "source_RDS_sha256": "2958c11f4773a215d27d059bc8ed8c6dc144cc56549f116ba5bc6794979afcba",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "222f47767e3fcd5259a66b2c80039128caff46120151c7af0fdb22042a7ac462",
+        "stored_bytes": 55029,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1089007/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_16/jittered_out_16.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956635",
+        "stored_size": "55029",
+        "seed": "16",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_16.par"
+      }
+    },
+    {
+      "source_job_key": "j7c54c6294a9",
+      "source_job_number": 22041,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 90,
+          "name": "jitter/job-022041/seed_11/final.par",
+          "bytes": 2956619,
+          "sha256": "da58636557ab75ff504510c26b2ba15e4a7ba3c6486cfc518045ca439aafb670"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 90,
+        "name": "jitter/job-022041/seed_11/final.par",
+        "bytes": 2956619,
+        "sha256": "da58636557ab75ff504510c26b2ba15e4a7ba3c6486cfc518045ca439aafb670"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022041/seed_11/plot-jittered_out_11.par.rep",
+          "sha256": "39320333fa05c53b8ef31ae7fa47f513e694f1d530ace3d78bc533f3ef6caaf7"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_11/jitter_result.rds",
+        "source_RDS_sha256": "300dac305ae015845c1631e225528b794bd76c1ec9588aaee1cbeb671fe9c81f",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "2b00339c846731c977cb60370b90d06408491f1a22b33f99fe558efe2197f08f",
+        "stored_bytes": 55190,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_557598/scratch/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_11/jittered_out_11.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956619",
+        "stored_size": "55190",
+        "seed": "11",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_11.par"
+      }
+    },
+    {
+      "source_job_key": "jb77a03b5c9b",
+      "source_job_number": 22042,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 100,
+          "name": "jitter/job-022042/seed_7/final.par",
+          "bytes": 2956630,
+          "sha256": "8a2899f08c0a17b3a1ecb76d93adf84a1660dcb9abfe5acd5e2bc127403293a2"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 100,
+        "name": "jitter/job-022042/seed_7/final.par",
+        "bytes": 2956630,
+        "sha256": "8a2899f08c0a17b3a1ecb76d93adf84a1660dcb9abfe5acd5e2bc127403293a2"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022042/seed_7/plot-jittered_out_7.par.rep",
+          "sha256": "848db86b1ef05e832e84f7198ba8585c75c62bd1befed226d0150dbfdab03171"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_7/jitter_result.rds",
+        "source_RDS_sha256": "2a2aed05b82489f983fa77c7820e2ba1977b946d01a09f2e6647ae254e68d44a",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "f54a38f68995235548693c6574a0e8c307049e6f8e0debd02688a3693e72cac9",
+        "stored_bytes": 55037,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_596924/scratch/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_7/jittered_out_7.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956630",
+        "stored_size": "55037",
+        "seed": "7",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_7.par"
+      }
+    },
+    {
+      "source_job_key": "j55a0fea8dd8",
+      "source_job_number": 22043,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 110,
+          "name": "jitter/job-022043/seed_4/final.par",
+          "bytes": 2956613,
+          "sha256": "130ba91176579f1d710d0082aa887544faab3818ddde3b4c0b36aab767420184"
+        }
+      ],
+      "REP": [
+        {
+          "name": "jitter/job-022043/seed_4/plot-08.par.rep",
+          "sha256": "11839a432439be4cf9d13d36c55269903863e876a39e9a22a74527454805c9bd"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_4/jitter_result.rds",
+        "source_RDS_sha256": "6dedeb9eec80545a4d82007918c677b7b5bfa696b927c743ccc26d1d4f6cfdd7",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "851dc1a14ef88e6e1e0dd46b6875f92f288bfce7776c2a4696a43e49a4650433",
+        "stored_bytes": 55150,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_950016/scratch/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_4/08.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956613",
+        "stored_size": "55150",
+        "seed": "4",
+        "run_status": "model_run_failed",
+        "state_run_status": "model_run_failed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "FALSE",
+        "output_par": "08.par"
+      }
+    },
+    {
+      "source_job_key": "j4c5682f87ec",
+      "source_job_number": 22044,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 118,
+          "name": "jitter/job-022044/seed_12/final.par",
+          "bytes": 2956630,
+          "sha256": "8a3733b6037dc698eca2ce7a6e362c20b5176d9b5bf4e6b8e6eac6585bd5f588"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 118,
+        "name": "jitter/job-022044/seed_12/final.par",
+        "bytes": 2956630,
+        "sha256": "8a3733b6037dc698eca2ce7a6e362c20b5176d9b5bf4e6b8e6eac6585bd5f588"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022044/seed_12/plot-jittered_out_12.par.rep",
+          "sha256": "66bede88c8641de549072f1df9927eafe05fe0942fc8dc5ef87357308d50d883"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_12/jitter_result.rds",
+        "source_RDS_sha256": "68f7008c1926205e0d83074bdb499ff5fe6bb7ccf11ca376650cc827869e0207",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "91db65b904e81f1c263d78a363e2cb69f76c9aa6d6d588b7f345227ec19b88d6",
+        "stored_bytes": 55303,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1061103/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_12/jittered_out_12.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956630",
+        "stored_size": "55303",
+        "seed": "12",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_12.par"
+      }
+    },
+    {
+      "source_job_key": "j81a772bb502",
+      "source_job_number": 22045,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 128,
+          "name": "jitter/job-022045/seed_9/final.par",
+          "bytes": 2956622,
+          "sha256": "b4a9fec62d4d5f8cf947601a0fe6c4efb8d9ab7a6581709b1a956febd093c0da"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 128,
+        "name": "jitter/job-022045/seed_9/final.par",
+        "bytes": 2956622,
+        "sha256": "b4a9fec62d4d5f8cf947601a0fe6c4efb8d9ab7a6581709b1a956febd093c0da"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022045/seed_9/plot-jittered_out_9.par.rep",
+          "sha256": "87728f716a76c0e9657c518d73322ffe6308cf432a7e71d774959f305ab1ee35"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_9/jitter_result.rds",
+        "source_RDS_sha256": "1bd1ccd3850eece34dc56756ad6c197e71cd6bebaeee753db0758c6ee67c344d",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "4101d01fd808765ec6e9055a975c718b53ef2eae5f16b7535076d5d549cb31cb",
+        "stored_bytes": 55020,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_517394/scratch/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_9/jittered_out_9.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956622",
+        "stored_size": "55020",
+        "seed": "9",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_9.par"
+      }
+    },
+    {
+      "source_job_key": "j20b04a13c3b",
+      "source_job_number": 22046,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 138,
+          "name": "jitter/job-022046/seed_8/final.par",
+          "bytes": 2956590,
+          "sha256": "bfec3a55c4aaf522b475c5020a3fb45f912410ef6df2989cee13ddaa5c650370"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 138,
+        "name": "jitter/job-022046/seed_8/final.par",
+        "bytes": 2956590,
+        "sha256": "bfec3a55c4aaf522b475c5020a3fb45f912410ef6df2989cee13ddaa5c650370"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022046/seed_8/plot-jittered_out_8.par.rep",
+          "sha256": "ec264f824c4c8ebe5f16a3bbe6e9b7a5da80d2d52280fcdba1b4a20a7513e042"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_8/jitter_result.rds",
+        "source_RDS_sha256": "4a5926d3ad75648b182ad689500c4863bdc37279aa28a10db878e8b41535050d",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "4526b1ccb8b5e8cbc98f5e9dd0eccae4ceb5fffea4c64bcf555cf7d607618f1a",
+        "stored_bytes": 55046,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_486791/scratch/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_8/jittered_out_8.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956590",
+        "stored_size": "55046",
+        "seed": "8",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_8.par"
+      }
+    },
+    {
+      "source_job_key": "jf64b1df8eb6",
+      "source_job_number": 22047,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 148,
+          "name": "jitter/job-022047/seed_13/final.par",
+          "bytes": 2956632,
+          "sha256": "97d8a4425a03527b053c8c75d8234831af19a19bd253f5d2a8a86ec08761cc83"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 148,
+        "name": "jitter/job-022047/seed_13/final.par",
+        "bytes": 2956632,
+        "sha256": "97d8a4425a03527b053c8c75d8234831af19a19bd253f5d2a8a86ec08761cc83"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022047/seed_13/plot-jittered_out_13.par.rep",
+          "sha256": "aed0e60abfd207465fd487a4674f104692e497df1e87076cabc2a9cf3c3c0ad9"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_13/jitter_result.rds",
+        "source_RDS_sha256": "e5fbbde6068fa5d66f4daf8722626c9afbcc613f4813bfeec1bb08c220ea9ed1",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "499dd7c6d810f1158d703d3c344fa66d560e93886be7de2f4d5467b8e8c6f352",
+        "stored_bytes": 55106,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_518220/scratch/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_13/jittered_out_13.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956632",
+        "stored_size": "55106",
+        "seed": "13",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_13.par"
+      }
+    },
+    {
+      "source_job_key": "jfba8404f66d",
+      "source_job_number": 22048,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 158,
+          "name": "jitter/job-022048/seed_18/final.par",
+          "bytes": 2956627,
+          "sha256": "0088a12a934be9f218e4a5dec5da7289cbe276e629c157604f50e5caae1d80f9"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 158,
+        "name": "jitter/job-022048/seed_18/final.par",
+        "bytes": 2956627,
+        "sha256": "0088a12a934be9f218e4a5dec5da7289cbe276e629c157604f50e5caae1d80f9"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022048/seed_18/plot-jittered_out_18.par.rep",
+          "sha256": "7a907d19ef6c57ffb5aa328d37967c9c31f3bd92edb7b492cdd9834c2a723e6f"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_18/jitter_result.rds",
+        "source_RDS_sha256": "767ef5f1602a4982a7b108aa9dd02ae37e40aa88093ee75e90d193f17e666ee8",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "c0414e555557f694b9a69da67cff7cc7c3291dc3ecabf3869dcf69463f0a4325",
+        "stored_bytes": 55131,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1052345/scratch/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_18/jittered_out_18.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956627",
+        "stored_size": "55131",
+        "seed": "18",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_18.par"
+      }
+    },
+    {
+      "source_job_key": "j4badc6996e5",
+      "source_job_number": 22049,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 168,
+          "name": "jitter/job-022049/seed_17/final.par",
+          "bytes": 2956616,
+          "sha256": "977d088d25cb6d2d4b7ce13e9b64ad8d9c48ef7144995bd181cd9bcd343dfa1d"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 168,
+        "name": "jitter/job-022049/seed_17/final.par",
+        "bytes": 2956616,
+        "sha256": "977d088d25cb6d2d4b7ce13e9b64ad8d9c48ef7144995bd181cd9bcd343dfa1d"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022049/seed_17/plot-jittered_out_17.par.rep",
+          "sha256": "23ef209f655648b8c21eaeb600929629a77c6b6e1e78e952fc7f140bab051630"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_17/jitter_result.rds",
+        "source_RDS_sha256": "c5c9e7aed099082b29a77c53ef1715d44813e191ab654ec461336e994f6b7f96",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "ef81e6b19992c36096f19586bcd238c835579e67195b800ff69ade50e84e5222",
+        "stored_bytes": 55047,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1016001/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_17/jittered_out_17.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956616",
+        "stored_size": "55047",
+        "seed": "17",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_17.par"
+      }
+    },
+    {
+      "source_job_key": "j8d1fae1798f",
+      "source_job_number": 22050,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 178,
+          "name": "jitter/job-022050/seed_19/final.par",
+          "bytes": 2956580,
+          "sha256": "88935ad09daaef6cbf149babd921c9bb1e4af22cff241fdc2a9bdc7f8ee9349d"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 178,
+        "name": "jitter/job-022050/seed_19/final.par",
+        "bytes": 2956580,
+        "sha256": "88935ad09daaef6cbf149babd921c9bb1e4af22cff241fdc2a9bdc7f8ee9349d"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022050/seed_19/plot-jittered_out_19.par.rep",
+          "sha256": "bb5288f10979659c8b75cc5c7f3d1c7f714be9ee1e0fb6480535bc8b66fa7f15"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_19/jitter_result.rds",
+        "source_RDS_sha256": "5750e2d1c3ea9f3d899db35407be16a37e574ea4d91f4dfdf9e788a4c2503a93",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "c49ce472a0e961ab18fa08dea15284b8cac5b60688513a59b016805273564911",
+        "stored_bytes": 54926,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1073114/scratch/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_19/jittered_out_19.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956580",
+        "stored_size": "54926",
+        "seed": "19",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_19.par"
+      }
+    },
+    {
+      "source_job_key": "j8ff5ae81ea5",
+      "source_job_number": 22051,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 188,
+          "name": "jitter/job-022051/seed_20/final.par",
+          "bytes": 2956633,
+          "sha256": "6a6a481b7531f3ce34e15b367a062b27fdb8dad74c308ab7b9310aa482f8a5c9"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 188,
+        "name": "jitter/job-022051/seed_20/final.par",
+        "bytes": 2956633,
+        "sha256": "6a6a481b7531f3ce34e15b367a062b27fdb8dad74c308ab7b9310aa482f8a5c9"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022051/seed_20/plot-jittered_out_20.par.rep",
+          "sha256": "4159148f76470fe67ac815df904f5112997625daebed6d7e4db120a330d1ef45"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_20/jitter_result.rds",
+        "source_RDS_sha256": "3f6e252f0fa02653b9c3ce6da0189e2421b95d246ba11aeb3341d25e72e7bf72",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "a31ad705b5d49ea492edaa645efcc554cf48d3dd8ba916c800dc4e03d927ec48",
+        "stored_bytes": 55189,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1054645/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_20/jittered_out_20.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956633",
+        "stored_size": "55189",
+        "seed": "20",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_20.par"
+      }
+    },
+    {
+      "source_job_key": "j9dccbc905a1",
+      "source_job_number": 22052,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 198,
+          "name": "jitter/job-022052/seed_21/final.par",
+          "bytes": 2956635,
+          "sha256": "ca8f0cedbabb0221c100f5afa808c069fb3961be9adfc6bba8aa9418c050a4d3"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 198,
+        "name": "jitter/job-022052/seed_21/final.par",
+        "bytes": 2956635,
+        "sha256": "ca8f0cedbabb0221c100f5afa808c069fb3961be9adfc6bba8aa9418c050a4d3"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022052/seed_21/plot-jittered_out_21.par.rep",
+          "sha256": "d922b53f7500dd9ebf6d354173f5e598925cdf3ab12d5b6e2dd0cc30697d86d9"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_21/jitter_result.rds",
+        "source_RDS_sha256": "2e4e87bd998006b3643452d986a667da855d8c2eafb11c5c8afe9a5f31027348",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "b6e07aefd6e435aece0d003533c49ec80885a50acb16e70f01970d651fdcf3e1",
+        "stored_bytes": 54925,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1036852/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_21/jittered_out_21.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956635",
+        "stored_size": "54925",
+        "seed": "21",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_21.par"
+      }
+    },
+    {
+      "source_job_key": "j95ed31a1e78",
+      "source_job_number": 22053,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 208,
+          "name": "jitter/job-022053/seed_22/final.par",
+          "bytes": 2956624,
+          "sha256": "21babbb67177f3e231fbf7bb16aa49f6e370d915cb147808e66cc0da174e468a"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 208,
+        "name": "jitter/job-022053/seed_22/final.par",
+        "bytes": 2956624,
+        "sha256": "21babbb67177f3e231fbf7bb16aa49f6e370d915cb147808e66cc0da174e468a"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022053/seed_22/plot-jittered_out_22.par.rep",
+          "sha256": "573b523a80aca9fecedd28b9d65faf169d862c7c727ebfa2fdd4c34a7e658fb9"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_22/jitter_result.rds",
+        "source_RDS_sha256": "a44850bacb17f72ba409ce9966af1aefd5f865ced8a587a053fab75b5e56b3a4",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "2434934116de6fdfbfd3fa7f4273c9de8fa48c184bbb0212551d6a2618664d5a",
+        "stored_bytes": 55146,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1071710/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_22/jittered_out_22.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956624",
+        "stored_size": "55146",
+        "seed": "22",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_22.par"
+      }
+    },
+    {
+      "source_job_key": "jdbff26a6acc",
+      "source_job_number": 22054,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 218,
+          "name": "jitter/job-022054/seed_23/final.par",
+          "bytes": 2956621,
+          "sha256": "9087f715c229ac71caf0c930fe61ff2f229f4c8f8115f186133a99a5a6ec731f"
+        }
+      ],
+      "REP": [
+        {
+          "name": "jitter/job-022054/seed_23/plot-08.par.rep",
+          "sha256": "8b2113215e24dcc62378ee2d4f234c542d08bae627bab4e32f1dfb2a3b9e6886"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_23/jitter_result.rds",
+        "source_RDS_sha256": "dda3fe9602850f347ff376e12e4059b75702115f02b456042962cce03a5268a7",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "8a86436a8cc783bb73658f25b7e90d09021807a35c4eef0dbf38ba9c2b04cdd0",
+        "stored_bytes": 54982,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1005185/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_23/08.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956621",
+        "stored_size": "54982",
+        "seed": "23",
+        "run_status": "model_run_failed",
+        "state_run_status": "model_run_failed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "FALSE",
+        "output_par": "08.par"
+      }
+    },
+    {
+      "source_job_key": "j408d52d7172",
+      "source_job_number": 22055,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 226,
+          "name": "jitter/job-022055/seed_24/final.par",
+          "bytes": 2956646,
+          "sha256": "caacf0c9826de99698816d07a7e287910c421ae8642e1974c4b3fc4cd2de6238"
+        }
+      ],
+      "REP": [
+        {
+          "name": "jitter/job-022055/seed_24/plot-07.par.rep",
+          "sha256": "b69931a2c925c353c685dd3507fa903edfe78c9131c68cb4c731e5e754a79c0c"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_24/jitter_result.rds",
+        "source_RDS_sha256": "09d6e81d067865f0bc191d0bbc78571fc6bc23964a422d7167cbb1ffe19de460",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "20782ef2ff2106da56c52356f0636c99a4dc06e832f7081933be0b265983585f",
+        "stored_bytes": 54986,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1089398/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_24/07.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956646",
+        "stored_size": "54986",
+        "seed": "24",
+        "run_status": "model_run_failed",
+        "state_run_status": "model_run_failed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "FALSE",
+        "output_par": "07.par"
+      }
+    },
+    {
+      "source_job_key": "j0d866a23a1c",
+      "source_job_number": 22056,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 234,
+          "name": "jitter/job-022056/seed_25/final.par",
+          "bytes": 2956639,
+          "sha256": "118dc8d247db4e4db61b288041c1630f3987354aa89c61076810a984ec6398ce"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 234,
+        "name": "jitter/job-022056/seed_25/final.par",
+        "bytes": 2956639,
+        "sha256": "118dc8d247db4e4db61b288041c1630f3987354aa89c61076810a984ec6398ce"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022056/seed_25/plot-jittered_out_25.par.rep",
+          "sha256": "4acef202bb6b0c34738515ffedfbbe8204a4a00fd3c3c3fee4e0f359320e4af5"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_25/jitter_result.rds",
+        "source_RDS_sha256": "451bf3b898c21dff8c4721d4ba751c643fdb9dee75b17ffc28754648ad4d34cb",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "18ea221ba4a9f5045a04bc9f370a72c533c780b4ad5facf3f134783346ef4385",
+        "stored_bytes": 54998,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1014329/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_25/jittered_out_25.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956639",
+        "stored_size": "54998",
+        "seed": "25",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_25.par"
+      }
+    },
+    {
+      "source_job_key": "j7cca0709c49",
+      "source_job_number": 22057,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 244,
+          "name": "jitter/job-022057/seed_26/final.par",
+          "bytes": 2956637,
+          "sha256": "45d48816ccb4f3229c4748900bb5aba8f534e6819465d1272db8b0407521fdd0"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 244,
+        "name": "jitter/job-022057/seed_26/final.par",
+        "bytes": 2956637,
+        "sha256": "45d48816ccb4f3229c4748900bb5aba8f534e6819465d1272db8b0407521fdd0"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022057/seed_26/plot-jittered_out_26.par.rep",
+          "sha256": "ffad18727c5e844ffa2eaa0eb6275300e8955cec1c9f9716d87c0d757bcf8636"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_26/jitter_result.rds",
+        "source_RDS_sha256": "ef6e0f5b07016af540ff51b2849f13851b05d836c824ef52bf2aabaa6f89a2b1",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "ce1d2ffc0d1de2474d4dcf973b2e8934213b3a7c1bdd118a533b0b90268182eb",
+        "stored_bytes": 55022,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1031309/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_26/jittered_out_26.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956637",
+        "stored_size": "55022",
+        "seed": "26",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_26.par"
+      }
+    },
+    {
+      "source_job_key": "ja94eff7d3d0",
+      "source_job_number": 22058,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 254,
+          "name": "jitter/job-022058/seed_27/final.par",
+          "bytes": 2956653,
+          "sha256": "79f417e6b4a7511f09dd81ca42ad2773b1f4d6c6c72bd54e7d4f0b8d4d28aed5"
+        }
+      ],
+      "REP": [
+        {
+          "name": "jitter/job-022058/seed_27/plot-07.par.rep",
+          "sha256": "fb47b7b1c0ff549e4595d6637b6a85702850fabfc3ee708743ddc36fc78e4e26"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_27/jitter_result.rds",
+        "source_RDS_sha256": "f22bc4f664eb5dfb26a3a4428f4fa330f1ef1b6d7b370c521fae5157313b227d",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "65a4df02cead095a05496423c3a83d607f96d70d712d7a7917b1c458bc012767",
+        "stored_bytes": 54945,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1061650/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_27/07.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956653",
+        "stored_size": "54945",
+        "seed": "27",
+        "run_status": "model_run_failed",
+        "state_run_status": "model_run_failed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "FALSE",
+        "output_par": "07.par"
+      }
+    },
+    {
+      "source_job_key": "jcdbd4ade82f",
+      "source_job_number": 22059,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 262,
+          "name": "jitter/job-022059/seed_28/final.par",
+          "bytes": 2956630,
+          "sha256": "473b5bfe9e1728042278ede34d8bd0f022cc7a9de990745da9f1ee8ffac4934e"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 262,
+        "name": "jitter/job-022059/seed_28/final.par",
+        "bytes": 2956630,
+        "sha256": "473b5bfe9e1728042278ede34d8bd0f022cc7a9de990745da9f1ee8ffac4934e"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022059/seed_28/plot-jittered_out_28.par.rep",
+          "sha256": "61261cee55e08fa55b89455955a7e409c2307d5a8c93c75262771438d0878241"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_28/jitter_result.rds",
+        "source_RDS_sha256": "6c4d96c30c9efda97cf01aaee6fd5902966ad770baf441041df0b6e49c947bbd",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "a591757db631155016b3153ca907c4bd462f5c50abd43d1918db0be9cc272352",
+        "stored_bytes": 55482,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1057231/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_28/jittered_out_28.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956630",
+        "stored_size": "55482",
+        "seed": "28",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_28.par"
+      }
+    },
+    {
+      "source_job_key": "je39ab406ae8",
+      "source_job_number": 22060,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 272,
+          "name": "jitter/job-022060/seed_29/final.par",
+          "bytes": 2956585,
+          "sha256": "ae235b01167414a69ce2d5397138992f05a07afddd89376b4f0d1d582c0338d4"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 272,
+        "name": "jitter/job-022060/seed_29/final.par",
+        "bytes": 2956585,
+        "sha256": "ae235b01167414a69ce2d5397138992f05a07afddd89376b4f0d1d582c0338d4"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022060/seed_29/plot-jittered_out_29.par.rep",
+          "sha256": "770819395045532dc4acb34b250550be03a782e31107cab4249528d295311b9f"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_29/jitter_result.rds",
+        "source_RDS_sha256": "e3af254e00b0934ff079194af395afc6417f06d3662ca3556fadee07117fcd90",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "50479624bb8a55e1b02f9f173056b1e1650507e6bc14a29dfd62f80f1833e8a7",
+        "stored_bytes": 55327,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1031400/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_29/jittered_out_29.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956585",
+        "stored_size": "55327",
+        "seed": "29",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_29.par"
+      }
+    },
+    {
+      "source_job_key": "j31761ccedda",
+      "source_job_number": 22061,
+      "archive_id": "rc-f18a761701edb5bba5e5f6444e4c90b3493dfc6b1bd08cf2714f68dc50639abb",
+      "kind": "lossless byte-retained RDS extraction",
+      "PAR_candidates": [
+        {
+          "ordinal": 282,
+          "name": "jitter/job-022061/seed_30/final.par",
+          "bytes": 2956634,
+          "sha256": "810bad3b24cd1e754b2c809bbee18b17b1cb9017e55126c4ede729c75fa69011"
+        }
+      ],
+      "terminal_par": {
+        "ordinal": 282,
+        "name": "jitter/job-022061/seed_30/final.par",
+        "bytes": 2956634,
+        "sha256": "810bad3b24cd1e754b2c809bbee18b17b1cb9017e55126c4ede729c75fa69011"
+      },
+      "REP": [
+        {
+          "name": "jitter/job-022061/seed_30/plot-jittered_out_30.par.rep",
+          "sha256": "e696d4981e184129eab46bf3b38b1b1352620dcde3fc79da27345d12d2be8edc"
+        }
+      ],
+      "provenance": {
+        "source_RDS_member": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_30/jitter_result.rds",
+        "source_RDS_sha256": "dfd5fd44b8a7adee1cccb4579299c75d763b5ffae79ac580474bb82a4722e3ba",
+        "artifact_selector": "artifacts/files/par/bytes",
+        "stored_sha256": "ce9805751d142f221ba57495f122f2cfb4263c8bedd1a31592e663cd8d4fdb4b",
+        "stored_bytes": 55300,
+        "operation": "lossless zlib decoding of byte-retained R memCompress raw-file artifact; no numeric PAR reconstruction"
+      },
+      "declared": {
+        "role": "par",
+        "name": "final.par",
+        "source": "/var/lib/condor/execute/dir_1005421/output/checks/jitter/S0.90-F2-tau2-fixed/jitter/jitter_seed_30/jittered_out_30.par",
+        "storage": "raw-file",
+        "compression": "gzip",
+        "size": "2956634",
+        "stored_size": "55300",
+        "seed": "30",
+        "run_status": "completed",
+        "state_run_status": "completed",
+        "mfcl_exit_code": "UNKNOWN",
+        "converged": "TRUE",
+        "output_par": "jittered_out_30.par"
+      }
+    }
+  ],
+  "source_byte_identity": {
+    "schema_version": 1,
+    "original_RDS_bytes_verified": 37,
+    "entries": [
+      {
+        "source_job_key": "jd01b3877e29",
+        "source_job_number": 22021,
+        "original_archive_id": "a-a5663f486560a55929553d6633b8510fd53d5f2d9807349ad493165c4dfee87a",
+        "source_RDS": {
+          "ordinal": 54,
+          "name": "./models/S0.90-F2-tau2-fixed/retro/peel_5/retro_info.rds",
+          "bytes": 1106584,
+          "sha256": "9026a59277b280d88e4da3f190c157b277b56b5e409923788eb908b96f976b4c"
+        },
+        "recovery_container_sha256": "38ce5dcfa16342ecf7d4a8a0de0e176add5918a3c2c583de9c7d9cf5523c18d4",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j81106751b25",
+        "source_job_number": 22022,
+        "original_archive_id": "a-d563202c0c6e8c2ee31346a9ec3beeecce6cab1c2b9edfb8f3deaaa29146ebc1",
+        "source_RDS": {
+          "ordinal": 21,
+          "name": "./models/S0.90-F2-tau2-fixed/retro/peel_7/retro_info.rds",
+          "bytes": 1067372,
+          "sha256": "f8aae7a7b8012fda223428b277849c4746356083c98295b17e466b3659dbd453"
+        },
+        "recovery_container_sha256": "38ce5dcfa16342ecf7d4a8a0de0e176add5918a3c2c583de9c7d9cf5523c18d4",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j1ea4437ac4e",
+        "source_job_number": 22023,
+        "original_archive_id": "a-11075fc8c6d275b8da1b6aa8cf19692dbe955115ffb0ecb57e68945b25537a4d",
+        "source_RDS": {
+          "ordinal": 25,
+          "name": "./models/S0.90-F2-tau2-fixed/retro/peel_1/retro_info.rds",
+          "bytes": 1181344,
+          "sha256": "72dfc397010523d173566c69e2ed9b45a8bd1f58ce44a72a54760c7a6066cfa8"
+        },
+        "recovery_container_sha256": "38ce5dcfa16342ecf7d4a8a0de0e176add5918a3c2c583de9c7d9cf5523c18d4",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j0a177792426",
+        "source_job_number": 22024,
+        "original_archive_id": "a-d2dd466e5d8e601afddc99bc98841bca5efe205989c45bd50b1b767ddc26cb98",
+        "source_RDS": {
+          "ordinal": 25,
+          "name": "./models/S0.90-F2-tau2-fixed/retro/peel_3/retro_info.rds",
+          "bytes": 1147660,
+          "sha256": "7555c11c9cfa95e0fc44ff507b0aa892e9d763ad6ac2db4ad36cc510d3c4bb45"
+        },
+        "recovery_container_sha256": "38ce5dcfa16342ecf7d4a8a0de0e176add5918a3c2c583de9c7d9cf5523c18d4",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "jb1ab47b9aa2",
+        "source_job_number": 22025,
+        "original_archive_id": "a-64b84c039df8979ec59ded2562f65f1b6bedab0358f225d1ac3f3e9ff234822b",
+        "source_RDS": {
+          "ordinal": 15,
+          "name": "./models/S0.90-F2-tau2-fixed/retro/peel_4/retro_info.rds",
+          "bytes": 1126528,
+          "sha256": "f1c5d104d2d571edbe69047e9a1d1b2fe5729fb1c77871a739da8228e6a95511"
+        },
+        "recovery_container_sha256": "38ce5dcfa16342ecf7d4a8a0de0e176add5918a3c2c583de9c7d9cf5523c18d4",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j5d51103e71a",
+        "source_job_number": 22026,
+        "original_archive_id": "a-18fd132ad39e9daf0d08a4f587c000e2f942f8cc44673a99911ed6471ea045be",
+        "source_RDS": {
+          "ordinal": 55,
+          "name": "./models/S0.90-F2-tau2-fixed/retro/peel_2/retro_info.rds",
+          "bytes": 1164368,
+          "sha256": "14cd2b986fb9363543f17cc7ac8fe5d7d2003b3e384b8528c16474b5d813a573"
+        },
+        "recovery_container_sha256": "38ce5dcfa16342ecf7d4a8a0de0e176add5918a3c2c583de9c7d9cf5523c18d4",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "je163d4dbd40",
+        "source_job_number": 22027,
+        "original_archive_id": "a-44ae0bc77f398a09e46718fe03c98cc42a342926dd235df5b7b44683efebdc4c",
+        "source_RDS": {
+          "ordinal": 47,
+          "name": "./models/S0.90-F2-tau2-fixed/retro/peel_6/retro_info.rds",
+          "bytes": 1088296,
+          "sha256": "d7113af88a4705a248abaa9ae0d9d7b527fe0bff2b65013279fea479ece69da2"
+        },
+        "recovery_container_sha256": "38ce5dcfa16342ecf7d4a8a0de0e176add5918a3c2c583de9c7d9cf5523c18d4",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j0802e86c2c4",
+        "source_job_number": 22032,
+        "original_archive_id": "a-3e2a36122019edd8bf044f75066f9483ee08641eef123c2f119a5379d7786d49",
+        "source_RDS": {
+          "ordinal": 25,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_14/jitter_result.rds",
+          "bytes": 1281864,
+          "sha256": "6d169a4d05cb753a07f306fda2215e6292a6277422da121fc096e7973087d78c"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j4cc538d0d39",
+        "source_job_number": 22033,
+        "original_archive_id": "a-a75662bffcdb6a5e49219d242bde4a3f4c734f4fe8a45917c673816a286cc92e",
+        "source_RDS": {
+          "ordinal": 72,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_1/jitter_result.rds",
+          "bytes": 1282172,
+          "sha256": "30a5c4b7b3193a89caf797a88ac33fed88a8c26cf2d72c6d29b8770378a8fffa"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "je0bdb17031b",
+        "source_job_number": 22034,
+        "original_archive_id": "a-3a87f95aec653f65ccad1b9603da1984eac8a7b642bcd74a26980be05ac47f5d",
+        "source_RDS": {
+          "ordinal": 64,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_5/jitter_result.rds",
+          "bytes": 1282144,
+          "sha256": "53f5bb7c7358fec305e3d6a3a01296555da5ea70557dfaaf024f72f537b7bd1f"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j31e9799d11c",
+        "source_job_number": 22035,
+        "original_archive_id": "a-6f69d1fdaedbf81e261ff865f87600556838c551607bae3f50ab820f204e8707",
+        "source_RDS": {
+          "ordinal": 33,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_15/jitter_result.rds",
+          "bytes": 1283568,
+          "sha256": "dddc13b3039a42a109542b8a83fd32dd3f383e4c969b2529ced949ff8f0f95a3"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j9160f172127",
+        "source_job_number": 22036,
+        "original_archive_id": "a-2c5bd7bd1ca8751e0aea5bed04c21f45b3c5e31a13c9e682bb6f3fba5dc2c7fa",
+        "source_RDS": {
+          "ordinal": 38,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_2/jitter_result.rds",
+          "bytes": 1283548,
+          "sha256": "1469094ceccdf3bca8b6bcf0c492caca70aae5cc6e43280c02524ab62c8ae0aa"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "jebc91f6675e",
+        "source_job_number": 22037,
+        "original_archive_id": "a-0a66b6bb4f167bc4fa2174bd636d8f18f0cb3f21d6c329a5cb8e3240937b78fb",
+        "source_RDS": {
+          "ordinal": 84,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_6/jitter_result.rds",
+          "bytes": 1282820,
+          "sha256": "35cebc9328618063239a3919e4e765bab44fd046a70aea156533c98dfd07be31"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j919620894ec",
+        "source_job_number": 22038,
+        "original_archive_id": "a-6365c3e33644864fb93b72b99b158ec5896487485b6e97b897e47d8df3f0e2db",
+        "source_RDS": {
+          "ordinal": 64,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_10/jitter_result.rds",
+          "bytes": 1282960,
+          "sha256": "4bc824603266affc2818e21c54bdd7d55692c4084428e5f4d8adc91a16b105a7"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "ja03a20c4bf8",
+        "source_job_number": 22039,
+        "original_archive_id": "a-9e1568f8b7c3fa76e4fc335af50bba9ffef127ae9b945908a642319352441922",
+        "source_RDS": {
+          "ordinal": 90,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_3/jitter_result.rds",
+          "bytes": 1282184,
+          "sha256": "d8d06056e24948a1d1a79864e593d232343feaa2f4a1d21a7ac056ee90e7e77c"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j0fdfd84d156",
+        "source_job_number": 22040,
+        "original_archive_id": "a-9947cb380c1874f896486f8a21412f92931754689723f0a0224765cf7790fab5",
+        "source_RDS": {
+          "ordinal": 85,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_16/jitter_result.rds",
+          "bytes": 1283848,
+          "sha256": "2958c11f4773a215d27d059bc8ed8c6dc144cc56549f116ba5bc6794979afcba"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j7c54c6294a9",
+        "source_job_number": 22041,
+        "original_archive_id": "a-b1f99ffdd36af13ab048883e931613ffea8c0f976a01f97e005f60957c0d9cc6",
+        "source_RDS": {
+          "ordinal": 27,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_11/jitter_result.rds",
+          "bytes": 1282384,
+          "sha256": "300dac305ae015845c1631e225528b794bd76c1ec9588aaee1cbeb671fe9c81f"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "jb77a03b5c9b",
+        "source_job_number": 22042,
+        "original_archive_id": "a-250ba767e7759e6dc8b7c0bb45dc852ecc2420d40bbdd39ea75a770a2d38452c",
+        "source_RDS": {
+          "ordinal": 92,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_7/jitter_result.rds",
+          "bytes": 1282828,
+          "sha256": "2a2aed05b82489f983fa77c7820e2ba1977b946d01a09f2e6647ae254e68d44a"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j55a0fea8dd8",
+        "source_job_number": 22043,
+        "original_archive_id": "a-18a53815e795f86d435c232b93f7aa86b4cd5d1d46cc4719817df18fd460a7fa",
+        "source_RDS": {
+          "ordinal": 23,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_4/jitter_result.rds",
+          "bytes": 1216228,
+          "sha256": "6dedeb9eec80545a4d82007918c677b7b5bfa696b927c743ccc26d1d4f6cfdd7"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j4c5682f87ec",
+        "source_job_number": 22044,
+        "original_archive_id": "a-5137ea49b39372acd7aa6377033a9cf23ac1f32e9cd67630b8210f63b2d18194",
+        "source_RDS": {
+          "ordinal": 90,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_12/jitter_result.rds",
+          "bytes": 1282888,
+          "sha256": "68f7008c1926205e0d83074bdb499ff5fe6bb7ccf11ca376650cc827869e0207"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j81a772bb502",
+        "source_job_number": 22045,
+        "original_archive_id": "a-e3ab19326b3e3308b847b9c83434a39869a7df71e904897b08b51173cd19d5d4",
+        "source_RDS": {
+          "ordinal": 31,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_9/jitter_result.rds",
+          "bytes": 1283828,
+          "sha256": "1bd1ccd3850eece34dc56756ad6c197e71cd6bebaeee753db0758c6ee67c344d"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j20b04a13c3b",
+        "source_job_number": 22046,
+        "original_archive_id": "a-4af5cfce496ad3d1cdd502f77e29de69b0c7e3f72705f293ddbba9e04c77082d",
+        "source_RDS": {
+          "ordinal": 24,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_8/jitter_result.rds",
+          "bytes": 1283756,
+          "sha256": "4a5926d3ad75648b182ad689500c4863bdc37279aa28a10db878e8b41535050d"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "jf64b1df8eb6",
+        "source_job_number": 22047,
+        "original_archive_id": "a-9c61d84bfb56d8ec1d7386dd9c85dd3f6764cb2e534c8dfb54bba8f10388ebee",
+        "source_RDS": {
+          "ordinal": 64,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_13/jitter_result.rds",
+          "bytes": 1283752,
+          "sha256": "e5fbbde6068fa5d66f4daf8722626c9afbcc613f4813bfeec1bb08c220ea9ed1"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "jfba8404f66d",
+        "source_job_number": 22048,
+        "original_archive_id": "a-5e0cb5934b7c943413cc27f4cfa12be86fed64e5df2611aa6f33a5e09ec6b01e",
+        "source_RDS": {
+          "ordinal": 86,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_18/jitter_result.rds",
+          "bytes": 1283852,
+          "sha256": "767ef5f1602a4982a7b108aa9dd02ae37e40aa88093ee75e90d193f17e666ee8"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j4badc6996e5",
+        "source_job_number": 22049,
+        "original_archive_id": "a-07db68b87269d6b01e945860ceb3a6edd608d282df8c752bc03c6d3abc1dfcb0",
+        "source_RDS": {
+          "ordinal": 75,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_17/jitter_result.rds",
+          "bytes": 1282952,
+          "sha256": "c5c9e7aed099082b29a77c53ef1715d44813e191ab654ec461336e994f6b7f96"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j8d1fae1798f",
+        "source_job_number": 22050,
+        "original_archive_id": "a-ac787c8a10441e8569e68f4b7ac95e00e709a437eadc628962c5f0cd496811ea",
+        "source_RDS": {
+          "ordinal": 66,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_19/jitter_result.rds",
+          "bytes": 1283244,
+          "sha256": "5750e2d1c3ea9f3d899db35407be16a37e574ea4d91f4dfdf9e788a4c2503a93"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j8ff5ae81ea5",
+        "source_job_number": 22051,
+        "original_archive_id": "a-3c46a52286410b5086c4c5302579aede02750b951edf96dd7fdbcda89d544205",
+        "source_RDS": {
+          "ordinal": 67,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_20/jitter_result.rds",
+          "bytes": 1283552,
+          "sha256": "3f6e252f0fa02653b9c3ce6da0189e2421b95d246ba11aeb3341d25e72e7bf72"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j9dccbc905a1",
+        "source_job_number": 22052,
+        "original_archive_id": "a-b8c7ca3760c7c175f4cfea810c6757bce08b62e240df0eb00436d80d46c96fd1",
+        "source_RDS": {
+          "ordinal": 17,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_21/jitter_result.rds",
+          "bytes": 1281776,
+          "sha256": "2e4e87bd998006b3643452d986a667da855d8c2eafb11c5c8afe9a5f31027348"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j95ed31a1e78",
+        "source_job_number": 22053,
+        "original_archive_id": "a-9b657eb6ef5795fafeb3663b33bd139def15369231918156eed8b5b75c416ae7",
+        "source_RDS": {
+          "ordinal": 80,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_22/jitter_result.rds",
+          "bytes": 1282592,
+          "sha256": "a44850bacb17f72ba409ce9966af1aefd5f865ced8a587a053fab75b5e56b3a4"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "jdbff26a6acc",
+        "source_job_number": 22054,
+        "original_archive_id": "a-182f42b35c18ee7f33c888ba12096ca5fe1f2b769f7c80b0b78c28d28bf86e58",
+        "source_RDS": {
+          "ordinal": 79,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_23/jitter_result.rds",
+          "bytes": 1215648,
+          "sha256": "dda3fe9602850f347ff376e12e4059b75702115f02b456042962cce03a5268a7"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j408d52d7172",
+        "source_job_number": 22055,
+        "original_archive_id": "a-a9607d1c9958a1d6a3e0aa00ba5cc00fef19ca633882bcc079b20fd3fd060cbe",
+        "source_RDS": {
+          "ordinal": 84,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_24/jitter_result.rds",
+          "bytes": 1166416,
+          "sha256": "09d6e81d067865f0bc191d0bbc78571fc6bc23964a422d7167cbb1ffe19de460"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j0d866a23a1c",
+        "source_job_number": 22056,
+        "original_archive_id": "a-deafeff9452106e569b9a789c731033012f2eec8ee13a188709ddc4414a1d9e3",
+        "source_RDS": {
+          "ordinal": 54,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_25/jitter_result.rds",
+          "bytes": 1282320,
+          "sha256": "451bf3b898c21dff8c4721d4ba751c643fdb9dee75b17ffc28754648ad4d34cb"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j7cca0709c49",
+        "source_job_number": 22057,
+        "original_archive_id": "a-726283d45dad99802b4c7f1dcc4777f4acf15414c62e00db94433a482d3ca304",
+        "source_RDS": {
+          "ordinal": 92,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_26/jitter_result.rds",
+          "bytes": 1282116,
+          "sha256": "ef6e0f5b07016af540ff51b2849f13851b05d836c824ef52bf2aabaa6f89a2b1"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "ja94eff7d3d0",
+        "source_job_number": 22058,
+        "original_archive_id": "a-23cfc3e8d9aa85687eb612f2b22a676fd5aaa6b464abd67f0ae6f026c0d6112e",
+        "source_RDS": {
+          "ordinal": 89,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_27/jitter_result.rds",
+          "bytes": 1168624,
+          "sha256": "f22bc4f664eb5dfb26a3a4428f4fa330f1ef1b6d7b370c521fae5157313b227d"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "jcdbd4ade82f",
+        "source_job_number": 22059,
+        "original_archive_id": "a-a7fae1765656e21ef6511de8552d096bc71f52765c38132a86d766a8d8824843",
+        "source_RDS": {
+          "ordinal": 15,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_28/jitter_result.rds",
+          "bytes": 1283396,
+          "sha256": "6c4d96c30c9efda97cf01aaee6fd5902966ad770baf441041df0b6e49c947bbd"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "je39ab406ae8",
+        "source_job_number": 22060,
+        "original_archive_id": "a-3750d0a3bd05962296342792eb5ac2b79e7153425c02da3b4dc9e88f09ca8f75",
+        "source_RDS": {
+          "ordinal": 91,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_29/jitter_result.rds",
+          "bytes": 1283324,
+          "sha256": "e3af254e00b0934ff079194af395afc6417f06d3662ca3556fadee07117fcd90"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      },
+      {
+        "source_job_key": "j31761ccedda",
+        "source_job_number": 22061,
+        "original_archive_id": "a-ad7fe4ad168e90d21dc8cedef360e0f59c432df5043e69525b171b2f72b7a440",
+        "source_RDS": {
+          "ordinal": 65,
+          "name": "./models/S0.90-F2-tau2-fixed/jitter/jitter_seed_30/jitter_result.rds",
+          "bytes": 1284124,
+          "sha256": "dfd5fd44b8a7adee1cccb4579299c75d763b5ffae79ac580474bb82a4722e3ba"
+        },
+        "recovery_container_sha256": "6231154d57f5cff4ad177755dd62f4f93c9fb834b9eaad2ac5d481d2522fed06",
+        "native_operation": "lossless original raw-vector decoding; native file bytes hashed independently",
+        "credential_scan": "no_pattern_matches"
+      }
+    ]
+  }
+}

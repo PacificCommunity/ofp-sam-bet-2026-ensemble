@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "kind": "static runtime byte-identity receipt",
+  "image": {
+    "public_registry_manifest_sha256": "c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360",
+    "cached_config_image_id": "sha256:898925450ab7ec3f99cb9d8427cc37d24097cc2fe9f0468d74f70aaf35daec3a",
+    "os": "linux",
+    "architecture": "amd64",
+    "docker_save_gzip": {
+      "bytes": 1831830739,
+      "sha256": "80577e91a76c1776a4d2509350c9251d7e3eceb8cbb550a33b652bf7df6d52f4",
+      "mode": 384
+    },
+    "docker_save_tar": {
+      "bytes": 4974472704,
+      "sha256": "aab1c8d1c5d1eba8d414029dc1b78c5ad91281b5eb5737783db523dfa72a321a"
+    },
+    "logical_layers": 45,
+    "distinct_layer_blobs": 43,
+    "all_layer_diffIDs_match_pinned_config": true
+  },
+  "engine_candidate": {
+    "name": "home/mfcl/mfclo64",
+    "layer_sha256": "ff7d3c33a4d22805043940900763864e899d784a44b8e603c58b8671028c91d8",
+    "ordinal": 2,
+    "bytes": 34549392,
+    "sha256": "f5bc1e232a86e51f920bce7271d8e0930d0b160e4d18dc46de44078f0fa24cd0",
+    "image_member_mode": 493,
+    "transport_member_mode": 384,
+    "identity_limit": "static pinned-image candidate; original model-executed engine SHA remains UNKNOWN",
+    "separate_preserved_source_engine_sha256": "8995f72019869863c1d1c0b4f44fc6a6268d1f79031f5bc79dc354ee10f0a63e"
+  },
+  "primary_packages": [
+    {
+      "url": "https://registry.npmjs.org/@github/copilot/-/copilot-1.0.30.tgz",
+      "bytes": 38047763,
+      "sha256": "6a3801cf1e4168be6f35df50173be7ef0330800962bdeb2a90a11c016cb8a9b2",
+      "sha512": "25864d30cea1b5e004ead20c6c7a1b463a40697cefa9e7a09578069430abdbaad1ab72ba879ba5d86376eeace1301696cae8d440de34d8a2ca76b8433ea70bec",
+      "registry_metadata": {
+        "url": "https://registry.npmjs.org/@github%2fcopilot/1.0.30",
+        "sha256": "7d9937ab560ae513326e4879b7e014b29dea2ce0c2b80d7700edbfa6394ffed2",
+        "sha1": "3ef4ba04e1debc49b2e318e7f75c461a0cf596bc",
+        "distribution_SHA1_and_SHA512_verified": true
+      }
+    },
+    {
+      "url": "https://cran.r-project.org/src/contrib/openssl_2.4.2.tar.gz",
+      "bytes": 1177207,
+      "sha256": "1fc030ad0a008472eac7f086666a7623bdbe6d27c5fdb07b5510f56545d2f4e7",
+      "sha512": "3c96fd3adb8455a589b36784185ccac10a4121c5c79dc5d59b9ed38b3d47928442e504f3d08e5f16fc06d6133339a582da40d91e53eccbecd5b39d4ff1c32b49"
+    }
+  ],
+  "exact_public_byte_matches": [
+    {
+      "image_member": {
+        "layer_sha256": "7179bbfe77f0d59671a23ad089b183a993e634180350bff0343ba4aa9caed6a2",
+        "ordinal": 4148,
+        "name": "usr/lib/rstudio-server/bin/copilot-language-server-js/node_modules/@github/copilot/sdk/index.cjs",
+        "bytes": 11692872,
+        "sha256": "6896b350fc7610acef9b84e4cbd207321d6cc6e2441d8e69d41994b435b2e910"
+      },
+      "retained_block": {
+        "offset": 1724960,
+        "bytes": 1703,
+        "sha256": "7f7f8c83ded111336dca167452776b8b6c35e4223882103df5edeb55875a2d41"
+      },
+      "primary_matches": [
+        {
+          "package_url": "https://registry.npmjs.org/@github/copilot/-/copilot-1.0.30.tgz",
+          "package_sha256": "6a3801cf1e4168be6f35df50173be7ef0330800962bdeb2a90a11c016cb8a9b2",
+          "member": {
+            "name": "package/app.js",
+            "ordinal": 15,
+            "bytes": 14178549,
+            "sha256": "2ae1ce15c2e13bcaae19b1c779cd5fa0c21cdbad3df04abdc0caf3ae9cb5d968"
+          },
+          "block": {
+            "offset": 1317083,
+            "bytes": 1703,
+            "sha256": "7f7f8c83ded111336dca167452776b8b6c35e4223882103df5edeb55875a2d41"
+          },
+          "exact_original_block_bytes_equal": true,
+          "entire_file_bytes_equal": false
+        },
+        {
+          "package_url": "https://registry.npmjs.org/@github/copilot/-/copilot-1.0.30.tgz",
+          "package_sha256": "6a3801cf1e4168be6f35df50173be7ef0330800962bdeb2a90a11c016cb8a9b2",
+          "member": {
+            "name": "package/sdk/index.js",
+            "ordinal": 29,
+            "bytes": 9494586,
+            "sha256": "bdf1b0ab5b4352d0024f489156fa54cfdca51b479e3ec3dacfe6729fdc08d63b"
+          },
+          "block": {
+            "offset": 1271109,
+            "bytes": 1703,
+            "sha256": "7f7f8c83ded111336dca167452776b8b6c35e4223882103df5edeb55875a2d41"
+          },
+          "exact_original_block_bytes_equal": true,
+          "entire_file_bytes_equal": false
+        }
+      ],
+      "equality_limit": "retained block bytes equal; entire image and public SDK file hashes differ"
+    },
+    {
+      "image_member": {
+        "layer_sha256": "7179bbfe77f0d59671a23ad089b183a993e634180350bff0343ba4aa9caed6a2",
+        "ordinal": 4150,
+        "name": "usr/lib/rstudio-server/bin/copilot-language-server-js/node_modules/@github/copilot/sdk/index.js",
+        "bytes": 9496194,
+        "sha256": "e9cc626999fddad26804696157977b7964531531e3a8b5fb72ba64d732e22a12"
+      },
+      "retained_block": {
+        "offset": 1271109,
+        "bytes": 1703,
+        "sha256": "7f7f8c83ded111336dca167452776b8b6c35e4223882103df5edeb55875a2d41"
+      },
+      "primary_matches": [
+        {
+          "package_url": "https://registry.npmjs.org/@github/copilot/-/copilot-1.0.30.tgz",
+          "package_sha256": "6a3801cf1e4168be6f35df50173be7ef0330800962bdeb2a90a11c016cb8a9b2",
+          "member": {
+            "name": "package/app.js",
+            "ordinal": 15,
+            "bytes": 14178549,
+            "sha256": "2ae1ce15c2e13bcaae19b1c779cd5fa0c21cdbad3df04abdc0caf3ae9cb5d968"
+          },
+          "block": {
+            "offset": 1317083,
+            "bytes": 1703,
+            "sha256": "7f7f8c83ded111336dca167452776b8b6c35e4223882103df5edeb55875a2d41"
+          },
+          "exact_original_block_bytes_equal": true,
+          "entire_file_bytes_equal": false
+        },
+        {
+          "package_url": "https://registry.npmjs.org/@github/copilot/-/copilot-1.0.30.tgz",
+          "package_sha256": "6a3801cf1e4168be6f35df50173be7ef0330800962bdeb2a90a11c016cb8a9b2",
+          "member": {
+            "name": "package/sdk/index.js",
+            "ordinal": 29,
+            "bytes": 9494586,
+            "sha256": "bdf1b0ab5b4352d0024f489156fa54cfdca51b479e3ec3dacfe6729fdc08d63b"
+          },
+          "block": {
+            "offset": 1271109,
+            "bytes": 1703,
+            "sha256": "7f7f8c83ded111336dca167452776b8b6c35e4223882103df5edeb55875a2d41"
+          },
+          "exact_original_block_bytes_equal": true,
+          "entire_file_bytes_equal": false
+        }
+      ],
+      "equality_limit": "retained block bytes equal; entire image and public SDK file hashes differ"
+    },
+    {
+      "image_member": {
+        "layer_sha256": "ca2a410f71bf834abdc24bae6d049b66dea50b7f5eea56beb856c69bcfda43ea",
+        "ordinal": 3150,
+        "name": "usr/local/lib/R/site-library/openssl/doc/keys.html",
+        "bytes": 646788,
+        "sha256": "37d9e71472c4f1e4a2f315537cf81f84b169d8e55461d0de2e03c79079e0cbae"
+      },
+      "retained_block": {
+        "offset": 642734,
+        "bytes": 240,
+        "sha256": "43dc46d315a3310e696ed8dcc39902098edb8e5b95933a96a2b67f0ba3537516"
+      },
+      "primary_matches": [
+        {
+          "package_url": "https://cran.r-project.org/src/contrib/openssl_2.4.2.tar.gz",
+          "package_sha256": "1fc030ad0a008472eac7f086666a7623bdbe6d27c5fdb07b5510f56545d2f4e7",
+          "member": {
+            "name": "openssl/inst/doc/keys.html",
+            "ordinal": 200,
+            "bytes": 646788,
+            "sha256": "37d9e71472c4f1e4a2f315537cf81f84b169d8e55461d0de2e03c79079e0cbae"
+          },
+          "block": {
+            "offset": 642734,
+            "bytes": 240,
+            "sha256": "43dc46d315a3310e696ed8dcc39902098edb8e5b95933a96a2b67f0ba3537516"
+          },
+          "exact_original_block_bytes_equal": true,
+          "entire_file_bytes_equal": true
+        }
+      ],
+      "equality_limit": "entire file and retained block equal"
+    }
+  ],
+  "GnuTLS_fixed_selftest_byte_matches": {
+    "primary_source": {
+      "source_url": "https://gitlab.com/gnutls/gnutls/-/raw/3.8.3/lib/crypto-selftests-pk.c",
+      "bytes": 37223,
+      "sha256": "0199a5b05732d825e235001455afa1d54178d8508da1fd2e0eb8a5ef271405b8"
+    },
+    "image_member": {
+      "name": "usr/lib/x86_64-linux-gnu/libgnutls.so.30.37.1",
+      "bytes": 2065824,
+      "sha256": "b7ae1a5a5702267e1612599335a5ece68093be99c13b394d55f9a782c390413e"
+    },
+    "matches": [
+      {
+        "image_member_offset": 1637184,
+        "public_source_offset": 10440,
+        "bytes": 201,
+        "sha256": "c72070fc1ffb2df729650b949157c85ec03d8ec9743ba7956c03e21d385bce4e",
+        "exact_retained_string_bytes_equal": true
+      },
+      {
+        "image_member_offset": 1637408,
+        "public_source_offset": 10192,
+        "bytes": 156,
+        "sha256": "3de5d1d9ca9af8e24d29bab925c3d500c2cdd11a06c4a2c6a6b336e73bb3ad56",
+        "exact_retained_string_bytes_equal": true
+      },
+      {
+        "image_member_offset": 1637568,
+        "public_source_offset": 9952,
+        "bytes": 152,
+        "sha256": "b8369cc647a1e1e8f8e420b6b8580c36223f89b0f8e70281732d028aebf15fac",
+        "exact_retained_string_bytes_equal": true
+      },
+      {
+        "image_member_offset": 1637728,
+        "public_source_offset": 8861,
+        "bytes": 354,
+        "sha256": "f8766749b0c6f9b5661364568226af0ba7ae8d87c0073df24e440de4417521cd",
+        "exact_retained_string_bytes_equal": true
+      },
+      {
+        "image_member_offset": 1638112,
+        "public_source_offset": 7981,
+        "bytes": 282,
+        "sha256": "293216817f0d585f0b54f225582f59e7b2e2a795b5f8002e2d71c5e3d49ce9b0",
+        "exact_retained_string_bytes_equal": true
+      },
+      {
+        "image_member_offset": 1638400,
+        "public_source_offset": 6052,
+        "bytes": 227,
+        "sha256": "d653005e4d23cf91e3572fe8148ab6db2e474924d9711838521d3ba352b193f5",
+        "exact_retained_string_bytes_equal": true
+      },
+      {
+        "image_member_offset": 1638656,
+        "public_source_offset": 7350,
+        "bytes": 202,
+        "sha256": "a0b9679665e29ac220dfb0b366317e1b9dd5fe31e9def8b2e511669a041389ae",
+        "exact_retained_string_bytes_equal": true
+      },
+      {
+        "image_member_offset": 1638880,
+        "public_source_offset": 6774,
+        "bytes": 190,
+        "sha256": "934b3e9bfd9936c5e30c7f0ed7d36a05e2044f755c0aa433e1d6bef6a68d1391",
+        "exact_retained_string_bytes_equal": true
+      },
+      {
+        "image_member_offset": 1639072,
+        "public_source_offset": 4352,
+        "bytes": 1212,
+        "sha256": "80ec06e06b06635bcad5c71b0e9e7a3516c02133c682a2369b09599addb8d7f3",
+        "exact_retained_string_bytes_equal": true
+      },
+      {
+        "image_member_offset": 1640288,
+        "public_source_offset": 1335,
+        "bytes": 1675,
+        "sha256": "f4b1de2f94f1df2d588ff6c18290e0f7f5091267b9ef0da8433c622bad3d127a",
+        "exact_retained_string_bytes_equal": true
+      }
+    ]
+  },
+  "limits": [
+    "Byte equality concerns retained static source bytes; no key values are shown or used.",
+    "Copilot retained blocks match public package bytes; full SDK member hashes differ.",
+    "Opaque nested packages are retained and scanned as stored bytes; the static scan does not certify absence of unknown secrets.",
+    "Static archive verification does not validate a new scientific fit."
+  ],
+  "observed_scan_review": {
+    "raw_matches": 300,
+    "distinct_leaf_matches": 75,
+    "observed_unresolved": 0,
+    "scope": "bounded stored-byte and primary-source contextual review; unknown secret absence not certified"
+  }
+}

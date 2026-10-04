@@ -1,0 +1,974 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "family": "sensitivity",
+      "published_key": "tau-1.8",
+      "source_job_number": 22179,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "j0f02d643b0b",
+        "source_number": 22179,
+        "source_task_code": "BET-2026-sensitivity-tau2",
+        "source_label": null,
+        "id": "source_kflow_j0f02d643b0b",
+        "number": 11159,
+        "task_code": "source_kflow_BET-2026-sensitivity-tau2",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-sensitivity",
+        "branch": "main",
+        "git_commit_sha": "63267b676538c601a19f60a38cf2a179a30e4f20",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/BET-2026-sensitivity-tau2/job-022179"
+      },
+      "archive_id": "a-238d1a11a01b29253b3578b1d03cd7475f6ed74dcb60a12a49fa879d363ae2d4",
+      "PAR": [
+        {
+          "ordinal": 67,
+          "name": "./outputs/models/tau-1.8/final.par",
+          "bytes": 2957172,
+          "sha256": "0d7929f1d846e08f44fbcc0fba6da3df3c29b71c08166b3efea7b89cf37df8f1"
+        },
+        {
+          "ordinal": 107,
+          "name": "./outputs/models/tau-1.8/11.par",
+          "bytes": 2957172,
+          "sha256": "0d7929f1d846e08f44fbcc0fba6da3df3c29b71c08166b3efea7b89cf37df8f1"
+        }
+      ],
+      "REP": [
+        {
+          "ordinal": 47,
+          "name": "./outputs/models/tau-1.8/plot-11.par.rep",
+          "bytes": 2847309,
+          "sha256": "e64ef841f3d663ceb59894aaeab971296ec93dcf0f9f1d66e42ff260ed37bf11"
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 104,
+          "name": "./outputs/models/tau-1.8/doitall.sh",
+          "sha256": "408e3254b0a82c6e3935c36994bc718c6ce71f0e1e4dc5940847507d9c86adc6"
+        }
+      ],
+      "verified_identity": "published final PAR and REP SHA-256 both match exact freshly inventoried regular source archive members"
+    },
+    {
+      "family": "sensitivity",
+      "published_key": "steepness-0.95",
+      "source_job_number": 22180,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "j51a202517c5",
+        "source_number": 22180,
+        "source_task_code": "BET-2026-sensitivity-tau2",
+        "source_label": null,
+        "id": "source_kflow_j51a202517c5",
+        "number": 11160,
+        "task_code": "source_kflow_BET-2026-sensitivity-tau2",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-sensitivity",
+        "branch": "main",
+        "git_commit_sha": "63267b676538c601a19f60a38cf2a179a30e4f20",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/BET-2026-sensitivity-tau2/job-022180"
+      },
+      "archive_id": "a-e344e302291a68758598f5cdde3671bac175df7485d606f23f75882258459c6a",
+      "PAR": [
+        {
+          "ordinal": 91,
+          "name": "./outputs/models/steepness-0.95/11.par",
+          "bytes": 2956632,
+          "sha256": "a50577dddfdbc924147785d39b5c8f7e9b8fc8c1da6f999a475da9f521086206"
+        },
+        {
+          "ordinal": 100,
+          "name": "./outputs/models/steepness-0.95/final.par",
+          "bytes": 2956632,
+          "sha256": "a50577dddfdbc924147785d39b5c8f7e9b8fc8c1da6f999a475da9f521086206"
+        }
+      ],
+      "REP": [
+        {
+          "ordinal": 78,
+          "name": "./outputs/models/steepness-0.95/plot-11.par.rep",
+          "bytes": 2849394,
+          "sha256": "31dface4d834611e9829dff337f32e44ece2e9e30b7db2e66ad681557a07592f"
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 57,
+          "name": "./outputs/models/steepness-0.95/doitall.sh",
+          "sha256": "408e3254b0a82c6e3935c36994bc718c6ce71f0e1e4dc5940847507d9c86adc6"
+        }
+      ],
+      "verified_identity": "published final PAR and REP SHA-256 both match exact freshly inventoried regular source archive members"
+    },
+    {
+      "family": "sensitivity",
+      "published_key": "tau-1.006738",
+      "source_job_number": 22181,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "je2e33473b07",
+        "source_number": 22181,
+        "source_task_code": "BET-2026-sensitivity-tau2",
+        "source_label": null,
+        "id": "source_kflow_je2e33473b07",
+        "number": 11161,
+        "task_code": "source_kflow_BET-2026-sensitivity-tau2",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-sensitivity",
+        "branch": "main",
+        "git_commit_sha": "63267b676538c601a19f60a38cf2a179a30e4f20",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/BET-2026-sensitivity-tau2/job-022181"
+      },
+      "archive_id": "a-3d14e5d8a57e064e4b79d0661157bb87ee6ee501a8fbea28bd8ae343e5f2fa2b",
+      "PAR": [
+        {
+          "ordinal": 13,
+          "name": "./outputs/models/tau-1.006738/final.par",
+          "bytes": 2957142,
+          "sha256": "2499cc3b9609cf9d1533f6640d1118fddfd40e0fff712efe312c3d18d6284336"
+        },
+        {
+          "ordinal": 28,
+          "name": "./outputs/models/tau-1.006738/11.par",
+          "bytes": 2957142,
+          "sha256": "2499cc3b9609cf9d1533f6640d1118fddfd40e0fff712efe312c3d18d6284336"
+        }
+      ],
+      "REP": [
+        {
+          "ordinal": 108,
+          "name": "./outputs/models/tau-1.006738/plot-11.par.rep",
+          "bytes": 2854235,
+          "sha256": "c3823dfb2f08435296fc8f6dc8503be132c05f858152dae778f6ba5a2500d4ac"
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 87,
+          "name": "./outputs/models/tau-1.006738/doitall.sh",
+          "sha256": "408e3254b0a82c6e3935c36994bc718c6ce71f0e1e4dc5940847507d9c86adc6"
+        }
+      ],
+      "verified_identity": "published final PAR and REP SHA-256 both match exact freshly inventoried regular source archive members"
+    },
+    {
+      "family": "sensitivity",
+      "published_key": "caal-0.5-sub-basin",
+      "source_job_number": 22182,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "jfc7c48e96a9",
+        "source_number": 22182,
+        "source_task_code": "BET-2026-sensitivity-tau2",
+        "source_label": null,
+        "id": "source_kflow_jfc7c48e96a9",
+        "number": 11162,
+        "task_code": "source_kflow_BET-2026-sensitivity-tau2",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-sensitivity",
+        "branch": "main",
+        "git_commit_sha": "63267b676538c601a19f60a38cf2a179a30e4f20",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/BET-2026-sensitivity-tau2/job-022182"
+      },
+      "archive_id": "a-1160269090cad84a7aa598cd19b0e0e24491c511b823dd2993c9dc8d453d5bbc",
+      "PAR": [
+        {
+          "ordinal": 67,
+          "name": "./outputs/models/caal-0.5-sub-basin/final.par",
+          "bytes": 2956577,
+          "sha256": "911069931d3fdf91cb93331301bbb9aa70dff1ccc466f46a3e2824c8aa68aff0"
+        },
+        {
+          "ordinal": 107,
+          "name": "./outputs/models/caal-0.5-sub-basin/11.par",
+          "bytes": 2956577,
+          "sha256": "911069931d3fdf91cb93331301bbb9aa70dff1ccc466f46a3e2824c8aa68aff0"
+        }
+      ],
+      "REP": [
+        {
+          "ordinal": 47,
+          "name": "./outputs/models/caal-0.5-sub-basin/plot-11.par.rep",
+          "bytes": 2847835,
+          "sha256": "d3e8611625a7132fec05c417869a46f17dd6dfa7e7482997f7718a96f02067e0"
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 104,
+          "name": "./outputs/models/caal-0.5-sub-basin/doitall.sh",
+          "sha256": "408e3254b0a82c6e3935c36994bc718c6ce71f0e1e4dc5940847507d9c86adc6"
+        }
+      ],
+      "verified_identity": "published final PAR and REP SHA-256 both match exact freshly inventoried regular source archive members"
+    },
+    {
+      "family": "sensitivity",
+      "published_key": "steepness-0.80",
+      "source_job_number": 22183,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "j70148f1126c",
+        "source_number": 22183,
+        "source_task_code": "BET-2026-sensitivity-tau2",
+        "source_label": null,
+        "id": "source_kflow_j70148f1126c",
+        "number": 11163,
+        "task_code": "source_kflow_BET-2026-sensitivity-tau2",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-sensitivity",
+        "branch": "main",
+        "git_commit_sha": "63267b676538c601a19f60a38cf2a179a30e4f20",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/BET-2026-sensitivity-tau2/job-022183"
+      },
+      "archive_id": "a-08ad1697dde48bd914acc899fff13708321e1dcd2880f82f432780fed217e1e8",
+      "PAR": [
+        {
+          "ordinal": 46,
+          "name": "./outputs/models/steepness-0.80/11.par",
+          "bytes": 2956592,
+          "sha256": "7db4decd97101bfcf85e1ec0c7e2633329a1245409a1ff5f1d6799074ef20775"
+        },
+        {
+          "ordinal": 47,
+          "name": "./outputs/models/steepness-0.80/final.par",
+          "bytes": 2956592,
+          "sha256": "7db4decd97101bfcf85e1ec0c7e2633329a1245409a1ff5f1d6799074ef20775"
+        }
+      ],
+      "REP": [
+        {
+          "ordinal": 118,
+          "name": "./outputs/models/steepness-0.80/plot-11.par.rep",
+          "bytes": 2844534,
+          "sha256": "fce9565a84e48109a8c3e943df6a4e058a935b2f6936152c544ebe7e710a01b9"
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 105,
+          "name": "./outputs/models/steepness-0.80/doitall.sh",
+          "sha256": "408e3254b0a82c6e3935c36994bc718c6ce71f0e1e4dc5940847507d9c86adc6"
+        }
+      ],
+      "verified_identity": "published final PAR and REP SHA-256 both match exact freshly inventoried regular source archive members"
+    },
+    {
+      "family": "sensitivity",
+      "published_key": "tau-1.2",
+      "source_job_number": 22184,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "jbd17e64ae86",
+        "source_number": 22184,
+        "source_task_code": "BET-2026-sensitivity-tau2",
+        "source_label": null,
+        "id": "source_kflow_jbd17e64ae86",
+        "number": 11164,
+        "task_code": "source_kflow_BET-2026-sensitivity-tau2",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-sensitivity",
+        "branch": "main",
+        "git_commit_sha": "63267b676538c601a19f60a38cf2a179a30e4f20",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/BET-2026-sensitivity-tau2/job-022184"
+      },
+      "archive_id": "a-c61b4c43cc45a1274a1ff0462c1a999d0169bec87af8279d36fd9e093bd37fb2",
+      "PAR": [
+        {
+          "ordinal": 91,
+          "name": "./outputs/models/tau-1.2/11.par",
+          "bytes": 2957170,
+          "sha256": "223c7116d4425f1a8228ca55369690c7eb84075ce999bfe90d9c719d67f27040"
+        },
+        {
+          "ordinal": 100,
+          "name": "./outputs/models/tau-1.2/final.par",
+          "bytes": 2957170,
+          "sha256": "223c7116d4425f1a8228ca55369690c7eb84075ce999bfe90d9c719d67f27040"
+        }
+      ],
+      "REP": [
+        {
+          "ordinal": 78,
+          "name": "./outputs/models/tau-1.2/plot-11.par.rep",
+          "bytes": 2850730,
+          "sha256": "2206a7fffd3acc20685b875896cc07b551bdcaecd2319a4912b1259ea4bf456e"
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 57,
+          "name": "./outputs/models/tau-1.2/doitall.sh",
+          "sha256": "408e3254b0a82c6e3935c36994bc718c6ce71f0e1e4dc5940847507d9c86adc6"
+        }
+      ],
+      "verified_identity": "published final PAR and REP SHA-256 both match exact freshly inventoried regular source archive members"
+    },
+    {
+      "family": "sensitivity",
+      "published_key": "steepness-0.65",
+      "source_job_number": 22185,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "jdb224a66adb",
+        "source_number": 22185,
+        "source_task_code": "BET-2026-sensitivity-tau2",
+        "source_label": null,
+        "id": "source_kflow_jdb224a66adb",
+        "number": 11165,
+        "task_code": "source_kflow_BET-2026-sensitivity-tau2",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-sensitivity",
+        "branch": "main",
+        "git_commit_sha": "63267b676538c601a19f60a38cf2a179a30e4f20",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/BET-2026-sensitivity-tau2/job-022185"
+      },
+      "archive_id": "a-9f8cdecf25a1adebf1457b6b1b257d890c381413e16e1bbd78b649773906082a",
+      "PAR": [
+        {
+          "ordinal": 27,
+          "name": "./outputs/models/steepness-0.65/final.par",
+          "bytes": 2956629,
+          "sha256": "e0281de31c1832e8d97f923eb38515a21ca0ba49ded0544865bd84a5323f64d4"
+        },
+        {
+          "ordinal": 58,
+          "name": "./outputs/models/steepness-0.65/11.par",
+          "bytes": 2956629,
+          "sha256": "e0281de31c1832e8d97f923eb38515a21ca0ba49ded0544865bd84a5323f64d4"
+        }
+      ],
+      "REP": [
+        {
+          "ordinal": 11,
+          "name": "./outputs/models/steepness-0.65/plot-11.par.rep",
+          "bytes": 2842247,
+          "sha256": "0af59a6cefcd52a76cbf9f503f7bbc29cebaf897e095930e29f029ba18b8a2e5"
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 54,
+          "name": "./outputs/models/steepness-0.65/doitall.sh",
+          "sha256": "408e3254b0a82c6e3935c36994bc718c6ce71f0e1e4dc5940847507d9c86adc6"
+        }
+      ],
+      "verified_identity": "published final PAR and REP SHA-256 both match exact freshly inventoried regular source archive members"
+    },
+    {
+      "family": "sensitivity",
+      "published_key": "tau-1.4",
+      "source_job_number": 22186,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "j41b39bfca5a",
+        "source_number": 22186,
+        "source_task_code": "BET-2026-sensitivity-tau2",
+        "source_label": null,
+        "id": "source_kflow_j41b39bfca5a",
+        "number": 11166,
+        "task_code": "source_kflow_BET-2026-sensitivity-tau2",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-sensitivity",
+        "branch": "main",
+        "git_commit_sha": "63267b676538c601a19f60a38cf2a179a30e4f20",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/BET-2026-sensitivity-tau2/job-022186"
+      },
+      "archive_id": "a-bc3cf6ec852d555b9dc7580848fe3e2e7295e5a09ac3d5c4d9e94f0703482480",
+      "PAR": [
+        {
+          "ordinal": 13,
+          "name": "./outputs/models/tau-1.4/final.par",
+          "bytes": 2957152,
+          "sha256": "16d3f8beec7088c2a225a62a8f273d5b1550971bb976e0e95dbee3c2a7df7fbd"
+        },
+        {
+          "ordinal": 28,
+          "name": "./outputs/models/tau-1.4/11.par",
+          "bytes": 2957152,
+          "sha256": "16d3f8beec7088c2a225a62a8f273d5b1550971bb976e0e95dbee3c2a7df7fbd"
+        }
+      ],
+      "REP": [
+        {
+          "ordinal": 108,
+          "name": "./outputs/models/tau-1.4/plot-11.par.rep",
+          "bytes": 2847383,
+          "sha256": "a1a3bac719837577076b0e0bf8c6cce0516111ed605d3b8209552cb57ce780fe"
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 87,
+          "name": "./outputs/models/tau-1.4/doitall.sh",
+          "sha256": "408e3254b0a82c6e3935c36994bc718c6ce71f0e1e4dc5940847507d9c86adc6"
+        }
+      ],
+      "verified_identity": "published final PAR and REP SHA-256 both match exact freshly inventoried regular source archive members"
+    },
+    {
+      "family": "sensitivity",
+      "published_key": "tag-mixing-k-0.3",
+      "source_job_number": 22187,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "jfe9e1fcf54e",
+        "source_number": 22187,
+        "source_task_code": "BET-2026-sensitivity-tau2",
+        "source_label": null,
+        "id": "source_kflow_jfe9e1fcf54e",
+        "number": 11167,
+        "task_code": "source_kflow_BET-2026-sensitivity-tau2",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-sensitivity",
+        "branch": "main",
+        "git_commit_sha": "63267b676538c601a19f60a38cf2a179a30e4f20",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/BET-2026-sensitivity-tau2/job-022187"
+      },
+      "archive_id": "a-b7e38d11d31c990800298af79a000cec82b74c3792f0b2cd04cd60c6f3fa5b09",
+      "PAR": [
+        {
+          "ordinal": 74,
+          "name": "./outputs/models/tag-mixing-k-0.3/11.par",
+          "bytes": 2956622,
+          "sha256": "c044c7d5655139b293e97142ee23f45d3d7a3bcda767c13abeb245dd083856f4"
+        },
+        {
+          "ordinal": 99,
+          "name": "./outputs/models/tag-mixing-k-0.3/final.par",
+          "bytes": 2956622,
+          "sha256": "c044c7d5655139b293e97142ee23f45d3d7a3bcda767c13abeb245dd083856f4"
+        }
+      ],
+      "REP": [
+        {
+          "ordinal": 96,
+          "name": "./outputs/models/tag-mixing-k-0.3/plot-11.par.rep",
+          "bytes": 2846731,
+          "sha256": "ceea044cf187478b6d339bd1fe2f45a6ccf0b506fadf5beb788c0b7a84ad9c44"
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 10,
+          "name": "./outputs/models/tag-mixing-k-0.3/doitall.sh",
+          "sha256": "408e3254b0a82c6e3935c36994bc718c6ce71f0e1e4dc5940847507d9c86adc6"
+        }
+      ],
+      "verified_identity": "published final PAR and REP SHA-256 both match exact freshly inventoried regular source archive members"
+    },
+    {
+      "family": "sensitivity",
+      "published_key": "tau-1.6",
+      "source_job_number": 22188,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "jf5345b87881",
+        "source_number": 22188,
+        "source_task_code": "BET-2026-sensitivity-tau2",
+        "source_label": null,
+        "id": "source_kflow_jf5345b87881",
+        "number": 11168,
+        "task_code": "source_kflow_BET-2026-sensitivity-tau2",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-sensitivity",
+        "branch": "main",
+        "git_commit_sha": "63267b676538c601a19f60a38cf2a179a30e4f20",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/BET-2026-sensitivity-tau2/job-022188"
+      },
+      "archive_id": "a-a1cc3d30082cf8199ffad455c763b3de3d64928f711fe16caeb6dad1b5cb4f90",
+      "PAR": [
+        {
+          "ordinal": 67,
+          "name": "./outputs/models/tau-1.6/final.par",
+          "bytes": 2957218,
+          "sha256": "9f33967e3a1144c09df059ec09f4f96a96d37b5603c30e865d76d3fb9704a3c7"
+        },
+        {
+          "ordinal": 107,
+          "name": "./outputs/models/tau-1.6/11.par",
+          "bytes": 2957218,
+          "sha256": "9f33967e3a1144c09df059ec09f4f96a96d37b5603c30e865d76d3fb9704a3c7"
+        }
+      ],
+      "REP": [
+        {
+          "ordinal": 47,
+          "name": "./outputs/models/tau-1.6/plot-11.par.rep",
+          "bytes": 2847826,
+          "sha256": "92d033c3ccc009db164454cf1267ba4786b284289d5a1ce5bd4ac02db4ef4c8f"
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 104,
+          "name": "./outputs/models/tau-1.6/doitall.sh",
+          "sha256": "408e3254b0a82c6e3935c36994bc718c6ce71f0e1e4dc5940847507d9c86adc6"
+        }
+      ],
+      "verified_identity": "published final PAR and REP SHA-256 both match exact freshly inventoried regular source archive members"
+    },
+    {
+      "family": "sensitivity",
+      "published_key": "tag-mixing-k-0.1",
+      "source_job_number": 22189,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "j8168115142e",
+        "source_number": 22189,
+        "source_task_code": "BET-2026-sensitivity-tau2",
+        "source_label": null,
+        "id": "source_kflow_j8168115142e",
+        "number": 11169,
+        "task_code": "source_kflow_BET-2026-sensitivity-tau2",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-sensitivity",
+        "branch": "main",
+        "git_commit_sha": "63267b676538c601a19f60a38cf2a179a30e4f20",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/BET-2026-sensitivity-tau2/job-022189"
+      },
+      "archive_id": "a-10fd86608137991b8ec9c119f5eed98b0e17094d63caa82e18fec502b80ce9b0",
+      "PAR": [
+        {
+          "ordinal": 48,
+          "name": "./outputs/models/tag-mixing-k-0.1/final.par",
+          "bytes": 2956525,
+          "sha256": "3958b20a9a5e70feecc2ca4d3a81c9b2b831648d967d18bccb9895305047291f"
+        },
+        {
+          "ordinal": 113,
+          "name": "./outputs/models/tag-mixing-k-0.1/11.par",
+          "bytes": 2956525,
+          "sha256": "3958b20a9a5e70feecc2ca4d3a81c9b2b831648d967d18bccb9895305047291f"
+        }
+      ],
+      "REP": [
+        {
+          "ordinal": 87,
+          "name": "./outputs/models/tag-mixing-k-0.1/plot-11.par.rep",
+          "bytes": 2849751,
+          "sha256": "2b20df9403e2475e501fc461752cc9c8ae4d3789cc72f2f8b2a151bcc524bd71"
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 28,
+          "name": "./outputs/models/tag-mixing-k-0.1/doitall.sh",
+          "sha256": "408e3254b0a82c6e3935c36994bc718c6ce71f0e1e4dc5940847507d9c86adc6"
+        }
+      ],
+      "verified_identity": "published final PAR and REP SHA-256 both match exact freshly inventoried regular source archive members"
+    },
+    {
+      "family": "sensitivity",
+      "published_key": "lorenzen-m-scalar-0.062",
+      "source_job_number": 22190,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "j730012f3837",
+        "source_number": 22190,
+        "source_task_code": "BET-2026-sensitivity-tau2",
+        "source_label": null,
+        "id": "source_kflow_j730012f3837",
+        "number": 11170,
+        "task_code": "source_kflow_BET-2026-sensitivity-tau2",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-sensitivity",
+        "branch": "main",
+        "git_commit_sha": "63267b676538c601a19f60a38cf2a179a30e4f20",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/BET-2026-sensitivity-tau2/job-022190"
+      },
+      "archive_id": "a-1f534edb185f339bf4af1c77c671c7c1d3d619aec1622123c0cffc635a0384ae",
+      "PAR": [
+        {
+          "ordinal": 13,
+          "name": "./outputs/models/lorenzen-m-scalar-0.062/final.par",
+          "bytes": 2956578,
+          "sha256": "b92808bba429d7819b46efc57454d1a492a2c28a01f57a2d40b37fb6c368db2e"
+        },
+        {
+          "ordinal": 28,
+          "name": "./outputs/models/lorenzen-m-scalar-0.062/11.par",
+          "bytes": 2956578,
+          "sha256": "b92808bba429d7819b46efc57454d1a492a2c28a01f57a2d40b37fb6c368db2e"
+        }
+      ],
+      "REP": [
+        {
+          "ordinal": 108,
+          "name": "./outputs/models/lorenzen-m-scalar-0.062/plot-11.par.rep",
+          "bytes": 2847818,
+          "sha256": "8392350e59724c3408c54ee62ace85f39669531cf1ababa20c898c1158c4796b"
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 87,
+          "name": "./outputs/models/lorenzen-m-scalar-0.062/doitall.sh",
+          "sha256": "408e3254b0a82c6e3935c36994bc718c6ce71f0e1e4dc5940847507d9c86adc6"
+        }
+      ],
+      "verified_identity": "published final PAR and REP SHA-256 both match exact freshly inventoried regular source archive members"
+    },
+    {
+      "family": "sensitivity",
+      "published_key": "lorenzen-m-scalar-0.1",
+      "source_job_number": 22191,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "j1dbb60012e5",
+        "source_number": 22191,
+        "source_task_code": "BET-2026-sensitivity-tau2",
+        "source_label": null,
+        "id": "source_kflow_j1dbb60012e5",
+        "number": 11171,
+        "task_code": "source_kflow_BET-2026-sensitivity-tau2",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-sensitivity",
+        "branch": "main",
+        "git_commit_sha": "63267b676538c601a19f60a38cf2a179a30e4f20",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/BET-2026-sensitivity-tau2/job-022191"
+      },
+      "archive_id": "a-a92c6451cc5fccc823d8f998a5743fb13ad23ca0affe4329d4bf94427645b515",
+      "PAR": [
+        {
+          "ordinal": 48,
+          "name": "./outputs/models/lorenzen-m-scalar-0.1/11.par",
+          "bytes": 2956632,
+          "sha256": "9827672c1ebb98230dcad5bc43c0769533fd266558f84be8e79913a64f831a95"
+        },
+        {
+          "ordinal": 68,
+          "name": "./outputs/models/lorenzen-m-scalar-0.1/final.par",
+          "bytes": 2956632,
+          "sha256": "9827672c1ebb98230dcad5bc43c0769533fd266558f84be8e79913a64f831a95"
+        }
+      ],
+      "REP": [
+        {
+          "ordinal": 33,
+          "name": "./outputs/models/lorenzen-m-scalar-0.1/plot-11.par.rep",
+          "bytes": 2854338,
+          "sha256": "624af5e72589fb40ccbb20025927db4f323c3a7f00183619e830e02105cd6568"
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 75,
+          "name": "./outputs/models/lorenzen-m-scalar-0.1/doitall.sh",
+          "sha256": "408e3254b0a82c6e3935c36994bc718c6ce71f0e1e4dc5940847507d9c86adc6"
+        }
+      ],
+      "verified_identity": "published final PAR and REP SHA-256 both match exact freshly inventoried regular source archive members"
+    },
+    {
+      "family": "sensitivity",
+      "published_key": "effort-creep-high",
+      "source_job_number": 22192,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "j8b38374aa20",
+        "source_number": 22192,
+        "source_task_code": "BET-2026-sensitivity-tau2",
+        "source_label": null,
+        "id": "source_kflow_j8b38374aa20",
+        "number": 11172,
+        "task_code": "source_kflow_BET-2026-sensitivity-tau2",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-sensitivity",
+        "branch": "main",
+        "git_commit_sha": "63267b676538c601a19f60a38cf2a179a30e4f20",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/BET-2026-sensitivity-tau2/job-022192"
+      },
+      "archive_id": "a-d1cd9d944e5ecdf2576714cd5dfdcee0e106deab4ffd990dd39d5229053db72e",
+      "PAR": [
+        {
+          "ordinal": 23,
+          "name": "./outputs/models/effort-creep-high/final.par",
+          "bytes": 2956631,
+          "sha256": "1af944aa30d4e488686cdecb5b3432aeae7dfdffcfa27cc4fffd88ae69be9d81"
+        },
+        {
+          "ordinal": 50,
+          "name": "./outputs/models/effort-creep-high/11.par",
+          "bytes": 2956631,
+          "sha256": "1af944aa30d4e488686cdecb5b3432aeae7dfdffcfa27cc4fffd88ae69be9d81"
+        }
+      ],
+      "REP": [
+        {
+          "ordinal": 81,
+          "name": "./outputs/models/effort-creep-high/plot-11.par.rep",
+          "bytes": 2846950,
+          "sha256": "961ee20b17a5c1b7f15037f28b10b5c63ee2ddda4063390d6a941ef8133aad4f"
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 40,
+          "name": "./outputs/models/effort-creep-high/doitall.sh",
+          "sha256": "408e3254b0a82c6e3935c36994bc718c6ce71f0e1e4dc5940847507d9c86adc6"
+        }
+      ],
+      "verified_identity": "published final PAR and REP SHA-256 both match exact freshly inventoried regular source archive members"
+    },
+    {
+      "family": "sensitivity",
+      "published_key": "pre-mixing-tag-reporting-inclusion",
+      "source_job_number": 22193,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "jcbaadbd4a11",
+        "source_number": 22193,
+        "source_task_code": "BET-2026-sensitivity-tau2",
+        "source_label": null,
+        "id": "source_kflow_jcbaadbd4a11",
+        "number": 11173,
+        "task_code": "source_kflow_BET-2026-sensitivity-tau2",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-sensitivity",
+        "branch": "main",
+        "git_commit_sha": "63267b676538c601a19f60a38cf2a179a30e4f20",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/BET-2026-sensitivity-tau2/job-022193"
+      },
+      "archive_id": "a-12527fbc82865b54dcf7b61632cf3c5e8dd6718309fa8a3bd5a11ddc0a7d42b7",
+      "PAR": [
+        {
+          "ordinal": 16,
+          "name": "./outputs/models/pre-mixing-tag-reporting-inclusion/11.par",
+          "bytes": 2956632,
+          "sha256": "f1c8178610067686447e7a3827e95ceed01607e5570514d14c4cdcf01671c247"
+        },
+        {
+          "ordinal": 77,
+          "name": "./outputs/models/pre-mixing-tag-reporting-inclusion/final.par",
+          "bytes": 2956632,
+          "sha256": "f1c8178610067686447e7a3827e95ceed01607e5570514d14c4cdcf01671c247"
+        }
+      ],
+      "REP": [
+        {
+          "ordinal": 58,
+          "name": "./outputs/models/pre-mixing-tag-reporting-inclusion/plot-11.par.rep",
+          "bytes": 2846482,
+          "sha256": "28f4ec67d242160930dfedb3bfee428bdc81c026e46415f8f18b62d7b0e8f240"
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 9,
+          "name": "./outputs/models/pre-mixing-tag-reporting-inclusion/doitall.sh",
+          "sha256": "408e3254b0a82c6e3935c36994bc718c6ce71f0e1e4dc5940847507d9c86adc6"
+        }
+      ],
+      "verified_identity": "published final PAR and REP SHA-256 both match exact freshly inventoried regular source archive members"
+    },
+    {
+      "family": "sensitivity",
+      "published_key": "caal-1.0-sub-basin",
+      "source_job_number": 22194,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "j819658d5b16",
+        "source_number": 22194,
+        "source_task_code": "BET-2026-sensitivity-tau2",
+        "source_label": null,
+        "id": "source_kflow_j819658d5b16",
+        "number": 11174,
+        "task_code": "source_kflow_BET-2026-sensitivity-tau2",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-sensitivity",
+        "branch": "main",
+        "git_commit_sha": "63267b676538c601a19f60a38cf2a179a30e4f20",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/BET-2026-sensitivity-tau2/job-022194"
+      },
+      "archive_id": "a-7ababb14d2019a87446a947998b5e3b95f882befe158d59c13906a92d58945ed",
+      "PAR": [
+        {
+          "ordinal": 34,
+          "name": "./outputs/models/caal-1.0-sub-basin/11.par",
+          "bytes": 2956635,
+          "sha256": "af218dfc276114669c9da6e9a47189db046e79b95aa5948d28bf79143edcc8ad"
+        },
+        {
+          "ordinal": 52,
+          "name": "./outputs/models/caal-1.0-sub-basin/final.par",
+          "bytes": 2956635,
+          "sha256": "af218dfc276114669c9da6e9a47189db046e79b95aa5948d28bf79143edcc8ad"
+        }
+      ],
+      "REP": [
+        {
+          "ordinal": 96,
+          "name": "./outputs/models/caal-1.0-sub-basin/plot-11.par.rep",
+          "bytes": 2847148,
+          "sha256": "bf2f5fe517687b4690a1204fd8bb24c811aaf0776aaa6e845706841c846095c3"
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 11,
+          "name": "./outputs/models/caal-1.0-sub-basin/doitall.sh",
+          "sha256": "408e3254b0a82c6e3935c36994bc718c6ce71f0e1e4dc5940847507d9c86adc6"
+        }
+      ],
+      "verified_identity": "published final PAR and REP SHA-256 both match exact freshly inventoried regular source archive members"
+    },
+    {
+      "family": "sensitivity",
+      "published_key": "regional-scaling-whole-period",
+      "source_job_number": 22195,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "j2aa85846c35",
+        "source_number": 22195,
+        "source_task_code": "BET-2026-sensitivity-tau2",
+        "source_label": null,
+        "id": "source_kflow_j2aa85846c35",
+        "number": 11175,
+        "task_code": "source_kflow_BET-2026-sensitivity-tau2",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-sensitivity",
+        "branch": "main",
+        "git_commit_sha": "63267b676538c601a19f60a38cf2a179a30e4f20",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/BET-2026-sensitivity-tau2/job-022195"
+      },
+      "archive_id": "a-8a60f6e7fe1b4a7dda23512addefdef53bf7b56866291f1992a3b50aa47a0a1b",
+      "PAR": [
+        {
+          "ordinal": 91,
+          "name": "./outputs/models/regional-scaling-whole-period/11.par",
+          "bytes": 2956581,
+          "sha256": "2236d58d04dec9213c83ed87187f1617af89bd9d6809926c4c36fa4789abf7f4"
+        },
+        {
+          "ordinal": 100,
+          "name": "./outputs/models/regional-scaling-whole-period/final.par",
+          "bytes": 2956581,
+          "sha256": "2236d58d04dec9213c83ed87187f1617af89bd9d6809926c4c36fa4789abf7f4"
+        }
+      ],
+      "REP": [
+        {
+          "ordinal": 78,
+          "name": "./outputs/models/regional-scaling-whole-period/plot-11.par.rep",
+          "bytes": 2849046,
+          "sha256": "a521111ed254d70e24be8d2b3c6b1647fb7dd3d53f78213b1a6b796ed5df779e"
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 57,
+          "name": "./outputs/models/regional-scaling-whole-period/doitall.sh",
+          "sha256": "607fd6c7b474eadd2aa4b902b6baa351cb43ca5d5b0fcf38ccc059317e87e63b"
+        }
+      ],
+      "verified_identity": "published final PAR and REP SHA-256 both match exact freshly inventoried regular source archive members"
+    },
+    {
+      "family": "diagnostic",
+      "source_job_number": 21641,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "j470a734773c",
+        "source_number": 21641,
+        "source_task_code": "ofp-sam-bet-2026-tau2-steepness-selectivity-grid",
+        "source_label": null,
+        "id": "source_kflow_j470a734773c",
+        "number": 10621,
+        "task_code": "source_kflow_ofp-sam-bet-2026-tau2-steepness-selectivity-grid",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-diagnostic",
+        "branch": "tau2-exploration",
+        "git_commit_sha": "3abf0c64fb9b0c2d70b9c672dc7d9a655d3060d6",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-tau2-steepness-selectivity-grid/job-021641"
+      },
+      "archive_id": "a-de732634023a558c38fa364de9ea43c8e37eee197622c8e3d386081eeeaa48c5",
+      "exact_native_members": [
+        {
+          "ordinal": 47,
+          "name": "./outputs/S0.90-F2-tau2-fixed/11.par",
+          "type": "file",
+          "bytes": 2956541,
+          "sha256": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3",
+          "mode": 420,
+          "linkname": ""
+        },
+        {
+          "ordinal": 89,
+          "name": "./outputs/S0.90-F2-tau2-fixed/final.par",
+          "type": "file",
+          "bytes": 2956541,
+          "sha256": "21dcaea9db8c89ddc8c29fa3c3a5e514b50bef6e26587c168c00c05f35fbebc3",
+          "mode": 420,
+          "linkname": ""
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 95,
+          "name": "./outputs/S0.90-F2-tau2-fixed/doitall.sh",
+          "sha256": "5c53802daf44e700ee91aa8108f0b2289473c0344d7feecf04cab458dc49ca77"
+        }
+      ],
+      "verified_identity": "source byte hash matches native central PAR or original merged Hessian receipt"
+    },
+    {
+      "family": "diagnostic",
+      "source_job_number": 22196,
+      "source_identity": {
+        "source": "kflow",
+        "source_id": "j4ee56908ecc",
+        "source_number": 22196,
+        "source_task_code": "ofp-sam-bet-2026-job21641-hessian-merge",
+        "source_label": null,
+        "id": "source_kflow_j4ee56908ecc",
+        "number": 11176,
+        "task_code": "source_kflow_ofp-sam-bet-2026-job21641-hessian-merge",
+        "repo": "PacificCommunity/ofp-sam-bet-2026-checks",
+        "branch": "agent/fix-job21646-diagnostics",
+        "git_commit_sha": "7e347ab72b9b692fee5252369fd5a81e355d8e90",
+        "remote_host": "suvofpsubmit.corp.spc.int",
+        "remote_dir": "/home/kyuhank/KflowOutput/ofp-sam-bet-2026-job21641-hessian-merge/job-022196"
+      },
+      "archive_id": "a-25f31626c9eda3de51b00c4aaec40baaab6a13f1f7d03fc4eea89c9f0141d3e6",
+      "exact_native_members": [
+        {
+          "ordinal": 228,
+          "name": "./outputs/models/S0.90-F2-tau2-fixed/hessian/bet.hes",
+          "type": "file",
+          "bytes": 31904076,
+          "sha256": "e289a150c45930c2f4f164fb43432d5c034d8caec7bda7ce664caca9e4ad20c5",
+          "mode": 420,
+          "linkname": ""
+        },
+        {
+          "ordinal": 708,
+          "name": "./outputs/checks/hessian/S0.90-F2-tau2-fixed/hessian/bet.hes",
+          "type": "file",
+          "bytes": 31904076,
+          "sha256": "e289a150c45930c2f4f164fb43432d5c034d8caec7bda7ce664caca9e4ad20c5",
+          "mode": 420,
+          "linkname": ""
+        }
+      ],
+      "doitall": [
+        {
+          "ordinal": 454,
+          "name": "./outputs/models/S0.90-F2-tau2-fixed/doitall.sh",
+          "sha256": "5c53802daf44e700ee91aa8108f0b2289473c0344d7feecf04cab458dc49ca77"
+        },
+        {
+          "ordinal": 929,
+          "name": "./outputs/checks/hessian/S0.90-F2-tau2-fixed/doitall.sh",
+          "sha256": "5c53802daf44e700ee91aa8108f0b2289473c0344d7feecf04cab458dc49ca77"
+        }
+      ],
+      "verified_identity": "source byte hash matches native central PAR or original merged Hessian receipt"
+    }
+  ],
+  "limitations": "Hash identity and original native retention only; no model execution or scientific approval"
+}

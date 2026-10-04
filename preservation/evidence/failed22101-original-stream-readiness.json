@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "source_job": 22101,
+  "source_id": "j93a8ae3d6a0",
+  "unchanged_original_archive_sha256": "095140654b66f723e2b6a560a074c38ac10eafeaf823f0d800525c0bb3e2d26e",
+  "compressed_magic_hex": "1f8b0800",
+  "available_decoded_stream_bytes": 226818913,
+  "available_decoded_stream_sha256": "5e602b256cca155d03d2c43a12f6e94489a448256773c3811ae86686e36fcfc1",
+  "gzip_decoder_reached_complete_end": false,
+  "decompression_error": null,
+  "member_inventory_state": "partial; original TAR inventory ReadError after89 complete inventoried members",
+  "credential_scan": {
+    "state": "no_pattern_matches",
+    "labels": [],
+    "scope": "all available decoded original compressed stream bytes including partial/unindexed data; scan does not repair archive or prove absence of every possible secret"
+  },
+  "original_source_files_unchanged": true
+}

@@ -1,0 +1,2967 @@
+{
+  "schema_version": 1,
+  "rows": [
+    {
+      "retained_original_fit_job": 22598,
+      "published_PAR_sha256": "ca2f42431c37ea8751d096707f7600732b624fa20880ea723e0ac3d729e48adb",
+      "source_hessian_job": 22624,
+      "source_hessian_id": "j466580a00c8",
+      "source_archive_id": "a-bd38695b439f4f0fb86a7e0c871b6de63c037d5b689e57cd1ea36753ae94c6fe",
+      "source_archive_sha256": "bd38695b439f4f0fb86a7e0c871b6de63c037d5b689e57cd1ea36753ae94c6fe",
+      "native_Hessian_members": [
+        {
+          "ordinal": 10,
+          "name": "./outputs/models/ensemble-099/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "792e66b3d8b28f86b9e788749afcb9c8073e94c112e200c9a3a5ced718aa299c"
+        },
+        {
+          "ordinal": 41,
+          "name": "./outputs/checks/hessian/ensemble-099/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "792e66b3d8b28f86b9e788749afcb9c8073e94c112e200c9a3a5ced718aa299c"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 21,
+          "name": "./outputs/models/ensemble-099/final.par",
+          "bytes": 2957154,
+          "sha256": "ca2f42431c37ea8751d096707f7600732b624fa20880ea723e0ac3d729e48adb"
+        },
+        {
+          "ordinal": 50,
+          "name": "./outputs/checks/hessian/ensemble-099/final.par",
+          "bytes": 2957154,
+          "sha256": "ca2f42431c37ea8751d096707f7600732b624fa20880ea723e0ac3d729e48adb"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22597,
+      "published_PAR_sha256": "607a5b5027fa37082fc0db6341421bb9aa0268a7f0133a062ac6a6e96cf89a8e",
+      "source_hessian_job": 22626,
+      "source_hessian_id": "j02cdcaeeaca",
+      "source_archive_id": "a-56c82ede00379f6e41ccd2fbaba4cfe978e705e3dc1bfc57f9bcc7bcfd5d1852",
+      "source_archive_sha256": "56c82ede00379f6e41ccd2fbaba4cfe978e705e3dc1bfc57f9bcc7bcfd5d1852",
+      "native_Hessian_members": [
+        {
+          "ordinal": 22,
+          "name": "./outputs/models/ensemble-098/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "02e2b03aca61367bc16a36bf297140feb93d315dcc3e59adeecd7aae0d6d9899"
+        },
+        {
+          "ordinal": 58,
+          "name": "./outputs/checks/hessian/ensemble-098/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "02e2b03aca61367bc16a36bf297140feb93d315dcc3e59adeecd7aae0d6d9899"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 25,
+          "name": "./outputs/models/ensemble-098/final.par",
+          "bytes": 2957215,
+          "sha256": "607a5b5027fa37082fc0db6341421bb9aa0268a7f0133a062ac6a6e96cf89a8e"
+        },
+        {
+          "ordinal": 61,
+          "name": "./outputs/checks/hessian/ensemble-098/final.par",
+          "bytes": 2957215,
+          "sha256": "607a5b5027fa37082fc0db6341421bb9aa0268a7f0133a062ac6a6e96cf89a8e"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22594,
+      "published_PAR_sha256": "16d91166e704912ae81606d2477cbe7b20d057e1bfa02b4cc109ee6fe852e067",
+      "source_hessian_job": 22632,
+      "source_hessian_id": "jb254f1ea4d4",
+      "source_archive_id": "a-968f72d78689c7bde859c90703cfba8c6ee5d9546b58e77b95c4e0e3b59b7fdd",
+      "source_archive_sha256": "968f72d78689c7bde859c90703cfba8c6ee5d9546b58e77b95c4e0e3b59b7fdd",
+      "native_Hessian_members": [
+        {
+          "ordinal": 18,
+          "name": "./outputs/models/ensemble-095/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "91a0cf13cd20d24a9cfbe93a0f25ba1a21b21cb7fc35fc46af870ddf0a859980"
+        },
+        {
+          "ordinal": 50,
+          "name": "./outputs/checks/hessian/ensemble-095/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "91a0cf13cd20d24a9cfbe93a0f25ba1a21b21cb7fc35fc46af870ddf0a859980"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 21,
+          "name": "./outputs/models/ensemble-095/final.par",
+          "bytes": 2957221,
+          "sha256": "16d91166e704912ae81606d2477cbe7b20d057e1bfa02b4cc109ee6fe852e067"
+        },
+        {
+          "ordinal": 53,
+          "name": "./outputs/checks/hessian/ensemble-095/final.par",
+          "bytes": 2957221,
+          "sha256": "16d91166e704912ae81606d2477cbe7b20d057e1bfa02b4cc109ee6fe852e067"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22593,
+      "published_PAR_sha256": "b43bb9a8989ead61be63b8cd1514f3139b4f02286ce63aa684583c57e59d1767",
+      "source_hessian_job": 22634,
+      "source_hessian_id": "j195fa404458",
+      "source_archive_id": "a-06c26824514a31d01a52f0765b9bef331e1e6163a4b3971b06db3f32f65aefdd",
+      "source_archive_sha256": "06c26824514a31d01a52f0765b9bef331e1e6163a4b3971b06db3f32f65aefdd",
+      "native_Hessian_members": [
+        {
+          "ordinal": 27,
+          "name": "./outputs/models/ensemble-094/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "c597fd76a2b2aa7834151333c4071f272fee56a205408b17d5f184adbae6e579"
+        },
+        {
+          "ordinal": 60,
+          "name": "./outputs/checks/hessian/ensemble-094/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "c597fd76a2b2aa7834151333c4071f272fee56a205408b17d5f184adbae6e579"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 12,
+          "name": "./outputs/models/ensemble-094/final.par",
+          "bytes": 2957195,
+          "sha256": "b43bb9a8989ead61be63b8cd1514f3139b4f02286ce63aa684583c57e59d1767"
+        },
+        {
+          "ordinal": 48,
+          "name": "./outputs/checks/hessian/ensemble-094/final.par",
+          "bytes": 2957195,
+          "sha256": "b43bb9a8989ead61be63b8cd1514f3139b4f02286ce63aa684583c57e59d1767"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22586,
+      "published_PAR_sha256": "9ba184c56e108d3963d85920f7b0a8e13e849bd970c0eaa17e906e0ef3edab64",
+      "source_hessian_job": 22648,
+      "source_hessian_id": "j5a05719cb47",
+      "source_archive_id": "a-9d15bd5ae19bf0c3a76365d731da1fdf40b0ff393b910173aeb347f0a27a672c",
+      "source_archive_sha256": "9d15bd5ae19bf0c3a76365d731da1fdf40b0ff393b910173aeb347f0a27a672c",
+      "native_Hessian_members": [
+        {
+          "ordinal": 38,
+          "name": "./outputs/checks/hessian/ensemble-087/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "fa041dd09c5e5fcebffa259ad1d988b99bd03160376e50fc9d8e4b5f7a7faece"
+        },
+        {
+          "ordinal": 68,
+          "name": "./outputs/models/ensemble-087/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "fa041dd09c5e5fcebffa259ad1d988b99bd03160376e50fc9d8e4b5f7a7faece"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 33,
+          "name": "./outputs/checks/hessian/ensemble-087/final.par",
+          "bytes": 2957165,
+          "sha256": "9ba184c56e108d3963d85920f7b0a8e13e849bd970c0eaa17e906e0ef3edab64"
+        },
+        {
+          "ordinal": 63,
+          "name": "./outputs/models/ensemble-087/final.par",
+          "bytes": 2957165,
+          "sha256": "9ba184c56e108d3963d85920f7b0a8e13e849bd970c0eaa17e906e0ef3edab64"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22592,
+      "published_PAR_sha256": "0dde74e98caa6d20252d82f4082226244c2012e4dcf716364002c21e5d84e49d",
+      "source_hessian_job": 22649,
+      "source_hessian_id": "j9d1c6ffe5d1",
+      "source_archive_id": "a-d82f8dee697bcb9e526f547507daa8be5cecc12d4d03a7012258c48707efd5ae",
+      "source_archive_sha256": "d82f8dee697bcb9e526f547507daa8be5cecc12d4d03a7012258c48707efd5ae",
+      "native_Hessian_members": [
+        {
+          "ordinal": 15,
+          "name": "./outputs/checks/hessian/ensemble-093/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "3afaabc3eae49281ca79b34df723c376f87955586fbc03e38e54e6f24034cbca"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/models/ensemble-093/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "3afaabc3eae49281ca79b34df723c376f87955586fbc03e38e54e6f24034cbca"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 33,
+          "name": "./outputs/checks/hessian/ensemble-093/final.par",
+          "bytes": 2957177,
+          "sha256": "0dde74e98caa6d20252d82f4082226244c2012e4dcf716364002c21e5d84e49d"
+        },
+        {
+          "ordinal": 64,
+          "name": "./outputs/models/ensemble-093/final.par",
+          "bytes": 2957177,
+          "sha256": "0dde74e98caa6d20252d82f4082226244c2012e4dcf716364002c21e5d84e49d"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22585,
+      "published_PAR_sha256": "e0015b47a1ca219e8765f031d512675405a64c1a2bcbdc934aef56114680b87c",
+      "source_hessian_job": 22652,
+      "source_hessian_id": "j20ab96ea5da",
+      "source_archive_id": "a-6fff586d66356152394e2d3c928b140c17feaf74100b29204e9d4bc25f9c8b62",
+      "source_archive_sha256": "6fff586d66356152394e2d3c928b140c17feaf74100b29204e9d4bc25f9c8b62",
+      "native_Hessian_members": [
+        {
+          "ordinal": 15,
+          "name": "./outputs/checks/hessian/ensemble-086/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "aaababb7ab9777d346a66adf807eea629f4d8e4ca653c6015a48b483db379f84"
+        },
+        {
+          "ordinal": 43,
+          "name": "./outputs/models/ensemble-086/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "aaababb7ab9777d346a66adf807eea629f4d8e4ca653c6015a48b483db379f84"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 24,
+          "name": "./outputs/checks/hessian/ensemble-086/final.par",
+          "bytes": 2957214,
+          "sha256": "e0015b47a1ca219e8765f031d512675405a64c1a2bcbdc934aef56114680b87c"
+        },
+        {
+          "ordinal": 52,
+          "name": "./outputs/models/ensemble-086/final.par",
+          "bytes": 2957214,
+          "sha256": "e0015b47a1ca219e8765f031d512675405a64c1a2bcbdc934aef56114680b87c"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22591,
+      "published_PAR_sha256": "cbdb07038aa151354add2edc257a5a54fcc352ba07540772940ab7ca5f8f9cd1",
+      "source_hessian_job": 22654,
+      "source_hessian_id": "jf13a7bf3b31",
+      "source_archive_id": "a-df34abe0d37d185c0f5d38f9daf8ecf32c5aa2970b358533ded9d94fe864e8f7",
+      "source_archive_sha256": "df34abe0d37d185c0f5d38f9daf8ecf32c5aa2970b358533ded9d94fe864e8f7",
+      "native_Hessian_members": [
+        {
+          "ordinal": 33,
+          "name": "./outputs/checks/hessian/ensemble-092/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "6125e2741ce95cc6599d1fc5254f55b80f6cbc0d3cd7ad425a4f6b5ae8e26aeb"
+        },
+        {
+          "ordinal": 68,
+          "name": "./outputs/models/ensemble-092/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "6125e2741ce95cc6599d1fc5254f55b80f6cbc0d3cd7ad425a4f6b5ae8e26aeb"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 24,
+          "name": "./outputs/checks/hessian/ensemble-092/final.par",
+          "bytes": 2957226,
+          "sha256": "cbdb07038aa151354add2edc257a5a54fcc352ba07540772940ab7ca5f8f9cd1"
+        },
+        {
+          "ordinal": 58,
+          "name": "./outputs/models/ensemble-092/final.par",
+          "bytes": 2957226,
+          "sha256": "cbdb07038aa151354add2edc257a5a54fcc352ba07540772940ab7ca5f8f9cd1"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22584,
+      "published_PAR_sha256": "c7256d741b14c0674a35b3dde43f35d667c7b80b45f21bce3d53a6a6ddfbea91",
+      "source_hessian_job": 22655,
+      "source_hessian_id": "j10f760db5e3",
+      "source_archive_id": "a-26ed2bf4a16e09d60d93156057ce3ae8fec3816abb05422a2ec27825e2cfd290",
+      "source_archive_sha256": "26ed2bf4a16e09d60d93156057ce3ae8fec3816abb05422a2ec27825e2cfd290",
+      "native_Hessian_members": [
+        {
+          "ordinal": 23,
+          "name": "./outputs/checks/hessian/ensemble-085/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "eb309989994a8eb271823e387235c9ae401c42d8ca57dc19cd6a1d47ae8889bb"
+        },
+        {
+          "ordinal": 55,
+          "name": "./outputs/models/ensemble-085/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "eb309989994a8eb271823e387235c9ae401c42d8ca57dc19cd6a1d47ae8889bb"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 17,
+          "name": "./outputs/checks/hessian/ensemble-085/final.par",
+          "bytes": 2957198,
+          "sha256": "c7256d741b14c0674a35b3dde43f35d667c7b80b45f21bce3d53a6a6ddfbea91"
+        },
+        {
+          "ordinal": 49,
+          "name": "./outputs/models/ensemble-085/final.par",
+          "bytes": 2957198,
+          "sha256": "c7256d741b14c0674a35b3dde43f35d667c7b80b45f21bce3d53a6a6ddfbea91"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22590,
+      "published_PAR_sha256": "fde308e6be0f641d185d2edfa6aacedc47e556c9d9ff99a52493a18f4c8289d6",
+      "source_hessian_job": 22658,
+      "source_hessian_id": "j2c196b33e7d",
+      "source_archive_id": "a-fe158172351f4e6150403f7bda23c13049e43d3e2d5c374901099af1d1b7964f",
+      "source_archive_sha256": "fe158172351f4e6150403f7bda23c13049e43d3e2d5c374901099af1d1b7964f",
+      "native_Hessian_members": [
+        {
+          "ordinal": 26,
+          "name": "./outputs/models/ensemble-091/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "e181492db9b8a0a44215c45154478cf2d250e39d9acfc9efa4eba95453ea88c2"
+        },
+        {
+          "ordinal": 56,
+          "name": "./outputs/checks/hessian/ensemble-091/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "e181492db9b8a0a44215c45154478cf2d250e39d9acfc9efa4eba95453ea88c2"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 20,
+          "name": "./outputs/models/ensemble-091/final.par",
+          "bytes": 2957190,
+          "sha256": "fde308e6be0f641d185d2edfa6aacedc47e556c9d9ff99a52493a18f4c8289d6"
+        },
+        {
+          "ordinal": 50,
+          "name": "./outputs/checks/hessian/ensemble-091/final.par",
+          "bytes": 2957190,
+          "sha256": "fde308e6be0f641d185d2edfa6aacedc47e556c9d9ff99a52493a18f4c8289d6"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22583,
+      "published_PAR_sha256": "535a1082c1ead36fa0f411dca8d149978fb08ae52d156921c1bcc3fed7c103e8",
+      "source_hessian_job": 22660,
+      "source_hessian_id": "j3c09194d3e1",
+      "source_archive_id": "a-4fe5c3c1f56062e54b02361dd6088c75887c2f9de2e4e0d0478fb578068d8da1",
+      "source_archive_sha256": "4fe5c3c1f56062e54b02361dd6088c75887c2f9de2e4e0d0478fb578068d8da1",
+      "native_Hessian_members": [
+        {
+          "ordinal": 18,
+          "name": "./outputs/checks/hessian/ensemble-084/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "d2f212e1379138679aaa8c035cdd85ca57cd1aa91e27e16b4444e47dbbb4ab16"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/models/ensemble-084/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "d2f212e1379138679aaa8c035cdd85ca57cd1aa91e27e16b4444e47dbbb4ab16"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 24,
+          "name": "./outputs/checks/hessian/ensemble-084/final.par",
+          "bytes": 2957145,
+          "sha256": "535a1082c1ead36fa0f411dca8d149978fb08ae52d156921c1bcc3fed7c103e8"
+        },
+        {
+          "ordinal": 54,
+          "name": "./outputs/models/ensemble-084/final.par",
+          "bytes": 2957145,
+          "sha256": "535a1082c1ead36fa0f411dca8d149978fb08ae52d156921c1bcc3fed7c103e8"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22589,
+      "published_PAR_sha256": "ed9cf7324a3f358196f2fbd827fea2fc56b46b994bc10ad88cf9fc1611408934",
+      "source_hessian_job": 22662,
+      "source_hessian_id": "j9065cb53ca2",
+      "source_archive_id": "a-5c6829385cd0268d4a05f6f5fed072b71816d609168ce8dfd76718b4e74dee7c",
+      "source_archive_sha256": "5c6829385cd0268d4a05f6f5fed072b71816d609168ce8dfd76718b4e74dee7c",
+      "native_Hessian_members": [
+        {
+          "ordinal": 15,
+          "name": "./outputs/checks/hessian/ensemble-090/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "6ed18e4e28d21a1ba3298755d3069168bdc3f793818fddb86630fc278c4449f5"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/models/ensemble-090/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "6ed18e4e28d21a1ba3298755d3069168bdc3f793818fddb86630fc278c4449f5"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 21,
+          "name": "./outputs/checks/hessian/ensemble-090/final.par",
+          "bytes": 2957154,
+          "sha256": "ed9cf7324a3f358196f2fbd827fea2fc56b46b994bc10ad88cf9fc1611408934"
+        },
+        {
+          "ordinal": 54,
+          "name": "./outputs/models/ensemble-090/final.par",
+          "bytes": 2957154,
+          "sha256": "ed9cf7324a3f358196f2fbd827fea2fc56b46b994bc10ad88cf9fc1611408934"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22588,
+      "published_PAR_sha256": "58249ff7ca5fadbd6166fa421aacedbaf0d4ed7c1bec1762657e784e0a6a4422",
+      "source_hessian_job": 22666,
+      "source_hessian_id": "ja4cd8f63361",
+      "source_archive_id": "a-0832d8eb0630e828485de877f814098e959fc04041aaee14ddac1a5b93c4d955",
+      "source_archive_sha256": "0832d8eb0630e828485de877f814098e959fc04041aaee14ddac1a5b93c4d955",
+      "native_Hessian_members": [
+        {
+          "ordinal": 12,
+          "name": "./outputs/checks/hessian/ensemble-089/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "8cc8db8597efbf05c230dad76b9f4afa75e62473c45e86eae0cff81c92b0ff84"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/models/ensemble-089/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "8cc8db8597efbf05c230dad76b9f4afa75e62473c45e86eae0cff81c92b0ff84"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 30,
+          "name": "./outputs/checks/hessian/ensemble-089/final.par",
+          "bytes": 2957212,
+          "sha256": "58249ff7ca5fadbd6166fa421aacedbaf0d4ed7c1bec1762657e784e0a6a4422"
+        },
+        {
+          "ordinal": 64,
+          "name": "./outputs/models/ensemble-089/final.par",
+          "bytes": 2957212,
+          "sha256": "58249ff7ca5fadbd6166fa421aacedbaf0d4ed7c1bec1762657e784e0a6a4422"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22581,
+      "published_PAR_sha256": "0a3e81df13751be294dc15c7e7109af8cd07e169b8d135fca6694c580f0ce571",
+      "source_hessian_job": 22668,
+      "source_hessian_id": "jb349b3f7bed",
+      "source_archive_id": "a-a85fdf0413e460874eaadd701ec184a11b5a32d1c6b579f06e0f860df84ef426",
+      "source_archive_sha256": "a85fdf0413e460874eaadd701ec184a11b5a32d1c6b579f06e0f860df84ef426",
+      "native_Hessian_members": [
+        {
+          "ordinal": 23,
+          "name": "./outputs/checks/hessian/ensemble-082/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "3cfd48d7496e43f22a7084d0eaff1b627092e620677902992850fa8c42e65fc2"
+        },
+        {
+          "ordinal": 49,
+          "name": "./outputs/models/ensemble-082/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "3cfd48d7496e43f22a7084d0eaff1b627092e620677902992850fa8c42e65fc2"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 12,
+          "name": "./outputs/checks/hessian/ensemble-082/final.par",
+          "bytes": 2957221,
+          "sha256": "0a3e81df13751be294dc15c7e7109af8cd07e169b8d135fca6694c580f0ce571"
+        },
+        {
+          "ordinal": 38,
+          "name": "./outputs/models/ensemble-082/final.par",
+          "bytes": 2957221,
+          "sha256": "0a3e81df13751be294dc15c7e7109af8cd07e169b8d135fca6694c580f0ce571"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22587,
+      "published_PAR_sha256": "730b1787c059a72750d52e71d38fb0c744b2c749d1eb0b1d82d499f66c6d20df",
+      "source_hessian_job": 22670,
+      "source_hessian_id": "j8f543d0a033",
+      "source_archive_id": "a-1aab6c0e60b7badaee6dbdce2c095a14a3eec7b9a318e48279a4d15b166bcd76",
+      "source_archive_sha256": "1aab6c0e60b7badaee6dbdce2c095a14a3eec7b9a318e48279a4d15b166bcd76",
+      "native_Hessian_members": [
+        {
+          "ordinal": 37,
+          "name": "./outputs/checks/hessian/ensemble-088/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "18d9e8eaeb54df8d1b32038961466196c388c09f0787738d61cc72760a92f9a7"
+        },
+        {
+          "ordinal": 67,
+          "name": "./outputs/models/ensemble-088/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "18d9e8eaeb54df8d1b32038961466196c388c09f0787738d61cc72760a92f9a7"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 31,
+          "name": "./outputs/checks/hessian/ensemble-088/final.par",
+          "bytes": 2957096,
+          "sha256": "730b1787c059a72750d52e71d38fb0c744b2c749d1eb0b1d82d499f66c6d20df"
+        },
+        {
+          "ordinal": 58,
+          "name": "./outputs/models/ensemble-088/final.par",
+          "bytes": 2957096,
+          "sha256": "730b1787c059a72750d52e71d38fb0c744b2c749d1eb0b1d82d499f66c6d20df"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22580,
+      "published_PAR_sha256": "4ce94f79e1b6d63e973a4fadc2ab1bf612468e01e7c14d05f743e6002904359a",
+      "source_hessian_job": 22678,
+      "source_hessian_id": "jc45375f4af6",
+      "source_archive_id": "a-559d1f8d04911e52db2f8561f591f6595fa86fefd0ad0ceb635a75a5b5c32479",
+      "source_archive_sha256": "559d1f8d04911e52db2f8561f591f6595fa86fefd0ad0ceb635a75a5b5c32479",
+      "native_Hessian_members": [
+        {
+          "ordinal": 19,
+          "name": "./outputs/checks/hessian/ensemble-081/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "8c6cf03a6df1a10909175f87c53f4760d81b92e50b7b6883176de48ec8411ebd"
+        },
+        {
+          "ordinal": 52,
+          "name": "./outputs/models/ensemble-081/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "8c6cf03a6df1a10909175f87c53f4760d81b92e50b7b6883176de48ec8411ebd"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 29,
+          "name": "./outputs/checks/hessian/ensemble-081/final.par",
+          "bytes": 2957168,
+          "sha256": "4ce94f79e1b6d63e973a4fadc2ab1bf612468e01e7c14d05f743e6002904359a"
+        },
+        {
+          "ordinal": 62,
+          "name": "./outputs/models/ensemble-081/final.par",
+          "bytes": 2957168,
+          "sha256": "4ce94f79e1b6d63e973a4fadc2ab1bf612468e01e7c14d05f743e6002904359a"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22579,
+      "published_PAR_sha256": "66e7903b2c76d7e4fa1179eb3d51d5d00bef45d20202fa84af22dcecbc07dd5e",
+      "source_hessian_job": 22682,
+      "source_hessian_id": "j94b766a910c",
+      "source_archive_id": "a-d4ecbeb337c126cb718be21e1a4f55d7041e76c4c42f144494edaa45a8ae49d2",
+      "source_archive_sha256": "d4ecbeb337c126cb718be21e1a4f55d7041e76c4c42f144494edaa45a8ae49d2",
+      "native_Hessian_members": [
+        {
+          "ordinal": 21,
+          "name": "./outputs/models/ensemble-080/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "9d4d0f2017ab449b1341a0f666ce89a9e9cb19f2b9146945603f232f1eeacc37"
+        },
+        {
+          "ordinal": 50,
+          "name": "./outputs/checks/hessian/ensemble-080/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "9d4d0f2017ab449b1341a0f666ce89a9e9cb19f2b9146945603f232f1eeacc37"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 4,
+          "name": "./outputs/models/ensemble-080/final.par",
+          "bytes": 2957236,
+          "sha256": "66e7903b2c76d7e4fa1179eb3d51d5d00bef45d20202fa84af22dcecbc07dd5e"
+        },
+        {
+          "ordinal": 35,
+          "name": "./outputs/checks/hessian/ensemble-080/final.par",
+          "bytes": 2957236,
+          "sha256": "66e7903b2c76d7e4fa1179eb3d51d5d00bef45d20202fa84af22dcecbc07dd5e"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22578,
+      "published_PAR_sha256": "96d6932b8e72ed5a3aef1b3330a05e4394251ff4bb61aa0837d74f9ad5997073",
+      "source_hessian_job": 22685,
+      "source_hessian_id": "jcf0e2beea69",
+      "source_archive_id": "a-e6986ca9114239a73f1f9fd60109364864d2e4953530a570fdf3726abc0c7a13",
+      "source_archive_sha256": "e6986ca9114239a73f1f9fd60109364864d2e4953530a570fdf3726abc0c7a13",
+      "native_Hessian_members": [
+        {
+          "ordinal": 13,
+          "name": "./outputs/checks/hessian/ensemble-079/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "4cd89f0850eaaf9448e73f2a66df766c6c28108975a64a60a25335acbf754422"
+        },
+        {
+          "ordinal": 48,
+          "name": "./outputs/models/ensemble-079/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "4cd89f0850eaaf9448e73f2a66df766c6c28108975a64a60a25335acbf754422"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 7,
+          "name": "./outputs/checks/hessian/ensemble-079/final.par",
+          "bytes": 2957177,
+          "sha256": "96d6932b8e72ed5a3aef1b3330a05e4394251ff4bb61aa0837d74f9ad5997073"
+        },
+        {
+          "ordinal": 41,
+          "name": "./outputs/models/ensemble-079/final.par",
+          "bytes": 2957177,
+          "sha256": "96d6932b8e72ed5a3aef1b3330a05e4394251ff4bb61aa0837d74f9ad5997073"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22577,
+      "published_PAR_sha256": "649d4fea42993ee5100709550087c2742a8988a7776b35e48db5469b5451977b",
+      "source_hessian_job": 22689,
+      "source_hessian_id": "j28860dfa242",
+      "source_archive_id": "a-cf80e439232216ffca72e795403a111294327a635fd67f0e8b427ab9f70eed83",
+      "source_archive_sha256": "cf80e439232216ffca72e795403a111294327a635fd67f0e8b427ab9f70eed83",
+      "native_Hessian_members": [
+        {
+          "ordinal": 12,
+          "name": "./outputs/checks/hessian/ensemble-078/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "1e1fdfb2a67f7a502572001e1b98217ff77da797e93d268f5bbda623576c9b93"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/models/ensemble-078/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "1e1fdfb2a67f7a502572001e1b98217ff77da797e93d268f5bbda623576c9b93"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 23,
+          "name": "./outputs/checks/hessian/ensemble-078/final.par",
+          "bytes": 2957230,
+          "sha256": "649d4fea42993ee5100709550087c2742a8988a7776b35e48db5469b5451977b"
+        },
+        {
+          "ordinal": 59,
+          "name": "./outputs/models/ensemble-078/final.par",
+          "bytes": 2957230,
+          "sha256": "649d4fea42993ee5100709550087c2742a8988a7776b35e48db5469b5451977b"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22575,
+      "published_PAR_sha256": "e84ec7e5a0bf4b3be5928d71124089e3c0b9ca50ce4286b97eeeb49c94a04719",
+      "source_hessian_job": 22692,
+      "source_hessian_id": "jdd2fde8628c",
+      "source_archive_id": "a-dbbec3ce57247502b4e72cc93b2f2094263b16b8c4c8e6e5e562f1fce07e9bb9",
+      "source_archive_sha256": "dbbec3ce57247502b4e72cc93b2f2094263b16b8c4c8e6e5e562f1fce07e9bb9",
+      "native_Hessian_members": [
+        {
+          "ordinal": 22,
+          "name": "./outputs/models/ensemble-076/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "4c6d71bc00def3a0f8d0839acc0df27a9983150b7e6fafa562160acb2e3e0244"
+        },
+        {
+          "ordinal": 54,
+          "name": "./outputs/checks/hessian/ensemble-076/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "4c6d71bc00def3a0f8d0839acc0df27a9983150b7e6fafa562160acb2e3e0244"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 14,
+          "name": "./outputs/models/ensemble-076/final.par",
+          "bytes": 2957195,
+          "sha256": "e84ec7e5a0bf4b3be5928d71124089e3c0b9ca50ce4286b97eeeb49c94a04719"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/checks/hessian/ensemble-076/final.par",
+          "bytes": 2957195,
+          "sha256": "e84ec7e5a0bf4b3be5928d71124089e3c0b9ca50ce4286b97eeeb49c94a04719"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22574,
+      "published_PAR_sha256": "29d8c5b37cca7f9d67959bad4f1263c34341533a215fe6501b0c4a8fc05580c8",
+      "source_hessian_job": 22694,
+      "source_hessian_id": "j72d39ba02cb",
+      "source_archive_id": "a-38e106d1489247f55c7201147a89643ba88cb8930903f45249736ae7126ef96b",
+      "source_archive_sha256": "38e106d1489247f55c7201147a89643ba88cb8930903f45249736ae7126ef96b",
+      "native_Hessian_members": [
+        {
+          "ordinal": 31,
+          "name": "./outputs/checks/hessian/ensemble-075/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "1448835f849654ebf73e634b10e1fde547dd0eb33689d922312369def8bb756e"
+        },
+        {
+          "ordinal": 62,
+          "name": "./outputs/models/ensemble-075/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "1448835f849654ebf73e634b10e1fde547dd0eb33689d922312369def8bb756e"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 20,
+          "name": "./outputs/checks/hessian/ensemble-075/final.par",
+          "bytes": 2957189,
+          "sha256": "29d8c5b37cca7f9d67959bad4f1263c34341533a215fe6501b0c4a8fc05580c8"
+        },
+        {
+          "ordinal": 51,
+          "name": "./outputs/models/ensemble-075/final.par",
+          "bytes": 2957189,
+          "sha256": "29d8c5b37cca7f9d67959bad4f1263c34341533a215fe6501b0c4a8fc05580c8"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22573,
+      "published_PAR_sha256": "84d0342e0458d45fa343dac2d99c5cd1d9e2cc512c461fce3927f0d06a7e08c8",
+      "source_hessian_job": 22696,
+      "source_hessian_id": "j44c8cb091a0",
+      "source_archive_id": "a-2c1c311472df0b8ccb28d948c4393f39fb08519986dfae357f15cf57cf9a3e28",
+      "source_archive_sha256": "2c1c311472df0b8ccb28d948c4393f39fb08519986dfae357f15cf57cf9a3e28",
+      "native_Hessian_members": [
+        {
+          "ordinal": 15,
+          "name": "./outputs/checks/hessian/ensemble-074/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "0f43c22d0daf443b8d5c024992947294acd8e2bc96bf92413d8495742ae83e1e"
+        },
+        {
+          "ordinal": 43,
+          "name": "./outputs/models/ensemble-074/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "0f43c22d0daf443b8d5c024992947294acd8e2bc96bf92413d8495742ae83e1e"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 24,
+          "name": "./outputs/checks/hessian/ensemble-074/final.par",
+          "bytes": 2957249,
+          "sha256": "84d0342e0458d45fa343dac2d99c5cd1d9e2cc512c461fce3927f0d06a7e08c8"
+        },
+        {
+          "ordinal": 52,
+          "name": "./outputs/models/ensemble-074/final.par",
+          "bytes": 2957249,
+          "sha256": "84d0342e0458d45fa343dac2d99c5cd1d9e2cc512c461fce3927f0d06a7e08c8"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22572,
+      "published_PAR_sha256": "672ce2fbab434243c0baeaffd11a333dca5e136830ff1635de4d143a537d9405",
+      "source_hessian_job": 22698,
+      "source_hessian_id": "j8a6606d6e19",
+      "source_archive_id": "a-19b6d2294ec683b08673593f5fac531744cc58a8fa62d05a9ea86ca00e6bc589",
+      "source_archive_sha256": "19b6d2294ec683b08673593f5fac531744cc58a8fa62d05a9ea86ca00e6bc589",
+      "native_Hessian_members": [
+        {
+          "ordinal": 16,
+          "name": "./outputs/models/ensemble-073/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "388c7766b420b141995e6c3c68ae1a16952a805da41c1962ff4f63dc0ea32402"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/checks/hessian/ensemble-073/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "388c7766b420b141995e6c3c68ae1a16952a805da41c1962ff4f63dc0ea32402"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 24,
+          "name": "./outputs/models/ensemble-073/final.par",
+          "bytes": 2957195,
+          "sha256": "672ce2fbab434243c0baeaffd11a333dca5e136830ff1635de4d143a537d9405"
+        },
+        {
+          "ordinal": 52,
+          "name": "./outputs/checks/hessian/ensemble-073/final.par",
+          "bytes": 2957195,
+          "sha256": "672ce2fbab434243c0baeaffd11a333dca5e136830ff1635de4d143a537d9405"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22571,
+      "published_PAR_sha256": "33d7ce5c9795a8e078c6248b52915cb036a44781f9466e4773b668f416b9f570",
+      "source_hessian_job": 22700,
+      "source_hessian_id": "jb9b058c251c",
+      "source_archive_id": "a-69b90f73835992f5b8191cf051c8053785c6f94c9bf8701559d8862c75857b87",
+      "source_archive_sha256": "69b90f73835992f5b8191cf051c8053785c6f94c9bf8701559d8862c75857b87",
+      "native_Hessian_members": [
+        {
+          "ordinal": 16,
+          "name": "./outputs/models/ensemble-072/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "80e53a2abc6e90da3f4f9ad0dd654e47c76e25425b87e898e2396a76cead10eb"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/checks/hessian/ensemble-072/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "80e53a2abc6e90da3f4f9ad0dd654e47c76e25425b87e898e2396a76cead10eb"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 24,
+          "name": "./outputs/models/ensemble-072/final.par",
+          "bytes": 2957180,
+          "sha256": "33d7ce5c9795a8e078c6248b52915cb036a44781f9466e4773b668f416b9f570"
+        },
+        {
+          "ordinal": 52,
+          "name": "./outputs/checks/hessian/ensemble-072/final.par",
+          "bytes": 2957180,
+          "sha256": "33d7ce5c9795a8e078c6248b52915cb036a44781f9466e4773b668f416b9f570"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22570,
+      "published_PAR_sha256": "817e9109dfc426f45c6107da3c18756beaa47e5cddc39687def90aa6c567d526",
+      "source_hessian_job": 22702,
+      "source_hessian_id": "j4063f1057f8",
+      "source_archive_id": "a-a45a1e1e5c7e15720a4334399e3fb522fab4d0ce28c821c88d04bdc7a5c76ffa",
+      "source_archive_sha256": "a45a1e1e5c7e15720a4334399e3fb522fab4d0ce28c821c88d04bdc7a5c76ffa",
+      "native_Hessian_members": [
+        {
+          "ordinal": 10,
+          "name": "./outputs/models/ensemble-071/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "978365346188d26c504edefd2f13a8bbb78d67a56d143040b4edf8d326953def"
+        },
+        {
+          "ordinal": 48,
+          "name": "./outputs/checks/hessian/ensemble-071/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "978365346188d26c504edefd2f13a8bbb78d67a56d143040b4edf8d326953def"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 16,
+          "name": "./outputs/models/ensemble-071/final.par",
+          "bytes": 2957224,
+          "sha256": "817e9109dfc426f45c6107da3c18756beaa47e5cddc39687def90aa6c567d526"
+        },
+        {
+          "ordinal": 54,
+          "name": "./outputs/checks/hessian/ensemble-071/final.par",
+          "bytes": 2957224,
+          "sha256": "817e9109dfc426f45c6107da3c18756beaa47e5cddc39687def90aa6c567d526"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22569,
+      "published_PAR_sha256": "c2a768ca75d9c44322b21f8e5082736725ba1809e0cb39982ca5cfa776a0ff84",
+      "source_hessian_job": 22704,
+      "source_hessian_id": "jd7abc6a9177",
+      "source_archive_id": "a-8b5311a711055c1860e92cea045abd5a76884669e0b750a05556ec111cc747f3",
+      "source_archive_sha256": "8b5311a711055c1860e92cea045abd5a76884669e0b750a05556ec111cc747f3",
+      "native_Hessian_members": [
+        {
+          "ordinal": 13,
+          "name": "./outputs/checks/hessian/ensemble-070/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "2883d48cab49d8cfc207136be179c679299668fed41bba63e2d885341ac63bfd"
+        },
+        {
+          "ordinal": 48,
+          "name": "./outputs/models/ensemble-070/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "2883d48cab49d8cfc207136be179c679299668fed41bba63e2d885341ac63bfd"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 7,
+          "name": "./outputs/checks/hessian/ensemble-070/final.par",
+          "bytes": 2957153,
+          "sha256": "c2a768ca75d9c44322b21f8e5082736725ba1809e0cb39982ca5cfa776a0ff84"
+        },
+        {
+          "ordinal": 41,
+          "name": "./outputs/models/ensemble-070/final.par",
+          "bytes": 2957153,
+          "sha256": "c2a768ca75d9c44322b21f8e5082736725ba1809e0cb39982ca5cfa776a0ff84"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22568,
+      "published_PAR_sha256": "4febc88bea082f0476468d94b193fd908453f2f15cb05bfef14770c4262d16b2",
+      "source_hessian_job": 22706,
+      "source_hessian_id": "jcbbb376450d",
+      "source_archive_id": "a-6a4eef560980a9f9488115147e3f4677c4741e1fb0c2a7e00da53203551bba7f",
+      "source_archive_sha256": "6a4eef560980a9f9488115147e3f4677c4741e1fb0c2a7e00da53203551bba7f",
+      "native_Hessian_members": [
+        {
+          "ordinal": 12,
+          "name": "./outputs/checks/hessian/ensemble-069/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "6f08341e587d6ed21fe5d07e14f6f70802266a4d4b0fcc8986cbab6b5ed5029d"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/models/ensemble-069/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "6f08341e587d6ed21fe5d07e14f6f70802266a4d4b0fcc8986cbab6b5ed5029d"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 15,
+          "name": "./outputs/checks/hessian/ensemble-069/final.par",
+          "bytes": 2957206,
+          "sha256": "4febc88bea082f0476468d94b193fd908453f2f15cb05bfef14770c4262d16b2"
+        },
+        {
+          "ordinal": 49,
+          "name": "./outputs/models/ensemble-069/final.par",
+          "bytes": 2957206,
+          "sha256": "4febc88bea082f0476468d94b193fd908453f2f15cb05bfef14770c4262d16b2"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22567,
+      "published_PAR_sha256": "512f8941a8c4e7d289f14e136238d29d16a97e8cc2db1c7ea0dfc51e2cc9cee8",
+      "source_hessian_job": 22708,
+      "source_hessian_id": "j86af31fe128",
+      "source_archive_id": "a-d1cf116ee20de3015091d60de4bdb80a4ac0281d38b016b29e6d5a60ffcabaaa",
+      "source_archive_sha256": "d1cf116ee20de3015091d60de4bdb80a4ac0281d38b016b29e6d5a60ffcabaaa",
+      "native_Hessian_members": [
+        {
+          "ordinal": 15,
+          "name": "./outputs/checks/hessian/ensemble-068/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "fe802503a69245f3c1ac7b240354adc9b6b1cdc8afca63b5ff5c6a16a3d4f44f"
+        },
+        {
+          "ordinal": 43,
+          "name": "./outputs/models/ensemble-068/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "fe802503a69245f3c1ac7b240354adc9b6b1cdc8afca63b5ff5c6a16a3d4f44f"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 24,
+          "name": "./outputs/checks/hessian/ensemble-068/final.par",
+          "bytes": 2957190,
+          "sha256": "512f8941a8c4e7d289f14e136238d29d16a97e8cc2db1c7ea0dfc51e2cc9cee8"
+        },
+        {
+          "ordinal": 52,
+          "name": "./outputs/models/ensemble-068/final.par",
+          "bytes": 2957190,
+          "sha256": "512f8941a8c4e7d289f14e136238d29d16a97e8cc2db1c7ea0dfc51e2cc9cee8"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22565,
+      "published_PAR_sha256": "634f7f320893a15a66907e021f723d2d84f5c920038fa946d741ce6889f7fe22",
+      "source_hessian_job": 22710,
+      "source_hessian_id": "j610bc1c41f4",
+      "source_archive_id": "a-e8abfb546bd0f90b802cfa43970c2c979b00e463b6f4dae03e1e4204732e6084",
+      "source_archive_sha256": "e8abfb546bd0f90b802cfa43970c2c979b00e463b6f4dae03e1e4204732e6084",
+      "native_Hessian_members": [
+        {
+          "ordinal": 25,
+          "name": "./outputs/checks/hessian/ensemble-066/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "0464b1f58f1e4bcf5cc430abc2797d04459b0d7c03b73d763a66164ef1ec6a19"
+        },
+        {
+          "ordinal": 55,
+          "name": "./outputs/models/ensemble-066/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "0464b1f58f1e4bcf5cc430abc2797d04459b0d7c03b73d763a66164ef1ec6a19"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 19,
+          "name": "./outputs/checks/hessian/ensemble-066/final.par",
+          "bytes": 2957253,
+          "sha256": "634f7f320893a15a66907e021f723d2d84f5c920038fa946d741ce6889f7fe22"
+        },
+        {
+          "ordinal": 49,
+          "name": "./outputs/models/ensemble-066/final.par",
+          "bytes": 2957253,
+          "sha256": "634f7f320893a15a66907e021f723d2d84f5c920038fa946d741ce6889f7fe22"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22564,
+      "published_PAR_sha256": "f71cfb20eb5dcde5573d263dc0c630b1d79bdcf9e852173cb5be8817228e39ba",
+      "source_hessian_job": 22712,
+      "source_hessian_id": "j990c5a05c02",
+      "source_archive_id": "a-964259a3badfb3e46e83f950b3e2b03fe829aef47796c27b0c8705eacc35355e",
+      "source_archive_sha256": "964259a3badfb3e46e83f950b3e2b03fe829aef47796c27b0c8705eacc35355e",
+      "native_Hessian_members": [
+        {
+          "ordinal": 26,
+          "name": "./outputs/models/ensemble-065/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "94d0cf9bc9f4f4d1bb37d355f66105c9295731175a6b7ba7a53f32294876ab30"
+        },
+        {
+          "ordinal": 56,
+          "name": "./outputs/checks/hessian/ensemble-065/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "94d0cf9bc9f4f4d1bb37d355f66105c9295731175a6b7ba7a53f32294876ab30"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 20,
+          "name": "./outputs/models/ensemble-065/final.par",
+          "bytes": 2957161,
+          "sha256": "f71cfb20eb5dcde5573d263dc0c630b1d79bdcf9e852173cb5be8817228e39ba"
+        },
+        {
+          "ordinal": 50,
+          "name": "./outputs/checks/hessian/ensemble-065/final.par",
+          "bytes": 2957161,
+          "sha256": "f71cfb20eb5dcde5573d263dc0c630b1d79bdcf9e852173cb5be8817228e39ba"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22562,
+      "published_PAR_sha256": "4b3629229c2fce797da9fce4e262950dbeae821ad5a6c62c6cd5ffde1eeb9ebb",
+      "source_hessian_job": 22714,
+      "source_hessian_id": "ja03c0cc1947",
+      "source_archive_id": "a-02022c200b24b9b870731eed367f5cde02cbe951d670248d05fc2a840750b3c4",
+      "source_archive_sha256": "02022c200b24b9b870731eed367f5cde02cbe951d670248d05fc2a840750b3c4",
+      "native_Hessian_members": [
+        {
+          "ordinal": 16,
+          "name": "./outputs/models/ensemble-063/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "e3d3bea0b1ecc636bfec17661ca2fadd2b6b21ae3cf096e851375bc6aba916ae"
+        },
+        {
+          "ordinal": 49,
+          "name": "./outputs/checks/hessian/ensemble-063/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "e3d3bea0b1ecc636bfec17661ca2fadd2b6b21ae3cf096e851375bc6aba916ae"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 11,
+          "name": "./outputs/models/ensemble-063/final.par",
+          "bytes": 2957217,
+          "sha256": "4b3629229c2fce797da9fce4e262950dbeae821ad5a6c62c6cd5ffde1eeb9ebb"
+        },
+        {
+          "ordinal": 44,
+          "name": "./outputs/checks/hessian/ensemble-063/final.par",
+          "bytes": 2957217,
+          "sha256": "4b3629229c2fce797da9fce4e262950dbeae821ad5a6c62c6cd5ffde1eeb9ebb"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22561,
+      "published_PAR_sha256": "507c5eb0bbf705bcb5161cbb03c7863351d412ae4c3f8ca93e3ac72f1bd3dabe",
+      "source_hessian_job": 22716,
+      "source_hessian_id": "jbdd8051eb9f",
+      "source_archive_id": "a-4675e886a910816e9d8e5c5c4518d3608bfcfcbed56b08df8f2a858c64b65d1a",
+      "source_archive_sha256": "4675e886a910816e9d8e5c5c4518d3608bfcfcbed56b08df8f2a858c64b65d1a",
+      "native_Hessian_members": [
+        {
+          "ordinal": 24,
+          "name": "./outputs/checks/hessian/ensemble-062/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "0931db38ec6e781076e44f68af5e6cfbf0a4948641dcc524ea937a1fc6376c55"
+        },
+        {
+          "ordinal": 59,
+          "name": "./outputs/models/ensemble-062/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "0931db38ec6e781076e44f68af5e6cfbf0a4948641dcc524ea937a1fc6376c55"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 15,
+          "name": "./outputs/checks/hessian/ensemble-062/final.par",
+          "bytes": 2957226,
+          "sha256": "507c5eb0bbf705bcb5161cbb03c7863351d412ae4c3f8ca93e3ac72f1bd3dabe"
+        },
+        {
+          "ordinal": 50,
+          "name": "./outputs/models/ensemble-062/final.par",
+          "bytes": 2957226,
+          "sha256": "507c5eb0bbf705bcb5161cbb03c7863351d412ae4c3f8ca93e3ac72f1bd3dabe"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22556,
+      "published_PAR_sha256": "06dde7643f55a2d224dbfa12f28201c1c6570538b747111d30bf97738489a0c9",
+      "source_hessian_job": 22724,
+      "source_hessian_id": "j73aab27c4c0",
+      "source_archive_id": "a-3654deef32cb91bce4e1e1aebbe09bdf0efdac5415053ed6abede81510f4d820",
+      "source_archive_sha256": "3654deef32cb91bce4e1e1aebbe09bdf0efdac5415053ed6abede81510f4d820",
+      "native_Hessian_members": [
+        {
+          "ordinal": 17,
+          "name": "./outputs/models/ensemble-057/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "5dc81418dbae4012264ef591dc58b5fc6f010ad2354bd4743445127a6d0e7ef6"
+        },
+        {
+          "ordinal": 55,
+          "name": "./outputs/checks/hessian/ensemble-057/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "5dc81418dbae4012264ef591dc58b5fc6f010ad2354bd4743445127a6d0e7ef6"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 9,
+          "name": "./outputs/models/ensemble-057/final.par",
+          "bytes": 2957241,
+          "sha256": "06dde7643f55a2d224dbfa12f28201c1c6570538b747111d30bf97738489a0c9"
+        },
+        {
+          "ordinal": 47,
+          "name": "./outputs/checks/hessian/ensemble-057/final.par",
+          "bytes": 2957241,
+          "sha256": "06dde7643f55a2d224dbfa12f28201c1c6570538b747111d30bf97738489a0c9"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22555,
+      "published_PAR_sha256": "dbd785382fe5b38938975433954cc373231f25978817880abc35524751048eb4",
+      "source_hessian_job": 22726,
+      "source_hessian_id": "ja6923569705",
+      "source_archive_id": "a-f8221fc0f89d3f29392cf284057cbb8ede025689993450096503ad36434ccb03",
+      "source_archive_sha256": "f8221fc0f89d3f29392cf284057cbb8ede025689993450096503ad36434ccb03",
+      "native_Hessian_members": [
+        {
+          "ordinal": 25,
+          "name": "./outputs/checks/hessian/ensemble-056/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "0ab9421654ad642dec2a3874fada55bfb17b1720fd60ab2fd15475f259874207"
+        },
+        {
+          "ordinal": 60,
+          "name": "./outputs/models/ensemble-056/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "0ab9421654ad642dec2a3874fada55bfb17b1720fd60ab2fd15475f259874207"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 16,
+          "name": "./outputs/checks/hessian/ensemble-056/final.par",
+          "bytes": 2957224,
+          "sha256": "dbd785382fe5b38938975433954cc373231f25978817880abc35524751048eb4"
+        },
+        {
+          "ordinal": 49,
+          "name": "./outputs/models/ensemble-056/final.par",
+          "bytes": 2957224,
+          "sha256": "dbd785382fe5b38938975433954cc373231f25978817880abc35524751048eb4"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22554,
+      "published_PAR_sha256": "d09b22a846ed4782fdb14fb3c7238adfba11ddc7db71ddfd2925458127c546e5",
+      "source_hessian_job": 22728,
+      "source_hessian_id": "j396ce012fe5",
+      "source_archive_id": "a-25f9368ee011256d4c7842732f1bc99d46040d3d14ccafd83ab605ddcf214392",
+      "source_archive_sha256": "25f9368ee011256d4c7842732f1bc99d46040d3d14ccafd83ab605ddcf214392",
+      "native_Hessian_members": [
+        {
+          "ordinal": 25,
+          "name": "./outputs/checks/hessian/ensemble-055/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "f98fc497968f97cfb67aa3a3d6af644eb3c9fcdbde09349cb136aee4b15a49eb"
+        },
+        {
+          "ordinal": 60,
+          "name": "./outputs/models/ensemble-055/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "f98fc497968f97cfb67aa3a3d6af644eb3c9fcdbde09349cb136aee4b15a49eb"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 16,
+          "name": "./outputs/checks/hessian/ensemble-055/final.par",
+          "bytes": 2957160,
+          "sha256": "d09b22a846ed4782fdb14fb3c7238adfba11ddc7db71ddfd2925458127c546e5"
+        },
+        {
+          "ordinal": 49,
+          "name": "./outputs/models/ensemble-055/final.par",
+          "bytes": 2957160,
+          "sha256": "d09b22a846ed4782fdb14fb3c7238adfba11ddc7db71ddfd2925458127c546e5"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22553,
+      "published_PAR_sha256": "4ae91bf5a4121d98ab951229a48166a11010d6111d90713ea5779dd69bb2a670",
+      "source_hessian_job": 22730,
+      "source_hessian_id": "j3cc1e2ea5e6",
+      "source_archive_id": "a-1908ebaa20adf62817799bfee00631254aded19e3ac6a9fd260902be542e3876",
+      "source_archive_sha256": "1908ebaa20adf62817799bfee00631254aded19e3ac6a9fd260902be542e3876",
+      "native_Hessian_members": [
+        {
+          "ordinal": 21,
+          "name": "./outputs/models/ensemble-054/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "e9298b078b548fccb39d86803df70bb11e62696512910578fc4cf781c974cfe5"
+        },
+        {
+          "ordinal": 50,
+          "name": "./outputs/checks/hessian/ensemble-054/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "e9298b078b548fccb39d86803df70bb11e62696512910578fc4cf781c974cfe5"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 4,
+          "name": "./outputs/models/ensemble-054/final.par",
+          "bytes": 2957153,
+          "sha256": "4ae91bf5a4121d98ab951229a48166a11010d6111d90713ea5779dd69bb2a670"
+        },
+        {
+          "ordinal": 35,
+          "name": "./outputs/checks/hessian/ensemble-054/final.par",
+          "bytes": 2957153,
+          "sha256": "4ae91bf5a4121d98ab951229a48166a11010d6111d90713ea5779dd69bb2a670"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22552,
+      "published_PAR_sha256": "b2051b504690d3b854a4f08b989c088c8e91492ce8c65c811acd58c8064e14c7",
+      "source_hessian_job": 22732,
+      "source_hessian_id": "j4305ffaf70f",
+      "source_archive_id": "a-adb0d588faaee31ccac00e86f923d43daff67b9b1e402a3841d00b0afd2d7ee5",
+      "source_archive_sha256": "adb0d588faaee31ccac00e86f923d43daff67b9b1e402a3841d00b0afd2d7ee5",
+      "native_Hessian_members": [
+        {
+          "ordinal": 28,
+          "name": "./outputs/checks/hessian/ensemble-053/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "6abdc15d4195a83301be931e2014864546688be51a053e9ea1eaf8d2154256da"
+        },
+        {
+          "ordinal": 59,
+          "name": "./outputs/models/ensemble-053/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "6abdc15d4195a83301be931e2014864546688be51a053e9ea1eaf8d2154256da"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 13,
+          "name": "./outputs/checks/hessian/ensemble-053/final.par",
+          "bytes": 2957139,
+          "sha256": "b2051b504690d3b854a4f08b989c088c8e91492ce8c65c811acd58c8064e14c7"
+        },
+        {
+          "ordinal": 42,
+          "name": "./outputs/models/ensemble-053/final.par",
+          "bytes": 2957139,
+          "sha256": "b2051b504690d3b854a4f08b989c088c8e91492ce8c65c811acd58c8064e14c7"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22551,
+      "published_PAR_sha256": "28895a3bb868b8b6e9e9089934493b206810794b2d6d557d53a07265c84c4ac8",
+      "source_hessian_job": 22734,
+      "source_hessian_id": "j0e50df8eac7",
+      "source_archive_id": "a-ae750f74654bee4852485d4a2b71568933c6d672d34bf7591133429c98fd5e40",
+      "source_archive_sha256": "ae750f74654bee4852485d4a2b71568933c6d672d34bf7591133429c98fd5e40",
+      "native_Hessian_members": [
+        {
+          "ordinal": 26,
+          "name": "./outputs/models/ensemble-052/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "8a4baa0dec7f90e74a57510f82fd5725ea789b1fc82164554deb3758ecd7b1b5"
+        },
+        {
+          "ordinal": 56,
+          "name": "./outputs/checks/hessian/ensemble-052/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "8a4baa0dec7f90e74a57510f82fd5725ea789b1fc82164554deb3758ecd7b1b5"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 20,
+          "name": "./outputs/models/ensemble-052/final.par",
+          "bytes": 2957226,
+          "sha256": "28895a3bb868b8b6e9e9089934493b206810794b2d6d557d53a07265c84c4ac8"
+        },
+        {
+          "ordinal": 50,
+          "name": "./outputs/checks/hessian/ensemble-052/final.par",
+          "bytes": 2957226,
+          "sha256": "28895a3bb868b8b6e9e9089934493b206810794b2d6d557d53a07265c84c4ac8"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22550,
+      "published_PAR_sha256": "cf7dd186a12eaa64ff3f821911fcfb5287ff636ca14362a3c4e18733ab1b6eac",
+      "source_hessian_job": 22738,
+      "source_hessian_id": "j3977243813a",
+      "source_archive_id": "a-8e112cf051ccba5b0188b2d5ee27e98d87cdda4cf216473902f5e1c22d876ad3",
+      "source_archive_sha256": "8e112cf051ccba5b0188b2d5ee27e98d87cdda4cf216473902f5e1c22d876ad3",
+      "native_Hessian_members": [
+        {
+          "ordinal": 14,
+          "name": "./outputs/checks/hessian/ensemble-051/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "ffa3fa89d5786ee0f48e736381a45c2cfda8bda74943ad42f9fab96ece8dab2e"
+        },
+        {
+          "ordinal": 48,
+          "name": "./outputs/models/ensemble-051/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "ffa3fa89d5786ee0f48e736381a45c2cfda8bda74943ad42f9fab96ece8dab2e"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 8,
+          "name": "./outputs/checks/hessian/ensemble-051/final.par",
+          "bytes": 2957177,
+          "sha256": "cf7dd186a12eaa64ff3f821911fcfb5287ff636ca14362a3c4e18733ab1b6eac"
+        },
+        {
+          "ordinal": 41,
+          "name": "./outputs/models/ensemble-051/final.par",
+          "bytes": 2957177,
+          "sha256": "cf7dd186a12eaa64ff3f821911fcfb5287ff636ca14362a3c4e18733ab1b6eac"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22549,
+      "published_PAR_sha256": "1f8addcd41811709028c134850e5c6d64769d76d7da2ca9e83dabe6d452389dc",
+      "source_hessian_job": 22742,
+      "source_hessian_id": "jb6930af166b",
+      "source_archive_id": "a-c67d0a5f3ca510ce67b1418af0a6cd183eef237fffe9590e747c5c364b61f140",
+      "source_archive_sha256": "c67d0a5f3ca510ce67b1418af0a6cd183eef237fffe9590e747c5c364b61f140",
+      "native_Hessian_members": [
+        {
+          "ordinal": 27,
+          "name": "./outputs/models/ensemble-050/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "cd61821a5c6c065b7159f82334e507a97cc85f713c7e2ad7bdb1c87356138ab1"
+        },
+        {
+          "ordinal": 60,
+          "name": "./outputs/checks/hessian/ensemble-050/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "cd61821a5c6c065b7159f82334e507a97cc85f713c7e2ad7bdb1c87356138ab1"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 12,
+          "name": "./outputs/models/ensemble-050/final.par",
+          "bytes": 2957155,
+          "sha256": "1f8addcd41811709028c134850e5c6d64769d76d7da2ca9e83dabe6d452389dc"
+        },
+        {
+          "ordinal": 48,
+          "name": "./outputs/checks/hessian/ensemble-050/final.par",
+          "bytes": 2957155,
+          "sha256": "1f8addcd41811709028c134850e5c6d64769d76d7da2ca9e83dabe6d452389dc"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22548,
+      "published_PAR_sha256": "da2514716c78892e8da9ab9eee7a0193aa7bd22ab88fece1d8a29ce9b76a4c3b",
+      "source_hessian_job": 22746,
+      "source_hessian_id": "j88d69133336",
+      "source_archive_id": "a-76e349cce9c93dd1ce98cfa99b8a345712fe90182878fc4609d7d1a86e900538",
+      "source_archive_sha256": "76e349cce9c93dd1ce98cfa99b8a345712fe90182878fc4609d7d1a86e900538",
+      "native_Hessian_members": [
+        {
+          "ordinal": 19,
+          "name": "./outputs/checks/hessian/ensemble-049/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "d59550b1642f207bfeb09cafa9f41d192ebe60344c01d4cdf7353602f0074309"
+        },
+        {
+          "ordinal": 52,
+          "name": "./outputs/models/ensemble-049/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "d59550b1642f207bfeb09cafa9f41d192ebe60344c01d4cdf7353602f0074309"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 29,
+          "name": "./outputs/checks/hessian/ensemble-049/final.par",
+          "bytes": 2957178,
+          "sha256": "da2514716c78892e8da9ab9eee7a0193aa7bd22ab88fece1d8a29ce9b76a4c3b"
+        },
+        {
+          "ordinal": 62,
+          "name": "./outputs/models/ensemble-049/final.par",
+          "bytes": 2957178,
+          "sha256": "da2514716c78892e8da9ab9eee7a0193aa7bd22ab88fece1d8a29ce9b76a4c3b"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22546,
+      "published_PAR_sha256": "b849eb212fd8913d11e6cbd0589dac3c4093426464f2dd9dae25af8c2daa4d1a",
+      "source_hessian_job": 22754,
+      "source_hessian_id": "jbc89b0c14ed",
+      "source_archive_id": "a-3f604969527876503bdd4ee24211e0cdc076f64359b0850c83d5a335706815a8",
+      "source_archive_sha256": "3f604969527876503bdd4ee24211e0cdc076f64359b0850c83d5a335706815a8",
+      "native_Hessian_members": [
+        {
+          "ordinal": 15,
+          "name": "./outputs/checks/hessian/ensemble-047/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "edf7006517fdc454fe9fec42eecdec3224f083778417ee9b2b015842e5aff437"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/models/ensemble-047/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "edf7006517fdc454fe9fec42eecdec3224f083778417ee9b2b015842e5aff437"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 18,
+          "name": "./outputs/checks/hessian/ensemble-047/final.par",
+          "bytes": 2957161,
+          "sha256": "b849eb212fd8913d11e6cbd0589dac3c4093426464f2dd9dae25af8c2daa4d1a"
+        },
+        {
+          "ordinal": 49,
+          "name": "./outputs/models/ensemble-047/final.par",
+          "bytes": 2957161,
+          "sha256": "b849eb212fd8913d11e6cbd0589dac3c4093426464f2dd9dae25af8c2daa4d1a"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22545,
+      "published_PAR_sha256": "8993a0eb84e167cba5653cd66397cd9d26c33f624e920d4079b8a05b7b8e7234",
+      "source_hessian_job": 22758,
+      "source_hessian_id": "jbdd4a8d0fb9",
+      "source_archive_id": "a-3f194e47a16beea2af4d4697b1a276a63bb3a3f310b581aa4cf9b702c0f94f1b",
+      "source_archive_sha256": "3f194e47a16beea2af4d4697b1a276a63bb3a3f310b581aa4cf9b702c0f94f1b",
+      "native_Hessian_members": [
+        {
+          "ordinal": 32,
+          "name": "./outputs/checks/hessian/ensemble-046/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "c21ae4bcad3ccb2e5fbe638b352fe9dd215d334e26d411f44a827ec0bc170e75"
+        },
+        {
+          "ordinal": 68,
+          "name": "./outputs/models/ensemble-046/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "c21ae4bcad3ccb2e5fbe638b352fe9dd215d334e26d411f44a827ec0bc170e75"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 23,
+          "name": "./outputs/checks/hessian/ensemble-046/final.par",
+          "bytes": 2957208,
+          "sha256": "8993a0eb84e167cba5653cd66397cd9d26c33f624e920d4079b8a05b7b8e7234"
+        },
+        {
+          "ordinal": 58,
+          "name": "./outputs/models/ensemble-046/final.par",
+          "bytes": 2957208,
+          "sha256": "8993a0eb84e167cba5653cd66397cd9d26c33f624e920d4079b8a05b7b8e7234"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22544,
+      "published_PAR_sha256": "4214dd1b9901d6e3de41b3f246a4131aeeeca7229f05eaf66257b458089fd5f2",
+      "source_hessian_job": 22762,
+      "source_hessian_id": "j5fbc8dd3abf",
+      "source_archive_id": "a-12e2255393fcad2450774e1a735f7f0a4ea704e142465867ccd60711ba29937a",
+      "source_archive_sha256": "12e2255393fcad2450774e1a735f7f0a4ea704e142465867ccd60711ba29937a",
+      "native_Hessian_members": [
+        {
+          "ordinal": 14,
+          "name": "./outputs/checks/hessian/ensemble-045/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "5641631977f27877ff7333416f6a8e1275c2a479199788b15b4db483ab2ff19e"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/models/ensemble-045/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "5641631977f27877ff7333416f6a8e1275c2a479199788b15b4db483ab2ff19e"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 32,
+          "name": "./outputs/checks/hessian/ensemble-045/final.par",
+          "bytes": 2957178,
+          "sha256": "4214dd1b9901d6e3de41b3f246a4131aeeeca7229f05eaf66257b458089fd5f2"
+        },
+        {
+          "ordinal": 64,
+          "name": "./outputs/models/ensemble-045/final.par",
+          "bytes": 2957178,
+          "sha256": "4214dd1b9901d6e3de41b3f246a4131aeeeca7229f05eaf66257b458089fd5f2"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22543,
+      "published_PAR_sha256": "682d113e649995f13be0944eef473680322b0f539343a3ec22dc0e093a8e0179",
+      "source_hessian_job": 22766,
+      "source_hessian_id": "j99c23a86e21",
+      "source_archive_id": "a-34e28720d6856192f2f643a3df4c94122617527ea88f2e79ce2d76d53096dc6a",
+      "source_archive_sha256": "34e28720d6856192f2f643a3df4c94122617527ea88f2e79ce2d76d53096dc6a",
+      "native_Hessian_members": [
+        {
+          "ordinal": 32,
+          "name": "./outputs/checks/hessian/ensemble-044/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "5fde88b50543d90392baa6e3c04ffde1fc564e4d2fcc36393fbb5e4824e33456"
+        },
+        {
+          "ordinal": 68,
+          "name": "./outputs/models/ensemble-044/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "5fde88b50543d90392baa6e3c04ffde1fc564e4d2fcc36393fbb5e4824e33456"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 23,
+          "name": "./outputs/checks/hessian/ensemble-044/final.par",
+          "bytes": 2957249,
+          "sha256": "682d113e649995f13be0944eef473680322b0f539343a3ec22dc0e093a8e0179"
+        },
+        {
+          "ordinal": 58,
+          "name": "./outputs/models/ensemble-044/final.par",
+          "bytes": 2957249,
+          "sha256": "682d113e649995f13be0944eef473680322b0f539343a3ec22dc0e093a8e0179"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22542,
+      "published_PAR_sha256": "6dad6fca73dd8d0592caa6cf45ffcd80d245321676141d44a0d7a523032eb0fa",
+      "source_hessian_job": 22770,
+      "source_hessian_id": "j04d53721230",
+      "source_archive_id": "a-e6e38f7ba2de316ce9709841c17ae0843c566d1b61f161c66a41e8b9b1a3bbc3",
+      "source_archive_sha256": "e6e38f7ba2de316ce9709841c17ae0843c566d1b61f161c66a41e8b9b1a3bbc3",
+      "native_Hessian_members": [
+        {
+          "ordinal": 16,
+          "name": "./outputs/models/ensemble-043/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "b1a097b6bad18739569f9a5ca28a55f6e61fd1cdb999d967e378bac140868d1f"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/checks/hessian/ensemble-043/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "b1a097b6bad18739569f9a5ca28a55f6e61fd1cdb999d967e378bac140868d1f"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 24,
+          "name": "./outputs/models/ensemble-043/final.par",
+          "bytes": 2957190,
+          "sha256": "6dad6fca73dd8d0592caa6cf45ffcd80d245321676141d44a0d7a523032eb0fa"
+        },
+        {
+          "ordinal": 52,
+          "name": "./outputs/checks/hessian/ensemble-043/final.par",
+          "bytes": 2957190,
+          "sha256": "6dad6fca73dd8d0592caa6cf45ffcd80d245321676141d44a0d7a523032eb0fa"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22541,
+      "published_PAR_sha256": "f3600b58313f571fa541db27661828902f854edc25420b5e7cca6ab27ddc3372",
+      "source_hessian_job": 22774,
+      "source_hessian_id": "jc38622f3b61",
+      "source_archive_id": "a-5d1c66091e4c95b71052577d6d2e619c8bae014cabe674f6669fb76dcd510a31",
+      "source_archive_sha256": "5d1c66091e4c95b71052577d6d2e619c8bae014cabe674f6669fb76dcd510a31",
+      "native_Hessian_members": [
+        {
+          "ordinal": 10,
+          "name": "./outputs/models/ensemble-042/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "a7d184b8aaa020c97d7b94781512b91f795dd691ed45c8569db3fa9d6933eece"
+        },
+        {
+          "ordinal": 48,
+          "name": "./outputs/checks/hessian/ensemble-042/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "a7d184b8aaa020c97d7b94781512b91f795dd691ed45c8569db3fa9d6933eece"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 16,
+          "name": "./outputs/models/ensemble-042/final.par",
+          "bytes": 2957241,
+          "sha256": "f3600b58313f571fa541db27661828902f854edc25420b5e7cca6ab27ddc3372"
+        },
+        {
+          "ordinal": 54,
+          "name": "./outputs/checks/hessian/ensemble-042/final.par",
+          "bytes": 2957241,
+          "sha256": "f3600b58313f571fa541db27661828902f854edc25420b5e7cca6ab27ddc3372"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22540,
+      "published_PAR_sha256": "b2fde84a85aadf0ed5bab5e36a8826f286156ed4f20897799298ac7e0b4a2d2a",
+      "source_hessian_job": 22778,
+      "source_hessian_id": "j5f4836e07a2",
+      "source_archive_id": "a-1a524f0859beaea29f0ebcfab852459eb020c620c9de45c83709d9e5eefaa3a9",
+      "source_archive_sha256": "1a524f0859beaea29f0ebcfab852459eb020c620c9de45c83709d9e5eefaa3a9",
+      "native_Hessian_members": [
+        {
+          "ordinal": 17,
+          "name": "./outputs/models/ensemble-041/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "bec00c0f13629d2a897ed31a53c9041eab8da95e7b2c955f983af521b8ccb7c5"
+        },
+        {
+          "ordinal": 55,
+          "name": "./outputs/checks/hessian/ensemble-041/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "bec00c0f13629d2a897ed31a53c9041eab8da95e7b2c955f983af521b8ccb7c5"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 9,
+          "name": "./outputs/models/ensemble-041/final.par",
+          "bytes": 2957197,
+          "sha256": "b2fde84a85aadf0ed5bab5e36a8826f286156ed4f20897799298ac7e0b4a2d2a"
+        },
+        {
+          "ordinal": 47,
+          "name": "./outputs/checks/hessian/ensemble-041/final.par",
+          "bytes": 2957197,
+          "sha256": "b2fde84a85aadf0ed5bab5e36a8826f286156ed4f20897799298ac7e0b4a2d2a"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22539,
+      "published_PAR_sha256": "c7369167b7864615bbb6bda1eb5018438a276d5b5d99f0b4dc21fbdf05a87d9e",
+      "source_hessian_job": 22782,
+      "source_hessian_id": "j04981bbcfb7",
+      "source_archive_id": "a-e58aad4909491cece3bb68558d162b6a4bb0bd49ed8280b50ef1f78d62e4de6b",
+      "source_archive_sha256": "e58aad4909491cece3bb68558d162b6a4bb0bd49ed8280b50ef1f78d62e4de6b",
+      "native_Hessian_members": [
+        {
+          "ordinal": 14,
+          "name": "./outputs/checks/hessian/ensemble-040/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "6e134dcd2adf8115fc4ac4123aebc327f9cebc452db24facf9454de48006903d"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/models/ensemble-040/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "6e134dcd2adf8115fc4ac4123aebc327f9cebc452db24facf9454de48006903d"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 32,
+          "name": "./outputs/checks/hessian/ensemble-040/final.par",
+          "bytes": 2957195,
+          "sha256": "c7369167b7864615bbb6bda1eb5018438a276d5b5d99f0b4dc21fbdf05a87d9e"
+        },
+        {
+          "ordinal": 64,
+          "name": "./outputs/models/ensemble-040/final.par",
+          "bytes": 2957195,
+          "sha256": "c7369167b7864615bbb6bda1eb5018438a276d5b5d99f0b4dc21fbdf05a87d9e"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22538,
+      "published_PAR_sha256": "24db2733182a8623bea59a4a0d85ca8aa4dc413748da3ce6118ec285419e7ed5",
+      "source_hessian_job": 22784,
+      "source_hessian_id": "j294ab989e79",
+      "source_archive_id": "a-3822dc1f2d8848a8ddad99cf96277f52e4a8ee24cda70c92e278effd35f0cd92",
+      "source_archive_sha256": "3822dc1f2d8848a8ddad99cf96277f52e4a8ee24cda70c92e278effd35f0cd92",
+      "native_Hessian_members": [
+        {
+          "ordinal": 22,
+          "name": "./outputs/models/ensemble-039/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "88b26e8e4ac35c04f7e5286963469f8669b6870ffde396c9c418d5405988e84f"
+        },
+        {
+          "ordinal": 60,
+          "name": "./outputs/checks/hessian/ensemble-039/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "88b26e8e4ac35c04f7e5286963469f8669b6870ffde396c9c418d5405988e84f"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 25,
+          "name": "./outputs/models/ensemble-039/final.par",
+          "bytes": 2957183,
+          "sha256": "24db2733182a8623bea59a4a0d85ca8aa4dc413748da3ce6118ec285419e7ed5"
+        },
+        {
+          "ordinal": 63,
+          "name": "./outputs/checks/hessian/ensemble-039/final.par",
+          "bytes": 2957183,
+          "sha256": "24db2733182a8623bea59a4a0d85ca8aa4dc413748da3ce6118ec285419e7ed5"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22537,
+      "published_PAR_sha256": "c97c7862331d5c58d981195a01285c5bd3a3a821fe3cd259a5ef39f031ecc25c",
+      "source_hessian_job": 22786,
+      "source_hessian_id": "jec7723637c9",
+      "source_archive_id": "a-0526312906c9bcb3c6c475dfc627464982e0b587febf310e7e750fc096ea1d25",
+      "source_archive_sha256": "0526312906c9bcb3c6c475dfc627464982e0b587febf310e7e750fc096ea1d25",
+      "native_Hessian_members": [
+        {
+          "ordinal": 22,
+          "name": "./outputs/models/ensemble-038/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "d5725fdc19bdaab7d9fd2f379922a233395793e8b88ef0e1dc20eeba3491693a"
+        },
+        {
+          "ordinal": 59,
+          "name": "./outputs/checks/hessian/ensemble-038/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "d5725fdc19bdaab7d9fd2f379922a233395793e8b88ef0e1dc20eeba3491693a"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 25,
+          "name": "./outputs/models/ensemble-038/final.par",
+          "bytes": 2957194,
+          "sha256": "c97c7862331d5c58d981195a01285c5bd3a3a821fe3cd259a5ef39f031ecc25c"
+        },
+        {
+          "ordinal": 62,
+          "name": "./outputs/checks/hessian/ensemble-038/final.par",
+          "bytes": 2957194,
+          "sha256": "c97c7862331d5c58d981195a01285c5bd3a3a821fe3cd259a5ef39f031ecc25c"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22535,
+      "published_PAR_sha256": "b39320e8e1fb6b29c53059d4975dd94bfd311c6509d3aa13c86e35accadcb3d3",
+      "source_hessian_job": 22790,
+      "source_hessian_id": "j7725b53ce68",
+      "source_archive_id": "a-92f8ae2dd0c28efa22c9f1229c35c9f7647741f8760d9cea7b83eb61d806b1aa",
+      "source_archive_sha256": "92f8ae2dd0c28efa22c9f1229c35c9f7647741f8760d9cea7b83eb61d806b1aa",
+      "native_Hessian_members": [
+        {
+          "ordinal": 25,
+          "name": "./outputs/checks/hessian/ensemble-036/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "35ad8a700471aa73089817647304000cb6e4dd7ac36a5f557b5828b56ca42d70"
+        },
+        {
+          "ordinal": 59,
+          "name": "./outputs/models/ensemble-036/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "35ad8a700471aa73089817647304000cb6e4dd7ac36a5f557b5828b56ca42d70"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 16,
+          "name": "./outputs/checks/hessian/ensemble-036/final.par",
+          "bytes": 2957190,
+          "sha256": "b39320e8e1fb6b29c53059d4975dd94bfd311c6509d3aa13c86e35accadcb3d3"
+        },
+        {
+          "ordinal": 50,
+          "name": "./outputs/models/ensemble-036/final.par",
+          "bytes": 2957190,
+          "sha256": "b39320e8e1fb6b29c53059d4975dd94bfd311c6509d3aa13c86e35accadcb3d3"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22534,
+      "published_PAR_sha256": "f021e31fe62a2f7b06f4c0f849b93ab614691450baf0795ebb8936721b794dd1",
+      "source_hessian_job": 22792,
+      "source_hessian_id": "j552fec75227",
+      "source_archive_id": "a-14f5f91c941acb685290b0e5bd40f6763c198956667fb62887453af996d899fa",
+      "source_archive_sha256": "14f5f91c941acb685290b0e5bd40f6763c198956667fb62887453af996d899fa",
+      "native_Hessian_members": [
+        {
+          "ordinal": 21,
+          "name": "./outputs/models/ensemble-035/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "21e8b4b46d14b77af5b09b6ba124ececfbcff08e739b871e4cd0ec1cf5990595"
+        },
+        {
+          "ordinal": 50,
+          "name": "./outputs/checks/hessian/ensemble-035/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "21e8b4b46d14b77af5b09b6ba124ececfbcff08e739b871e4cd0ec1cf5990595"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 4,
+          "name": "./outputs/models/ensemble-035/final.par",
+          "bytes": 2957224,
+          "sha256": "f021e31fe62a2f7b06f4c0f849b93ab614691450baf0795ebb8936721b794dd1"
+        },
+        {
+          "ordinal": 35,
+          "name": "./outputs/checks/hessian/ensemble-035/final.par",
+          "bytes": 2957224,
+          "sha256": "f021e31fe62a2f7b06f4c0f849b93ab614691450baf0795ebb8936721b794dd1"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22533,
+      "published_PAR_sha256": "5e1e0a99df9d59b46405b5d6f52cd1da82f3f339913bef52133d371030b54370",
+      "source_hessian_job": 22794,
+      "source_hessian_id": "ja21527167c1",
+      "source_archive_id": "a-02c1411287095ae2c3db1f60cec040b1400a3291e97bf11e66ff6ce3f1ab1bbe",
+      "source_archive_sha256": "02c1411287095ae2c3db1f60cec040b1400a3291e97bf11e66ff6ce3f1ab1bbe",
+      "native_Hessian_members": [
+        {
+          "ordinal": 33,
+          "name": "./outputs/checks/hessian/ensemble-034/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "adf45059cb83efc74291cf78d62146c9522275e5b7da003205b251fc576e038c"
+        },
+        {
+          "ordinal": 68,
+          "name": "./outputs/models/ensemble-034/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "adf45059cb83efc74291cf78d62146c9522275e5b7da003205b251fc576e038c"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 24,
+          "name": "./outputs/checks/hessian/ensemble-034/final.par",
+          "bytes": 2957210,
+          "sha256": "5e1e0a99df9d59b46405b5d6f52cd1da82f3f339913bef52133d371030b54370"
+        },
+        {
+          "ordinal": 58,
+          "name": "./outputs/models/ensemble-034/final.par",
+          "bytes": 2957210,
+          "sha256": "5e1e0a99df9d59b46405b5d6f52cd1da82f3f339913bef52133d371030b54370"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22532,
+      "published_PAR_sha256": "806b2fec7c2af95d11e2a6ee1a9fa151effc3459eddb2b9b5ab245e775bbf9ef",
+      "source_hessian_job": 22796,
+      "source_hessian_id": "j5f9ce595370",
+      "source_archive_id": "a-89ce55fdfb65af12f3371f7504fc10c51eed305d7edd0ccee27b18dec39f66d5",
+      "source_archive_sha256": "89ce55fdfb65af12f3371f7504fc10c51eed305d7edd0ccee27b18dec39f66d5",
+      "native_Hessian_members": [
+        {
+          "ordinal": 32,
+          "name": "./outputs/checks/hessian/ensemble-033/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "6306ce18b77e4a7579157a1fa825d4937e48ebaa400ac4823427357818907b92"
+        },
+        {
+          "ordinal": 62,
+          "name": "./outputs/models/ensemble-033/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "6306ce18b77e4a7579157a1fa825d4937e48ebaa400ac4823427357818907b92"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 21,
+          "name": "./outputs/checks/hessian/ensemble-033/final.par",
+          "bytes": 2957227,
+          "sha256": "806b2fec7c2af95d11e2a6ee1a9fa151effc3459eddb2b9b5ab245e775bbf9ef"
+        },
+        {
+          "ordinal": 51,
+          "name": "./outputs/models/ensemble-033/final.par",
+          "bytes": 2957227,
+          "sha256": "806b2fec7c2af95d11e2a6ee1a9fa151effc3459eddb2b9b5ab245e775bbf9ef"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22531,
+      "published_PAR_sha256": "b0b8ca77cb2a8f27f7af012dcd4ddaf367293526237d165ae9923f731c9ece5b",
+      "source_hessian_job": 22798,
+      "source_hessian_id": "j51248c25e71",
+      "source_archive_id": "a-6e5cc6804993dca1cdb3e66502f1c139324da49b4d0d0552b32d2c251ac27e0c",
+      "source_archive_sha256": "6e5cc6804993dca1cdb3e66502f1c139324da49b4d0d0552b32d2c251ac27e0c",
+      "native_Hessian_members": [
+        {
+          "ordinal": 12,
+          "name": "./outputs/checks/hessian/ensemble-032/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "a1f0817948c71c635ff27d99fa48768978dbe2c7be32d0f2693e3eef4ffa9a7b"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/models/ensemble-032/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "a1f0817948c71c635ff27d99fa48768978dbe2c7be32d0f2693e3eef4ffa9a7b"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 15,
+          "name": "./outputs/checks/hessian/ensemble-032/final.par",
+          "bytes": 2957189,
+          "sha256": "b0b8ca77cb2a8f27f7af012dcd4ddaf367293526237d165ae9923f731c9ece5b"
+        },
+        {
+          "ordinal": 49,
+          "name": "./outputs/models/ensemble-032/final.par",
+          "bytes": 2957189,
+          "sha256": "b0b8ca77cb2a8f27f7af012dcd4ddaf367293526237d165ae9923f731c9ece5b"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22530,
+      "published_PAR_sha256": "cc351a733034bf6a583badfc7c2d1bae4c2047af405d325eb0dabf21164add8f",
+      "source_hessian_job": 22800,
+      "source_hessian_id": "j935dc6e48c6",
+      "source_archive_id": "a-0e938ecd4b3ad869c955339dfd009d3528ca9f83f3b28f65ee27cfacacfd958c",
+      "source_archive_sha256": "0e938ecd4b3ad869c955339dfd009d3528ca9f83f3b28f65ee27cfacacfd958c",
+      "native_Hessian_members": [
+        {
+          "ordinal": 26,
+          "name": "./outputs/models/ensemble-031/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "8ba6aad2c05421c26d63f5e8ad94fcaa7c6677ff9a8c8f99fb83f198b371dcfb"
+        },
+        {
+          "ordinal": 59,
+          "name": "./outputs/checks/hessian/ensemble-031/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "8ba6aad2c05421c26d63f5e8ad94fcaa7c6677ff9a8c8f99fb83f198b371dcfb"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 20,
+          "name": "./outputs/models/ensemble-031/final.par",
+          "bytes": 2957121,
+          "sha256": "cc351a733034bf6a583badfc7c2d1bae4c2047af405d325eb0dabf21164add8f"
+        },
+        {
+          "ordinal": 53,
+          "name": "./outputs/checks/hessian/ensemble-031/final.par",
+          "bytes": 2957121,
+          "sha256": "cc351a733034bf6a583badfc7c2d1bae4c2047af405d325eb0dabf21164add8f"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22529,
+      "published_PAR_sha256": "d1fe6dd79277e6e2ff892f550be59f0a56c6b4db1efe0fd93272b29c301525ed",
+      "source_hessian_job": 22802,
+      "source_hessian_id": "j94733843e12",
+      "source_archive_id": "a-464de1d2002b0cb686dcddf27082c8bd9249383bea82628960d327063639a239",
+      "source_archive_sha256": "464de1d2002b0cb686dcddf27082c8bd9249383bea82628960d327063639a239",
+      "native_Hessian_members": [
+        {
+          "ordinal": 19,
+          "name": "./outputs/checks/hessian/ensemble-030/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "be7af9101216f14175a7ea498085b539a7311f516a7a67d226131f939ee3225b"
+        },
+        {
+          "ordinal": 52,
+          "name": "./outputs/models/ensemble-030/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "be7af9101216f14175a7ea498085b539a7311f516a7a67d226131f939ee3225b"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 29,
+          "name": "./outputs/checks/hessian/ensemble-030/final.par",
+          "bytes": 2957212,
+          "sha256": "d1fe6dd79277e6e2ff892f550be59f0a56c6b4db1efe0fd93272b29c301525ed"
+        },
+        {
+          "ordinal": 62,
+          "name": "./outputs/models/ensemble-030/final.par",
+          "bytes": 2957212,
+          "sha256": "d1fe6dd79277e6e2ff892f550be59f0a56c6b4db1efe0fd93272b29c301525ed"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22528,
+      "published_PAR_sha256": "54b4049b2258f4346af0f29e39df933ff55ae54d33e7c140c4d452da0dd712e3",
+      "source_hessian_job": 22804,
+      "source_hessian_id": "j4cb2fdf168f",
+      "source_archive_id": "a-03b4740efc8a4230a95576f1ce4f956c121dce3c5becfc37ed7a98940fa69712",
+      "source_archive_sha256": "03b4740efc8a4230a95576f1ce4f956c121dce3c5becfc37ed7a98940fa69712",
+      "native_Hessian_members": [
+        {
+          "ordinal": 15,
+          "name": "./outputs/checks/hessian/ensemble-029/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "20d1e6b50e42d97cb3dae96b91aee1a3654d7c169bd159a9e6cfff2757190c67"
+        },
+        {
+          "ordinal": 43,
+          "name": "./outputs/models/ensemble-029/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "20d1e6b50e42d97cb3dae96b91aee1a3654d7c169bd159a9e6cfff2757190c67"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 24,
+          "name": "./outputs/checks/hessian/ensemble-029/final.par",
+          "bytes": 2957203,
+          "sha256": "54b4049b2258f4346af0f29e39df933ff55ae54d33e7c140c4d452da0dd712e3"
+        },
+        {
+          "ordinal": 52,
+          "name": "./outputs/models/ensemble-029/final.par",
+          "bytes": 2957203,
+          "sha256": "54b4049b2258f4346af0f29e39df933ff55ae54d33e7c140c4d452da0dd712e3"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22526,
+      "published_PAR_sha256": "8d69a6924f4c032d90fe308c9f0c0442ec6120818f39634f9fcbae8b7fa585a9",
+      "source_hessian_job": 22806,
+      "source_hessian_id": "j93422effc13",
+      "source_archive_id": "a-a7cca2b49147be61245d128bb1f5f7cd56a189c0ceb468264f59f0d5cec5e8fb",
+      "source_archive_sha256": "a7cca2b49147be61245d128bb1f5f7cd56a189c0ceb468264f59f0d5cec5e8fb",
+      "native_Hessian_members": [
+        {
+          "ordinal": 22,
+          "name": "./outputs/models/ensemble-027/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "c3906bde7a2ae53ab0338dcce73db1679ed354a3cb8a517dfb794350d63a26db"
+        },
+        {
+          "ordinal": 55,
+          "name": "./outputs/checks/hessian/ensemble-027/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "c3906bde7a2ae53ab0338dcce73db1679ed354a3cb8a517dfb794350d63a26db"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 14,
+          "name": "./outputs/models/ensemble-027/final.par",
+          "bytes": 2957232,
+          "sha256": "8d69a6924f4c032d90fe308c9f0c0442ec6120818f39634f9fcbae8b7fa585a9"
+        },
+        {
+          "ordinal": 47,
+          "name": "./outputs/checks/hessian/ensemble-027/final.par",
+          "bytes": 2957232,
+          "sha256": "8d69a6924f4c032d90fe308c9f0c0442ec6120818f39634f9fcbae8b7fa585a9"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22524,
+      "published_PAR_sha256": "8052210b680a96e8b3faddf95378da28752cc128d14bd77f87048739cabc9b14",
+      "source_hessian_job": 22808,
+      "source_hessian_id": "j8210e97a7e6",
+      "source_archive_id": "a-228f27056e9f500d3a833c4d42bfb6e02a094c39748a1f3f1abbdfddd00642b3",
+      "source_archive_sha256": "228f27056e9f500d3a833c4d42bfb6e02a094c39748a1f3f1abbdfddd00642b3",
+      "native_Hessian_members": [
+        {
+          "ordinal": 21,
+          "name": "./outputs/checks/hessian/ensemble-025/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "ce4fc6198a4fd45fc42448896c3226df8cea49a14ffa76c63c6c509963073e83"
+        },
+        {
+          "ordinal": 49,
+          "name": "./outputs/models/ensemble-025/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "ce4fc6198a4fd45fc42448896c3226df8cea49a14ffa76c63c6c509963073e83"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 10,
+          "name": "./outputs/checks/hessian/ensemble-025/final.par",
+          "bytes": 2957218,
+          "sha256": "8052210b680a96e8b3faddf95378da28752cc128d14bd77f87048739cabc9b14"
+        },
+        {
+          "ordinal": 38,
+          "name": "./outputs/models/ensemble-025/final.par",
+          "bytes": 2957218,
+          "sha256": "8052210b680a96e8b3faddf95378da28752cc128d14bd77f87048739cabc9b14"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22523,
+      "published_PAR_sha256": "d669eed36d7e56671cf19b169b0bf4f2b918e80ab98051377328478d366d7639",
+      "source_hessian_job": 22810,
+      "source_hessian_id": "j95d25eda213",
+      "source_archive_id": "a-564cd39a5ade08704c7e482ca234eb5eed463c1ba1ea3836006e49ac47c30804",
+      "source_archive_sha256": "564cd39a5ade08704c7e482ca234eb5eed463c1ba1ea3836006e49ac47c30804",
+      "native_Hessian_members": [
+        {
+          "ordinal": 24,
+          "name": "./outputs/checks/hessian/ensemble-024/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "d8cca57991514de350c11da8a2bbecb77fb2bd1d0dcf10b89c056c9f5f5f1081"
+        },
+        {
+          "ordinal": 59,
+          "name": "./outputs/models/ensemble-024/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "d8cca57991514de350c11da8a2bbecb77fb2bd1d0dcf10b89c056c9f5f5f1081"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 15,
+          "name": "./outputs/checks/hessian/ensemble-024/final.par",
+          "bytes": 2957209,
+          "sha256": "d669eed36d7e56671cf19b169b0bf4f2b918e80ab98051377328478d366d7639"
+        },
+        {
+          "ordinal": 50,
+          "name": "./outputs/models/ensemble-024/final.par",
+          "bytes": 2957209,
+          "sha256": "d669eed36d7e56671cf19b169b0bf4f2b918e80ab98051377328478d366d7639"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22522,
+      "published_PAR_sha256": "ae83ac5b550e3f4ce420edb8e6a2219124c510c7061ca4f98e9eb23494281fe6",
+      "source_hessian_job": 22812,
+      "source_hessian_id": "j91c8357e3c0",
+      "source_archive_id": "a-48ff8d6ac4bdee81a58adf719a8f0434a856ee1e0cef6407b37605fd076be846",
+      "source_archive_sha256": "48ff8d6ac4bdee81a58adf719a8f0434a856ee1e0cef6407b37605fd076be846",
+      "native_Hessian_members": [
+        {
+          "ordinal": 22,
+          "name": "./outputs/models/ensemble-023/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "9a3e185772bda78681a6b04e741bfe17af2c802fc14d028976f41dc474c3099f"
+        },
+        {
+          "ordinal": 58,
+          "name": "./outputs/checks/hessian/ensemble-023/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "9a3e185772bda78681a6b04e741bfe17af2c802fc14d028976f41dc474c3099f"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 25,
+          "name": "./outputs/models/ensemble-023/final.par",
+          "bytes": 2957166,
+          "sha256": "ae83ac5b550e3f4ce420edb8e6a2219124c510c7061ca4f98e9eb23494281fe6"
+        },
+        {
+          "ordinal": 61,
+          "name": "./outputs/checks/hessian/ensemble-023/final.par",
+          "bytes": 2957166,
+          "sha256": "ae83ac5b550e3f4ce420edb8e6a2219124c510c7061ca4f98e9eb23494281fe6"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22521,
+      "published_PAR_sha256": "f38664c2809d20bdc5db90b97f10537de397fddf026692cc8c9f64e42dd98963",
+      "source_hessian_job": 22814,
+      "source_hessian_id": "j669508afd04",
+      "source_archive_id": "a-c3b5fe4ca1e7b2008e99a39a0a23b6694d59604cbea5c466117ce65190aa5563",
+      "source_archive_sha256": "c3b5fe4ca1e7b2008e99a39a0a23b6694d59604cbea5c466117ce65190aa5563",
+      "native_Hessian_members": [
+        {
+          "ordinal": 15,
+          "name": "./outputs/checks/hessian/ensemble-022/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "b0299e8edfd203a85be269da0abde1dc1bd439e5c1cb18088acb823ecb338f42"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/models/ensemble-022/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "b0299e8edfd203a85be269da0abde1dc1bd439e5c1cb18088acb823ecb338f42"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 33,
+          "name": "./outputs/checks/hessian/ensemble-022/final.par",
+          "bytes": 2957275,
+          "sha256": "f38664c2809d20bdc5db90b97f10537de397fddf026692cc8c9f64e42dd98963"
+        },
+        {
+          "ordinal": 64,
+          "name": "./outputs/models/ensemble-022/final.par",
+          "bytes": 2957275,
+          "sha256": "f38664c2809d20bdc5db90b97f10537de397fddf026692cc8c9f64e42dd98963"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22520,
+      "published_PAR_sha256": "ef973c7f3524e668bf4054b464077c790f96d3e62821fa923e976dda732802d8",
+      "source_hessian_job": 22816,
+      "source_hessian_id": "jd05fb5e7ac7",
+      "source_archive_id": "a-9ba4e46406897eecd1f0ca1967bb586b57c0c928502b537dbbb8b1e89bcef992",
+      "source_archive_sha256": "9ba4e46406897eecd1f0ca1967bb586b57c0c928502b537dbbb8b1e89bcef992",
+      "native_Hessian_members": [
+        {
+          "ordinal": 27,
+          "name": "./outputs/models/ensemble-021/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "4213294c129f80bc33787d37130478f4de7f16d449b964ee0a8025eea61a7ca0"
+        },
+        {
+          "ordinal": 57,
+          "name": "./outputs/checks/hessian/ensemble-021/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "4213294c129f80bc33787d37130478f4de7f16d449b964ee0a8025eea61a7ca0"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 12,
+          "name": "./outputs/models/ensemble-021/final.par",
+          "bytes": 2957194,
+          "sha256": "ef973c7f3524e668bf4054b464077c790f96d3e62821fa923e976dda732802d8"
+        },
+        {
+          "ordinal": 45,
+          "name": "./outputs/checks/hessian/ensemble-021/final.par",
+          "bytes": 2957194,
+          "sha256": "ef973c7f3524e668bf4054b464077c790f96d3e62821fa923e976dda732802d8"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22518,
+      "published_PAR_sha256": "1d7c693184635ea835bbd42df64c365409f9cd88c54e4c1d9208e7901bfd048b",
+      "source_hessian_job": 22820,
+      "source_hessian_id": "jec8618979c0",
+      "source_archive_id": "a-6e888a4ad8ced2f68b999ea66175e64f9cdb4da5f679277d216a65ef084425d3",
+      "source_archive_sha256": "6e888a4ad8ced2f68b999ea66175e64f9cdb4da5f679277d216a65ef084425d3",
+      "native_Hessian_members": [
+        {
+          "ordinal": 28,
+          "name": "./outputs/checks/hessian/ensemble-018/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "6686bdd381fa2404224dd1b27d4aa52a7404f42341a1a9415d6f754fb1019c31"
+        },
+        {
+          "ordinal": 59,
+          "name": "./outputs/models/ensemble-018/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "6686bdd381fa2404224dd1b27d4aa52a7404f42341a1a9415d6f754fb1019c31"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 13,
+          "name": "./outputs/checks/hessian/ensemble-018/final.par",
+          "bytes": 2957149,
+          "sha256": "1d7c693184635ea835bbd42df64c365409f9cd88c54e4c1d9208e7901bfd048b"
+        },
+        {
+          "ordinal": 42,
+          "name": "./outputs/models/ensemble-018/final.par",
+          "bytes": 2957149,
+          "sha256": "1d7c693184635ea835bbd42df64c365409f9cd88c54e4c1d9208e7901bfd048b"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22517,
+      "published_PAR_sha256": "0e3d98b7b06e0a9fa0b34bbdca901a435481cdb63a398e54ff3875724dff07f8",
+      "source_hessian_job": 22822,
+      "source_hessian_id": "j93d0f082928",
+      "source_archive_id": "a-353914fd612ee49e08e7209ba2bdec248f16afd57508a9a4d4cf461bfe5f1afe",
+      "source_archive_sha256": "353914fd612ee49e08e7209ba2bdec248f16afd57508a9a4d4cf461bfe5f1afe",
+      "native_Hessian_members": [
+        {
+          "ordinal": 24,
+          "name": "./outputs/checks/hessian/ensemble-019/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "9daeab857828f07a3382100759a9566485d510aef98279673481b8689ba9976e"
+        },
+        {
+          "ordinal": 55,
+          "name": "./outputs/models/ensemble-019/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "9daeab857828f07a3382100759a9566485d510aef98279673481b8689ba9976e"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 18,
+          "name": "./outputs/checks/hessian/ensemble-019/final.par",
+          "bytes": 2957205,
+          "sha256": "0e3d98b7b06e0a9fa0b34bbdca901a435481cdb63a398e54ff3875724dff07f8"
+        },
+        {
+          "ordinal": 49,
+          "name": "./outputs/models/ensemble-019/final.par",
+          "bytes": 2957205,
+          "sha256": "0e3d98b7b06e0a9fa0b34bbdca901a435481cdb63a398e54ff3875724dff07f8"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22515,
+      "published_PAR_sha256": "ccdba7a52bc661901e5b3480b70f5fb9792c6e9a276cb80f24d3c9bb8c9bac0c",
+      "source_hessian_job": 22824,
+      "source_hessian_id": "j5e9e89e4abb",
+      "source_archive_id": "a-7b6f8460876c5ca17f24867fb64e864cf7d15298d2523b7dbcb17275f6b399c2",
+      "source_archive_sha256": "7b6f8460876c5ca17f24867fb64e864cf7d15298d2523b7dbcb17275f6b399c2",
+      "native_Hessian_members": [
+        {
+          "ordinal": 17,
+          "name": "./outputs/models/ensemble-014/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "ac8c661a815682ad9b32475e04d40887ec174c438825435fd5e14ec910a61df6"
+        },
+        {
+          "ordinal": 55,
+          "name": "./outputs/checks/hessian/ensemble-014/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "ac8c661a815682ad9b32475e04d40887ec174c438825435fd5e14ec910a61df6"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 9,
+          "name": "./outputs/models/ensemble-014/final.par",
+          "bytes": 2957178,
+          "sha256": "ccdba7a52bc661901e5b3480b70f5fb9792c6e9a276cb80f24d3c9bb8c9bac0c"
+        },
+        {
+          "ordinal": 47,
+          "name": "./outputs/checks/hessian/ensemble-014/final.par",
+          "bytes": 2957178,
+          "sha256": "ccdba7a52bc661901e5b3480b70f5fb9792c6e9a276cb80f24d3c9bb8c9bac0c"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22514,
+      "published_PAR_sha256": "0986a3a2555175988be063fbf28d817f3e2affc5d1712dd63d45a90fe9521a6b",
+      "source_hessian_job": 22826,
+      "source_hessian_id": "j7ccfb2fe128",
+      "source_archive_id": "a-4e8ee00fb49e39ac9adbc120ab392f82269750f879905b769751c86aa35fe486",
+      "source_archive_sha256": "4e8ee00fb49e39ac9adbc120ab392f82269750f879905b769751c86aa35fe486",
+      "native_Hessian_members": [
+        {
+          "ordinal": 23,
+          "name": "./outputs/checks/hessian/ensemble-015/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "8cc622f99df9d2f9bb7648fcd0aa02118430d3e893cce61a9d8fd147341ead44"
+        },
+        {
+          "ordinal": 49,
+          "name": "./outputs/models/ensemble-015/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "8cc622f99df9d2f9bb7648fcd0aa02118430d3e893cce61a9d8fd147341ead44"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 12,
+          "name": "./outputs/checks/hessian/ensemble-015/final.par",
+          "bytes": 2957234,
+          "sha256": "0986a3a2555175988be063fbf28d817f3e2affc5d1712dd63d45a90fe9521a6b"
+        },
+        {
+          "ordinal": 38,
+          "name": "./outputs/models/ensemble-015/final.par",
+          "bytes": 2957234,
+          "sha256": "0986a3a2555175988be063fbf28d817f3e2affc5d1712dd63d45a90fe9521a6b"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22512,
+      "published_PAR_sha256": "df85f76aa55e80f621cbbfb31fc3d8762f200d8f16d9695393f9f5f1c38243ec",
+      "source_hessian_job": 22830,
+      "source_hessian_id": "jaf020965cd1",
+      "source_archive_id": "a-a138595810db5bd55e143daa549fef10c8c2171fc344986a19d05129d9463420",
+      "source_archive_sha256": "a138595810db5bd55e143daa549fef10c8c2171fc344986a19d05129d9463420",
+      "native_Hessian_members": [
+        {
+          "ordinal": 17,
+          "name": "./outputs/models/ensemble-010/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "7d8f2b595b1541c7696ed2a6cc32820760f2a1b36f58503c4e70ea263acb728e"
+        },
+        {
+          "ordinal": 55,
+          "name": "./outputs/checks/hessian/ensemble-010/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "7d8f2b595b1541c7696ed2a6cc32820760f2a1b36f58503c4e70ea263acb728e"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 9,
+          "name": "./outputs/models/ensemble-010/final.par",
+          "bytes": 2957211,
+          "sha256": "df85f76aa55e80f621cbbfb31fc3d8762f200d8f16d9695393f9f5f1c38243ec"
+        },
+        {
+          "ordinal": 47,
+          "name": "./outputs/checks/hessian/ensemble-010/final.par",
+          "bytes": 2957211,
+          "sha256": "df85f76aa55e80f621cbbfb31fc3d8762f200d8f16d9695393f9f5f1c38243ec"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22507,
+      "published_PAR_sha256": "1e1c7ef902ba300fd2ba25d8aaa51171864002f86cabfef09cf09826b971e5dd",
+      "source_hessian_job": 22834,
+      "source_hessian_id": "je94bcb6ceb6",
+      "source_archive_id": "a-12eaeea3a899a0ed868a3416425e171dd44994f9f125b8c9fcead23abac1b6fc",
+      "source_archive_sha256": "12eaeea3a899a0ed868a3416425e171dd44994f9f125b8c9fcead23abac1b6fc",
+      "native_Hessian_members": [
+        {
+          "ordinal": 12,
+          "name": "./outputs/checks/hessian/ensemble-002/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "300929390258448abaf8f32a969e06f148286a3cf26c6e25d329d59eada01277"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/models/ensemble-002/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "300929390258448abaf8f32a969e06f148286a3cf26c6e25d329d59eada01277"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 23,
+          "name": "./outputs/checks/hessian/ensemble-002/final.par",
+          "bytes": 2957181,
+          "sha256": "1e1c7ef902ba300fd2ba25d8aaa51171864002f86cabfef09cf09826b971e5dd"
+        },
+        {
+          "ordinal": 59,
+          "name": "./outputs/models/ensemble-002/final.par",
+          "bytes": 2957181,
+          "sha256": "1e1c7ef902ba300fd2ba25d8aaa51171864002f86cabfef09cf09826b971e5dd"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22511,
+      "published_PAR_sha256": "f254b589c4d734581d5524bc3da91c28a551d38e537709f1bff9d67af04c9027",
+      "source_hessian_job": 22836,
+      "source_hessian_id": "j2332af44fca",
+      "source_archive_id": "a-18a5d3fcc4acaf159d7e5b3f84190c7f1515b2e7f4056ff3f96c1d497a6149b4",
+      "source_archive_sha256": "18a5d3fcc4acaf159d7e5b3f84190c7f1515b2e7f4056ff3f96c1d497a6149b4",
+      "native_Hessian_members": [
+        {
+          "ordinal": 27,
+          "name": "./outputs/models/ensemble-004/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "c226ec9b978d47900e7df786e72c154b9226765089cd35496fbf34c7765c4bf2"
+        },
+        {
+          "ordinal": 58,
+          "name": "./outputs/checks/hessian/ensemble-004/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "c226ec9b978d47900e7df786e72c154b9226765089cd35496fbf34c7765c4bf2"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 12,
+          "name": "./outputs/models/ensemble-004/final.par",
+          "bytes": 2957227,
+          "sha256": "f254b589c4d734581d5524bc3da91c28a551d38e537709f1bff9d67af04c9027"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/checks/hessian/ensemble-004/final.par",
+          "bytes": 2957227,
+          "sha256": "f254b589c4d734581d5524bc3da91c28a551d38e537709f1bff9d67af04c9027"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22508,
+      "published_PAR_sha256": "316bc35bbc2dbf8b93b6a49ac51b4532e09266bcb7ac5927c9d5d29e0e44aa4f",
+      "source_hessian_job": 22838,
+      "source_hessian_id": "j5215c8955b5",
+      "source_archive_id": "a-091707a15d72e4ca3fb23b4da61fda2df6fbb6c4581c02a1afa8452b70066dc4",
+      "source_archive_sha256": "091707a15d72e4ca3fb23b4da61fda2df6fbb6c4581c02a1afa8452b70066dc4",
+      "native_Hessian_members": [
+        {
+          "ordinal": 28,
+          "name": "./outputs/checks/hessian/ensemble-012/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "7618bae7e97398a7abb172b843043f9b9525404b322fa0e3cb7e8fe3d5560af9"
+        },
+        {
+          "ordinal": 59,
+          "name": "./outputs/models/ensemble-012/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "7618bae7e97398a7abb172b843043f9b9525404b322fa0e3cb7e8fe3d5560af9"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 13,
+          "name": "./outputs/checks/hessian/ensemble-012/final.par",
+          "bytes": 2957197,
+          "sha256": "316bc35bbc2dbf8b93b6a49ac51b4532e09266bcb7ac5927c9d5d29e0e44aa4f"
+        },
+        {
+          "ordinal": 42,
+          "name": "./outputs/models/ensemble-012/final.par",
+          "bytes": 2957197,
+          "sha256": "316bc35bbc2dbf8b93b6a49ac51b4532e09266bcb7ac5927c9d5d29e0e44aa4f"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22505,
+      "published_PAR_sha256": "26ea565fbae231b59eeba8646da53d939c06adfa5ec9f451f11e813ef376d9d2",
+      "source_hessian_job": 22842,
+      "source_hessian_id": "jd82c4e95351",
+      "source_archive_id": "a-5113ad679c3176c89f973084ad114ced654e9340ef6d58910bec620dfccaf2ca",
+      "source_archive_sha256": "5113ad679c3176c89f973084ad114ced654e9340ef6d58910bec620dfccaf2ca",
+      "native_Hessian_members": [
+        {
+          "ordinal": 18,
+          "name": "./outputs/checks/hessian/ensemble-005/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "4e0bec0d934d949d798647c77e5685c8939363d7523a5e340cb98b1a2d4f825f"
+        },
+        {
+          "ordinal": 52,
+          "name": "./outputs/models/ensemble-005/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "4e0bec0d934d949d798647c77e5685c8939363d7523a5e340cb98b1a2d4f825f"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 28,
+          "name": "./outputs/checks/hessian/ensemble-005/final.par",
+          "bytes": 2957213,
+          "sha256": "26ea565fbae231b59eeba8646da53d939c06adfa5ec9f451f11e813ef376d9d2"
+        },
+        {
+          "ordinal": 62,
+          "name": "./outputs/models/ensemble-005/final.par",
+          "bytes": 2957213,
+          "sha256": "26ea565fbae231b59eeba8646da53d939c06adfa5ec9f451f11e813ef376d9d2"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22501,
+      "published_PAR_sha256": "81853e0f513af299efc731902535f78ca5b6343da39ea8ea15111872443e7a96",
+      "source_hessian_job": 22844,
+      "source_hessian_id": "j4781aad2016",
+      "source_archive_id": "a-faeb91f6277619b577669f6a91790ba150b9b96ba440c83874900e4739f4b768",
+      "source_archive_sha256": "faeb91f6277619b577669f6a91790ba150b9b96ba440c83874900e4739f4b768",
+      "native_Hessian_members": [
+        {
+          "ordinal": 16,
+          "name": "./outputs/models/ensemble-001/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "51c1cc3298bf0e5bf508e22b756869bca3baea7fcbfa98019714bfb386c88a19"
+        },
+        {
+          "ordinal": 46,
+          "name": "./outputs/checks/hessian/ensemble-001/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "51c1cc3298bf0e5bf508e22b756869bca3baea7fcbfa98019714bfb386c88a19"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 24,
+          "name": "./outputs/models/ensemble-001/final.par",
+          "bytes": 2957210,
+          "sha256": "81853e0f513af299efc731902535f78ca5b6343da39ea8ea15111872443e7a96"
+        },
+        {
+          "ordinal": 52,
+          "name": "./outputs/checks/hessian/ensemble-001/final.par",
+          "bytes": 2957210,
+          "sha256": "81853e0f513af299efc731902535f78ca5b6343da39ea8ea15111872443e7a96"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22502,
+      "published_PAR_sha256": "aa75da9127e821d9764bcd4b06935f78f15faefd99bcbe6533e228d4e0c4e499",
+      "source_hessian_job": 22850,
+      "source_hessian_id": "jf36ebdebe67",
+      "source_archive_id": "a-ee477b62634584547230563b5fad4bac684882eda160aa15bd6ce6de1fe8ee9a",
+      "source_archive_sha256": "ee477b62634584547230563b5fad4bac684882eda160aa15bd6ce6de1fe8ee9a",
+      "native_Hessian_members": [
+        {
+          "ordinal": 24,
+          "name": "./outputs/checks/hessian/ensemble-009/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "49d679f1429e697ba7bf15811c6bb9835fac68104c6e974dce2fd9063c2b1307"
+        },
+        {
+          "ordinal": 55,
+          "name": "./outputs/models/ensemble-009/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "49d679f1429e697ba7bf15811c6bb9835fac68104c6e974dce2fd9063c2b1307"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 18,
+          "name": "./outputs/checks/hessian/ensemble-009/final.par",
+          "bytes": 2957182,
+          "sha256": "aa75da9127e821d9764bcd4b06935f78f15faefd99bcbe6533e228d4e0c4e499"
+        },
+        {
+          "ordinal": 49,
+          "name": "./outputs/models/ensemble-009/final.par",
+          "bytes": 2957182,
+          "sha256": "aa75da9127e821d9764bcd4b06935f78f15faefd99bcbe6533e228d4e0c4e499"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22503,
+      "published_PAR_sha256": "71c9147f47a20da15ba3d0a0f01136ee55b018558658e690776c6b6edf896b7a",
+      "source_hessian_job": 22855,
+      "source_hessian_id": "j6982174c083",
+      "source_archive_id": "a-300fae8d5b701f3b97d04c2ba9239c7f466d15c11569072ce1c9ad607753d4b6",
+      "source_archive_sha256": "300fae8d5b701f3b97d04c2ba9239c7f466d15c11569072ce1c9ad607753d4b6",
+      "native_Hessian_members": [
+        {
+          "ordinal": 11,
+          "name": "./outputs/checks/hessian/ensemble-006/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "53e94823b9932740f3353e5dd20e646be1c7326dac66c2e7760f7cbd2265e4e0"
+        },
+        {
+          "ordinal": 43,
+          "name": "./outputs/models/ensemble-006/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "53e94823b9932740f3353e5dd20e646be1c7326dac66c2e7760f7cbd2265e4e0"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 8,
+          "name": "./outputs/checks/hessian/ensemble-006/final.par",
+          "bytes": 2957227,
+          "sha256": "71c9147f47a20da15ba3d0a0f01136ee55b018558658e690776c6b6edf896b7a"
+        },
+        {
+          "ordinal": 40,
+          "name": "./outputs/models/ensemble-006/final.par",
+          "bytes": 2957227,
+          "sha256": "71c9147f47a20da15ba3d0a0f01136ee55b018558658e690776c6b6edf896b7a"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22504,
+      "published_PAR_sha256": "cddeba56406491fc99537bc10aa2c9be1540bbac3439b8f97d570465080712c5",
+      "source_hessian_job": 22859,
+      "source_hessian_id": "j20cba4f61a6",
+      "source_archive_id": "a-5e2004e0e0b2e2a73371b81a271d83feccd2658f462c8b21f9d09b72760063f8",
+      "source_archive_sha256": "5e2004e0e0b2e2a73371b81a271d83feccd2658f462c8b21f9d09b72760063f8",
+      "native_Hessian_members": [
+        {
+          "ordinal": 16,
+          "name": "./outputs/checks/hessian/ensemble-011/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "3f65d85d56ec6ff5ba0828b61347fad0b164f15a6c89233bdec51078207e8661"
+        },
+        {
+          "ordinal": 47,
+          "name": "./outputs/models/ensemble-011/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "3f65d85d56ec6ff5ba0828b61347fad0b164f15a6c89233bdec51078207e8661"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 21,
+          "name": "./outputs/checks/hessian/ensemble-011/final.par",
+          "bytes": 2957163,
+          "sha256": "cddeba56406491fc99537bc10aa2c9be1540bbac3439b8f97d570465080712c5"
+        },
+        {
+          "ordinal": 52,
+          "name": "./outputs/models/ensemble-011/final.par",
+          "bytes": 2957163,
+          "sha256": "cddeba56406491fc99537bc10aa2c9be1540bbac3439b8f97d570465080712c5"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22506,
+      "published_PAR_sha256": "c5207c7e5cd12a4b66630cfa048a98d0b898269d7aeb601b8f7de015cfdf3e5e",
+      "source_hessian_job": 22862,
+      "source_hessian_id": "j79329b2777d",
+      "source_archive_id": "a-2fd6bff68ddc256c18ef0c31fb0f65a7ef2d000387f731e43b73dcdb3d6364dd",
+      "source_archive_sha256": "2fd6bff68ddc256c18ef0c31fb0f65a7ef2d000387f731e43b73dcdb3d6364dd",
+      "native_Hessian_members": [
+        {
+          "ordinal": 27,
+          "name": "./outputs/checks/hessian/ensemble-008/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "2369aaa0d9b4df7108b56610a120bad0aeaab4e829808f0f8882833d190d946d"
+        },
+        {
+          "ordinal": 56,
+          "name": "./outputs/models/ensemble-008/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "2369aaa0d9b4df7108b56610a120bad0aeaab4e829808f0f8882833d190d946d"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 13,
+          "name": "./outputs/checks/hessian/ensemble-008/final.par",
+          "bytes": 2957210,
+          "sha256": "c5207c7e5cd12a4b66630cfa048a98d0b898269d7aeb601b8f7de015cfdf3e5e"
+        },
+        {
+          "ordinal": 42,
+          "name": "./outputs/models/ensemble-008/final.par",
+          "bytes": 2957210,
+          "sha256": "c5207c7e5cd12a4b66630cfa048a98d0b898269d7aeb601b8f7de015cfdf3e5e"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    },
+    {
+      "retained_original_fit_job": 22510,
+      "published_PAR_sha256": "e1f5072290ccf463c2f4ca94a7e5f44b611970653cdc7fb9293169744bcd7bae",
+      "source_hessian_job": 22864,
+      "source_hessian_id": "jfd29712b4eb",
+      "source_archive_id": "a-5133077006ad5cd8ec1917ecdfffa7e042b0c1475f5c06ec4ecc3ec92e5dd097",
+      "source_archive_sha256": "5133077006ad5cd8ec1917ecdfffa7e042b0c1475f5c06ec4ecc3ec92e5dd097",
+      "native_Hessian_members": [
+        {
+          "ordinal": 20,
+          "name": "./outputs/checks/hessian/ensemble-007/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "874da191b636625fcfb67e987b2119d33cfe42dddbc85d90b7fecd65fb5668ea"
+        },
+        {
+          "ordinal": 49,
+          "name": "./outputs/models/ensemble-007/hessian/part_1/bet.hes",
+          "bytes": 31904084,
+          "sha256": "874da191b636625fcfb67e987b2119d33cfe42dddbc85d90b7fecd65fb5668ea"
+        }
+      ],
+      "source_parent_terminal_PAR_members": [
+        {
+          "ordinal": 9,
+          "name": "./outputs/checks/hessian/ensemble-007/final.par",
+          "bytes": 2957219,
+          "sha256": "e1f5072290ccf463c2f4ca94a7e5f44b611970653cdc7fb9293169744bcd7bae"
+        },
+        {
+          "ordinal": 38,
+          "name": "./outputs/models/ensemble-007/final.par",
+          "bytes": 2957219,
+          "sha256": "e1f5072290ccf463c2f4ca94a7e5f44b611970653cdc7fb9293169744bcd7bae"
+        }
+      ],
+      "role": "exact published source-fit terminal PAR retained as source-parent input bytes in original Hessian dependency snapshot; not assigned as Hessian job own fitted result"
+    }
+  ],
+  "proved_models": 80,
+  "scientific_convergence_not_inferred": true
+}
