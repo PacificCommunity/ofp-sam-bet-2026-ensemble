@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "bundles": [
+    {
+      "id": "bet2026-runtime-image-001-metadata-v2",
+      "bytes": 524421120,
+      "sha256": "0ec869cac28fc461b9e2eb327edea207e35b89b471a01e6560716419ef2a5a4a",
+      "kind": "new outer transport TAR for exact immutable cached-image static export chunk",
+      "path": "downloads/bet2026-runtime-image-001-metadata-v2.tar",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-runtime-image-001-metadata-v2.tar",
+      "verification_scope": "static byte closure; original model execution identity assessed separately"
+    },
+    {
+      "id": "bet2026-runtime-image-002-metadata-v2",
+      "bytes": 524421120,
+      "sha256": "136a409e21bebde02cda642080c2d841d1b3ffec1d27114e0c23fbaf83eab88a",
+      "kind": "new outer transport TAR for exact immutable cached-image static export chunk",
+      "path": "downloads/bet2026-runtime-image-002-metadata-v2.tar",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-runtime-image-002-metadata-v2.tar",
+      "verification_scope": "static byte closure; original model execution identity assessed separately"
+    },
+    {
+      "id": "bet2026-runtime-image-003-metadata-v2",
+      "bytes": 524421120,
+      "sha256": "9190dd9fa394ee4b8e0491178fe058a0f053ede35561d4e082e238605e224146",
+      "kind": "new outer transport TAR for exact immutable cached-image static export chunk",
+      "path": "downloads/bet2026-runtime-image-003-metadata-v2.tar",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-runtime-image-003-metadata-v2.tar",
+      "verification_scope": "static byte closure; original model execution identity assessed separately"
+    },
+    {
+      "id": "bet2026-runtime-image-004-metadata-v2",
+      "bytes": 264120320,
+      "sha256": "4a2f0cef5417ffc8aa4cae7cc1f8c9e0bce4c4a9e1a0bf609572179c8d7f6376",
+      "kind": "new outer transport TAR for exact immutable cached-image static export chunk",
+      "path": "downloads/bet2026-runtime-image-004-metadata-v2.tar",
+      "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-runtime-image-004-metadata-v2.tar",
+      "verification_scope": "static byte closure; original model execution identity assessed separately"
+    }
+  ],
+  "archives": [
+    {
+      "id": "runtime-80577e91a76c1776a4d2509350c9251d7e3eceb8cbb550a33b652bf7df6d52f4",
+      "bytes": 1831830739,
+      "sha256": "80577e91a76c1776a4d2509350c9251d7e3eceb8cbb550a33b652bf7df6d52f4",
+      "parts": [
+        {
+          "bundle": "bet2026-runtime-image-001-metadata-v2",
+          "ordinal": 0,
+          "member": "runtime/runtime-80577e91a76c1776a4d2509350c9251d7e3eceb8cbb550a33b652bf7df6d52f4/docker-save.tar.gz.part-001",
+          "offset": 0,
+          "bytes": 524288000,
+          "sha256": "e042e0b294c2a1a67a8dce85981de65bbfac082f5039b5a3602a4fffa54b2230"
+        },
+        {
+          "bundle": "bet2026-runtime-image-002-metadata-v2",
+          "ordinal": 0,
+          "member": "runtime/runtime-80577e91a76c1776a4d2509350c9251d7e3eceb8cbb550a33b652bf7df6d52f4/docker-save.tar.gz.part-002",
+          "offset": 524288000,
+          "bytes": 524288000,
+          "sha256": "694f38e5ae6795f5a4fc3b5bc55a03689be757a2d90b8b1837a352d7e6fc012b"
+        },
+        {
+          "bundle": "bet2026-runtime-image-003-metadata-v2",
+          "ordinal": 0,
+          "member": "runtime/runtime-80577e91a76c1776a4d2509350c9251d7e3eceb8cbb550a33b652bf7df6d52f4/docker-save.tar.gz.part-003",
+          "offset": 1048576000,
+          "bytes": 524288000,
+          "sha256": "74a355741ea6719936c7d87617211fbd625c853c64c306943db1ec04ac514578"
+        },
+        {
+          "bundle": "bet2026-runtime-image-004-metadata-v2",
+          "ordinal": 0,
+          "member": "runtime/runtime-80577e91a76c1776a4d2509350c9251d7e3eceb8cbb550a33b652bf7df6d52f4/docker-save.tar.gz.part-004",
+          "offset": 1572864000,
+          "bytes": 258966739,
+          "sha256": "4271f96c6a96d9da610c53f8f5f9d1696291866731bd08c5ffad8af1cd6b1076"
+        }
+      ],
+      "kind": "new static Docker-save OCI snapshot of existing exact cached image; not original Kflow job archive",
+      "source_identity": {
+        "system": "Docker-cache",
+        "host": "NC240124",
+        "image_id": "sha256:898925450ab7ec3f99cb9d8427cc37d24097cc2fe9f0468d74f70aaf35daec3a",
+        "repository_digests": [
+          "ghcr.io/pacificcommunity/tuna-flow@sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360"
+        ],
+        "platform": {
+          "os": "linux",
+          "architecture": "amd64"
+        },
+        "original_model_executed_engine_hash": "UNKNOWN"
+      },
+      "source_tar_sha256": "aab1c8d1c5d1eba8d414029dc1b78c5ad91281b5eb5737783db523dfa72a321a",
+      "source_tar_bytes": 4974472704,
+      "members_manifest": "members/runtime-80577e91a76c1776a4d2509350c9251d7e3eceb8cbb550a33b652bf7df6d52f4.jsonl.gz",
+      "members_manifest_bytes": 4880,
+      "members_manifest_sha256": "7f17b28866f7a35e6a667ed4c010adad39f37264b97a13d984914316babaea31",
+      "member_inventory_complete": true
+    }
+  ]
+}

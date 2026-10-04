@@ -1,0 +1,56 @@
+name: Verify preserved BET results
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+      - name: Check preserved inputs and results
+        shell: bash
+        run: |
+          python3 ci/verify-preserved-files.py
+          (cd data/ensemble && sha256sum -c SHA256SUMS)
+          (cd data/estimation && sha256sum -c SHA256SUMS)
+          (cd data/estimation && sha256sum -c PER_MODEL_SHA256SUMS)
+          (cd data/estimation && sha256sum -c EQUILIBRIUM_PER_MODEL_SHA256SUMS)
+          (cd data/diagnostic && sha256sum -c SHA256SUMS)
+          (cd data/projection && sha256sum -c SHA256SUMS)
+          (cd data/projection && sha256sum -c PER_MODEL_SHA256SUMS)
+          Rscript report/validate.R
+          python3 rr-test/verify-results.py
+          Rscript rr-test/validate.R
+          Rscript rr-test/summarize.R "$RUNNER_TEMP/bet-rr-summary"
+          python3 rr-test/verify-results.py --rebuilt-root "$RUNNER_TEMP/bet-rr-summary"
+          python3 -m unittest discover -s ci -p 'test_*.py' -v
+          git diff --exit-code
+  native-rr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+      - name: Regenerate both arms of all 30 completed pairs
+        shell: bash
+        run: |
+          runtime="$RUNNER_TEMP/bet-mfcl"
+          mkdir "$runtime"
+          curl --fail --location --retry 2 --output "$runtime/engine.tar" https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-kflow-20261004/bet2026-runtime-engine-candidate.tar
+          printf '%s  %s\n' 91bb7603582bf229426a8f6ceb98b4f4afd483323299b0a9b3a6242128b01b8d "$runtime/engine.tar" | sha256sum -c -
+          tar -xf "$runtime/engine.tar" -C "$runtime" runtime-engine-candidate/mfclo64
+          chmod +x "$runtime/runtime-engine-candidate/mfclo64"
+          python3 ci/regenerate-rr.py "$runtime/runtime-engine-candidate/mfclo64" "$RUNNER_TEMP/bet-rr-evaluated"
+          git diff --exit-code

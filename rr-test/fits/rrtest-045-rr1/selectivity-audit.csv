@@ -1,0 +1,2 @@
+model_id,steepness,selectivity_model,label,selectivity_groups,four_node_flags,five_node_flags,seven_node_flags,logistic_flags,weak_penalty_flags,status
+"Diagnostic",8.1517028619567899e-01,"Diagnostic","Diagnostic: F10 and F33 weak non-decreasing",33,0,31,2,0,2,passed

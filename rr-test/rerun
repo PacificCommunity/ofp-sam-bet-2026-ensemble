@@ -1,0 +1,202 @@
+#!/usr/bin/env python3
+"""Rerun one paired model with the historical TunaFlow v2.5 image."""
+
+import argparse
+import csv
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import shlex
+import shutil
+import subprocess
+import sys
+
+
+IMAGE = (
+    "ghcr.io/pacificcommunity/tuna-flow:v2.5@"
+    "sha256:c87f1f6d9d4f62dc447844b58afe35f96af175bf933cb6cffbbbe39a59172360"
+)
+SAVED_IMAGE = "sha256:898925450ab7ec3f99cb9d8427cc37d24097cc2fe9f0468d74f70aaf35daec3a"
+MFCL_PATH = "/home/mfcl/mfclo64"
+MFCL_SHA256 = "f5bc1e232a86e51f920bce7271d8e0930d0b160e4d18dc46de44078f0fa24cd0"
+REPO = Path(__file__).resolve().parent.parent
+
+# The hash check precedes preparation and every call to the fitting executable.
+# Override the image entrypoint so it cannot perform a runtime update first.
+CONTAINER_SCRIPT = r"""
+set -eu
+expected_sha256=$1
+program_path=$2
+model_id=$3
+design_file=$4
+pair_id=$5
+mode=$6
+final_par=$7
+final_sha=$8
+case "$(uname -m)" in
+  x86_64) ;;
+  *) echo "This historical runtime requires linux/amd64." >&2; exit 2 ;;
+esac
+if [ ! -x "$program_path" ]; then
+  echo "Pinned MFCL executable is missing or not executable: $program_path" >&2
+  exit 2
+fi
+observed_sha256=$(sha256sum "$program_path")
+observed_sha256=${observed_sha256%% *}
+if [ "$observed_sha256" != "$expected_sha256" ]; then
+  echo "MFCL SHA-256 mismatch; fitting refused." >&2
+  echo "Expected: $expected_sha256; observed: $observed_sha256" >&2
+  exit 2
+fi
+printf 'Verified historical v2.5 image MFCL: %s\n' "$observed_sha256"
+Rscript /workspace/rr-test/validate.R "$pair_id"
+export ENSEMBLE_DESIGN_FILE="$design_file"
+if [ "$mode" = "outputs-only" ]; then
+  Rscript /workspace/rr-test/prepare.R "$model_id" /rerun-output/run
+  exec python3 /workspace/rr-test/evaluate-final.py "$program_path" "/workspace/$final_par" "$final_sha" /rerun-output/run
+fi
+exec /workspace/rr-test/run-model "$model_id" /rerun-output/run
+"""
+
+
+def read_rows(relative):
+    with (REPO / relative).open(newline="", encoding="utf-8") as stream:
+        return list(csv.DictReader(stream))
+
+
+def select_model(selector, anchor):
+    if not re.fullmatch(r"rrtest-[0-9]{3}-rr1", selector):
+        raise ValueError("selector must be an exact rrtest-NNN-rr1 ID in rr-test/model-draws.csv")
+    matches = [row for row in read_rows("rr-test/model-draws.csv") if row["ensemble_id"] == selector]
+    if len(matches) != 1:
+        raise ValueError(f"selector is not a unique paired-design row: {selector}")
+    row = matches[0]
+    anchor_id = row["anchor_ensemble_id"]
+    if (
+        row["tag_reporting_flag2"] != "1"
+        or row["tag_reporting"] != "exclusion"
+        or row["pairing_version"] != "retained-rr0-paired-rerun-v1"
+        or selector != anchor_id.replace("ensemble-", "rrtest-", 1) + "-rr1"
+    ):
+        raise ValueError("paired-design identity or RR1 contract is invalid")
+    anchors = [row for row in read_rows("design/model-draws.csv") if row["ensemble_id"] == anchor_id]
+    if len(anchors) != 1 or anchors[0]["tag_reporting_flag2"] != "0" or anchors[0]["tag_reporting"] != "inclusion":
+        raise ValueError("paired row does not map to a unique RR0 anchor")
+    for manifest in ("retained-final-par-manifest.csv", "retained-final-ini-manifest.csv"):
+        retained = [row for row in read_rows((f"rr-test/reference/{manifest}" if manifest == "retained-final-ini-manifest.csv" else f"data/ensemble/{manifest}")) if row["ensemble_id"] == anchor_id]
+        if len(retained) != 1:
+            raise ValueError(f"RR0 anchor is not uniquely retained in {manifest}")
+    return (anchor_id, "design/model-draws.csv") if anchor else (selector, "rr-test/model-draws.csv")
+
+
+def docker_command(model_id, design_file, output_dir, pair_id, saved_runtime=False, outputs_only=False, final_par="", final_sha=""):
+    return [
+        "docker", "run", "--rm", "--platform", "linux/amd64",
+        *(["--pull=never"] if saved_runtime else []),
+        "--cpus", "2", "--memory", "8g", "--network", "none",
+        "--user", f"{os.getuid()}:{os.getgid()}",
+        "--mount", f"type=bind,source={REPO},target=/workspace,readonly",
+        "--mount", f"type=bind,source={output_dir},target=/rerun-output",
+        "--workdir", "/workspace",
+        "--env", "TUNA_FLOW_RUNTIME_UPDATE=never",
+        "--env", "BET_PHASE10_11_CONVERGENCE=-4",
+        "--env", f"PROGRAM_PATH={MFCL_PATH}",
+        "--entrypoint", "/bin/sh", SAVED_IMAGE if saved_runtime else IMAGE,
+        "-c", CONTAINER_SCRIPT, "rr-paired-rerun", MFCL_SHA256, MFCL_PATH, model_id, design_file, pair_id,
+        "outputs-only" if outputs_only else "refit", final_par, final_sha,
+    ]
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Rerun one RR1 counterpart (or its RR0 anchor) in pinned historical TunaFlow v2.5."
+    )
+    parser.add_argument("selector", help="exact paired ID, e.g. rrtest-001-rr1")
+    parser.add_argument("--anchor", action="store_true", help="rerun the selected pair's original RR0 anchor instead")
+    parser.add_argument("--outputs-only", action="store_true", help="regenerate central outputs from the saved final PAR with zero function-evaluation limit")
+    parser.add_argument("--saved-runtime", action="store_true", help="use the exact locally loaded saved image ID and refuse image pulls")
+    parser.add_argument("--output-dir", type=Path, help="new output directory (default: outputs/rr-test-local/MODEL_ID)")
+    parser.add_argument("--dry-run", action="store_true", help="validate selection and print command without Docker or file writes")
+    args = parser.parse_args()
+    try:
+        model_id, design_file = select_model(args.selector, args.anchor)
+    except (ValueError, KeyError, OSError) as error:
+        parser.error(str(error))
+    final_par, final_sha = "", ""
+    if args.outputs_only:
+        candidates = [row for row in read_rows("rr-test/results/file-manifest.csv")
+                      if row["model_id"] == model_id and row["path"].endswith("/final.par")]
+        if len(candidates) != 1:
+            parser.error("this arm has no verified saved final PAR; failed fits cannot regenerate outputs")
+        saved = candidates[0]
+        final_par, final_sha = saved["path"], saved["sha256"]
+        path = REPO / final_par
+        if not path.is_file() or path.stat().st_size != int(saved["bytes"]) or hashlib.sha256(path.read_bytes()).hexdigest() != final_sha:
+            parser.error("saved final PAR differs from the original file manifest")
+    default_root = "rr-test-evaluated" if args.outputs_only else "rr-test-local"
+    requested_output = args.output_dir or REPO / "outputs" / default_root / model_id
+    # Reject dangling symlinks too; resolving them first could hide an existing path.
+    if os.path.lexists(requested_output):
+        parser.error(f"output directory already exists; refusing reuse: {requested_output}")
+    output_dir = requested_output.resolve()
+    if output_dir == REPO or REPO in output_dir.parents and not (REPO / "outputs") in output_dir.parents:
+        parser.error("output inside the checkout must be beneath outputs/")
+    if any("," in str(path) or "\n" in str(path) for path in (REPO, output_dir)):
+        parser.error("Docker bind paths must not contain commas or newlines")
+    image = SAVED_IMAGE if args.saved_runtime else IMAGE
+    command = docker_command(model_id, design_file, output_dir, args.selector, args.saved_runtime, args.outputs_only, final_par, final_sha)
+    print(f"Model: {model_id}; historical image: TunaFlow v2.5", flush=True)
+    print(f"Run files: {output_dir / 'run'}", flush=True)
+    if args.dry_run:
+        print(shlex.join(command))
+        return 0
+    if shutil.which("docker") is None:
+        parser.error("Docker CLI is required")
+    # Reserve exclusively before Docker. Failed attempts retain their log and
+    # directory, and a later invocation must choose another output directory.
+    try:
+        output_dir.mkdir(parents=True, exist_ok=False)
+    except OSError as error:
+        parser.error(f"cannot reserve new output directory: {error}")
+    receipt = {
+        "schema_version": 1,
+        "selector": args.selector,
+        "model_id": model_id,
+        "arm": "RR0" if args.anchor else "RR1",
+        "design_file": design_file,
+        "mode": "outputs-only" if args.outputs_only else "refit",
+        "saved_final_par": final_par or None,
+        "saved_final_par_sha256": final_sha or None,
+        "docker_image": image,
+        "platform": "linux/amd64",
+        "mfcl_path": MFCL_PATH,
+        "mfcl_sha256_required": MFCL_SHA256,
+        "TUNA_FLOW_RUNTIME_UPDATE": "never",
+        "BET_PHASE10_11_CONVERGENCE": "-4",
+        "argv": command,
+        "status": "starting",
+    }
+    receipt_path = output_dir / "rerun-command.json"
+    receipt_path.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+    try:
+        with (output_dir / "rerun.log").open("w", encoding="utf-8") as log:
+            process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+            for line in process.stdout:
+                log.write(line)
+                log.flush()
+                sys.stdout.write(line)
+                sys.stdout.flush()
+            return_code = process.wait()
+    except (OSError, KeyboardInterrupt) as error:
+        receipt.update(status="interrupted_or_failed", error=str(error))
+        receipt_path.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+        raise
+    receipt.update(status="completed" if return_code == 0 else "failed", docker_exit_code=return_code)
+    receipt_path.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+    return return_code
+
+
+if __name__ == "__main__":
+    sys.exit(main())

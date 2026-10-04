@@ -1,0 +1,2 @@
+mode,tag_likelihood,tau,fish_pars4,parest111,parest305,parest306,estimated_tau_count,active_tau_fisheries,grouped_tau_fisheries,parest121,dm_nmax,dm_concentration,dm22_active,dm23_active,parest141,parest320,parest342,final_m,status
+tau-fixed,direct-negative-binomial,1.3999999999999999e+00,-9.16290731874155e-01,4,1,0,0,0,0,0,25,7,0,8,11,5,25,-2.86071771599635e+00,passed
