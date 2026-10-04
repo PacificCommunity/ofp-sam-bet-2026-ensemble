@@ -1,5 +1,8 @@
 # Saved native inputs
 
+[Download native.tar.gz](https://raw.githubusercontent.com/PacificCommunity/ofp-sam-bet-2026-ensemble/main/reproduce/native.tar.gz). It is included in a normal clone;
+[files.json](files.json) lists the archived files and checksums.
+
 This compact package preserves exact native inputs and original scripts for 80 retained ensemble models and 30 completed reporting-rate reruns. Original ensemble PARs and whole REPs remain in [final-par/](../final-par/); the package contains the 30 RR1 final PARs and exact central REP sections. [RR results](../rr-test/results.md) can be read immediately.
 
 Check archived bytes without downloading or running a model:
