@@ -11,7 +11,7 @@ import subprocess
 import sys
 
 
-CONTROLS = "1 1 0\n1 190 1\n1 246 1\n"
+CONTROLS = "1 1 1\n1 50 -4\n1 121 0\n1 186 0\n1 187 0\n1 188 0\n1 189 0\n1 190 1\n1 246 1\n"
 MFCL_SHA256 = "f5bc1e232a86e51f920bce7271d8e0930d0b160e4d18dc46de44078f0fa24cd0"
 REPO = Path(__file__).resolve().parent.parent
 INPUTS = ("bet.frq", "bet.ini", "bet.tag", "bet.age_length", "bet.reg_scaling", "mfcl.cfg")
@@ -132,7 +132,7 @@ def evaluate(program, source, expected_sha, run):
     if verify_inputs(source, run) != input_hashes:
         raise ValueError("native inputs changed during evaluation")
     receipt = {
-        "mode": "outputs-only", "function_evaluation_limit": 0,
+        "mode": "outputs-only", "function_evaluation_limit": 1,
         "mfcl_sha256": MFCL_SHA256,
         "controls": CONTROLS.splitlines(), "native_exit_code": process.returncode,
         "input_par_sha256": expected_sha, "input_unchanged": True,

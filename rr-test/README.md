@@ -34,7 +34,7 @@ Use Python 3.9+, Docker, 2 CPUs and 8 GiB. The pinned image runs Linux amd64; ot
 ./rr-test/rerun rrtest-005-rr1 --anchor --outputs-only
 ```
 
-This loads the original final PAR with a zero function-evaluation limit, checks the executable and native input hashes, requires objective agreement within `1e-6`, and compares the central REP biomass and MSY values with the original. It writes `evaluated.par`, `plot-evaluated.par.rep`, a log and a verification receipt beneath `outputs/rr-test-evaluated/`. It does not recreate Hessians, optimiser history or stochastic projections. Failed RR1 fits have no final PAR to evaluate.
+This loads the original final PAR with one function evaluation using the original complete-output controls, checks the executable and native input hashes, requires objective agreement within `1e-6`, and compares the central REP biomass and MSY values with the original. It writes `evaluated.par`, `plot-evaluated.par.rep`, a log and a verification receipt beneath `outputs/rr-test-evaluated/`. It does not recreate Hessians, optimiser history or stochastic projections. Failed RR1 fits have no final PAR to evaluate.
 
 Add `--dry-run` to inspect the command. For the [preserved runtime](runtime.md), add `--saved-runtime`; the helper then refuses image pulls. Use `--output-dir /new/path` for another attempt. Existing directories are refused.
 

@@ -57,7 +57,7 @@ class EvaluationGuards(unittest.TestCase):
 
     def native_mock(self, command, input, text, cwd, stdout, stderr):
         self.assertEqual(command[1:], ["bet.frq", "input.par", "evaluated.par", "-file", "-"])
-        self.assertEqual(input, "1 1 0\n1 190 1\n1 246 1\n")
+        self.assertEqual(input, "1 1 1\n1 50 -4\n1 121 0\n1 186 0\n1 187 0\n1 188 0\n1 189 0\n1 190 1\n1 246 1\n")
         (cwd / "evaluated.par").write_bytes(self.source.read_bytes())
         (cwd / "plot-evaluated.par.rep").write_bytes(self.rep.read_bytes())
         stdout.write("Total func      100\n")
