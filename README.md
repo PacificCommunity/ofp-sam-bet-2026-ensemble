@@ -9,8 +9,8 @@ Read the [ensemble report](https://pacificcommunity.github.io/ofp-sam-bet-2026-e
 The [paired reporting-rate results](rr-test/results.md) support the [SC22 follow-up](https://meetings.wcpfc.int/node/32932): 30 completed pairs and four failed attempts. The [short guide](rr-test/README.md) explains result checks, output regeneration from the final PAR and full refits.
 
 ```sh
-python3 rr-test/verify-results.py
-./rr-test/rerun rrtest-005-rr1 --outputs-only --dry-run
+make verify
+make rerun CASE=rrtest-005-rr1 OUT=/tmp/bet-rr005
 ```
 
 <a name="recreate-and-validate"></a><a name="run-a-model"></a>

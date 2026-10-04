@@ -8,15 +8,21 @@ This compact package preserves exact native inputs and original scripts for 80 r
 Check archived bytes without downloading or running a model:
 
 ```sh
-python3 reproduce/restore.py --verify
+make verify
 ```
 
 Restore one case to a new folder, including the checksum-checked preserved executable:
 
 ```sh
-python3 reproduce/restore.py rrtest-005-rr1 /tmp/bet-rr005
+make restore CASE=rrtest-005-rr1 OUT=/tmp/bet-rr005
 ```
 
-For central-output regeneration, use [the RR helper](../rr-test/README.md). Failed RR1 fits have no saved final PAR. Original external engine identity remains unknown where it was not recorded; compatibility of the selected executable is checked separately.
+Use `make rerun CASE=rrtest-005-rr1 OUT=/tmp/bet-rr005-evaluated` to
+regenerate central outputs. `CASE=ensemble-005` selects a retained ensemble
+fit. Make and Python 3 are required; the runner fetches the pinned executable.
+See [the RR helper](../rr-test/README.md). Failed RR1 fits have no saved final PAR. Original external engine identity remains unknown where it was not recorded; compatibility of the selected executable is checked separately.
 
-Restoration provides evaluation inputs. Full refits use the original repository preparation and runners, which also create nested configuration and selectivity files.
+Restoration provides evaluation inputs. `make refit CASE=rrtest-005-rr1
+OUT=/tmp/bet-rr005-refit` uses the original preparation and fitting runner
+in the pinned Docker image; add `ANCHOR=1` for its RR0 arm. Use
+`make plan-refit` with the same arguments to inspect the command first.
