@@ -20,4 +20,4 @@ make rerun CASE=rrtest-005-rr1 OUT=/tmp/bet-rr005
 [Retained PAR/REP files](final-par/) · [design](design/model-draws.csv) · distribution [PNG](design/distributions.png) / [PDF](design/distributions.pdf).
 
 <a name="reusable-hessian-uncertainty"></a><a name="stochastic-projections-and-reusable-caches"></a><a name="reproducible-report"></a>
-[Uncertainty and projection caches](docs/reproducibility.md#reusable-hessian-uncertainty) · [report rebuilding](docs/reproducibility.md#reproducible-report).
+[Original Hessians](reproduce/README.md#original-hessians) · [Uncertainty and projection caches](docs/reproducibility.md#reusable-hessian-uncertainty) · [report rebuilding](docs/reproducibility.md#reproducible-report).

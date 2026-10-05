@@ -32,3 +32,19 @@ The original per-model configurations are in [refit-configs.tar.gz](refit-config
 empty directory to inspect the original settings; paths follow the original
 `outputs/models/` and `outputs/rr-test/` layout. `make verify` checks every
 member against [refit-configs.json](refit-configs.json).
+
+## Original Hessians
+
+The [Hessian index](hessian-index.csv) links the original matrices for all 80
+retained fits: 62 PDH and 18 Near-PDH. It maps source model IDs to the report's
+E001–E080 labels. Each archive includes the matching final PAR, original Hessian
+metadata and calculation log. Files are stored as optional release downloads
+to keep clones small.
+
+```sh
+make hessian CASE=ensemble-001 OUT=/absolute/bet-hessian
+```
+
+This downloads and checks one saved archive; it does not run MFCL. Choose the
+source model ID from the index and a new folder outside the repository.
+[The manifest](hessians.json) pins every archive and file by SHA256.

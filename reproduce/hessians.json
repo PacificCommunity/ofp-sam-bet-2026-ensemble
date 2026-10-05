@@ -1,0 +1,3447 @@
+{
+  "cases": {
+    "ensemble-001": {
+      "archive": {
+        "bytes": 31175303,
+        "sha256": "47b1153479a1195e7b90f427cac673cff784ab3e4a1562b6764037726193ff62",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-001.tar.gz"
+      },
+      "final_par_sha256": "81853e0f513af299efc731902535f78ca5b6343da39ea8ea15111872443e7a96",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "51c1cc3298bf0e5bf508e22b756869bca3baea7fcbfa98019714bfb386c88a19",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "51c1cc3298bf0e5bf508e22b756869bca3baea7fcbfa98019714bfb386c88a19"
+        },
+        "final.par": {
+          "bytes": 2957210,
+          "sha256": "81853e0f513af299efc731902535f78ca5b6343da39ea8ea15111872443e7a96"
+        },
+        "hessian_info.rds": {
+          "bytes": 1284,
+          "sha256": "330647a03c1790351502a05ebd5517432244863aebba9e0416009a005ac4e757"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1288,
+          "sha256": "5472ed44a88d122f7b9aca928faea77ac3febe31e0fa85b38de79ec55998d927"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521228,
+          "sha256": "650fe2430201110edfb1dd40fb17f07701ebca7062a2c2eb3036d368cea36750"
+        }
+      },
+      "model_id": "ensemble-001",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-001",
+      "report_label": "E001"
+    },
+    "ensemble-002": {
+      "archive": {
+        "bytes": 31140901,
+        "sha256": "d352a394f8981fa73f6435385e33cb31089d21bc97b50c7e9992a29902fbbde9",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-002.tar.gz"
+      },
+      "final_par_sha256": "1e1c7ef902ba300fd2ba25d8aaa51171864002f86cabfef09cf09826b971e5dd",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "300929390258448abaf8f32a969e06f148286a3cf26c6e25d329d59eada01277",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "300929390258448abaf8f32a969e06f148286a3cf26c6e25d329d59eada01277"
+        },
+        "final.par": {
+          "bytes": 2957181,
+          "sha256": "1e1c7ef902ba300fd2ba25d8aaa51171864002f86cabfef09cf09826b971e5dd"
+        },
+        "hessian_info.rds": {
+          "bytes": 1280,
+          "sha256": "04092871f34b7a2aa97872a78f6c94446feb93388e641ac46c8c2d3d2065232b"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1284,
+          "sha256": "92f151837f3d70eb98190eb0438d8bbc477df312e7535245c1afded02af320c6"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9502040,
+          "sha256": "000f02ee54645dbe80e0eaf1a2372f695b1ba0391a111bb0247dc4aeb343cb7b"
+        }
+      },
+      "model_id": "ensemble-002",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-002",
+      "report_label": "E002"
+    },
+    "ensemble-004": {
+      "archive": {
+        "bytes": 31126368,
+        "sha256": "1a238fc9b1deb18ec24e16a12f356645a52d816e994dbf589d51efa4e24ffec2",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-004.tar.gz"
+      },
+      "final_par_sha256": "f254b589c4d734581d5524bc3da91c28a551d38e537709f1bff9d67af04c9027",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "c226ec9b978d47900e7df786e72c154b9226765089cd35496fbf34c7765c4bf2",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "c226ec9b978d47900e7df786e72c154b9226765089cd35496fbf34c7765c4bf2"
+        },
+        "final.par": {
+          "bytes": 2957227,
+          "sha256": "f254b589c4d734581d5524bc3da91c28a551d38e537709f1bff9d67af04c9027"
+        },
+        "hessian_info.rds": {
+          "bytes": 1292,
+          "sha256": "39a266d71be65d7165698585de91cbea53b8b79b75c88a9d1fb8eaabe09e2df1"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1296,
+          "sha256": "ead3c78e5cc0c313b88d95071beed3463733dc7d85fcf1b9c0f4942f473aff6c"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9501957,
+          "sha256": "36a1cff5f0dfde925cbd4b546adbe591907701e5a30102dd34f223344150e9c9"
+        }
+      },
+      "model_id": "ensemble-004",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-003",
+      "report_label": "E003"
+    },
+    "ensemble-005": {
+      "archive": {
+        "bytes": 31238517,
+        "sha256": "90689ce2640d0fdf5a1a51ad85d505565e5d1d11e2c2ed3efb23df3daa1f1bfa",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-005.tar.gz"
+      },
+      "final_par_sha256": "26ea565fbae231b59eeba8646da53d939c06adfa5ec9f451f11e813ef376d9d2",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "4e0bec0d934d949d798647c77e5685c8939363d7523a5e340cb98b1a2d4f825f",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "4e0bec0d934d949d798647c77e5685c8939363d7523a5e340cb98b1a2d4f825f"
+        },
+        "final.par": {
+          "bytes": 2957213,
+          "sha256": "26ea565fbae231b59eeba8646da53d939c06adfa5ec9f451f11e813ef376d9d2"
+        },
+        "hessian_info.rds": {
+          "bytes": 1304,
+          "sha256": "2ba9493bd2cf2127241bdaeea527ace1e000572e311df646c82343ed9811991b"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1308,
+          "sha256": "0073464be035be6f947f05a3fdb2df6920327ec9ce0f4606e22bdd6a55206944"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9528019,
+          "sha256": "3e48897c5c5b74467b976c1d3719313a78042a196705af7a00137c16015d1678"
+        }
+      },
+      "model_id": "ensemble-005",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-004",
+      "report_label": "E004"
+    },
+    "ensemble-006": {
+      "archive": {
+        "bytes": 31250887,
+        "sha256": "c76e94518b3060a05a3f4fa8171d231d1dfb77e2cf7d031892e27a66f00f13e1",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-006.tar.gz"
+      },
+      "final_par_sha256": "71c9147f47a20da15ba3d0a0f01136ee55b018558658e690776c6b6edf896b7a",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "53e94823b9932740f3353e5dd20e646be1c7326dac66c2e7760f7cbd2265e4e0",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "53e94823b9932740f3353e5dd20e646be1c7326dac66c2e7760f7cbd2265e4e0"
+        },
+        "final.par": {
+          "bytes": 2957227,
+          "sha256": "71c9147f47a20da15ba3d0a0f01136ee55b018558658e690776c6b6edf896b7a"
+        },
+        "hessian_info.rds": {
+          "bytes": 1304,
+          "sha256": "7ce510162b674925fcf1eb1e3f5e736ab63adb3bf460c7f9b3bdcf6adb8ca359"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1308,
+          "sha256": "744bf54d8de688ef4a5ad8dcd70fc23ed22efec138850ff7f15686d0798f5bba"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9536680,
+          "sha256": "5a9d37d8425a4e9d2d04f45be717259a16e040623b3aecb010bb511ee5bcecec"
+        }
+      },
+      "model_id": "ensemble-006",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-005",
+      "report_label": "E005"
+    },
+    "ensemble-007": {
+      "archive": {
+        "bytes": 31205069,
+        "sha256": "fe5fbf4e5ec838bd31846a9ae8d3cbb8053c380cbcc98d64f1ebe1ee65cca1df",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-007.tar.gz"
+      },
+      "final_par_sha256": "e1f5072290ccf463c2f4ca94a7e5f44b611970653cdc7fb9293169744bcd7bae",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "874da191b636625fcfb67e987b2119d33cfe42dddbc85d90b7fecd65fb5668ea",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "874da191b636625fcfb67e987b2119d33cfe42dddbc85d90b7fecd65fb5668ea"
+        },
+        "final.par": {
+          "bytes": 2957219,
+          "sha256": "e1f5072290ccf463c2f4ca94a7e5f44b611970653cdc7fb9293169744bcd7bae"
+        },
+        "hessian_info.rds": {
+          "bytes": 1304,
+          "sha256": "f0a463b6c34538386884a92d384a8c218026e449e442aac6423fe45a4bda6e58"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1304,
+          "sha256": "a69bb1e592eed797759c015c5133afe926982ce8dfa86e4318195df76abc546b"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9527679,
+          "sha256": "a1e104406335381c794e9d56a47d0f31a048727581b40e690fe8a586c312f28f"
+        }
+      },
+      "model_id": "ensemble-007",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-006",
+      "report_label": "E006"
+    },
+    "ensemble-008": {
+      "archive": {
+        "bytes": 31200533,
+        "sha256": "cc92e881d7d3025a703cea6e37ed75f58051d5aa143dc27da2d4935b64ef60c5",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-008.tar.gz"
+      },
+      "final_par_sha256": "c5207c7e5cd12a4b66630cfa048a98d0b898269d7aeb601b8f7de015cfdf3e5e",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "2369aaa0d9b4df7108b56610a120bad0aeaab4e829808f0f8882833d190d946d",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "2369aaa0d9b4df7108b56610a120bad0aeaab4e829808f0f8882833d190d946d"
+        },
+        "final.par": {
+          "bytes": 2957210,
+          "sha256": "c5207c7e5cd12a4b66630cfa048a98d0b898269d7aeb601b8f7de015cfdf3e5e"
+        },
+        "hessian_info.rds": {
+          "bytes": 1292,
+          "sha256": "2a6ffdc8f0fa9549a285e0950c9e7c62d823b7ac35a87fa0bce93dfe9cad2d92"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1292,
+          "sha256": "87194c37d7c8bd5c39c3afa7521f1ed88ac71206662237dcab0fdae2470ad31d"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521134,
+          "sha256": "4f4a3f2ed6d11ff8eabc6d5009aca7647836e0cc4e4b54c70fb71ed6dabb9682"
+        }
+      },
+      "model_id": "ensemble-008",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-007",
+      "report_label": "E007"
+    },
+    "ensemble-009": {
+      "archive": {
+        "bytes": 31184552,
+        "sha256": "4a820bb14b1c1c923930308ce10472519637d5850942573e9b3579fa242929a1",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-009.tar.gz"
+      },
+      "final_par_sha256": "aa75da9127e821d9764bcd4b06935f78f15faefd99bcbe6533e228d4e0c4e499",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "49d679f1429e697ba7bf15811c6bb9835fac68104c6e974dce2fd9063c2b1307",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "49d679f1429e697ba7bf15811c6bb9835fac68104c6e974dce2fd9063c2b1307"
+        },
+        "final.par": {
+          "bytes": 2957182,
+          "sha256": "aa75da9127e821d9764bcd4b06935f78f15faefd99bcbe6533e228d4e0c4e499"
+        },
+        "hessian_info.rds": {
+          "bytes": 1296,
+          "sha256": "7b1655a941c9425694d0b3dfe63dc6dc7487acdfb1025f91a073e892b8e29ee5"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1296,
+          "sha256": "452b3c1e168d3d0657bf33e24278cdd3ded47e279c265fbc1acffc5920231189"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9502066,
+          "sha256": "27f2fc99803cd0df4b885e797ba6ee616acffa8906b0dc309ec9082b73a44980"
+        }
+      },
+      "model_id": "ensemble-009",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-008",
+      "report_label": "E008"
+    },
+    "ensemble-010": {
+      "archive": {
+        "bytes": 31166242,
+        "sha256": "0ebc641387d1efa12db8f8992a08a5808c42485fb2ed1cb0d9f112c70539f7d5",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-010.tar.gz"
+      },
+      "final_par_sha256": "df85f76aa55e80f621cbbfb31fc3d8762f200d8f16d9695393f9f5f1c38243ec",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "7d8f2b595b1541c7696ed2a6cc32820760f2a1b36f58503c4e70ea263acb728e",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "7d8f2b595b1541c7696ed2a6cc32820760f2a1b36f58503c4e70ea263acb728e"
+        },
+        "final.par": {
+          "bytes": 2957211,
+          "sha256": "df85f76aa55e80f621cbbfb31fc3d8762f200d8f16d9695393f9f5f1c38243ec"
+        },
+        "hessian_info.rds": {
+          "bytes": 1296,
+          "sha256": "718dbca254fafdf3fe5b427bac039427d0b0dd562da946266ed03aa98d48dd3e"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1296,
+          "sha256": "49a333f41d2feaa9a14b9d7bd1773993d8f5057cf05e1b8b3495a4207a865d79"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9511402,
+          "sha256": "1e1c7076662f8891c8bd40df5135229d76947c852cee36b27502e5643a4fbc84"
+        }
+      },
+      "model_id": "ensemble-010",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-009",
+      "report_label": "E009"
+    },
+    "ensemble-011": {
+      "archive": {
+        "bytes": 31147537,
+        "sha256": "35ce3475dde6a7044b21f5896b140a36e86ef10af0b5f0b7b81e10525838aefb",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-011.tar.gz"
+      },
+      "final_par_sha256": "cddeba56406491fc99537bc10aa2c9be1540bbac3439b8f97d570465080712c5",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "3f65d85d56ec6ff5ba0828b61347fad0b164f15a6c89233bdec51078207e8661",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "3f65d85d56ec6ff5ba0828b61347fad0b164f15a6c89233bdec51078207e8661"
+        },
+        "final.par": {
+          "bytes": 2957163,
+          "sha256": "cddeba56406491fc99537bc10aa2c9be1540bbac3439b8f97d570465080712c5"
+        },
+        "hessian_info.rds": {
+          "bytes": 1272,
+          "sha256": "1423e4c0b540585e7334fd09ab3943a6b2f99734609005ea4319653c94214f19"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1276,
+          "sha256": "f91a5f2d8857c7d7eb735068d067e21dc5e044ec11429a7d50a77ce84b97bc93"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9501817,
+          "sha256": "5148c8e4902706f30d6491b689c699fc5df87963c726fa0721950cf6c1e668c8"
+        }
+      },
+      "model_id": "ensemble-011",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-010",
+      "report_label": "E010"
+    },
+    "ensemble-012": {
+      "archive": {
+        "bytes": 31117689,
+        "sha256": "27d10e017c13d2e023282e6c1ef1c5e70b61cf7c5e5c1cc9589352e3a2a61523",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-012.tar.gz"
+      },
+      "final_par_sha256": "316bc35bbc2dbf8b93b6a49ac51b4532e09266bcb7ac5927c9d5d29e0e44aa4f",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "7618bae7e97398a7abb172b843043f9b9525404b322fa0e3cb7e8fe3d5560af9",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "7618bae7e97398a7abb172b843043f9b9525404b322fa0e3cb7e8fe3d5560af9"
+        },
+        "final.par": {
+          "bytes": 2957197,
+          "sha256": "316bc35bbc2dbf8b93b6a49ac51b4532e09266bcb7ac5927c9d5d29e0e44aa4f"
+        },
+        "hessian_info.rds": {
+          "bytes": 1292,
+          "sha256": "4bc56bad83409b814f5c5426ac9ea90c3927d275ff7227cb0c71be81f3547d86"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1296,
+          "sha256": "83ef015474fd8fe3ef38ae6dedc7a6ed367367b5d02262988aff35fb10ea1fc2"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9501841,
+          "sha256": "8806c40e51a999be5669d90f86f4e695f48c7d3e6f971347ee2679bb160a33f0"
+        }
+      },
+      "model_id": "ensemble-012",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-011",
+      "report_label": "E011"
+    },
+    "ensemble-014": {
+      "archive": {
+        "bytes": 31184652,
+        "sha256": "74c62c4e13579e25963f87b1f793a03e68c49df0aa359580eb6299fcefc0a5b3",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-014.tar.gz"
+      },
+      "final_par_sha256": "ccdba7a52bc661901e5b3480b70f5fb9792c6e9a276cb80f24d3c9bb8c9bac0c",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "ac8c661a815682ad9b32475e04d40887ec174c438825435fd5e14ec910a61df6",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "ac8c661a815682ad9b32475e04d40887ec174c438825435fd5e14ec910a61df6"
+        },
+        "final.par": {
+          "bytes": 2957178,
+          "sha256": "ccdba7a52bc661901e5b3480b70f5fb9792c6e9a276cb80f24d3c9bb8c9bac0c"
+        },
+        "hessian_info.rds": {
+          "bytes": 1288,
+          "sha256": "d16e37c769902eca28cc42e086c34c7c52bd6ea1272604b04048074c05130526"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1292,
+          "sha256": "76962bad645cd30780079e7e7e2d00c8e4418df299e861d8645e40521dab0421"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521054,
+          "sha256": "4fa87839bec2149d030c932e4493d28139e590ba08998d61b0f22c6fa0c0c308"
+        }
+      },
+      "model_id": "ensemble-014",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-012",
+      "report_label": "E012"
+    },
+    "ensemble-015": {
+      "archive": {
+        "bytes": 31214530,
+        "sha256": "9c9a76c6722d577bfd28415d23968186203a5ccdb8c9359d71b577c610f928ec",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-015.tar.gz"
+      },
+      "final_par_sha256": "0986a3a2555175988be063fbf28d817f3e2affc5d1712dd63d45a90fe9521a6b",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "8cc622f99df9d2f9bb7648fcd0aa02118430d3e893cce61a9d8fd147341ead44",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "8cc622f99df9d2f9bb7648fcd0aa02118430d3e893cce61a9d8fd147341ead44"
+        },
+        "final.par": {
+          "bytes": 2957234,
+          "sha256": "0986a3a2555175988be063fbf28d817f3e2affc5d1712dd63d45a90fe9521a6b"
+        },
+        "hessian_info.rds": {
+          "bytes": 1312,
+          "sha256": "996a6f6a1d6a3b7ea540166814dfc064355d7911019488cdfc8c71a7429f97a1"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1316,
+          "sha256": "df4fee759671d26063a759d1750b436bfb7dc5049affc9ca3c91384051e549f4"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9519835,
+          "sha256": "82e9a0a4d2124633ea1ce9d2b54b523247863515a5fe9c6d4b3d62cbe5401a4b"
+        }
+      },
+      "model_id": "ensemble-015",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-013",
+      "report_label": "E013"
+    },
+    "ensemble-018": {
+      "archive": {
+        "bytes": 31175885,
+        "sha256": "659d99fbbb1d468738f0e78ae5b3cd3fcd7c481c209d3a6d28ef835f695b9401",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-018.tar.gz"
+      },
+      "final_par_sha256": "1d7c693184635ea835bbd42df64c365409f9cd88c54e4c1d9208e7901bfd048b",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "6686bdd381fa2404224dd1b27d4aa52a7404f42341a1a9415d6f754fb1019c31",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "6686bdd381fa2404224dd1b27d4aa52a7404f42341a1a9415d6f754fb1019c31"
+        },
+        "final.par": {
+          "bytes": 2957149,
+          "sha256": "1d7c693184635ea835bbd42df64c365409f9cd88c54e4c1d9208e7901bfd048b"
+        },
+        "hessian_info.rds": {
+          "bytes": 1284,
+          "sha256": "3de95cf065a1afa91ad947af8cdc267d97b6457e9600116cb72be1c7c57a6432"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1288,
+          "sha256": "48d08a6e0830eb0c715712ef276d9cd47c3dd770ec29c25e32feb93699f1c5b5"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9502055,
+          "sha256": "266ad5bc90da5d060da6964ea22b7517c89038b90f0939ab5adccb81faa727cf"
+        }
+      },
+      "model_id": "ensemble-018",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-014",
+      "report_label": "E014"
+    },
+    "ensemble-019": {
+      "archive": {
+        "bytes": 31136756,
+        "sha256": "4ee7879fcbcf5db5cc06b224b782ba000b0fba0e86cfbb955031ceca4f8dd88e",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-019.tar.gz"
+      },
+      "final_par_sha256": "0e3d98b7b06e0a9fa0b34bbdca901a435481cdb63a398e54ff3875724dff07f8",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "9daeab857828f07a3382100759a9566485d510aef98279673481b8689ba9976e",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "9daeab857828f07a3382100759a9566485d510aef98279673481b8689ba9976e"
+        },
+        "final.par": {
+          "bytes": 2957205,
+          "sha256": "0e3d98b7b06e0a9fa0b34bbdca901a435481cdb63a398e54ff3875724dff07f8"
+        },
+        "hessian_info.rds": {
+          "bytes": 1296,
+          "sha256": "772b59fdd2dc2c621cefaca15ce37553d5f468955faf67d7ad2b6b98f7ca64d9"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1300,
+          "sha256": "c3e21e413ae2249074a71913aed79441316322f0daf14d4b4fe174702f8183d4"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9501842,
+          "sha256": "a8b81b2ca6a9bdaad80b3e6de4db66056332e9519af120fe0b7c874fb853a158"
+        }
+      },
+      "model_id": "ensemble-019",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-015",
+      "report_label": "E015"
+    },
+    "ensemble-021": {
+      "archive": {
+        "bytes": 31130633,
+        "sha256": "01f9fc4871eb46266c97c4cae701eb3d1ceb1064c59d26ed639292fab65e3522",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-021.tar.gz"
+      },
+      "final_par_sha256": "ef973c7f3524e668bf4054b464077c790f96d3e62821fa923e976dda732802d8",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "4213294c129f80bc33787d37130478f4de7f16d449b964ee0a8025eea61a7ca0",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "4213294c129f80bc33787d37130478f4de7f16d449b964ee0a8025eea61a7ca0"
+        },
+        "final.par": {
+          "bytes": 2957194,
+          "sha256": "ef973c7f3524e668bf4054b464077c790f96d3e62821fa923e976dda732802d8"
+        },
+        "hessian_info.rds": {
+          "bytes": 1288,
+          "sha256": "dae24bb9ea627704569bc1906fcd170492b0781b1d48ee49ad3dd493075222e1"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1288,
+          "sha256": "bde194c1ee3f49db7ef828de69c9a540b1f5510517236f94b7bde20c3a53310d"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9501945,
+          "sha256": "17de03c2bc564c55c86f68853c3fb1cc17fa663d50937d656575a3205d438f8b"
+        }
+      },
+      "model_id": "ensemble-021",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-016",
+      "report_label": "E016"
+    },
+    "ensemble-022": {
+      "archive": {
+        "bytes": 31169950,
+        "sha256": "1ef2512926ec81119bf666bda904b0e0e2cb7db73d104405103ad911741b4b24",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-022.tar.gz"
+      },
+      "final_par_sha256": "f38664c2809d20bdc5db90b97f10537de397fddf026692cc8c9f64e42dd98963",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "b0299e8edfd203a85be269da0abde1dc1bd439e5c1cb18088acb823ecb338f42",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "b0299e8edfd203a85be269da0abde1dc1bd439e5c1cb18088acb823ecb338f42"
+        },
+        "final.par": {
+          "bytes": 2957275,
+          "sha256": "f38664c2809d20bdc5db90b97f10537de397fddf026692cc8c9f64e42dd98963"
+        },
+        "hessian_info.rds": {
+          "bytes": 1292,
+          "sha256": "14f1febdb2fed6b4bb2441be24fdbfad84b95c9bff9fda23d26d3fcc4c176b66"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1296,
+          "sha256": "cd9a91a846d2cc5187d7115e754eab1b0d431d644693480557b4e710bd450e8c"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521151,
+          "sha256": "dfbcfe26d18dad82b1f4a8cb13090d129166fef9799f90adff4808557cac638a"
+        }
+      },
+      "model_id": "ensemble-022",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-017",
+      "report_label": "E017"
+    },
+    "ensemble-023": {
+      "archive": {
+        "bytes": 31117349,
+        "sha256": "e81a2b3ec750bec5cdfc32a586575ad954775df7d443ad1ce33dcc30e5fd9603",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-023.tar.gz"
+      },
+      "final_par_sha256": "ae83ac5b550e3f4ce420edb8e6a2219124c510c7061ca4f98e9eb23494281fe6",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "9a3e185772bda78681a6b04e741bfe17af2c802fc14d028976f41dc474c3099f",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "9a3e185772bda78681a6b04e741bfe17af2c802fc14d028976f41dc474c3099f"
+        },
+        "final.par": {
+          "bytes": 2957166,
+          "sha256": "ae83ac5b550e3f4ce420edb8e6a2219124c510c7061ca4f98e9eb23494281fe6"
+        },
+        "hessian_info.rds": {
+          "bytes": 1296,
+          "sha256": "b8075db9e63d2e2649091c0561dacbbceeaf804f4f8b7596717fbaed6bb495d9"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1300,
+          "sha256": "8e8052de835864246c20b057a3e1ccabfb2432896cdefb26ec4356854b5a879a"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9501843,
+          "sha256": "bfa63d40ffa073cdfb74619d4741b456ddad50650f372c0f0cc11f96a9b97a6a"
+        }
+      },
+      "model_id": "ensemble-023",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-018",
+      "report_label": "E018"
+    },
+    "ensemble-024": {
+      "archive": {
+        "bytes": 31178944,
+        "sha256": "5359b0f85e90976449ef48e75abcbc492981253ed6d13ffd8a8a292d660bef50",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-024.tar.gz"
+      },
+      "final_par_sha256": "d669eed36d7e56671cf19b169b0bf4f2b918e80ab98051377328478d366d7639",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "d8cca57991514de350c11da8a2bbecb77fb2bd1d0dcf10b89c056c9f5f5f1081",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "d8cca57991514de350c11da8a2bbecb77fb2bd1d0dcf10b89c056c9f5f5f1081"
+        },
+        "final.par": {
+          "bytes": 2957209,
+          "sha256": "d669eed36d7e56671cf19b169b0bf4f2b918e80ab98051377328478d366d7639"
+        },
+        "hessian_info.rds": {
+          "bytes": 1292,
+          "sha256": "5b71cc52370646a314e961703383cf3d81e9f86d5b44de142df44629ce80edcf"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1296,
+          "sha256": "09ff4ec53a60d35677993d93040141a41eb4dc94964cb9692127596cbc892f56"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9503410,
+          "sha256": "4228341ac466c7f3c29efa2752e576735b4162ab40781213498d87158f435e8f"
+        }
+      },
+      "model_id": "ensemble-024",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-019",
+      "report_label": "E019"
+    },
+    "ensemble-025": {
+      "archive": {
+        "bytes": 31236740,
+        "sha256": "6e612a237e40cf939ee7b7f144c01b9157d4a99870cfbb45381a08a22ca110d9",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-025.tar.gz"
+      },
+      "final_par_sha256": "8052210b680a96e8b3faddf95378da28752cc128d14bd77f87048739cabc9b14",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "ce4fc6198a4fd45fc42448896c3226df8cea49a14ffa76c63c6c509963073e83",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "ce4fc6198a4fd45fc42448896c3226df8cea49a14ffa76c63c6c509963073e83"
+        },
+        "final.par": {
+          "bytes": 2957218,
+          "sha256": "8052210b680a96e8b3faddf95378da28752cc128d14bd77f87048739cabc9b14"
+        },
+        "hessian_info.rds": {
+          "bytes": 1304,
+          "sha256": "53e13ff8a8fd87997584983b307aa8ae0ab3cb1116cba0acc1342eda660e673c"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1304,
+          "sha256": "b06411a370f684144f85a5e7faa7c0540442905a076e25bde307a2bd087948b9"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9528710,
+          "sha256": "d1c26be7739b70d70dc81101a543acc08efebfba70cfca5add4a2d0df76d03bd"
+        }
+      },
+      "model_id": "ensemble-025",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-020",
+      "report_label": "E020"
+    },
+    "ensemble-027": {
+      "archive": {
+        "bytes": 31181312,
+        "sha256": "3b1d5108e682e3b2a129386e76b1a7fc020577e6e6f520d6cc77ed82f509222d",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-027.tar.gz"
+      },
+      "final_par_sha256": "8d69a6924f4c032d90fe308c9f0c0442ec6120818f39634f9fcbae8b7fa585a9",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "c3906bde7a2ae53ab0338dcce73db1679ed354a3cb8a517dfb794350d63a26db",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "c3906bde7a2ae53ab0338dcce73db1679ed354a3cb8a517dfb794350d63a26db"
+        },
+        "final.par": {
+          "bytes": 2957232,
+          "sha256": "8d69a6924f4c032d90fe308c9f0c0442ec6120818f39634f9fcbae8b7fa585a9"
+        },
+        "hessian_info.rds": {
+          "bytes": 1300,
+          "sha256": "969b11bec79af29df5d054fe4e281ba6787f70ce821d0d2df85e62f837c2aa30"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1300,
+          "sha256": "77529d4621813242494850b01584f3b02a98e72bb6d46dd04d9f10f473d9c17a"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521151,
+          "sha256": "345ee99cf31029f0c6bdd8be81fdef61bca5347842738dbb60d196ee32376244"
+        }
+      },
+      "model_id": "ensemble-027",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-021",
+      "report_label": "E021"
+    },
+    "ensemble-029": {
+      "archive": {
+        "bytes": 31168373,
+        "sha256": "33fb4aeda811ab9897510312e505f1b5ba32b73cc794b29facaaf9125ad6af3d",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-029.tar.gz"
+      },
+      "final_par_sha256": "54b4049b2258f4346af0f29e39df933ff55ae54d33e7c140c4d452da0dd712e3",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "20d1e6b50e42d97cb3dae96b91aee1a3654d7c169bd159a9e6cfff2757190c67",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "20d1e6b50e42d97cb3dae96b91aee1a3654d7c169bd159a9e6cfff2757190c67"
+        },
+        "final.par": {
+          "bytes": 2957203,
+          "sha256": "54b4049b2258f4346af0f29e39df933ff55ae54d33e7c140c4d452da0dd712e3"
+        },
+        "hessian_info.rds": {
+          "bytes": 1292,
+          "sha256": "c908988ed6b0d121f6f363f17f725539ea8cb8bcd0ffc5fa5aabe65a46bd4f23"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1296,
+          "sha256": "a22d5a17d44713b6dfcaf8e239755bb2065c71c85ae1a4488121251246a4982b"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521224,
+          "sha256": "0a5bdbb144bc725a22a5324a6165389e531aa08fbaecaa458c36b33c05672655"
+        }
+      },
+      "model_id": "ensemble-029",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-022",
+      "report_label": "E022"
+    },
+    "ensemble-030": {
+      "archive": {
+        "bytes": 31113383,
+        "sha256": "f28e02f351b503daf532c3f261feef8250f6ebfd254231404593afb6d97086b1",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-030.tar.gz"
+      },
+      "final_par_sha256": "d1fe6dd79277e6e2ff892f550be59f0a56c6b4db1efe0fd93272b29c301525ed",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "be7af9101216f14175a7ea498085b539a7311f516a7a67d226131f939ee3225b",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "be7af9101216f14175a7ea498085b539a7311f516a7a67d226131f939ee3225b"
+        },
+        "final.par": {
+          "bytes": 2957212,
+          "sha256": "d1fe6dd79277e6e2ff892f550be59f0a56c6b4db1efe0fd93272b29c301525ed"
+        },
+        "hessian_info.rds": {
+          "bytes": 1292,
+          "sha256": "baae5e7d6e3ab3150cd14e734c170c1239774e0c1930da6264b5ff16e6aac08e"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1292,
+          "sha256": "b1247ccb8119dd90f1e6c65ea412d74eb540c253e431d55bca341f2e1a4f41c0"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9502066,
+          "sha256": "62784eb4d68361883294f15dec9faaf26c6a0529e8b34c94ae9614106ddae2d7"
+        }
+      },
+      "model_id": "ensemble-030",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-023",
+      "report_label": "E023"
+    },
+    "ensemble-031": {
+      "archive": {
+        "bytes": 31172416,
+        "sha256": "5feada847d1b702b764cb09b854acaa8459760259e43ed8cc76af0228f710f6a",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-031.tar.gz"
+      },
+      "final_par_sha256": "cc351a733034bf6a583badfc7c2d1bae4c2047af405d325eb0dabf21164add8f",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "8ba6aad2c05421c26d63f5e8ad94fcaa7c6677ff9a8c8f99fb83f198b371dcfb",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "8ba6aad2c05421c26d63f5e8ad94fcaa7c6677ff9a8c8f99fb83f198b371dcfb"
+        },
+        "final.par": {
+          "bytes": 2957121,
+          "sha256": "cc351a733034bf6a583badfc7c2d1bae4c2047af405d325eb0dabf21164add8f"
+        },
+        "hessian_info.rds": {
+          "bytes": 1296,
+          "sha256": "f84c10ddf2a73584dea3de18fe759db2ad1c537b8bd50faa98b569fd357f2bd8"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1296,
+          "sha256": "588c723cfbdf5580bfea6ab3ba1d990410e87d5f2c64ad3b84f39a2dba4e2ad9"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9510040,
+          "sha256": "017a0cc3b44ead195895684cfcf6048ec7283ff44edb9e5f19ccafeba681f872"
+        }
+      },
+      "model_id": "ensemble-031",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-024",
+      "report_label": "E024"
+    },
+    "ensemble-032": {
+      "archive": {
+        "bytes": 31213432,
+        "sha256": "a8f4ffae4d9987623c683fccd710aa0dab842865f6fef8659fbe9c8fed7b2243",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-032.tar.gz"
+      },
+      "final_par_sha256": "b0b8ca77cb2a8f27f7af012dcd4ddaf367293526237d165ae9923f731c9ece5b",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "a1f0817948c71c635ff27d99fa48768978dbe2c7be32d0f2693e3eef4ffa9a7b",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "a1f0817948c71c635ff27d99fa48768978dbe2c7be32d0f2693e3eef4ffa9a7b"
+        },
+        "final.par": {
+          "bytes": 2957189,
+          "sha256": "b0b8ca77cb2a8f27f7af012dcd4ddaf367293526237d165ae9923f731c9ece5b"
+        },
+        "hessian_info.rds": {
+          "bytes": 1304,
+          "sha256": "b99e39a2471e8e52d7a0927a3a5086c642b4ab3068e4f38bed0dda089df5f12e"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1308,
+          "sha256": "a20b83ce886d35672596863330165a08c8310ff9ca85f94ad6e8cf3e5c52a1ad"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9529222,
+          "sha256": "05f988bcc14a349ff42e33bb5066fd56b13c41b15e0f42f3cbad3663564023fa"
+        }
+      },
+      "model_id": "ensemble-032",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-025",
+      "report_label": "E025"
+    },
+    "ensemble-033": {
+      "archive": {
+        "bytes": 31184727,
+        "sha256": "6ae0c4187b9c74444874a1c41c4d2bf261246b145813f84d6ec4a284c2eae856",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-033.tar.gz"
+      },
+      "final_par_sha256": "806b2fec7c2af95d11e2a6ee1a9fa151effc3459eddb2b9b5ab245e775bbf9ef",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "6306ce18b77e4a7579157a1fa825d4937e48ebaa400ac4823427357818907b92",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "6306ce18b77e4a7579157a1fa825d4937e48ebaa400ac4823427357818907b92"
+        },
+        "final.par": {
+          "bytes": 2957227,
+          "sha256": "806b2fec7c2af95d11e2a6ee1a9fa151effc3459eddb2b9b5ab245e775bbf9ef"
+        },
+        "hessian_info.rds": {
+          "bytes": 1296,
+          "sha256": "377114dd0fa0ad5b1fc2f342334cd8b7ac9ebbb60121943bb912994707f58435"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1296,
+          "sha256": "0ffd62359efabf77ade87023411ec8034e21dbd86c1a80c8cbf200e82b6a6b59"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521066,
+          "sha256": "afa4a680a9190fda18ff3cef40fe309e4f07dfddacaad57bcb52a9e7549f84e5"
+        }
+      },
+      "model_id": "ensemble-033",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-026",
+      "report_label": "E026"
+    },
+    "ensemble-034": {
+      "archive": {
+        "bytes": 31235627,
+        "sha256": "b96be90a11f873716547078ec3525f542a69af03a79df573a6806c8b3cbdfa4d",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-034.tar.gz"
+      },
+      "final_par_sha256": "5e1e0a99df9d59b46405b5d6f52cd1da82f3f339913bef52133d371030b54370",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "adf45059cb83efc74291cf78d62146c9522275e5b7da003205b251fc576e038c",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "adf45059cb83efc74291cf78d62146c9522275e5b7da003205b251fc576e038c"
+        },
+        "final.par": {
+          "bytes": 2957210,
+          "sha256": "5e1e0a99df9d59b46405b5d6f52cd1da82f3f339913bef52133d371030b54370"
+        },
+        "hessian_info.rds": {
+          "bytes": 1308,
+          "sha256": "cff384018e934a1b4cf515d6179a88f312ae89deb2380a95c24ef1b666ae0185"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1312,
+          "sha256": "1b24eef461f8cfd6801a0a7c6b9ee06e05815380e7bf654ec7c38b568077e204"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9527678,
+          "sha256": "1118b5867ec492f2160693ee4220c61284417683e8ee04cd3450c4ec4e79f292"
+        }
+      },
+      "model_id": "ensemble-034",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-027",
+      "report_label": "E027"
+    },
+    "ensemble-035": {
+      "archive": {
+        "bytes": 31213136,
+        "sha256": "ceb540a6f20c78ed0d412928f7a4c9e928cc072e203a2455ba77ae5bf50972a4",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-035.tar.gz"
+      },
+      "final_par_sha256": "f021e31fe62a2f7b06f4c0f849b93ab614691450baf0795ebb8936721b794dd1",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "21e8b4b46d14b77af5b09b6ba124ececfbcff08e739b871e4cd0ec1cf5990595",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "21e8b4b46d14b77af5b09b6ba124ececfbcff08e739b871e4cd0ec1cf5990595"
+        },
+        "final.par": {
+          "bytes": 2957224,
+          "sha256": "f021e31fe62a2f7b06f4c0f849b93ab614691450baf0795ebb8936721b794dd1"
+        },
+        "hessian_info.rds": {
+          "bytes": 1304,
+          "sha256": "4078c33ff8dfa3906897599540a998561f542ed93f83128a2b521f184926a6ad"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1304,
+          "sha256": "001849be313279ec0bad69492553f7956f59e9a95d7e0032a33200f51367137d"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521064,
+          "sha256": "4e4b0f5d5f3e6cac124edeff3d58ea9f315f78d0617d5ae375b28cbb888107ea"
+        }
+      },
+      "model_id": "ensemble-035",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-028",
+      "report_label": "E028"
+    },
+    "ensemble-036": {
+      "archive": {
+        "bytes": 31144412,
+        "sha256": "a1ff850f560d2cebf1ec0f6bacba700455fec52292a19ccbf6a176b8405098e9",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-036.tar.gz"
+      },
+      "final_par_sha256": "b39320e8e1fb6b29c53059d4975dd94bfd311c6509d3aa13c86e35accadcb3d3",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "35ad8a700471aa73089817647304000cb6e4dd7ac36a5f557b5828b56ca42d70",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "35ad8a700471aa73089817647304000cb6e4dd7ac36a5f557b5828b56ca42d70"
+        },
+        "final.par": {
+          "bytes": 2957190,
+          "sha256": "b39320e8e1fb6b29c53059d4975dd94bfd311c6509d3aa13c86e35accadcb3d3"
+        },
+        "hessian_info.rds": {
+          "bytes": 1284,
+          "sha256": "fceea4ed6d73f390c79bd9df5e579f9a673c8f18149cf8aba33bed98e552b500"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1284,
+          "sha256": "779fa4e3f9b7b9670ce30bfc0c91bc7d23f6da4e4be0c77dfde65d1bc13e811f"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9502053,
+          "sha256": "b6a5cafd84afb522b549b4c3315d840749ef0ead7a0b657937de55a9956c8ae8"
+        }
+      },
+      "model_id": "ensemble-036",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-029",
+      "report_label": "E029"
+    },
+    "ensemble-038": {
+      "archive": {
+        "bytes": 31211761,
+        "sha256": "12904f2a855f86813dda944c3397c4f482b6b153c8d73097998ffc7a55a631f1",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-038.tar.gz"
+      },
+      "final_par_sha256": "c97c7862331d5c58d981195a01285c5bd3a3a821fe3cd259a5ef39f031ecc25c",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "d5725fdc19bdaab7d9fd2f379922a233395793e8b88ef0e1dc20eeba3491693a",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "d5725fdc19bdaab7d9fd2f379922a233395793e8b88ef0e1dc20eeba3491693a"
+        },
+        "final.par": {
+          "bytes": 2957194,
+          "sha256": "c97c7862331d5c58d981195a01285c5bd3a3a821fe3cd259a5ef39f031ecc25c"
+        },
+        "hessian_info.rds": {
+          "bytes": 1304,
+          "sha256": "de1ba70e4e314fcd6fd2615f27157ba37d389f18f319ff338a84e786e9bc9856"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1304,
+          "sha256": "0c04aa05d61fcf3109cb1b57018ad31de0c36b4ad66f635189976857a0bbef92"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9518481,
+          "sha256": "506a6957e3301a61a89cf405ae3f99071add134c152559c23611f2bb30a36b33"
+        }
+      },
+      "model_id": "ensemble-038",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-030",
+      "report_label": "E030"
+    },
+    "ensemble-039": {
+      "archive": {
+        "bytes": 31177365,
+        "sha256": "1eb9420e5ff1fd02f66b74729301c32aa1729e5f815b0823f724d910168ae7f4",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-039.tar.gz"
+      },
+      "final_par_sha256": "24db2733182a8623bea59a4a0d85ca8aa4dc413748da3ce6118ec285419e7ed5",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "88b26e8e4ac35c04f7e5286963469f8669b6870ffde396c9c418d5405988e84f",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "88b26e8e4ac35c04f7e5286963469f8669b6870ffde396c9c418d5405988e84f"
+        },
+        "final.par": {
+          "bytes": 2957183,
+          "sha256": "24db2733182a8623bea59a4a0d85ca8aa4dc413748da3ce6118ec285419e7ed5"
+        },
+        "hessian_info.rds": {
+          "bytes": 1292,
+          "sha256": "184e3261d6feae1c231a8c9de93ddbe711e39e56bb36c0fd4c208c2987092a61"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1296,
+          "sha256": "627c8431964f81b50e11cd0ab4bc4dcf4dcf7cc330b7ef8e1ee5578c96bd5035"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9510491,
+          "sha256": "d88c708cc55caece58ac22dec931a38c69e467ee50f92089ad9060adc3e08026"
+        }
+      },
+      "model_id": "ensemble-039",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-031",
+      "report_label": "E031"
+    },
+    "ensemble-040": {
+      "archive": {
+        "bytes": 31166614,
+        "sha256": "637651f886a5c3c8fa0ee5ef1e0c871f1b500dde047e2dee5e10ad5b3a00b3d3",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-040.tar.gz"
+      },
+      "final_par_sha256": "c7369167b7864615bbb6bda1eb5018438a276d5b5d99f0b4dc21fbdf05a87d9e",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "6e134dcd2adf8115fc4ac4123aebc327f9cebc452db24facf9454de48006903d",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "6e134dcd2adf8115fc4ac4123aebc327f9cebc452db24facf9454de48006903d"
+        },
+        "final.par": {
+          "bytes": 2957195,
+          "sha256": "c7369167b7864615bbb6bda1eb5018438a276d5b5d99f0b4dc21fbdf05a87d9e"
+        },
+        "hessian_info.rds": {
+          "bytes": 1288,
+          "sha256": "2740c9b66de761a3811d7d3f053ca7f0c14cc671c5c0d2b110e103992f313f78"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1288,
+          "sha256": "c21b71fa9f4238f17367df9428ed9917a59527d9793af05f6e50bda5d24d5be9"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521138,
+          "sha256": "4fede5439b13e3c14411c9450066bbb21e56cdc0e8fb6986c2cd6f39aaad87e7"
+        }
+      },
+      "model_id": "ensemble-040",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-032",
+      "report_label": "E032"
+    },
+    "ensemble-041": {
+      "archive": {
+        "bytes": 31127628,
+        "sha256": "6a3989bc9c00d75992e36913018447712314764b227ef9659b6e41bbf99c62e1",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-041.tar.gz"
+      },
+      "final_par_sha256": "b2fde84a85aadf0ed5bab5e36a8826f286156ed4f20897799298ac7e0b4a2d2a",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "bec00c0f13629d2a897ed31a53c9041eab8da95e7b2c955f983af521b8ccb7c5",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "bec00c0f13629d2a897ed31a53c9041eab8da95e7b2c955f983af521b8ccb7c5"
+        },
+        "final.par": {
+          "bytes": 2957197,
+          "sha256": "b2fde84a85aadf0ed5bab5e36a8826f286156ed4f20897799298ac7e0b4a2d2a"
+        },
+        "hessian_info.rds": {
+          "bytes": 1300,
+          "sha256": "64797bba3aba7bbe7d710859620d0e39b2667408b0b2ff0d9ce01acb41ad721c"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1300,
+          "sha256": "b8a5044d6e1828044a0fa9301b33a134bfbc71ec770b65df44f3c133d6a84c54"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9501844,
+          "sha256": "be1af698d9b839432fe2e2dbe9f3d7e9424d41c914146e4a88462f669d0a4201"
+        }
+      },
+      "model_id": "ensemble-041",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-033",
+      "report_label": "E033"
+    },
+    "ensemble-042": {
+      "archive": {
+        "bytes": 31171561,
+        "sha256": "55ed22eb3f18e1ddcb14527d62bbaec4a6d30fe5057c03d7a55ea4fa56ab5435",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-042.tar.gz"
+      },
+      "final_par_sha256": "f3600b58313f571fa541db27661828902f854edc25420b5e7cca6ab27ddc3372",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "a7d184b8aaa020c97d7b94781512b91f795dd691ed45c8569db3fa9d6933eece",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "a7d184b8aaa020c97d7b94781512b91f795dd691ed45c8569db3fa9d6933eece"
+        },
+        "final.par": {
+          "bytes": 2957241,
+          "sha256": "f3600b58313f571fa541db27661828902f854edc25420b5e7cca6ab27ddc3372"
+        },
+        "hessian_info.rds": {
+          "bytes": 1288,
+          "sha256": "ca1d45ae1060a6acebdd1ce804955d7bc5484f81a6c938071bac51efe5649076"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1292,
+          "sha256": "75acbced5dafb53d969f0eae00e117c0b37176f72c37acb7ed8ccd2a5725d2ef"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521140,
+          "sha256": "6f75d02c33556dfbf774b7048c7244e0f2b6d7dd3b8eeb5a975bb229e65f1b8b"
+        }
+      },
+      "model_id": "ensemble-042",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-034",
+      "report_label": "E034"
+    },
+    "ensemble-043": {
+      "archive": {
+        "bytes": 31205242,
+        "sha256": "763805c1cd7c9dd67ef5fbf6a06febc9bcd67b93f61d2fa09aaf4cc10384f10e",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-043.tar.gz"
+      },
+      "final_par_sha256": "6dad6fca73dd8d0592caa6cf45ffcd80d245321676141d44a0d7a523032eb0fa",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "b1a097b6bad18739569f9a5ca28a55f6e61fd1cdb999d967e378bac140868d1f",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "b1a097b6bad18739569f9a5ca28a55f6e61fd1cdb999d967e378bac140868d1f"
+        },
+        "final.par": {
+          "bytes": 2957190,
+          "sha256": "6dad6fca73dd8d0592caa6cf45ffcd80d245321676141d44a0d7a523032eb0fa"
+        },
+        "hessian_info.rds": {
+          "bytes": 1292,
+          "sha256": "9a830f3f25231e2295b9f3ef4e4210d766ec68e668c4eac0efd119af50913c3d"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1296,
+          "sha256": "21fb3c766522952f3b52feb974470604c4cd863bd56cd5015085d0507065fbca"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521064,
+          "sha256": "672ae7de63da5aac396beede1f2c4b3b830166eb4ac97a19ebd804c644c4ea6d"
+        }
+      },
+      "model_id": "ensemble-043",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-035",
+      "report_label": "E035"
+    },
+    "ensemble-044": {
+      "archive": {
+        "bytes": 31187261,
+        "sha256": "9976dba0e4b4b173954cbeef756dbd1d2000e65757c6c1711a590dde33254bbe",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-044.tar.gz"
+      },
+      "final_par_sha256": "682d113e649995f13be0944eef473680322b0f539343a3ec22dc0e093a8e0179",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "5fde88b50543d90392baa6e3c04ffde1fc564e4d2fcc36393fbb5e4824e33456",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "5fde88b50543d90392baa6e3c04ffde1fc564e4d2fcc36393fbb5e4824e33456"
+        },
+        "final.par": {
+          "bytes": 2957249,
+          "sha256": "682d113e649995f13be0944eef473680322b0f539343a3ec22dc0e093a8e0179"
+        },
+        "hessian_info.rds": {
+          "bytes": 1292,
+          "sha256": "e4ca0f7f8ce68d82a0fc19c1bf0e7a362bf1f66526d777487aa72e1f4c813b4f"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1296,
+          "sha256": "6f1eb2d5b88bc1535ac003e946428f9943505ad041016e59b7c885e358d8e381"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521239,
+          "sha256": "e74516b32a58cf1c69de3fe3162190d4ffc6ba71eee94e57ef91ed28604dff00"
+        }
+      },
+      "model_id": "ensemble-044",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-036",
+      "report_label": "E036"
+    },
+    "ensemble-045": {
+      "archive": {
+        "bytes": 31167996,
+        "sha256": "2b50363e0c05b7b11b277dbe876e4cacfb539889431d9e267ff0e38cced07956",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-045.tar.gz"
+      },
+      "final_par_sha256": "4214dd1b9901d6e3de41b3f246a4131aeeeca7229f05eaf66257b458089fd5f2",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "5641631977f27877ff7333416f6a8e1275c2a479199788b15b4db483ab2ff19e",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "5641631977f27877ff7333416f6a8e1275c2a479199788b15b4db483ab2ff19e"
+        },
+        "final.par": {
+          "bytes": 2957178,
+          "sha256": "4214dd1b9901d6e3de41b3f246a4131aeeeca7229f05eaf66257b458089fd5f2"
+        },
+        "hessian_info.rds": {
+          "bytes": 1284,
+          "sha256": "5a85c8f39439377cc65b5dac450a47ada9e2e27c4acbf05c6d89c8f8a5285b42"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1288,
+          "sha256": "e2cc1702fb6530e7e7d186aaf344abd6733b07c1dc02899a73951f2f02f38cef"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521225,
+          "sha256": "bb6bcfdbe2c97cddc807ef21683f5cbe14b8f4a8e4d41945a6157948e6665b94"
+        }
+      },
+      "model_id": "ensemble-045",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-037",
+      "report_label": "E037"
+    },
+    "ensemble-046": {
+      "archive": {
+        "bytes": 31113178,
+        "sha256": "b1a9e019f149c91921fed7a0714466a2367a5339d4b9cf9861d2475c3550579f",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-046.tar.gz"
+      },
+      "final_par_sha256": "8993a0eb84e167cba5653cd66397cd9d26c33f624e920d4079b8a05b7b8e7234",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "c21ae4bcad3ccb2e5fbe638b352fe9dd215d334e26d411f44a827ec0bc170e75",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "c21ae4bcad3ccb2e5fbe638b352fe9dd215d334e26d411f44a827ec0bc170e75"
+        },
+        "final.par": {
+          "bytes": 2957208,
+          "sha256": "8993a0eb84e167cba5653cd66397cd9d26c33f624e920d4079b8a05b7b8e7234"
+        },
+        "hessian_info.rds": {
+          "bytes": 1300,
+          "sha256": "ba60c4bfc54a56c9b5a93d8677a092e2d3263eea2f93eb1a7bf130a69b34d5e0"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1300,
+          "sha256": "967359830e5d637e549ea0b626c10a02a78421fe60c7cecf374c65f278ff2847"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521069,
+          "sha256": "f6d83c0f4bad62fa581c3f9499e06e242f58db48f771a0665fdabf5d71dbe794"
+        }
+      },
+      "model_id": "ensemble-046",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-038",
+      "report_label": "E038"
+    },
+    "ensemble-047": {
+      "archive": {
+        "bytes": 31146175,
+        "sha256": "143bd1c41e17686c84482cd2a3ec5f659f6f6f46ba4f4d7a636e0341ab1709e7",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-047.tar.gz"
+      },
+      "final_par_sha256": "b849eb212fd8913d11e6cbd0589dac3c4093426464f2dd9dae25af8c2daa4d1a",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "edf7006517fdc454fe9fec42eecdec3224f083778417ee9b2b015842e5aff437",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "edf7006517fdc454fe9fec42eecdec3224f083778417ee9b2b015842e5aff437"
+        },
+        "final.par": {
+          "bytes": 2957161,
+          "sha256": "b849eb212fd8913d11e6cbd0589dac3c4093426464f2dd9dae25af8c2daa4d1a"
+        },
+        "hessian_info.rds": {
+          "bytes": 1284,
+          "sha256": "f6da7e34455c88e5d193c466c8a61413cfdba151d44067b9bf71c14d8ce9da66"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1288,
+          "sha256": "527bf46baad58c816393090bdcc05aa905fbc693250785c49e17e7aa0fbaba91"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9501830,
+          "sha256": "8ac5a86c0429840c543955f2b07a8ea69a741922dcff8fb3d6612ca241f00d89"
+        }
+      },
+      "model_id": "ensemble-047",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-039",
+      "report_label": "E039"
+    },
+    "ensemble-049": {
+      "archive": {
+        "bytes": 31228702,
+        "sha256": "56fa7ab42b9ebe35522b5549d98159a0dd3b05fd38039056b1683afcbf6af59f",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-049.tar.gz"
+      },
+      "final_par_sha256": "da2514716c78892e8da9ab9eee7a0193aa7bd22ab88fece1d8a29ce9b76a4c3b",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "d59550b1642f207bfeb09cafa9f41d192ebe60344c01d4cdf7353602f0074309",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "d59550b1642f207bfeb09cafa9f41d192ebe60344c01d4cdf7353602f0074309"
+        },
+        "final.par": {
+          "bytes": 2957178,
+          "sha256": "da2514716c78892e8da9ab9eee7a0193aa7bd22ab88fece1d8a29ce9b76a4c3b"
+        },
+        "hessian_info.rds": {
+          "bytes": 1304,
+          "sha256": "254e531b7e371e1e8bc2156ded4a8451d54602bf0a91569de6a087dd0f58dcd1"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1308,
+          "sha256": "bcf7c5296dcfea545be10c217f399825402ccf203e4cc7cf4c71f120d4ec0262"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9520031,
+          "sha256": "4cf4d558c0008cd12c156f8297aa512d6246239d5cb1f110fd536c23753de1ab"
+        }
+      },
+      "model_id": "ensemble-049",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-040",
+      "report_label": "E040"
+    },
+    "ensemble-050": {
+      "archive": {
+        "bytes": 31143271,
+        "sha256": "397088e51353d7785e6c9f4e64f5ef3e62e55a3ac7af4598096dfa498351d0ff",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-050.tar.gz"
+      },
+      "final_par_sha256": "1f8addcd41811709028c134850e5c6d64769d76d7da2ca9e83dabe6d452389dc",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "cd61821a5c6c065b7159f82334e507a97cc85f713c7e2ad7bdb1c87356138ab1",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "cd61821a5c6c065b7159f82334e507a97cc85f713c7e2ad7bdb1c87356138ab1"
+        },
+        "final.par": {
+          "bytes": 2957155,
+          "sha256": "1f8addcd41811709028c134850e5c6d64769d76d7da2ca9e83dabe6d452389dc"
+        },
+        "hessian_info.rds": {
+          "bytes": 1288,
+          "sha256": "eb724579dadf095777dbe336021b9353ab9a13db937ff5fc93b0c835b5c7f1af"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1292,
+          "sha256": "910e156b204347b05fcfb9592b64cc349b8bf4b0d4ed6c216ec33fd50fe3c51b"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9502054,
+          "sha256": "79225e2322ed75f5fd4884dbceee32f04c5257b2b10ab690791850d5dae3cb5b"
+        }
+      },
+      "model_id": "ensemble-050",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-041",
+      "report_label": "E041"
+    },
+    "ensemble-051": {
+      "archive": {
+        "bytes": 31139101,
+        "sha256": "2501c59e132e39c37d463d2ca6dca41412196576673a6aadcb4fe0ee70525dc6",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-051.tar.gz"
+      },
+      "final_par_sha256": "cf7dd186a12eaa64ff3f821911fcfb5287ff636ca14362a3c4e18733ab1b6eac",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "ffa3fa89d5786ee0f48e736381a45c2cfda8bda74943ad42f9fab96ece8dab2e",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "ffa3fa89d5786ee0f48e736381a45c2cfda8bda74943ad42f9fab96ece8dab2e"
+        },
+        "final.par": {
+          "bytes": 2957177,
+          "sha256": "cf7dd186a12eaa64ff3f821911fcfb5287ff636ca14362a3c4e18733ab1b6eac"
+        },
+        "hessian_info.rds": {
+          "bytes": 1288,
+          "sha256": "ce409968cfad3743f85d2afae202b46dcb40fff316ecf9d1fe69d3e307e56dcf"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1288,
+          "sha256": "0836930939f5b299fad554a658490922a45fb8205a2bb10187432f7e04ba687b"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9502055,
+          "sha256": "15bde83314aa56e6a8b0bb07637af772ec4efea2e92f6a9f4fef3809a8233428"
+        }
+      },
+      "model_id": "ensemble-051",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-042",
+      "report_label": "E042"
+    },
+    "ensemble-052": {
+      "archive": {
+        "bytes": 31242248,
+        "sha256": "7fa552d3e8500bca11ec5bf9802814c53468d3f9f8bda898b533ec8a61fe1a94",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-052.tar.gz"
+      },
+      "final_par_sha256": "28895a3bb868b8b6e9e9089934493b206810794b2d6d557d53a07265c84c4ac8",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "8a4baa0dec7f90e74a57510f82fd5725ea789b1fc82164554deb3758ecd7b1b5",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "8a4baa0dec7f90e74a57510f82fd5725ea789b1fc82164554deb3758ecd7b1b5"
+        },
+        "final.par": {
+          "bytes": 2957226,
+          "sha256": "28895a3bb868b8b6e9e9089934493b206810794b2d6d557d53a07265c84c4ac8"
+        },
+        "hessian_info.rds": {
+          "bytes": 1308,
+          "sha256": "a6fb6cd81d0d9226ed6d48f97987c9c2019240886b674238880df4c4baf8cd8d"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1312,
+          "sha256": "d511e60b1587a2281d0d1ead560ea6de071f9e50d5c621e6fd651bb665468406"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9528710,
+          "sha256": "6345cf91476999a2b79efe378b63657f417f77a80da432d0c6bab5e67d2dd855"
+        }
+      },
+      "model_id": "ensemble-052",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-043",
+      "report_label": "E043"
+    },
+    "ensemble-053": {
+      "archive": {
+        "bytes": 31114888,
+        "sha256": "8f553ae5fa707dc4dd936fcbc639db6f05344df7989e3e347b0ec44cce3d1fa4",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-053.tar.gz"
+      },
+      "final_par_sha256": "b2051b504690d3b854a4f08b989c088c8e91492ce8c65c811acd58c8064e14c7",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "6abdc15d4195a83301be931e2014864546688be51a053e9ea1eaf8d2154256da",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "6abdc15d4195a83301be931e2014864546688be51a053e9ea1eaf8d2154256da"
+        },
+        "final.par": {
+          "bytes": 2957139,
+          "sha256": "b2051b504690d3b854a4f08b989c088c8e91492ce8c65c811acd58c8064e14c7"
+        },
+        "hessian_info.rds": {
+          "bytes": 1284,
+          "sha256": "aea31c3c74caa058254347b247a962cfb50ceaf043f1ad0df34e22e570f49325"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1288,
+          "sha256": "d522eb8df284d7ba568a96c2e5b8bc6f76f8f61371805ac23595407dab3a6b32"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9501943,
+          "sha256": "6f3b0061796d67cbe7eaa348513baefa9717a7c94c6d90729328be815992d047"
+        }
+      },
+      "model_id": "ensemble-053",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-044",
+      "report_label": "E044"
+    },
+    "ensemble-054": {
+      "archive": {
+        "bytes": 31121000,
+        "sha256": "c7c8973e02f251bc7b7f3b5fbf4390bd86417229faddf8fe43ddc2ab1b8b20d7",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-054.tar.gz"
+      },
+      "final_par_sha256": "4ae91bf5a4121d98ab951229a48166a11010d6111d90713ea5779dd69bb2a670",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "e9298b078b548fccb39d86803df70bb11e62696512910578fc4cf781c974cfe5",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "e9298b078b548fccb39d86803df70bb11e62696512910578fc4cf781c974cfe5"
+        },
+        "final.par": {
+          "bytes": 2957153,
+          "sha256": "4ae91bf5a4121d98ab951229a48166a11010d6111d90713ea5779dd69bb2a670"
+        },
+        "hessian_info.rds": {
+          "bytes": 1288,
+          "sha256": "feef4816f6583ce4a8117294cf209580e999bdbef638a0e8dafd2881281a7664"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1292,
+          "sha256": "04df669eb831fcf717a10b1c755d01a13acf4b1fff366fa1da1c873b356c1580"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9501942,
+          "sha256": "6c2cc6ed6a88934aec35544fc8c49b12670ec67f3f4a9777d6344e87a7c05058"
+        }
+      },
+      "model_id": "ensemble-054",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-045",
+      "report_label": "E045"
+    },
+    "ensemble-055": {
+      "archive": {
+        "bytes": 31110438,
+        "sha256": "21e5f666f2158824c49b88def1d69e41345a2b700393cd67832c47866b0c68b1",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-055.tar.gz"
+      },
+      "final_par_sha256": "d09b22a846ed4782fdb14fb3c7238adfba11ddc7db71ddfd2925458127c546e5",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "f98fc497968f97cfb67aa3a3d6af644eb3c9fcdbde09349cb136aee4b15a49eb",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "f98fc497968f97cfb67aa3a3d6af644eb3c9fcdbde09349cb136aee4b15a49eb"
+        },
+        "final.par": {
+          "bytes": 2957160,
+          "sha256": "d09b22a846ed4782fdb14fb3c7238adfba11ddc7db71ddfd2925458127c546e5"
+        },
+        "hessian_info.rds": {
+          "bytes": 1276,
+          "sha256": "d6fcb7b16bee5984e94375a3478d7b063c635afd7b0b642545156caa2f39e07d"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1280,
+          "sha256": "99e31a982896227343e524794eeb62fc5bba599388c969d748dc6761de7cfbef"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9501942,
+          "sha256": "48e42b07e28b59998aae12cbe0e308c47da381f54044341ae40f0e34101cb89e"
+        }
+      },
+      "model_id": "ensemble-055",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-046",
+      "report_label": "E046"
+    },
+    "ensemble-056": {
+      "archive": {
+        "bytes": 31139670,
+        "sha256": "3d0b22672ba1ed52dce0f360282421d845bbac3ac1a377b292baa759b45ff57a",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-056.tar.gz"
+      },
+      "final_par_sha256": "dbd785382fe5b38938975433954cc373231f25978817880abc35524751048eb4",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "0ab9421654ad642dec2a3874fada55bfb17b1720fd60ab2fd15475f259874207",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "0ab9421654ad642dec2a3874fada55bfb17b1720fd60ab2fd15475f259874207"
+        },
+        "final.par": {
+          "bytes": 2957224,
+          "sha256": "dbd785382fe5b38938975433954cc373231f25978817880abc35524751048eb4"
+        },
+        "hessian_info.rds": {
+          "bytes": 1284,
+          "sha256": "31ba680103387639cfaee098d0f6ed48f613f197b577ffaf8b94c1141575d2ab"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1288,
+          "sha256": "6b667a3ef3653a59acb3a155655db4ae112ac02a9bad031c77a99d8f6cfc2c23"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9502059,
+          "sha256": "73800ee70be468669d2ce0457dbc4adf947e189d08bcdba589371fc45c77aeea"
+        }
+      },
+      "model_id": "ensemble-056",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-047",
+      "report_label": "E047"
+    },
+    "ensemble-057": {
+      "archive": {
+        "bytes": 31142375,
+        "sha256": "a55ca9f9869ac4524fabd914d5e8e7ef1deca0323c9d6792c81a96348f0abc83",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-057.tar.gz"
+      },
+      "final_par_sha256": "06dde7643f55a2d224dbfa12f28201c1c6570538b747111d30bf97738489a0c9",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "5dc81418dbae4012264ef591dc58b5fc6f010ad2354bd4743445127a6d0e7ef6",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "5dc81418dbae4012264ef591dc58b5fc6f010ad2354bd4743445127a6d0e7ef6"
+        },
+        "final.par": {
+          "bytes": 2957241,
+          "sha256": "06dde7643f55a2d224dbfa12f28201c1c6570538b747111d30bf97738489a0c9"
+        },
+        "hessian_info.rds": {
+          "bytes": 1292,
+          "sha256": "f4d8decbecf3783a1c61f73e3b348337fbc4ad466549943aa36f0127eda0bace"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1292,
+          "sha256": "d1e6eaef246ec45980133f43490fa4325b3353b39f2de8bf07c788df21405e83"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9502069,
+          "sha256": "32a9f043a93c2404e30f7650371305f99d12ab0e7fd03df014e0cb212748c6dc"
+        }
+      },
+      "model_id": "ensemble-057",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-048",
+      "report_label": "E048"
+    },
+    "ensemble-062": {
+      "archive": {
+        "bytes": 31247980,
+        "sha256": "1b78abbe62b3b12144f775114d3d5670d7f1d6715caa2a6f27d0b799a44caf76",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-062.tar.gz"
+      },
+      "final_par_sha256": "507c5eb0bbf705bcb5161cbb03c7863351d412ae4c3f8ca93e3ac72f1bd3dabe",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "0931db38ec6e781076e44f68af5e6cfbf0a4948641dcc524ea937a1fc6376c55",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "0931db38ec6e781076e44f68af5e6cfbf0a4948641dcc524ea937a1fc6376c55"
+        },
+        "final.par": {
+          "bytes": 2957226,
+          "sha256": "507c5eb0bbf705bcb5161cbb03c7863351d412ae4c3f8ca93e3ac72f1bd3dabe"
+        },
+        "hessian_info.rds": {
+          "bytes": 1312,
+          "sha256": "fa00409159c4cb1f6c477a0555859af18df93747928c3fe2f7c60a96348a529f"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1316,
+          "sha256": "7134f7cd166d3c44d38c81104749c5f8f97a5dfaf681ec475f1d151068518aaf"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9536695,
+          "sha256": "58456dd427d723cbb1e7b2241baf4f4139ff7abd431341900c47ff501f2e5210"
+        }
+      },
+      "model_id": "ensemble-062",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-049",
+      "report_label": "E049"
+    },
+    "ensemble-063": {
+      "archive": {
+        "bytes": 31179407,
+        "sha256": "c457d1ebeeaf9340b159d9f964fb8f3dd4e6f8d10d49eda524e637fbaff986cf",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-063.tar.gz"
+      },
+      "final_par_sha256": "4b3629229c2fce797da9fce4e262950dbeae821ad5a6c62c6cd5ffde1eeb9ebb",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "e3d3bea0b1ecc636bfec17661ca2fadd2b6b21ae3cf096e851375bc6aba916ae",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "e3d3bea0b1ecc636bfec17661ca2fadd2b6b21ae3cf096e851375bc6aba916ae"
+        },
+        "final.par": {
+          "bytes": 2957217,
+          "sha256": "4b3629229c2fce797da9fce4e262950dbeae821ad5a6c62c6cd5ffde1eeb9ebb"
+        },
+        "hessian_info.rds": {
+          "bytes": 1288,
+          "sha256": "416587063141adf9c58e7f89d567371f03ec6ac886238aa6e529933a89d6d9b4"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1288,
+          "sha256": "c8d62a98836754b62540eff1e330e79858e97a530870cf84cc9926ae6d7bb660"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521138,
+          "sha256": "897ace7ae54784bdcf8fc22969475f9602607a40a8d310ba85d94b187dee6913"
+        }
+      },
+      "model_id": "ensemble-063",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-050",
+      "report_label": "E050"
+    },
+    "ensemble-065": {
+      "archive": {
+        "bytes": 31197100,
+        "sha256": "4ea71858b0ed787a872d424eb6f2eb77a45810feb1cf06fcc7efabd59818d1a0",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-065.tar.gz"
+      },
+      "final_par_sha256": "f71cfb20eb5dcde5573d263dc0c630b1d79bdcf9e852173cb5be8817228e39ba",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "94d0cf9bc9f4f4d1bb37d355f66105c9295731175a6b7ba7a53f32294876ab30",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "94d0cf9bc9f4f4d1bb37d355f66105c9295731175a6b7ba7a53f32294876ab30"
+        },
+        "final.par": {
+          "bytes": 2957161,
+          "sha256": "f71cfb20eb5dcde5573d263dc0c630b1d79bdcf9e852173cb5be8817228e39ba"
+        },
+        "hessian_info.rds": {
+          "bytes": 1300,
+          "sha256": "dae5a62eff8159276233aa39cf26567490a6a2e499a5261f42589352ad500142"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1304,
+          "sha256": "186c9da91ba4b28ad3e94ca81d407913a438c051b8c7d56e856bf35402d76409"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521063,
+          "sha256": "6accdca070abf81e8108bbccf33010ea0e0be3e2bbadbc218f7ed5cb6da81d8a"
+        }
+      },
+      "model_id": "ensemble-065",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-051",
+      "report_label": "E051"
+    },
+    "ensemble-066": {
+      "archive": {
+        "bytes": 31189859,
+        "sha256": "14dc914c5dab8169538bb14ab16bf309764a45d950f7dd32908cf8338700fb4a",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-066.tar.gz"
+      },
+      "final_par_sha256": "634f7f320893a15a66907e021f723d2d84f5c920038fa946d741ce6889f7fe22",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "0464b1f58f1e4bcf5cc430abc2797d04459b0d7c03b73d763a66164ef1ec6a19",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "0464b1f58f1e4bcf5cc430abc2797d04459b0d7c03b73d763a66164ef1ec6a19"
+        },
+        "final.par": {
+          "bytes": 2957253,
+          "sha256": "634f7f320893a15a66907e021f723d2d84f5c920038fa946d741ce6889f7fe22"
+        },
+        "hessian_info.rds": {
+          "bytes": 1304,
+          "sha256": "98e3286b75d967f4cbc3625d5119753305182a5762908df37d7d54067b30a34b"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1308,
+          "sha256": "cf0053a44d3ecce68bccf8714d3bd7958c6f014df9ccf0b79ec7e08f7ef1f4c6"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9510504,
+          "sha256": "4301194df19bd38aadea84f1e023a998b488e31ddccc5db271489f47e284e8b1"
+        }
+      },
+      "model_id": "ensemble-066",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-052",
+      "report_label": "E052"
+    },
+    "ensemble-068": {
+      "archive": {
+        "bytes": 31194973,
+        "sha256": "f53758ac07e6ebfea22fb1d1e74d53adfd352acefaec6705699f221a4f2b562d",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-068.tar.gz"
+      },
+      "final_par_sha256": "512f8941a8c4e7d289f14e136238d29d16a97e8cc2db1c7ea0dfc51e2cc9cee8",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "fe802503a69245f3c1ac7b240354adc9b6b1cdc8afca63b5ff5c6a16a3d4f44f",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "fe802503a69245f3c1ac7b240354adc9b6b1cdc8afca63b5ff5c6a16a3d4f44f"
+        },
+        "final.par": {
+          "bytes": 2957190,
+          "sha256": "512f8941a8c4e7d289f14e136238d29d16a97e8cc2db1c7ea0dfc51e2cc9cee8"
+        },
+        "hessian_info.rds": {
+          "bytes": 1304,
+          "sha256": "eabeb9692bde6b3001f36c98ca0774292eccda46890673706edab3da50eb2ccb"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1308,
+          "sha256": "908d9f0b9e1208460f4d43bdc3ea0973d0251337d30e909051fbcb3f4c9f1382"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9510503,
+          "sha256": "4f631e46a8acd2ffafda56e63cae143e4f1d7d78a003b2c3a9295278768925a4"
+        }
+      },
+      "model_id": "ensemble-068",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-053",
+      "report_label": "E053"
+    },
+    "ensemble-069": {
+      "archive": {
+        "bytes": 31194274,
+        "sha256": "3c2cc7f152420e8aeef14183bcbb52046b941eac429581edf1a5ac5313bacb6b",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-069.tar.gz"
+      },
+      "final_par_sha256": "4febc88bea082f0476468d94b193fd908453f2f15cb05bfef14770c4262d16b2",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "6f08341e587d6ed21fe5d07e14f6f70802266a4d4b0fcc8986cbab6b5ed5029d",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "6f08341e587d6ed21fe5d07e14f6f70802266a4d4b0fcc8986cbab6b5ed5029d"
+        },
+        "final.par": {
+          "bytes": 2957206,
+          "sha256": "4febc88bea082f0476468d94b193fd908453f2f15cb05bfef14770c4262d16b2"
+        },
+        "hessian_info.rds": {
+          "bytes": 1304,
+          "sha256": "407012da7eda12d63656c5696e1faff19e8d2df0e4c242da9c8b4f123a1d33cb"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1308,
+          "sha256": "4eb0931d55ec6e071e1cc3fead824afa341e3500499740c71f9700f6739e2e9f"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9511835,
+          "sha256": "142fb300b76a8eb4cc0dcf77462d76cce3ef89fba649d9242fa4f9a06911f07c"
+        }
+      },
+      "model_id": "ensemble-069",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-054",
+      "report_label": "E054"
+    },
+    "ensemble-070": {
+      "archive": {
+        "bytes": 31216900,
+        "sha256": "725665d4e31bb85ee019b58816190e31b1cd14327ce76110998ff10d444726cd",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-070.tar.gz"
+      },
+      "final_par_sha256": "c2a768ca75d9c44322b21f8e5082736725ba1809e0cb39982ca5cfa776a0ff84",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "2883d48cab49d8cfc207136be179c679299668fed41bba63e2d885341ac63bfd",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "2883d48cab49d8cfc207136be179c679299668fed41bba63e2d885341ac63bfd"
+        },
+        "final.par": {
+          "bytes": 2957153,
+          "sha256": "c2a768ca75d9c44322b21f8e5082736725ba1809e0cb39982ca5cfa776a0ff84"
+        },
+        "hessian_info.rds": {
+          "bytes": 1300,
+          "sha256": "af6f741e14c5c81a28e62b685b52aeea72ad52c8a268ba534489890de27594a7"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1300,
+          "sha256": "e299cad00b87c23b8d102a9b501882afc6378cb80beb918a6afa50c5c2743271"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9511386,
+          "sha256": "6856ac05653f6bd759ed11fb507007ea21d2ea132b4d7ddb68763fdc8b7261a5"
+        }
+      },
+      "model_id": "ensemble-070",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-055",
+      "report_label": "E055"
+    },
+    "ensemble-071": {
+      "archive": {
+        "bytes": 31170298,
+        "sha256": "cf5d47e01b2b974fbc68f6aa69d29de7d8ed84106143af0350836f0a5419e541",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-071.tar.gz"
+      },
+      "final_par_sha256": "817e9109dfc426f45c6107da3c18756beaa47e5cddc39687def90aa6c567d526",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "978365346188d26c504edefd2f13a8bbb78d67a56d143040b4edf8d326953def",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "978365346188d26c504edefd2f13a8bbb78d67a56d143040b4edf8d326953def"
+        },
+        "final.par": {
+          "bytes": 2957224,
+          "sha256": "817e9109dfc426f45c6107da3c18756beaa47e5cddc39687def90aa6c567d526"
+        },
+        "hessian_info.rds": {
+          "bytes": 1300,
+          "sha256": "d453e8273663abcc39221316f99105ed31e41cc70cbdb438ebe5345032f19dd0"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1304,
+          "sha256": "db09cb14d00aae2dce5768d01553c97246ad9c77ed153ad76dfd567587c72c23"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9528710,
+          "sha256": "74e6777c173734cb93a2125e8ac9a5a9eae4fd6328352ec12eac11d9164fc1bc"
+        }
+      },
+      "model_id": "ensemble-071",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-056",
+      "report_label": "E056"
+    },
+    "ensemble-072": {
+      "archive": {
+        "bytes": 31155787,
+        "sha256": "9841fa7be078470d4217f98f94080d5569b4c896699c1be25e9b1069da704b14",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-072.tar.gz"
+      },
+      "final_par_sha256": "33d7ce5c9795a8e078c6248b52915cb036a44781f9466e4773b668f416b9f570",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "80e53a2abc6e90da3f4f9ad0dd654e47c76e25425b87e898e2396a76cead10eb",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "80e53a2abc6e90da3f4f9ad0dd654e47c76e25425b87e898e2396a76cead10eb"
+        },
+        "final.par": {
+          "bytes": 2957180,
+          "sha256": "33d7ce5c9795a8e078c6248b52915cb036a44781f9466e4773b668f416b9f570"
+        },
+        "hessian_info.rds": {
+          "bytes": 1280,
+          "sha256": "00bc2e2c69d2874e6176abe0545442917bc8c8e6a4517abc669735f041fa74fe"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1284,
+          "sha256": "fa8385598e20f7197ef77445ce599d12f2b8aa3beb87b2a361ac68beee3f65db"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9502056,
+          "sha256": "dfc341d01af5ae3ff05d0b4811535759e0b0cf5396ac1e3caa55afb3453428af"
+        }
+      },
+      "model_id": "ensemble-072",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-057",
+      "report_label": "E057"
+    },
+    "ensemble-073": {
+      "archive": {
+        "bytes": 31182251,
+        "sha256": "e836e4ede762fb6f329df7d3b4ff6a95b3a53cc07106f37401cfbc6e94ff3b63",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-073.tar.gz"
+      },
+      "final_par_sha256": "672ce2fbab434243c0baeaffd11a333dca5e136830ff1635de4d143a537d9405",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "388c7766b420b141995e6c3c68ae1a16952a805da41c1962ff4f63dc0ea32402",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "388c7766b420b141995e6c3c68ae1a16952a805da41c1962ff4f63dc0ea32402"
+        },
+        "final.par": {
+          "bytes": 2957195,
+          "sha256": "672ce2fbab434243c0baeaffd11a333dca5e136830ff1635de4d143a537d9405"
+        },
+        "hessian_info.rds": {
+          "bytes": 1292,
+          "sha256": "c663f2f77cc27e4d535fcc548400a1c3283f48d498a4c03a4de586ba6ed37227"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1292,
+          "sha256": "91ce440c135e2d8d153b3d3b4b5534179452c84dcf7c5ebf65af6b4ae39dd483"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9510043,
+          "sha256": "d928cc9e4aaf415645bc3c1acd9c95d165cd19e0be9edc1436e569bf1b2523b7"
+        }
+      },
+      "model_id": "ensemble-073",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-058",
+      "report_label": "E058"
+    },
+    "ensemble-074": {
+      "archive": {
+        "bytes": 31141053,
+        "sha256": "9b527119154b508e7aa746e4344f96fac43fd521e960a3b30c717115ee2da845",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-074.tar.gz"
+      },
+      "final_par_sha256": "84d0342e0458d45fa343dac2d99c5cd1d9e2cc512c461fce3927f0d06a7e08c8",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "0f43c22d0daf443b8d5c024992947294acd8e2bc96bf92413d8495742ae83e1e",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "0f43c22d0daf443b8d5c024992947294acd8e2bc96bf92413d8495742ae83e1e"
+        },
+        "final.par": {
+          "bytes": 2957249,
+          "sha256": "84d0342e0458d45fa343dac2d99c5cd1d9e2cc512c461fce3927f0d06a7e08c8"
+        },
+        "hessian_info.rds": {
+          "bytes": 1292,
+          "sha256": "c7712b31f503b8bdf25bb78067773b458f1b3d1f05c8b3b14d3db938e909c0e4"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1296,
+          "sha256": "41a7c9de9f18f9823264a86a1b411e40dfb9b2970c02fcadb481452bf4c06bbb"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521066,
+          "sha256": "bb38d03f521ebe10d4f09af9e4d92532c0f2ec394d6ac8e0a742959339673516"
+        }
+      },
+      "model_id": "ensemble-074",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-059",
+      "report_label": "E059"
+    },
+    "ensemble-075": {
+      "archive": {
+        "bytes": 31122607,
+        "sha256": "2a50ed452ceda75bd35c5cd57762c00d80df465ece2213dafd83190ea0554f25",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-075.tar.gz"
+      },
+      "final_par_sha256": "29d8c5b37cca7f9d67959bad4f1263c34341533a215fe6501b0c4a8fc05580c8",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "1448835f849654ebf73e634b10e1fde547dd0eb33689d922312369def8bb756e",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "1448835f849654ebf73e634b10e1fde547dd0eb33689d922312369def8bb756e"
+        },
+        "final.par": {
+          "bytes": 2957189,
+          "sha256": "29d8c5b37cca7f9d67959bad4f1263c34341533a215fe6501b0c4a8fc05580c8"
+        },
+        "hessian_info.rds": {
+          "bytes": 1284,
+          "sha256": "76b63c96aab0cbf9b5b0797316369cd1c83047bc073b8094b7d9d279e1642fe3"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1284,
+          "sha256": "cdd487033504d3bf79ea2e753d02973120f97dcdec325b856d007dad03136d13"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9501944,
+          "sha256": "568153f17064a7dfbe9e27944b2e531d5138f981db533d0d40bddd90aba247a7"
+        }
+      },
+      "model_id": "ensemble-075",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-060",
+      "report_label": "E060"
+    },
+    "ensemble-076": {
+      "archive": {
+        "bytes": 31161111,
+        "sha256": "fc079d67b819d9da62d7338d17959e5da71091cc7e8a5d2d0dc51b0440a6396b",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-076.tar.gz"
+      },
+      "final_par_sha256": "e84ec7e5a0bf4b3be5928d71124089e3c0b9ca50ce4286b97eeeb49c94a04719",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "4c6d71bc00def3a0f8d0839acc0df27a9983150b7e6fafa562160acb2e3e0244",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "4c6d71bc00def3a0f8d0839acc0df27a9983150b7e6fafa562160acb2e3e0244"
+        },
+        "final.par": {
+          "bytes": 2957195,
+          "sha256": "e84ec7e5a0bf4b3be5928d71124089e3c0b9ca50ce4286b97eeeb49c94a04719"
+        },
+        "hessian_info.rds": {
+          "bytes": 1288,
+          "sha256": "4c2ee9fedec1cfffd7805051793c6f3e1bfbb343030114272c968e2c095f26cb"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1292,
+          "sha256": "55cdfd5a0443b57c0979fec7bb482d8fc94cf61b589d0bb87e9c4e695eec220b"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9502052,
+          "sha256": "f7906432e0e5e620179f5a2e969210d76f3d6cba24aedd7765593ad626f2a757"
+        }
+      },
+      "model_id": "ensemble-076",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-061",
+      "report_label": "E061"
+    },
+    "ensemble-078": {
+      "archive": {
+        "bytes": 31162508,
+        "sha256": "4f1a7ee18adde74eb86c73085a6f49e1c9b82d5533096161fbed3c15fa2d8169",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-078.tar.gz"
+      },
+      "final_par_sha256": "649d4fea42993ee5100709550087c2742a8988a7776b35e48db5469b5451977b",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "1e1fdfb2a67f7a502572001e1b98217ff77da797e93d268f5bbda623576c9b93",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "1e1fdfb2a67f7a502572001e1b98217ff77da797e93d268f5bbda623576c9b93"
+        },
+        "final.par": {
+          "bytes": 2957230,
+          "sha256": "649d4fea42993ee5100709550087c2742a8988a7776b35e48db5469b5451977b"
+        },
+        "hessian_info.rds": {
+          "bytes": 1276,
+          "sha256": "3ace1b9160a3970937780a081d800a004427106e637d5c03da5b3b93a192640f"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1280,
+          "sha256": "4885ecde1cbde4438f6d660b8b6065f8cd7fc6ba003e9b482bc32117f48e6e58"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521125,
+          "sha256": "43ef403b4efc4c46a6fdc97240f2ad9d79ffed8dc7aff76410f872da77461939"
+        }
+      },
+      "model_id": "ensemble-078",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-062",
+      "report_label": "E062"
+    },
+    "ensemble-079": {
+      "archive": {
+        "bytes": 31133207,
+        "sha256": "d53bd87306416a1563592d013e6ab43521b1c5f223a846f6bcd1b02cce0d274a",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-079.tar.gz"
+      },
+      "final_par_sha256": "96d6932b8e72ed5a3aef1b3330a05e4394251ff4bb61aa0837d74f9ad5997073",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "4cd89f0850eaaf9448e73f2a66df766c6c28108975a64a60a25335acbf754422",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "4cd89f0850eaaf9448e73f2a66df766c6c28108975a64a60a25335acbf754422"
+        },
+        "final.par": {
+          "bytes": 2957177,
+          "sha256": "96d6932b8e72ed5a3aef1b3330a05e4394251ff4bb61aa0837d74f9ad5997073"
+        },
+        "hessian_info.rds": {
+          "bytes": 1288,
+          "sha256": "efa83c5d70feb55422a055b3dcaca9dfba71e7b7cc593190058485995ffff856"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1288,
+          "sha256": "4a6094368365fbf5923a7aebaff2f55b832fe309895226f58f952be3c77fc0c9"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9502054,
+          "sha256": "ba5f70367543b1782423e4869d08d88e01b9cf73795c9a07fd6260e3a73a30be"
+        }
+      },
+      "model_id": "ensemble-079",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-063",
+      "report_label": "E063"
+    },
+    "ensemble-080": {
+      "archive": {
+        "bytes": 31219501,
+        "sha256": "2dc5ebb74c624d664a93c4567c332f11c0b50424e8adcbb19e1128a0d3168fa4",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-080.tar.gz"
+      },
+      "final_par_sha256": "66e7903b2c76d7e4fa1179eb3d51d5d00bef45d20202fa84af22dcecbc07dd5e",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "9d4d0f2017ab449b1341a0f666ce89a9e9cb19f2b9146945603f232f1eeacc37",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "9d4d0f2017ab449b1341a0f666ce89a9e9cb19f2b9146945603f232f1eeacc37"
+        },
+        "final.par": {
+          "bytes": 2957236,
+          "sha256": "66e7903b2c76d7e4fa1179eb3d51d5d00bef45d20202fa84af22dcecbc07dd5e"
+        },
+        "hessian_info.rds": {
+          "bytes": 1304,
+          "sha256": "6ca69aa38f35748743c5b0255e8f3175f207d2c74a79a68eb25680e53c671a97"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1304,
+          "sha256": "80dad570bca5d4f1041d240e986cdf51e7191b9e991075e5d9e98ac096496727"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9527676,
+          "sha256": "78ff90272e16252edc64534226244e46d68fcfba6ec9dfd973e6beca6fa2b1c1"
+        }
+      },
+      "model_id": "ensemble-080",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-064",
+      "report_label": "E064"
+    },
+    "ensemble-081": {
+      "archive": {
+        "bytes": 31189070,
+        "sha256": "31dcf582e258cefd15c64bafd67f1f1f63994d4943b8ee02eeee12c19951a28d",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-081.tar.gz"
+      },
+      "final_par_sha256": "4ce94f79e1b6d63e973a4fadc2ab1bf612468e01e7c14d05f743e6002904359a",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "8c6cf03a6df1a10909175f87c53f4760d81b92e50b7b6883176de48ec8411ebd",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "8c6cf03a6df1a10909175f87c53f4760d81b92e50b7b6883176de48ec8411ebd"
+        },
+        "final.par": {
+          "bytes": 2957168,
+          "sha256": "4ce94f79e1b6d63e973a4fadc2ab1bf612468e01e7c14d05f743e6002904359a"
+        },
+        "hessian_info.rds": {
+          "bytes": 1296,
+          "sha256": "6c45c087f6cb34a657e7bb4623a0f91f1a8ffbe8fa63391829dad9541da33981"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1296,
+          "sha256": "8907b1dab3a5442175cecb9b902c430312f550fac204b0849c8a6c81d51c0cb0"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9510491,
+          "sha256": "705680d807c04bf6430fa8ee23856b53b8d8e5210c22eff317d0e8cb16911ddd"
+        }
+      },
+      "model_id": "ensemble-081",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-065",
+      "report_label": "E065"
+    },
+    "ensemble-082": {
+      "archive": {
+        "bytes": 31186383,
+        "sha256": "0468de7553b01f8765091b4c282168ce0d9e5c17334b8c33459f103e1be8ee59",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-082.tar.gz"
+      },
+      "final_par_sha256": "0a3e81df13751be294dc15c7e7109af8cd07e169b8d135fca6694c580f0ce571",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "3cfd48d7496e43f22a7084d0eaff1b627092e620677902992850fa8c42e65fc2",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "3cfd48d7496e43f22a7084d0eaff1b627092e620677902992850fa8c42e65fc2"
+        },
+        "final.par": {
+          "bytes": 2957221,
+          "sha256": "0a3e81df13751be294dc15c7e7109af8cd07e169b8d135fca6694c580f0ce571"
+        },
+        "hessian_info.rds": {
+          "bytes": 1300,
+          "sha256": "a63e2d62e558e69f7389dae9ff67fa59e9968247d65a6de005df40223e223542"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1300,
+          "sha256": "3088caf5c58d37ce8ddafa536df1cb32229d3ed6269ccd25e0fc24aaadf59e2a"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9510506,
+          "sha256": "68c2461d33fd8e575c3f1d8bb917aff7029f474e4626604e01c908ff6528d33b"
+        }
+      },
+      "model_id": "ensemble-082",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-066",
+      "report_label": "E066"
+    },
+    "ensemble-084": {
+      "archive": {
+        "bytes": 31193146,
+        "sha256": "21b6bf0e7ad8237406c79538a1e783e5f85edcd5bd0dad181cc3baf88f327877",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-084.tar.gz"
+      },
+      "final_par_sha256": "535a1082c1ead36fa0f411dca8d149978fb08ae52d156921c1bcc3fed7c103e8",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "d2f212e1379138679aaa8c035cdd85ca57cd1aa91e27e16b4444e47dbbb4ab16",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "d2f212e1379138679aaa8c035cdd85ca57cd1aa91e27e16b4444e47dbbb4ab16"
+        },
+        "final.par": {
+          "bytes": 2957145,
+          "sha256": "535a1082c1ead36fa0f411dca8d149978fb08ae52d156921c1bcc3fed7c103e8"
+        },
+        "hessian_info.rds": {
+          "bytes": 1292,
+          "sha256": "2ff75fe1e0a6940b0b4efdf23a7b0e0d3cf3bcac082faab11665434ed0b40e15"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1296,
+          "sha256": "346f1a771e1294d400b9d1d7c553742a6e9c0e7862ea96abad12dedc5f54c450"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9511373,
+          "sha256": "0caae2ff0eb839ae739016a36fe781e0bcf84d33155a9f026f67f7fc90f9521f"
+        }
+      },
+      "model_id": "ensemble-084",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-067",
+      "report_label": "E067"
+    },
+    "ensemble-085": {
+      "archive": {
+        "bytes": 31146796,
+        "sha256": "ca78e02497d00db585d17186d92a68a65db2927c3cee6c73e8abf2ee310154e2",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-085.tar.gz"
+      },
+      "final_par_sha256": "c7256d741b14c0674a35b3dde43f35d667c7b80b45f21bce3d53a6a6ddfbea91",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "eb309989994a8eb271823e387235c9ae401c42d8ca57dc19cd6a1d47ae8889bb",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "eb309989994a8eb271823e387235c9ae401c42d8ca57dc19cd6a1d47ae8889bb"
+        },
+        "final.par": {
+          "bytes": 2957198,
+          "sha256": "c7256d741b14c0674a35b3dde43f35d667c7b80b45f21bce3d53a6a6ddfbea91"
+        },
+        "hessian_info.rds": {
+          "bytes": 1300,
+          "sha256": "578aa9cf5bded07c2cbeb6f20ae48f21390686a60c2a30e0d121a15e6a0c5f5e"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1304,
+          "sha256": "f1c71c5816056f7ce86f281462ee558cef3aa68077839efa76c8723a7b1d09f4"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9511403,
+          "sha256": "c2ed6b815e0a1bedbf20dbda2e7cf6ef0ffa0dca9bfee88eb8a5f0514dcc7d4d"
+        }
+      },
+      "model_id": "ensemble-085",
+      "pdh_status": "Near-PDH",
+      "report_id": "ensemble-068",
+      "report_label": "E068"
+    },
+    "ensemble-086": {
+      "archive": {
+        "bytes": 31062009,
+        "sha256": "52612a292e422898b11b674751d8346c309569f2410356c1a7f093668ca23166",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-086.tar.gz"
+      },
+      "final_par_sha256": "e0015b47a1ca219e8765f031d512675405a64c1a2bcbdc934aef56114680b87c",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "aaababb7ab9777d346a66adf807eea629f4d8e4ca653c6015a48b483db379f84",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "aaababb7ab9777d346a66adf807eea629f4d8e4ca653c6015a48b483db379f84"
+        },
+        "final.par": {
+          "bytes": 2957214,
+          "sha256": "e0015b47a1ca219e8765f031d512675405a64c1a2bcbdc934aef56114680b87c"
+        },
+        "hessian_info.rds": {
+          "bytes": 1288,
+          "sha256": "302f4d29324e041d1154ee28a401544638001ae4d222b9b1e82655032302914c"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1288,
+          "sha256": "58dfcb09347e0a6cbeda445fec6478fbb552fd7d0648149c2bd8d5e0400fb350"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521237,
+          "sha256": "d1eb49b2e31617606dc435eb3ea890f169b011463bd5b9eb75c08928fedadd97"
+        }
+      },
+      "model_id": "ensemble-086",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-069",
+      "report_label": "E069"
+    },
+    "ensemble-087": {
+      "archive": {
+        "bytes": 31123620,
+        "sha256": "995b451253dcca56d254ca86d8bf3f3d38c9d360559757eae3e32cddd9bccb7e",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-087.tar.gz"
+      },
+      "final_par_sha256": "9ba184c56e108d3963d85920f7b0a8e13e849bd970c0eaa17e906e0ef3edab64",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "fa041dd09c5e5fcebffa259ad1d988b99bd03160376e50fc9d8e4b5f7a7faece",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "fa041dd09c5e5fcebffa259ad1d988b99bd03160376e50fc9d8e4b5f7a7faece"
+        },
+        "final.par": {
+          "bytes": 2957165,
+          "sha256": "9ba184c56e108d3963d85920f7b0a8e13e849bd970c0eaa17e906e0ef3edab64"
+        },
+        "hessian_info.rds": {
+          "bytes": 1284,
+          "sha256": "284d47e0f6568200e0edd382b1349c874e657235759fde887b505b5a14130095"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1284,
+          "sha256": "a04c83804f2c0a9ee9ad277290c5d4b940e042d4e4595725307da81abe79ae43"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9501826,
+          "sha256": "42e9e637562fc1139e4f425b05ea47749243f7730d1da7a8abad218786fd47eb"
+        }
+      },
+      "model_id": "ensemble-087",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-070",
+      "report_label": "E070"
+    },
+    "ensemble-088": {
+      "archive": {
+        "bytes": 31148491,
+        "sha256": "cdfbb16f8f9d058b44d7d5805aef883ecaff8ed355dcb8d7868fb5f006158e90",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-088.tar.gz"
+      },
+      "final_par_sha256": "730b1787c059a72750d52e71d38fb0c744b2c749d1eb0b1d82d499f66c6d20df",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "18d9e8eaeb54df8d1b32038961466196c388c09f0787738d61cc72760a92f9a7",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "18d9e8eaeb54df8d1b32038961466196c388c09f0787738d61cc72760a92f9a7"
+        },
+        "final.par": {
+          "bytes": 2957096,
+          "sha256": "730b1787c059a72750d52e71d38fb0c744b2c749d1eb0b1d82d499f66c6d20df"
+        },
+        "hessian_info.rds": {
+          "bytes": 1280,
+          "sha256": "9a85ef81a0818eaccbbd266b9ed584a969c4fc85290691c3b887896bd8a930dc"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1288,
+          "sha256": "892e6d819d665bd5478a5dde2b5fa31e0f91f69c22c0a3365d9fa6ee7c434016"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9502039,
+          "sha256": "0e48586fa9447f6133182a3040c72e588fd19dec049dd5418ff805731bff45ac"
+        }
+      },
+      "model_id": "ensemble-088",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-071",
+      "report_label": "E071"
+    },
+    "ensemble-089": {
+      "archive": {
+        "bytes": 31220469,
+        "sha256": "225c3d186efdce936eac4ca59675f9b2ea344f61516ae61b47250eec23fc9ebd",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-089.tar.gz"
+      },
+      "final_par_sha256": "58249ff7ca5fadbd6166fa421aacedbaf0d4ed7c1bec1762657e784e0a6a4422",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "8cc8db8597efbf05c230dad76b9f4afa75e62473c45e86eae0cff81c92b0ff84",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "8cc8db8597efbf05c230dad76b9f4afa75e62473c45e86eae0cff81c92b0ff84"
+        },
+        "final.par": {
+          "bytes": 2957212,
+          "sha256": "58249ff7ca5fadbd6166fa421aacedbaf0d4ed7c1bec1762657e784e0a6a4422"
+        },
+        "hessian_info.rds": {
+          "bytes": 1296,
+          "sha256": "5b62126bf67fbe1ac9beb13551cb083c0d327ada1d0f29e427668b0d4ec120f2"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1300,
+          "sha256": "693d9580cb031a71932a5805e1428fd6a7c26cae4a071c8f3e6158cb093f983c"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9520032,
+          "sha256": "3989f162353d8ff13c5b654cac7b8e999ce53022d3210b2b705e17643b9fa595"
+        }
+      },
+      "model_id": "ensemble-089",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-072",
+      "report_label": "E072"
+    },
+    "ensemble-090": {
+      "archive": {
+        "bytes": 31107254,
+        "sha256": "90e768760db7b4408197ec1a12919942303dd5db568cb06aee460ce12ae2a70c",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-090.tar.gz"
+      },
+      "final_par_sha256": "ed9cf7324a3f358196f2fbd827fea2fc56b46b994bc10ad88cf9fc1611408934",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "6ed18e4e28d21a1ba3298755d3069168bdc3f793818fddb86630fc278c4449f5",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "6ed18e4e28d21a1ba3298755d3069168bdc3f793818fddb86630fc278c4449f5"
+        },
+        "final.par": {
+          "bytes": 2957154,
+          "sha256": "ed9cf7324a3f358196f2fbd827fea2fc56b46b994bc10ad88cf9fc1611408934"
+        },
+        "hessian_info.rds": {
+          "bytes": 1276,
+          "sha256": "55b98a37e26bc3b188cccb962de6d00f8fc24a68a09c024f9b7ef827c0809943"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1280,
+          "sha256": "480e8061cc9aedc5a883c5acc04b753748fd8397a1edae16234c58e67d93b657"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9501928,
+          "sha256": "15abf62f1c0587bf59b16899a4aae0e16a8b462456d7a5f9d847f266951b613a"
+        }
+      },
+      "model_id": "ensemble-090",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-073",
+      "report_label": "E073"
+    },
+    "ensemble-091": {
+      "archive": {
+        "bytes": 31127227,
+        "sha256": "444b84109fbebe6888cd65cc89a307ee292db756636a2b8118fdaf36c3d8bab3",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-091.tar.gz"
+      },
+      "final_par_sha256": "fde308e6be0f641d185d2edfa6aacedc47e556c9d9ff99a52493a18f4c8289d6",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "e181492db9b8a0a44215c45154478cf2d250e39d9acfc9efa4eba95453ea88c2",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "e181492db9b8a0a44215c45154478cf2d250e39d9acfc9efa4eba95453ea88c2"
+        },
+        "final.par": {
+          "bytes": 2957190,
+          "sha256": "fde308e6be0f641d185d2edfa6aacedc47e556c9d9ff99a52493a18f4c8289d6"
+        },
+        "hessian_info.rds": {
+          "bytes": 1284,
+          "sha256": "a68a65619bc7afa3b1b84eef946990f52e2008389f91bb921074f37a17b929dc"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1288,
+          "sha256": "848fa2150aa570d9d1b12ab0775754267e467c84b7a8f20bd2292f3bfc854124"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9501944,
+          "sha256": "f5a951654263b6db8fb76adb00ffc703fcb12b9c90cc8a72eddf2ebc7918dc2a"
+        }
+      },
+      "model_id": "ensemble-091",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-074",
+      "report_label": "E074"
+    },
+    "ensemble-092": {
+      "archive": {
+        "bytes": 31143978,
+        "sha256": "bb912c61725c90ee9d92f568a00796032420f6c93c07588f817363f13ed696bf",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-092.tar.gz"
+      },
+      "final_par_sha256": "cbdb07038aa151354add2edc257a5a54fcc352ba07540772940ab7ca5f8f9cd1",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "6125e2741ce95cc6599d1fc5254f55b80f6cbc0d3cd7ad425a4f6b5ae8e26aeb",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "6125e2741ce95cc6599d1fc5254f55b80f6cbc0d3cd7ad425a4f6b5ae8e26aeb"
+        },
+        "final.par": {
+          "bytes": 2957226,
+          "sha256": "cbdb07038aa151354add2edc257a5a54fcc352ba07540772940ab7ca5f8f9cd1"
+        },
+        "hessian_info.rds": {
+          "bytes": 1288,
+          "sha256": "d698cbe08a445721e6bfed1f7a28d110ebaea4cbf7002314e92b834d698ad29e"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1292,
+          "sha256": "dbcc709ab033bfdcdcd6cc46ba440cd8bebf871be9d47d87a805b59ee11182ba"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521240,
+          "sha256": "ec3e846f5b57b859bb53b186c9ff251b1bb1c531805758c6f43b216dd0ae69a7"
+        }
+      },
+      "model_id": "ensemble-092",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-075",
+      "report_label": "E075"
+    },
+    "ensemble-093": {
+      "archive": {
+        "bytes": 31181056,
+        "sha256": "2cd03327c52563ffeb141fbfe859218ad59ff56ff7372dde6296622d43a62de8",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-093.tar.gz"
+      },
+      "final_par_sha256": "0dde74e98caa6d20252d82f4082226244c2012e4dcf716364002c21e5d84e49d",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "3afaabc3eae49281ca79b34df723c376f87955586fbc03e38e54e6f24034cbca",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "3afaabc3eae49281ca79b34df723c376f87955586fbc03e38e54e6f24034cbca"
+        },
+        "final.par": {
+          "bytes": 2957177,
+          "sha256": "0dde74e98caa6d20252d82f4082226244c2012e4dcf716364002c21e5d84e49d"
+        },
+        "hessian_info.rds": {
+          "bytes": 1292,
+          "sha256": "d2fb5f5949b3d710c74028989278134f80dbd48e83727c9dc4b78dab8a6d6e56"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1296,
+          "sha256": "78cfe6e8bc193c8d422bad0177625ef56d5e44ef75633489c8493124d172f6a6"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9510491,
+          "sha256": "0727d0de040d06e980897f5ae341f3c331304ce1ccb7374a7e483da41af801b3"
+        }
+      },
+      "model_id": "ensemble-093",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-076",
+      "report_label": "E076"
+    },
+    "ensemble-094": {
+      "archive": {
+        "bytes": 31178889,
+        "sha256": "d489be56ac48423579bac63fa2e9a0f26b9f1df46c2ecf690725994541691a62",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-094.tar.gz"
+      },
+      "final_par_sha256": "b43bb9a8989ead61be63b8cd1514f3139b4f02286ce63aa684583c57e59d1767",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "c597fd76a2b2aa7834151333c4071f272fee56a205408b17d5f184adbae6e579",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "c597fd76a2b2aa7834151333c4071f272fee56a205408b17d5f184adbae6e579"
+        },
+        "final.par": {
+          "bytes": 2957195,
+          "sha256": "b43bb9a8989ead61be63b8cd1514f3139b4f02286ce63aa684583c57e59d1767"
+        },
+        "hessian_info.rds": {
+          "bytes": 1288,
+          "sha256": "c92885972b15dc1e7740575186dc28d6d05f0b675ed1cc9343da96bec7074a41"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1288,
+          "sha256": "3d9d6b6808f2889ac928169f5ef9ece5988d5bf1f8c770df7ed40208bbe3fc08"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521136,
+          "sha256": "e08b8a97e90367e1f931eca9c9f5579d15c4b9b6cadf1ec4aaceaf6b8bb62508"
+        }
+      },
+      "model_id": "ensemble-094",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-077",
+      "report_label": "E077"
+    },
+    "ensemble-095": {
+      "archive": {
+        "bytes": 31153560,
+        "sha256": "1160a1bb53753f4c73f51f83ffb97058c4bf6802a23d1e4b4bc1b6b020889c53",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-095.tar.gz"
+      },
+      "final_par_sha256": "16d91166e704912ae81606d2477cbe7b20d057e1bfa02b4cc109ee6fe852e067",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "91a0cf13cd20d24a9cfbe93a0f25ba1a21b21cb7fc35fc46af870ddf0a859980",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "91a0cf13cd20d24a9cfbe93a0f25ba1a21b21cb7fc35fc46af870ddf0a859980"
+        },
+        "final.par": {
+          "bytes": 2957221,
+          "sha256": "16d91166e704912ae81606d2477cbe7b20d057e1bfa02b4cc109ee6fe852e067"
+        },
+        "hessian_info.rds": {
+          "bytes": 1276,
+          "sha256": "142a3c66a6f852884efa0d70bfc1bb687ed5f6246ef0315401907a2cf34011b8"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1276,
+          "sha256": "15fc28ce4b4be4bc7135b27491d2635019ddc6e8a797c0d55834b93a84858926"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9521212,
+          "sha256": "4d4959991bbad522867d201daf8e7c18eb3a8b834586f392cb38870c97c105f3"
+        }
+      },
+      "model_id": "ensemble-095",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-078",
+      "report_label": "E078"
+    },
+    "ensemble-098": {
+      "archive": {
+        "bytes": 31213566,
+        "sha256": "40b28ce768ef53e91acb867fb1aa3961243c78bcc3fd65056ecf6224616bb653",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-098.tar.gz"
+      },
+      "final_par_sha256": "607a5b5027fa37082fc0db6341421bb9aa0268a7f0133a062ac6a6e96cf89a8e",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "02e2b03aca61367bc16a36bf297140feb93d315dcc3e59adeecd7aae0d6d9899",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "02e2b03aca61367bc16a36bf297140feb93d315dcc3e59adeecd7aae0d6d9899"
+        },
+        "final.par": {
+          "bytes": 2957215,
+          "sha256": "607a5b5027fa37082fc0db6341421bb9aa0268a7f0133a062ac6a6e96cf89a8e"
+        },
+        "hessian_info.rds": {
+          "bytes": 1296,
+          "sha256": "5253589f78561c7c7f06d43de99e6c49662dbd08c3f0a48d1fabccd481f1b30c"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1300,
+          "sha256": "2b6a09470dc6ed703c6eb2a30c95cb800463a77cf6fbd79e0f16e98df26b640d"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9519376,
+          "sha256": "a568e01397e0284695f786bed0d29e76da41f4d4439a04b950d43535686e0b25"
+        }
+      },
+      "model_id": "ensemble-098",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-079",
+      "report_label": "E079"
+    },
+    "ensemble-099": {
+      "archive": {
+        "bytes": 31147697,
+        "sha256": "94f54b6b2444ef77e84c362a96f001f16013b8a3bb2fac925f9b133b4ee30a5d",
+        "url": "https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/releases/download/bet2026-hessians-20261006/ensemble-099.tar.gz"
+      },
+      "final_par_sha256": "ca2f42431c37ea8751d096707f7600732b624fa20880ea723e0ac3d729e48adb",
+      "hessian_header": {
+        "bytes_hex": "cd07000001000000cd070000",
+        "n_parameter": 1997,
+        "row_bounds": [
+          1,
+          1997
+        ]
+      },
+      "hessian_sha256": "792e66b3d8b28f86b9e788749afcb9c8073e94c112e200c9a3a5ced718aa299c",
+      "members": {
+        "bet.hes": {
+          "bytes": 31904084,
+          "sha256": "792e66b3d8b28f86b9e788749afcb9c8073e94c112e200c9a3a5ced718aa299c"
+        },
+        "final.par": {
+          "bytes": 2957154,
+          "sha256": "ca2f42431c37ea8751d096707f7600732b624fa20880ea723e0ac3d729e48adb"
+        },
+        "hessian_info.rds": {
+          "bytes": 1284,
+          "sha256": "a2fcdc7f2de279fa1408c5fc2673161942bf4f4cf8095041a23880857a5b4c5b"
+        },
+        "hessian_runs.rds": {
+          "bytes": 1284,
+          "sha256": "66066cdb7273e391cb960ee76ba63176c4d8c7756b0f83b24a99116821ded84d"
+        },
+        "mfcl_hessian_log.txt": {
+          "bytes": 9502039,
+          "sha256": "cb338465fb2ee57efbc86715e6b35b9b8adb53c4236c3c3ae4f9328481403627"
+        }
+      },
+      "model_id": "ensemble-099",
+      "pdh_status": "PDH",
+      "report_id": "ensemble-080",
+      "report_label": "E080"
+    }
+  },
+  "classification": "PUBLIC",
+  "repository": "PacificCommunity/ofp-sam-bet-2026-ensemble",
+  "schema_version": 1
+}

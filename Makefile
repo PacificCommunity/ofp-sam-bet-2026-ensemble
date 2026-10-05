@@ -6,9 +6,10 @@ export CASE OUT ANCHOR
 .PHONY: help verify rerun restore refit plan-refit _check-output
 
 help:
-	@printf '%s\n' 'make verify                            Check preserved files and RR results' 'make rerun CASE=rrtest-005-rr1 OUT=/tmp/bet-rr005' 'make rerun CASE=ensemble-005 OUT=/tmp/bet-005' 'make restore CASE=ensemble-005 OUT=/tmp/bet-inputs' 'make refit CASE=rrtest-005-rr1 OUT=/tmp/bet-refit' 'make plan-refit CASE=rrtest-005-rr1 OUT=/tmp/bet-refit' 'Use ANCHOR=1 for the RR0 arm of refit/plan-refit.' 'Reruns require Linux x86-64; full refits use Docker and the pinned historical image.'
+	@printf '%s\n' 'make verify                            Check preserved files and RR results' 'make hessian CASE=ensemble-001 OUT=/absolute/bet-hessian' 'make rerun CASE=rrtest-005-rr1 OUT=/tmp/bet-rr005' 'make rerun CASE=ensemble-005 OUT=/tmp/bet-005' 'make restore CASE=ensemble-005 OUT=/tmp/bet-inputs' 'make refit CASE=rrtest-005-rr1 OUT=/tmp/bet-refit' 'make plan-refit CASE=rrtest-005-rr1 OUT=/tmp/bet-refit' 'Use ANCHOR=1 for the RR0 arm of refit/plan-refit.' 'Reruns require Linux x86-64; full refits use Docker and the pinned historical image.'
 
 verify:
+	python3 reproduce/hessian.py --verify
 	python3 ci/verify-preserved-files.py
 	python3 reproduce/restore.py --verify
 	python3 rr-test/saved.py verify
@@ -28,3 +29,21 @@ plan-refit: _check-output
 
 _check-output:
 	@python3 -c 'import os; from pathlib import Path; raw=os.environ.get("OUT", ""); p=Path(raw); root=Path.cwd().resolve(); assert raw and p.is_absolute(), "Set OUT to an absolute, new directory"; assert not os.path.lexists(p), "OUT already exists; choose a new directory"; q=p.resolve(); assert q != root and (root not in q.parents or root/"outputs" in q.parents), "OUT inside the checkout must be beneath outputs/"'
+
+# Install the helper, manifest and offline tests in reproduce/.
+export CASE OUT ARCHIVE
+.PHONY: hessian hessian-verify
+
+hessian:
+	@if [ -n "$$ARCHIVE" ]; then \
+		python3 reproduce/hessian.py --case "$$CASE" --out "$$OUT" --archive "$$ARCHIVE"; \
+	else \
+		python3 reproduce/hessian.py --case "$$CASE" --out "$$OUT"; \
+	fi
+
+hessian-verify:
+	@if [ -n "$$ARCHIVE" ]; then \
+		python3 reproduce/hessian.py --verify --case "$$CASE" --archive "$$ARCHIVE"; \
+	else \
+		python3 reproduce/hessian.py --verify; \
+	fi
