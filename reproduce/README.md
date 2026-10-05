@@ -26,3 +26,9 @@ Restoration provides evaluation inputs. `make refit CASE=rrtest-005-rr1
 OUT=/tmp/bet-rr005-refit` uses the original preparation and fitting runner
 in the pinned Docker image; add `ANCHOR=1` for its RR0 arm. Use
 `make plan-refit` with the same arguments to inspect the command first.
+
+The original per-model configurations are in [refit-configs.tar.gz](refit-configs.tar.gz)
+(2.6 kB): 80 retained ensemble fits and 30 completed RR1 fits. Extract into an
+empty directory to inspect the original settings; paths follow the original
+`outputs/models/` and `outputs/rr-test/` layout. `make verify` checks every
+member against [refit-configs.json](refit-configs.json).

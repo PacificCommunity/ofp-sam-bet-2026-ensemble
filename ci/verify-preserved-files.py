@@ -5,11 +5,12 @@ import json
 import os
 from pathlib import Path, PurePosixPath
 import sys
+import tarfile
 
 root = Path(__file__).resolve().parent.parent
 manifest = json.loads((root / "ci/preserved-files.json").read_text())
 failures = []
-for record in manifest["files"]:
+for record in manifest["files"] + manifest.get("approved_additions", []):
     relative = PurePosixPath(record["path"])
     if relative.is_absolute() or ".." in relative.parts:
         failures.append(f"Invalid preserved path: {relative}")
@@ -36,3 +37,21 @@ if failures:
     print("\n".join(failures), file=sys.stderr)
     raise SystemExit(1)
 print(f'Preserved {len(manifest["files"])} files from {manifest["source_commit"]}.')
+
+# Original model configurations for retained ensemble and RR1 fits.
+saved = json.loads((root / "reproduce/refit-configs.json").read_text())
+archive = root / "reproduce" / saved["archive"]["path"]
+if archive.stat().st_size != saved["archive"]["bytes"] or hashlib.sha256(archive.read_bytes()).hexdigest() != saved["archive"]["sha256"]:
+    raise SystemExit("Model configuration archive changed")
+with tarfile.open(archive, "r:gz") as bundle:
+    members = bundle.getmembers()
+    expected = saved["files"]
+    if len(members) != len(expected) or len({m.name for m in members}) != len(members):
+        raise SystemExit("Model configuration member count changed")
+    for member, record in zip(members, expected):
+        p = PurePosixPath(member.name)
+        if p.is_absolute() or ".." in p.parts or not member.isfile() or member.name != record["path"] or member.size != record["bytes"] or member.mode != record["mode"]:
+            raise SystemExit("Invalid model configuration member")
+        if hashlib.sha256(bundle.extractfile(member).read()).hexdigest() != record["sha256"]:
+            raise SystemExit("Model configuration member changed")
+print(f"Verified {len(expected)} original model configurations.")

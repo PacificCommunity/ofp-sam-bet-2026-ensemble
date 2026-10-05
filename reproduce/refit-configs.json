@@ -1,0 +1,671 @@
+{
+  "schema_version": 1,
+  "scope": "Exact original per-model refit configurations for the 80 retained ensemble models and 30 completed RR1 paired cases. Inputs, final PARs and controllers are in native.tar.gz and the pinned source recipes.",
+  "archive": {
+    "path": "refit-configs.tar.gz",
+    "bytes": 2626,
+    "sha256": "92064f02979586d45adcb338258788f77c8cc21c23ecc7e2ab000b133d780fda"
+  },
+  "files": [
+    {
+      "path": "outputs/models/ensemble-001/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "d993e092241e10d1e6dcde7a46117db45ca524a17273ac12f6239b2e3c20c6b5",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-002/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "7ab02968093d2833459d12acc25eabc7ebcf399c7c4e6ab6c05a4194e9ee06ce",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-004/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "79b5096f9113639996058121d61e2ad31c0fdb98a31143c34d0c21c52e3a8bc3",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-005/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "a2a6096f60b953e248973c7f9a62808088271226b803b543f68d072f6190af5d",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-006/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "7bd5fa9ddc21eb09e6d94875655a66645076b414a859d79950f2902101e3ece1",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-007/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "bf88cba8d03f480f16ab6a142c5d90ddd6aa728578d4d512136185dcd262cdfc",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-008/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "689164051ea3d1b335af604f5d73681c1c9225524ea47352a52144700574fa78",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-009/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "43c7f3bcaf2c034664494a5deea54589aeff8a5f59b0827bda6f465cf0471081",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-010/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "fae31b0b463c8dd6d905e8742d66b701b5a9784a768f0311bc7e50d24e0c1a92",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-011/model-inputs/S0.90-F2.conf",
+      "bytes": 178,
+      "sha256": "ed4c7e33ecfd968aaacc8b2094a502ecb667cc6244d399455105aaafa1003ba0",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-012/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "bb7664e686f6c6aec234ecdccf17a07d89b334f80e8a6531e08b22c7f8d31ea5",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-014/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "255ea754d647e995ec316d67859a4002499134bcc84296b735b44d46ca09082c",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-015/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "bf7888b5eb5ca56bab72f75c67bea8f5dda0a046e304fc5ed742111bd4b961dc",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-018/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "0eb0664db5c808435613ede3587c01e22f0be8aa7b09f43fcd386432008a1b24",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-019/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "b4f695fd3f43601d037636a8ef708729219091713962e73b6545fb700ce8b035",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-021/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "03b620f46c9cd7d26d125ada920d29c3a690205b03ba98c65f22ec5eb8333beb",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-022/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "3013107f987feb08f22bd0978941c7d8b926597a0a3fef520cfc1732d6ab84fa",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-023/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "b69a0cc92a8b0de551de533bd29f4cc10a53d47081f945d28a844c04cdd2fef0",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-024/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "ed0e8bfb3ebc6ac646504a5a0efa8199b6a9ba4e613030302b79e7b7a30c6301",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-025/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "c94cc2ba76f9f7644e2223f436573d55a197117547696e75fac424b63f15ad34",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-027/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "cfe0582b71ee1b79b303c8a97e3acaf02f885ef2035ad7e700a126f38afed8b8",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-029/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "4a1e6beb638b2a198589ab175e9e7ba798f82fca9bfbb8b0dc425db02750181d",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-030/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "4663a72d61b0782820053ecd6c87fdb9aa4ba46be906a8d9b1c47f8f84b60d1a",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-031/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "2f409e4e658d3f4156c02ccfe929acf7ea52fe7f4b76f1d493b3f70d90fdabca",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-032/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "ae8b93b605132a6fb57c560722d4930b1f7441004453c44af0fc4615e28f489f",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-033/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "f24a5340eca8164c2fc34f6da466909607ab2195808f999a437398f79d053c3d",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-034/model-inputs/S0.90-F2.conf",
+      "bytes": 165,
+      "sha256": "c8ebd7d80d866e765c4d9a3dbd1d0e0b7a2afef1a5b0f08db0884ad9f76c90d5",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-035/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "253a1e61330a8aeaf3dfd5824100fd1a96b73a46cd711f60974a4b9e4a44e57c",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-036/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "21942bcf68ae279fa3971e99cce6a2bd28dae408eb82b0a90b3b1ab6d8a214bc",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-038/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "a1e11a8c78a057da9ca9f95ee5d662b1cb127a769e7116a562516bb6e2802f8c",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-039/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "5e9e799048790811ec00603eb6b8cc3da0eb3e2459d9d91b3266e88834ef4576",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-040/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "0a2887f3cae8d11ff598542749b64dadb7a70c59548675f7d4c887f93bfceb5b",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-041/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "a51e71ab3d1966f9e6876625ca228a9c56ecdb58d9825bd88300d7363bc8a19b",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-042/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "59b0178083b26e8c79d0ceefefdd0d1664c5b59f8b125437762f2dcc5ee50869",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-043/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "1f17fafdb4fee0658b7f2927bee86f643e732dba153c70565bf047f8dddfacea",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-044/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "870c032553cafc5c1a93336290209efaa0d09a0f104e31a6267106d18583f400",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-045/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "54a1292864873a024b246b5eb7eb9aa52fd687aebe8e25d4634048f47d9e8fe3",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-046/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "4f704a94e11b4d2a387d65f328858e95b155831321b5ec5bd5f218bbd4a61f60",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-047/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "40e5515b4fc9025ae53141450fa6ee5b19c6e240fa9b4f409a9d4857d16976cf",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-049/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "eae821f2500877317f5ca3215756ea8f874c1cd862ee4c43f3a2ce8f86d6dbbe",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-050/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "41c346d2cf4af672bbe2224011fddc0a6e0bbeca8a3d65e71d14149ca7d3fa6f",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-051/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "724d726e0628b8bcaea68fc63598e444ed4c56752484c40419b8119874473ca0",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-052/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "3f5cd3121687af4bbcb94807c4eaa65f4133764e2e088407cd18c405f141e46f",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-053/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "75d8db3ce768e7fcbabaa65f28e61e129c91bf8ec7df14544a6b575d4300727e",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-054/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "ff4f874508d9dca707d35097060017b51cc4c311e8d19b6330826af4debe6425",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-055/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "23b2b22efb799d1f5ba7b419e0e63864455d54f2533964644ab830072099972e",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-056/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "04ec0e8344f17213592d084a3626de93dc53a42ba73e35965b843970f6146ac8",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-057/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "aa3529a75b7d0110deb1c906c2be77506bfdc0130de082733c27f32cc1681799",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-062/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "233b499a7b49c5d725a43860332e0a03c85b0c98c0f1ad0f7115ced4e47b1aff",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-063/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "8809ad2ee28778e5017fff658253c0016e77680daf88d1aeb5ed9f60d42e7c45",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-065/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "82b3b0279099541e72a1c2f3d740788ab5ce28257a9fb935740f2f6bc5420398",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-066/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "f9d155c1870d1d3f83cead556a63fdb216768f761a8cf8f7aec27d7724432cfd",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-068/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "80d86067d9a568ff6df6b44521cb3bcde5db3a2f660528cc9a6368a4fdf4097c",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-069/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "9e14eeb1712f8d04442b51ea699a940363ffacc1fb3b09a5b74d46eb9e77aa12",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-070/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "7681fb9e6bb3b5a16c8b23a5b9532553b434eb0de144d24ff1a7e183d2417e24",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-071/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "e3e6b66fb61b6e631df0d50f860d626b47003a19ae2c5e964b3be8b2edea0f5e",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-072/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "f95f51317adc1400604972d29257b7c6caaf384a024fde0d56ad70a055c49851",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-073/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "3c135825454f829f5c7e868bb040e50f345250eb499154085e1e1addcb9a55de",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-074/model-inputs/S0.90-F2.conf",
+      "bytes": 164,
+      "sha256": "6e5e51b3edbd7aaef75b568476794125e21aa3b8cea64ce0a6f1bdec6dd054cd",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-075/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "016983415ad2ce33d970f70c02dd494005b86ba991c2ccccbf94f424802f0904",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-076/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "270aa5660c98e698e32069536ad1a27867813adecd12debdd58eae39de5757ce",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-078/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "dd2682e2fd22165f447a9eace6283ddba08b82ccd290052db70c17f32126cf1e",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-079/model-inputs/S0.90-F2.conf",
+      "bytes": 178,
+      "sha256": "2f9063a259b7f80876cf588032652c3726350915304b9083e443a3508e0448bf",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-080/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "0e04a15db351c6fa36646ebe614ae2d4293fe2f491eb6104fd89df6b0e70ff0d",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-081/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "a5975a311ad9350d6a74752a3c7004c4396a47002278eb091a67187a1a3135b6",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-082/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "2b5249ba9da5b63219d6f503f081128c87225a4c8131588b9404051868aa1da0",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-084/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "73ac5d81d770d68ed90dd2ed789e6d08ffe0c4d17b45e1401ebc412ab970717a",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-085/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "08d2c5416422cc14172b8f268986eb1a308ea85b26ff6bea3e431f4fd010aa39",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-086/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "7cce9cd40a4e56054f9b49193b6513252afcd40d8ee7eca74ad69a309fd24aff",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-087/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "2ea6d6ea9b4dcd900f7307d1d4c73f61217d7af7c0599acfd75036e677abfd72",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-088/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "77e113b25bd5fa335651481c3fc74ab8a0d17a38d61b5c3c0d72e75a65881a72",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-089/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "82671d1951fc8b930db9ec1bcf1ad10d41b94982496d9757574fbc6ac45da866",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-090/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "ce3b5cfadef587f9f8de5d1fdc18251490072b5f9fa05790c5a2e674b23dd0ca",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-091/model-inputs/S0.90-F2.conf",
+      "bytes": 165,
+      "sha256": "3c1751bded0bc842359acafd0ca31e259dac720828fc3fd797f497a2130be2c4",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-092/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "b68f54b545937397ae7a93be7ef8eb15115ac14d6611824682a77b569c11ec14",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-093/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "b380162362982c90bd37c66c9cee963f6b2d9a3d6a2d6db12dfdc76fd9f1df7c",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-094/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "22c1529c2ed208b981b3ffd52776f1955b27a5b200a4e7b84a079ccf3ccacf97",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-095/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "4a0e570e25c716c4a89d41ac8e617ec70b67694a697dd08a9f3a703d3ba9d90d",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-098/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "c5c49fe4d62a34c8083f1385d8d5b8933e7c34f2a9bcc0fa6d7235d63522d1fb",
+      "mode": 436
+    },
+    {
+      "path": "outputs/models/ensemble-099/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "60b03e01ba507ea42351fc58b1832e2cb59e52cab0319f7a260442defd440cf6",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-005-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "a2a6096f60b953e248973c7f9a62808088271226b803b543f68d072f6190af5d",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-006-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "7bd5fa9ddc21eb09e6d94875655a66645076b414a859d79950f2902101e3ece1",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-007-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "bf88cba8d03f480f16ab6a142c5d90ddd6aa728578d4d512136185dcd262cdfc",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-008-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "689164051ea3d1b335af604f5d73681c1c9225524ea47352a52144700574fa78",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-014-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "255ea754d647e995ec316d67859a4002499134bcc84296b735b44d46ca09082c",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-027-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "cfe0582b71ee1b79b303c8a97e3acaf02f885ef2035ad7e700a126f38afed8b8",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-029-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "4a1e6beb638b2a198589ab175e9e7ba798f82fca9bfbb8b0dc425db02750181d",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-032-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "ae8b93b605132a6fb57c560722d4930b1f7441004453c44af0fc4615e28f489f",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-033-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "f24a5340eca8164c2fc34f6da466909607ab2195808f999a437398f79d053c3d",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-034-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 165,
+      "sha256": "c8ebd7d80d866e765c4d9a3dbd1d0e0b7a2afef1a5b0f08db0884ad9f76c90d5",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-035-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "253a1e61330a8aeaf3dfd5824100fd1a96b73a46cd711f60974a4b9e4a44e57c",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-040-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "0a2887f3cae8d11ff598542749b64dadb7a70c59548675f7d4c887f93bfceb5b",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-042-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "59b0178083b26e8c79d0ceefefdd0d1664c5b59f8b125437762f2dcc5ee50869",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-043-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "1f17fafdb4fee0658b7f2927bee86f643e732dba153c70565bf047f8dddfacea",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-044-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "870c032553cafc5c1a93336290209efaa0d09a0f104e31a6267106d18583f400",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-045-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "54a1292864873a024b246b5eb7eb9aa52fd687aebe8e25d4634048f47d9e8fe3",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-046-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "4f704a94e11b4d2a387d65f328858e95b155831321b5ec5bd5f218bbd4a61f60",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-049-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "eae821f2500877317f5ca3215756ea8f874c1cd862ee4c43f3a2ce8f86d6dbbe",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-052-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "3f5cd3121687af4bbcb94807c4eaa65f4133764e2e088407cd18c405f141e46f",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-062-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "233b499a7b49c5d725a43860332e0a03c85b0c98c0f1ad0f7115ced4e47b1aff",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-063-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "8809ad2ee28778e5017fff658253c0016e77680daf88d1aeb5ed9f60d42e7c45",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-065-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "82b3b0279099541e72a1c2f3d740788ab5ce28257a9fb935740f2f6bc5420398",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-071-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "e3e6b66fb61b6e631df0d50f860d626b47003a19ae2c5e964b3be8b2edea0f5e",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-074-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 164,
+      "sha256": "6e5e51b3edbd7aaef75b568476794125e21aa3b8cea64ce0a6f1bdec6dd054cd",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-078-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "dd2682e2fd22165f447a9eace6283ddba08b82ccd290052db70c17f32126cf1e",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-086-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "7cce9cd40a4e56054f9b49193b6513252afcd40d8ee7eca74ad69a309fd24aff",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-089-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "82671d1951fc8b930db9ec1bcf1ad10d41b94982496d9757574fbc6ac45da866",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-092-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "b68f54b545937397ae7a93be7ef8eb15115ac14d6611824682a77b569c11ec14",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-094-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 180,
+      "sha256": "22c1529c2ed208b981b3ffd52776f1955b27a5b200a4e7b84a079ccf3ccacf97",
+      "mode": 436
+    },
+    {
+      "path": "outputs/rr-test/rrtest-095-rr1/model-inputs/S0.90-F2.conf",
+      "bytes": 167,
+      "sha256": "4a0e570e25c716c4a89d41ac8e617ec70b67694a697dd08a9f3a703d3ba9d90d",
+      "mode": 436
+    }
+  ]
+}

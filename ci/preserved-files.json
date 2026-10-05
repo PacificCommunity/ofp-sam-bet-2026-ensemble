@@ -3284,5 +3284,17 @@
       "bytes": 50900,
       "mode": "100644"
     }
+  ],
+  "approved_additions": [
+    {
+      "path": "reproduce/refit-configs.tar.gz",
+      "mode": "100644",
+      "sha256": "92064f02979586d45adcb338258788f77c8cc21c23ecc7e2ab000b133d780fda"
+    },
+    {
+      "path": "reproduce/refit-configs.json",
+      "mode": "100644",
+      "sha256": "78b9397669da1c5d0edf3ffd1433af493e3694cfe5e7aa3767b05c4b4a63bd7d"
+    }
   ]
 }
