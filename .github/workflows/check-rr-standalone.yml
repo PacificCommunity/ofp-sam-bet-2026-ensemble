@@ -1,6 +1,7 @@
 name: Check RR standalone
 
 on:
+  workflow_dispatch:
   push:
     branches: [main, rr-standalone-check]
     paths:
