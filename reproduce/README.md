@@ -31,3 +31,5 @@ make hessian CASE=ensemble-001 OUT=/absolute/bet-hessian
 This downloads and checks one saved archive; it does not run MFCL. Choose the
 source model ID from the index and a new folder outside the repository.
 [The manifest](hessians.json) pins every archive and file by SHA256.
+
+The central REP comparison uses the scaled bound `1e-10 * max(1, abs(reference))`; the objective uses an absolute bound of `1e-6`.

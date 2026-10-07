@@ -16,7 +16,7 @@ permissions:
   contents: read
 
 env:
-  ENSEMBLE_STANDALONE_ZIP_SHA256: 70bdfb8edc7870ac4a5d76fa83059cbf8fcd7a19b595d7833bec97de2860e0dd
+  ENSEMBLE_STANDALONE_ZIP_SHA256: 0f367a408e3cc83e24400966317ff1d7f67c995b1396cf2f5fe9e259c51709db
 
 jobs:
   native:

@@ -44,3 +44,5 @@ These are historical pre-fix central estimates. Other scientific inputs are fixe
 <a name="submit"></a>
 
 The historical registrar remains available to maintainers.
+
+The central REP comparison uses the scaled bound `1e-10 * max(1, abs(reference))`; the objective uses an absolute bound of `1e-6`.

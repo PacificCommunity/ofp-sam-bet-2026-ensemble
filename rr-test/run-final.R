@@ -53,11 +53,17 @@ checked_command <- function(program, args, ...) {
   result
 }
 
+path_batches <- function(paths) {
+  size <- max(1L, min(64L, floor(16000 / max(nchar(paths, type = "bytes") + 3L))))
+  split(paths, ceiling(seq_along(paths) / size))
+}
+
 sha256 <- function(paths) {
   invisible(lapply(paths, regular_file))
   program <- if (nzchar(Sys.which("sha256sum"))) "sha256sum" else "shasum"
-  args <- c(if (program == "shasum") c("-a", "256"), "--", shQuote(paths))
-  result <- checked_command(program, args)
+  result <- unlist(lapply(path_batches(paths), function(batch) {
+    checked_command(program, c(if (program == "shasum") c("-a", "256"), "--", shQuote(batch)))
+  }), use.names = FALSE)
   require_true(length(result) == length(paths) &&
                  all(grepl("^[0-9a-f]{64}[[:space:]]", result)), "Invalid SHA-256 output.")
   substring(result, 1L, 64L)
@@ -65,7 +71,9 @@ sha256 <- function(paths) {
 
 check_single_links <- function(paths) {
   args <- if (Sys.info()[["sysname"]] == "Darwin") c("-f", "%l") else c("-c", "%h")
-  counts <- checked_command("stat", c(args, shQuote(paths)))
+  counts <- unlist(lapply(path_batches(paths), function(batch) {
+    checked_command("stat", c(args, shQuote(batch)))
+  }), use.names = FALSE)
   require_true(length(counts) == length(paths) && all(counts == "1"),
                "Native files must be ordinary files with one link.")
 }
