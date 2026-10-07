@@ -3304,7 +3304,7 @@
     {
       "path": "README.md",
       "mode": "100644",
-      "sha256": "022ef92d60e8412021cb50ba52263878185711373379d8b8e44bb3694461a6e4"
+      "sha256": "66fdfc5c6c3d665bf11e21b5a196bf56f077394b340e6f1f37a2b27507578f73"
     },
     {
       "path": "reproduce/README.md",
@@ -3314,7 +3314,7 @@
     {
       "path": "rr-test/README.md",
       "mode": "100644",
-      "sha256": "95f6a7fdd34b3d92cc9f9b108814ac7d6ab274093d43e405ac8f158d5753b4cc"
+      "sha256": "9b8320abe83e654f4ea059b9ff657cc5437d9a7dc7af932d58e9ee2cb6f5082a"
     },
     {
       "path": "rr-test/runtime.md",
@@ -3329,7 +3329,7 @@
     {
       "path": "rr-test/standalone.zip",
       "mode": "100644",
-      "sha256": "e9c5205f1c2809a84c8a299d6f04055490d57af7a4e9858155f929fe964392eb"
+      "sha256": "84bcdea98290ed93d979bbdea3033d7d0b4de141a478572d958cc9745b8dde0d"
     },
     {
       "path": "rr-test/run-final.R",
@@ -3369,12 +3369,17 @@
     {
       "path": ".github/workflows/check-rr-standalone.yml",
       "mode": "100644",
-      "sha256": "1d73ee1e599c6c53bf58c7735f57063ee7fa19e1c2b2309c9f9d4fc6bdaaedb8"
+      "sha256": "4f9ac5d78d5586ccfd604951a6e5ccf8d6c09e1937299164aae828310b36fe4f"
     },
     {
       "path": ".github/workflows/check-ensemble-standalone.yml",
       "mode": "100644",
       "sha256": "7d4dcd4f2dd9e76590bf851e9e638d4a5a124c5566174b8b47b20746a23c5088"
+    },
+    {
+      "path": "rr-test/results.md",
+      "mode": "100644",
+      "sha256": "2953648eafda6fe996405ae8cc52e8bd9a9cf005bb7f959f4762269799cea09a"
     }
   ]
 }

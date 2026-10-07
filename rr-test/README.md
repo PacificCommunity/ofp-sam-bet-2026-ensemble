@@ -2,7 +2,7 @@
 
 # Paired reporting-rate fits
 
-[SC22 follow-up](https://meetings.wcpfc.int/node/32932): **30/34 completed pairs**. RR0 includes tag reporting rates; RR1 excludes them. Failed RR1 attempts: 001, 022, 025 and 080.
+**30/34 completed pairs**. RR0 includes tag reporting rates; RR1 excludes them. Failed RR1 attempts: 001, 022, 025 and 080. [Reference document](https://meetings.wcpfc.int/node/32932).
 
 <a name="reproduce-and-validate"></a>
 

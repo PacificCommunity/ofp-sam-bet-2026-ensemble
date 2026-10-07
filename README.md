@@ -7,7 +7,7 @@ Frozen inputs, 80 retained fits and cached uncertainty/projection results for th
 
 Read the [ensemble report](https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/bet-2026-ensemble-report.html), [interactive viewer](https://pacificcommunity.github.io/ofp-sam-bet-2026-ensemble/bet-2026-ensemble-interactive-viewer.html) or [assessment report repository](https://github.com/PacificCommunity/ofp-sam-bet-2026-report).
 
-The [paired reporting-rate results](rr-test/results.md) support the [SC22 follow-up](https://meetings.wcpfc.int/node/32932): 30 completed pairs and four failed attempts. The [short guide](rr-test/README.md) explains result checks, output regeneration from the final PAR and full refits.
+The [paired reporting-rate comparison](rr-test/results.md) includes 30 completed pairs and four failed attempts. See the [reference document](https://meetings.wcpfc.int/node/32932) and [rerun guide](rr-test/README.md).
 
 ```sh
 make verify

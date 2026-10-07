@@ -16,7 +16,7 @@ permissions:
   contents: read
 
 env:
-  RR_STANDALONE_ZIP_SHA256: e9c5205f1c2809a84c8a299d6f04055490d57af7a4e9858155f929fe964392eb
+  RR_STANDALONE_ZIP_SHA256: 84bcdea98290ed93d979bbdea3033d7d0b4de141a478572d958cc9745b8dde0d
 
 jobs:
   native:

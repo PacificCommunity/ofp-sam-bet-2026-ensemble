@@ -2,7 +2,7 @@
 
 [Assessment ensemble documentation](../README.md) · [Review and rerun guide](README.md).
 
-Results and rerun instructions for the [SC22 reporting-rate follow-up](https://meetings.wcpfc.int/node/32932) (19 August 2026).
+Paired reporting-rate comparison: [reference document](https://meetings.wcpfc.int/node/32932) (19 August 2026).
 
 Each retained RR0 fit was refitted under RR1 with the same grid settings. Only the requested premixing tag-reporting flag changed.
 
