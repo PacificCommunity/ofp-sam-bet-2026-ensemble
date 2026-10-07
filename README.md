@@ -1,4 +1,5 @@
 [![Preservation checks](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/actions/workflows/verify-preserved-results.yml/badge.svg?branch=main)](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/actions/workflows/verify-preserved-results.yml?query=branch%3Amain) [![Design checks](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/actions/workflows/validate.yml?query=branch%3Amain) [![RR standalone](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/actions/workflows/check-rr-standalone.yml/badge.svg?branch=main)](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/actions/workflows/check-rr-standalone.yml?query=branch%3Amain)
+ [![Saved ensemble](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/actions/workflows/check-ensemble-standalone.yml/badge.svg?branch=main)](https://github.com/PacificCommunity/ofp-sam-bet-2026-ensemble/actions/workflows/check-ensemble-standalone.yml?query=branch%3Amain)
 
 # BET 2026 Diagnostic ensemble
 
@@ -10,8 +11,11 @@ The [paired reporting-rate results](rr-test/results.md) support the [SC22 follow
 
 ```sh
 make verify
+make rerun CASE=ensemble-005 OUT=/tmp/bet-005
 make rerun CASE=rrtest-005-rr1 OUT=/tmp/bet-rr005
 ```
+
+R and Make are required; MFCL runs on Linux x86-64. The [ensemble ZIP](reproduce/standalone.zip) and [RR ZIP](rr-test/standalone.zip) include final PARs, matching inputs, MFCL and original doitall scripts. See the [rerun guide](reproduce/README.md).
 
 <a name="recreate-and-validate"></a><a name="run-a-model"></a>
 [Design and model commands](docs/reproducibility.md#recreate-and-validate) · [scientific basis](docs/scientific-basis.md).

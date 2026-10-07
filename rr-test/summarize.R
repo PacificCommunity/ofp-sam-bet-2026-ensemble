@@ -28,18 +28,25 @@ assert <- function(test, ...) if (!isTRUE(test)) fail(...)
 read_csv <- function(path) utils::read.csv(path, check.names = FALSE)
 path <- function(...) file.path(repo, ...)
 
-# One checked Python source materializes only exact RR1 PAR/central sections.
-# Original RR0 PAR/REP paths remain in final-par/. No model is executed.
+# Read the ordinary saved MFCL files in the standalone kit. No model is executed.
 saved_root <- tempfile("bet-rr-saved-")
-python <- Sys.which("python3")
-assert(nzchar(python), "Python 3 is required to check the compact native archive.")
-status <- system2(python, c(shQuote(path("rr-test", "saved.py")), "summary-files", shQuote(saved_root)))
-assert(status == 0L, "Compact saved-file verification failed.")
-saved <- read_csv(file.path(saved_root, "models.csv"))
+dir.create(saved_root)
+utils::unzip(path("rr-test", "standalone.zip"), exdir = saved_root)
+kit <- file.path(saved_root, "bet-2026-rr-standalone")
+status <- system2(file.path(R.home("bin"), "Rscript"),
+                  c(shQuote(file.path(kit, "run-final.R")), "verify"))
+assert(status == 0L, "Saved MFCL file verification failed.")
+saved <- read_csv(file.path(kit, "models.csv"))
 saved_file <- function(model, column) {
+  # The four failed RR1 attempts still have their original RR0 anchors.
+  if (startsWith(model, "ensemble-")) {
+    filename <- if (column == "final_par") "final.par" else "plot-11.par.rep"
+    return(path("final-par", model, filename))
+  }
   rows <- saved[saved$model == model, , drop = FALSE]
   assert(nrow(rows) == 1L, "Expected a unique saved model: ", model)
-  rows[[column]][[1L]]
+  filename <- if (column == "final_par") "final.par" else "reference.rep"
+  file.path(kit, "models", model, filename)
 }
 
 # Section boundaries come from headers, never fixed line offsets. In this

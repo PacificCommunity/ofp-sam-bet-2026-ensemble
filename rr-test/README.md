@@ -2,63 +2,45 @@
 
 # Paired reporting-rate fits
 
-[SC22 follow-up](https://meetings.wcpfc.int/node/32932): **30/34 completed pairs**. RR0 includes reporting rates; RR1 excludes them. Failed RR1 anchors: 001, 022, 025 and 080.
+[SC22 follow-up](https://meetings.wcpfc.int/node/32932): **30/34 completed pairs**. RR0 includes tag reporting rates; RR1 excludes them. Failed RR1 attempts: 001, 022, 025 and 080.
 
 <a name="reproduce-and-validate"></a>
 
-## Read and check
+## Read the results
 
-Start with [results and figures](results.md). The [file manifest](results/file-manifest.csv) identifies delivered files and their sources.
+[Results and figures](results.md) · [file manifest](results/file-manifest.csv).
+Rebuild the paired summaries from saved native PAR/REP files with base R:
 
 ```sh
-python3 rr-test/verify-results.py
 Rscript rr-test/summarize.R /tmp/bet-rr-review
-python3 rr-test/verify-results.py --rebuilt-root /tmp/bet-rr-review
 ```
 
-Original anchor PARs/REPs stay in [final-par/](../final-par/). The [compact package](../reproduce/README.md) preserves native inputs, scripts, RR1 PARs and central REP sections.
+## Run the saved PAR
 
-## Standalone ZIP: saved-PAR outputs without optimisation
-
-[standalone.zip](standalone.zip) contains the saved last PARs, exact inputs and one static MFCL engine for both arms of all 30 completed pairs. Unzip it, then regenerate one saved case into a fresh directory:
+[standalone.zip](standalone.zip) includes both arms of the 30 completed pairs: last PARs, exact inputs, original doitall scripts and one MFCL executable. Unzip it, then:
 
 ```sh
 cd bet-2026-rr-standalone
-./run-final --verify
-./run-final rrtest-005-rr1 /tmp/bet-rrtest-005-evaluation
-./run-final ensemble-005 /tmp/bet-ensemble-005-evaluation
+make unpack
+make verify
+make rerun CASE=rrtest-005-rr1 OUT=/tmp/bet-rr1-005
+make rerun CASE=ensemble-005 OUT=/tmp/bet-rr0-005
 ```
 
-The original controller sets a function-evaluation ceiling of **1** (`1 1 1`). The wrapper and CI require actual native **1,997 variables, iteration 0, function evaluation 0** records; missing or nonzero counters fail. Ceiling 1 is separate from reported counter 0. Earlier literal-zero tests omitted `Adult biomass in absence of fishing` in all three tested cases, so that mode is excluded. Those runs also emitted no native iteration/function-evaluation counter records, so they do not establish reported counter zero.
+`models/<case>/` contains ordinary MFCL files. R calls MFCL directly and checks the native outputs against the saved objective and central REP. New outputs include `evaluated.par`, `plot-evaluated.par.rep`, annual `central-results.csv` and recent `management-quantities.csv`.
 
-Use `./run-final --list` to see all 60 saved cases. The ZIP's README explains the separate full-refit working-copy command. Four failed RR1 fits have no saved PAR and remain excluded. Native evaluation requires Linux x86-64 and Python 3; it uses no network, R, Docker or job history.
+Native execution needs Linux x86-64, R, Make, tar with XZ support and SHA-256 tools. No Python, R packages, downloads or Kflow records are needed. The ZIP also supports `make list`, `make prepare` and `make refit`; its README gives the commands.
 
-## Regenerate central outputs
+The original evaluation ceiling is **1**, with required native iteration and function counter **0**. A literal ceiling of 0 omits required biomass output. The check covers ten central REP sections; it does not establish whole-output or fresh-refit equality.
 
-On Linux x86_64, Python and the pinned 34.55 MB executable are sufficient:
-
-```sh
-./rr-test/rerun rrtest-005-rr1 --outputs-only
-./rr-test/rerun rrtest-005-rr1 --anchor --outputs-only
-```
-
-This existing runner uses a ceiling of 1 to check input hashes, objective and central REP values. New outputs go under `outputs/rr-test-evaluated/`. Add `--dry-run` to inspect; [runtime options and limits](runtime.md) cover Docker, saved executables and full outputs.
-
-## Refit a pair
-
-```sh
-./rr-test/rerun rrtest-005-rr1
-./rr-test/rerun rrtest-005-rr1 --anchor
-```
-
-Full refits use original preparation and phase 10/11 criterion `-4`.
+Original RR0 PARs and whole REPs remain in [final-par/](../final-par/). The [native package](../reproduce/README.md) also preserves the other retained ensemble fits. Figure 2B–C uses the repository's planned-100 and retained-80 tables.
 
 <a name="pairing-contract"></a>
 
 ## Interpretation
 
-Within each pair, other inputs are fixed. These are historical central estimates; [interpretation](results.md) and [runtime limits](runtime.md) apply. Original external anchor executable identity remains unknown.
+These are historical pre-fix central estimates. Other scientific inputs are fixed within each pair; the tag flag changes only for positive-mixing groups. The scripts retain their original preparation differences. Original external RR0 executable identity remains unknown. See [results](results.md) and [runtime details](runtime.md).
 
 <a name="submit"></a>
 
-The original registrar remains available to maintainers.
+The historical registrar remains available to maintainers.

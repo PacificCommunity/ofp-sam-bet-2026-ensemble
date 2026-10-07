@@ -1,22 +1,22 @@
-name: Check RR standalone
+name: Check ensemble standalone
 
 on:
   workflow_dispatch:
   push:
-    branches: [main, rr-standalone-check]
+    branches: [main, ensemble-standalone-check]
     paths:
-      - rr-test/standalone.zip
-      - rr-test/README.md
-      - rr-test/run-final.R
-      - rr-test/standalone.Makefile
+      - reproduce/standalone.zip
+      - reproduce/README.md
+      - reproduce/run-final.R
+      - reproduce/standalone.Makefile
       - ci/check-rr-standalone.R
-      - .github/workflows/check-rr-standalone.yml
+      - .github/workflows/check-ensemble-standalone.yml
 
 permissions:
   contents: read
 
 env:
-  RR_STANDALONE_ZIP_SHA256: 072063be269b1d78043c522b28836b45901f7876903a3faf28b99479ccb08070
+  ENSEMBLE_STANDALONE_ZIP_SHA256: 70bdfb8edc7870ac4a5d76fa83059cbf8fcd7a19b595d7833bec97de2860e0dd
 
 jobs:
   native:
@@ -26,7 +26,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [0, 1, 2]
+        shard: [0, 1, 2, 3]
     steps:
       - uses: actions/checkout@v4
       - uses: r-lib/actions/setup-r@v2
@@ -36,20 +36,20 @@ jobs:
         run: python3 ci/verify-preserved-files.py
       - name: Check 20 saved models without optimisation
         run: >-
-          Rscript ci/check-rr-standalone.R --shard ${{ matrix.shard }}
+          Rscript ci/check-rr-standalone.R --family ensemble --shard ${{ matrix.shard }}
           --work-parent "$RUNNER_TEMP"
-          --proof-dir "$RUNNER_TEMP/rr-standalone-proof-${{ matrix.shard }}"
+          --proof-dir "$RUNNER_TEMP/ensemble-standalone-proof-${{ matrix.shard }}"
       - name: Check preserved files after evaluation
         if: always()
         run: python3 ci/verify-preserved-files.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: rr-standalone-shard-${{ matrix.shard }}
-          path: ${{ runner.temp }}/rr-standalone-proof-${{ matrix.shard }}
+          name: ensemble-standalone-shard-${{ matrix.shard }}
+          path: ${{ runner.temp }}/ensemble-standalone-proof-${{ matrix.shard }}
           retention-days: 14
           if-no-files-found: warn
-  all-60:
+  all-80:
     needs: native
     if: always()
     runs-on: ubuntu-latest
@@ -63,22 +63,22 @@ jobs:
         run: python3 ci/verify-preserved-files.py
       - uses: actions/download-artifact@v4
         with:
-          pattern: rr-standalone-shard-*
-          path: ${{ runner.temp }}/rr-standalone-shards
-      - name: Require all 60 saved cases
+          pattern: ensemble-standalone-shard-*
+          path: ${{ runner.temp }}/ensemble-standalone-shards
+      - name: Require all 80 saved cases
         env:
           NATIVE_MATRIX_RESULT: ${{ needs.native.result }}
         run: >-
-          Rscript ci/check-rr-standalone.R
-          --aggregate "$RUNNER_TEMP/rr-standalone-shards"
-          --proof-dir "$RUNNER_TEMP/rr-standalone-all-60"
+          Rscript ci/check-rr-standalone.R --family ensemble
+          --aggregate "$RUNNER_TEMP/ensemble-standalone-shards"
+          --proof-dir "$RUNNER_TEMP/ensemble-standalone-all-80"
       - name: Check preserved files after aggregation
         if: always()
         run: python3 ci/verify-preserved-files.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: rr-standalone-all-60
-          path: ${{ runner.temp }}/rr-standalone-all-60
+          name: ensemble-standalone-all-80
+          path: ${{ runner.temp }}/ensemble-standalone-all-80
           retention-days: 14
           if-no-files-found: warn

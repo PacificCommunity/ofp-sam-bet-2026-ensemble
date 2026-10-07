@@ -1,37 +1,20 @@
 # Saved native inputs
 
-[Download native.tar.gz](https://raw.githubusercontent.com/PacificCommunity/ofp-sam-bet-2026-ensemble/main/reproduce/native.tar.gz). It is included in a normal clone;
-[files.json](files.json) lists the archived files and checksums.
-
-This compact package preserves exact native inputs and original scripts for 80 retained ensemble models and 30 completed reporting-rate reruns. Original ensemble PARs and whole REPs remain in [final-par/](../final-par/); the package contains the 30 RR1 final PARs and exact central REP sections. [RR results](../rr-test/results.md) can be read immediately.
-
-Check archived bytes without downloading or running a model:
+Download the [ensemble standalone ZIP](standalone.zip) for all 80 retained fits, or the [RR standalone ZIP](../rr-test/standalone.zip) for 30 completed pairs. Each includes MFCL, final.par, matching FRQ/INI/TAG and other inputs, the original doitall and model settings. No Kflow access is needed.
 
 ```sh
 make verify
+make rerun CASE=ensemble-005 OUT=/tmp/bet-005
+make rerun CASE=rrtest-005-rr1 OUT=/tmp/bet-rr005
 ```
 
-Restore one case to a new folder, including the checksum-checked preserved executable:
+Use R, Make and Linux x86-64 for MFCL execution. `make prepare` (also `make restore`) copies one case into a new folder without running it. `make refit` uses its original doitall; `make plan-refit` shows the command. Add `ANCHOR=1` to select an RR1 case’s RR0 arm. Full refits take longer and are separate from saved-PAR evaluation.
 
-```sh
-make restore CASE=rrtest-005-rr1 OUT=/tmp/bet-rr005
-```
+The ZIP works independently: unzip it, then run the same Make commands inside its directory. `make unpack` exposes ordinary `models/<case>/` files; `make list` shows the available cases. The evaluator writes evaluated.par, plot-evaluated.par.rep, other native outputs and small CSV checks. It uses a ceiling of one evaluation and checks that the reported iteration and function counters remain zero. Original saved PARs and published results are preserved.
 
-Use `make rerun CASE=rrtest-005-rr1 OUT=/tmp/bet-rr005-evaluated` to
-regenerate central outputs. `CASE=ensemble-005` selects a retained ensemble
-fit. Make and Python 3 are required; the runner fetches the pinned executable.
-See [the RR helper](../rr-test/README.md). Failed RR1 fits have no saved final PAR. Original external engine identity remains unknown where it was not recorded; compatibility of the selected executable is checked separately.
+[Original ensemble PARs and whole REPs](../final-par/) · [RR results](../rr-test/results.md) · [exact refit settings](refit-configs.tar.gz) and [manifest](refit-configs.json). Failed RR1 attempts have no final PAR. Where the historical engine identity was not recorded, compatibility of the supplied executable is checked separately.
 
-Restoration provides evaluation inputs. `make refit CASE=rrtest-005-rr1
-OUT=/tmp/bet-rr005-refit` uses the original preparation and fitting runner
-in the pinned Docker image; add `ANCHOR=1` for its RR0 arm. Use
-`make plan-refit` with the same arguments to inspect the command first.
-
-The original per-model configurations are in [refit-configs.tar.gz](refit-configs.tar.gz)
-(2.6 kB): 80 retained ensemble fits and 30 completed RR1 fits. Extract into an
-empty directory to inspect the original settings; paths follow the original
-`outputs/models/` and `outputs/rr-test/` layout. `make verify` checks every
-member against [refit-configs.json](refit-configs.json).
+The earlier [native.tar.gz](https://raw.githubusercontent.com/PacificCommunity/ofp-sam-bet-2026-ensemble/main/reproduce/native.tar.gz) and [files.json](files.json) remain available at their original paths.
 
 ## Original Hessians
 
