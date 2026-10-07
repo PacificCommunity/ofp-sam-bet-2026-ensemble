@@ -61,10 +61,10 @@ regular <- function(path, bound = 1e9) {
 command <- function(program, args, log = NULL, timeout = 120L) {
   if (is.null(log)) {
     out <- suppressWarnings(system2(program, vapply(args, shQuote, ""), stdout = TRUE,
-                                    stderr = FALSE, timeout = timeout))
+                                    stderr = TRUE, timeout = timeout))
     status <- attr(out, "status")
     if (is.null(status)) status <- 0L
-    assert(identical(as.integer(status), 0L), paste("Command failed:", program, paste(args, collapse = " ")))
+    assert(identical(as.integer(status), 0L), paste("Command failed:", program, paste(args, collapse = " "), paste(tail(out, 15L), collapse = "\n")))
     return(out)
   }
   assert(!file.exists(log), paste("Existing log refused:", log))
