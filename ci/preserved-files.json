@@ -3304,7 +3304,8 @@
     {
       "path": "README.md",
       "mode": "100644",
-      "sha256": "66fdfc5c6c3d665bf11e21b5a196bf56f077394b340e6f1f37a2b27507578f73"
+      "sha256": "c8516ebc852c392ee5b76c8400c73f258fe2ca30817026a10ffb6e5392380ac5",
+      "bytes": 3334
     },
     {
       "path": "reproduce/README.md",
@@ -3380,6 +3381,14 @@
       "path": "rr-test/results.md",
       "mode": "100644",
       "sha256": "2953648eafda6fe996405ae8cc52e8bd9a9cf005bb7f959f4762269799cea09a"
+    }
+  ],
+  "approved_updates": [
+    {
+      "path": "README.md",
+      "reason": "Explain existing input preparation, saved-PAR evaluation and original full-fit commands; preserve links, anchors and scientific files.",
+      "previous_sha256": "66fdfc5c6c3d665bf11e21b5a196bf56f077394b340e6f1f37a2b27507578f73",
+      "expected_sha256": "c8516ebc852c392ee5b76c8400c73f258fe2ca30817026a10ffb6e5392380ac5"
     }
   ]
 }

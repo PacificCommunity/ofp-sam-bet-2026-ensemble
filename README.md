@@ -11,11 +11,17 @@ The [paired reporting-rate comparison](rr-test/results.md) includes 30 completed
 
 ```sh
 make verify
+make prepare CASE=ensemble-005 OUT=/tmp/bet-inputs
 make rerun CASE=ensemble-005 OUT=/tmp/bet-005
 make rerun CASE=rrtest-005-rr1 OUT=/tmp/bet-rr005
+make refit CASE=ensemble-005 OUT=/tmp/bet-refit
 ```
 
 R and Make are required; MFCL runs on Linux x86-64. The [ensemble ZIP](reproduce/standalone.zip) and [RR ZIP](rr-test/standalone.zip) include final PARs, matching inputs, MFCL and original doitall scripts. See the [rerun guide](reproduce/README.md).
+
+`prepare` copies inputs without executing MFCL; `rerun` evaluates the saved
+final PAR and checks the objective and selected REP values. `refit` runs the
+original complete fitting recipe. Choose a fresh OUT for each command.
 
 <a name="recreate-and-validate"></a><a name="run-a-model"></a>
 [Design and model commands](docs/reproducibility.md#recreate-and-validate) · [scientific basis](docs/scientific-basis.md).
