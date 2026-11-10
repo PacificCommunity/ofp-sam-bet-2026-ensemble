@@ -16,13 +16,15 @@ Rscript extra/export-separate-dynamic-status.R [output-directory]
 
 This creates four PNGs: Majuro and Kobe for the diagnostic model and the 80-model median. It uses the same retained models, annual medians, common axis limits, plotting functions and year scale as the combined time-dynamic figure. Each panel includes its own title and year legend. Dependencies are ggplot2 and ragg.
 
-## High-resolution and vector export
+## Vector PDF export
 
-Add `highres` after the output directory to export both a 600 dpi PNG and a vector PDF for each panel:
+Add `pdf` after the output directory to export the six panels as separate vector PDFs:
 
 ```sh
-Rscript extra/export-separate-status.R extra/figures-highres highres
-Rscript extra/export-separate-dynamic-status.R extra/figures-highres highres
+Rscript extra/export-separate-status.R extra/figures-pdf pdf
+Rscript extra/export-separate-dynamic-status.R extra/figures-pdf pdf
 ```
 
-The current-status PNGs are 3240 × 3120 pixels and the dynamic PNGs are 3240 × 3000 pixels. The PDFs retain vector paths and text; the dynamic colour-bar gradient may be rasterised. The current-status legend uses `PDH` and `Near-PDH` for the Hessian classifications.
+The PDFs retain vector paths and text; the dynamic colour-bar gradient may be rasterised. The current-status legend uses `PDH` and `Near-PDH` for the Hessian classifications.
+
+For 600 dpi PNGs, use `highres` instead of `pdf` with either script. Current-status PNGs are 3240 × 3120 pixels; dynamic PNGs are 3240 × 3000 pixels.

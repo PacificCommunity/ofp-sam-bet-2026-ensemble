@@ -4,10 +4,11 @@
 # and the HDR/category calculations identical to the combined figure.
 args <- commandArgs(trailingOnly = TRUE)
 output_dir <- if (length(args)) args[[1]] else "extra/figures"
+pdf_only <- length(args) >= 2L && identical(args[[2L]], "pdf")
 highres <- length(args) >= 2L && identical(args[[2L]], "highres")
-if (length(args) > 2L || (length(args) == 2L && !highres)) {
+if (length(args) > 2L || (length(args) == 2L && !pdf_only && !highres)) {
   stop("Usage: Rscript ", basename(commandArgs(FALSE)[grep("^--file=", commandArgs(FALSE))]),
-       " [output-directory] [highres]")
+       " [output-directory] [pdf|highres]")
 }
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
@@ -46,13 +47,15 @@ for (name in c("kobe", "majuro")) {
       breaks = c("PDH", "Near-PDH"), name = NULL
     ) +
     ggplot2::theme(legend.box = "vertical")
-  ggplot2::ggsave(
-    file.path(output_dir, paste0(name, "-status.png")), plot,
-    width = 5.4, height = 5.2, units = "in",
-    dpi = if (highres) 600 else 300, bg = "white",
-    device = ragg::agg_png
-  )
-  if (highres) {
+  if (!pdf_only) {
+    ggplot2::ggsave(
+      file.path(output_dir, paste0(name, "-status.png")), plot,
+      width = 5.4, height = 5.2, units = "in",
+      dpi = if (highres) 600 else 300, bg = "white",
+      device = ragg::agg_png
+    )
+  }
+  if (pdf_only) {
     ggplot2::ggsave(
       file.path(output_dir, paste0(name, "-status.pdf")), plot,
       width = 5.4, height = 5.2, units = "in", bg = "white",

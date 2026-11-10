@@ -2,10 +2,11 @@
 # Run from the repository root: Rscript extra/export-separate-dynamic-status.R [output-directory]
 args <- commandArgs(trailingOnly = TRUE)
 output_dir <- if (length(args)) args[[1]] else "extra/figures"
+pdf_only <- length(args) >= 2L && identical(args[[2L]], "pdf")
 highres <- length(args) >= 2L && identical(args[[2L]], "highres")
-if (length(args) > 2L || (length(args) == 2L && !highres)) {
+if (length(args) > 2L || (length(args) == 2L && !pdf_only && !highres)) {
   stop("Usage: Rscript ", basename(commandArgs(FALSE)[grep("^--file=", commandArgs(FALSE))]),
-       " [output-directory] [highres]")
+       " [output-directory] [pdf|highres]")
 }
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
@@ -36,13 +37,15 @@ for (diagram in c("majuro", "kobe")) {
     title <- if (model == "diagnostic") "Diagnostic model" else "80-model median"
     plot <- dynamic_status_panel(data, diagram, x_upper, dynamic_y_upper,
                                  panel_title = title)
-    ggplot2::ggsave(
-      file.path(output_dir, paste0("dynamic-", diagram, "-", model, ".png")),
-      plot, width = 5.4, height = 5.0, units = "in",
-      dpi = if (highres) 600 else 300,
-      bg = "white", device = ragg::agg_png
-    )
-    if (highres) {
+    if (!pdf_only) {
+      ggplot2::ggsave(
+        file.path(output_dir, paste0("dynamic-", diagram, "-", model, ".png")),
+        plot, width = 5.4, height = 5.0, units = "in",
+        dpi = if (highres) 600 else 300,
+        bg = "white", device = ragg::agg_png
+      )
+    }
+    if (pdf_only) {
       ggplot2::ggsave(
         file.path(output_dir, paste0("dynamic-", diagram, "-", model, ".pdf")),
         plot, width = 5.4, height = 5.0, units = "in", bg = "white",
