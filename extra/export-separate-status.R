@@ -47,6 +47,24 @@ for (name in c("kobe", "majuro")) {
       breaks = c("PDH", "Near-PDH"), name = NULL
     ) +
     ggplot2::theme(legend.box = "vertical")
+  if (name == "majuro") {
+    # Extend the reference line and centre the existing category labels in the
+    # wider panel without changing the underlying draws or probabilities.
+    segment <- which(vapply(plot$layers, function(layer) inherits(layer$geom, "GeomSegment"), logical(1)))
+    labels <- which(vapply(plot$layers, function(layer) inherits(layer$geom, "GeomLabel"), logical(1)))
+    if (length(segment) != 1L || length(labels) != 1L) {
+      stop("Unexpected Majuro plot structure; inspect the source plot.")
+    }
+    plot$layers[[segment]]$data$xend <- 1
+    label_data <- plot$layers[[labels]]$data
+    label_data$x[label_data$x > 0.20] <- 0.60
+    plot$layers[[labels]]$data <- label_data
+    y_limits <- plot$coordinates$limits$y
+    plot <- plot +
+      ggplot2::scale_x_continuous(breaks = seq(0, 1, by = 0.25)) +
+      ggplot2::coord_cartesian(xlim = c(0, 1), ylim = y_limits, expand = FALSE) +
+      ggplot2::theme(plot.margin = ggplot2::margin(3, 15, 3, 4))
+  }
   if (!pdf_only) {
     ggplot2::ggsave(
       file.path(output_dir, paste0(name, "-status.png")), plot,

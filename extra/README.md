@@ -28,3 +28,5 @@ Rscript extra/export-separate-dynamic-status.R extra/figures-pdf pdf
 The PDFs retain vector paths and text; the dynamic colour-bar gradient may be rasterised. The current-status legend uses `PDH` and `Near-PDH` for the Hessian classifications.
 
 For 600 dpi PNGs, use `highres` instead of `pdf` with either script. Current-status PNGs are 3240 × 3120 pixels; dynamic PNGs are 3240 × 3000 pixels.
+
+The separate current-status Majuro plot uses a 0–1.0 x-axis; category probabilities and the underlying data are unchanged. The Kobe axis retains its original range.
